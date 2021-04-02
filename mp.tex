@@ -1,0 +1,627 @@
+\chapter{Multipermutation solutions}
+
+If $X$ is a solution, we 
+consider over $X$ the relation
+\[
+x\sim y\Longleftrightarrow \sigma_x=\sigma_y\text{ and }\tau_x=\tau_y.
+\]
+Then $\sim$ is an equivalence relation. 
+Let $\overline{X}$ be the set of equivalence classes 
+and $[x]$ 
+%$\overline{x}$ 
+denote the equivalence class of $x$. 
+
+\begin{proposition}
+Let $(X,r)$ be a solution. Then $(\overline{X},\overline{r})$, where 
+%$\overline{r}(\overline{x},\overline{y})=(\overline{\sigma_x(y)},\overline{\tau_y(x)})$, 
+\[
+\overline{r}([x],[y])=([\sigma_x(y)],[\tau_y(x)]),
+\]
+is a solution. 
+\end{proposition}
+
+\begin{proof}
+    We first prove that $\overline{r}$ is well-defined. 
+    Let $x,y\in X$ be such that $x\sim y$ and let $z\in X$. Since $(X,r)$ is a solution, 
+    Lemma~\ref{lem:YB} implies that 
+    \[
+    \sigma_{\sigma_x(z)}\circ\sigma_{\sigma_z(x)}=\sigma_x\circ\sigma_z=\sigma_y\circ\sigma_z=\sigma_{\sigma_y(z)}\circ\sigma_{\sigma_z(x)},
+    \]
+    it follows that $\sigma_{\sigma_z(x)}=\sigma_{\sigma_z(y)}$ and hence $\sigma_z(x)\sim\sigma_z(y)$. 
+    Similarly $\tau_{\tau_z(x)}=\tau_{\tau_z(y)}$ and therefore 
+    $\overline{r}$ is well-defined. 
+    
+    We now prove that $\overline{r}$ is invertible. 
+    
+    ...
+\end{proof}
+
+In the case of involutive solutions, it follows from Proposition~\ref{pro:T} 
+that $\sigma_x=\sigma_y$ if and only if $\tau_x=\tau_y$. 
+
+\begin{definition}
+\index{Retraction!of a solution}
+Let $(X,r)$ be a solution. The solution $\Ret(X,r)=(\overline{X},\overline{r})$ induced
+by the equivalence relation $\sim$ is the \emph{retraction} of $(X,r)$.
+\end{definition}
+
+We define inductively $\Ret^0(X,r)=(X,r)$, $\Ret^1(X,r)=\Ret(X,r)$ and
+\[
+\Ret^{n+1}(X,r)=\Ret(\Ret^n(X,r))\quad n\geq1.
+\]
+
+
+\begin{definition}
+    \index{Solution!multipermutation}
+    A solution $(X,r)$ is said to be of \emph{multipermutation level} $n$ 
+    if $n$ is the smallest non-negative integer 
+    such that $|\Ret^n(X,r)|=1$. The solution $(X,r)$ is said to be 
+    \emph{irretractable} if $\Ret(X,r)=(X,r)$. 
+\end{definition}
+
+The trivial solution over the set with one element is a multipermutation of level zero. 
+Permutation solutions are multipermutation solutions of level one. 
+
+\begin{example}
+
+\end{example}
+
+\begin{example}
+
+\end{example}
+
+\begin{table}[H]
+\caption{Involutive solutions of size $\leq10$.}
+\begin{tabular}{|r|ccccccccc|}
+\hline
+$n$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\tabularnewline
+\hline 
+solutions & 2 & 5 & 23 & 88 & 595 & 3456 & 34530 & 321931 & 4895272\tabularnewline
+multipermutation & 2 & 5 & 21 & 84 & 554 & 3295 & 32155 & 305916 & 4606440\tabularnewline
+irretractable & 0 & 0 & 2 & 4 & 9 & 13 & 191 & 685 & 3590\tabularnewline
+\hline
+\end{tabular}
+\label{tab:INV_mp}
+\end{table}
+
+For size $\leq7$ the numbers of Table~\ref{tab:INV_mp} coincide with those in~\cite{MR1722951}
+but there are some differences for solutions of size eight. 
+
+\begin{table}[H]
+\caption{Non-involutive solutions of size $\leq8$.}
+\begin{tabular}{|r|ccccccc|}
+\hline
+$n$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 \tabularnewline
+\hline 
+solutions & 2 & 21 & 230 & 3519 & 100071 & 4602720  & 422449480 \tabularnewline
+multipermutation &  & 15 & 206 & 3165 & 95517 & 4461805 & 416725250 \tabularnewline
+irretractable & & 6 & 24 & 98 & 514 & 2659 & 17370\tabularnewline
+\hline
+\end{tabular}
+\label{tab:mp}
+\end{table}
+%[ 422449480, 416725250, 17370, 1069 ]
+
+
+\begin{theorem}
+\label{thm:CJKAV}
+    Let $(X,r)$ be a finite multipermutation solution. If $|X|>1$, then $r$ has even order. 
+\end{theorem}
+
+\begin{proof}
+    Since $(X,r)\to\Ret(X,r)$, $x\mapsto[x]$ is a homomorphism of solutions, 
+    it follows that the order of the solution $\overline{r}$ divides de orden of $r$. 
+    Assume that $(X,r)$ has multipermutation level $n$. 
+    There exists a homomorphism of solutions $(X,r)\to\Ret^{n-1}(X,r)$, thus 
+    it is enough to prove the theorem in the case where
+    $r(x,y)=(\sigma(y),\tau(x))$ for commuting permutations $\sigma$ and $\tau$, i.e. 
+    multipermutation solutions of level one. If $r$ has order $2k+1$, then 
+    \[
+    (x,y)=r^{2k+1}(x,y)=(\sigma^{k+1}\tau^k(y),\sigma^k\tau^{k+1}(x)).
+    \]
+    This implies that $\sigma^{k+1}\tau^k(y)=x$ for all $x,y\in X$. This equality in particular 
+    implies that $x=y$ because $\sigma^{k+1}\tau^k$ is a permutation, a contradiction. 
+\end{proof}
+
+The connection between the socle of a brace and the 
+retract of a solution was discovered by Rump in the case of 
+involutive solutions and braces of abelian type, see~\cite{MR2278047}. 
+
+\begin{proposition}
+\label{pro:add_cyclic}
+Let $A$ be a brace and $(A,r)$ be its associated solution. 
+Then the retraction $\Ret(A,r)$ is the canonical solution associated with the quotient brace $A/\Soc(A)$. 
+\end{proposition}
+
+\begin{proof}
+    The equivalence relation $\sim$ on $A$ is defined as $a\sim b$ if and only if $\lambda_a=\lambda_b$ and 
+    $\mu_a=\mu_b$. Let $\overline{A}$ be the set of equivalence classes. 
+    The equivalence class of an element $a$ is then
+    \begin{align*}
+    [a]&=\{b\in A:a\sim b\}
+    =\{b\in A:\lambda_a=\lambda_b,\,\mu_a=\mu_b\}\\
+    &=\{b\in A:a'\circ b\in \ker\lambda\cap\ker\mu\}=\{b\in A:a'\circ b\in\Soc(A)\},
+    \end{align*}
+    by Proposition~\ref{pro:soc_kernels}. This means that 
+    $[a]=[b]$ if and only if $\pi(a)=\pi(b)$, where $\pi\colon A\to A/\Soc(A)$, $x\mapsto x\circ\Soc(A)$,  
+    is the canonical brace homomorphism. Moreover, $A/\Soc(A)=\overline{A}$ as sets. 
+    Now we compute the retraction of $(A,r)$:
+    \begin{align*}
+        \overline{r}([a],[b]) &= ([\lambda_a(b)],[\mu_b(a)])
+        =(\pi(\lambda_a(b)),\pi(\mu_b(a)))\\
+        &=\left(\lambda_{\pi(a)}(\pi(b)),\mu_{\pi(b)}(\pi(a))\right)
+        =\left(\lambda_{[a]}([b]),\mu_{[b]}([a])\right).
+    \end{align*}
+    Therefore $\Ret(A,r)=(A/\Soc(A),\overline{r})$. 
+\end{proof}
+
+Now...
+
+\begin{proposition}
+\label{pro:mpl}
+Let $(X,r)$ and $(Y,s)$ be solutions. Each surjective homomorphism 
+of solutions $f\colon (X,r)\to (Y,s)$ 
+induces a surjective homomorphism 
+of solutions $\Ret(X,r)\to\Ret(Y,s)$. 
+\end{proposition}
+
+\begin{proof}
+Write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $s(x,y)=(\lambda_x(y),\mu_y(x))$. 
+Let $x,x_1\in X$ be such that $x\sim x_1$. If $z\in X$, then 
+\[
+\lambda_{f(x)}f(z)=f(\sigma_x(z))=f(\sigma_{x_1}(z))=\lambda_{f(x_1)}f(z).
+\]
+Since $f$ is surjective, it follows that $\lambda_{f(x)}=\lambda_{f(x_1)}$. A similar calculation proves 
+that $\mu_{f(x)}=\mu_{f(x_1)}$. If $\pi\colon (Y,s)\to\Ret(Y,r)$, $y\mapsto [y]$, is the canonical map, 
+the composition $\pi\circ f\colon (X,r)\to\Ret(Y,s)$ is a surjective homomorphism of solutions. Therefore 
+the map $\Ret(X,r)\to\Ret(Y,s)$, $[x]\mapsto\pi(f(x))$, is then a well-defined surjective
+homomorphism of solutions. 
+\end{proof}
+
+\begin{proposition}
+\label{pro:mpl_subsol}
+Let $(X,r)$ be a solution of finite multipermutation level $m$ 
+and $Y\subseteq X$ be such that $r(Y\times Y)\subseteq Y\times Y$. 
+Then the \emph{subsolution} $(Y,r|_{Y\times Y})$ is of finite multipermutation level $\leq m$. 
+\end{proposition}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{theorem}
+Let $(X,r)$ be a solution. The following statements are equivalent:
+\begin{enumerate}
+    \item $(X,r)$ has finite multipermutation level.
+    \item $\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$ has finite multipermutation level.
+    \item $\left(G(X,r),r_{G(X,r)}\right)$ has finite multipermutation level.
+    %\item The brace $G(X,r)$ is right nilpotent.
+    %\item The brace $\mathcal{G}(X,r)$ is right nilpotent. 
+\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+    Let us first prove that (2) implies (1). 
+    The map $X\to\mathcal{G}(X,r)$, $x\mapsto(\lambda_x,\mu_x^{-1})$, is a homomorphism of solutions that induces
+    an injective homomorphism of solutions $\Ret(X,r)\to\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$. 
+    Since $\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$ has finite multipermutation level,
+    $(X,r)$ has finite multipermutation level by Proposition~\ref{pro:mpl_subsol}.
+    
+    Let us now prove that (3) implies (2). The canonical map $G(X,r)\to\mathcal{G}(X,r)$ yields a surjective
+    homomorphism of solutions. Then Proposition~\ref{pro:mpl} applies. 
+
+    ...
+\end{proof}
+
+The following result appeared in~\cite{MR1722951}.
+
+\begin{proposition}
+Let $(X,r)$ be a finite involutive solution. If the additive group 
+of the brace $\mathcal{G}(X,r)$ is cyclic, then $(X,r)$ 
+is multipermutation.
+\end{proposition}
+
+\begin{proof}
+    Let $(X,r)$ be a counterexample of minimal cardinality. If $K$ is the additive 
+    group of $\mathcal{G}(X,r)$, then $K$ is finite and cyclic. 
+    Write $G$ for the multiplicative group of $\mathcal{G}(X,r)$. 
+    Since $|\Aut(K)|=\varphi(|K|)<|K|$, where $\varphi$ is the Euler function, 
+    the group homomorphism $\lambda\colon G\to\Aut(K)$ 
+    has a non-trivial kernel, so $\Soc(\mathcal{G}(X,r))$ is non-zero.  
+    This implies that $(X,r)$ is retractable. 
+    Since $\mathcal{G}(X,r)/\Soc(\mathcal{G}(X,r))$ is a brace with cyclic 
+    additive group and $\Ret(X,r)$ is an involutive solution, the 
+    minimality of $|X|$ implies that 
+    $\Ret(X,r)$ is a multipermutation solution, and hence so is $(X,r)$, 
+    a contradiction. 
+\end{proof}
+
+The converse of the previous proposition does not hold. 
+
+\begin{example}
+	Let $X=\{1,2,3,4\}$ and $r(x,y)=(\varphi_x(y),\varphi_y(x))$, where
+	\[
+		\varphi_1=\varphi_2=\id,\quad
+		\varphi_3=(34),\quad
+		\varphi_4=(12)(34).
+ 	\]
+	Then $(X,r)$ is an involutive multipermutation solution. One easily checks
+	that $\mathcal{G}(X,r)\simeq C_2\times C_2$.
+\end{example}
+
+A similar idea proves the following result:
+
+\begin{theorem}
+\label{thm:mul_cyclic}
+Let $(X,r)$ be a finite involutive solution. If the multiplicative group 
+of the brace $\mathcal{G}(X,r)$ is cyclic, then $(X,r)$ 
+is multipermutation.
+\end{theorem}
+
+\begin{proof}
+    Let $(X,r)$ be a counterexample of minimal cardinality. Write $K$ for the additive 
+    group of $\mathcal{G}(X,r)$ and 
+    $G=\langle g\rangle$ for the multiplicative group of $\mathcal{G}(X,r)$. Since 
+    the image of the group homomorphism $\lambda\colon G\to\Aut(K)$ is cyclic generated by $\lambda_g$ and 
+    $|\lambda_g|<|G|$ by Horosevskii's theorem, see~\cite[Corollary 3.3]{MR2426855}, it follows that 
+    $\lambda$ has a non-trivial kernel, so $\Soc(\mathcal{G}(X,r))$ is non-zero.  
+    This implies that $(X,r)$ is retractable. 
+    Since $\mathcal{G}(X,r)/\Soc(\mathcal{G}(X,r))$ is a brace with cyclic 
+    additive group and $\Ret(X,r)$ is an involutive solution, the 
+    minimality of $|X|$ implies that 
+    $\Ret(X,r)$ is a multipermutation solution, and hence so is $(X,r)$, 
+    a contradiction. 
+\end{proof}
+
+The previous result does not hold in the case of arbitrary solutions.
+
+\begin{example}
+Let $X=\{1,2,3,4,5,6\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$, where
+\begin{align*}
+    \sigma_1 &= \id, & \sigma_2&=\id, & \sigma_3 &= \id,\\
+    \sigma_4&=(23)(56), &\sigma_5 &= (23)(56), & \sigma_6&=(23)(56),\\
+    \tau_1 &= \id, & \tau_2&=(456), & \tau_3 &= (465),\\
+    \tau_4&=\id, &\tau_5 &= (465), & \tau_6&=(456).
+\end{align*}
+The brace $\mathcal{G}(X,r)$ has multiplicative group isomorphic to $\Sym_3$ and
+additive group isomorphic to the cyclic group of order six. 
+\end{example}
+
+We will see later that Theorem~\ref{thm:mul_cyclic}
+is true for braces of nilpotent type. 
+The following example appears in the work of Rump~\cite{MR2278047}.
+
+\begin{proposition}
+\label{pro:radical}
+Let $A$ be a finite non-trivial radical ring. Then $\Soc(A)\ne\{0\}$ and 
+$(A,r_A)$ is an involutive multipermutation solution. 
+\end{proposition}
+
+\begin{proof}
+Let $A$ be a counterexample of minimal size. This means that $\Soc(A)=\{0\}$ 
+and all two-sided braces of abelian type of size $<|A|$ have non-trivial socle. 
+Since $A$ is finite, there exists a non-zero minimal left ideal $I$ of $A$.
+Recall that $A$ is a radical ring with product $a*b=\lambda_a(b)-b$. 
+Since $A$ is a radical ring, $A$ is a nil ring, which implies by 
+Nakayama's lemma that $I*A=\{0\}$. This means that if $x\in I$, 
+then $x\in\Soc(A)$, as $0=x*a=\lambda_x(a)-a$ for all $a\in A$. 
+In particular, $\Soc(A)\ne\{0\}$, a contradiction. 
+\end{proof}
+
+Proposition~\ref{pro:radical} has a nice application. The results appeared first in~\cite{MR2652212}. 
+The proof presented here is from~\cite{MR3177933}. 
+
+\begin{theorem}
+\label{thm:CJO_abelian}
+    Let $(X,r)$ be a finite involutive solution. If the multiplicative group of the brace 
+    $\mathcal{G}(X,r)$ is abelian, then $(X,r)$ is multipermutation. 
+\end{theorem}
+
+\begin{proof}
+    
+\end{proof}
+
+
+
+In~\cite{MR2095675}, Gateva--Ivanova conjectured that finite involutive 
+square-free solutions are retractable.
+
+
+In~\cite{MR3861714} Gateva--Ivanova asked when...
+
+Right nilpotency...
+
+The following theorem characterizes multipermutation involutive solutions in 
+terms of left orderability of groups. A group $G$ is said to be 
+\emph{left ordered} if it admits a total ordering $<$ such that 
+\[
+x<y\implies zx<zy
+\]
+for all $x,y,z\in G$. Torsion-free abelian groups, 
+free groups and braid groups are left ordered groups. 
+See~\cite{MR3560661} for more information on ordered groups. 
+
+ \begin{theorem}
+\label{thm:BCV}
+	Let $(X,r)$ be a finite involutive solution. The following statements are equivalent:
+	\begin{enumerate}
+		\item $(X,r)$ is a multipermutation solution.
+		\item $G(X,r)$ is poly-$\Z$.
+		\item $G(X,r)$ is left orderable.
+		\item $G(X,r)$ is diffuse.
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\index{Group!with the unique product property}
+Recall that a group $G$ has the \emph{unique product property} if 
+for all finite non-empty subsets $A$ and $B$ of $G$ there exists $x\in G$ 
+that can be written uniquely as $x = ab$ with $a\in A$ and $b\in B$. 
+% We refer to~\cite{MR798076} for more information related to 
+% the unique product property. 
+
+It is natural to ask when $G(X,r)$ has the unique product property. By Theorem~\ref{thm:BCV}, if $(X,r)$ is an involutive
+multipermutation solution, then $G(X,r)$ has the unique product property since $G(X,r)$ is left orderable. 
+
+\begin{example}
+    \label{pro:4-19}
+	Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$ be the irretractable involutive solution given by 
+	\begin{align*}
+		&\sigma_1=(12), && \sigma_2=(1324), && \sigma_3=(34), && \sigma_4=(1423),\\
+		&\tau_1=(14), &&\tau_2=(1243), && \tau_3=(23), && \tau_4=(1342).
+	\end{align*}
+	We claim that the group $G(X,r)$ with 
+	generators
+	$x_1,x_2,x_3,x_4$ and relations
+	\begin{align*}
+		& x_1^2=x_2x_4,
+		&& x_1x_3=x_3x_1,
+		&& x_1x_4=x_4x_3,\\
+		& x_2x_1=x_3x_2,
+		&& x_2^2=x_4^2,
+		&& x_3^2=x_4x_2.
+	\end{align*}
+	does not have the unique product property. Let $x=x_1x_2^{-1}$ and $y=x_1x_3^{-1}$ and 
+    \begin{multline}
+    \label{eq:Promislow}
+    S=\{ x^2y,
+    y^2x,
+    xyx^{-1},
+    (y^2x)^{-1},
+    (xy)^{-2},
+    y,
+    (xy)^2x,
+    (xy)^2,\\
+    (xyx)^{-1},
+    yxy,
+    y^{-1},
+    x,
+    xyx, 
+    x^{-1}
+	\}.
+    \end{multline}
+    To prove that $G(X,r)$ does not have
+    the unique product property it is enough to prove that 
+    each $s\in S^2=\{s_1s_2:s_1,s_2\in S\}$ admits at least two different decompositions 
+    of the form $s=ab=uv$ for $a,b,u,v\in S$. To perform these calculations we 
+    use the injective group homomorphism $G\to\GL(5,\Z)$ given by  
+	\begin{align*}
+	&x_1\mapsto\left(\begin{smallmatrix}
+	0 & 1 & 0 & 0 & 1\\
+	1 & 0 & 0 & 0 & 0\\
+	0 & 0 & 1 & 0 & 0\\
+	0 & 0 & 0 & 1 & 0\\
+	0 & 0 & 0 & 0 & 1
+  	\end{smallmatrix}\right),
+  	&&
+	x_2\mapsto\left(\begin{smallmatrix}
+	0 & 0 & 0 & 1 & 0\\
+	0 & 0 & 1 & 0 & 1\\
+	1 & 0 & 0 & 0 & 0\\
+	0 & 1 & 0 & 0 & 0\\
+	0 & 0 & 0 & 0 & 1
+  	\end{smallmatrix}\right),
+  	\\
+  	&x_3\mapsto\left(\begin{smallmatrix}
+	1 & 0 & 0 & 0 & 0\\
+	0 & 1 & 0 & 0 & 0\\
+	0 & 0 & 0 & 1 & 1\\
+	0 & 0 & 1 & 0 & 0\\
+	0 & 0 & 0 & 0 & 1
+  	\end{smallmatrix}\right),
+  	&&
+  	x_4\mapsto\left(\begin{smallmatrix}
+	0 & 0 & 1 & 0 & 0\\
+	0 & 0 & 0 & 1 & 0\\
+	0 & 1 & 0 & 0 & 0\\
+	1 & 0 & 0 & 0 & 1\\
+	0 & 0 & 0 & 0 & 1
+  	\end{smallmatrix}\right).
+  	\end{align*}
+  	This faithful representation of $G(X,r)$ allows us to compute all possible products of the form $s_1s_2$ for all $s_1,s_2\in S$. 
+  	By inspection, each element of $S^2$ admits at least two different representations.
+\end{example}
+
+\begin{theorem}
+\label{thm:CJO_mp}
+    Let $A$ be a finite brace of abelian type with multiplicative group $G$. Then there exists a finite solution $(X,r)$ 
+    such that $\Ret(X,r)$ is isomorphic to $(A,r_A)$ and $\mathcal{G}(X,r)\simeq G$.
+\end{theorem}
+
+\begin{proof}
+    Let $X=A\times\Z/(2)$. For $a,b\in A$, let 
+    \begin{align*}
+        &\varphi_{(a,0)}(b,0)=(b,0), && \varphi_{(a,0)}(b,1)=(b,1),\\
+        &\varphi_{(a,1)}(b,0)=(a'\circ b,0), && \varphi_{(a,1)}(b,1)=(\lambda^{-1}_a(b),1).
+    \end{align*}
+    The maps $\varphi_{(a,\epsilon)}$ are invertible 
+    for all $a\in A$ and $\epsilon\in\Z/(2)$. In fact, 
+    \[
+    \varphi_{(a,0)}^{-1}=\id,
+    \quad
+    \varphi_{(a,1)}^{-1}(b,\epsilon)=\begin{cases}
+    a\circ b & \text{if $\epsilon=0$,}\\
+    \lambda_a(b) & \text{if $\epsilon=1$.}
+    \end{cases}
+    \]
+    So we need to check that 
+    \begin{align}
+    \label{eq:CJO_tocheck}
+    ((a,\epsilon_1)\cdot (b,\epsilon_2))\cdot ((a,\epsilon_1)\cdot (c,\epsilon_3))
+    =((b,\epsilon_2)\cdot (a,\epsilon_1))\cdot ((b,\epsilon_2)\cdot (c,\epsilon_3))
+    % \shortintertext{and}
+    % \varphi_{(a,\epsilon_1)}((-h,y)+(k,z)+(h,y))=-\varphi_{(g,x)}(h,y)+\varphi_{(g,x)}(k,z)+\varphi_{(g,x)}(h,y).
+    \end{align}
+    holds for all $a,b,c\in A$ and $\epsilon_1,\epsilon_2,\epsilon_3\in\Z/(2)$. There are several cases to consider. 
+    Let us assume first
+    that $(\epsilon_1,\epsilon_2,\epsilon_3)=(1,1,0)$. Then~\eqref{eq:CJO_tocheck} turns out to be 
+    \[
+    (\lambda^{-1}_a(b)'\circ a'\circ c,0)=(\lambda^{-1}_b(a)'\circ b'\circ c,0),
+    \]
+    which holds for all $a,b\in A$, as  
+    \[
+    \lambda^{-1}_a(b)'\circ a'\circ c=(a\circ \lambda^{-1}_a(b))'\circ c=(a+b)'\circ c=(b+a)'\circ c=\lambda^{-1}_b(a)'\circ b'\circ c
+    \]
+    because $A$ is of abelian type. Let us now deal with the case $(\epsilon_1,\epsilon_2,\epsilon_3)=(1,1,1)$. In this case 
+    Equality~\eqref{eq:CJO_tocheck}
+    turns out to be equivalent to 
+    \[
+    (\lambda^{-1}_a(b),1)\cdot (\lambda^{-1}_a(c),1)
+    =(\lambda^{-1}_b(a),1)\cdot (\lambda^{-1}_b(c),1).
+    \]
+    Since $A$ is of abelian type,
+    \begin{align*}
+        (\lambda^{-1}_a(b),1)\cdot (\lambda^{-1}_a(c),1)
+        &= \lambda^{-1}_{\lambda^{-1}_a(b)}\lambda^{-1}_a(c)
+        = \lambda^{-1}_{a\circ\lambda^{-1}_a(b)}(c)
+        = \lambda^{-1}_{a+b}(c)\\
+        &= \lambda^{-1}_{b+a}(c)
+        = \lambda^{-1}_{\lambda^{-1}_b(a)}\lambda^{-1}_b(c)
+        = (\lambda^{-1}_b(a),1)\cdot (\lambda^{-1}_b(c),1).
+    \end{align*}
+    The other cases are easier and require straightforward calculations. 
+    
+    Let $\psi\colon G\to\Sym_X$, $\psi(g)=\varphi_{(g',1)}$. Since 
+    \[
+    \psi(g)(0,0)=\varphi_{(g',1)}(0,0)=(g\circ 0,0)=(g,0),
+    \]
+    it follows that $\psi$ is injective. Moreover, $\psi$ is a group homomorphism, as
+    \begin{align*}
+        \psi(a)\psi(b)(c,0) &= \psi(a)\varphi_{(b,1)}(c,0)
+        =\psi(a)(b\circ c,0)\\
+        &=\varphi_{(a,1)}(b\circ c,0)
+        =(a\circ b\circ c,0)
+        =\varphi_{(a\circ b,1)}(c,0)=\psi_{(a\circ b)}(c,0)
+    \shortintertext{and}
+        \psi(a)\psi(b)(c,1) &= \varphi_{(a',1)}\varphi_{(b',1)}(c,1)
+        =\varphi_{(a',1)}(\lambda^{-1}_{b'}(c),1)\\
+        &=(\lambda^{-1}_{a'}\lambda^{-1}_{b'}(c),1)
+        =(\lambda_{a\circ b}(c),1)
+        =\varphi_{(a\circ b,1)}(c,1)
+        =\psi(a\circ b)(c,1).
+    \end{align*}
+    Since $\psi$ is an injective group homomorphism, 
+    \[
+    G\simeq\psi(G)\simeq\langle \psi(a):a\in A\rangle=\langle\varphi_{(a,1)}:a\in A\rangle\simeq\mathcal{G}(X,r).
+    \]
+    
+    Consider the equivalence relation on $X$ given by $x\sim y$ if and only if $\varphi_x=\varphi_y$. 
+    As usual $[x]$ denotes the equivalence class of the element $x\in X$ and $\overline{X}$ is the set of equivalence classes. 
+    A straightforward computation shows that 
+    $(a,0)\sim (0,1)$ for all $a\in A$. This implies that 
+    \[
+    \overline{p}\colon \overline{X}\to A, 
+    \quad
+    \overline{p}([(a,\epsilon)])=\begin{cases}
+    0 & \text{if $\epsilon=0$},\\
+    a & \text{if $\epsilon=1$},
+    \end{cases}
+    \]
+    is a well-defined surjective map. 
+    We claim that $\overline{p}$ is injective. Let $(a,\epsilon_1)\in\overline{X}$ and
+    $(b,\epsilon_2)\in\overline{X}$ be such that $\overline{p}([(a,\epsilon_1)])=\overline{p}([(b,\epsilon_2)])$. 
+    Since $[(a,0)]=[(0,1)]$ for all $a\in A$, we only need to consider the case where $\epsilon_1=\epsilon_2=1$. 
+    In this case, 
+    \[
+    a=\overline{p}([(a,\epsilon_1)])=\overline{p}([(b,\epsilon_2)])=b.
+    \]
+    Thus $\overline{p}$ is bijective. Now 
+    \begin{align*}
+        r_A(\overline{p}[(a,1)],\overline{p}[(b,1)]) 
+        &= r_A(a,b)
+        = (\lambda_a(b),\mu_b(a))
+        = (\overline{p}[\lambda_a(b),1],\overline{p}[\mu_b(a),1])\\
+        &= (\overline{p}\varphi_{(a,1)}(b,1),\overline{p}...).
+    \end{align*}
+\end{proof}
+
+\begin{theorem}
+    Let $A$ be...
+\end{theorem}
+
+\begin{proof}
+
+\end{proof}
+
+\section*{Exercises}
+
+\begin{prob}
+\label{prob:bounded_mpl}
+    Let $(X,r)$ be a solution of finite multipermutation level $m$. Prove that any homomorphic image of $(X,r)$ 
+    is a solution of finite multipermutation level $\leq m$. 
+\end{prob}
+
+\begin{prob}
+	\label{prob:4-13}
+	Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$ be the irretractable involutive solution given by
+	\begin{align*}
+		&\sigma_1=(34), && \sigma_2=(1324), && \sigma_3=(1423), && \sigma_4=(12),\\
+		&\tau_1=(24), &&\tau_2=(1432), && \tau_3=(1234), && \tau_4=(13).
+	\end{align*}
+	Prove that $G(X,r)$ 
+% 	The structure group $G(X,r)$ with generators
+% 	$x_1,x_2,x_3,x_4$ and relations
+% 	\begin{align*}
+% 		& x_1x_2=x_2x_4,
+% 		&& x_1x_3=x_4x_2,
+% 		&& x_1x_4=x_3^2,\\
+% 		& x_2x_1=x_3x_4,
+% 		&& x_2^2=x_4x_1,
+% 		&& x_3x_1=x_4x_3.
+% 	\end{align*}
+	does not have the unique product property.
+\end{prob}
+
+\section*{Open problems}
+
+\begin{problem}
+    Does the group $G(X,r)$...
+    A linear representation of this group is...
+\end{problem}
+
+\section*{Notes}
+
+Multipermutation involutive solutions were introduced in~\cite{MR1722951}. 
+The notion was extended to the non-involutive case in~\cite{MR3974961}. 
+
+% \index{Ced\'o, F.}
+% \index{Jespers, E.}
+% \index{Van Antwerpen, A.}
+% \index{Kubat, \L.}
+% \index{Verwimp, C.}
+Theorem~\ref{thm:CJKAV} was proved in... %by Ced\'o, Jespers, Kubat, van Antwerpen and Verwimp. 
+
+Proposition~\ref{pro:mpl} was proved in~\cite{MR3177933} 
+for involutive solutions. The general case goes back to... 
+
+Theorem~\ref{thm:BCV} combines several results. The implication... 
+
+Theorem~\ref{thm:CJO_mp} appears in~\cite{MR3177933}. 
+
+Non-involutive multipermutation solutions...
+
+The set~\eqref{eq:Promislow} appears in the work of Promislow~\cite{MR940281}.
+Exercise~\ref{prob:4-13} appears in the book of Jespers and Okni\'nski, see~\cite[Example 8.2.14]{MR2301033}. 

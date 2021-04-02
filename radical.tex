@@ -1,0 +1,164 @@
+\chapter{Anillos radicales}
+
+\index{Braza!asociativa}
+Diremos que una braza es asociativa si la operación $(x,y)\mapsto
+x*y=\lambda_x(y)-y$ es asociativa. Recordemos que en toda braza
+vale la siguiente igualdad
+\begin{align}
+    \label{eq:(aob)*c}
+    &(a+a*b+b)*c=(a\circ b)*c=a*(b*c)+b*c+a*c.
+\end{align}
+
+\begin{lemma}
+	Si $A$ es una braza de tipo abeliano asociativa, entonces 
+	\[
+		(-a)*b=-(a*b)
+	\]
+	para todo $a,b\in A$. En particular, $(-a)\circ b=2b-(a\circ b)$ para todo $a,b\in A$. 
+\end{lemma}
+
+\begin{proof}
+    Por la igualdad~\eqref{eq:(aob)*c} y la
+    asociatividad, 
+	\begin{align*}
+	    (a*(-a))*b &= 
+	    (a*(-a)+a+(-a))*b\\
+	    &=a*( (-a)*b)+(-a)*b+a*b\\
+	    &=(a*(-a))*b+(-a)*b+a*b,
+    \end{align*}
+    lo que implica que $(-a)*b=-(a*b)$. La segunda afirmación se obtiene
+    entonces inmediatamente. 
+\end{proof}
+
+\begin{lemma}
+Si $A$ es una braza de tipo abeliano, valen las siguientes
+afirmaciones:
+\begin{enumerate}
+    \item $a*0=0*a=0$,
+    \item $a*(-b)=-(a*b)$,
+    \item $a*(b-c)=a*b-a*c$,
+    \item $a*(b_1+\cdots+b_n)=a*b_1+\cdots+a*b_n$,
+    %\sum_{i=1}^nb_i=\sum_{i=1}^na*b_i$,
+\end{enumerate}
+\end{lemma}
+
+\begin{exercise}
+Demuestre que en toda braza de tipo abeliano vale
+que 
+\[
+    a*\left(\sum_{i=1}^nb_i-\sum_{j=1}^mc_j\right)=\sum_{i=1}^na*b_i-\sum_{j=1}^ma*c_j,
+\]
+y que esta fórmula puede rescribirse como
+\begin{align}
+\label{eq:Lau}
+a\circ \left(\sum_{i=1}^n b_i-\sum_{j=1}^mc_j\right)
+=\sum_{i=1}^n a\circ b_i-\sum_{j=1}^ma\circ c_j+(m-n+1)a.
+\end{align}
+\end{exercise}
+
+% \begin{proof}
+% Demostremos la última afirmación. Como $A$ es de tipo abeliano, 
+% \begin{align*}
+%     a*(b_1+\cdots+b_n-c_1-\cdots-c_m) &=
+%     a*( (b_1+\cdots+b_n)-(c_1+\cdots+c_m))\\
+%     &=a*(b_1+\cdots+b_n)-a*(c_1+\cdots+c_m)\\
+%     &=\sum_{i=1}^na* b_i-\sum_{j=1}^ma*c_j.\qedhere
+% \end{align*}
+% \end{proof}
+
+% Observemos que el lema anterior implica que vale la siguiente
+% fórmula
+
+
+\begin{theorem}
+    \label{thm:Lau}
+	Si $A$ es una braza de tipo abeliano asociativa, entonces $A$ es un anillo radical. 	
+\end{theorem}
+
+\begin{proof}
+    Necesitamos demostrar que $A$ es una braza a derecha. 
+	Como $A$ es asociativa, $(a*b)*c=a*(b*c)$ para todo $a,b,c\in A$. Rescribimos la asociatividad entre $a,b,c\in A$ como
+	\[
+	(a\circ b-a-b)\circ c-(a\circ b-a-b)-c
+	=a\circ (b\circ c-b-c)-a-(b\circ c-b-c),
+	\]
+	que es equivalente a la igualdad 
+	\[
+	a'\circ ( (a\circ b-a-b)\circ c-a\circ b)
+	=a'\circ ( a\circ (b\circ c-b-c)-a-a-b\circ c+2c).
+	\]
+	Si usamos la fórmula~\eqref{eq:Lau} en el miembro 
+	de la derecha con $n=1$ y $m=2$ y en el miembro izquierdo
+	con $n=m=3$, 
+	\[
+	a'\circ (a\circ b-a+(-b))=b+a'\circ(-b)
+	\]
+	La fórmula~\eqref{eq:Lau} ahora con $n=2$ y $m=1$ implica que
+	la asociatividad de $A$ es equivalente a la identidad 
+	\begin{equation}
+	    \label{eq:asociatividad}
+		(b+a'\circ (-b))\circ c+c=b\circ c+a'\circ(-b)\circ c.
+	\end{equation}
+	Sean $b,c\in A$. Si $d\in A$ existe $a\in a$ tal que $d=a'\circ (-b)$. La fórmula~\eqref{eq:asociatividad} 
+	implica entonces que
+	\[
+	(b+d)\circ c+c=b\circ c+d\circ c,
+	\]
+	que es lo que queríamos demostrar.
+\end{proof}
+
+\section{Brazas biláteras}
+
+Veamos qué podemos decir de las brazas biláteras cuyo grupo aditivo no necesariamente es abeliano.
+Nos será de utilidad el siguiente lema.
+
+\begin{lemma}
+Si $A$ es una braza bilátera, entonces cada conjugación 
+multiplicativa 
+$\gamma_c\colon A\to A$, $a\mapsto c'\circ a\circ c$, es un automorfismo del grupo aditivo de $A$.
+\end{lemma}
+
+\begin{proof}
+Simplemente hay que observar que
+\[
+\gamma_c(a+b)=c'\circ(a+b)\circ c=c'(a\circ c-c+a\circ c)=c'\circ a+c'\circ b=\gamma_c(a)+\gamma_c(b)
+\]
+y el lema queda demostrado. 
+\end{proof}
+
+El lema anterior implica que todo subgrupo característico del aditivo de una braza bilátera será
+un ideal.
+
+\begin{proposition}
+Si $A$ es una braza bilátera finita con grupo aditivo resoluble, entonces
+el grupo multiplicativo de $A$ es también resoluble.
+\end{proposition}
+
+\begin{proof}
+Supongamos que la proposición es falsa y sea $A$ un contraejemplo minimal. Por el teorema de Etingof, Schedler
+y Soloviev sabemos que $(A,+)$ no es un grupo abeliano. 
+Sea entonces $I=[A,A]_+$. Como $I$ es característico en $(A,+)$, el lema anterior implica que $I$ es un ideal de $A$. Los brazas $I$ y $A/I$ son biláteras y 
+tiene grupos aditivos resolubles. La minimalidad de $A$, entonces, implica que 
+los grupos multiplicativos de $I$ y $A/I$ son también resolubles. Luego $(A,\circ)$ es resoluble, una contradicción.
+\end{proof}
+
+\begin{proposition}
+Si $A$ es una braza biláera tal que $(A,+)$ es finitamente generado y residualmente finito, entonces
+$(A,\circ)$ es también residualmente finito. 
+\end{proposition}
+
+\begin{proof}
+Sin pérdidad de generalidad podemos suponer que $A$ es una braza infinita. 
+Sea $a\in A$ un elemento no nulo. Como $(A,+)$ es residualmente finito, existe un subgrupo normal $N$ 
+de $(A,+)$ de índice finito $n$ tal que $x\not\in N$. Como $(A,+)$ es finitamente generado, existen
+solamente finitos subgrupos de $(A,+)$ de índice $n$. La intersección 
+$I=\cap_{\varphi\in\Aut(A,+)}\varphi(N)$ 
+es un subgrupo característico de $(A,+)$ no trivial (de lo contrario $A$ sería finita), de índice finito y tal que  $x\not\in I$. Como $I$ es característico, es un ideal de $A$ y luego, en particular, $I$ es un subgrupo 
+normal del multiplicativo de $A$, de índice finito y tal que $x\not\in I$.
+\end{proof}
+
+\section*{Notas}
+
+El teorema~\ref{thm:Lau} fue demostrado por Ivan Lau en \verb+arXiv:1811.04894+ e independientemente por Michael Kinyon. Responde a una pregunta
+hecha por Ferran Cedó, Tatiana Gateva--Ivanova y Agata Smoktunowicz en 
+\cite[Question 2.1(2)]{MR3818285}.

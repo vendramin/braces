@@ -1,0 +1,407 @@
+\chapter{Extensions}
+
+In~\cite{MR2095675} Gateva--Ivanova conjectured that all involutive square-free solutions 
+are multipermutation solutions. 
+As we saw there are several particular cases where the conjecture is true: 
+a) if $\mathcal{G}(X,r)$ is abelian, 
+b) if $\mathcal{G}(X,r)$ has cyclic Sylow subgroups...
+We will show that in general the conjecture does not hold. 
+For that purpose, we need a method to construct 
+solutions. 
+
+\begin{proposition}
+	\label{pro:dynamical}
+	Let $X$ be a cycle set, $S$ be a finite non-empty set and
+	\[
+	\alpha\colon X\times X\times S\to\Fun(S,S),
+	\quad
+	(x,y,s)\mapsto\alpha_{x,y}(s,-),
+	\]
+	be a map.  Then $S\times X$ is a cycle set
+	with respect to 
+	\begin{equation}
+		\label{eq:extension}
+		(s,x)\cdot (t,y)=(\alpha_{x,y}(s,t),x\cdot y),\quad
+   	x,y\in X,\;s,t\in S, 
+	\end{equation}
+	if and only if the maps $t\mapsto \alpha_{x,y}(s,t)$ are bijective for each 
+	$x,y\in X$ and $s\in S$, and 
+	\begin{equation}
+		\label{eq:dynamical}
+		\alpha_{x\cdot y,x\cdot z}(\alpha_{x,y}(r,s),\alpha_{x,z}(r,t))
+		=\alpha_{y\cdot x,y\cdot z}(\alpha_{y,x}(s,r),\alpha_{y,z}(s,t))
+	\end{equation}
+	holds for all $x,y,z\in X$ and $r,s,t\in S$. 
+\end{proposition}
+
+\begin{proof}
+	It is straightforward to check that the operation~\eqref{eq:extension} is
+	invertible if and only if the maps $t\mapsto\alpha_{x,y}(s,t)$ are invertible
+	for each $x,y\in X$ and $s\in S$.  Then 
+	\[
+	(r,x)\cdot (s,y)=(t,z)\iff
+	(s,y)=(\alpha^{-1}_{x,x*z}(r,t),x*z),
+	\]
+	where $*$ denotes the inverse of the binary operation of the cycle set $X$. 
+
+	Now for $(r,x),(s,y),(t,z)\in S\times X$ one computes
+	\begin{align*}
+		((r,x)\cdot (s,y))&\cdot ((r,x)\cdot (t,z))\\
+		&= (\alpha_{x,y}(r,s),x\cdot y)\cdot (\alpha_{x,z}(r,t),x\cdot z)\\
+		&=(\alpha_{x\cdot y,x\cdot z}(\alpha_{x,y}(r,s),\alpha_{x,z}(r,t)),(x\cdot y)\cdot (x\cdot z))
+	\end{align*}
+	and similarly
+	\begin{multline*}
+		((s,y)\cdot (r,x))\cdot ((s,y)\cdot (t,z))
+		=(\alpha_{y\cdot x,y\cdot z}(\alpha_{y,x}(s,r),\alpha_{y,z}(s,t)),(y\cdot x)\cdot (y\cdot z)).\qedhere
+	\end{multline*}
+\end{proof}
+
+\begin{definition}
+    \index{Dynamical!cocycle}
+	Let $X$ be a cycle set and $S$ be a non-empty set.  A map
+	$\alpha\colon X\times X\times S\to\Sym(S)$ satisfying~\eqref{eq:dynamical} is
+	called a \emph{dynamical cocycle} of $X$ with values on $S$.  
+\end{definition}
+
+We write $Z^2(X,S)$ to denote the set of dynamical cocycles of the 
+cycle set $X$ with values in the set $S$, i.e.  
+\[
+	Z^2(X,S)=\{\alpha\colon X\times X\times S\to\Fun(S,S):\alpha\text{ is a dynamical cocycle}\}.
+\]
+
+\begin{definition}
+\index{Dynamical!extensions}
+	Let $X$ be a cycle set, $S$ a non-empty finite set and $\alpha\in Z^2(X,S)$.
+	The cycle set $S\times_\alpha X$ constructed by Proposition~\ref{pro:dynamical}
+	is called a \emph{dynamical extension} of $X$ by $\alpha$. 
+\end{definition}
+
+\begin{example}
+	Let $X$ be a cycle set $X$ and $S$ a non-empty set. The map
+	$\alpha\colon X\times X\to\Sym(S)$ given by $\alpha_{x,y}(s,t)=t$ for all
+	$x,y\in X$ and $s,t\in S$ is a dynamical cocycle of $X$. This is the
+	\emph{trivial dynamical cocycle} of $X$. 
+\end{example}
+
+If $X$ is a finite square-free cycle set, $S$ is a non-empty finite set and
+$\alpha\in Z^2(X,S)$, then $S\times_\alpha X$ is square-free if and only if 
+\begin{equation*}
+	\begin{aligned}
+		&\alpha_{x,x}(s,s)=s\quad
+		\text{for all $x\in X$ and $s\in S$.}
+	\end{aligned}
+\end{equation*}
+
+\begin{definition}
+	We say that a homomorphism $p\colon X\to Y$ of finite cycle sets 
+	cycle sets is a \emph{covering map} if it is surjective and all the fibers
+	$p^{-1}(y)$, where $y\in Y$, have the same cardinality. 
+\end{definition}
+
+\begin{definition}
+	A covering map $X\to Y$ is \emph{trivial} if either $|Y|=1$ or $|Y|=|X|$. 
+\end{definition}
+
+\framebox{Simple?}
+
+\begin{definition}
+	A finite cycle set $X$ is \emph{simple} if $|X|>1$ and any covering map
+	$X\to Y$ is trivial. 
+\end{definition}
+
+\begin{example}
+	Every cycle set with a prime number of elements is simple. 
+\end{example}
+
+\begin{example}
+	Let $X=\{1,2,3,4\}$ be the cycle set given by 
+	\[
+	\varphi_1=(14),\quad
+	\varphi_2=(1342),\quad
+	\varphi_3=(23),\quad
+	\varphi_4=(1243).
+	\]
+	Let us prove that $X$ is simple. If $p\colon X\to Y$ is a covering map,
+	then $|Y|=2$. Thus $Y=\{a,b\}$ with $a\ne b$. Since there
+	are only two cycle sets with two elements, there are two cases to consider.  
+
+	Suppose first that the cycle set structure over $Y$ is given by
+	$\psi_a=\psi_b=\id$. Since $p$ is a cycle set homomorphism and
+	$\psi_a=\psi_b=\id$, it follows that $p(x\cdot x)=p(x)\cdot p(x)=p(x)$ for
+	all $x\in X$. But $x\cdot x\ne x$ for all $x\in X$ and hence  $p(x)=p(y)$
+	for all $x,y\in X$, a contradiction.
+
+	Now suppose that $\psi_a=\psi_b=(ab)$ and $p(1)=a$. From $1\cdot 1=4$ one
+	obtains that $p(4)=b$ and hence $p(2)=p(4\cdot 1)=p(4)\cdot p(1)=b\cdot
+	a=b$.  Then $a=a\cdot b=p(1)\cdot p(2)=p(1\cdot 2)=p(2)=b$, a
+	contradiction.
+\end{example}
+
+\begin{theorem}
+	\label{thm:dynamical}
+	Let $X$ be a finite cycle set and assume that $X$ admits a covering map
+	$p:X\to Y$ onto a finite cycle set $Y$.  Then there exists 
+	a finite non-empty set $S$ and a dynamical cocycle $\alpha\in Z^2(X,S)$
+	such that $X$ is isomorphic to the dynamical extension $S\times_\alpha Y$.
+\end{theorem}
+
+\begin{proof}
+	Since all the fibers $p^{-1}(y)$ have the same
+	cardinality, there is a finite
+	non-empty set $S$ and there are bijections $f_y\colon p^{-1}(y)\to S$ for
+	each $y\in Y$. Let $\alpha\colon Y\times Y\times S\to\Fun(S,S)$ be the map
+	given by
+	\[
+		\alpha_{y,z}(s,t)=f_{y\cdot z}(f^{-1}_y(s)\cdot f^{-1}_{z}(t)),\quad
+		s,t\in S,\;y,z\in Y. 
+	\]
+	Then $\alpha\in Z^2(Y,S)$ and hence  
+	$S\times Y$ is a cycle set with respect to 
+	\[
+		(s,y)\cdot (t,z)=(\alpha_{y,z}(s,t),y\cdot z),\quad
+		s,t\in S,\;y,z\in Y. 
+	\]
+	The map $\phi\colon X\to S\times Y$ given by $x\mapsto
+	(f_{p(x)}(x),p(x))$ is a homomorphism of cycle sets. 
+	Furthermore, $\phi$ is
+	bijective since the map $\psi\colon S\times Y\to X$ given
+	by $\psi(s,y)=f^{-1}_{y}(s)$ satisfy $\phi\circ\psi=\id_{S\times Y}$
+	and $\psi\circ\phi=\id_X$. 
+\end{proof}
+
+\begin{corollary}
+	Let $X$ be a finite nonsimple cycle set.  Then there exists a finite cycle
+	set $Y$ with $1<|Y|<|X|$, a finite non-empty set $S$ and a dynamical
+	cocycle $\alpha\in Z^2(X,S)$ such that $X$ is isomorphic to $S\times_\alpha
+	Y$.
+\end{corollary}
+
+\begin{proof}
+	If follows immediately from Theorem~\ref{thm:dynamical}.
+\end{proof}
+
+\begin{example}
+	Let $X=\{1,\dots,6\}$ be the cycle set given by
+	\begin{align*}
+		\varphi_1=\varphi_2=(12)(34)(56),&&
+		\varphi_3=\varphi_5=(12)(3654),&&
+		\varphi_4=\varphi_6=(12)(3456),
+	\end{align*}
+	and let $Y=\{1,2\}$ be the cycle set given by
+	\[
+		\psi_1=\psi_2=(12).
+	\]
+	The map 
+	\[
+	p\colon X\to Y,\quad
+	p(x)=\begin{cases}
+		1 & \text{if $x$ is odd},\\
+		2 & \text{otherwise},
+	\end{cases}
+	\]
+	is a surjective cycle set homomorphism. Since the fibers $p^{-1}(1)$ and $p^{-1}(2)$
+	have both three elements, Theorem~\ref{thm:dynamical} implies that there
+	exists $S=\{a,b,c\}$ and $\alpha\in Z^2(X,S)$ such
+	that $X\simeq S\times_\alpha Y$. The bijections
+	\[
+		f_1\colon 1\mapsto a,\;3\mapsto b,\;5\mapsto c,
+		\quad
+		f_2\colon 2\mapsto a,\;4\mapsto b,\;6\mapsto c,
+	\]
+	and a direct calculations yield
+	\[
+		\alpha_{x,y}(s,-)=\begin{cases}
+			(bc) & \text{if $(x,y,s)\in\{(1,1,b),(1,1,c),(2,2,b),(2,2,c)\}$},\\
+			\id & \text{otherwise}.
+		\end{cases}
+	\]
+\end{example}
+
+\begin{definition}
+	Two dynamical cocycles $\alpha,\beta\in Z^2(X,S)$ are \emph{cohomologous} if
+	there exists a map $\gamma\colon X\to\Sym(S)$, $x\mapsto\gamma_x$, such that
+	\begin{equation}
+		\label{eq:cohomologous}
+		\gamma_{x\cdot y}\left(\alpha_{x,y}(\gamma^{-1}_x(s),\gamma^{-1}_{y}(t))\right)
+		=\beta_{x,y}(s,t)
+	\end{equation}
+	for all $x,y\in X$ and $s,t\in S$. 
+\end{definition}
+
+\begin{proposition}
+	Let $X$ be a finite cycle set, $S$ a non-empty finite set and
+	$\alpha,\beta\in Z^2(X,S)$. The following hold:
+	\begin{enumerate}
+		\item If $\alpha$ and $\beta$ are cohomologous by $\gamma$, then
+			\begin{equation*}
+				F\colon S\times_\alpha X\to S\times_\beta X,\quad
+				(s,x)\mapsto (\gamma_x(s),x),
+			\end{equation*}
+			is a bijective cycle set homomorphism.
+		\item If there is a bijective cycle set homomorphism $F\colon
+			S\times_\alpha X\to S\times_\beta X$ such that $p_\beta\circ F=p_\alpha$,
+			where $p_\alpha\colon S\times_\alpha X\to X$ and $p_\beta\colon
+			S\times_\beta X\to X$ are the canonical surjections, then $\alpha$ and
+			$\beta$ are cohomologous.
+	\end{enumerate}
+\end{proposition}
+
+\begin{proof}
+	We first prove (1). Since $\gamma_x\in\Sym(S)$ for all $x\in X$, the map $F$
+	is bijective.  Let us prove that $F$ is a cycle set homomorphism:  For 
+	$(s,x),(t,y)\in S\times X$ one computes 
+	\begin{align}
+		\label{eq:cohomologous:1}
+		F((s,x)\cdot (t,y))
+		=F(\alpha_{x,y}(s,t),x\cdot y)
+		=(\gamma_{x\cdot y}(\alpha_{x,y}(s,t)),x\cdot y)
+	\end{align}
+	and similarly 
+	\begin{align}
+		\label{eq:cohomologous:2}
+		F(s,x)\cdot F(t,y)
+		=(\gamma_x(s),x)\cdot (\gamma_y(t),y)
+		=(\beta_{x,y}(\gamma_x(s),\gamma_y(t)),x\cdot y).
+	\end{align}
+	Thus the claim follows from Equation~\eqref{eq:cohomologous}. 
+	
+	Now we prove (2). Since $F$ is bijective and $p_\beta\circ F=p_\alpha$, we
+	may assume that $F(s,x)=(f(s,x),x)$ for some $f\colon S\times X\to S$. Then
+	the maps $\gamma_x\colon S\to S$, $s\mapsto f(s,x)$, are bijective for each
+	$x\in X$. Since $F$ is a cycle set homomorphism, the claim follows 
+	from Equations~\eqref{eq:cohomologous:1} and~\eqref{eq:cohomologous:2}.
+\end{proof}
+
+We collect some examples of dynamical cocycles and
+dynamical extensions of cycle sets. 
+
+\begin{example}
+	\label{exa:GI}
+        Let $Y=\{1,2,3\}$ be the cycle set given by $\varphi_1=\varphi_2=\id$,
+        $\varphi_3=(12)$ and $S=\{a,b\}$ be a set with two elements. Write
+        \[
+                \mathcal{A}=\{(1,2,a),(1,2,b),(1,3,b),(2,1,a),(2,1,b),(2,3,b)\}\subseteq X\times X\times S.
+        \]
+        The map
+        $\alpha\colon Y\times Y\times S\to\Sym(S)$ given by
+        \[
+        \alpha_{x,y}(s,-)=\begin{cases}
+                (ab) & \text{if $(x,y,s)\in\mathcal{A}$},\\
+                \id & \text{otherwise},
+        \end{cases}
+        \]
+        is a dynamical cocycle of $Y$. Let 
+        \[
+                x_j=\begin{cases}
+                        (a,j) & \text{if $j\in\{1,2,3\}$,}\\
+                        (b,j-3) & \text{if $j\in\{4,5,6\}$.}
+                \end{cases}
+        \]
+        The extension $X=S\times_\alpha Y$ is the cycle set $\{x_1,\dots,x_6\}$ given by
+        \begin{gather*}
+			\psi_{x_1}=(x_2x_5),\quad
+			\psi_{x_2}=(x_1x_4),\quad
+			\psi_{x_3}=(x_1x_2)(x_4x_5),\\
+			\psi_{x_4}=(x_2x_5)(x_3x_6),\quad
+			\psi_{x_5}=(x_1x_4)(x_3x_6),\quad
+			\psi_{x_6}=(x_1x_2)(x_4x_5).
+        \end{gather*}
+%		This cycle set corresponds to a square-free multipermutation solution of level%
+% four. 
+\end{example}
+
+\begin{example}
+	\label{exa:counterexample}
+	Let us consider the trivial cycle set over the set $Y=\{1,2\}$ given by
+	$\varphi_1=\varphi_2=\id$ and let $S=\{a,b,c,d\}$ be a set with four
+	elements.  The map $\alpha\colon Y\times Y\times S\to\Sym(S)$ given by
+	\begin{gather*}
+		\alpha_{1,1}(a,-)=\alpha_{1,1}(b,-)=\alpha_{2,2}(a,-)=\alpha_{2,2}(b,-)=(cd),\\
+		\alpha_{1,1}(c,-)=\alpha_{1,1}(d,-)=\alpha_{2,2}(c,-)=\alpha_{2,2}(d,-)=(ab),\\
+		\alpha_{1,2}(a,-)=\alpha_{1,2}(c,-)=\alpha_{2,1}(a,-)=\alpha_{2,1}(c,-)=\id,\\
+		\alpha_{1,2}(b,-)=\alpha_{1,2}(d,-)=\alpha_{2,1}(b,-)=\alpha_{2,1}(d,-)=(ac)(bd),
+	\end{gather*}
+	is a dynamical cocycle of $Y$.  
+	For $j\in\{1,\dots,8\}$ let 
+	\[
+    x_j=\begin{cases}
+        (a,j)    &  \text{if $1\leq j\leq 2$},\\
+        (b,j-2)  &  \text{if $3\leq j\leq 4$},\\
+        (c,j-4)  &  \text{if $5\leq j\leq 6$},\\
+        (d,j-6)  &  \text{if $7\leq j\leq 8$}.
+    \end{cases}
+	%	x_j=\begin{cases}
+	%		(a,j) & \text{if $1\leq j\leq 4$},\\
+	%		(b,j-4) & \text{if $5\leq j\leq 8$}.\\
+	%	\end{cases}
+	\]
+	Then $X=S\times_\alpha Y$ is the square-free cycle set over 
+	$\{x_1,\dots,x_8\}$ given by 
+	\begin{gather*}
+		\psi_{x_1}=(x_5x_7),\\
+		\psi_{x_2}=(x_6x_8),\\
+		\psi_{x_3}=(x_2x_6)(x_4x_8)(x_5x_7),\\
+		\psi_{x_4}=(x_1x_5)(x_3x_7)(x_6x_8),\\
+		\psi_{x_5}=(x_1x_3),\\
+		\psi_{x_6}=(x_2x_4),\\
+		\psi_{x_7}=(x_1x_3)(x_2x_6)(x_4x_8),\\
+		\psi_{x_8}=(x_1x_5)(x_2x_4)(x_3x_7).
+	\end{gather*}
+	Using the cycle set $X$ we construct a counterexample to 
+	the Gateva-Ivanova conjecture: 
+	Let
+	\[
+		r\colon X\times X\to X\times X,\quad
+        r(x_i,x_j)=(\psi_{\psi_{x_j}^{-1}(x_i)}(x_j),\psi^{-1}_{x_j}(x_i)),\quad
+		x_i,x_j\in X.
+	\]
+    Since $\psi_x^{-1}=\psi_x$ for all $x\in X$ and
+    $\psi_{\psi_y(x)}(y)=\psi_x(y)$ for all $x,y\in X$, it follows that
+    \[
+    r(x_i,x_j)=(\psi_{x_i}(x_j),\psi_{x_j}(x_i)).
+    \]
+    The solution $(X,r)$ satisfies $\Ret(X,r)=(X,r)$ and hence 
+    $(X,r)$ is a square-free
+    solution which is not a multipermutation solution.
+\end{example}
+
+\section*{Exercises}
+
+\begin{prob}
+	\label{prob:semidirect}
+	Let $X$ and $S$ be finite cycle sets and suppose that $X$ acts on $S$,
+	which means that there is a map $X\times S\to S$, $(x,s)\mapsto xs$, such
+	that 
+	\begin{enumerate}
+		\item $x(s\cdot t)=xs\cdot xt$ for all $x\in X$ and $s,t\in S$, 
+		\item $(x\cdot y)xs=(y\cdot x)ys$ for all $x,y\in X$ and $s\in S$, and 
+		\item The map $S\to S$, $s\mapsto xs$, is bijective for all $x\in X$.
+	\end{enumerate}
+	Prove that 
+	%By \cite[Thm. 1]{MR2442072}, 
+	$S\times X$ is a cycle
+	set with
+	\[
+		(s,x)\cdot (t,y)=((x\cdot y)s\cdot (y\cdot x)t,x\cdot y),\quad
+		(s,x),(t,y)\in S\times X.
+	\]
+% 	From Lemma~\ref{lem:dynamical} one obtains that the map $\alpha\colon X\times
+% 	X\times S\to\Fun(S,S)$ given by $\alpha_{x,y}(s,t)=(x\cdot y)s\cdot (y\cdot
+% 	x)t$ is then a dynamical cocycle over $X$.
+\end{prob}
+
+\section*{Notes}
+
+Let $N_m$ be defined as the minimal integer so that there exists a
+square-free multipermutation solution $X$ of size $N_m$ and $\mpl
+X=m$. In~\cite[Open question 6.13(3)]{MR2885602} it was asked if 
+$N_m=2^{m-1}+1$ holds for all $m\in\N$. 
+The solution of Example~\ref{exa:GI} 
+shows that $N_4\leq 6<2^{3}+1$ and answers \cite[Open
+question 6.13(3)]{MR2885602}. 
+Moreover, this solution satisfies 
+$4=\mpl X>\log_26$ and hence it shows that~\cite[Conjecture 2.14]{MR2776789} is not true. 
+
+The construction of Exercise~\ref{prob:semidirect} 
+is taken from~\cite{MR2442072} and it is Rump's semidirect product of cycle sets. 

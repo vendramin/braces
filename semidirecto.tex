@@ -1,0 +1,253 @@
+
+
+\chapter{}
+
+We will use the following theorem of Kegel and Wielandt:
+
+\begin{theorem}[Kegel--Wielandt]
+\end{theorem}
+
+\begin{theorem}
+
+Let $A$ be a finite skew left brace with nilpotent multiplicative group. Then $A$ is of solvable type.
+\end{theorem}
+
+\begin{proof}
+...
+\end{proof}
+
+
+\chapter{Producto semidirecto}
+
+Si $A$ y $B$ son brazas, una acción de $A$ en $B$ se define
+como un morfismo de grupos $\sigma\colon (B,\circ)\to\Aut_{Br}(A)$.
+
+\begin{definition}
+\index{Producto!semidirecto de brazas}
+Sean $A$ y $B$ brazas y supongamos que $B$ actúa en $A$.  Se 
+define el producto semidirecto 
+$A\rtimes_{\sigma}B$ como la estructura de braza 
+en el producto cartesiano $A\times B$ 
+dada por las operaciones
+\begin{align*}
+&(a_1,b_1)+(a_2,b_2)=(a_1+a_2,b_1+b_2),\\
+&(a_1,b_1)\circ (a_2,b_2)=(a_1\circ\sigma(b_1)(a_2),b_1\circ b_2),
+\end{align*}
+donde $a_1,a_2\in A$ y $b_1,b_2\in B$.
+\end{definition}
+
+Un cálculo directo nos permite demostrar que
+\begin{align}
+\lambda_{(a_1,b_1)}(a_2,b_2)&=(\lambda_{a_1}(\sigma(b_1)(a_2)),\lambda_{b_1}(b_2)),
+\end{align}
+
+\begin{exercise}
+Demuestre que en el producto semidirecto $A\rtimes_{\sigma}B$ vale 
+\[
+(a_1,b_1)*(a_2,b_2)=(\lambda_{a_1}(\sigma(b_1)(a_2))-a_2,b_1*b_2).
+\]
+\end{exercise}
+
+\begin{theorem}
+	Sean $A$ y $B$ brazas. El producto semidirecto
+	$A\rtimes_{\sigma}B$ es nilpotente a derecha si y sólo si $A$ y $B$ son nilpotentes a derecha. 
+\end{theorem}
+
+\begin{proof}
+	Sea $P=A\rtimes_{\sigma}B$. 
+	Si $P^{(n)}=0$ para algún $n$, entonces $A^{(n)}=0$ y $B^{(n)}=0$. 
+	Recíprocamente, si $A^{(k)}=0$ y $B^{(l)}=0$, entonces $P^{(k+l)}=0$.
+	\framebox{FIXME}
+\end{proof}
+
+% FIXME: un resultado similar vale para producto corona!
+
+Para un subconjunto $X$ del producto semidirecto $A\rtimes_{\sigma}B$, definimos
+\begin{align*}
+    &\pi_A(X)=\{a\in A:(a,b)\in X\text{ para algún $b\in B$}\},\\
+    &\pi_B(X)=\{b\in B:(a,b)\in X\text{ para algún $a\in A$}\}.
+\end{align*}
+
+\begin{lemma}
+Si $I$ es un ideal del producto semidirecto $A\rtimes_{\sigma}B$, entonoces 
+$\pi_B(I)$ es un ideal de $B$.
+\end{lemma}
+
+\begin{proof}
+    Veamos que $(\pi_B(I),+)$ es un subgrupo de $(B,+)$. Como $(0,0)\in I$, entonces $0\in\pi_B(I)$. Además si $b_1,b_2\in B$, sean 
+    $a_1,a_2\in A$ tales que $(a_j,b_j)\in I$, $j\in\{1,2\}$. Como entonces
+    \[
+    (a_1,b_1)-(a_2,b_2)=(a_1-a_2,b_1-b_2)\in I,
+    \]
+    y además $a_1-a_2\in A$, se concluye que $b_1-b_2\in \pi_B(I)$. 
+    
+    Veamos ahora que $(\pi_B(I),+)$ es normal en $(B,+)$. Sean $b\in \pi_B(I)$ y $a\in A$ 
+    tal que $(a,b)\in I$. Si $y\in B$, entonces, como $(I,+)$ es normal en $(A\rtimes_{\sigma}B,+)$, tenemos que
+    \[
+    (0,y)+(a,b)-(0,y)=(a,y+b-y)\in I,
+    \]
+    que implica que $y+b-y\in \pi_B(I)$.
+    
+    Veamos que si $y\in B$, entonces $\lambda_y(\pi_B(I))\subseteq \pi_B(I)$. Sea $b\in\pi_B(I)$ y sea $a\in A$ tal que $(a,b)\in I$. Entonces
+    \[
+    (\sigma(y)(a),\lambda_y(b))=(\lambda_0(\sigma(y)(a),\lambda_y(b))=\lambda_{(0,y)}(a,b)\in I
+    \]
+    pues $(a,b)\in I$ y sabemos que $I$ es un ideal. Como $\sigma(y)(a)\in A$, se concluye que
+    $\lambda_y(b)\in \pi_B(I)$.
+
+    Queda demostrar que $(\pi_B(I),\circ)$ es normal en $(B,\circ)$. Si $y\in B$ y $b\in \pi_B(I)$, 
+    sea $a\in A$ tal que $(a,b)\in I$. Sabemos que existe $x\in A$ tal que 
+    \[
+    (0,y)\circ (a,b)\circ (0,y)'=(x,y\circ b\circ y').
+    \]
+    Como $I$ es un ideal, $(x,y\circ b\circ y')\in I$ y luego $y\circ b\circ y'\in \pi_B(I)$. 
+\end{proof}
+
+\begin{lemma}
+Si $I$ es un ideal del producto semidirecto $A\rtimes_{\sigma}B$ tal que 
+$\pi_B(I)=0$, entonces $\pi_A(I)$ es un ideal de $A$.
+\end{lemma}
+
+\begin{proof}
+    Como hicimos en el lema anterior, vemos que $(\pi_A(I),+)$ es un subgrupo normal de $(A,+)$. Si $x\in A$ y $a\in \pi_A(I)$, entonces
+    \[
+    (\lambda_x(a),b)=(\lambda_x(\sigma(0)(a)),\lambda_0(b))=\lambda_{(x,0)}(a,b)\in I
+    \]
+    y luego $\lambda_x(a)\in\pi_A(I)$. Para ver que $(\pi_A(I),\circ)$ es normal en $(A,\circ)$ basta
+    observar que si $x\in A$ y $a\in\pi_A(I)$ entonces
+    \[
+    (x,0)\circ(a,b)\circ(x,0)'=(x\circ a\circ x',b)
+    \]
+    pues si $b\in B$ es tal que $(a,b)\in I$, entonces $x\circ a\circ x'\in \pi_A(I)$.
+\end{proof}
+
+\begin{definition}
+    \index{Ideal!semiprimo}
+    Sea $A$ una braza. Diremos que $A$ es \textbf{semiprima} si el único ideal $I$ de $A$ 
+    tal que $I*I=0$ es el ideal nulo.
+\end{definition}
+
+\begin{theorem}
+\label{thm:sd_semiprime}
+Si $A$ y $B$ son brazas semiprimas, entonces el producto semidirecto
+$A\rtimes_{\sigma}B$ es también una braza semiprima.
+\end{theorem}
+
+\begin{proof}
+    Sea $I$ un ideal de $A\rtimes_\sigma B$ tal que $I*I=0$. Para ver que $I=0$ basta
+    con demostrar que $\pi_A(I)=0$ y que $\pi_B(I)=0$
+
+    Primero vamos a demostrar que $\pi_B(I)=0$. Como $\pi_B(I)$ es un ideal de $B$, 
+    y $B$ es semiprima, basta ver que $\pi_B(I)*\pi_B(I)=0$. Sean $b_1,b_2\in \pi_B(I)$ y sean 
+    $a_1,a_2\in A$ tales que $(a_j,b_j)\in I$ para todo $j\in\{1,2,\}$. Como 
+    \[
+    (x,b_1*b_2)=(a_1,b_1)*(a_2,b_2)\in I*I=0
+    \]
+    para algún $x\in A$, se tiene que $b_1*b_2=0$.
+    
+    Vamos a demostrar ahora que $\pi_A(I)=0$. 
+    Como $\pi_B(I)=0$, sabemos que $\pi_A(I)$ es un ideal de $A$. Como $A$ es semiprimo, para ver que $\pi_A(I)=0$ basta entonces ver que $\pi_A(I)*\pi_A(I)=0$. Sean $a_1,a_2\in \pi_A(I)$ y sean
+    $b_1,b_2\in B$ tales que $(a_j,b_j)\in I$ para todo $j\in\{1,2\}$. Como $b_j\in \pi_B(I)=0$ para todo $j$, se concluye que $(a_j,0)\in I$ para todo $j$. Luego
+    \[
+    (a_1*a_2,0)=(a_1,0)*(a_2,0)\in I*I=0
+    \]
+    y entonces $a_1*a_2=0$. 
+\end{proof}
+
+\begin{lemma}
+    Sean $A$ y $B$ brazas. Demuestre que
+    \[
+    W=\{f\colon B\to A\text{ tal que $|\{b\in B:f(b)\ne 0\}|<\infty$}\}
+    \]
+    es una braza con las operaciones
+    \begin{align*}
+        &(f_1+f_2)(b)=f_1(b)+f_2(b),
+        \\
+        &(f_1\circ f_2)(b)=f_1(b)\circ f_2(b).
+    \end{align*}
+\end{lemma}
+
+\begin{lemma}
+    If $I$ is an ideal of $W$ and $b\in B$, then
+    \[
+    J_b=\{a\in A:f(b)=a\text{ for some $f\in I$}\}
+    \]
+    is an ideal of $A$.
+\end{lemma}
+
+\begin{proof}
+    Observemos que la función nula $0_W\colon B\to A$ pertenece a $W$. Es fácil
+    ver que $(J_b,+)$ es un subgrupo de $(W,+)$ pues $0_W\in W$ y además
+    $a_1-a_2=(f_1-f_2)(b)$ si $f_1(b)=a_1$ y $f_2(b)=a_2$. 
+    
+    Dado $x\in A$ definimos la función $\delta_x\colon B\to A$ como
+    \[
+    \delta_x(y)=\begin{cases}
+    x & \text{if $y=b$},\\
+    0 & \text{otherwise}.
+    \end{cases}
+    \]
+    Como $\delta_x(y)\ne 0$ si y sólo si $y=b$, se tiene que $\delta_x\in W$. Para ver
+    que $(J_b,+)$ es normal en $(W,+)$ basta obvervar que si $x\in A$ y $a\in J_b$, digamos
+    con $f(b)=a$ para algún cierto $f\in I$, entonces 
+    \[
+    x+a-x=(\alpha_x+f-\alpha_x)(b)\in J_b
+    \]
+    pues $\alpha_x+f-\alpha_x\in I$. Similarmente $\lambda_x(J_b)\subseteq J_b$ pues
+    \[
+    \lambda_x(a)=(-\alpha_x+\alpha_x\circ f)(b)
+    \]
+    y sabemos que $-\alpha_x+\alpha_x\circ f\in I$ pues $I$ es un ideal y $f\in I$. Por último,
+    la normalidad de $(J_b,\circ)$ en $(W,\circ)$ es similar pues podemos escribir
+    \[
+    x\circ a\circ x'=(\alpha_x\circ f\circ\alpha_x^{-1})(b)
+    \]
+    y sabemos que $\alpha_x\circ f\alpha_x^{-1}\in I$.
+\end{proof}
+
+\begin{proposition}
+Si $A$ es una braza semiprima, entonces $W$ también es semiprima.
+\end{proposition}
+
+\begin{proof}
+Sea $I$ un ideal de $W$ tal que $I*I=0$. Sabemos que para cada $b\in B$, 
+el conjunto $J_b$ es un ideal de $A$. Para demostrar que $I=0$ alcanza con 
+demostrar que todos los $J_b$ son cero. Fijemos $b\in B$
+y sean $a_1,a_2\in J_b$. Entonces existen $f_1,f_2\in I$ tales que $f_i(b)=a_i$
+para todo $i\in\{1,2\}$. Como
+\[
+a_1*a_2=f_1(b)*f_2(b)=(f_1*f_2)(b)
+\]
+y $f_1*f_2\in I*I=0$, se tiene que $J_b*J_b=0$. Como $A$ es semiprimo, $J_b=0$. 
+Veamos ahora que $I=0$. Sea $f\in I$. Si $b\in B$, entonces $f(b)\in J_b=0$. 
+\end{proof}
+
+\begin{definition}
+    \index{Producto!corona de brazas}
+    Sean $A$ y $B$ brazas. Se define el \textbf{producto corona} $A\wr B$ como la braza
+    dada por el producto semidirecto $W\rtimes_{\sigma} B$, donde
+    $\sigma\colon B\to\Aut(W)$ está definido por
+    \[
+    \sigma(b)(f)(y)=f(by)
+    \]
+    para todo $y,b\in B$ y $f\in W$.
+\end{definition}
+
+\begin{theorem}
+\label{thm:wreath_semiprime}
+Si $A$ y $B$ son brazas semiprimas, entonces $A\wr B$ es semiprima.
+\end{theorem}
+
+\begin{proof}
+Como $A$ es semiprima, la braza $W$ es también semiprima. El producto corona 
+$A\wr B=W\rtimes_{\sigma}B$ es también una braza semiprima por ser producto semidirecto de brazas semiprimas.
+\end{proof}
+
+\begin{question}
+Sean $A$ y $B$ brazas tales que el producto semidirecto $A\rtimes_{\sigma}B$ es semiprimo. ¿Es cierto que entonces $A$ es una braza semiprima?
+\end{question}
+
+\section*{Notas}
+
+Los teoremas~\ref{thm:sd_semiprime} y~\ref{thm:wreath_semiprime} 
+fueron demostrados por Patrick Kinnear.

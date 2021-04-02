@@ -1,0 +1,735 @@
+\chapter{The Yang--Baxter equation}
+
+In \cite{MR1183474}, Drinfeld briefly discuss set-theoretic solutions to the Yang--Baxter equation. 
+He observed that
+it makes sense to consider the Yang--Baxter equation in the category of sets and that 
+"maybe it would be interesting to study set-theoretical solutions". 
+
+\begin{definition}
+\index{Solution}
+\index{Solution!finite}
+A \emph{set-theoretic solution} to the Yang--Baxter equation (YBE) is a pair $(X,r)$, 
+where $X$ is a set and $r\colon X\times X\to X\times X$ is a bijective map that satisfies 
+\[
+(r\times\id)(\id\times r)(r\times\id)=
+(\id\times r)(r\times\id)(\id\times r),
+\]
+where, if $r(x,y)=(\sigma_x(y),\tau_y(x))$, then 
+\begin{align*}
+& r\times\id\colon X\times X\times X\to X\times X\times X, &&(r\times\id)(x,y,z)=(\sigma_x(y),\tau_y(x),z),\\
+& \id\times r\colon X\times X\times X\to X\times X\times X, &&(\id\times r)(x,y,z)=(x,\sigma_y(z),\tau_z(y)).
+\end{align*}
+The solution $(X,r)$ is said to be \emph{finite} if $X$ is a finite set. 
+\end{definition}
+
+\begin{figure}
+\begin{tikzpicture}
+\pic[
+  braid/.cd,
+  number of strands=3,
+  height=.5cm,
+  width=.5cm,
+  ultra thick,
+  gap=0.1,
+  name prefix=braid,
+] {braid={a_{1}a_2a_1}};
+\end{tikzpicture}
+\hspace{1cm}
+\begin{tikzpicture}
+\pic[
+  braid/.cd,
+  number of strands=3,
+  height=.5cm,
+  width=.5cm,
+  ultra thick,
+  gap=0.1,
+  name prefix=braid,
+] {braid={a_{2}a_1a_2}};
+\end{tikzpicture}
+\caption{The Yang--Baxter equation.}
+\label{fig:braid}
+\end{figure}
+
+\index{Braid group}
+For $n\geq2$, the \emph{braid group} $\B_n$ is defined as the group with generators $\sigma_1,\dots,\sigma_{n-1}$ and relations
+\begin{align*}
+    &\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1} && \text{if }1\leq i\leq n-2,\\
+    &\sigma_i\sigma_j=\sigma_j\sigma_i && \text{if }|i-j|\geq 1.
+\end{align*}
+Let $(X,r)$ be a set-theoretic solution to the YBE. Write $X^n=X\times\cdots\times X$ ($n$-times).  
+For $i<n$ let $r_{i,i+1}=\id_{X^{i-1}}\times r\times\id_{X^{n-i-1}}\colon X^n\to X^n$. Then the map $\sigma_i\mapsto r_{i,i+1}$ extends 
+to an action of $\B_n$ on $X^n$.
+
+\begin{example}
+\index{Solution!trivial}
+Let $X$ be a set. Then $(X,r)$, where $r(x,y)=(y,x)$, is a solution to the YBE. This solution 
+is known as the \emph{trivial solution} over the set $X$. 
+\end{example}
+
+By convention, we write
+\[
+r(x,y)=(\sigma_x(y),\tau_y(x)).
+\]
+
+\begin{lemma}
+    \label{lem:YB}
+    Let $X$ be a non-empty set and $r\colon X\times X\to X\times X$ be a bijective map.
+    Then $(X,r)$ is a set-theoretic solution to the YBE if and only if 
+    \begin{align*}
+        &\sigma_x\circ\sigma_y = \sigma_{\sigma_x(y)}\circ\sigma_{\tau_y(x)},&
+        &\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y)=\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y),&
+        &\tau_z\circ\tau_y=\tau_{\tau_z(y)}\circ\tau_{\sigma_y(z)}
+    \end{align*}
+    for all $x,y,z\in X$. 
+\end{lemma}
+
+\begin{proof}
+    We write $r_1=r\times\id$ and $r_2=\id\times r$. We first compute
+    \begin{align*}
+        r_1r_2r_1(x,y,z)&=r_1r_2(\sigma_x(y),\tau_y(x),z)
+        =r_1(\sigma_x(y),\sigma_{\tau_y(x)}(z),\tau_z\sigma_x(y))\\
+        &=\left(\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}(z),\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y),\tau_z\tau_y(x)\right).
+    \end{align*}
+    Then we compute
+    \begin{align*}
+        r_2r_1r_2(x,y,z)&=r_2r_1(x,\sigma_y(z),\tau_z(y))
+        =r_2(\sigma_x\sigma_y(z),\tau_{\sigma_y(z)}(x),\tau_z(y))\\
+        &=\left(\sigma_x\sigma_y(z),\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y),\tau_{\tau_z(y)}\tau_{\sigma_y(z)}(x)\right)
+    \end{align*}
+    and the claim follows.    
+\end{proof}
+
+If $(X,r)$ is a solution, by definition the map $r\colon X\times X\to X\times X$ is 
+invertible. By convention, we write 
+ \[
+ r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x)).
+ \]
+ Note that this implies that
+ \[
+ x=\widehat{\sigma}_{\sigma_x(y)}\tau_y(x),\quad
+ y=\widehat{\tau}_{\tau_y(x)}\sigma_x(y).
+ \]
+ Since $(X,r^{-1})$ is a solution, Lemma~\ref{lem:YB} implies that 
+ the following formulas hold:
+ \[
+ \widehat{\tau}_y\circ\widehat{\tau_x}=\widehat{\tau}_{\tau_y(x)}\circ\widehat{\tau}_{\sigma_x(y)},
+ \quad
+ \widehat{\sigma}_x\circ\widehat{\sigma_y}=\widehat{\sigma}_{\sigma_x(y)}\circ\widehat{\sigma}_{\tau_y(x)}.
+ \]
+% Since $r(\tau^{-1}_y(x),y)=(\sigma_{\tau^{-1}_y(x)}(y),x)$, 
+% it follows that 
+% \[
+% \widehat{\tau}_x\sigma_{\tau^{-1}_y(x)}(y)=y.
+% \]
+% for all $x,y\in X$. Moreover, 
+% \[
+% x\triangleright y=\tau_x\sigma_{\tau^{-1}_y(x)}(y)=\tau_x\widehat{\tau}^{-1}_x(y)
+% \]
+% for all $x,y\in X$. 
+
+\begin{definition}
+A \emph{homomorphism} between the set-theoretic solutions $(X,r)$ and
+$(Y,s)$ is a map $f\colon X\to Y$ such that the diagram 
+\[\begin{tikzcd}
+	{X\times X} & {X\times X} \\
+	{Y\times Y} & {Y\times Y}
+	\arrow["r", from=1-1, to=1-2]
+	\arrow["{f\times f}"', from=1-1, to=2-1]
+	\arrow["{f\times f}", from=1-2, to=2-2]
+	\arrow["s"', from=2-1, to=2-2]
+\end{tikzcd}
+\]
+is commutative. An \emph{isomorphism} of solutions is a bijective
+homomorphism of solutions.
+\end{definition}
+
+Since we are interested in studying the combinatorics behind set-theoretic solutions to the YBE,
+it makes sense to study the following family of solutions. 
+
+\begin{definition}
+\index{Solution!non-degenerate}
+We say that a solution $(X,r)$ to the YBE 
+is \emph{non-degenerate} if the maps $\sigma_x$ and $\tau_x$ are 
+permutations of $X$. 
+\end{definition}
+
+By convention, a \emph{solution} we will mean a non-degenerate solution to the YBE.
+
+\begin{lemma}
+\label{lem:LYZ}
+Let $(X,r)$ be a solution. 
+\begin{enumerate}
+    \item Given $x,u\in X$, there exist unique $y,v\in X$ such that $r(x,y)=(u,v)$. 
+    \item Given $y,v\in X$, there exist unique $x,u\in X$ such that $r(x,y)=(u,v)$. 
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+    For the first claim take $y=\sigma_x^{-1}(u)$ and $v=\tau_y(x)$. 
+    For the second, $x=\tau_y^{-1}(v)$ and $u=\sigma_x(y)$. 
+\end{proof}
+
+The bijectivity of $r$ means that any row determines the whole square. Lemma~\ref{lem:LYZ}
+means that any column also determines the whole square, see Figure~\ref{fig:braid}.
+
+\begin{figure}
+\begin{tikzpicture}
+\pic[
+  braid/.cd,
+  number of strands=2,
+  ultra thick,
+  gap=0.1,
+  name prefix=braid,
+] {braid={a_{1}^{-1}}};
+\node[] at (-.25,-.12) {$x$};
+\node[] at (1.25,-.12) {$y$};
+\node[] at (-.25,-1.4) {$u$};
+\node[] at (1.25,-1.4) {$v$};
+\node[] at (-.25,-.75) {$r$};
+\end{tikzpicture}
+\begin{tikzpicture}
+\pic[
+  braid/.cd,
+  number of strands=2,
+  ultra thick,
+  gap=0.1,
+  name prefix=braid,
+] {braid={a_{1}}};
+\node[] at (-.25,-.12) {$x$};
+\node[] at (1.25,-.12) {$y$};
+\node[] at (-.25,-1.4) {$u$};
+\node[] at (1.25,-1.4) {$v$};
+\node[] at (-.25,-.75) {$r^{-1}$};
+\end{tikzpicture}
+\caption{Any row or column determines the whole square.}
+\label{fig:braid}
+\end{figure}
+
+\begin{example}
+If the map $(x,y)\mapsto(\sigma_x(y),\tau_y(x))$ satisfies the Yang--Baxter equation, then 
+so does $(x,y)\mapsto (\tau_x(y),\sigma_y(x))$. 
+\end{example}
+
+\begin{example}
+\label{exa:Lyubashenko}
+Let $X$ be a non-empty set and $\sigma$ and $\tau$ be 
+bijections on $X$ such that $\sigma\circ\tau=\tau\circ\sigma$. Then 
+$(X,r)$, where $r(x,y)=(\sigma(y),\tau(x))$, is a non-degenerate solution. 
+This is known as the \emph{permutation solution} associated
+with permutations $\sigma$ and $\tau$. 
+%The solution $(X,r)$ is involutive 
+%if and only if $\tau^{-1}=\sigma$. 
+\end{example}
+
+\begin{example}
+\label{exa:Wada}
+Let $G$ be a group. Then $(G,r)$, where $r(x,y)=(xy^{-1}x^{-1},xy^2)$, is a solution. 
+\end{example}
+
+\begin{example}
+\label{exa:Venkov}
+Let $G$ be a group. Then $(G,r)$, where $r(x,y)=(xyx^{-1},x)$, is a solution. 
+%It is involutive if and only if $G$ is abelian. 
+\end{example}
+
+\begin{theorem}
+\label{thm:LYZ}
+Let $G$ be a group and let $\xi\colon G\times G\to G$, $\xi(x,y)=x\rhd y$,
+be a left action of $G$ on itself, and 
+let $\eta\colon G\times G\to G$, $\eta(x,y)=x\lhd y$, 
+be a right action of $G$ on itself. If the compatibility condition
+\[
+uv=(u\rhd v)(u\lhd v)
+\]
+holds for all $u,v\in G$, then the pair $(G,r)$, where 
+\[
+r\colon G\times G\to G\times G,\quad
+r(u,v)=(u\rhd v,u\lhd v)
+\]
+is a bijective solution. 
+\end{theorem}
+
+\begin{proof}
+We write $r_1=r\times\id$ and $r_2=\id\times r$. Let
+\[
+r_1r_2r_1(u,v,w)=(u_1,v_1,w_1),\quad
+r_2r_1r_2(u,v,w)=(u_2,v_2,w_2).
+\]
+The compatibility condition implies that $u_1v_1w_1=u_2v_2w_2$. 
+So we need to prove that $u_1=u_2$ and $v_1=v_2$. From Lemma~\ref{lem:YB}
+we note that
+\begin{align*}
+&u_1=(u\rhd v)\rhd ( (u\lhd v)\rhd w),
+&&v_1=(u\lhd v)\lhd w,\\
+&u_2=u\rhd (v\rhd w),
+&&v_2=(u\lhd (v\rhd w))\lhd (v\lhd w).
+\end{align*}
+Using the compatibility condition and the fact that $\xi$ is a left action, 
+\begin{align*}
+    &u_1=((u\rhd v)(u\lhd v))\rhd w=(uv)\rhd w=u\rhd (v\rhd w)=u_2.
+\end{align*}
+Similarly, since $\eta$ is a right action, 
+\[
+v_2=u\lhd ((v\rhd w)(v\lhd w))=u\lhd (vw)=(u\lhd v)\lhd w=v_1.
+\]
+
+To prove that $r$ is invertible we proceed as follows. Write $r(u,v)=(x,y)$, thus $u\rhd v=x$, $u\lhd v=y$ and $uv=xy$. Since 
+\begin{align*}
+& (y\rhd v^{-1})u=(y\rhd v^{-1})(y\lhd v^{-1})=yv^{-1}=x^{-1}u,
+\end{align*}
+it follows that $y\rhd v^{-1}=x^{-1}$, i.e. $v^{-1}=y^{-1}\rhd x^{-1}$. Similarly, 
+\[
+v(u^{-1}\lhd x)=(u^{-1}\rhd x)(u^{-1}\lhd x)=u^{-1}x=vy^{-1}
+\]
+implies that $u^{-1}=y^{-1}\lhd x^{-1}$. Clearly 
+$r^{-1}=\zeta\circ (i\times i)\circ r\circ (i\times i)\circ \zeta$,
+is the inverse of $r$, where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. 
+\end{proof}
+
+\begin{proposition}
+Under the assumptions of Theorem~\ref{thm:LYZ}, 
+if $r(x,y)=(u,v)$, then 
+\[
+r(x^{-1},y^{-1})=(u^{-1},v^{-1}),
+\quad
+r(x^{-1},u)=(y,v^{-1}),
+\quad
+r(v,y^{-1})=(u^{-1},x).
+\]
+\end{proposition}
+
+\begin{proof}
+In the proof of Theorem~\ref{thm:LYZ} we found that 
+the inverse of $r$ is given by $r^{-1}=\zeta\circ (i\times i)\circ r\circ (i\times i)\circ \zeta$,
+where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$, it follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
+To prove the equality $r(x^{-1},u)=(y,v^{-1})$ we proceed as follows. Since $r(x,y)=(u,v)$, it 
+follows that $x\triangleright y=u$. Then $x^{-1}\triangleright u=y$ and
+hence $r(x^{-1},u)=(y,z)$ for some $z\in G$. 
+Since $xy=uv$ and $x^{-1}u=yz$, it follows that $yt=yv^{-1}$. Then 
+$z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
+\end{proof}
+
+The rest of the chapter will be devoted to involutive solutions. 
+
+\begin{definition}
+\index{Solution!involutive}
+A solution $(X,r)$ is said to be \emph{involutive} if $r^2=\id$. 
+\end{definition}
+
+\index{Symmetric group}
+For $n\geq2$, the \emph{symmetric group} $\Sym_n$ can be presented 
+as the group with generators $\sigma_1,\dots,\sigma_{n-1}$ and relations
+\begin{align*}
+    &\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1} && \text{if }1\leq i\leq n-2,\\
+    &\sigma_i\sigma_j=\sigma_j\sigma_i && \text{if }|i-j|\geq 1,\\
+    &\sigma_i^2=1 && \text{for all $i\in\{1,\dots,n-1\}$}.
+\end{align*}
+Let $(X,r)$ be an involutive solution. 
+Then the map $\sigma_i\mapsto r_{i,i+1}=\id_{X^{i-1}}\times r\times\id_{X^{n-i-1}}$ extends 
+to an action of $\Sym_n$ on $X^n$.
+
+\begin{example}
+Let $X$ be a non-empty set and $\sigma$ be a bijection on $X$. Then 
+$(X,r)$, where $r(x,y)=(\sigma(y),\sigma^{-1}(x))$, is an involutive solution. 
+\end{example}
+
+\index{Jacobson!radical ring}
+\index{Radical ring}
+We now present a very important family of involutive solutions. These examples show an intriguing connection between the YBE and the 
+theory of non-commutative rings. 
+
+In any ring $R$ the \emph{circle operation} 
+\[
+x\circ y=x+xy+y
+\]
+is always associative and such that $x\circ 0=0\circ x=x$ for all $x\in R$. 
+A non-unital ring (or \emph{rng}, for short) 
+$R$ is said to be a \emph{radical ring} if $(R,\circ)$ is a group. 
+In this case, following Jacobson's notation, the inverse of 
+an element $x$ with respect to the circle operation is denoted by $x'$. 
+
+Radical rings were introduced by Jacobson in~\cite{MR12271}.
+There are other characterizations of radical rings, see for example~\cite{MR3308118}.
+
+\begin{example}
+Let $p$ be a prime and let $A=\Z/(p^2)$ be the cylic additive group of order $p^2$. 
+The operation $x\circ y=x+y+pxy$ 
+turns $A$ into a radical ring. 
+\end{example}
+
+\begin{example}
+Let $A=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}$. The operation 
+$a\circ b=a+b+ab$ turns $A$ into a radical ring. A straightforward computation shows that 
+\[
+\left(\frac{x}{2y+1}\right)'=\frac{2(-x)}{2(x+y)+1}.
+\]
+\end{example}
+
+The following fundamental family of solutions appears in~\cite{MR2278047}. 
+It turns out to be fundamental in the study of 
+set-theoretic solutions to the YBE. 
+
+\begin{proposition}
+\label{pro:Rump}
+Let $R$ be a radical ring. Then $(R,r)$, where 
+\[
+r(x,y)=( -x+x\circ y,(-x+x\circ y)'\circ x\circ y)
+\]
+is an involutive solution.
+\end{proposition}
+
+The proposition can demonstrated using Theorem~\ref{thm:LYZ}, 
+see Exercise~\ref{prob:Rump}. 
+We will prove a stronger result in Theorem~\ref{thm:YB}. 
+
+\begin{proposition}
+\label{pro:T}
+Let $(X,r)$ be an involutive solution. 
+Then the map $T\colon X\to X$, $x\mapsto\sigma_x^{-1}(x)$, is 
+invertible with inverse $T^{-1}(y)=\tau^{-1}_y(y)$ and 
+\[
+T^{-1}\circ\sigma_x^{-1}\circ T=\tau_x
+\]
+for all $x\in X$. 
+\end{proposition}
+
+\begin{proof}
+Let $U(x)=\tau_x^{-1}(x)$. Since $r$ is involutive, 
+\[
+(U(x),x)=r^2(U(x),x)=r(\sigma_{U(x)}(x),x)=(\sigma_{\sigma_{U(x)}(x)}(x),\tau_x\sigma_{U(x)}(x)).
+\]
+The second coordinate can be written as $U(x)=\sigma_{U(x)}(x)$. This 
+implies that 
+\[
+T(U(x))=\sigma^{-1}_{U(x)}(U(x))=x.
+\]
+Similarly one obtains $U(T(x))=x$. 
+
+Since $(X,r)$ is a solution, Lemma~\ref{lem:YB} implies that 
+$\sigma_x\sigma_y=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}$
+%$\tau_{\tau_y(x)}\circ\tau_{\sigma_x(y)}=\tau_y\circ\tau_x$ 
+holds for all $x,y\in X$. Then  
+\[
+\sigma_y^{-1}T(x)
+=\sigma_y^{-1}\sigma_x^{-1}(x)
+=\sigma^{-1}_{\tau_y(x)}\sigma^{-1}_{\sigma_x(y)}(x)
+=\sigma^{-1}_{\tau_y(x)}\tau_y(x)
+=T\tau_y(x)
+\]
+for all $y\in X$, by Equality~\eqref{eq:involutive}.
+\end{proof}
+
+Note that if $(X,r)$ is a non-degenerate involutive solution, then 
+\[
+(x,y)=r^2(x,y)=r(\sigma_x(y),\tau_y(x))=(\sigma_{\sigma_x(y)}\tau_y(x),\tau_{\tau_y(x)}\sigma_x(y)).
+\]
+Hence 
+\begin{equation}
+    \label{eq:involutive}
+    \tau_y(x)=\sigma_{\sigma_x(y)}^{-1}(x),
+    \quad
+    \sigma_x(y)=\tau_{\tau_y(x)}^{-1}(y)
+\end{equation}
+for all $x,y\in X$. Thus for involutive solutions
+it is enough to know $\{\sigma_x:x\in X\}$, as from this we obtain the
+set $\{\tau_x:x\in X\}$. 
+
+
+\begin{definition}
+\index{Cycle set}
+\index{Cycle set!non-degenerate}
+A \emph{cycle set} is a pair $(X,\cdot)$, where $X$ is a non-empty 
+set provided with a binary operation $X\times X\to X$, $(x,y)\mapsto x\cdot y$, 
+such that 
+\begin{equation}
+    \label{eq:cycle_set}
+    (x\cdot y)\cdot (x\cdot z)=(y\cdot x)\cdot (y\cdot z)
+\end{equation}
+holds for all $x,y,z\in X$ and each map $\varphi_x\colon X\to X$, $y\mapsto x\cdot y$, is bijective. 
+A cycle set $(X,\cdot)$ is said to be \emph{non-degenerate} 
+if the map $X\to X$, $x\mapsto x\cdot x$, is bijective. 
+\end{definition}
+
+\begin{definition}
+\index{Homomorphism!of cycle sets}
+Let $X$ and $Z$ be cycle sets. 
+A \emph{homomorphism} between the cycle sets $X$ and $Z$ is a 
+map $f\colon X\to Z$ such that $f(x\cdot y)=f(x)\cdot f(y)$ for all $x,y\in X$. An \emph{isomorphism} of cycle sets
+is a bijective homomorphism of cycle sets. 
+\end{definition}
+
+Cycle sets and cycle set homomorphisms form a category. 
+It is possible to prove that the category of 
+solutions is equivalent to the category of cycle sets, 
+see Exercise~\ref{prob:cycle_sets}. 
+
+% \framebox{Exercise!}
+
+% \begin{lemma}
+% \label{lem:T_forCS}
+% If $X$ is a cycle set, then $x\cdot (y\cdot y)=((y*x)\cdot y)\cdot ((y*x)\cdot y)$, where
+% $y*x=z$ if and only if $y\cdot z=x$. 
+% \end{lemma}
+
+% \begin{proof}
+%     Since the operation $x\mapsto y\cdot x$ is bijective, we can write $x=y\cdot (y*x)$. Then, using~\eqref{eq:cycle_set}, 
+%     $x\cdot (y\cdot y)=(y\cdot (y*x))\cdot (y\cdot y)=((y*x)\cdot y)\cdot (y*x)\cdot y)$.
+% \end{proof}
+
+\begin{theorem}
+\label{thm:CS}
+There exists a bijective correspondence between non-isomorphic involutive solutions 
+and non-isomorphic non-degenerate cycle sets. 
+\end{theorem}
+
+
+
+% \begin{proof}
+%     Let us assume first that $r(x,y)=(\sigma_x(y),\tau_y(x))$ is an involutive solution. 
+%     We want to prove that the operation
+%     $x\cdot y=\sigma_x^{-1}(y)$ turns the set $X$ into a non-degenerate cycle set. 
+%     It is clear that the maps $y\mapsto x\cdot y=\sigma_x^{-1}(y)$ are invertible. 
+%     By Proposition~\ref{pro:T}, the operation $x\mapsto x\cdot x$ is bijective. \framebox{!}
+%     Since $r(\tau^{-1}_y(x),y)=(\sigma_{\tau^{-1}_y(x)}(y),x)$, Lemma~\ref{lem:YB} implies that
+%     \[
+%     \tau_x\circ\tau_{\sigma_{\tau^{-1}_y(x)}(y)}=\tau_y\circ\tau_{\tau^{-1}_y(x)}.
+%     \]
+%     Moreover, since $r(\sigma_{\tau^{-1}_y(x)}(y),x)=(\tau^{-1}_y(x),y)$, it follows that
+%     %$\tau_x\sigma_{\tau^{-1}_y(x)}(y)=y$, i.e.
+%     \[
+%     \sigma_{\tau^{-1}_y(x)}(y)=\tau_x^{-1}(y).
+%     \]
+%     % Since $r^2=\id_{X\times X}$, it follows that
+%     % \[
+%     % (\tau^{-1}_y(x),y)=r^2(\tau^{-1}_y(x),y)=r(\sigma_{\tau^{-1}_y(x)}(y),x)
+%     % \]
+%     % and hence $\sigma_{\tau^{-1}_y(x)}(y)=\tau^{-1}_x(y)$. 
+%     This implies that
+%     \[
+%     \tau_x\circ\tau_{\tau^{-1}_x(y)}=\tau_x\circ\tau_{\sigma_{\tau^{-1}_y(x)}(y)}=\tau_y\circ\tau_{\tau^{-1}_y(x)},
+%     \]
+%     which turns out to be equivalent to
+%     \[
+%     \tau^{-1}_{\tau^{-1}_x(y)}\circ\tau^{-1}_x=\tau^{-1}_{\tau^{-1}_y(x)}\circ\tau^{-1}_y
+%     \]
+%     and hence equivalent to Equality~\eqref{eq:cycle_set}. 
+    
+%     Conversely, if $X$ is a non-degenerate cycle set, we want to prove that
+%     \[
+%     r(x,y)=((y*x)\cdot y,y*x),
+%     \]
+%     where $y*x=z$ if and only if $y\cdot z=x$, is an involutive solution. The definition of $r$ implies that
+%     $r^2=\id_{X\times X}$. 
+%     By Lemma~\ref{lem:YB}, we need to prove that
+%     \begin{align*}
+%         &\sigma_x\circ\sigma_y = \sigma_{\sigma_x(y)}\circ\sigma_{\tau_y(x)},&
+%         &\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y)=\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y),&
+%         &\tau_z\circ\tau_y=\tau_{\tau_z(y)}\circ\tau_{\sigma_y(z)}
+%     \end{align*}
+ 
+%     Write $\sigma_x(y)=(y*x)\cdot y$ and $\tau_y(x)=y*x$. 
+%     We know that the third formula is equivalent to~\eqref{eq:cycle_set}. 
+%     Let $T\colon X\to X$, $x\mapsto x\cdot x$. By assumption, $T$ is bijective and hence 
+%     $T^{-1}\circ \tau^{-1}_x\circ T=\sigma_x$ for all $x\in X$, since by Lemma~\ref{lem:T_forCS}
+%         \begin{align*}
+%     \tau_x^{-1}T(y)&=\tau_x^{-1}(y\cdot y)=x\cdot (y\cdot y)\\
+%     &=((y*x)\cdot y)\cdot ((y*x)\cdot y)=T((y*x)\cdot y)=T\sigma_x(y)
+%     \end{align*}
+%     for all $x,y\in X$. In particular, $(X,r)$ is non-degenerate. 
+%     Moreover, 
+%     \begin{align*}
+%     \sigma_x\circ\sigma_y
+%     &=(T^{-1}\circ\tau_x^{-1}\circ T)\circ (T^{-1}\circ\tau_y^{-1}\circ T)\\
+%     &=T^{-1}\circ (\tau_y\circ\tau_x)^{-1}\circ T\\
+%     &=T^{-1}\circ (\tau_{\tau_y(x)}\circ\tau_{\sigma_x(y)})^{-1}\circ T\\
+%     &=(T^{-1}\circ\tau^{-1}_{\sigma_x(y)}\circ T)\circ (T^{-1}\circ\tau^{-1}_{\tau_y(x)}\circ T)\\
+%     &=\sigma_{\sigma_x(y)}\circ\sigma_{\tau_y(x)}
+% \end{align*}
+% for all $x,y\in X$. Finally, Equality~\eqref{eq:cycle_set} can be written as
+% \[
+% \tau^{-1}_{\tau^{-1}_v(u)}\circ\tau^{-1}_v=\tau^{-1}_{\tau^{-1}_u(v)}\circ\tau^{-1}_u.
+% \]
+% With $u=\tau_z\tau_y(x)$ and $v=z$, it becomes
+% \[
+% \tau^{-1}_{\tau_y(x)}\circ\tau^{-1}_z
+% =\tau^{-1}_{\tau^{-1}_{\tau_z\tau_y(x)}(z)}\circ\tau^{-1}_{\tau_z\tau_y(x)}
+% =\tau^{-1}_{\sigma_{\tau_y(x)}(z)}\circ\tau^{-1}_{\tau_z\tau_y(x)},
+% \]
+% where the last equality holds $r^2=\id_{X\times X}$. 
+% Using Lemma~\ref{lem:YB} one rewrites this formula as
+% \[
+% \tau_{\sigma_{\tau_y(x)}(z)}\circ\tau^{-1}_{\tau_y(x)}
+% =\tau^{-1}_{\tau_z\tau_y(x)}\circ\tau_z
+% =\tau^{-1}_{\tau_{\tau_z(y)}\tau_{\sigma_y(z)}(x)}\circ\tau_z.
+% \]
+% Evaluating this equality at $y$, 
+% \[
+% \tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y)=\tau_{\sigma_{\tau_y(x)}(z)}\tau^{-1}_{\tau_y(x)}(y)
+% =\tau^{-1}_{\tau_{\tau_z(y)}\tau_{\sigma_y(z)}(x)}\tau_z(y)
+% =\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y).\qedhere
+% \]
+% \end{proof}
+
+For the readers who are not familiar with the above-mentioned result, 
+the bijective correspondence is given by 
+\[
+r(x,y)=(x*y,(x*y)\cdot x),
+\]
+where $x*y=z$ if and only if $x\cdot z=y$. We leave the proof for the reader, see 
+Exercise~\ref{prob:CS}. However, we will prove a more 
+general result in Theorem~\ref{thm:skewCS}. 
+
+Theorem~\ref{thm:CS} can be used to construct and enumerate small 
+involutive solutions~\cite{AMV}. Table~\ref{tab:IYB} shows the 
+number of non-isomorphic involutive solutions of size $\leq10$. 
+For size $\leq7$ the numbers of Table~\ref{tab:IYB} coincide with those in~\cite{MR1722951}
+but differ by two for $n=8$, as two solutions of size eight 
+are missing in~\cite{MR1722951}. 
+
+\begin{table}[H]
+%\centering
+\caption{Involutive solutions of size $\leq10$.}
+\begin{tabular}{|r|ccccccccc|}
+\hline
+$n$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\tabularnewline
+\hline 
+solutions & 2 & 5 & 23 & 88 & 595 & 3456 & 34530 & 321931 & 4895272\tabularnewline
+% square-free & 1 & 2 & 5 & 17 & 68 & 336 & 2041 & \cellcolor{gray!30}{15534} & \cellcolor{gray!30}{150957}\tabularnewline
+% indecomposable & 1 & 1 & 5 & 1 & 10 & 1 & \cellcolor{gray!30}{100} & \cellcolor{gray!30}{16} & \cellcolor{gray!30}{36}\tabularnewline
+% multipermutation & 2 & 5 & 21 & 84 & 554 & 3295 & \cellcolor{gray!30}{32155} & \cellcolor{gray!30}{305916} & \cellcolor{gray!30}{4606440}\tabularnewline
+% irretractable & 0 & 0 & 2 & 4 & 9 & 13 & 191 & \cellcolor{gray!30}{685} & \cellcolor{gray!30}{3590}\tabularnewline
+\hline
+\end{tabular}
+\label{tab:IYB}
+\end{table}
+
+
+
+% \begin{definition}
+% \index{Solution!permutation group}
+% The \emph{permutation group} of a solution $(X,r)$ is the group
+% \[
+% \mathcal{G}(X,r)=\langle (\sigma_x,\widehat{\sigma_x}):x\in X\rangle\subseteq\Sym_X\times\Sym_X.
+% \]
+% \end{definition}
+
+% \index{Solutions!linear involutive}
+% Let us finish the chapter with the family of affine involutive solutions. Let $A$ be an abelian group and
+% $a,b,c,d\in\colon A\to A$ be group homomorphisms. If 
+% \[
+% r(x,y)=(a(x)+b(y),c(x)+d(y))
+% \]
+% is bijective and $(A,r)$ is an solution involutive solution, then $(A,r)$ is an \emph{linear solution}.
+% Note that $r$ satisfies the YBE if and only if
+% \begin{subequations}
+% \begin{gather}
+% \label{eq:linear}
+% (\id-a)\circ d\circ b=b\circ d,
+% \quad
+% d\circ(\id-d)=c\circ d\circ b,\\
+% c\circ d\circ (\id-a)=d\circ c,
+% \quad
+% a\circ(\id-a)=b\circ a\circ c,
+% \quad
+% c\circ a=(\id-d)\circ a\circ c,\\
+% a\circ b=b\circ a\circ (\id-d),
+% \quad
+% c\circ b-b\circ c=a\circ d\circ a-d\circ d.
+% \end{gather}
+% \end{subequations}
+% Moreover, $r^2=\id$ if and only if
+% \begin{align}
+%     &a\circ a+b\circ c=\id,
+%     &&
+%     c\circ b+d\circ d=\id,
+%     &&
+%     a\circ b+b\circ d=0,
+%     &&
+%     c\circ a+d\circ c=0.
+% \end{align}
+% \end{equation}
+
+\section*{Exercises}
+
+\begin{prob}
+\label{prob:Wada}
+Let $G$ be a group. Prove that $r(x,y)=(xy^{-1}x^{-1},xy^2)$ 
+is involutive if and only if $x^2=1$ for all $x\in G$. 
+\end{prob}
+
+\begin{prob}
+Prove that if $(X,r)$ be a solution...? \framebox{FIXME}
+\end{prob}
+
+\begin{prob}
+\label{prob:cycle_sets}
+Prove that the category of non-degenerate 
+cycle sets and the category of solutions are equivalent. 
+\end{prob}
+
+\begin{prob}
+\label{prob:Rump}
+Prove Proposition~\ref{pro:Rump}. 
+\end{prob}
+
+\begin{prob}
+If $X$ is a cycle set, then $x\cdot (y\cdot y)=((y*x)\cdot y)\cdot ((y*x)\cdot y)$, where
+$y*x=z$ if and only if $y\cdot z=x$. 
+\end{prob}
+
+\begin{prob}
+\label{prob:CS}
+Prove Theorem~\ref{thm:CS}. 
+\end{prob}
+
+\begin{prob}
+\label{prob:perm_group}
+Let $(X,r)$ be a solution. Prove that $\mathcal{G}(X,r)\simeq\langle (\sigma_x,\tau^{-1}_x):x\in X\rangle$. 
+\end{prob}
+
+\section*{Open problems}
+
+\begin{problem}
+Construct and enumerate involutive solutions of size $11$. 
+\end{problem}
+
+\begin{problem}
+Estimate the number of solutions of size $n$ for $n\to\infty$. 
+\end{problem}
+
+\section*{Notes}
+
+\index{Gateva--Ivanova, T.}
+\index{Van den Bergh, M.}
+The first papers where set-theoretic solutions are studied are those of Etingof, Schedler and Soloviev~\cite{MR1722951} 
+and Gateva--Ivanova and Van den Bergh~\cite{MR1637256}. Both papers deal with non-degenerate involutive solutions. 
+
+\index{Rump, W.}
+\index{Drinfeld, V.}
+\index{Wada, M.}
+\index{Lyubashenko, V.}
+In~\cite{MR1183474}, Drinfeld attributes Example~\ref{exa:Lyubashenko} to 
+Lyubashenko. Example~\ref{exa:Wada} 
+appears in the work of Wada~\cite{MR1167178}. Proposition~\ref{pro:Rump} 
+was proved by Rump~\cite{MR2278047}. 
+%a similar example appears in the appendix of~\cite{MR1722951}. 
+
+\index{Lu, J--H.}
+\index{Yan, M.}
+\index{Zhu, Y--C.}
+\index{Etingof, P.}
+\index{Schedler, T.}
+\index{Soloviev, A.}
+Theorem~\ref{thm:LYZ} goes back to Lu, Yan and Zhu, see~\cite{MR1769723}.
+Similar results can be found in the work of Etingof, Schedler and Soloviev~\cite{MR1722951} for involutive solutions and 
+in Soloviev's paper~\cite{MR1809284}. 
+
+Rump introduced cycle sets in~\cite{MR2132760}. The bijective correspondence of 
+Theorem~\ref{thm:CS} was 
+also proved by Rump in~\cite{MR2132760}. A similar result can be 
+found in~\cite[Proposition 2.2]{MR1722951}. 
+
+The numbers of Table~\ref{tab:IYB} were computed in~\cite{AMV}
+using a combination of~\cite{GAP4} and constraint programming techniques. 
+The algorithm is based on an idea of Plemmons~\cite{MR0258994}, originally 
+conceived to construct non-isomorphic semigroups.  

@@ -1,0 +1,474 @@
+\chapter{The structure group of a solution}
+
+The following definition
+first appeared in~\cite{MR1722951}. % for involutive solutions. 
+%MR1769723,MR1809284}
+
+\begin{definition}
+\index{Solution!structure group}
+The \emph{structure group} $G(X,r)$ of $(X,r)$ is defined 
+as the group with generators $x\in X$ and relations
+\[
+xy=uv\quad\text{whenever $r(x,y)=(u,v)$}.
+\]
+\end{definition}
+
+We write $\iota_G\colon X\to G(X,r)$ to denote the canonical map. This map is not necessarily injective.
+
+\begin{example}
+    Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma(y),\tau(x))$, where $\sigma=(12)$ and $\tau=(34)$. Then $(X,r)$ is a solution. 
+    The structure group $G(X,r)$ has generators $x_1,x_2,x_3,x_4$ and relations
+    \begin{align*}
+        &x_1^2=x_2^2=x_1x_2=x_2x_1, 
+        && x_1x_3=x_3x_1=x_4x_2=x_2x_4,\\
+        & x_3^2=x_4^2=x_3x_4=x_4x_3,
+        && x_1x_4=x_4x_1=x_2x_3=x_3x_2.
+    \end{align*}
+    % \[
+    % G(X,r)=\langle x_1,x_2,x_3,x_4:x_1^2=x_2^2=x_1x_2=x_2x_1,\,\rangle.
+    % \]
+    % Note that $i_G(i)=x_i$ for all $i\in\{1,2,3,4\}$. 
+    Since in the structure group $G(X,r)$ one has $x_1x_2=x_{\sigma(2)}x_{\tau(1)}=x_1^2$, it follows that
+    $\iota_G(1)=x_1=x_2=\iota_G(2)$. Hence $\iota_G$ is not injective.
+\end{example}
+
+\begin{lemma}
+Let $(X,r)$ be a solution. 
+The map $\sigma\colon X\to\Sym_X$ induces a unique group homomorphism 
+$G(X,r)\to\Sym_X$ such that $\sigma_{\iota_G(x)}(y)=\sigma_x(y)$ for all $x,y\in X$. 
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{definition}
+\index{Solution!derived group}
+The \emph{derived group} $A(X,r)$ of $(X,r)$ is defined 
+as the additive group with generators $x\in X$ and relations
+\[
+x+u=u+\sigma_u(v)
+%\sigma_x(y)=\sigma_x(y)+\sigma_{\sigma_x(y)}\tau_y(x)
+\quad\text{whenever $r(x,y)=(u,v)$}.
+\]
+\end{definition}
+
+We write $\iota_A\colon X\to A(X,r)$ to denote the canonical map. This map is not necessarily injective.
+The group $A(X,r)$ is in general not commutative. 
+
+% \begin{lemma}
+% Let $(X,r)$ be a solution. 
+% The map $\sigma\colon X\to\Sym_X$ induces an action
+% of $G(X,r)$ on $A(X,r)$ by automorphisms. 
+% \end{lemma}
+
+\begin{lemma}
+\label{lem:sigma}
+Let $(X,r)$ be a solution. 
+For each $z\in X$ the 
+map $\sigma_z\colon X\to A(X,r)$ induces a unique group homomorphism $A(X,r)\to A(X,r)$ such that
+the diagram
+% \[
+% \xymatrix{
+%  X
+%  \ar[d]_{\iota_A}
+%  \ar[r]^-{\sigma_z}
+%  & X
+%  \ar[d]^{\iota_A}
+%  \\
+%  A(X,r)
+%  \ar@{-->}[r]
+%  & A(X,r)
+%  }
+% \]
+commutes.
+\end{lemma}
+
+\begin{proof}
+% We want to demonstrate that the map $\sigma$ induces a group homomorphism $G(X,r)\to\Aut(A(X,r))$ 
+% such that $\sigma_{\iota_G(x)}(y)=\iota_A(\sigma_x(y))$ for all $x,y\in X$. First we note
+% that, since
+% $\sigma_x\circ \sigma_y=\sigma_u\circ\sigma_v$ whenever $r(x,y)=(u,v)$, 
+% the map $X\to\Sym_X$, $x\mapsto\sigma_x$, induces a unique 
+% group homomorphism $G(X,r)\to\Sym_X$ such that $\sigma_{\iota_G(x)}(y)=\sigma_x(y)$ for all $x,y\in X$. 
+To see that the map $\iota_A\circ\sigma_z\colon X\to A(X,r)$ extends to a unique group homomorphism
+$A(X,r)\to A(X,r)$ we need to check that 
+\[
+\sigma_z(x)+\sigma_z\sigma_x(y)=\sigma_z\sigma_x(y)+\sigma_z\sigma_{\sigma_x(y)}\tau_y(x)
+\]
+for all $x,y\in X$. Using the first equality of Lemma~\ref{lem:YB} we compute
+\begin{align*}
+    \sigma_z\sigma_x(y)+\sigma_z\sigma_{\sigma_x(y)}\tau_y(x) &= 
+    \sigma_z\sigma_x(y)+\sigma_{\sigma_z\sigma_x(y)}\sigma_{\tau_{\sigma_x(y)}(z)}\tau_y(x)\\
+    &=\sigma_{\sigma_z(x)}\sigma_{\tau_x(z)}(y)+\sigma_{\sigma_{\sigma_z(x)}\sigma_{\tau_x(z)}(y)}\tau_{\sigma_{\tau_x(z)}(y)}\sigma_z(x),
+\end{align*}
+where we have used the second and third formulas of Lemma~\ref{lem:YB}. The defining relation 
+\[
+a+\sigma_a(b)=\sigma_a(b)+\sigma_{\sigma_a(b)}\tau_b(a)
+\]
+of the group $A(X,r)$ with $a=\sigma_z(x)$ and $b=\sigma_{\tau_x(z)}(y)$ and the first equality of Lemma~\ref{lem:YB} yield
+\[
+\sigma_z\sigma_x(y)+\sigma_z\sigma_{\sigma_x(y)}\tau_y(x)
+=\sigma_z(x)+\sigma_{\sigma_z(x)}\sigma_{\tau_x(z)}(y)
+=\sigma_z(x)+\sigma_z\sigma_x(y),
+\]
+which proves the claim. 
+\end{proof}
+
+\begin{lemma}
+\label{lem:sigma_inverse}
+Let $(X,r)$ be a solution. 
+For each $z\in X$ the 
+map $\sigma_z^{-1}\colon X\to A(X,r)$ induces a unique 
+group homomorphism $A(X,r)\to A(X,r)$ such that
+the diagram
+\[
+\xymatrix{
+ X
+ \ar[d]_{\iota_A}
+ \ar[r]^-{\sigma^{-1}_z}
+ & X
+ \ar[d]^{\iota_A}
+ \\
+ A(X,r)
+ \ar@{-->}[r]
+ & A(X,r)
+ }
+\]
+commutes. 
+\end{lemma}
+
+\begin{proof}
+We need to prove that 
+\[
+\sigma^{-1}_z(x)+\sigma^{-1}_z\sigma_x(y)=\sigma^{-1}_z\sigma_x(y)+\sigma^{-1}_z\sigma_{\sigma_x(y)}\tau_y(x)
+\]
+for all $x,y\in X$. The linking condition
+\[
+\tau_{\sigma_{\tau_v(u)}(w)}\sigma_u(v)=
+\sigma_{\tau_{\sigma_v(w)}(u)}\tau_w(v)
+\]
+with $u=c$, $v=a$ and $w=\sigma^{-1}_{\tau_v(u)}(b)$ yields
+\begin{equation}
+\label{eq:mmm1}
+%\[
+    \tau_b\sigma_c(a)=\sigma_{\tau_{\sigma_a\sigma^{-1}_{\tau_a(c)}(b)}(c)}\tau_{\sigma^{-1}_{\tau_a(c)}(b)}(a)=
+    \sigma_{\tau_{\sigma^{-1}_c\sigma_{\sigma_c(a)}(b)}(c)}\tau_{\sigma^{-1}_{\tau_a(c)}(b)}(a),
+\end{equation}
+% which is equivalent to 
+% \begin{equation}
+% \label{eq:mmm}
+% \tau_b\sigma_c(a)=
+% \sigma_{\tau_{\sigma^{-1}_c\sigma_{\sigma_c(a)}(b)}(c)}\tau_{\sigma^{-1}_{\tau_a(c)}(b)}(a),
+% \end{equation}
+as $\sigma_{\sigma_c(a)}\sigma_{\tau_a(c)}=\sigma_c\sigma_a$ by the first equality of Lemma~\ref{lem:YB}. 
+With $a=\sigma^{-1}_c(x)$, $b=y$ and $c=z$, 
+Equality~\eqref{eq:mmm1} can be written as 
+\begin{equation}
+\label{eq:mmm2}
+\sigma^{-1}_{\tau_{\sigma^{-1}_z\sigma_x(y)}(z)}\tau_y(x)
+=\tau_{\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)}\sigma^{-1}_z(x).
+\end{equation}
+Using the first equality of Lemma~\ref{lem:YB} we obtain
+\begin{equation}
+    \label{eq:mmm3}
+    \sigma_z^{-1}\circ\sigma_x=\sigma_{\sigma^{-1}_z(x)}\circ\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}.
+\end{equation}
+Then we compute
+\begin{align*}
+    \sigma^{-1}_z\sigma_x(y)+\sigma^{-1}_z\sigma_{\sigma_x(y)}\tau_y(x)
+    &= \sigma^{-1}_z\sigma_x(y)+\sigma_{\sigma^{-1}_z\sigma_x(y)}\sigma^{-1}_{\tau_{\sigma^{-1}_z\sigma_x(y)}(z)}\tau_y(x).
+\end{align*}
+Formulas~\eqref{eq:mmm2} and~\eqref{eq:mmm3} allow us 
+us to write this formula as
+\begin{align*}
+\sigma^{-1}_z\sigma_x(y)&+\sigma^{-1}_z\sigma_{\sigma_x(y)}\tau_y(x)\\
+&=\sigma^{-1}_z\sigma_x(y)+\sigma_{\sigma^{-1}_z\sigma_x(y)}\tau_{\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)}\sigma^{-1}_z(x)\\
+&=\sigma_{\sigma^{-1}_z(x)}\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)+
+\sigma_{\sigma_{\sigma^{-1}_z(x)}\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)}\tau_{\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)}\sigma^{-1}_z(x).
+\end{align*}
+Equality~\eqref{eq:mmm3} and 
+the defining relation 
+\[
+a+\sigma_a(b)=\sigma_a(b)+\sigma_{\sigma_a(b)}\tau_b(a)
+\]
+of the group $A(X,r)$ with $a=\sigma^{-1}_z(x)$ and $b=\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)$ 
+imply that 
+\begin{align*}
+\sigma^{-1}_z\sigma_x(y)+\sigma^{-1}_z\sigma_{\sigma_x(y)}\tau_y(x)
+&=\sigma^{-1}_z(x)+\sigma_{\sigma^{-1}_z(x)}\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)\\
+&=\sigma^{-1}_z(x)+\sigma_z^{-1}\sigma_x(y).\qedhere
+\end{align*}
+\end{proof}
+
+\begin{proposition}
+\label{pro:lambda}
+Let $(X,r)$ be a solution. 
+% The map $\sigma\colon X\to\Sym_X$, $x\mapsto\sigma_x$, induces an action
+% of $G(X,r)$ on $A(X,r)$ by automorphisms. 
+The map $\sigma\colon X\to\Sym_X$, $x\mapsto\sigma_x$, induces a unique group 
+homomorphism $\lambda\colon G(X,r)\to\Aut(A(X,r))$ such that 
+\[
+\lambda_{\iota_G(x)}(\iota_A(y))=\iota_A(\sigma_x(y))
+\]
+for all $x,y\in X$. 
+\end{proposition}
+
+\begin{proof}
+By Lemma~\ref{lem:sigma}, the map $x\mapsto\sigma_x$ induces a unique group homomorphism...
+
+Since the identity $\id_{A(X,r)}$ is the unique map 
+that makes the diagram
+\[
+\xymatrix{
+ X
+ \ar[d]_{\iota_A}
+ \ar@{=}[r]
+ & X
+ \ar[d]^{\iota_A}
+ \\
+ A(X,r)
+ \ar@{-->}[r]
+ & A(X,r)
+ }
+\]
+commutative, it follows that the maps from Lemmas~\ref{lem:sigma} 
+and~\ref{lem:sigma_inverse} are mutually inverse. This means
+that each $\sigma_x$ induces an automorphism $\lambda_x$ 
+of $A(X,r)$. The map $X\to A(X,r)$, $x\mapsto\lambda_x$, 
+induces a group homomorphism $G(X,r)\to\Aut(A(X,r))$ because
+\[
+\lambda_x\circ\lambda_y=\lambda_{\sigma_x(y)}\circ\lambda_{\tau_y(x)}
+\]
+for all $x,y\in X$... 
+\end{proof}
+
+We shall need some technical lemmas.
+
+\begin{lemma}
+Let $G$ be a multiplicative group that acts by automorphism on an additive 
+group $A$. If $\pi\colon G\to A$ is a 1-cocycle, then
+\begin{equation}
+\label{eq:1cocycle_1}
+    \pi(g^{-1})=g^{-1}\cdot (-\pi(g)).
+%    \pi(g^{-1})=g^{-1}\cdot (\pi(g))^{-1}.
+\end{equation}
+Moreover, if 
+$g=g_1^{\epsilon_1}g_2^{\epsilon_2}\cdots g_k^{\epsilon_k}$ for some $\epsilon_1,\dots,\epsilon_k\in\{-1,1\}$, then 
+\begin{align}
+\label{eq:1cocycle_2}
+\pi(g)=\sum_{j=1}^k\epsilon_j(x_j\cdot \pi(g_j)),
+%\pi(g)=(x_1\cdot \pi(g_1))^{\epsilon_1}(x_2\cdot\pi(g_2))^{\epsilon_2}\cdots (x_k\cdot\pi(g_k))^{\epsilon_k},
+\end{align}
+where 
+\[
+x_j=\begin{cases}
+g_1^{\epsilon_1}\cdots g_{j-1}^{\epsilon_{j-1}} & \text{if $\epsilon_j=1$},\\
+g_1^{\epsilon_1}\cdots g_{j}^{\epsilon_{j}} & \text{if $\epsilon_j=-1$}.
+\end{cases}
+\]
+\end{lemma}
+
+\begin{proof}
+\framebox{Additive notation!}
+Let us first prove~\eqref{eq:1cocycle_1}. Since $\pi(1)=0$, the cocycle condition implies that 
+\[
+0=\pi(1)=\pi(gg^{-1})=\pi(g)+(g\cdot \pi(g^{-1}))
+\]
+for all $g\in G$. From this~\eqref{eq:1cocycle_1} follows.
+%that $\pi(g^{-1})=g^{-1}\cdot (\pi(g)^{-1})$ for all $g\in G$. 
+
+To prove~\eqref{eq:1cocycle_2} we proceed by induction on $k$. 
+The case $k=1$ is trivial because of~\eqref{eq:1cocycle_1}. Assume now the result holds for some $k\geq1$. 
+Then 
+\begin{align*}
+\pi(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k}g_{k+1}^{\epsilon_{k+1}})
+&=\pi(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k})(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k}\cdot \pi(g_{k+1}^{\epsilon_{k+1}})).
+\end{align*}
+If $\epsilon_{k+1}=-1$, then Equality~\eqref{eq:1cocycle_1} implies that
+\begin{align*}
+\pi(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k}g_{k+1}^{\epsilon_{k+1}})
+&=\pi(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k})(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k}\cdot \pi(g_{k+1}^{-1}))\\
+&=\pi(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k})(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k}g_{k+1}^{-1}\cdot (\pi(g_{k+1})^{-1}))\\
+&=\pi(g_1^{\epsilon_1}\cdots g_k^{\epsilon_k})(x_{k+1}\cdot \pi(g_{k+1}))^{-1}
+\end{align*}
+because $G$ acts on $A$ by automorphisms. Then the claim follows from 
+the inductive hypothesis. The case $\epsilon_{k+1}=1$ is similar. 
+\end{proof}
+
+% If $(X,r)$ is finite involutive, the group $G(X,r)$ is torsion-free~\cite{MR1637256}. Moreover, $G(X,r)$ 
+% is a Garside group~\cite{MR2764830}; see~\cite{MR3374524} or~\cite{MR3824447} for other proofs. 
+
+% If $(X,r)$ is involutive, its \emph{permutation group} is the group
+% $\mathcal{G}(X,r)$ generated by the permutations $\sigma_x$ for $x\in X$. 
+% Clearly, $\mathcal{G}(X,r)$ acts on $X$ and 
+% $\mathcal{G}(X,r)$ is finite if $X$ is finite. 
+% The permutation group of a non-involutive solution was defined by Soloviev in~\cite{MR1809284}.
+
+In general, given any map $\pi\colon X\to A$, we can use~\eqref{eq:1cocycle_1} and~\eqref{eq:1cocycle_2} of the above lemma 
+to extend $\pi$ to a 1-cocycle $F(X)\to A$, where $F(x)$ is the free group on $X$.
+
+\begin{lemma}
+\label{lem:HEO}
+Let $G$ be a multiplicative group and $A$ be an additive group. 
+Assume $G$ has a presentation $G=\langle X:R\rangle$. A map $\pi\colon X\to A$ extends to a 1-cocycle
+$G\to A$ if and only if $\pi(w)=0$ for all $w\in R$, where 
+$\pi\colon F(X)\to A$ is defined by~\eqref{eq:1cocycle_1} and~\eqref{eq:1cocycle_2}.
+\end{lemma}
+
+\begin{proof}
+See~\cite[Theorem 2.78]{MR2129747}.
+\end{proof}
+
+\begin{lemma}
+    Let $(X,r)$ be a solution. The map $U\colon \iota_G$...
+\end{lemma}
+
+\begin{proof}
+
+\end{proof}
+
+The main result of this chapter is the following theorem. 
+
+\begin{theorem}
+    \label{thm:G->A}
+    Let $(X,r)$ be a solution. The map $X\to A(X,r)$, $x\mapsto\iota_A(x)$ 
+    extends to a bijective 1-cocycle $G(X,r)\to A(X,r)$.
+\end{theorem}
+
+\begin{proof}
+    Let $\lambda\colon G(X,r)\to\Aut(A(X,r))$ be the group homomorphism of Proposition~\ref{pro:lambda}. 
+    We want to extend the map $X\to A(X,r)$, $x\mapsto\iota_A(x)$, to a 1-cocycle $G(X,r)\to A(X,r)$, 
+    where $G(X,r)$ acts on $A(X,r)$ by the automorphism  
+    $\lambda$. By Lemma~\ref{lem:HEO}, it is enough to check that
+    \[
+        \pi( (xy)^{-1}\sigma_x(y)\tau_y(x)) = 0
+    \]
+    for all $x,y\in X$, where $\pi\colon F(X)\to A(X,r)$, $x\mapsto\iota_A(x)$. Let $x,y\in X$. By~\eqref{eq:1cocycle_2},
+    \[
+    \pi(xy)=\pi(x)+\lambda_x\pi(y)=...
+    \]
+    It follows that 
+    \begin{align*}
+        \pi( (xy)^{-1}\sigma_x(y)\tau_y(x)) 
+        &= \pi( (xy)^{-1})+\lambda_{(xy)^{-1})}\pi(\sigma_x(y)\tau_y(x))\\
+        &= \pi( (xy)^{-1})+\lambda_{(xy)^{-1})}\pi(xy)\\
+        &= 0
+    \end{align*}
+    by~\eqref{eq:1cocycle_1}...
+    
+    It remains to prove that $\pi$ is bijective...
+\end{proof}
+
+\begin{corollary}
+    Let $(X,r)$ be a solution. Then $\iota_G\colon X\to G(X,r)$ is injective 
+    if and only if $\iota_A\colon A\to A(X,r)$ is injective. In particular, 
+    if $(X,r)$ is involutive, then $\iota_G$ is injective. 
+\end{corollary}
+
+\begin{proof}
+    Let $\pi\colon G(X,r)\to A(X,r)$ be the bijective 1-cocycle of 
+    Theorem~\ref{thm:G->A}. The first claim follows because 
+    $\pi\circ \iota_G=\iota_A$. To prove the second claim note that if $(X,r)$ is involutive, then 
+    $\iota_A$ is injective because $A(X,r)$ is the free abelian group on $X$. 
+\end{proof}
+
+Theorem~\ref{thm:1cocycle} is the key of the following classification result.
+
+\begin{theorem}
+\label{thm:G(X,r)} 
+    Let $(X,r)$ be a solution. There exists a unique brace 
+    structure over $G(X,r)$ such
+    that the diagram
+    \[
+    \xymatrix{
+    X\times X
+    \ar[d]_{\iota_G\times\iota_G}
+    \ar[r]^r
+    & X\times X
+    \ar[d]^{\iota_G\times\iota_G}
+    \\
+    G(X,r)\times G(X,r)
+    \ar[r]_{r_{G(X,r)}}
+    & G(X,r)\times G(X,r)
+    }
+    \]
+    is commutative. 
+    % \[ 
+    % r_{G(X,r)}\circ (\iota\times\iota)=(\iota\times\iota)\circ r.  
+    % \]
+    Furthermore, if $B$ is a brace and $f\colon X\to B$ is a map such
+    that 
+    \[
+    \xymatrix{
+    X\times X
+    \ar[d]_{f\times f}
+    \ar[r]^r
+    & X\times X
+    \ar[d]^{f\times f}
+    \\
+    B\times B
+    \ar[r]_{r_{B}}
+    & B\times B
+    }
+    \]
+    is commutative, 
+    %$(f\times f)\circ r=r_B\circ (f\times f)$, 
+    then there exists a unique brace
+    homomorphism $\phi\colon G(X,r)\to B$ such that $f=\phi\circ \iota$ and
+    $(\phi\times\phi)\circ r_{G(X,r)}=r_B\circ (\phi\times\phi)$.  
+\end{theorem}
+
+\begin{proof} 
+    By Theorem~\ref{thm:G->A} there exists a bijective 1-cocycle $G(X,r)\to A(X,r)$. Now Theorem~\ref{thm:1cocycle}
+    implies that $G(X,r)$ is a brace with additive group isomorphic to $A(X,r)$ and multiplicative group $G(X,r)$. 
+    It remains to prove that 
+    \[
+        \phi(gh)=\phi(g)\phi(h)
+    \]
+    for all $g,h\in G(X,r)$. 
+    Write $\lambda_B=\mu$. Since $\phi(\lambda_g(h))=\mu_{\phi(g)}\phi(h)$, 
+    \begin{align*}
+        \phi(gh)&=\phi(g\circ\lambda^{-1}_g(h))
+        =\phi(g)\circ \phi(\lambda_g^{-1}(h))
+        =\phi(g)\circ\mu^{-1}_{\phi(g)}\phi(h)
+        =\phi(g)\phi(h).
+    \end{align*}
+    From this the claim follows...
+\end{proof}
+
+For involutive solutions we obtain several corollaries.
+
+\begin{corollary}
+    Let $(X,r)$ be an involutive solution. Then $G(X,r)$ admits a faithful linear representation
+    given by...
+\end{corollary}
+
+\begin{proof}
+
+\end{proof}
+
+\begin{example}
+...
+\end{example}
+
+\section*{Exercises}
+
+\section*{Notes}
+
+Theorem...
+
+\index{Etingof, P.}
+\index{Soloviev, A.}
+\index{Schedler, T.}
+\index{Takeuchi, M.}
+\index{Lebed, V.}
+Theorem~\ref{thm:G(X,r)} 
+was first proved by Etingof, Schedler and Soloviev for involutive solutions~\cite{MR1722951}. For arbitrary 
+solutions, Theorem~\ref{thm:G(X,r)} was proved 
+independently by Lu, Yan and Zhu~\cite{MR1769723} and by Soloviev~\cite{MR1809284}. 
+In the language of braided groups the theorem also appears
+in Takeuchi's paper~\cite{MR2024436}. A different proof based on properties of the guitar map appears
+in~\cite{MR3558231}. 
+% is~\cite[Theorem 9]{MR1769723} in the language of skew
+% braces, see also~\cite[Theorem 2.7]{MR1809284}. 

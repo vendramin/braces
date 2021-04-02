@@ -1,0 +1,1021 @@
+\chapter{Braces}
+
+% Braces were introduced by Rump in~\cite{MR2278047} to study set-theoretical involutive
+% solutions of the Yang--Baxter equation. The following definition of~\cite{MR3647970} 
+% generalizes braces to the non-involutive setting.
+
+By convention, an additive group $A$ will be a (not necessarily abelian) group 
+with binary operation $(a,b)\mapsto a+b$. The 
+identity of $A$ will be denoted by $0$ and the inverse of an element $a$ will be denoted by $-a$. 
+
+\begin{definition}
+    \label{def:brace}
+	\index{Brace}
+	\index{Brace!multiplicative group}
+	\index{Brace!additive group}
+	A \emph{brace} is a triple $(A,+,\circ)$, where $(A,+)$ and $(A,\circ)$ 
+	are (not necessarily abelian) 
+	groups and 
+	\begin{equation}
+	    \label{eq:compatibility}
+	    a\circ(b+c)=(a\circ b)-a+(a\circ c)
+	\end{equation}
+	holds for all $a,b,c\in A$, where $-a$ denotes the inverse of $a$ with
+	respect to the group structure given by $(a,b)\mapsto a+b$. The groups 
+	$(A,+)$ and $(A,\circ)$ are respectively 
+	the \emph{additive} and \emph{multiplicative} group
+	of the brace $A$.
+\end{definition}
+
+We write $a'$ to denote the inverse of $a$ with respect to the circle operation $\circ$. 
+
+Our definition is that of a left brace. Right braces are defined similarly, one needs 
+to replace~\eqref{eq:compatibility} by 
+\[
+(a+b)\circ c=a\circ c-c+b\circ c.
+\]
+There is a bijective correspondence between left and right braces, 
+see Exercise~\ref{prob:left_right}. For that reason, 
+a brace will always mean a left brace. 
+
+\begin{definition}
+    Let $\mathcal{X}$ be a property of groups. A brace $A$ is said to be
+    of $\mathcal{X}$-type if its additive group belongs to $\mathcal{X}$.
+\end{definition}
+
+One particularly interesting families of braces is the family of \emph{braces of abelian type}, 
+that is braces with abelian additive group. 
+Braces of abelian type were introduced by Rump in~\cite{MR2278047} to study involutive solutions to the Yang--Baxter equation. 
+In the literature, braces of abelian type are called \emph{left braces}. 
+
+\begin{example}
+	\label{exa:trivial}
+	\index{Brace!trivial}
+	Let $A$ be an additive group. Then $A$ is a brace with
+	$a\circ b=a+b$ for all $a,b\in A$. 
+	A brace $(A,+,\circ)$ such that $a\circ b=a+b$ for all $a,b\in A$ is
+    said to be \emph{trivial}. 
+	Similarly, the
+   operation $a\circ b=b+a$ turns $A$ into a brace. 
+\end{example}
+
+\begin{example}
+	\label{exa:times}
+	\index{Direct product!of braces}
+	Let $A$ and $B$ be braces. Then $A\times B$ with 
+	\[
+		(a,b)+(a_1,b_1)=(a+a_1,b+b_1),\quad
+		(a,b)\circ (a_1,b_1)=(a\circ a_1,b\circ b_1),
+	\]
+	is a brace. 
+\end{example}
+
+\begin{example}
+	\label{exa:sd}
+	Let $A$ and $M$ be additive groups and let $\alpha\colon A\to\Aut(M)$ be a
+	group homomorphism. Then $M\times A$ with 
+	\[
+	(x,a)+(y,b)=(x+y,a+b),
+	\quad
+	(x,a)\circ (y,b)=(x+\alpha_a(y),a+b)
+	\]
+	is a brace. Similarly, $M\times A$ with
+	\[
+	(x,a)+(y,b)=(x+\alpha_a(y),a+b),\quad
+	(x,a)\circ (y,b)=(x+y,b+a)
+	\]
+	is a brace. 
+\end{example}
+
+\begin{example}
+  \label{exa:s3c6}
+  Let $A=\Sym_3$ be the symmetric group in three letters. Write $A$ as an additive group. 
+  Let $\lambda\colon A\to\Sym_A$ 
+  be the map given by
+  \begin{align*}
+    &\lambda_{\id}=\lambda_{(123)}=\lambda_{(132)}=\id,\\
+    &\lambda_{(12)}=\lambda_{(23)}=\lambda_{(13)}=\text{conjugation by $(23)$}.
+  \end{align*}
+  It is easy to check that $\lambda_{a+\lambda_a(b)}=\lambda_a\lambda_b$
+  for all $a,b\in A$. Hence $A$ is a brace by Exercise~\ref{prob:equivalences}. 
+  Since the transposition $(12)$ has order
+  six in the multiplicative group of $A$, it follows that the additive group of $A$ is isomorphic to $\Sym_3$ and
+  the multiplicative group of $A$ is isomorphic to the cyclic group of order six. 
+\end{example}
+
+The following example is motivated by the paper~\cite{MR1178147}.
+
+\begin{example}
+    \label{exa:WX}
+    Let $A$ be an additive group
+	and $B$ and $C$ be subgroups of $A$ such that $A$ admits an \emph{exact
+	factorization} as $A=B+C$. Thus each $a\in A$ can be written in a unique
+	way as $a=b+c$ for some $b\in B$ and $c\in C$.  The map
+	\[
+		B\times C\to A,\quad
+		(b,c)\mapsto b-c,
+	\]
+	is bijective. Using this map we transport the group structure of the direct
+	product $B\times C$ into the set $A$. For $a=b+c\in A$ and
+	$a_1\in A$ let 
+	\begin{align*}
+		a\circ a_1&=b+a_1+c.
+	\end{align*}
+	Then $(A,\circ)$ is a group isomorphic to $B\times C$. Moreover, if $x,y\in A$, 
+	then 
+	\begin{align*}
+	a\circ x-a+a\circ y=b+x+c-(b+c)+b+y+c=b+x+y+c=a\circ (x+y)
+	\end{align*}
+	and therefore $(A,+,\circ)$ is a brace. 
+\end{example}
+
+% \begin{proof} The map $\eta\colon B\times C\to A$, $\eta(b,c)=bc^{-1}$, is
+%   bijective.  Since $\eta$ is bijective and $a\circ
+%   a'=\eta(\eta^{-1}(a)\eta^{-1}(a'))$, it follows that $(A,\circ)$ is a group
+%   isomorphic to the direct product $B\times C$. To prove that $A$ is a skew
+%   brace it remains to show~\eqref{eq:compatibility}. Let $a=bc\in BC$ and
+%   $a',a''\in A$. Then \begin{align*} (a\circ a')a^{-1}(a\circ a'')
+%     &=(ba'c)a^{-1}(ba''c)\\ &=ba'c(c^{-1}b^{-1})ba''c\\ &=ba'a''c\\ &=a\circ
+%     (a'a'').  \end{align*} This completes the proof.  \end{proof}
+
+We now give concrete examples of the previous construction. 
+
+\begin{example}
+  \label{exa:QR}
+  Let $n\in\N$.  The group $\GL(n,\C)$ admits an
+  exact factorization through the subgroups $U(n)$ and $T(n)$, where $U(n)$
+  is the unitary group and $T(n)$ is the group of upper triangular matrices
+  with positive diagonal entries.  Therefore there exists a brace with additive group 
+  isomorphic to $\GL(n,\C)$ and multiplicative group isomorphic to $U(n)\times T(n)$.  
+\end{example}
+
+The following examples appeared in the theory of Hopf--Galois 
+extensions, see~\cite[Corollary 1.1]{MR3425626}.
+
+\begin{example} 
+	\label{exa:a5a4c5}
+	The alternating simple group $\Alt_5$ admits an exact factorization
+  through the subgroups 
+  $A=\langle (123),(12)(34)\rangle\simeq\Alt_4$ and 
+  $B=\langle(12345)\rangle\simeq C_5$.  
+  There exists a brace with additive group isomorphic to $\Alt_5$ and multiplicative
+  group isomorphic to $\Alt_4\times C_5$. 
+\end{example}
+
+\begin{example} 
+	\label{exa:PSL27S4C7}
+  The simple group $\PSL(2,7)$ admits an exact factorization through
+  the subgroups $A\simeq\Sym_4$ and $B\simeq C_7$. 
+  There exists a brace with additive
+  group isomorphic to $\PSL(2,7)$ and multiplicative group isomorphic to 
+  $\Sym_4\times C_7$.  
+\end{example}
+
+\begin{lemma}
+    \label{lem:basic}
+	Let $A$ be a brace. Then the following properties hold:
+    \begin{enumerate}
+        \item $0=1$.  
+        \item $a\circ(-b+c)=a-(a\circ b)+(a\circ c)$ for all $a,b,c\in A$.
+        \item $a\circ(b-c)=(a\circ b)-(a\circ c)+a$ for all $a,b,c\in A$.
+    \end{enumerate}
+\end{lemma}
+
+\begin{proof}
+		The first claim follows from the compatibility condition~\eqref{eq:compatibility} with
+		$c=1$.  To prove the second claim let $d=b+c$.
+		Then~\eqref{eq:compatibility} becomes 
+		\[
+		a\circ d =a\circ b-a+a\circ (-b+d)
+		\]
+		and the claim follows. The third claim is
+		proved similarly.
+\end{proof}
+
+\begin{proposition}
+\label{pro:lambda}
+    Let $A$ be a brace. For each $a\in A$, the map
+    \[
+        \lambda_a\colon A\to A,\quad
+        b\mapsto -a+(a\circ b),
+    \]
+    is bijective. Moreover, the map 
+    $\lambda\colon (A,\circ)\to\Aut(A,+)$, $a\mapsto\lambda_a$, is a group homomorphism. 
+\end{proposition}
+
+\begin{proof}
+The inverse of $\lambda$ is given by $\lambda^{-1}_a\colon A\to A$, $b\mapsto a'\circ (a+b)$. To prove
+that $\lambda_a\in\Aut(A,+)$ we note that
+\[
+\lambda_a(b+c)=-a+a\circ(b+c)=-a+a\circ b-a+a\circ c=\lambda_a(b)+\lambda_a(c).
+\]
+To prove that $\lambda$ is a group homomorphism, we 
+use Lemma~\ref{lem:basic} to obtain
+\begin{align*}
+\lambda_a(\lambda_b(c))&=-a+a\circ (-b+b\circ c)\\
+&=-a+a\circ(-b)-a+a\circ (b\circ c)=-a\circ b+a\circ (b\circ c)=\lambda_{a\circ b}(c).\qedhere    
+\end{align*}
+\end{proof}
+
+If $A$ is a brace, 
+the map $\lambda$ is the previous proposition yields a left action from $(A,\circ)$ on $(A,+)$ by automorphisms. 
+There is also a right action $(A,\circ)$ on $(A,+)$ by automorphisms:
+
+\begin{proposition}
+\label{pro:mu}
+    Let $A$ be a brace. For each $a\in A$, the map
+    \[
+        \mu_a\colon A\to A,\quad
+        b\mapsto \lambda_a(b)'\circ a\circ b,
+    \]
+    is bijective. Moreover, the map 
+    $\mu\colon (A,\circ)\to\Sym_A$, $a\mapsto\mu_a$, satisfies $\mu_b\circ\mu_a=\mu_{a\circ b}$ for all $a,b\in A$. 
+\end{proposition}
+
+\begin{proof}
+    Let $a,b,c\in A$. To prove that $\mu$ is a brace anti-homorphism, we compute
+    \begin{align*}
+    &\mu_{b\circ a}(c)=\lambda_c((b\circ a)'\circ c\circ b\circ a)
+    \shortintertext{and}
+    &\mu_a\mu_b(c)=\mu_a(\lambda_c(b)'\circ c\circ b)
+    =\lambda_{\lambda_c(b)'\circ c\circ b}(a)'\circ (\lambda_c((b\circ a)'\circ c\circ b)).
+    \end{align*}
+    Using the formulas~\eqref{eq:formulas}, 
+    \begin{align*}
+    \lambda_c(b\circ a)'&=\lambda_c(b+\lambda_b(a))=(\lambda_c(b)+\lambda_{c\circ b}(a)')\\
+    &=(\lambda_c(b)\circ \lambda^{-1}_{\lambda_c(b)}\lambda_{c\circ b}(a))'
+    =\lambda_{\lambda_c(b)'\circ c\circ b}(a)'\circ \lambda_c(b)',
+    \end{align*}
+    which proves that $\mu$ is an anti-homomorphism. 
+    
+    To compute the inverse of $\mu_b$ we proceed as follows. Since $a'\circ (-a)=2a$ by Lemma~\ref{lem:basic}, 
+    \begin{align*}
+    (\lambda_a(b)'\circ a\circ b)'&=b'\circ (a'\circ \lambda_a(b))\\
+    &=b'\circ (a'\circ (-a+a\circ b))
+    =b'\circ (a'+b)=b'\circ a'-b.
+    \end{align*}
+    From this one immediately obtains that $\mu_b^{-1}(a)=(b\circ a'-b)'$. 
+\end{proof}
+
+
+Let $A$ be a brace. 
+\index{Commutator identities!for braces}
+The previous proposition implies that 
+\begin{align}
+\label{eq:formulas}
+&a\circ b = a+\lambda_a(b),
+&&a+b=a\circ \lambda^{-1}_a(b),
+&&\lambda_a(a')=-a
+\end{align}
+hold for $a,b\in A$. Moreover, if 
+\[
+    a*b=\lambda_a(b)-b=-a+a\circ b-b,
+\]
+then the following identities are easily verified:
+\begin{align}
+&a*(b+c)=a*b+b+a*c-b,\\
+&(a\circ b)*c=(a*(b*c))+b*c+a*c.
+\end{align}
+These last two identities are similar to the usual
+\emph{commutator identities}.
+
+ \begin{definition}
+ 	\index{Homomorphism!of braces}
+ 	A \emph{homomorphism} between two braces $A$ and $B$ is a group
+ 	homomorphism $f\colon A\to B$ such that $f\lambda_a=\lambda_{f(a)}f$ for
+ 	all $a\in A$.  The \emph{kernel} of $f$ is
+     \[
+         \ker f=\{a\in A:f(a)=0\}.
+     \]
+ \end{definition}
+
+Braces and brace homomorphisms form a category.  
+
+%\begin{example}
+%        \label{exa:trivial}
+%        Let $(A,\cdot)$ be a group. Then $A$ is a skew left brace with
+%        $a\circ b=ab$ for all $a,b\in A$.  Similarly, $a\star b=ba$ defines a
+%        skew left brace structure over $A$. These braces are isomorphic
+%        if and only if $(A,\cdot)$ is abelian.
+%\end{example}
+%
+%\begin{example}
+%	\label{exa:sd}
+%    Let $A$ and $B$ be groups and let $\alpha\colon A\to\Aut(B)$ be a
+%    group homomorphism. Assume that $A$ is abelian. Then $A\times B$ has a
+%    skew left brace structure given by
+%    \begin{align*}
+%        &(a,b)(a',b')=(aa',b\alpha_a(b')),\\
+%        &(a,b)\circ(a',b')=(aa',bb'),
+%    \end{align*}
+%    where $a,a'\in A$ and $b,b'\in B$. 
+%\end{example}
+%
+%\begin{example}
+%    \label{exa:WX}
+%    This example is motivated by the paper of Weinstein and
+%	Xu on the Yang--Baxter equation, see~\cite{MR1178147}. Let $A$ be a group
+%	and $A_+,A_-$ be subgroups of $A$ such that $A$ admits a \emph{unique
+%	factorization} as $A=A_+A_-$. Thus each $a\in A$ can be written in a unique
+%	way as $a=a_+a_-$ for some $a_+\in A_+$ and $a_-\in A_-$.  The map
+%	\[
+%		A_+\times A_-\to A,\quad
+%		(a_+,a_-{)}\mapsto a_+(a_{-})^{-1},
+%	\]
+%	is bijective. Using this map we transport the group structure of the direct
+%	product $A_+\times A_-$ into the set $A$. For $a=a_+a_-\in A$ and
+%	$b=b_+b_-\in A$ let 
+%	\begin{align*}
+%		a\circ b&=a_+ba_-.
+%	\end{align*}
+%	Then $(A,\circ)$ is a group. Furthermore, $A$ is a
+%	skew left brace.
+%\end{example}
+
+
+Let $A$ be an additive group and $G$ be a group and let 
+$G\times A\to A$, $(g,a)\mapsto g\cdot a$,
+is a left action of $G$ on $A$ by automorphisms. This means that the action of $G$ on $A$ satisfies 
+$g\cdot (a+b)=g\cdot a+g\cdot b$ for all $g\in G$ and $a,b\in A$.
+A \emph{bijective
+$1$-cocyle} is a bijective map $\pi\colon G\to A$ such that 
+\begin{equation}
+    \label{eq:1cocycle}
+    \pi(gh)=\pi(g)+g\cdot \pi(h)
+\end{equation}
+for all $g,h\in G$. 
+
+\begin{theorem}
+	\label{thm:1cocycle}
+    Over any additive group $A$ the following data are equivalent:
+    \begin{enumerate}
+        \item A group $G$ and a bijective
+            $1$-cocycle $\pi\colon G\to A$. 
+        \item A brace structure over $A$. 
+    \end{enumerate}
+
+    \begin{proof}
+        Consider on $A$ a second group structure given by 
+        \[
+		a\circ b=\pi(\pi^{-1}(a)\pi^{-1}(b))=a+\pi^{-1}(a)\cdot b
+		\]
+		for all
+        $a,b\in A$.  Since $G$ acts on $A$ by
+        automorphisms, 
+        \begin{align*}
+            a\circ (b+c)&=\pi(\pi^{-1}(a)\pi^{-1}(b+c))=a+\pi^{-1}(a)\cdot (b+c)\\
+            &=a+ \pi^{-1}(a)\cdot b+\pi^{-1}(a)\cdot c
+            =a\circ b-a+a\circ c
+        \end{align*}
+        holds for all $a,b,c\in A$.
+        
+        Conversely, assume that the additive group $A$ has a brace structure. Let $G$ be the multiplicative group of $A$
+        and $\pi=\id$. By
+        Proposition~\ref{pro:lambda}, $a\mapsto\lambda_a$, is a group homomorphism and 
+        hence $G$ acts on $A$ by automorphisms. Then~\eqref{eq:1cocycle} holds
+        and therefore $\pi\colon G\to A$ is a bijective $1$-cocycle. 
+    \end{proof}
+\end{theorem}
+
+The construction of Theorem~\ref{thm:1cocycle} is functorial, see Exercise~\ref{prob:1cocycle}.
+
+% \begin{exa}
+%   \label{exa:trivial}
+%   Let $A$ be a group. Then $a\circ b=ab$ gives a skew brace. Similarly, the
+%   operation $a\circ b=ba$ turns $A$ into a skew brace. 
+% \end{exa}
+
+
+
+% Lemma~\ref{lem:lambda} justifies the following definition:
+
+% \begin{defn}
+% 	\label{def:structure}
+% 	Let $A$ be a skew brace. The \emph{crossed group} of $A$ is defined as
+% 	the group $\Gamma(A)=(A,\cdot)\rtimes(A,\circ)$ with multiplication 
+%     \[
+%     (a,x)(b,y)=(a\lambda_x(b),x\circ y).
+%     \]
+% \end{defn}
+
+% The following two propositions were proved by Bachiller in the case of braces of abelian type, 
+% see \cite[Lemma 2.4]{Bachiller3} and~\cite[Proposition 2.3]{MR3465351}.
+
+% \begin{proposition}
+% 	\label{lem:mu}
+% 	Let $A$ be a skew brace and let 
+% 	\[
+% 	\mu\colon\Mul{A}\to\Sym_A,\quad
+% 	\mu_b(a)=\overline{\lambda_a(b)}\circ a\circ b. 
+% 	\]
+% 	Then 
+% 	$\mu_1=\id$ and $\mu_{a\circ b}=\mu_b\mu_a$ for all $a,b\in A$.
+% \end{proposition}
+
+% \begin{proof}
+    
+% \end{proof}
+
+% \begin{proposition}
+% \label{lem:Bachiller}
+% Let $A$ be a group and $\lambda\colon A\to\Aut(A)$ be a map such that
+% \begin{equation}
+% \label{eq:lambda}
+% \lambda_{a\lambda_a(b)}=\lambda_a\lambda_b,\quad a,b\in A.
+% \end{equation}
+% Then $A$ with $a\circ b=a\lambda_a(b)$ is a skew brace. 
+% \end{proposition}
+
+% %\begin{lem}
+% %	The following statement hold:
+% %	\begin{enumerate}
+% %		\item Let $A$ be a skew brace. The map 
+% %			\[
+% %			\lambda\colon\Mul{A}\to\Aut\Add{A},\quad
+% %			\lambda_a(b)=a^{-1}(a\circ b),
+% %			\]
+% %			is a group homomorphism.
+% %		\item Let $A$ be a group and $\lambda\colon A\to\Aut(A)$ be a map such that
+% %			\begin{equation}
+% %				\label{eq:lambda}
+% %				\lambda_{a\lambda_a(b)}=\lambda_a\lambda_b,\quad a,b\in A.
+% %			\end{equation}
+% %			Then $A$ with $a\circ b=a\lambda_a(b)$ is a skew brace. 
+% %	\end{enumerate}
+% %\end{lem}
+
+% \begin{proof}
+% 	The first claim is~\cite[Corollary 1.10]{MR3647970}. For the second claim see~\cite[Lemma 1.1.17]{BachillerTESIS}.
+% \end{proof}
+
+% The following lemma provides another useful tool for constructing skew braces.
+
+% \begin{proposition}
+% 	\label{lem:dual}
+% 	Let $\Mul{A}$ be a group and $\lambda\colon A\to\Sym_A$ be a group
+% 	homomorphism.  Assume that 
+% 	$\lambda_a(1)=1$ for all $a\in A$ and that
+% 	\begin{equation}
+% 		\label{eq:dual}
+% 		\lambda_a(b\circ\lambda^{-1}_b(c))=\lambda_a(b)\circ\lambda^{-1}_{\lambda_a(b)}\lambda_a(c)
+% 	\end{equation}
+% 	for all $a,b,c\in A$. Then $A$  with 
+% 	$ab=a\circ\lambda^{-1}_a(b)$ is a skew brace. 
+% \end{proposition}
+
+% \begin{proof}
+% 	Note that Equation~\eqref{eq:dual} is equivalent to
+% 	\begin{equation}
+% 		\label{eq:better}
+% 		\lambda_a^{-1}(bc)=\lambda_a^{-1}(b)\lambda_a^{-1}(c).
+% 	\end{equation}
+% 	We prove that the operation is associative:
+% 	\begin{align*}
+% 		a(bc) &= a\circ\lambda^{-1}_a(bc)
+% 		=a\circ(\lambda^{-1}_a(b)\lambda^{-1}_a(c))\\
+% 		&=a\circ\lambda^{-1}_a(b)\circ \lambda^{-1}_{a\circ \lambda^{-1}_a(b)}(c)
+% 		=(ab)\circ\lambda^{-1}_{ab}(c)=(ab)c.
+% 	\end{align*}
+
+% 	The neutral element $1$ of $A$ is a right identity: $a1=a\circ\lambda^{-1}_a(1)=a\circ 1=a$. 
+% 	The element $a^{-1}=\lambda_a(\overline{a})$ is a right inverse of $A$ since 
+% 	\[
+% 	aa^{-1}=a\circ\lambda^{-1}_a(a^{-1})=a\circ\lambda^{-1}_a\lambda_a(\overline{a})=a\circ\overline{a}=1.
+% 	\]
+% 	Therefore $\Add{A}$ is a group by~\cite[\S1.1.2]{MR1357169}. 
+
+% 	The brace compatibility condition follows from Equation~\eqref{eq:better}:
+% 	\begin{align*}
+% 		&(a\circ b)a^{-1}(a\circ c)=(a\circ b)\lambda_a(c)=a\lambda_a(b)\lambda_a(c)=a\lambda_a(bc)=a\circ (bc).
+% 	\end{align*}
+% 	The lemma is proved. 
+% \end{proof}
+
+%\begin{exa}
+%	Let $A_1,\dots,A_n$ be groups. Assume that 
+%	for each $i\in\{2,\dots,n-1\}$ there is a group homomorphism 
+%	$\rho_{i}\colon A_{i-1}\ltimes_{\rho_{i-1}} A_i\to\Aut(A_{i+1})$. 
+%	Then the set $A_1\times\cdots\times A_n$ with
+%	additive structure given by
+%	\[
+%	(a_1,\dots,a_n)\cdot(a_1',\dots,a_n')=(a_1a_1',\dots,a_n a_n')
+%	\]
+%	and multiplicative structure given by 
+%	\begin{multline*}
+%		(a_1,\dots,a_n)\circ (a_1',\dots,a_n')\\
+%		=(a_1a_1',a_2\rho_1(a_1)(a_2'),a_3\rho_2(a_1,a_2)(a_3'),\dots,a_n\rho_{n-1}(a_1,\dots,a_{n-1})(a_n'))    
+%	\end{multline*}
+%	is a skew brace. This brace will be denoted by
+%	\[
+%	A_1\ltimes_{\rho_1} A_2\ltimes_{\rho_2}A_3\ltimes_{\rho_3}\cdots\ltimes_{\rho_{n-1}}A_n.
+%	\]
+%\end{exa}
+
+\begin{definition}
+    \index{Brace!two sided}
+	A brace $A$ is said to be a \emph{two-sided} if 
+	\begin{equation}
+	\label{eq:right_compatibility}
+	(a+b)\circ c=a\circ c-c+b\circ c
+	\end{equation}
+	holds for all $a,b,c\in A$. 
+\end{definition}
+
+If $A$ is a two-sided brace, then 
+\begin{align}
+\label{eq:2sided}
+&a\circ(-b)=a-a\circ b+a,
+&&(-a)\circ b=b-a\circ b+b    
+\end{align}
+hold for all $a,b\in A$. The first equality holds for every brace and follows from Lemma~\ref{lem:basic}. 
+The second equality follows from~\eqref{eq:right_compatibility}. 
+
+\begin{example}
+  Any brace with abelian multiplicative group is 
+  two-sided.
+\end{example}
+
+\begin{example}
+  Let $n\in\N$ be such that $n=p_1^{a_1}\cdots p_k^{a_k}$, where the $p_j$ are
+  distinct primes, all $a_j\in\{0,1,2\}$ and $p_i^m\not\equiv 1\bmod{p_j}$ for
+  all $i,j,m$ with $1\leq m\leq a_i$. Then every brace of size $n$ is a
+  two-sided brace of abelian type, since every group of order $n$ is abelian, see for
+  example~\cite{MR1786236}.  
+\end{example}
+
+\begin{example}
+	\label{exa:d8q8}
+	Let 
+	\[
+	D_4=\langle r,s:r^4=s^2=1,srs=r^{-1}\rangle
+	\]
+	be the dihedral group of eight elements and let
+	\[
+	Q_8=\{1,-1,i,-i,j,-j,k,-k\}
+	\]
+	be the quaternion group of eight elements.  Let
+	$\pi:Q_8\to D_4$ be given by 
+%	\[
+%	  \pi(r^as^b)=(-1)^{ab+a}i^bj^a.
+%	 \]
+	\begin{align*}
+		1\mapsto 1 &, & -1\mapsto r^2 &,  & -k\mapsto r^3s &,&  k\mapsto rs &,\\
+		i\mapsto s &, & -i\mapsto r^2s &, &  j\mapsto r^3 &, & -j\mapsto r &.
+	\end{align*}
+	Since $\pi$ is bijective, 
+	a straightforward calculation shows that $D_4$ with 
+	\[
+	  x+y=xy,\quad 
+	  x\circ y=\pi(\pi^{-1}(x)\pi^{-1}(y))
+	\]
+	is a two-sided brace with additive group isomorphic to $D_4$ and multiplicative group
+	isomorphic to $Q_8$. 
+\end{example}
+
+\index{Jacobson!radical ring}
+\index{Radical ring}
+Two-sided braces of abelian type form an interesting family of rings without unit. Those rings, known as radical rings, 
+were introduced by Jacobson in~\cite{MR12271}. In any ring $R$ the \emph{circle operation} 
+\[
+x\circ y=x+xy+y
+\]
+is always associative 
+and such that $x\circ 0=0\circ x=x$ for all $x\in R$. A non-unital ring (or \emph{rng}, for short) 
+$R$ is said to be a \emph{radical ring} if $(R,\circ)$ is a group. 
+In this case, following Jacobson's notation, the inverse of an element $x$ with respect to the circle operation is denoted by $x'$. 
+There are other characterizations of radical rings, see for example~\cite{MR3308118}.
+
+\begin{example}
+    The ring 
+    $R=\begin{pmatrix}
+    0 & \R & \R\\
+    0 & 0 & \R\\
+    0 & 0 & 0
+    \end{pmatrix}$ 
+    is  radical ring. 
+\end{example}
+
+\begin{example}
+    The ring $R=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}$ is a radical ring. In fact, 
+    \[
+    \left(\frac{2x}{2y+1}\right)'=\frac{2(-x)}{2(x+y)+1}.
+    \]
+\end{example}
+
+Braces are a far reaching generalizations of radical rings. The following result was proved by Rump in~\cite{MR2278047}.
+
+\begin{theorem}
+    A brace of abelian type is two-sided if and only if it is a radical ring. 
+\end{theorem}
+
+\begin{proof}
+    Assume first that $A$ is a two-sided brace of abelian type. Then $(A,+)$ is an abelian group. 
+    Let us prove that the operation
+    \[
+    ab=-a+a\circ b-b
+    \]
+    turns $A$ into a rng. Left distributivity follows from the compatibibility condition:
+    \begin{align*}
+    a(b+c)&=-a+a\circ (b+c)-(b+c)
+    =-a+a\circ b-a+a\circ c-c-b=ab+ac.
+    \end{align*}
+    Similarly, since $A$ is two-sided ones proves $(a+b)c=ac+bc$. It remains to show that the multiplication
+    is associative. On the one hand, using the first equality of~\eqref{eq:2sided} 
+    and the brace compatibility condition, we write
+    \begin{align*}
+    a(bc)&=a(-b+b\circ c-c)\\
+    &=-a+a\circ(-b+b\circ c-c)-(-b+b\circ c-c)\\
+    &=-a+a\circ (-b)-a+a\circ(b\circ c)-a+a\circ (-c)+c-b\circ c+b\\
+    &=a\circ (b\circ c)-a\circ b-a\circ c-b\circ c+a+b+c,
+    \end{align*}
+    since the group $(A,+)$ is abelian. On the other hand, the second equality of~\eqref{eq:2sided} and
+    Equality~\eqref{eq:right_compatibility} imply that
+    \begin{align*}
+    (ab)c &= (-a+a\circ b-b)c-(-a+a\circ b-b)+(-a+a\circ b-b)\circ c-c\\
+    &=b-a\circ b+a+(-a)\circ c-c+(a\circ b)\circ c-c+(-b)\circ c-c\\
+    &=(a\circ b)\circ c-a\circ b-a\circ c-b\circ c+a+b+c.
+    \end{align*}
+    It then follows that the multiplication is associative. 
+    
+    Conversely, if $A$ is a radical ring, say with ring multiplication $(a,b)\mapsto ab$, 
+    then $a\circ b=a+ab+b$ turns $A$ into a two-sided brace 
+    of abelian type. In fact, since $A$ is a radical ring, then 
+    $(A,+)$ is an abelian group and $(A,\circ)$ is a group. Moreover, 
+    \begin{align*}
+        a\circ (b+c)=a+a(b+c)+(b+c)=a+ab+ac+b+c=a\circ b-a+a\circ c.
+    \end{align*}
+    Similarly ones proves $(a+b)\circ c=a\circ c-c+b\circ c$.
+\end{proof}
+
+\index{Brace!asociative}
+A brace is said to be \emph{associative} if the operation $(x,y)\mapsto
+x*y=\lambda_x(y)-y$ is associative. In \cite[Question 2.1(2)]{MR3818285}, 
+Cedó, Gateva--Ivanova and Smoktunowicz asked if associative braces of abelian type are always radical rings. 
+To answer this question, we need some lemmas. 
+
+\begin{lemma}
+    If $A$ is an associative brace of abelian type, then 
+	$(-a)*b=-(a*b)$ 
+	holds for all $a,b\in A$. In particular, $(-a)\circ b=2b-(a\circ b)$ for all $a,b\in A$. 
+\end{lemma}
+
+\begin{proof}
+    The associativity implies that 
+ 	\begin{align*}
+ 	    (a*(-a))*b &= 
+ 	    (a*(-a)+a+(-a))*b\\
+ 	    &=a*( (-a)*b)+(-a)*b+a*b\\
+ 	    &=(a*(-a))*b+(-a)*b+a*b
+     \end{align*}
+     and therefore $(-a)*b=-(a*b)$. From this the claim follows. 
+\end{proof}
+
+If $A$ is a brace of abelian type, then one proves by induction that 
+\begin{align}
+\label{eq:Lau}
+    a\circ \left(\sum_{i=1}^n b_i-\sum_{j=1}^mc_j\right)
+    =\sum_{i=1}^n a\circ b_i-\sum_{j=1}^ma\circ c_j+(m-n+1)a
+\end{align}
+holds for all $a,b,c\in A$, see Exercise~\ref{prob:Lau}. 
+
+% \begin{lemma}
+% If $A$ is a brace of abelian type, then 
+% % \[
+% %     a*\left(\sum_{i=1}^nb_i-\sum_{j=1}^mc_j\right)=\sum_{i=1}^na*b_i-\sum_{j=1}^ma*c_j,
+% % \]
+% \begin{align}
+% \label{eq:Lau}
+% a\circ \left(\sum_{i=1}^n b_i-\sum_{j=1}^mc_j\right)
+% =\sum_{i=1}^n a\circ b_i-\sum_{j=1}^ma\circ c_j+(m-n+1)a.
+% \end{align}
+% \end{lemma}
+
+% \begin{proof}
+
+% \end{proof}
+
+%The following result 
+%answers \cite[Question 2.1(2)]{MR3818285}. 
+
+\begin{theorem}
+    \label{thm:Lau}
+	If $A$ is an associative brace of abelian type, then $A$ is a radical ring. 
+\end{theorem}
+
+\begin{proof}
+    We need to prove that the right compatibility condition holds. 
+    Since $A$ is associative, $(a*b)*c=a*(b*c)$ for all $a,b,c\in A$. Write the associativity condition between $a,b,c\in A$ as
+ 	\[
+ 	(a\circ b-a-b)\circ c-(a\circ b-a-b)-c
+ 	=a\circ (b\circ c-b-c)-a-(b\circ c-b-c),
+ 	\]
+ 	which is equivalent to 
+ 	\[
+ 	a'\circ ( (a\circ b-a-b)\circ c-a\circ b)
+ 	=a'\circ ( a\circ (b\circ c-b-c)-a-a-b\circ c+2c).
+ 	\]
+    By using the formula~\eqref{eq:Lau} 
+    with $n=1$ and $m=2$ in the right hand side and 
+    with $n=m=3$ in the left hand side,  
+ 	\[
+ 	a'\circ (a\circ b-a+(-b))=b+a'\circ(-b)
+ 	\]
+ 	Now~\eqref{eq:Lau} with $n=2$ and $m=1$ implies that 
+ 	the associativity of $A$ is equivalent to 
+ 	\begin{equation}
+ 	    \label{eq:asociatividad}
+ 		(b+a'\circ (-b))\circ c+c=b\circ c+a'\circ(-b)\circ c.
+ 	\end{equation}
+ 	Let $b,c\in A$. If $d\in A$, then there exists $a\in a$ such that $d=a'\circ (-b)$. Equality~\eqref{eq:asociatividad} 
+    implies that 
+ 	\[
+ 	(b+d)\circ c+c=b\circ c+d\circ c.\qedhere
+ 	\]
+\end{proof}
+
+The previous result is not true if the brace is not of abelian type. 
+
+Now we show a brace that is not two-sided: 
+
+\begin{example}
+
+\end{example}
+
+% \begin{example}
+% 	\label{exa:simple}
+% 	Let $G$ be the group generated by the 
+% 	permutations 
+% 	\[
+% 	(1263)(48ba)(57c9),
+% 	\quad
+% 	(145)(278)(39a)(6bc).
+% 	\]
+% 	Then $G$ is a group of order twelve isomorphic to $C_3\rtimes C_4$. 
+% 	Let $\pi\colon G\to\Alt_4$ be the bijective map given by
+% 	\begin{align*}
+% 		&\id\mapsto\id, && (16)(23)(4b)(5c)(79)(8a)\mapsto (14)(23),\\
+% 		& (145)(278)(39a)(6bc)\mapsto (234), && (1b564c)(29837a)\mapsto (143),\\
+% 		& (154)(287)(3a9)(6cb)\mapsto (243), && (1c465b)(2a7389)\mapsto (142),\\
+% 		& (1362)(4ab8)(59c7)\mapsto (13)(24), && (1263)(48ba)(57c9)\mapsto (12)(34),\\
+% 		& (1a68)(253c)(49b7)\mapsto (132), && (186a)(2c35)(47b9)\mapsto (124),\\
+% 		& (1967)(243b)(5ac8)\mapsto (134), && (1769)(2b34)(58ca)\mapsto (123).
+% 	\end{align*}
+% 	A straightforward calculation shows that $\Alt_4$
+% 	with the operation
+% 	\[
+% 		\sigma\circ\tau=\pi(\pi^{-1}(\sigma)\pi^{-1}(\tau))
+% 	\]
+% 	is a brace. 
+	
+% 	Let $a=(14)(23)$ and $b=c=(234)$. Then 
+% 	\[
+% 		(12)(34)=(ab)\circ c\ne (a\circ c)c^{-1}(a\circ b)=(123),
+% 	\]
+% 	hence it is not two-sided.
+% \end{example}
+
+%\textcolor{blue}{
+%A \emph{rack} is a set $X$ with a map $X\times X\to X$, $(x,y)\mapsto x\triangleleft
+%y$, such that for each $y\in X$ the map $x\mapsto x\triangleleft y$ is
+%bijective and $\lambda_a^{-1}(b^{-1}\partial(x)b)$ 
+%$(x\triangleleft y)\triangleleft z=(x\triangleleft
+%z)\triangleleft (y\triangleleft z)$ 
+%holds for all $x,y,z\in X$.}
+
+In Proposition~\ref{pro:Rump} we used radical rings to produce examples of solutions. 
+A natural question arises: Does one need radical rings? Surprisingly, 
+radical rings are just the tip of the iceberg. 
+
+\begin{theorem}
+\label{thm:YB}
+Let $A$ be a brace. Then 
+$(A,r)$, where 
+\[
+r\colon A\times A\to A\times A,\quad
+r(x,y)=( -x+x\circ y,(-x+x\circ y)'\circ x\circ y),
+\]
+is a solution. 
+\end{theorem}
+
+\begin{proof}
+    By Theorem~\ref{thm:LYZ}, 
+    since $x\circ y=(-x+x\circ y)\circ ((-x+x\circ y)'\circ x\circ y)$ for all $x,y\in A$, 
+    we only need to check that 
+    $x\rhd y=\lambda_x(y)=-x+x\circ y$ 
+    is a left action of $(A,\circ)$ on the set $A$ 
+    and that $x\lhd y=\mu_y(x)=(-x+x\circ y)'\circ x\circ y$ 
+    is a right action of $(A,\circ)$ on the set $A$. For the left action we use 
+    Proposition~\ref{pro:lambda} and for the right action we use Proposition~\ref{pro:mu}.
+\end{proof}
+
+In Theorem~\ref{thm:YB} it is possible to prove that the solution 
+is involutive if and only if the additive group of the brace is abelian. 
+The next result generalizes this fact. We shall need a lemma.
+
+% \begin{defn} 
+%   Let $A$ be a skew brace with additive group $G$. The \emph{depth}
+%   of $A$ is defined as the exponent of the group $G/Z(G)$.  
+% \end{defn}
+
+% \begin{exa} 
+%   Classical braces have depth one.  
+% \end{exa}
+
+% To study the depth of a skew brace we need the following lemma. 
+
+\begin{lemma}
+\label{lem:|r|}
+Let $A$ be a brace and $r$ be its associated solution.  Then
+  \begin{align} 
+  \nonumber
+  r^{2n}(a,b)&=(-n(a\circ b)+a+n(a\circ
+    b),\\
+    \label{eq:r^2n}
+    &\phantom{=(-n(a\circ b)+}(-n(a\circ b)+a+n(a\circ b))'\circ a\circ b),\\
+  \nonumber
+  r^{2n+1}(a,b)&=(-n(a\circ b)-a+(n+1)(a\circ
+    b),\\
+    \label{eq:r^2n+1}
+    &\phantom{=(-n(a\circ b)+}(-n(a\circ b)-a+(n+1)(a\circ b))'\circ a\circ b),
+    \end{align} 
+    for all $n\geq0$.  Moreover, the following statements hold:
+  \begin{enumerate} 
+  \item $r^{2n}=\id$ if and only if $a+nb=nb+a$ for all $a,b\in A$.  
+      \item $r^{2n+1}=\id$ if and only if $\lambda_a(b)=n(a\circ
+	b)+a-n(a\circ b)$ for all $a,b\in A$.  
+	\end{enumerate} 
+\end{lemma}
+
+\begin{proof} 
+It suffices to prove~\eqref{eq:r^2n} and~\eqref{eq:r^2n+1}.  We
+  proceed by induction on $n$. The case $n=0$ is trivial for~\eqref{eq:r^2n}
+  and~\eqref{eq:r^2n+1}. Assume that the claim holds for some $n>0$. If $n$ is
+  even, by applying the map $r$ to Equation~\eqref{eq:r^2n} 
+  we obtain that 
+  \begin{align*} 
+  r^{2n+1}(a,b) &= r\left(
+    -n(a\circ b)+a+n(a\circ b),(-n(a\circ b)+a+n(a\circ b))'\circ a\circ b)\right)\\
+    &=\left( -n(a\circ b)-a+(n+1),(-n(a\circ b)-a+(n+1)(a\circ b))'\circ a\circ b\right).
+    \end{align*} 
+    Thus Equation~\eqref{eq:r^2n+1} holds. If $n$ is odd, a similar argument shows
+    that~\eqref{eq:r^2n} holds. The other claims follow easily from
+    Equations~\eqref{eq:r^2n} and~\eqref{eq:r^2n+1}.
+\end{proof}
+
+%\begin{thm} \label{pro:depth_even} Let $A$ be a skew brace of finite depth
+%with more than one element and let $r_A$ be its associated solution. Then the
+%order of $r_A$ is an even number.  \end{thm}
+%
+%\begin{proof} Let $n$ be such that $r^{2n+1}=\id$. By applying
+%Lemma~\ref{lem:depth} one obtains that $a^{-1}(a\circ b)^{n+1}=(a\circ b)^na$
+%for all $a,b\in A$. In particular, if $b=1$, then $a=1$.  \end{proof}
+
+Recall that the (minimal) \emph{exponent} $\exp(G)$ of a 
+finite group $G$ is the minimal $n$ such that 
+$g^n=1$ for all $g\in G$. 
+
+\begin{theorem} 
+\label{thm:|r|} 
+  Let $A$ be a finite brace with more than one
+  element and let $G$ be the additive group of $A$. 
+  If $r$ is the solution associated with $A$, 
+  then $r$ has order $2\exp(G/Z(G))$.
+\end{theorem}
+
+\begin{proof} 
+  Let $n$ be such that $r$ has odd order, say $r^{2n+1}=\id$. By applying
+  Lemma~\ref{lem:|r|} one obtains that $-a+(n+1)(a\circ b)=n(a\circ b)+a$
+  for all $a,b\in A$. In particular, if $b=0$, then $a=0$, a contradiction. 
+  Therefore we may assume that the order of the permutation $r$ is
+  $2n$, where 
+  \[
+  n=\min\{k:kb+a=a+kb\;\text{ for all }a,b\in A\}.
+  \]
+  Now one computes
+  \begin{align*} 
+  n&=\min\{k:kb\in Z(G)\text{ for all }b\in A\}\\ 
+  &=\min\{k:k(b+Z(G)) = Z(G)\text{ for all }b\in A\} =\exp(G/Z(G)).\qedhere
+  \end{align*}
+\end{proof}
+
+\begin{corollary}
+    Let $A$ be a finite brace and $r$ be its associated solution. Then 
+    $r$ is involutive if and only if $A$ is of abelian type.  
+\end{corollary}
+
+\begin{proof}
+    It follows immediately from Theorem~\ref{thm:|r|}.
+\end{proof}
+
+%\begin{exa} A skew brace has depth one if and only if its additive group is
+%  abelian.  \end{exa}
+
+% \begin{exa} 
+%   \label{exa:2p} 
+%   Let $p$ be an odd prime number and let $A$ be a non-classical skew brace of
+%   size $2p$. Then the additive group of $A$ is isomorphic to the dihedral group
+%   $\D_{2p}$ of size $2p$.  Since $Z(\D_{2p})=1$ and the exponent of $\D_{2p}$
+%   is $2p$, the order of $r_A$ is $4p$.
+% \end{exa}
+
+
+
+
+
+
+\section*{Exercises}
+
+% \begin{prob}
+% 	Let $(A,\lambda^A)$ and $(B,\lambda^B)$ be skew braces. Then $A$ and $B$
+% 	are isomorphic if and only if there is a group homomorphism $\alpha\colon
+% 	A\to B$ such that $\alpha\lambda^A_a\alpha^{-1}=\lambda^B_{\alpha(a)}$ for
+% 	all $a\in A$.
+% \end{prob}
+
+\begin{prob}
+\label{prob:left_right}
+    Prove that there exists a bijective correspondence between left and right braces. 
+\end{prob}
+
+\begin{prob}
+Let $p$ be a prime number. Prove that $\Z/(p^2)$ is a brace of abelian type with
+the operation $x\circ y=x+y+pxy$. 
+\end{prob}
+
+\begin{prob}
+Let $A$ be a brace. 
+Prove that 
+\[
+\mu_b(a)=\lambda^{-1}_{\lambda_a(b)}(-a\circ b+a+a\circ b).
+\]
+\end{prob}
+
+\begin{prob}
+\label{prob:star}
+Let $A$ be an additive (not necessarily abelian) group.  
+Prove that a brace structure over $A$ is equivalent to an operation $A\times A\to
+A$, $(a,b)\mapsto a*b$, such that 
+\[
+a*(b+c)=a*b+b+a*c-b
+\]
+holds for all $a,b,c\in A$, and the operation $a\circ b=a+a*b+b$ turns $A$
+into a group. 
+\end{prob}
+
+\begin{prob}
+\label{prob:equivalences}
+	Let $(A,+,\circ)$ be a triple, where 
+	$(A,+)$ and $(A,\circ)$ are
+	groups, and let $\lambda\colon A\to\Sym_A$, $a\mapsto\lambda_a$, $\lambda_a(b)=-a+a\circ b$. 
+	Prove that the following statements are equivalent:
+	\begin{enumerate}
+		\item $A$ is a brace.
+		\item $\lambda_{a\circ b}(c)=\lambda_a\lambda_b(c)$ for all $a,b,c\in A$.
+		\item $\lambda_a(b+c)=\lambda_a(b)+\lambda_a(c)$ for all $a,b,c\in A$.
+	\end{enumerate}
+\end{prob}
+
+\begin{prob}
+\label{prob:2sided}
+	Let $A$ be a brace such that $\lambda_a(a)=a$ for all $a\in A$.
+	Then $A$ is two-sided.
+\end{prob}
+
+\begin{prob}
+\label{prob:Lau}
+    Prove Equality~\eqref{eq:Lau}.
+\end{prob}
+
+\begin{prob}
+\label{prob:1cocycle}
+Let $\pi\colon G\to A$ and $\eta\colon H\to B$ be bijective $1$-cocycles.  A
+\emph{homorphism} between these bijective $1$-cocycles is a pair $(f,g)$ of
+group homomorphisms  $f\colon G\to H$, $g\colon A\to B$ such that
+\begin{align*}
+&\eta\circ f=g\circ \pi,\\
+&g(h\cdot a)=f(h)\cdot g(a),&&a\in A,\;h\in G.
+\end{align*}
+Bijective $1$-cocycles and homomorphisms form a category. 
+For a given additive group $A$ 
+the full subcategory of the category of bijective $1$-cocycles with objects
+$\pi\colon G\to A$ is equivalent to the full subcategory of the category of
+braces with additive group $A$. 
+\end{prob}
+
+\section*{Notes}
+
+\index{Bachiller, D.}
+\index{Rump, W.}
+\index{Gateva--Ivanova, T.}
+Exercise~\ref{prob:equivalences} combines results of Bachiller, Rump~\cite{MR2278047} and
+Gateva--Ivanova~\cite{MR3861714}. Exercise~\ref{prob:2sided} comes from~\cite{MR3177933}. 
+
+\index{Lau, I.}
+\index{Kinyon, M.}
+\index{Ced\'o, F.}
+\index{Smoktunowicz, A.}
+Theorem~\ref{thm:Lau} was proved by Lau~\cite{MR4136750} and independently by Kinyon (unpublished). It answers 
+a question of Ced\'o, Gateva--Ivanova and Smoktunowicz, see~\cite{MR3818285}. 
+
+Theorem~\ref{thm:YB} was proved for braces of abelian type in~\cite{MR2278047} and
+in~\cite{MR3647970} for arbitrary solutions. 
