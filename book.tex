@@ -29,8 +29,9 @@
 \usepackage{multicol}        
 \usepackage[all]{xy}
 \usepackage{hyperref} 
-%\usepackage{caption}
 %\usepackage{tikz-cd}
+
+\usepackage[small,bf]{caption}
 
 \usepackage{tikz}
 \usetikzlibrary{braids}
@@ -60,7 +61,7 @@
 % \def\examplename{Ejemplo}%
 % \def\examplesname{Ejemplos}%
 % \def\exercisename{Ejercicio}%
-% \def\figurename{Fig.}%
+\def\figurename{Figure}%
 % \def\forewordname{Foreword}%
 % \def\keywordname{{\bf Palabras clave:}}%
 % \def\indexname{Índice}%
@@ -202,23 +203,24 @@
 % multiset
 \def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
 
-% % column vector
-% \newcount\colveccount
-% \newcommand*\colvec[1]{
-% \global\colveccount#1
-% \begin{pmatrix}
-% 	\colvecnext
-% 	}
-% 	\def\colvecnext#1{
-% 	#1
-% 	\global\advance\colveccount-1
-% 	\ifnum\colveccount>0
-% 	\\
-% 	\expandafter\colvecnext
-% 	\else
-% \end{pmatrix}
-% \fi
-% }
+
+% column vector
+\newcount\colveccount
+\newcommand*\colvec[1]{
+\global\colveccount#1
+\begin{pmatrix}
+	\colvecnext
+	}
+	\def\colvecnext#1{
+	#1
+	\global\advance\colveccount-1
+	\ifnum\colveccount>0
+	\\
+	\expandafter\colvecnext
+	\else
+\end{pmatrix}
+\fi
+}
 
 % numero como secciones
 \renewcommand{\thesection}{\arabic{chapter}} 
@@ -243,8 +245,8 @@
 
 
 \author{Leandro Vendramin}
-\title{Braces and solutions to the Yang--Baxter equation}
-\subtitle{-- Notes --}
+\title{Groups, radical rings and the Yang--Baxter equation}
+\subtitle{A combinatorial approach to solutions}
 \maketitle
 
 \frontmatter
@@ -262,15 +264,19 @@
 
 %\include{part}
 \include{solutions}
+\include{radical}
 \include{racks}
 \include{skew}
 \include{ideals}
 \include{regular}
+\include{cocycles}
+\include{ito}
 \include{sgroup}
 \include{garside}
 \include{left}
 \include{right}
 \include{mp}
+\include{ordered}
 %\include{sbrace}
 \include{indecomposable}
 \include{extensions}

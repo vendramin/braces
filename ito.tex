@@ -1,0 +1,380 @@
+\chapter{Factorizations}
+
+In Chapter \ref{braces} we found that groups with an exact factorization 
+produce braces. In this chapter we will study a different relationship between
+factorizations and braces. 
+
+A group $G$ is said to be 
+factorized through subgroups $A$ and $B$ if $G=AB$. We remark that we do not assume that
+$A\cap B=\{1\}$. 
+
+\begin{definition}
+	\index{Group!metabelian}
+	A group $G$ is \textbf{metabelian} if $[G,G]$ is abelian. 
+\end{definition}
+
+A group $G$ is metabelian if and only if there is a normal subgroup 
+$K$ of $G$ such that $K$ and $G/K$ are abelian. 
+The groups $\Sym_3$ and $\Alt_4$ are metabelian. 
+
+\begin{exercise}
+	Let $G$ be a metabelian group.  
+	\begin{enumerate}
+		\item If $H$ is a subgroup of $G$, then $H$ is metabelian. 
+		\item If $f\colon G\to H$ is a group homomorphism, then $f(H)$ is metabelian.
+	\end{enumerate}
+\end{exercise}
+
+\begin{exercise}
+	Prove that $\SL_2(3)$ is metabelian. 
+\end{exercise}
+
+A straightforward calculation shows that 
+the following formulas hold: 
+\begin{align*}
+&[a,bc]=[a,b]b[a,c]b^{-1},\\ 
+&[ab,c]=a[b,c]a^{-1}[a,c].
+\end{align*}
+
+The following theorem is considered the most satisfying result about group factorization. The proof
+is based on a surprisingly short and smart calculation with commutators. 
+
+\begin{theorem}[It\^o]
+	\label{theorem:Ito}
+    \index{Theorem!of It\^o}	
+	Let $G=AB$ be a factorization of $G$ through the abelian subgroups $A$ and $B$. 
+	Then $G$ is metabelian.
+\end{theorem}
+
+\begin{proof}
+	Since $G=AB$, it follows that $AB=BA$. Let us prove that $[A,B]$ is a normal 
+	subgroup of $G$. Let $a,a_1,\alpha,\alpha_1\in A$ and $b,b_1,\beta,\beta_1\in B$ 
+	be such that $\alpha b\alpha^{-1}=b_1a_1$, $\beta
+	a\beta^{-1}=a_2b_2$. Since 
+	\begin{align*}
+		&\alpha[a,b]\alpha^{-1}=a(\alpha b\alpha^{-1})a^{-1}(\alpha b^{-1}\alpha^{-1})=ab_1a_1a^{-1}a_1^{-1}b_1^{-1}=[a,b_1]\in [A,B]\\
+		&\beta[a,b]\beta^{-1}=(\beta a\beta^{-1})\beta b\beta^{-1}(\beta a^{-1}\beta^{-1})b^{-1}=a_2b_2bb_2^{-1}a_2^{-1}b^{-1}=[a_2,b]\in [A,B],
+	\end{align*}
+	it follows that $[A,B]$ is a normal subgroup of $G$. 
+
+	Now we prove that $[A,B]$ is abelian. Since  
+	\begin{align*}
+		&\beta\alpha[a,b]\alpha^{-1}\beta^{-1} = \beta[a,b_1]\beta^{-1}=(\beta a\beta^{-1})b_1(\beta a^{-1}\beta^{-1})b_1^{-1}=[a_2,b_1],\\
+		&\alpha\beta[a,b]\beta^{-1}\alpha^{-1} = \alpha[a_2,b]\alpha^{-1}=a_2(\alpha b\alpha^{-1})a_2^{-1}(\alpha b\alpha^{-1})=[a_2,b_1],
+	\end{align*}
+	a direct calculation shows that  
+	\[
+		[\alpha^{-1},\beta^{-1}][a,b][\alpha^{-1},\beta^{-1}]^{-1}=[a,b].
+	\]
+	Since two arbitrary generators of $[A,B]$ commute, the group $[A,B]$ is abelian.
+	
+	Finally we note that $[G,G]=[A,B]$. Since $[A,B]$ is normal in $G$,  
+	\[
+	[a_1b_1,a_2b_2]=a_1[a_2,b_1]^{-1}a_1^{-1}a_2[a_1,b_2]a_2^{-1}\subseteq [A,B].\qedhere 
+	\]
+\end{proof}
+
+
+Sysak found the following generalization of It\^o's theorem:
+
+\begin{theorem}[Sysak]
+\index{Theorem!of Sysak}
+If $A$ and $B$ are abelian subgroups of $G$ and
+$H$ is a subgroup of $G$ contained in the set $AB$, then
+$H$ is metabelian. 
+\end{theorem}
+
+The proof appears in \cite{MR988177}.  
+
+There are several other interesting results in the theory of factorizable groups. 
+Another important result that is worth mentioning is the following
+theorem. 
+
+\begin{theorem}[Kegel--Wielandt]
+\index{Theorem!of Kegel--Wielandt}
+Let $G$ be a finite group. If there are nilpotent subgroups $A$ and $B$ of $G$ such that 
+$G=AB$, then $G$ is solvable. 
+\end{theorem}
+
+The proof appears for example in~\cite[Theorem 2.4.3]{MR1211633}. 
+
+The theorem of Kegel--Wielandt turns out to be the main tool in the proof of the following result 
+on the structure of finite braces. 
+This proves a conjecture 
+of Byott, see~\cite{MR3425626}.
+
+\begin{theorem}
+\label{thm:mul_nilpotent}
+Let $A$ be a finite brace with nilpotent multiplicative group. Then 
+the additive group of $A$ is solvable.
+\end{theorem}
+
+\begin{proof}
+    Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. The group
+    $\Gamma=K\rtimes G$ has multiplication
+    \[
+    (g,\lambda_g)(h,\lambda_h)=(g+\lambda_g(h),\lambda_g\lambda_h)=(g\circ h,\lambda_{g\circ h}).
+    \]
+    Let $f\colon G\to\Gamma$, $g\mapsto(g,\lambda_g)$. 
+    Then $f$ is a group homomorphism and $f(G)$ is nilpotent. 
+    Since $\lambda(G)$ is nilpotent, the finite group 
+    $K\rtimes\lambda(G)=f(G)\lambda(G)$ is a product of nilpotent groups. 
+    By the theorem of Kegel--Wielandt, $K\rtimes\lambda(G)$ 
+    is solvable. Hence $K$ is solvable. 
+\end{proof}
+
+
+It turns out to be interesting to study factorization of braces. 
+
+\begin{definition}
+    Let $A$ be a brace and let $B$ and $C$ be left ideals of $A$. We say
+    that $A$ admits a \emph{factorization} through $B$ and $C$ if $A=B+C$.
+\end{definition}
+
+Note that if a brace $A$ admits a factorization through $B$ and $C$, then  
+it follows that
+\[
+A=B+C=C+B=B\circ C=C\circ B.
+\]
+
+Now we prove an analog of It\^o's theorem in the context of braces. 
+It turns out that one needs to consider factorizations through strong left ideals. We also need
+the following
+definition: 
+
+\begin{definition}
+\index{Brace!meta-trivial}
+A brace $A$ is said to be \emph{meta-trivial} if $A^{(2)}$ is a trivial brace. 
+\end{definition}
+
+Clearly a brace $A$ is meta-trivial if and only there is 
+an ideal $I$ of $A$ such that $I$ and $A/I$ are trivial as braces.
+
+\begin{lemma} 
+\label{lem:calcbraces}
+Let $A$ be a brace. For any $x,y,z \in A$ the following statements hold:
+\begin{enumerate}
+    \item $x*(y+z) = x*y +y +x*z -y$,
+    \item $(x\circ y)*z = x*(y*z) + y*z + x*z$.
+\end{enumerate}
+\end{lemma}
+
+\begin{lemma}\label{lem:calculations}
+    Let $A$ be a brace such that $A = B+C$, where $B$ and $C$ are left ideals. If $B$ and $C$ are trivial as braces then,
+    for any $b,\beta \in B$ and $c,\gamma \in C$, the following statements hold:
+	\begin{enumerate}
+	    \item $\lambda_{\beta \circ \gamma} = \lambda_{\gamma \circ \beta}$,
+	    \item $(c + b) \circ \beta - \beta = c + b + c* \beta $,
+	    \item $b\circ c \circ b' \circ c' = b \circ c - c\circ b = b + \lambda_b(c) - \lambda_c(b) -c \in \ker \lambda$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	To prove (1) put $c_1=\lambda_\beta(c)\in C$ and $b_1=\lambda_{\gamma}(b)\in B$. As $B$ and $C$ are trivial braces, $\lambda_\beta(b+c) =\lambda_{\beta}(b)+\lambda_\beta(c)=b+c_1$ and similarly 
+	$\lambda_\gamma(b+c)=b_1+c$.
+	Then $\lambda_{\beta\circ\gamma}(b+c)=b_1+c_1=\lambda_{\gamma\circ\beta}(b+c)$. 
+	
+	Let us prove (2). As $B$ is a trivial brace, it follows from~\eqref{eq:formulas} that 
+	\begin{align*}
+		(c+b)\circ\beta-\beta &= (c\circ\lambda_{c'}(b))\circ\beta-\beta\\
+		&=c\circ(\lambda_{c'}(b)\circ\beta)-\beta\\
+		&=c\circ(\lambda_{c'}(b)+\beta)-\beta\\
+		&=c\circ\lambda_{c'}(b)-c+c\circ\beta-\beta\\
+		&=c+b+c*\beta.
+	\end{align*}
+	Part (3) follows from the following computation
+	\begin{align*}
+	    b \circ c \circ b' \circ c' &= (b\circ c) +\lambda_{b\circ c} (b' + \lambda_{b'}(c'))\\
+	    &=b + \lambda_b(c) + \lambda_{b\circ c}(b') + \lambda_{b \circ c \circ b'}(c')\\
+	     &= b+\lambda_{b}(c) + \lambda_{c}(b') + \lambda_{b\circ b'}(c')\\ 
+	                                & =b + \lambda_b(c) +\lambda_c(-b) -c\\
+	                                & =b \circ c - c \circ b.
+	\end{align*}
+	Moreover, by (1) it follows that $b \circ c \circ b' \circ c' \in \ker \lambda$.
+\end{proof}
+
+\begin{lemma}
+\label{lem:hardworkfactoriz}
+Let $A$ be a brace such that $A=B+C$ is a factorization through left ideals  $B$ and $C$. If $B$ and $C$ are trivial braces, then: 
+\begin{enumerate}
+    \item $B*C$ and $C*B$ are strong left ideals of $A$,
+    \item $B*C$ and $C*B$ are trivial braces, and 
+    \item $A^{(2)} = C*B+B*C=B*C+C*B$.
+\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+Since $C$ is a left ideal, it follows that $B*C \subseteq C$. 
+Let $b,\beta \in B$ and $c, \gamma \in C$. As $C$ is trivial, it follows that 
+\begin{align*}
+    \lambda_{b \circ c} (\beta * \gamma) & =\lambda_b(\beta * \gamma)\\
+                                         & =\lambda_b \lambda_{\beta} (\gamma) - \lambda_b(\gamma)\\
+                                         & =\lambda_{b \circ \beta \circ b'}\lambda_b(\gamma) -\lambda_b(\gamma)\\
+                                         & =(b \circ \beta \circ b') * \lambda_b(\gamma) \in B*C. 
+\end{align*}
+Hence $B*C$ is a left ideal and trivial as a brace. 
+
+Let $a \in A$, $b \in B$ and $c \in C$. Write $a=b_1 + c_1$, with $b_1 \in B$ and $c_1 \in C$. Then
+\begin{equation}\label{eq:7}
+    \begin{aligned}
+        a+(b*c)-a & =a + \lambda_b(c) - c - a\\
+                  & =-(b*a) + b*(a+c)\\
+                  & =-(b*(b_1+c_1)) + b* (b_1 + c_1+c).
+    \end{aligned}
+\end{equation}
+As $B+C=C+B$, it follows that for any $\beta \in B$ and $\gamma \in C$, there exist $\beta_1\in B$ and $\gamma_1\in C$ such that
+$\beta + \gamma = \gamma_1 + \beta_1$. Hence, for any $b \in B$ it holds that
+\[
+b*(\beta + \gamma)=b*(\gamma_1 + \beta_1)= b*\gamma_1 + \gamma_1 + b*\beta_1 - \gamma_1=b*\gamma_1 ,
+\]
+as $B$ is trivial. Applying this on \eqref{eq:7} it follows that $B*C$ is a normal subgroup of $(A,+)$.
+This proves (1) and (2) for $B*C$. The proof for $C*B$ is similar.
+
+Now we show that $A^{(2)} \subseteq C*B + B*C$. Let $b,b_1 \in B$ and $c,c_1 \in C$. Then
+\begin{align*}
+    (b\circ c)*(b_1+c_1) & =(b\circ c)*b_1 + b_1 + (b \circ c)*c_1 -b_1\\
+                         & =\lambda_{b\circ c}(b_1) - b_1 + b_1 + b*(c*c_1) + c*c_1 + b*c_1 -b_1\\
+                         & =\lambda_c(b_1) - b_1 +b_1 +b*c_1-b_1\\
+                         & =c*b_1 + b_1 + b*c_1 -b_1 \in C*B+B*C.
+\end{align*}
+Clearly $C*B + B*C \subseteq A^{(2)}$ and thus $A^{(2)} = C*B+B*C=B*C + C*B$. 
+\end{proof}
+
+
+\begin{theorem} 
+\label{thm:Ito_braces}
+Let $A$ be a brace. If $A=B+C$ is a factorization through strong left ideals $B$ and $C$ that are trivial as  braces,
+then $A$ is right nilpotent of class at most three. In particular, $A$ is meta-trivial.
+\end{theorem}
+
+\begin{proof}
+By Lemma \ref{lem:hardworkfactoriz}, $B*C$ and $C*B$ are strong left ideals of $A$, and both are trivial as  braces. Furthermore, 
+\[
+A^{(2)} = B*C + C*B = (B*C) \circ (C*B).
+\]
+It rests to show that $A^{(2)}$ acts trivially on $A$. We first show that $B*C$ acts trivially on $A$. For that purpose, 
+let $b\in B$, $c\in C$ and $a\in A$. Write $a=\beta+\gamma$, where $\beta\in B$ and $\gamma\in C$. Then
+\[
+(b*c)*(\beta+\gamma)=(b*c)*\beta+\beta+(b*c)*\gamma-\beta=(b*c)*\beta, 
+\]
+as $C$ is a trivial brace. By Lemma \ref{lem:calculations}(3), 
+\[
+(b\circ c - c\circ b) + \beta = (b\circ c - c \circ b) \circ \beta = (b + \lambda_b(c) - \lambda_c(b) - c) \circ \beta.
+\]
+Since $(B,+)$ is a normal subgroup of $(A,+)$, 
+\[
+b\circ c-c\circ b=b+\lambda_b(c)-\lambda_c(b)-c=\lambda_b(c)-c+b_1
+\]
+for some $b_1\in B$. By Lemma~\ref{lem:calculations}(2), 
+\begin{align*}
+    (b\circ c - c\circ b) + \beta & =(\lambda_b(c) - c + b_1) \circ \beta\\
+                                  & =\lambda_b(c) - c + b_1 + (b*c)*\beta + \beta
+\end{align*}
+and therefore $(b*c)*\beta = 0$. Thus $B*C$ acts trivially on $A$. As $(C,+)$ also is a normal subgroup of $(A,+)$,
+it follows by symmetry that $C*B$ acts trivially on $A$. Hence $A^{(2)}$ acts trivially on $A$.
+\end{proof}
+
+\begin{corollary}
+    Let $A$ be a brace. Assume that $A= B + C$, where $B$ and $C$ are (not necessarily strong) left ideals,
+    which are trivial as braces. Then $A$ has a meta-trivial ideal $I$ such that $A/I$ is a trivial brace.
+\end{corollary}
+
+\begin{proof}
+    By Lemma \ref{lem:hardworkfactoriz}, the ideal $A^{(2)}$ has a factorization through the strong left ideals $B*C$ and $C*B$,
+    which are trivial braces. By Theorem~\ref{thm:Ito_braces}, $A^{(2)}$ is meta-trivial and hence the claim follows.
+\end{proof}
+
+Theorem \ref{thm:Ito_braces} has application to involutive solutions. 
+
+\begin{theorem} 
+\label{thm:MP}
+Let $(X,r)$ be an involutive non-degenerate (not necessarily finite) solution of the Yang--Baxter equation with $|X|\geq 2$.
+If the brace of abelian type $\mathcal{G}(X,r)$ admits a factorization through left ideals, 
+which are trivial as left braces, then $(X,r)$ is a
+multipermutation solution of level at most three.
+\end{theorem}
+
+\begin{proof}
+Let $A=\mathcal{G}(X,r)$ and $G=G(X,r)$. Then Theorem~\ref{thm:Ito_braces} 
+yields $A^{(m)}=0$ for some $m\leq 3$. Because $G/\Soc(G)\cong A$
+as left braces, we get $G^{(m)}\subseteq\Soc(G)$, and thus $G^{(m+1)}=0$. Hence $G$ is a right nilpotent left brace of class at most four and,
+by \cite[Proposition 6]{MR3574204}, $(G,r_G)$ is a multipermutation solution of  level at most three. Therefore, by~\cite[Theorem 5.15]{MR3861714}, 
+$(X,r)$ is a multipermutation solution of level at most three.
+\end{proof}
+
+This shows that properties of the involutive non-degenerate set-theoretic solution $(X,r)$ are not completely determined by the
+group theory of the additive and multiplicative groups of the left brace $\mathcal{G}(X,r)$. 
+
+\begin{example}
+\label{exa:B(8,27)}
+Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$ be the irretractable involutive non-degenerate solution given by 
+\begin{alignat*}{4}
+    \sigma_1 & =(34),\qquad & \sigma_2 & =(1324),\qquad & \sigma_3 & =(1423),\qquad & \sigma_4 & =(12),\\
+    \tau_1 & =(24),\qquad & \tau_2 & =(1432),\qquad & \tau_3 & =(1234),\qquad & \tau_4 & =(13).
+\end{alignat*}
+The associated left brace $\mathcal{G}(X,r)$ has additive group $C_2^3$ and multiplicative group $D_8$. Furthermore,
+$\mathcal{G}(X,r)$ is not right nilpotent. Hence it is impossible to decompose the left brace $\mathcal{G}(X,r)$ as in Theorem~\ref{thm:MP}. 
+\end{example}
+
+\begin{example}
+The left brace $B(8,26)$ has the same additive and multiplicative groups as the brace $\mathcal{G}(X,r)$ 
+of Example~\ref{exa:B(8,27)} but it has a factorization as in Theorem~\ref{thm:MP}. 
+This shows that $B(8,26)$ is right nilpotent. 
+\end{example}
+
+
+
+\section*{Exercises}
+
+
+\begin{prob}
+\label{prob:decomposable}
+Let $A$ be a brace. If there exists a proper strong left ideal $I$, 
+then $(A,r_A)$ is decomposable as $A = I \cup A\setminus I$. 
+\end{prob}
+
+\begin{prob}
+\label{prob:Ito_relaxed}
+Prove that the assumptions of Theorem \ref{thm:Ito_braces} cannot be relaxed. 
+\end{prob}
+
+\begin{prob}
+\label{prob:Ito_version2}
+Let $A$ be a non-zero brace that has a factorization $A=B+C$ through left ideals $B$ and $C$, where both are trivial as braces. If $B$ is a strong left ideal of $A$, then $B$ or $C$ contains a non-zero ideal $I$ of $A$ that acts trivially on $A$.
+\end{prob}
+
+
+
+\begin{prob}
+\label{prob:mul_abelian}
+Let $A$ be a brace with abelian multiplicative group. Prove that the 
+the additive group of $A$ is meta-abelian. 
+\end{prob}
+
+\begin{prob}
+\label{prob:mul_cyclic}
+Let $A$ be a finite brace with cyclic multiplicative group. Prove that the 
+the additive group of $A$ is supersolvable. 
+\end{prob}
+
+\section*{Open problems}
+
+\begin{problem}
+\label{problem:Byott}
+    Let $A$ be a brace with solvable additive group. Is the 
+    multiplicative group of $A$ solvable?
+\end{problem}
+
+\section*{Notes}
+
+Theorem \ref{thm:Ito_braces} was proved by Jespers, Kubat, Antwerpen and Vendramin in \cite{MR4023387}. 
+Exercises \ref{prob:Ito_relaxed} 
+and \ref{prob:Ito_version2} 
+also appear in there. 
+One cannot expect a naive result similar to
+that of Kegel--Wielandt in the context of braces. 
+
+Theorem~\ref{thm:mul_nilpotent} was proved by Tsang and Qin in~\cite{MR4077413}. 
+Exercises~\ref{prob:mul_abelian} and~\ref{prob:mul_cyclic} also appear in~\cite{MR4077413}.
+
+Problem~\ref{problem:Byott} was formulated by Byott in~\cite{MR3425626}.

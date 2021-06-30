@@ -56,8 +56,7 @@ the additive group of $A$ is solvable.
     
 \end{proof}
 
-The following result on the structure of finite braces was
-conjectured by Byott in~\cite{MR3425626}. The proof 
+ The proof 
 uses a well-known theorem of Kegel and Wielandt.
 
 \begin{theorem}[Kegel--Wielandt]
@@ -68,24 +67,6 @@ uses a well-known theorem of Kegel and Wielandt.
     See~\cite[Theorem 2.4.3]{MR1211633}.
 \end{proof}
 
-\begin{theorem}
-\label{thm:mul_nilpotent}
-Let $A$ be a finite brace with nilpotent multiplicative group. Then 
-the additive group of $A$ is solvable.
-\end{theorem}
-
-\begin{proof}
-    Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. The group
-    $\Gamma=K\rtimes G$ has multiplication
-    \[
-    (g,\lambda_g)(h,\lambda_h)=(g+\lambda_g(h),\lambda_g\lambda_h)=(g\circ h,\lambda_{g\circ h}).
-    \]
-    Let $f\colon G\to\Gamma$, $g\mapsto(g,\lambda_g)$. 
-    Then $f$ is a group homomorphism and $f(G)$ is nilpotent. 
-    Since $\lambda(G)$ is nilpotent, the finite group 
-    $K\rtimes\lambda(G)=f(G)\lambda(G)$ is a product of nilpotent groups. 
-    By the theorem of Kegel--Wielandt, $K\rtimes\lambda(G)$ is solvable. Hence $K$ is solvable. 
-\end{proof}
 
 \section*{Exercises}
 
@@ -98,26 +79,6 @@ Let $(X,r)$ be a finite involutive solution. Prove that $G(X,r)$ is solvable.
 Is the result of Exercise~\ref{prob:G(X,r)solvable} true in the case of non-involutive finite solutions?
 \end{prob}
 
-\begin{prob}
-\label{prob:mul_abelian}
-Let $A$ be a brace with abelian multiplicative group. Prove that the 
-the additive group of $A$ is meta-abelian. 
-\end{prob}
-
-\begin{prob}
-\label{prob:mul_cyclic}
-Let $A$ be a finite brace with cyclic multiplicative group. Prove that the 
-the additive group of $A$ is supersolvable. 
-\end{prob}
-
-\section*{Open problems}
-
-\begin{problem}
-\label{problem:Byott}
-    Let $A$ be a brace with solvable additive group. Is the 
-    multiplicative group of $A$ solvable?
-\end{problem}
-
 \section*{Notes}
 
 In~\cite{MR1722951}, Etingof, Schedler and Soloviev proved that the structure group of a finite involutive
@@ -125,11 +86,4 @@ solution is always solvable. The proof can translated into the language of brace
 to obtain Theorem~\ref{thm:add_nilpotent}.
 %~\cite{MR3763907}.
 
-Theorem~\ref{thm:mul_nilpotent} was proved by Tsang and Qin in~\cite{MR4077413}. 
-%and The problem naturally appeared independently in the theory of braces, see~\cite{MR3763907}. 
-
-
-Exercises~\ref{prob:mul_abelian} and~\ref{prob:mul_cyclic} appear in~\cite{MR4077413}.
-
-Problem~\ref{problem:Byott} was formulated by Byott in~\cite{MR3425626}.
 
