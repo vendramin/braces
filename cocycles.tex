@@ -1,7 +1,7 @@
 \chapter{Derivations}
-\label{derivations}
+\label{cocycles}
 
-An extension of $K$ by $Q$ is a
+An \textbf{extension} of $K$ by $Q$ is a
 short exact sequence 
 \[
 \begin{tikzcd}
@@ -34,19 +34,17 @@ then $L$ is an extension
 of $K$ by $L/K$.
 \end{example}
 
-\begin{definition}
-	\index{Lifting} 
-	Let $E:
-	\begin{tikzcd}
+\index{Lifting} 
+Let $E:
+\begin{tikzcd}
 	1 & K & G & Q & 1
 	\arrow[from=1-1, to=1-2]
 	\arrow[from=1-2, to=1-3]
 	\arrow[from=1-3, to=1-4]
 	\arrow[from=1-4, to=1-5]
-    \end{tikzcd}$
-	be an extension. A \textbf{lifting} of $E$ is a map $\ell\colon
-	Q\to G$ such that $p(\ell(x))=x$ for all $x\in Q$. 
-\end{definition}
+\end{tikzcd}$
+be an extension. A \textbf{lifting} of $E$ is a map $\ell\colon
+Q\to G$ such that $p(\ell(x))=x$ for all $x\in Q$. 
 
 \begin{exercise}
 	\label{xca:lifting}
@@ -68,7 +66,6 @@ of $K$ by $L/K$.
 			$\ell(xy)\ker p=\ell(x)\ell(y)\ker p$.
 	\end{enumerate}
 \end{exercise}
-
 
 %\begin{definition}
 %	\index{Acoplamiento}
@@ -178,10 +175,8 @@ of $K$ by $L/K$.
 %	$\chi(x)(k)=\lambda_x(k)=(\lambda_1)_x(k)=\chi_1(x)(k)$.
 %\end{svgraybox}
 
-\begin{definition}
-	\index{Split!extension}
-	An extension $E$ \textbf{splits} if there is a lifting of $E$ that it is a group homomorphism. 
-\end{definition}
+\index{Split!extension}
+An extension $E$ \textbf{splits} if there is a lifting of $E$ that it is a group homomorphism. 
 
 %\begin{lemma}
 %	\label{lemma:split}
@@ -260,22 +255,20 @@ of $K$ by $L/K$.
 %	
 %
 %\end{proof}
-
 %\section{Derivaciones y complementos}
 
-\begin{definition}
-	\index{Derivation}
-	\index{$1$-cocyclo}
-	Let $Q$ and $K$ be groups. Assume that $Q$ acts by automorphism on $K$.
-	A map $\varphi\colon Q\to K$ is said to be a $1$-\textbf{cocycle} (or a derivation) if
-	\[
+
+\index{Derivation}
+\index{$1$-cocyclo}
+Let $Q$ and $K$ be groups. Assume that $Q$ acts by automorphism on $K$.
+A map $\varphi\colon Q\to K$ is said to be a $1$-\textbf{cocycle} (or a derivation) if
+\[
 		\varphi(xy)=\varphi(x)(x\cdot\varphi(y))
-	\]
-	for all $x,y\in Q$.  The set of 1-cocycles $Q\to K$ is defined as 
-	\[
-	\Der(Q,K)=Z^1(Q,K)=\{\delta\colon Q\to K:\text{$\delta$ is $1$-cocycle}\}.
-	\]
-\end{definition}
+\]
+for all $x,y\in Q$.  The set of 1-cocycles $Q\to K$ is defined as 
+\[
+\Der(Q,K)=Z^1(Q,K)=\{\delta\colon Q\to K:\text{$\delta$ is $1$-cocycle}\}.
+\]
 
 \begin{example}
 	Let $Q$ acts on $K$ by automorphisms. For each $k\in K$, the map 
@@ -302,7 +295,7 @@ of $K$ by $L/K$.
 	\end{enumerate}
 \end{exercise}
 
-Recall that a subgroup $K$ of $G$ admits a complement $Q$ if $G$ admits an exact factorization 
+A subgroup $K$ of $G$ admits a \textbf{complement} $Q$ if $G$ admits an exact factorization 
 through $K$ and $Q$, i.e. $G=KQ$ with $K\cap Q=\{1\}$. 
 A classical example is the semidirect product $G=K\rtimes Q$, where $K$ is a normal subgroup of $G$ 
 and $Q$ is a subgroup of $G$ such that $K\cap Q=\{1\}$. 
@@ -315,80 +308,74 @@ and $Q$ is a subgroup of $G$ such that $K\cap Q=\{1\}$.
 \end{theorem}
 
 \begin{proof}
-	El grupo $Q$ actúa en $K$ por conjugación, entonces $\delta\in\Der(Q,K)$ si
-	y sólo si $\delta(xy)=\delta(x)x\delta(y)x^{-1}$, $x,y\in Q$. En este caso,
-	las fórmulas del ejercicio anterior quedan así:
-	$\delta(1)=1$, $\delta(x^{-1})=x^{-1}\delta(x)^{-1}x$.
+	Since $Q$ acts by conjugation on $K$, it follows that $\delta\in\Der(Q,K)$ if and only if 
+	$\delta(xy)=\delta(x)x\delta(y)x^{-1}$ for all $x,y\in Q$. In this case, 
+	one obtains that 
+	$\delta(1)=1$ and $\delta(x^{-1})=x^{-1}\delta(x)^{-1}x$.
 	
-	Sea
-	$C\in\mathcal{C}$. Si $x\in Q$, sabemos que 
-	existen únicos $k\in K$ y $c\in C$ tales que $x=k^{-1}c$. Queda bien
-	definida entonces la función $\delta_C\colon Q\to K$, $x\mapsto k$. Vale
-	que $\delta(x)x=c\in C$. 
+	Let 
+	$C\in\mathcal{C}$. If $x\in Q$, then there exist unique elements  
+	$k\in K$ and $c\in C$ such that $x=k^{-1}c$. Hence the he map 
+	$\delta_C\colon Q\to K$, $x\mapsto k$, is well-defined. Moreover, 
+	$\delta(x)x=c\in C$. 
 	
-	Veamos que $\delta_C\in\Der(Q,K)$. Si $x,x_1\in Q$, escribimos $x=k^{-1}c$
-	y $x_1=k_1^{-1}c_1$, donde $k,k_1\in K$ y $c,c_1\in C$. Como $K$ es normal
-	en $K\rtimes Q$, podemos escribir a $xx_1$ como $xx_1=k_2c_2$, donde
-	$k_2=k^{-1}(ck_1^{-1}c^{-1})\in K$, $c_2=cc_1\in C$. Luego 
-	\[
-		\delta(xx_1)xx_1=cc_1=\delta(x)x\delta(x_1)x_1
-	\]
-	implica que $\delta(xx_1)=\delta(x)x\delta(x_1)x^{-1}$. 
-	Tenemos así una función $F\colon\mathcal{C}\to\Der(Q,K)$, $F(C)=\delta_C$.
+	We claim that $\delta_C\in\Der(Q,K)$. If $x,x_1\in Q$, we write $x=k^{-1}c$
+	and $x_1=k_1^{-1}c_1$ for $k,k_1\in K$ and $c,c_1\in C$. Since $K$ is a normal subgroup of 
+	the semidirect product $K\rtimes Q$, we can write $xx_1$ as $xx_1=k_2c_2$, where 
+	$k_2=k^{-1}(ck_1^{-1}c^{-1})\in K$, $c_2=cc_1\in C$. Thus  
+	$\delta(xx_1)xx_1=cc_1=\delta(x)x\delta(x_1)x_1$ 
+	implies that $\delta(xx_1)=\delta(x)x\delta(x_1)x^{-1}$. 
+	So there is a map $F\colon\mathcal{C}\to\Der(Q,K)$, $F(C)=\delta_C$.
 
-	Vamos a construir ahora $G\colon\Der(Q,K)\to\mathcal{C}$. 
-	Para
-	cada $\delta\in\Der(Q,K)$ vamos a definir un complemento $\Delta$ de $K$ en $K\rtimes Q$: 
-	\[
-	\Delta=\{\delta(x)x:x\in Q\}.
-	\]
-
-	Veamos que $\Delta$ es un subgrupo de $K\rtimes Q$. Como $\delta(1)=1$,
-	$1\in X$. Si $x,y\in Q$ entonces
+	We now construct a map $G\colon\Der(Q,K)\to\mathcal{C}$. 
+	For each 
+	$\delta\in\Der(Q,K)$ we find a complement $\Delta$ of $K$ in $K\rtimes Q$. Let 
+	$\Delta=\{\delta(x)x:x\in Q\}$. 
+	We claim that $\Delta$ is a subgroup of $K\rtimes Q$. Since $\delta(1)=1$,
+	$1\in X$. If $x,y\in Q$, then 
 	$\delta(x)x\delta(y)y=\delta(x)x\delta(y)x^{-1}xy=\delta(xy)xy\in \Delta$.
-	Por último si $x\in Q$ entonces
-	$(\delta(x)x)^{-1}=x^{-1}\delta(x)^{-1}xx^{-1}=\delta(x^{-1})x^{-1}$.
+	Finally, if $x\in Q$, then 
+	\[
+	(\delta(x)x)^{-1}=x^{-1}\delta(x)^{-1}xx^{-1}=\delta(x^{-1})x^{-1}.
+	\]
 	
-	
-	Veamos que $\Delta\cap K=\{1\}$. Si $x\in Q$ es tal que $\delta(x)x\in K$
-	entonces, como $\delta(x)\in K$, $x\in K\cap Q=1$. Si $g\in G$ entonces
-	existen únicos $k\in K$, $x\in Q$ tales que $g=kx$. Escribimos
-	$g=k\delta(x)^{-1}\delta(x)x$. Como $k\delta(x)^{-1}\in K$ y $\delta(x)x\in
-	\Delta$, se concluye que $G=K\Delta$. Queda bien definida entonces la
-	función $G\colon\Der(Q,K)\to\mathcal{C}$, $G(\delta)=\Delta$.
+	Let us prove that $\Delta\cap K=\{1\}$. If $x\in Q$ is such that $\delta(x)x\in K$, then 
+    since $\delta(x)\in K$, it follows that $x\in K\cap Q=1$. If $g\in G$, then 
+	there are unique $k\in K$ and $x\in Q$ such that $g=kx$. We write 
+	$g=k\delta(x)^{-1}\delta(x)x$. Since $k\delta(x)^{-1}\in K$ and $\delta(x)x\in
+	\Delta$, we conclude that $G=K\Delta$. Thus there is a well-defined map 
+	$G\colon\Der(Q,K)\to\mathcal{C}$, $G(\delta)=\Delta$.
 
-	Veamos ahora que $G\circ F=\id_{\mathcal{C}}$. 
-	Sea $C\in\mathcal{C}$. Entonces 
+	We claim that $G\circ F=\id_{\mathcal{C}}$. 
+	Let $C\in\mathcal{C}$. Then  
 	\[
 	G(F(C))=G(\delta_C)=\{\delta_C(x)x:x\in
 	Q\}=C,
 	\]
-	por construcción. (Vimos que $\delta_C(x)x\in C$. Recíprocamente,  si $c\in
-	C$, escribimos $c=kx$ para únicos $k\in K$, $x\in Q$ y luego $x=k^{-1}c$
-	que implica $c=\delta_c(x)x$.)
+	by construction. (We know that $\delta_C(x)x\in C$. Conversely, if $c\in
+	C$, we write $c=kx$ for unique elements $k\in K$ and $x\in Q$. Thus $x=k^{-1}c$
+	and hence $c=\delta_c(x)x$.)
 
-	Por último veamos que $F\circ G=\id_{\Der(Q,K)}$. Sea $\delta\in\Der(Q,K)$.
-	Entonces 
-	\[
+	Finally, we prove that $F\circ G=\id_{\Der(Q,K)}$. Let $\delta\in\Der(Q,K)$.
+    Then	
+    \[
 	F(G(\delta))=F(\Delta)=\delta_{\Delta}.
 	\]
-	Queremos demostrar que $\delta_\Delta=\delta$.  Sea $x\in Q$. Existe
-	$\delta(y)y\in\Delta$ para algún $y\in Q$ tal que $x=k^{-1}\delta(y)y$.
-	Luego $\delta_{\Delta}(x)x=\delta(y)y$ y luego $\delta(x)=\delta(y)$ por la
-	unicidad de la escritura.
+	Finally, we need to show that $\delta_\Delta=\delta$.  Let $x\in Q$. There exists 
+	$\delta(y)y\in\Delta$ for some $y\in Q$ such that $x=k^{-1}\delta(y)y$.
+	Thus $\delta_{\Delta}(x)x=\delta(y)y$ and hence $\delta(x)=\delta(y)$ by
+	the uniqueness. 
 \end{proof}
 
-\begin{definition}
-	\index{Derivación!interior}
-	\index{$1$-coborde}
-	Sean $Q$ y $K$ grupos. Supongamos que $Q$ actúa por automorfismos en $K$.
-	Un $\delta\in\Der(Q,K)$ se dice \textbf{interior} si existe $k\in K$ tal
-	que $\delta(x)=[k,x]$ para todo $x\in Q$. El conjunto de
-	\textbf{derivaciones interiores} será denotado por
-	\[
+\index{Derivación!interior}
+\index{$1$-coborde}
+Sean $Q$ y $K$ grupos. Supongamos que $Q$ actúa por automorfismos en $K$.
+Un $\delta\in\Der(Q,K)$ se dice \textbf{interior} si existe $k\in K$ tal
+que $\delta(x)=[k,x]$ para todo $x\in Q$. El conjunto de
+\textbf{derivaciones interiores} será denotado por
+\[
 		\Inn(Q,K)=B^1(Q,K)=\{\delta\in\Der(Q,K):\text{$\delta$ es interior}\}.
-	\]
-\end{definition}
+\]
 
 Una derivación interior también se llama \textbf{$1$-coborde}.
 
@@ -447,28 +434,27 @@ es el siguiente:
 %%% ejemplo con anillo radical
 %%% braces?
 
-Una consecuencia inmediata del teorema de Sysak:
+An immediate consequence of Sysak's theorem:
 
 \begin{corollary}
-	Supongamos que el grupo $Q$ actúa por automorfismos en $K$. Sea
-	$\delta\in\Der(Q,K)$ sobreyectivo. Entonces $G=K\rtimes Q$ admite una
-	factorización triple.
+	If the group $Q$ acts by automorphisms on $K$ and 
+	$\delta\in\Der(Q,K)$ is surjective, then $G=K\rtimes Q$ admits a triple factorization. 
 \end{corollary}
 
 % \begin{proof}
 % 	Es consecuencia inmediata del teorema~\ref{theorem:Sysak}. 
 % \end{proof}
-Otra consecuencia: 
+Another consequence: 
 
 \begin{exercise}
 	\label{xca:ker1cocycle}
-	Sea $\delta\in\Der(Q,K)$. 
+	Let $\delta\in\Der(Q,K)$. 
 	\begin{enumerate}
-	\item Demuestre que $\delta$ es inyectiva si y sólo si
+	\item Prove that $\delta$ is injective if and only if 
 	$\ker\delta=\{1\}$.
-	\item Si $\delta$ es biyectivo, demuestre que 
-	$K$ admite un complemento
-	$\Delta$ en $K\rtimes Q$ tal que $K\rtimes Q=K\rtimes\Delta=\Delta Q$ y
+	\item If $\delta$ is bijective, then  
+	$K$ admits a complement 
+	$\Delta$ in $K\rtimes Q$ such that $K\rtimes Q=K\rtimes\Delta=\Delta Q$ and 
 	$Q\cap\Delta=\{1\}$.
 	\end{enumerate}
 \end{exercise}
@@ -541,3 +527,103 @@ Otra consecuencia:
 %\end{theorem}
 %
 %
+
+Let $A$ be an additive group and $G$ be a group and let 
+$G\times A\to A$, $(g,a)\mapsto g\cdot a$,
+is a left action of $G$ on $A$ by automorphisms. This means that the action of $G$ on $A$ satisfies 
+$g\cdot (a+b)=g\cdot a+g\cdot b$ for all $g\in G$ and $a,b\in A$.
+A \emph{bijective
+$1$-cocyle} is a bijective map $\pi\colon G\to A$ such that 
+\begin{equation}
+    \label{eq:1cocycle}
+    \pi(gh)=\pi(g)+g\cdot \pi(h)
+\end{equation}
+for all $g,h\in G$. 
+We now prove the equivalence between braces and bijective 1-cocycles. 
+
+\begin{theorem}
+	\label{thm:1cocycle}
+    Over any additive group $A$ the following data are equivalent:
+    \begin{enumerate}
+        \item A group $G$ and a bijective
+            $1$-cocycle $\pi\colon G\to A$. 
+        \item A brace structure over $A$. 
+    \end{enumerate}
+
+    \begin{proof}
+        Consider on $A$ a second group structure given by 
+        \[
+		a\circ b=\pi(\pi^{-1}(a)\pi^{-1}(b))=a+\pi^{-1}(a)\cdot b
+		\]
+		for all
+        $a,b\in A$.  Since $G$ acts on $A$ by
+        automorphisms, 
+        \begin{align*}
+            a\circ (b+c)&=\pi(\pi^{-1}(a)\pi^{-1}(b+c))=a+\pi^{-1}(a)\cdot (b+c)\\
+            &=a+ \pi^{-1}(a)\cdot b+\pi^{-1}(a)\cdot c
+            =a\circ b-a+a\circ c
+        \end{align*}
+        holds for all $a,b,c\in A$.
+        
+        Conversely, assume that the additive group $A$ has a brace structure. Let $G$ be the multiplicative group of $A$
+        and $\pi=\id$. By
+        Proposition~\ref{pro:lambda}, $a\mapsto\lambda_a$, is a group homomorphism and 
+        hence $G$ acts on $A$ by automorphisms. Then~\eqref{eq:1cocycle} holds
+        and therefore $\pi\colon G\to A$ is a bijective $1$-cocycle. 
+    \end{proof}
+\end{theorem}
+
+The construction of Theorem~\ref{thm:1cocycle} is functorial, see Exercise~\ref{prob:1cocycle}.
+
+\begin{example}
+	\label{exa:d8q8}
+	Let 
+	\[
+	D_4=\langle r,s:r^4=s^2=1,srs=r^{-1}\rangle
+	\]
+	be the dihedral group of eight elements and let
+	\[
+	Q_8=\{1,-1,i,-i,j,-j,k,-k\}
+	\]
+	be the quaternion group of eight elements.  Let
+	$\pi:Q_8\to D_4$ be given by 
+	\begin{align*}
+		1\mapsto 1 &, & -1\mapsto r^2 &,  & -k\mapsto r^3s &,&  k\mapsto rs &,\\
+		i\mapsto s &, & -i\mapsto r^2s &, &  j\mapsto r^3 &, & -j\mapsto r &.
+	\end{align*}
+	Since $\pi$ is bijective, 
+	a straightforward calculation shows that $D_4$ with 
+	\[
+	  x+y=xy,\quad 
+	  x\circ y=\pi(\pi^{-1}(x)\pi^{-1}(y))
+	\]
+	is a two-sided brace with additive group isomorphic to $D_4$ and multiplicative group
+	isomorphic to $Q_8$. 
+\end{example}
+
+\section*{Exercises}
+
+\begin{prob}
+\label{prob:1cocycle}
+Let $\pi\colon G\to A$ and $\eta\colon H\to B$ be bijective $1$-cocycles.  A
+\emph{homorphism} between these bijective $1$-cocycles is a pair $(f,g)$ of
+group homomorphisms  $f\colon G\to H$, $g\colon A\to B$ such that
+\begin{align*}
+&\eta\circ f=g\circ \pi,\\
+&g(h\cdot a)=f(h)\cdot g(a),&&a\in A,\;h\in G.
+\end{align*}
+Bijective $1$-cocycles and homomorphisms form a category. 
+For a given additive group $A$ 
+the full subcategory of the category of bijective $1$-cocycles with objects
+$\pi\colon G\to A$ is equivalent to the full subcategory of the category of
+braces with additive group $A$. 
+\end{prob}
+
+\section*{Open problems}
+
+\section*{Notes}
+
+In the case of braces of abelian type, Theorem~\ref{thm:1cocycle} is implicit in the work of Rump, see \cite{MR2278047,MR3291816} or~\cite{MR3177933}. Similar results appear 
+in the work of Etingof, Schedler and Soloviev~\cite{MR1722951}, Lu, Yan and Zhu~\cite{MR1769723} 
+and Soloviev~\cite{MR1809284}.
+In~\cite{MR1653340} Etingof and Gelaki give a method of constructing finite-dimensional complex semisimple triangular Hopf algebras. They show how any non-abelian group which admits a bijective 1-cocycle gives rise to a semisimple minimal triangular Hopf algebra which is not a group algebra.

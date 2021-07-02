@@ -143,11 +143,11 @@ We now give concrete examples of the previous construction.
 
 \begin{example}
   \label{exa:QR}
-  Let $n\in\N$.  The group $\GL(n,\C)$ admits an
+  Let $n\in\N$.  The group $\GL_n(\C)$ admits an
   exact factorization through the subgroups $U(n)$ and $T(n)$, where $U(n)$
   is the unitary group and $T(n)$ is the group of upper triangular matrices
   with positive diagonal entries.  Therefore there exists a brace with additive group 
-  isomorphic to $\GL(n,\C)$ and multiplicative group isomorphic to $U(n)\times T(n)$.  
+  isomorphic to $\GL_n(\C)$ and multiplicative group isomorphic to $U(n)\times T(n)$.  
 \end{example}
 
 The following examples appeared in the theory of Hopf--Galois 
@@ -165,10 +165,10 @@ extensions, see~\cite[Corollary 1.1]{MR3425626}.
 
 \begin{example} 
 	\label{exa:PSL27S4C7}
-  The simple group $\PSL(2,7)$ admits an exact factorization through
+  The simple group $\PSL_2(7)$ admits an exact factorization through
   the subgroups $A\simeq\Sym_4$ and $B\simeq C_7$. 
   There exists a brace with additive
-  group isomorphic to $\PSL(2,7)$ and multiplicative group isomorphic to 
+  group isomorphic to $\PSL_2(7)$ and multiplicative group isomorphic to 
   $\Sym_4\times C_7$.  
 \end{example}
 
@@ -334,51 +334,6 @@ Braces and brace homomorphisms form a category.
 %\end{example}
 
 
-Let $A$ be an additive group and $G$ be a group and let 
-$G\times A\to A$, $(g,a)\mapsto g\cdot a$,
-is a left action of $G$ on $A$ by automorphisms. This means that the action of $G$ on $A$ satisfies 
-$g\cdot (a+b)=g\cdot a+g\cdot b$ for all $g\in G$ and $a,b\in A$.
-A \emph{bijective
-$1$-cocyle} is a bijective map $\pi\colon G\to A$ such that 
-\begin{equation}
-    \label{eq:1cocycle}
-    \pi(gh)=\pi(g)+g\cdot \pi(h)
-\end{equation}
-for all $g,h\in G$. 
-
-\begin{theorem}
-	\label{thm:1cocycle}
-    Over any additive group $A$ the following data are equivalent:
-    \begin{enumerate}
-        \item A group $G$ and a bijective
-            $1$-cocycle $\pi\colon G\to A$. 
-        \item A brace structure over $A$. 
-    \end{enumerate}
-
-    \begin{proof}
-        Consider on $A$ a second group structure given by 
-        \[
-		a\circ b=\pi(\pi^{-1}(a)\pi^{-1}(b))=a+\pi^{-1}(a)\cdot b
-		\]
-		for all
-        $a,b\in A$.  Since $G$ acts on $A$ by
-        automorphisms, 
-        \begin{align*}
-            a\circ (b+c)&=\pi(\pi^{-1}(a)\pi^{-1}(b+c))=a+\pi^{-1}(a)\cdot (b+c)\\
-            &=a+ \pi^{-1}(a)\cdot b+\pi^{-1}(a)\cdot c
-            =a\circ b-a+a\circ c
-        \end{align*}
-        holds for all $a,b,c\in A$.
-        
-        Conversely, assume that the additive group $A$ has a brace structure. Let $G$ be the multiplicative group of $A$
-        and $\pi=\id$. By
-        Proposition~\ref{pro:lambda}, $a\mapsto\lambda_a$, is a group homomorphism and 
-        hence $G$ acts on $A$ by automorphisms. Then~\eqref{eq:1cocycle} holds
-        and therefore $\pi\colon G\to A$ is a bijective $1$-cocycle. 
-    \end{proof}
-\end{theorem}
-
-The construction of Theorem~\ref{thm:1cocycle} is functorial, see Exercise~\ref{prob:1cocycle}.
 
 % \begin{exa}
 %   \label{exa:trivial}
@@ -544,64 +499,36 @@ The second equality follows from~\eqref{eq:right_compatibility}.
   example~\cite{MR1786236}.  
 \end{example}
 
-\begin{example}
-	\label{exa:d8q8}
-	Let 
-	\[
-	D_4=\langle r,s:r^4=s^2=1,srs=r^{-1}\rangle
-	\]
-	be the dihedral group of eight elements and let
-	\[
-	Q_8=\{1,-1,i,-i,j,-j,k,-k\}
-	\]
-	be the quaternion group of eight elements.  Let
-	$\pi:Q_8\to D_4$ be given by 
-%	\[
-%	  \pi(r^as^b)=(-1)^{ab+a}i^bj^a.
-%	 \]
-	\begin{align*}
-		1\mapsto 1 &, & -1\mapsto r^2 &,  & -k\mapsto r^3s &,&  k\mapsto rs &,\\
-		i\mapsto s &, & -i\mapsto r^2s &, &  j\mapsto r^3 &, & -j\mapsto r &.
-	\end{align*}
-	Since $\pi$ is bijective, 
-	a straightforward calculation shows that $D_4$ with 
-	\[
-	  x+y=xy,\quad 
-	  x\circ y=\pi(\pi^{-1}(x)\pi^{-1}(y))
-	\]
-	is a two-sided brace with additive group isomorphic to $D_4$ and multiplicative group
-	isomorphic to $Q_8$. 
-\end{example}
-
 \index{Jacobson!radical ring}
 \index{Radical ring}
-Two-sided braces of abelian type form an interesting family of rings without unit. Those rings, known as radical rings, 
-were introduced by Jacobson in~\cite{MR12271}. In any ring $R$ the \emph{circle operation} 
-\[
-x\circ y=x+xy+y
-\]
-is always associative 
-and such that $x\circ 0=0\circ x=x$ for all $x\in R$. A non-unital ring (or \emph{rng}, for short) 
-$R$ is said to be a \emph{radical ring} if $(R,\circ)$ is a group. 
-In this case, following Jacobson's notation, the inverse of an element $x$ with respect to the circle operation is denoted by $x'$. 
-There are other characterizations of radical rings, see for example~\cite{MR3308118}.
+Two-sided braces of abelian type form an interesting family of rings without unit. 
+% Those rings, known as radical rings, 
+% were introduced by Jacobson in~\cite{MR12271}. In any ring $R$ the \emph{circle operation} 
+% \[
+% x\circ y=x+xy+y
+% \]
+% is always associative 
+% and such that $x\circ 0=0\circ x=x$ for all $x\in R$. A non-unital ring (or \emph{rng}, for short) 
+% $R$ is said to be a \emph{radical ring} if $(R,\circ)$ is a group. 
+% In this case, following Jacobson's notation, the inverse of an element $x$ with respect to the circle operation is denoted by $x'$. 
+% There are other characterizations of radical rings, see for example~\cite{MR3308118}.
 
-\begin{example}
-    The ring 
-    $R=\begin{pmatrix}
-    0 & \R & \R\\
-    0 & 0 & \R\\
-    0 & 0 & 0
-    \end{pmatrix}$ 
-    is  radical ring. 
-\end{example}
+% \begin{example}
+%     The ring 
+%     $R=\begin{pmatrix}
+%     0 & \R & \R\\
+%     0 & 0 & \R\\
+%     0 & 0 & 0
+%     \end{pmatrix}$ 
+%     is  radical ring. 
+% \end{example}
 
-\begin{example}
-    The ring $R=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}$ is a radical ring. In fact, 
-    \[
-    \left(\frac{2x}{2y+1}\right)'=\frac{2(-x)}{2(x+y)+1}.
-    \]
-\end{example}
+% \begin{example}
+%     The ring $R=\left\{\frac{2x}{2y+1}:x,y\in\Z\right\}$ is a radical ring. In fact, 
+%     \[
+%     \left(\frac{2x}{2y+1}\right)'=\frac{2(-x)}{2(x+y)+1}.
+%     \]
+% \end{example}
 
 Braces are a far reaching generalizations of radical rings. The following result was proved by Rump in~\cite{MR2278047}.
 
@@ -899,14 +826,16 @@ $g^n=1$ for all $g\in G$.
   \end{align*}
 \end{proof}
 
+An inmmediate consequence:
+
 \begin{corollary}
     Let $A$ be a finite brace and $r$ be its associated solution. Then 
     $r$ is involutive if and only if $A$ is of abelian type.  
 \end{corollary}
 
-\begin{proof}
-    It follows immediately from Theorem~\ref{thm:|r|}.
-\end{proof}
+% \begin{proof}
+%     It follows immediately from Theorem~\ref{thm:|r|}.
+% \end{proof}
 
 %\begin{exa} A skew brace has depth one if and only if its additive group is
 %  abelian.  \end{exa}
@@ -987,21 +916,6 @@ into a group.
     Prove Equality~\eqref{eq:Lau}.
 \end{prob}
 
-\begin{prob}
-\label{prob:1cocycle}
-Let $\pi\colon G\to A$ and $\eta\colon H\to B$ be bijective $1$-cocycles.  A
-\emph{homorphism} between these bijective $1$-cocycles is a pair $(f,g)$ of
-group homomorphisms  $f\colon G\to H$, $g\colon A\to B$ such that
-\begin{align*}
-&\eta\circ f=g\circ \pi,\\
-&g(h\cdot a)=f(h)\cdot g(a),&&a\in A,\;h\in G.
-\end{align*}
-Bijective $1$-cocycles and homomorphisms form a category. 
-For a given additive group $A$ 
-the full subcategory of the category of bijective $1$-cocycles with objects
-$\pi\colon G\to A$ is equivalent to the full subcategory of the category of
-braces with additive group $A$. 
-\end{prob}
 
 \section*{Notes}
 

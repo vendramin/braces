@@ -1,4 +1,5 @@
 \chapter{Radical rings}
+\label{radical}
 
 We will consider rings possibly without identity. Thus a 
 \textbf{ring} is an abelian group $R$ with an associative multiplication 
@@ -523,8 +524,7 @@ $x\in I$.
 
 \begin{proposition}
 	\label{pro:nilJ}
-	Sea $R$ un anillo. Entonces $J(R)$ contiene a todo ideal a izquierda (resp.
-	a derecha) nil.
+	Let $R$ be a ring. Then every nil left ideal (resp. right ideal) is contained in $J(R)$.
 \end{proposition}
 
 \begin{proof}
@@ -603,95 +603,104 @@ one defines right quasi-regular ideals and quasi-regular ideals.
 	\]
 \end{proof}
 
-\index{Lema de Zorn}
-Sea $(A,\leq)$ un conjunto parcialmente ordenado, es decir $A$ es un conjunto
-con una relación $R$ en $A\times A$ reflexiva, transitiva y antisimétrica.
-(Reflexiva: $a\leq a$ para todo $a\in A$; transitiva: si $a\leq b$ y $b\leq c$
-entonces $a\leq c$; y antisimétrica: si $a\leq b$ y $b\leq a$ entonces $a=b$.)
-Dos elementos $a,b\in A$ se dicen \textbf{comparables} si $a\leq b$ o $b\leq
-a$. Un elemento $a\in A$ se dice \textbf{maximal} si para todo $c\in A$
-comparable con $a$, se tiene $c\leq a$. 
-Una \textbf{cota superior} para un $B\subseteq A$ no vacío es un elemento $d\in
-A$ tal que $b\leq d$ para todo $b\in B$.  Una \textbf{cadena} en $A$ es un
-subconjunto $B$ tal que todo par de elementos de $B$ es comparable. 
-El \textbf{lema de Zorn} afirma lo siguiente: 
+\index{Lemma!Zorn}
+Let $(A,\leq)$ be a partially order set, this means that $A$ is a set together with a 
+reflexive, transitive and anti-symmetric binary relation
+$R$ en $A\times A$, where $a\leq b$ if and only if $(a,b)\in R$. 
+Recall that the relation is reflexive if $a\leq a$ for all $a\in A$, the relation is transitive if 
+$a\leq b$ and $b\leq c$ imply that 
+$a\leq c$ and the relation is anti-symmetric if $a\leq b$ and $b\leq a$ imply $a=b$.
+
+The elements $a,b\in A$ are said to be \textbf{comparable} if $a\leq b$ or $b\leq
+a$. An element $a\in A$ is said to be \textbf{maximal} if 
+$c\leq a$ 
+for all $c\in A$
+that is comparable with $a$. 
+An \textbf{upper bound} for a non-empty subset $B\subseteq A$ is an element $d\in
+A$ such that $b\leq d$ for all $b\in B$. A \textbf{chain} in $A$ is a subset 
+$B$ such that every pair of elements of $B$ are comparable. 
+\textbf{Zorn's lemma} states the following property: 
 \begin{quote}
-Si $A$ es un conjunto no vacío parcialmente ordenado tal que toda cadena de
-$A$ posee una cota superior en $A$, entonces $A$ posee elemento maximal.
+If $A$ is a non-empty partially ordered set such that every chain in 
+$A$ contains an upper bound in $A$, then $A$ contains a maximal element. 
 \end{quote}
-Usaremos el lema de Zorn para demostrar el siguiente lema:
+
+Our application of Zorn's lemma:
 
 \begin{lemma}
 	\label{lemma:maxreg}
-	Sea $R$ un anillo y sea $x\in R$ un elemento que no es casi-regular a
-	izquierda. Entonces existe un ideal a izquierda $M$ maximal tal que
-	$x\not\in M$. Más aún, $R/M$ es un $R$-módulo simple y
+	Let $R$ be a ring and $x\in R$ be an element that is not left quasi-regular Then there
+	exists a maximal left ideal $M$ such that 
+	$x\not\in M$. Moreover, $R/M$ is a simple $R$-module and  
 	$x\not\in\Ann_R(R/M)$.
 \end{lemma}
 
 \begin{proof}
-	Sea $T=\{r+rx:r\in R\}$. Es fácil verificar que $T$ es un ideal a izquierda
-	de $R$ tal que $x\not\in T$ (pues si $x\in T$ entonces $r+rx=-x$ para algún
-	$r\in R$, una contradicción pues $x$ no es casi-regular a izquierda). 
+	Let $T=\{r+rx:r\in R\}$. A straightforward calculation shows that $T$ is a left ideal of 
+	$R$ such that $x\not\in T$ (if $x\in T$, then $r+rx=-x$ for some 
+	$r\in R$, a contradiction since $x$ is not left quasi-regular). 
 
-	El único ideal a izquierda de $R$ que contiene
-	a $T\cup\{x\}$ es $R$:  si existe un ideal a izquierda $U$ que contiene a $T$
-	entonces $x\not\in U$ pues, de lo contrario, todo $r\in R$ podría
-	escribirse como $r=(r+rx)+r(-x)\in U$. 
+	The only left ideal of $R$ contanining 
+	$T\cup\{x\}$ is $R$. Indeed, if there exists a left ideal $U$ containing $T$, then 
+    $x\not\in U$, since otherwise every $r\in R$ could be written as 
+	$r=(r+rx)+r(-x)\in U$. 
 
-	Sea $\mathcal{S}$ el conjunto de ideales propios de $R$ que contienen a
-	$T$, parcialmente ordenado por la inclusión. Si $\{K_i:i\in I\}$ es una
-	cadena en $\mathcal{S}$, entonces $K=\cup_{i\in I}K_i$ es una cota superior
-	para la cadena ($K$ es un ideal propio pues $x\not\in K$). Por el lema de
-	Zorn, $\mathcal{S}$ admite un elemento maximal, digamos $M$. Entonces $M$
-	es un ideal a izquierda maximal tal que $x\not\in M$. Además $M$ es regular
-	pues $r+r(-x)\in T\subseteq M$ para todo $r\in R$. Luego $R/M$ es un
-	$R$-módulo simple por la proposición~\ref{proposition:R/I}. Como $x(x+M)\ne
-	0$ (pues si $x^2\in M$ entonces $x\in M$ al observar que $x+x^2\in
-	T\subseteq M$), que $x\not\in\Ann_R(R/M)$.
+	Let $\mathcal{S}$ be the set of proper left ideals of $R$ containing 
+	$T$ partially ordered by inclusion. If $\{K_i:i\in I\}$ is a chain in 
+	$\mathcal{S}$, then $K=\cup_{i\in I}K_i$ is an upper bound for the chain 
+	($K$ is a proper, as $x\not\in K$). Zorn's lemma implies that 
+	$\mathcal{S}$ admits a maximal element $M$. Thus $M$
+	is a maximal left ideal such that $x\not\in M$. Moreover, $M$ is regular
+	since $r+r(-x)\in T\subseteq M$ for all $r\in R$. Therefore $R/M$ is a simple 
+	$R$-module by Proposition~\ref{proposition:R/I}. Since $x(x+M)\ne
+	0$ (if $x^2\in M$, then  $x\in M$, as $x+x^2\in
+	T\subseteq M$), it follows that $x\not\in\Ann_R(R/M)$.
 \end{proof}
 
-\begin{remark}
-	\label{remark:xJ(R)}
-	Si $x\in R$ no es casi-regular a izquierda, por el lema~\ref{lemma:maxreg}
-	existe un $R$-módulo simple $M$ tal que $x\not\in\Ann_R(M)$. Luego
-	$x\not\in J(R)$.
-\end{remark}
+If $x\in R$ is not left quasi-regular, Lemma~\ref{lemma:maxreg} implies that there exists 
+a simple $R$-module $M$ such $x\not\in\Ann_R(M)$. Thus 
+$x\not\in J(R)$.
 
 \begin{theorem}
 	\label{thm:casireg_eq}
-	Sean $R$ un anillo y $x\in R$. Son
-	equivalentes:
+	Let $R$ be a ring and $x\in R$. The following statements are equivalent: 
 	\begin{enumerate}
-		\item El ideal a izquierda generado por $x$ es casi-regular.
-		\item $Rx$ es casi-regular.
+		\item The left ideal generated by $x$ is quasi-regular.
+		\item $Rx$ is quasi-regular.
 		\item $x\in J(R)$.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	La implicación $(1)\implies(2)$ es trivial pues $Rx$ está contenido en el
-	ideal a izquierda generado por $x$.  Demostremos que $(2)\implies(3)$. Si
-	$x\not\in J(R)$ entonces por el lema~\ref{lemma:maxreg} existe un
-	$R$-módulo simple $M$ tal que $xm\ne 0$ para algún $m\in M$. Por la
-	simplicidad, $R(xm)=M$ y luego existe $r\in R$ tal que $rxm=-m$. Existe
-	$s\in R$ tal que $s+rx+s(rx)=0$ y entonces
+	The implication $(1)\implies(2)$ is trivial, as $Rx$ is included in the left ideal 
+	generated by $x$.  
+	
+	We now prove $(2)\implies(3)$. If
+	$x\not\in J(R)$, then Lemma~\ref{lemma:maxreg} implies that there exists a simple 
+	$R$-module $M$ such that $xm\ne 0$ for some $m\in M$. The simplicity of $M$ implies
+	that $R(xm)=M$. Thus there exists $r\in R$ such that $rxm=-m$. There is an element 
+	$s\in R$ such that $s+rx+s(rx)=0$ and hence 
 	\[
 	-m=rxm=(-s-srx)m=-sm+sm=0,
 	\]
-	una contradicción. Por último, para demostrar que $(3)\implies(1)$ basta
-	observar que $x$ es casi-regular a izquierda por la
-	observación~\ref{remark:xJ(R)} y luego el ideal a izquierda generaod por
-	$x$ es casi-regular por el lema~\ref{lemma:casiregular}.
+	a contradiction. 
+	
+	Finally, to prove $(3)\implies(1)$ it is enough to note that 
+	$x$ is left quasi-regular. Thus the left ideal generated by 
+	$x$ is quasi-regular by Lemma~\ref{lemma:casiregular}.
 \end{proof}
 
+The theorem immediately implies the following corollary. 
+
 \begin{corollary}
-	Si $R$ es un anillo, $J(R)$ es un ideal casi-regular que contiene a todo
-	ideal casi-regular a izquierda.
+	If $R$ is a ring, then $J(R)$ if a quasi-regular ideal that contains every 
+	left quasi-regular ideal. 
 \end{corollary}
 
-\begin{proof}
-	Es consecuencia inmediata del teorema~\ref{thm:casireg_eq}. 
+The following result is somewhat what we all had in mind. 
+
+% \begin{proof}
+% 	Es consecuencia inmediata del teorema~\ref{thm:casireg_eq}. 
 %%	Como \[
 %%	J(R)=\bigcap\{\Ann_R(R/I):I\text{ ideal a izquierda maximal y
 %%	regular}\}
@@ -700,7 +709,7 @@ Usaremos el lema de Zorn para demostrar el siguiente lema:
 %%	todo $x\in J(R)$ es casi-regular gracias al
 %%	lema~\ref{lemma:K}. Si $I$ es un ideal casi-regular a izquierda, entonces
 %%	$I\subseteq J(R)$ por el lema~\ref{lemma:JsupsetCR}.
-\end{proof}
+%\end{proof}
 
 %\begin{lemma}
 %%	\label{lemma:maxreg}
@@ -755,34 +764,35 @@ Usaremos el lema de Zorn para demostrar el siguiente lema:
 
 \begin{theorem}
 	\label{thm:J(R)}
-	Sea $R$ un anillo tal que $J(R)\ne R$.  Entonces 
+	Let $R$ be a ring such that $J(R)\ne R$. Then 
 	\begin{align*}
-		J(R)&=\bigcap\{I:\text{$I$ ideal a izquierda maximal y regular}\}.
+		J(R)&=\bigcap\{I:\text{$I$ regular maximal left ideal of $R$}\}.
 	\end{align*}
 \end{theorem}
 
 \begin{proof}
-	Sea $K=\bigcap\{I:\text{$I$ ideal a izquierda maximal y regular}\}$. Por la
-	proposición~\ref{proposition:R/I} podemos escribir
+    We only prove the non-trivial inclusion. 
+	Let 
 	\[
-		J(R)=\bigcap\{\Ann_R(R/I):I\text{ ideal a izquierda maximal y regular}\}.
+	K=\bigcap\{I:\text{$I$ regular maximal left ideal of $R$}\}.
 	\]
-	Sea $I$ un ideal a izquierda maximal y regular. Si $r\in J(R)\subseteq
-	\Ann_R(R/I)$ entonces, como $I$ es regular, existe $e\in R$ tal que
-	$r-re\in I$. Como
+	By
+	Proposition~\ref{proposition:R/I}, 
+	\[
+		J(R)=\bigcap\{\Ann_R(R/I):I\text{ regular maximal left ideal of $R$}\}.
+	\]
+	Let $I$ be a regular maximal left ideal. If $r\in J(R)\subseteq
+	\Ann_R(R/I)$, then, since $I$ is regular, there exists $e\in R$ such that
+	$r-re\in I$. Since 
 	\[
 	re+I=r(e+I)=0,
 	\]
-	$re\in I$ y por lo tanto $r\in I$. Luego $J(R)\subseteq K$. 
-	%Veamos que
-	%$K\subseteq J(R)$: por el lema~\ref{lemma:K}, $K$ es casi-regular a
-	%izquierda y luego $K\subseteq J(R)$.% por el lema~\ref{lemma:JsupsetCR}. 
-	La otra implicación es trivial.
+	$re\in I$ and hence $r\in I$. Thus $J(R)\subseteq K$. 
 \end{proof}
 
 \begin{example}
-	Todo ideal maximal de $\Z$ es de la forma $p\Z=\{pm:m\in\Z\}$, donde $p$ es algún número
-	primo. Entonces $J(\Z)=\cap_p p\Z=\{0\}$.
+	Each maximal ideals of $\Z$ is of the form $p\Z=\{pm:m\in\Z\}$ for some prime number $p$. 
+	Thus $J(\Z)=\cap_p p\Z=\{0\}$.
 \end{example}
 
 %\begin{example}
@@ -790,27 +800,29 @@ Usaremos el lema de Zorn para demostrar el siguiente lema:
 %	entonces\dots Luego $J(R)=0$. 
 %\end{example}
 
-Veamos algunos resultados que nos permitirán calcular radicales. 
+We now review some basic results useful to compute radicals. 
 
 \begin{proposition}
-	Sea $\{R_i:i\in I\}$ una familia de anillos. Entonces 
+	Let $\{R_i:i\in I\}$ be a family of rings. Then 
 	\[
 	J\left(\prod_{i\in I}R_i\right)=\prod_{i\in I}J(R_i).
 	\]
 \end{proposition}
 
 \begin{proof}
-	Sea $R=\prod_{i\in I}R_i$ y sea $x=(x_i)_{i\in I}\in R$.  El ideal a
-	izquierda $Rx$ es casi-regular si y sólo si cada ideal a izquierda $R_ix_i$
-	es casi-regular en $R_i$ (pues  $x$ casi-regular en $R$ si y sólo si cada
-	$x_i$ es casi-regular en $R_i$.  Luego $x\in J(R)$ si y sólo si $x_i\in
-	J(R_i)$ para todo $i\in I$.
+	Let $R=\prod_{i\in I}R_i$ and $x=(x_i)_{i\in I}\in R$.  The left ideal 
+    $Rx$ is quasi-regular if and only if each left ideal $R_ix_i$
+	is quasi-regular in $R_i$, as $x$ is quasi-regular in $R$ if and only if each 
+	$x_i$ is quasi-regular in $R_i$. Thus $x\in J(R)$ if and only if $x_i\in
+	J(R_i)$ for all $i\in I$.
 \end{proof}
+
+For the next result we shall need a lemma.
 
 \begin{lemma}
 	\label{lemma:trickJ1}
-	Sea $R$ un anillo y sea $x\in R$.  Si $-x^2$ es un elemento casi-regular a
-	izquierda, $x$ también. 
+	Let $R$ be a ring and $x\in R$. 
+	If $-x^2$ is a left quasi-regular element, then $x$ también. 
 \end{lemma}
 
 \begin{proof}
@@ -839,30 +851,33 @@ Veamos algunos resultados que nos permitirán calcular radicales.
 
 \begin{proposition}
 	\label{proposition:J(I)}
-	Si $I$ es un ideal de un anillo $R$, entonces $J(I)=I\cap J(R)$. 
+	If $I$ is an ideal of $R$, then $J(I)=I\cap J(R)$. 
 \end{proposition}
 
 \begin{proof}
-	Como $I\cap J(R)$ es un ideal de $I$, si $x\in I\cap J(R)$ entonces $x$ es
-	casi-regular a izquierda en $R$. Sea $r\in R$ tal que $r+x+rx=0$. 
-	Como $r=-x-rx\in I$, el elemento $x$ es casi-regular a 
-	izquierda en $I$. Luego $I\cap J(R)\subseteq J(I)$. 
+	Since $I\cap J(R)$ if an ideal of $I$, if $x\in I\cap J(R)$, then $x$ is
+	left quasi-regular in $R$. Let $r\in R$ be such that $r+x+rx=0$. 
+	Since $r=-x-rx\in I$, $x$ is left quasi-regular 
+	in $I$. Thus $I\cap J(R)\subseteq J(I)$. 
 
-	Sea ahora $x\in J(I)$ y sea $r\in R$. Como $-(rx)^2=(-rxr)x\in
-	I(J(I))\subseteq J(I)$, el elemento $-(rx)^2$ es casi regular a izquierda
-	en $I$. Luego $rx$ es casi regular a izquierda gracias al
-	lema~\ref{lemma:trickJ1}.
+	Let $x\in J(I)$ and $r\in R$. Since $-(rx)^2=(-rxr)x\in
+	I(J(I))\subseteq J(I)$, the element $-(rx)^2$ is left quasi-regular a izquierda
+	en $I$. Thus $rx$ is left quasi-regular by
+	Lemma~\ref{lemma:trickJ1}.
 \end{proof}
 
-\begin{definition}
 \index{ring!radical}
 A ring $R$ is said to be \textbf{radical} if $J(R)=R$. 
-\end{definition}
 
 \begin{example}
-	Si $R$ es un anillo, la proposición~\ref{proposition:J(I)} implica que
-	$J(R)$ es un anillo radical.
+	If $R$ is a ring, then $J(R)$ is a radical ring, by Proposition~\ref{proposition:J(I)}.
 \end{example}
+
+\begin{example}
+	The Jacobson radical of $\Z/8$ is $\{0,2,4,6\}$. 
+\end{example}
+
+There are several characterizations of radical rings. 
 
 \begin{theorem}
 	\label{theorem:anillo_radical}
@@ -913,64 +928,62 @@ A ring $R$ is said to be \textbf{radical} if $J(R)=R$.
 	\]
 \end{example}
 
-\begin{example}
-	The Jacobson radical of $\Z/8$ is $\{0,2,4,6\}$. 
-\end{example}
-
 \begin{theorem}
 	\label{thm:Jnilpotente}
 	If $R$ is a left artinian ring, then $J(R)$ is nilpotent. 
 \end{theorem}
 
 \begin{proof}
-	Sea $J=J(R)$. Como $R$ es artiniano a izquierda, la sucesión
-	$(J^m)_{m\in\N}$ de ideales a izquierda se estabiliza. Existe entonces
-	$k\in\N$ tal que $J^k=J^l$ para todo $l\geq k$. Veamos que $J^k=0$. Si
-	$J^k\ne0$ sea $\mathcal{S}$ el conjunto de todos los ideales a izquierda
-	$I$ tales que $J^kI\ne0$. Como $J^kJ^k=J^{2k}=J^k\ne 0$, $\mathcal{S}$ es
-	no vacío. Como $R$ es artiniano a izquierda, $\mathcal{S}$ posee un
-	elemento minimal, digamos $I_0$. Como $J^kI_0\ne 0$, sea $x\in
-	I_0\setminus\{0\}$ tal que $J^kx\ne 0$. Además $J^kx$ es un ideal a
-	izquierda de $R$ contenido en $I_0$ tal que $J^kx\in\mathcal{S}$ (pues
-	$J^k(J^kx)=J^{2k}x=J^kx\ne 0)$. Por la minimalidad de $I_0$, $J^kx=I_0$. En
-	particular, existe $r\in J^k\subseteq J(R)$ tal que $rx=x$. Como $-r\in
-	J(R)$ es casi-regular a izquierda, existe $s\in R$ tal que $s-r-sr=0$.
-	Luego
+	Let $J=J(R)$. Since $R$ is a left artinian ring, the sequence 
+	$(J^m)_{m\in\N}$ of left ideals stabilizes. There exists 
+	$k\in\N$ such that $J^k=J^l$ for all $l\geq k$. We claim that $J^k=\{0\}$. If
+	$J^k\ne\{0\}$ let $\mathcal{S}$ the set of left ideals 
+	$I$ such that $J^kI\ne\{0\}$. Since 
+	\[
+	J^kJ^k=J^{2k}=J^k\ne\{0\},
+	\]
+	the set $\mathcal{S}$ is non-empty. 
+	Since $R$ is left artinian, $\mathcal{S}$ has a minimal element $I_0$. Since $J^kI_0\ne\{0\}$, let $x\in
+	I_0\setminus\{0\}$ be such that $J^kx\ne\{0\}$. Moreover, $J^kx$ is a left ideal of $R$ 
+	contained in $I_0$ and such that $J^kx\in\mathcal{S}$, as 
+	$J^k(J^kx)=J^{2k}x=J^kx\ne\{0\}$. The minimality of $I_0$ implies that, $J^kx=I_0$. In particular, 
+	there exists $r\in J^k\subseteq J(R)$ such that $rx=x$. Since $-r\in
+	J(R)$ is left quasi-regular, there exists $s\in R$ such that $s-r-sr=0$.
+	Thus 
 	\[
 		x=rx=(s-sr)x=sx-s(rx)=sx-sx=0,
 	\]
-	una contradicción.
+	a contradiction.
 \end{proof}
 
 \begin{corollary}
-	Sea $R$ un anillo artiniano a izquierda.  Todo ideal a izquierda (resp.
-	derecha) nil es nilpotente y $J(R)$ es el único ideal maximal nilpotente de
-	$R$.
+	Let $R$ be a left artinian ring. Each nil left ideal is nilpotent and 
+	$J(R)$ is the unique maximal nilpotent ideal of $R$. 
 \end{corollary}
 
 \begin{proof}
-	Sea $L$ un ideal a izquierda nil.  Por la proposición~\ref{pro:nilJ}, $L$
-	está contenido en $J(R)$. Luego $L$ es nilpotente pues $J(R)$ es nilpotente
-	por el teorema~\ref{thm:Jnilpotente}. 
+	Let $L$ be a nil left ideal of $R$. By Proposition~\ref{pro:nilJ}, $L$
+	is contained in $J(R)$. Thus $L$ is nilpotent, as $J(R)$ 
+	is nilpotent by Theorem~\ref{thm:Jnilpotente}. 
 \end{proof}
 
 \begin{theorem}
-	Sea $R$ un anillo y sea $n\in\N$. Entonces $J(M_n(R))=M_n(J(R))$. 
+	Let $R$ be a ring and $n\in\N$. Then $J(M_n(R))=M_n(J(R))$. 
 \end{theorem}
 
 \begin{proof}
-	Demostremos primero que $J(M_n(R))\subseteq M_n(J(R))$. 
-	Si $J(R)=R$, no hay nada para demostrar. Supongamos entonces que $J(R)\ne R$ y sea 
+	We first prove that $J(M_n(R))\subseteq M_n(J(R))$. 
+	If $J(R)=R$, the theorem is clear. Let us assume that $J(R)\ne R$ and let  
 	$J=J(R)$. 
-	Si $M$ es un $R$-módulo simple, $M^n$ es un $M_n(R)$-módulo simple con la multiplicación usual.
-	Sean $x=(x_{ij})\in J(M_n(R))$ y $m_1,\dots,m_n\in M$. Entonces
+	If $M$ is a simple $R$-module, then $M^n$ is a simple $M_n(R)$-module with the usual multiplication. 
+	Let $x=(x_{ij})\in J(M_n(R))$ and $m_1,\dots,m_n\in M$. Then
 	\[
 		x\colvec{3}{m_1}{\vdots}{m_n}=0.
 	\]
-	En particular, $x_{ij}\in\Ann_R(M)$ para todo $i,j\in\{1,\dots,n\}$ y luego
+	In particular, $x_{ij}\in\Ann_R(M)$ for all $i,j\in\{1,\dots,n\}$. Hence 
 	$x\in M_n(J)$. 
 
-	Veamos ahora que $M_n(J)\subseteq J(M_n(R))$. Sean 
+	We now prove that $M_n(J)\subseteq J(M_n(R))$. Let 
 	\[
 		J_1=\begin{pmatrix}
 			J & 0 & \cdots & 0\\
@@ -978,7 +991,7 @@ A ring $R$ is said to be \textbf{radical} if $J(R)=R$.
 			\vdots & \vdots & \ddots & \vdots\\
 			J & 0 & \cdots & 0
 		\end{pmatrix}
-		\quad\text{y}\quad
+		\quad\text{and}\quad
 		x=\begin{pmatrix}
 			x_1 & 0 & \cdots & 0\\
 			x_2 & 0 & \cdots & 0\\
@@ -986,8 +999,8 @@ A ring $R$ is said to be \textbf{radical} if $J(R)=R$.
 			x_n & 0 & \cdots & 0
 		\end{pmatrix}\in J_1.
 	\]
-	Como $x_1$ es casi-regular, existe $y_1\in R$ tal que $x_1+y_1+x_1y_1=0$.
-	Si
+	Since $x_1$ es quasi-regular, there exists $y_1\in R$ such that $x_1+y_1+x_1y_1=0$.
+	If
 	\[
 		y=\begin{pmatrix}
 			y_1 & 0 & \cdots & 0\\
@@ -996,7 +1009,7 @@ A ring $R$ is said to be \textbf{radical} if $J(R)=R$.
 			0 & 0 & \cdots & 0
 		\end{pmatrix}, 
 	\]
-	entonces $u=x+y+xy$ es triangular inferior pues 
+	then $u=x+y+xy$ is lower triangular, as  
 	\[
 		u=\begin{pmatrix}
 			0 & 0 & \cdots & 0\\
@@ -1006,20 +1019,23 @@ A ring $R$ is said to be \textbf{radical} if $J(R)=R$.
 			x_ny_1 & 0 & \cdots & 0
 		\end{pmatrix}.
 	\]
-	Como 
-	$u^n=0$, el elemento 
+	Since  
+	$u^n=0$, the element
 	\[
 	v=-u+u^2-u^3+\cdots+(-1)^{n-1} u^{n-1}
 	\]
-	cumple que
-	$u+v+uv=0$. Luego $x$ es casi-regular a derecha pues 
+	is such that 
+	$u+v+uv=0$. Thus $x$ is right quasi-regular, as  
 	\begin{align*}
 		x+(y+v+yv)+x(y+v+yv)&=0,
 	\end{align*}
-	y entonces $J_1$ es casi-regular a derecha. Similarmente se demuestra que
-	todo $J_i$ es casi-regular a derecha y luego $J_i\subseteq J(M_n(R))$ para
-	todo $i\in\{1,\dots,n\}$. Se concluye entonces que $J_1+\cdots+J_n\subseteq
-	J(M_n(R))$ y luego $M_n(J)\subseteq J(M_n(R))$ 
+	and therefore $J_1$ is right quasi-regular. Similarly one proves that 
+	each $J_i$ is right quasi-regular and hence $J_i\subseteq J(M_n(R))$ for all 
+	$i\in\{1,\dots,n\}$. In conclusion, 
+	\[
+	J_1+\cdots+J_n\subseteq J(M_n(R))
+	\]
+	and therefore $M_n(J)\subseteq J(M_n(R))$.
 \end{proof}
 
 For completeness we recall basic results on the Jacobson radical in the case
@@ -1045,7 +1061,8 @@ of unitary rings.
 	\end{enumerate}
 \end{exercise}
 
-Now...
+We now go back to study solutions to the YBE and discuss the intriguing interplay
+between radical rings and involutive solutions. 
 
 \begin{definition}
 \index{Solution!involutive}
@@ -1385,8 +1402,58 @@ solutions & 2 & 5 & 23 & 88 & 595 & 3456 & 34530 & 321931 & 4895272\tabularnewli
 % \end{align}
 % \end{equation}
 
+\begin{prob}
+\label{prob:cycle_sets}
+Prove that the category of non-degenerate 
+cycle sets and the category of solutions are equivalent. 
+\end{prob}
+
+\begin{prob}
+\label{prob:Rump}
+Prove Proposition~\ref{pro:Rump}. 
+\end{prob}
+
+\begin{prob}
+If $X$ is a cycle set, then $x\cdot (y\cdot y)=((y*x)\cdot y)\cdot ((y*x)\cdot y)$, where
+$y*x=z$ if and only if $y\cdot z=x$. 
+\end{prob}
+
+\begin{prob}
+\label{prob:CS}
+Prove Theorem~\ref{thm:CS}. 
+\end{prob}
+
+\section*{Open problems}
+
+\begin{conjecture}
+\label{conjecture:Koethe}
+If $R$ is a nil ring, then $M_2(R)$ is a nil ring. 
+\end{conjecture}
+
+\begin{problem}
+Construct and enumerate involutive solutions of size $11$. 
+\end{problem}
+
+\begin{problem}
+Estimate the number of solutions of size $n$ for $n\to\infty$. 
+\end{problem}
+
 \section*{Notes}
 
 The material on non-commutative ring theory is standard, see for example~\cite{MR3308118}.
-Radical rings were introduced by Jacobson in~\cite{MR12271}.
+Radical rings were introduced by Jacobson in~\cite{MR12271}. 
+
+Conjecture~\ref{conjecture:Koethe} is equivalent to the well-known K\"othe's conjecture. 
+The conjecture was first formulated in 1930, see \cite{MR1545158}. It is known to be true
+in several cases. In full generality, the problem is still open. 
+
+Rump introduced cycle sets in~\cite{MR2132760}. The bijective correspondence of 
+Theorem~\ref{thm:CS} was 
+also proved by Rump in~\cite{MR2132760}. A similar result can be 
+found in~\cite[Proposition 2.2]{MR1722951}. 
+
+The numbers of Table~\ref{tab:IYB} were computed in~\cite{AMV}
+using a combination of~\cite{GAP4} and constraint programming techniques. 
+The algorithm is based on an idea of Plemmons~\cite{MR0258994}, originally 
+conceived to construct non-isomorphic semigroups.  
 
