@@ -866,7 +866,7 @@ For the next result we shall need a lemma.
 	Lemma~\ref{lemma:trickJ1}.
 \end{proof}
 
-\index{ring!radical}
+\index{Ring!radical}
 A ring $R$ is said to be \textbf{radical} if $J(R)=R$. 
 
 \begin{example}
@@ -884,7 +884,7 @@ There are several characterizations of radical rings.
 	Let $R$ be ring. The following statements are equivalent: 
 	\begin{enumerate}
 		\item $R$ is radical.
-		\item $R$ no admite $R$-módulos simples.
+		\item $R$ admits no simple $R$-modules. 
 		\item $R$ no tiene ideales a izquierda maximales y regulares.
 		\item $R$ no tiene ideales a izquierda primitivos.
 		\item Every element of $R$ is quasi-regular. 
@@ -927,6 +927,20 @@ There are several characterizations of radical rings.
 	\left(\frac{2x}{2y+1}\right)'=\frac{-2x}{2(x+y)+1}.
 	\]
 \end{example}
+
+\index{Ring!nil}
+A ring $R$ is said to be \textbf{nil} if for every $x\in R$ there
+exists $n=n(x)$ such that $x^n=0$. 
+
+\begin{exercise}
+    Prove that a nil ring is a radical ring. 
+\end{exercise}
+
+\begin{exercise}
+    Let $\R[X]$ be the ring of power series with real coefficients. Prove that the ideal 
+    $X\R[X]$ consisting of power series with zero constant term is a radical ring
+    that is not nil. 
+\end{exercise}
 
 \begin{theorem}
 	\label{thm:Jnilpotente}
@@ -1426,9 +1440,27 @@ Prove Theorem~\ref{thm:CS}.
 \section*{Open problems}
 
 \begin{conjecture}
-\label{conjecture:Koethe}
-If $R$ is a nil ring, then $M_2(R)$ is a nil ring. 
+\label{conj:Koethe}
+Let $R$ be a ring. 
+The sum of two arbitrary nil left ideals of $R$ is nil.  
 \end{conjecture}
+
+% \begin{conjecture}
+% \label{conj:Koethe}
+% If $R$ is a nil ring, then $R[X]$ is a radical ring. 
+% \end{conjecture}
+
+% \begin{conjecture}
+% \label{conj:Koethe3}
+% If $R$ is a nil ring, then $M_2(R)$ is a nil ring. 
+% \end{conjecture}
+
+% \begin{conjecture}
+% \label{conj:Koethe4}
+% Let $n\geq3$. If $R$ is a nil ring, then $M_n(R)$ is a nil ring. 
+% \end{conjecture}
+
+%Now we list some problems related to the solutions to the YBE. 
 
 \begin{problem}
 Construct and enumerate involutive solutions of size $11$. 
@@ -1441,11 +1473,30 @@ Estimate the number of solutions of size $n$ for $n\to\infty$.
 \section*{Notes}
 
 The material on non-commutative ring theory is standard, see for example~\cite{MR3308118}.
-Radical rings were introduced by Jacobson in~\cite{MR12271}. 
+Radical rings were introduced by Jacobson in~\cite{MR12271}. Nil rings were
+used by Zelmanov in his solution to Burnside's problem, see for example~\cite{MR1199575}. 
 
-Conjecture~\ref{conjecture:Koethe} is equivalent to the well-known K\"othe's conjecture. 
+
+Conjecture~\ref{conj:Koethe} is the well-known K\"othe's conjecture. 
 The conjecture was first formulated in 1930, see \cite{MR1545158}. It is known to be true
-in several cases. In full generality, the problem is still open. 
+in several cases. In full generality, the problem is still open. In~\cite{MR306251} 
+Krempa proved that
+the following statements are equivalent:
+\begin{enumerate}
+    \item K\"othe's conjecture is true.  
+    \item If $R$ is a nil ring, then $R[X]$ is a radical ring. 
+    \item If $R$ is a nil ring, then $M_2(R)$ is a nil ring. 
+    \item Let $n\geq2$. If $R$ is a nil ring, then $M_n(R)$ is a nil ring. 
+\end{enumerate}
+
+In 1956 Amitsur formulated the following conjecture, see for example
+\cite{MR0347873}: If $R$ is a nil ring, then $R[X]$ is a nil ring. In~\cite{MR1793911} 
+Smoktunowicz found a counterexample to Amitsur's conjecture. 
+This counterexample suggests that K\"othe's conjecture could be false. 
+A simplification of Smoktunowicz's example
+appears in~\cite{MR3169522}. See \cite{MR1879880,MR2275597} for more
+information on K\"othe's conjecture and related topics. 
+
 
 Rump introduced cycle sets in~\cite{MR2132760}. The bijective correspondence of 
 Theorem~\ref{thm:CS} was 
