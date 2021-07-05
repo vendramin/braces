@@ -1,0 +1,127 @@
+\chapter{Transitive groups}
+
+% TODO:
+% mencionar la clasificación hasta grado 48, aplicación a quandles indescomponibles. Problema para YB
+% Experimentos con no involutivas. Conjeturas?
+% Agregar el teorema de CJO sobre primitivos y los teoremas con Santiago. Conjeturas para no involutivas?
+% Deaconescu-Walls y aplicaciones a grupos y braces!
+% Agregar acá indecomposable. 
+
+
+\begin{definition}
+\index{Solution!indecomposable}
+A finite solution $(X,r)$ is said to be \textbf{decomposable} if there is a 
+decomposition $X=X_1\cup X_2$ of $X$ into a disjoint union of
+non-empty subsets $X_1$ and $X_2$ such that 
+$r(X_1\times X_1)\subseteq X_1\times X_2$ and $r(X_2\times X_2)\subseteq X_2\times X_2$. 
+A solution $(X,r)$ is then \textbf{indecomposable} if it is not decomposable. 
+\end{definition}
+
+If $(X,r)$ is a finite decomposable solution and $X=X_1\cup X_2$ is a decomposition, then
+the restrictions $r|_{X_1\times X_1}$ and $r|_{X_2\times X_2}$ are solutions. Moreover, 
+it follows that $r(X_1\times X_2)\subseteq X_2\times X_1$ and 
+$r(X_2\times X_1)\subseteq X_1\times X_2$, 
+see Exercise~\ref{prob:decomposition}.
+
+\begin{proposition}
+A finite solution $(X,r)$ is indecomposable if and only if 
+the group 
+\[
+\langle \sigma_x,\tau_x:x,y\in X\rangle
+\]
+acts transitively on $X$. 
+\end{proposition}
+
+\begin{proof}
+    Let us assume that $X=X_1\cup X_2$ is a decomposition of $X$ into non-empty orbits... 
+\end{proof}
+
+Note that this group is in general not isomorphic to the permutation group of the solution. 
+
+\begin{definition}
+\index{Solution!simple}
+A finite solution $(X,r)$ is said to be \textbf{simple} if $|X|>1$ and for every 
+surjective homomorphism $f\colon (X,r)\to (Y,s)$ of solutions
+either $f$ is an isomorphism or $|Y|=1$. 
+\end{definition}
+
+\begin{example}
+\end{example}
+
+\begin{example}
+\end{example}
+
+\begin{example}
+\end{example}
+
+\begin{proposition}
+\label{pro:simple=>indecomposable}
+Let $(X,r)$ be a finite simple solution. 
+If $|X|>2$, then $(X,r)$ is indecomposable. \framebox{involutive?}
+\end{proposition}
+
+\begin{proof}
+Let us assume that $(X,r)$ is decomposable. Decompose $X=X_1\cup X_2$ 
+for non-empty disjoint subsets $X_1$ and $X_2$ of $X$ such 
+that $r(X_i\times X_i)\subseteq X_i\times X_i$ for $i\in\{1,2\}$. 
+Let $Y=\{1,2\}$ and $s\colon Y\times Y\to Y\times Y$, $s(x,y)=(y,x)$. 
+Since $X=X_1\cup X_2$ is a decomposition, it follows that $r(X_i\times X_j)\subseteq X_j\times X_i$ for all $i,j\in\{1,2\}$. \framebox{Why?}
+Let $f\colon X\to Y$, $f(x)=i$ if $x\in X_i$. 
+Since $f$ is then a surjective homomorphism of solutions and $f$ is not an isomorphism (because $|X|>2$), the 
+simplicity of $(X,r)$ implies that $|Y|=1$, a contradiction. 
+\end{proof}
+
+\begin{proposition}
+Let $(X,r)$ be a finite simple \framebox{involutive} solution. 
+If $|X|$ is not a prime number, then $(X,r)$ is irretractable.
+\end{proposition}
+
+\begin{proof}
+Let us assume that $(X,r)$ is retractable. 
+Let $(X,r)\to\Ret(X,r)$, $x\mapsto [x]$, be the canonical map. Since it is a surjective homomorphism of solutions
+and $(X,r)$ is retractable, the simplicity of $(X,r)$ implies that $|\Ret(X,r)|=1$. Therefore $(X,r)$ is a permutation solution, say 
+$r(x,y)=(\sigma(y),\tau(x))$ for some commuting permutations $\sigma\colon X\to X$
+and $\tau\colon X\to X$. Since $|X|>2$, the solution $(X,r)$ 
+is indecomposable by Proposition~\ref{pro:simple=>indecomposable}. This implies that $\sigma$ is a cycle of length $|X|$
+and $\tau=\sigma^k$ for some $k\in\Z$. Let us assume that 
+$\sigma=(x_1\cdots x_n)$, where $n=|X|$. 
+Since $n$ is not a prime number, $n=dm$ for some $1<d<n$. Let $Y=\Z/(d)$ and
+$s\colon Y\times Y\to Y\times Y$, $s(i,j)=(j+1,i+k)$. Then $(Y,s)$ is a solution. 
+The map
+$f\colon X\to Y$, $f(x_i)=i\bmod d$
+satisfies $f(\tau_{x_j}(x_i))=i+k$ and 
+\[
+f(\sigma_{x_i}(x_j))
+=\begin{cases}
+f(x_{j+1}) & \text{if $j<n$},\\
+1 & \text{if $j=n$}.
+\end{cases}
+\]
+Then a straightforward computation shows that $f$ is a 
+surjective homomorphism of solutions, a contradiction. 
+\end{proof}
+
+The previous proposition cannot be extended to the non-involutive case. 
+
+\begin{example}
+Let $X=\{1,\dots,6\}$. The permutation solution with 
+permutations $\sigma=(153)(264)$ and $\tau=(12)(34)(56)$ is indecomposable.
+\end{example}
+
+\section*{Exercises}
+
+\begin{prob}
+\label{prob:decomposition}
+Let $(X,r)$ be a finite decomposable solution and $X=X_1\cup X_2$ be a decomposition. Prove that
+$r(X_1\times X_2)\subseteq X_2\times X_1$ and 
+$r(X_2\times X_1)\subseteq X_1\times X_2$. \framebox{Solution?}
+\end{prob}
+
+\begin{prob}
+Let $(X,r)$ be a finite \framebox{involutive} permutation solution. 
+Prove that $(X,r)$ is indecomposable if and only if $\sigma$ is a cycle of length $|X|$.
+\end{prob}
+
+
+\section*{Open problems}
+\section*{Notes}

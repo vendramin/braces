@@ -1,89 +1,41 @@
-\chapter{The structure of braces}
+\chapter{The structure brace of a solution}
+\label{structure_brace}
 
-Let $\pi$ be a set of primes. A $\pi$-group is a finite group $G$ such that all prime divisors of $|G|$ belong to $\pi$. 
-A $\pi$-subgroup of $G$ is a subgroup of $G$ that is a $\pi$-group. 
-A Hall $\pi$-subgroup of $G$ of index involving no prime of $\pi$. A $p$-complement 
-of $G$ is a Hall $\pi$-subgroup, where $\pi=\{q:q\ne p\}$. 
+% hacerlo con el guitar map
 
-\begin{theorem}[Hall]
-Let $G$ be a finite group. If there exists a $p$-complement 
-for all prime divisors $p$ of $|G|$, then 
-$G$ is solvable. 
-\end{theorem}
+The prove that the structure group $G(X,r)$ of a solution $(X,r)$ is a brace, we follow the 
+proof of Lu, Yan and Zhu. They use the language of braided groups.
+
+\begin{definition}
+\index{Braided group}
+A \emph{braided group} is a pair $(G,r)$, where 
+$G$ is a group with operation $m\colon G\times G\to G$, $m(x,y)=xy$, and 
+$r\colon G\times G\to G\times G$ is a bijective map such that
+\begin{enumerate}
+\item $r(xy,z)=(\id\times m)r_1r_2(x,y,z)$ for all $x,y,z\in G$,
+\item $r(x,yz)=(m\times\id)r_2r_1(x,y,z)$ for all $x,y,z\in G$,
+\item $r(1,x)=(x,1)$ and $r(x,1)=(1,x)$ for all $x\in G$, and 
+\item $m\circ r=m$.
+\end{enumerate}
+The map $r$ is called a \emph{braiding operator} on $G$. 
+\end{definition}
+
 
 \begin{proof}
-    See for example~\cite[Theorem 3.15]{MR2426855}. 
+
 \end{proof}
 
 \begin{theorem}
-\label{thm:add_nilpotent}
-Let $A$ be a finite brace of nilpotent type. Then 
-the multiplicative group of $A$ is solvable.
+    Let $G$ be a group. Then $G$ admits a braiding operator if and only if 
+    there is a brace structure on the set $G$ with multiplicative group $G$. 
 \end{theorem}
 
 \begin{proof}
-    Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. Assume
-    that $|A|=p_1^{\alpha_1}\cdots p_n^{\alpha}$ for different primes numbers $p_1,\dots,p_n$. 
-    Since $K$ is nilpotent, each $K_i\in\Syl_{p_j}(K)$ is normal in $K$, so 
-    each $K_i$ is a left ideal of $A$. It follows that for each $i\in\{1,\dots,n\}$ both $K_i$ and 
-    $\prod_{j\ne i}K_j$ are braces of coprime order. In particular, for 
-    each $i\in\{1,\dots,n\}$ there exists a subgroup of $G$ of order coprime with $p$. 
-    Then $G$ is solvable by Hall's theorem. 
 \end{proof}
-
-The previous theorem is not true in the case of finite braces of non-nilpotent type. 
-
-\begin{theorem}
-\label{thm:Smoktunowicz}
-    Let $A$ be a finite skew left brace of nilpotent type. Then $A$ is
-    left nilpotent if and only if the multiplicative group of $A$ is nilpotent.
-\end{theorem}
-
-\begin{proof}
-    Proposition~\ref{pro:left_p} and Theorem~\ref{thm:left_p} prove the theorem.
-\end{proof}
-
-%The following theorem was found by Smoktunowicz in the case of braces of abelian type. 
-
-
-
-\begin{theorem}
-Let $A$ be a finite brace with abelian multiplicative group. Then 
-the additive group of $A$ is solvable.
-\end{theorem}
-
-\begin{proof}
-    
-\end{proof}
-
- The proof 
-uses a well-known theorem of Kegel and Wielandt.
-
-\begin{theorem}[Kegel--Wielandt]
-    Let $G$ be a finite group such that $G=AB$ for nilpotent subgroups $A$ and $B$. Then $G$ is solvable. 
-\end{theorem}
-
-\begin{proof}
-    See~\cite[Theorem 2.4.3]{MR1211633}.
-\end{proof}
-
 
 \section*{Exercises}
 
 \begin{prob}
-\label{prob:G(X,r)solvable}
-Let $(X,r)$ be a finite involutive solution. Prove that $G(X,r)$ is solvable. 
+Prove that a braiding operator is a solution. 
 \end{prob}
-
-\begin{prob}
-Is the result of Exercise~\ref{prob:G(X,r)solvable} true in the case of non-involutive finite solutions?
-\end{prob}
-
-\section*{Notes}
-
-In~\cite{MR1722951}, Etingof, Schedler and Soloviev proved that the structure group of a finite involutive
-solution is always solvable. The proof can translated into the language of braces 
-to obtain Theorem~\ref{thm:add_nilpotent}.
-%~\cite{MR3763907}.
-
 

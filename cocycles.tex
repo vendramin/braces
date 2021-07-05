@@ -1,5 +1,11 @@
-\chapter{Derivations}
+\chapter{Complements}
 \label{cocycles}
+
+\section*{\ref{cocycles}A}
+
+% explicar producto semidirecto.
+% equivalencia de complementos (Rotman)
+% demostrar Schur-Zassenhaus
 
 An \textbf{extension} of $K$ by $Q$ is a
 short exact sequence 
@@ -301,7 +307,7 @@ A classical example is the semidirect product $G=K\rtimes Q$, where $K$ is a nor
 and $Q$ is a subgroup of $G$ such that $K\cap Q=\{1\}$. 
 
 \begin{theorem}
-	\label{theorem:complements}
+	\label{thm:complements}
 	Let $Q$ acts by automorphism on $K$. Then there exists a bijective correspondence between
 	the set $\mathcal{C}$ of complements $K$ in $K\rtimes Q$ and the set 
     $\Der(Q,K)$ of $1$-cocycles $Q\to K$.
@@ -369,15 +375,14 @@ and $Q$ is a subgroup of $G$ such that $K\cap Q=\{1\}$.
 
 \index{Derivación!interior}
 \index{$1$-coborde}
-Sean $Q$ y $K$ grupos. Supongamos que $Q$ actúa por automorfismos en $K$.
-Un $\delta\in\Der(Q,K)$ se dice \textbf{interior} si existe $k\in K$ tal
-que $\delta(x)=[k,x]$ para todo $x\in Q$. El conjunto de
-\textbf{derivaciones interiores} será denotado por
+Let the group $Q$ acts by automorphism on $K$.
+A derivation $\delta\in\Der(Q,K)$ is said to be \textbf{inner} if there exists $k\in K$ 
+such that $\delta(x)=[k,x]$ for all $x\in Q$. The set of 
+\textbf{inner derivations} will be denoted by 
 \[
-		\Inn(Q,K)=B^1(Q,K)=\{\delta\in\Der(Q,K):\text{$\delta$ es interior}\}.
+		\Inn(Q,K)=B^1(Q,K)=\{\delta\in\Der(Q,K):\text{$\delta$ is inner}\}.
 \]
-
-Una derivación interior también se llama \textbf{$1$-coborde}.
+An inner derivation is also called a \textbf{1-coboundary}.
 
 \begin{theorem}[Sysak]
 	\index{Teorema!de Sysak}
@@ -395,38 +400,40 @@ Una derivación interior también se llama \textbf{$1$-coborde}.
 \end{theorem}
 
 \begin{proof}
-	Vimos en la demostración del teorema~\ref{theorem:complementos} que
-	el conjunto $\Delta$ es un complemento para $K$ en $K\rtimes Q$. 
+	In the proof of Theorem~\ref{thm:complements} we 
+	found that $\Delta$ is a complement of $K$ in $K\rtimes Q$. 
 
-	Demostremos la segunda afirmación. Si suponemos que $\delta$ es interior,
-	existe $k\in K$ tal que $\delta(x)=[k,x]=kxk^{-1}x^{-1}$ para todo $x\in
-	Q$. Como $\delta(x)x=kxk^{-1}$ para todo $x\in Q$,  $\Delta=kQk^{-1}$.
-	Recíprocamente, si existe $k\in K$ tal que $\Delta=kQk^{-1}$, para cada
-	$x\in Q$ existe $y\in Q$ tal que $\delta(x)x=kyk^{-1}$. Como
-	$[k,y]=kyk^{-1}y^{-1}\in K$, $\delta(x)\in K$ y $\delta(x)x=[k,y]y\in KQ$,
-	se concluye que $x=y$ y luego $\delta(x)=[k,x]$. 
+	Let us prove the second statement. If $\delta$ is inner, then there exists 
+    $k\in K$ such that $\delta(x)=[k,x]=kxk^{-1}x^{-1}$ for all $x\in
+	Q$. Since $\delta(x)x=kxk^{-1}$ for all $x\in Q$,  $\Delta=kQk^{-1}$.
+	Conversely, if there exists $k\in K$ such that $\Delta=kQk^{-1}$, for each 
+	$x\in Q$ there exists $y\in Q$ such that $\delta(x)x=kyk^{-1}$. Since
+	$[k,y]=kyk^{-1}y^{-1}\in K$, $\delta(x)\in K$ and $\delta(x)x=[k,y]y\in KQ$,
+	we conclude that  $x=y$ and hence $\delta(x)=[k,x]$. 
 
-	Demostremos la tercera afirmación. Si $x\in Q$ es tal que $\delta(x)x=y\in
-	Q$ entonces $\delta(x)=yx^{-1}\in K\cap Q=\{1\}$. Recíprocamente, si $x\in Q$
-	es tal que $\delta(x)=1$ entonces $x=\delta(x)x\in Q\cap\Delta$. 
+	Let us prove the third statement. If $x\in Q$ is such that $\delta(x)x=y\in
+	Q$, then \[
+	\delta(x)=yx^{-1}\in K\cap Q=\{1\}.
+	\]
+	Conversely, if $x\in Q$
+	is such that $\delta(x)=1$, then $x=\delta(x)x\in Q\cap\Delta$. 
 
-	Demostremos la cuarta afirmación. Si $\delta$ es sobreyectiva, para cada
-	$k\in K$ existe $y\in Q$ tal que $\delta(y)=k$. Luego $K\rtimes Q\subseteq
-	\Delta Q$ pues $kx=\delta(y)x=(\delta(y)y)y^{-1}x\in \Delta Q$. Además
-	$\Delta Q\subseteq K\rtimes Q$ pues si $\delta(x)\in K$ para todo $x\in Q$.
-	Recíprocamente, si $k\in K$ y $x\in Q$ existen 
-	$y,z\in Q$ tales que $kx=\delta(y)yz$; en particular, 
-	por la unicidad de la escritura de $K\rtimes Q$,
+	Finally we prove the fourth statement. If $\delta$ is surjective, then for each 
+	$k\in K$ there exits $y\in Q$ such that $\delta(y)=k$. Thus $K\rtimes Q\subseteq
+	\Delta Q$, as 
+	\[
+	kx=\delta(y)x=(\delta(y)y)y^{-1}x\in \Delta Q.
+	\]
+	Moreover, 
+	$\Delta Q\subseteq K\rtimes Q$, as $\delta(x)\in K$ for all $x\in Q$.
+	Conversely, if $k\in K$ y $x\in Q$ there exist  
+	$y,z\in Q$ such that $kx=\delta(y)yz$. Then it follows that 
 	$k=\delta(y)$. 
 \end{proof}
 
-Un caso importante de grupos que admiten factorización
-es el siguiente: 
-
-\begin{definition}
-	Un grupo $G$ admite una \textbf{factorización triple} si tiene subgrupos
-	$A$, $B$ y $M$ tales que $G=MA=MB=AB$ y $A\cap M=B\cap M=\{1\}$.
-\end{definition}
+A group $G$ admits a \textbf{triple factorization} if there are subgroups 
+$A$, $B$ and $M$ such that $G=MA=MB=AB$ y $A\cap M=B\cap M=\{1\}$.
+The following result is An immediate consequence of Sysak's theorem:
 
 %%% TODO:
 %%% ejemplos de factorizacion triple
@@ -434,7 +441,6 @@ es el siguiente:
 %%% ejemplo con anillo radical
 %%% braces?
 
-An immediate consequence of Sysak's theorem:
 
 \begin{corollary}
 	If the group $Q$ acts by automorphisms on $K$ and 
@@ -452,7 +458,7 @@ Another consequence:
 	\begin{enumerate}
 	\item Prove that $\delta$ is injective if and only if 
 	$\ker\delta=\{1\}$.
-	\item If $\delta$ is bijective, then  
+	\item Prove that if $\delta$ is bijective, then  
 	$K$ admits a complement 
 	$\Delta$ in $K\rtimes Q$ such that $K\rtimes Q=K\rtimes\Delta=\Delta Q$ and 
 	$Q\cap\Delta=\{1\}$.
@@ -527,6 +533,8 @@ Another consequence:
 %\end{theorem}
 %
 %
+
+\section*{{{\thesection}B}}
 
 Let $A$ be an additive group and $G$ be a group and let 
 $G\times A\to A$, $(g,a)\mapsto g\cdot a$,

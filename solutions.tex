@@ -1,6 +1,8 @@
 \chapter{The Yang--Baxter equation}
 \label{YB}
 
+\section*{{{\thesection}A}}
+
 In \cite{MR1183474}, Drinfeld briefly discuss set-theoretic solutions to the Yang--Baxter equation. 
 He observed that
 it makes sense to consider the Yang--Baxter equation in the category of sets and that 
@@ -235,6 +237,10 @@ Let $G$ be a group. Then $(G,r)$, where $r(x,y)=(xyx^{-1},x)$, is a solution.
 %It is involutive if and only if $G$ is abelian. 
 \end{example}
 
+The now prove the main theorem of the chapter. The result
+shows an intriguing connection between group actions and non-degenerate solutions. It 
+was proved by Lu, Yan and Zhu. 
+
 \begin{theorem}
 \label{thm:LYZ}
 Let $G$ be a group and let $\xi\colon G\times G\to G$, $\xi(x,y)=x\rhd y$,
@@ -276,7 +282,8 @@ Similarly, since $\eta$ is a right action,
 v_2=u\lhd ((v\rhd w)(v\lhd w))=u\lhd (vw)=(u\lhd v)\lhd w=v_1.
 \]
 
-To prove that $r$ is invertible we proceed as follows. Write $r(u,v)=(x,y)$, thus $u\rhd v=x$, $u\lhd v=y$ and $uv=xy$. Since 
+To prove that $r$ is invertible we proceed as follows. 
+Write $r(u,v)=(x,y)$, thus $u\rhd v=x$, $u\lhd v=y$ and $uv=xy$. Since 
 \begin{align*}
 & (y\rhd v^{-1})u=(y\rhd v^{-1})(y\lhd v^{-1})=yv^{-1}=x^{-1}u,
 \end{align*}
@@ -311,7 +318,6 @@ hence $r(x^{-1},u)=(y,z)$ for some $z\in G$.
 Since $xy=uv$ and $x^{-1}u=yz$, it follows that $yt=yv^{-1}$. Then 
 $z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
 \end{proof}
-
 
 \section*{Exercises}
 
