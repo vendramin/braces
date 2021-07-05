@@ -28,7 +28,7 @@ $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Note that $[X,Y]=[Y,X]$.
 Note that if $G$ is such that $[G,G]$ is central, then Jacobi's identity 
 turns out to be Jacobi's identity. 
 
-\begin{lemma}[Three subgroups lemma]
+\begin{lemma}[three subgroups lemma]
 	\label{lemma:3subgrupos}
 	\index{Lemma!three subgroups}
 	Let $X$, $Y$ and $Z$ be subgroups of $G$ such that $[X,Y,Z]=[Y,Z,X]=\{1\}$.
@@ -36,54 +36,46 @@ turns out to be Jacobi's identity.
 \end{lemma}
 
 \begin{proof}
-	Alcanza con ver que $[z,x^{-1},y]=1$ para todo $x\in X$, $y\in Y$, $z\in Z$
-	(pues si $[x,y]\in C_G(z)$ entonces %$[X,Y]\in C_G(z)$ y luego
-	$[X,Y]\subseteq C_G(Z)$). Como $[y^{-1},z]\in [Y,Z]$, entonces
-	$[x,y^{-1},z]\in [X,Y,Z]=\{1\}$; luego $\prescript{y}{}[x,y^{-1},z]=1$.
-	Similarmente, $\prescript{z}{}[y,z^{-1},x]=1$. Entonces, al usar la
-	identidad de Hall--Witt, se concluye que 
+	Since $[x,y]\in C_G(z)$ implies that 
+	$[X,Y]\subseteq C_G(Z)$, it
+	is enough to prove that $[z,x^{-1},y]=1$ for all $x\in X$, $y\in Y$ and $z\in Z$, 
+	Since $[y^{-1},z]\in [Y,Z]$, it follows that 
+	$[x,y^{-1},z]\in [X,Y,Z]=\{1\}$. Thus $\prescript{y}{}[x,y^{-1},z]=1$.
+	Similarly, $\prescript{z}{}[y,z^{-1},x]=1$. Hence the 
+	Hall--Witt identity yields 
 	$[z,x^{-1},y]=1$.
 \end{proof}
 
 \begin{lemma}
 	\label{lemma:3subgrupos_general}
-	Sea $N$ un subgrupo normal de un grupo $G$ y sean $X,Y,Z$
-	subgrupos de $G$. Si $[X,Y,Z]\subseteq N$ y $[Y,Z,X]\subseteq N$. Entonces
+	Let $N$ be a normal subgroup of $G$ and let $X$, $Y$ and $Z$
+	be subgroups of $G$. If $[X,Y,Z]\subseteq N$ and $[Y,Z,X]\subseteq N$, then 
 	$[Z,X,Y]\subseteq N$.
 \end{lemma}
 
 \begin{proof}
-	Sea $\pi\colon G\to G/N$ el morfismo canónico. Como $[X,Y,Z]\subseteq N$, 
+	Let $\pi\colon G\to G/N$ be the canonical map. Since $[X,Y,Z]\subseteq N$, 
 	\begin{align*}
 		\{1\}&=\pi([X,Y,Z])=\pi([ X,[Y,Z]])\\
 		&=[\pi(X),\pi([Y,Z])]=[ \pi(X),[\pi(Y),\pi(Z)]]=[\pi(X),\pi(Y),\pi(Z)]. 
 	\end{align*}
-	Similarmente $[\pi(Y),\pi(Z),\pi(X)]=\{1\}$. Entonces, gracias al lema de los
-	tres subgrupos, $[\pi(Z),\pi(X),\pi(Y)]=\{1\}$, es decir
-	$[Z,X,Y]\subseteq N$.
+	Similarly one proves that $[\pi(Y),\pi(Z),\pi(X)]=\{1\}$. By the three subgroups lemma,  
+	$[\pi(Z),\pi(X),\pi(Y)]=\{1\}$, so $[Z,X,Y]\subseteq N$.
 \end{proof}
 
-% \begin{svgraybox}
-% 	Sean $h\in H$ y $g\in G$. $hKgK=gKhK$ si y sólo si $[h,g]\in K$.
-% \end{svgraybox}
-
-\begin{definition}
-	\index{Serie!central descendente}
-	Sea $G$ un grupo. La \textbf{serie central descendente} es la sucesión de
-	subgrupos $\gamma_k(G)$ definida inductivamente como
-	\[
+\index{Lower central series}
+The \textbf{lower central series} of a group $G$ is 
+the sequence $\gamma_k(G)$, $k\in\N$, 
+defined recursively as 
+\[
 		\gamma_1(G)=G,\quad
 		\gamma_{i+1}(G)=[G,\gamma_i(G)]\quad i\geq 1.
-	\]
-\end{definition}
-
-\begin{definition}
-	\index{Grupo!nilpotente}
-	\index{Índice de nilpotencia}
-	Un grupo $G$ se dice \textbf{nilpotente} si existe $c$ tal que
-	$\gamma_{c+1}(G)=\{1\}$. El menor de los $c$ tales que $\gamma_{c+1}(G)=\{1\}$ será
-	el \textbf{índice (o clase) de nilpotencia} de $G$.
-\end{definition}
+\]
+\index{Group!nilpotent}
+\index{Nilpotency index}
+A group $G$ is said to be \textbf{nilpotent} if there exists positive integer $c$ such that 
+$\gamma_{c+1}(G)=\{1\}$. The smallest $c$ such that $\gamma_{c+1}(G)=\{1\}$ is
+the \textbf{nilpotency index} (or \textbf{nilpotency class}) of $G$. 
 
 % \begin{exercise}
 % \label{xca:nilpotente=>resoluble}
@@ -91,7 +83,7 @@ turns out to be Jacobi's identity.
 % \end{exercise}
 
 \begin{example}
-	Un grupo es nilpotente de clase uno si y sólo si es abeliano.
+	A group is nilpotent of class one if and only if it is abelian.  
 \end{example}
 
 % \begin{example}
@@ -115,12 +107,12 @@ turns out to be Jacobi's identity.
 
 \begin{exercise}
 	\label{xca:gamma}
-	Sea $G$ un grupo. Demuestre las siguientes afirmaciones:
+	Let $G$ be group. Prove the following statements:
 	\begin{enumerate}
-		\item Cada $\gamma_i(G)$ es un subgrupo característico de $G$.
-		\item $\gamma_i(G)\supseteq\gamma_{i+1}(G)$ para todo $i\geq1$.
-		\item Si $f\colon G\to H$ es un morfismo sobreyectivo,
-			$f(\gamma_i(G))=\gamma_i(H)$ para todo $i\geq1$.
+		\item Each $\gamma_i(G)$ is a characteristic group of $G$.
+		\item $\gamma_i(G)\supseteq\gamma_{i+1}(G)$ for all $i\geq1$.
+		\item If $f\colon G\to H$ is a surjective group homomorphism, then 
+			$f(\gamma_i(G))=\gamma_i(H)$ for all $i\geq1$.
 	\end{enumerate}
 \end{exercise}
 
@@ -167,19 +159,19 @@ such that $K$ and $G/K$ are both nilpotent. For example, $G=\Sym_3$ and $K=\Alt_
 \end{theorem}
 
 \begin{proof}
-	Procederemos por inducción en $j$. El caso $j=1$ es trivial pues
-	$[G,\gamma_j(G)]=\gamma_{j+1}(G)$ por definición. Supongamos entonces que
-	el resultado vale para algún $j\geq1$ y para todo $i\geq1$. 
-	
-	Primero observemos que 
+	We proceed by induction on $j$. The case where $j=1$ is trivial, as by definition one has 
+	$[G,\gamma_j(G)]=\gamma_{j+1}(G)$. Assume now that the result holds for 
+	some $j\geq1$ and all $i\geq1$. 
+	We first note that 	
 	\begin{equation*}
 		[G,\gamma_i(G),\gamma_j(G)]=[\gamma_i(G),G,\gamma_j(G)]=[\gamma_{i+1}(G),\gamma_j(G)]\subseteq \gamma_{i+j+1}(G)
 	\end{equation*}
-	por hipótesis inductiva. Además, también por hipótesis inductiva, 
+	by the inductive hypothesis. Moreover, again using the inductive hypothesis,  
 	\begin{equation*}
 	[\gamma_i(G),\gamma_j(G),G]\subseteq [\gamma_{i+j}(G),G]=\gamma_{i+j+1}(G).
 	\end{equation*}
-	El lema~\ref{lemma:3subgrupos_general} implica entonces que $[\gamma_j(G),G,\gamma_i(G)]\subseteq \gamma_{i+j+1}(G)$. Luego 
+	Lemma~\ref{lemma:3subgrupos_general} implies that 
+	$[\gamma_j(G),G,\gamma_i(G)]\subseteq \gamma_{i+j+1}(G)$. Thus  
 	\[
 	[\gamma_i(G),\gamma_{j+1}(G)]=[\gamma_{j+1}(G),\gamma_i(G)]=[\gamma_j(G),G,\gamma_i(G)]\subseteq \gamma_{i+j+1}(G).\qedhere
 	\]
