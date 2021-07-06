@@ -1,7 +1,8 @@
 \chapter{Complements}
 \label{cocycles}
 
-\section*{\ref{cocycles}A}
+%\section*{\ref{cocycles}A}
+\subsection*{A}
 
 % explicar producto semidirecto.
 % equivalencia de complementos (Rotman)
@@ -534,7 +535,316 @@ Another consequence:
 %
 %
 
-\section*{{{\thesection}B}}
+\section*{B}
+
+\begin{lemma}
+	\label{lemma:1cocycle}
+	Let $G$ be a group and $N$ be a normal subgroup of $G$. If $G$ acts on $N$ by conjugation and  
+	$\varphi\colon G\to N$ is a 1-cocycle with kernel $K$, then 
+	$\varphi(x)=\varphi(y)$ if and only if $xK=yK$. In particular,
+	$(G:K)=|\varphi(G)|$. 
+\end{lemma}
+
+\begin{proof}
+	If $\varphi(x)=\varphi(y)$, then, since 
+	\[
+		\varphi(x^{-1}y)
+		=\varphi(x^{-1})(x^{-1}\cdot\varphi(y))
+		=\varphi(x^{-1})(x^{-1}\cdot\varphi(x))
+		=\varphi(x^{-1}x)=\varphi(1)
+		=1,
+	\]
+	we obtain that $xK=yK$. Conversely, if $x^{-1}y\in K$, then, since 
+	\[
+	1=\varphi(x^{-1}y)=\varphi(x^{-1})(x^{-1}\cdot \varphi(y)),
+	\]
+	we conclude that $\varphi(y)=x\cdot\varphi(x^{-1})^{-1}$. Thus
+	$\varphi(x)=\varphi(y)$.
+
+	The second claim is now trivial, as $\varphi$ is constant in each coset of $K$ and
+	there are $(G:K)$ different possible values. 
+\end{proof}
+
+\begin{lemma}
+	\label{lemma:d}
+	Let $G$ be a finite group, $N$ be a normal abelian subgroup of $G$ and $S$, $T$ and $U$
+	be transversal of$N$ in $G$. Let  
+	\[
+	d(S,T)=\prod st^{-1}\in N,
+	\]
+	where the product is taken over all $s\in S$ and $t\in T$ such that 
+	$sN=tN$. The following statements hold:
+	\begin{enumerate}
+		\item $d(S,T)d(T,U)=d(S,U)$.
+		\item $d(gS,gT)=gd(S,T)g^{-1}$ for all $g\in G$.
+		\item $d(nS,S)=n^{(G:N)}$ for all $n\in N$.
+	\end{enumerate}
+\end{lemma}
+
+\begin{proof}
+	If $s\in S$, $t\in T$ and $u\in U$ are such that $sN=tN=uN$, then, since $N$ is
+	abelian and $(st^{-1})(tu^{-1})=su^{-1}$, 
+	\[
+		d(S,T)d(T,U)=\prod (st^{-1})(tu^{-1})=\prod su^{-1}=d(S,U).
+	\]
+
+	Since $sN=tN$ if and only if $gsN=gtN$ for all $g\in G$, 
+	\[
+	g\left(\prod st^{-1}\right)g^{-1}=\prod gst^{-1}g^{-1}=\prod (gs)(gt)^{-1}=d(gS,gT).
+	\]
+
+	Finally, since $N$ is normal, $nsN=sN$ for all $n\in N$. Thus 
+	\[
+		d(nS,S)=\prod (ns)s^{-1}=n^{(G:N)}.\qedhere
+	\]
+\end{proof}
+
+We now prove the first version of Schur--Zassenhaus' theorem. 
+
+\begin{theorem}[Schur--Zassenhaus]
+	\index{Schur--Zassenhaus!theorem}
+	\label{thm:SchurZassenhaus:abelian}
+	Sea $G$ un grupo finito y sea $N$ un subgrupo normal abeliano de $G$. Si
+	$|N|$ y $(G:N)$ son coprimos, $N$ se complementa en $G$. Si $N$ se
+	complementa en $G$, todos los complementos son conjugados.  
+\end{theorem}
+
+\begin{proof}
+	Let $T$ be a transversal if $N$ in $G$. Let $\theta\colon G\to N$,
+	$\theta(g)=d(gT,T)$. Since $N$ is abelian, Lemma~\ref{lemma:d} implies that 
+	$\theta$ is a 1-cocycle, where $G$ acts on $N$ by conjugation: 
+	\begin{align*}
+		\theta(xy)&=d(xyT,T)
+		=d(xyT,xT)d(xT,T)\\
+		&=(xd(yT,T)x^{-1})d(xT,T)=(x\cdot\theta(y))\theta(x).
+	\end{align*}
+
+	\begin{claim}
+		$\theta|_N\colon N\to N$ is surjective.
+	\end{claim}
+
+	If $n\in N$, Lemma~\ref{lemma:d} implies that 
+	$\theta(n)=d(nT,T)=n^{(G:N)}$. Since $|N|$ and $(G:N)$ are coprime, 
+	there exist $r,s\in\Z$ such that $r|N|+s(G:N)=1$. Thus
+	\[
+		n=n^{r|N|+s(G:N)}=(n^s)^{(G:N)}=\theta(n^s).
+	\]
+
+	Let $H=\ker\theta$. We claim that $H$ is a complement for $N$. 
+	We know that $H$ is a subgroup of $G$. Since 
+	\[
+		|N|=|\theta(G)|=(G:H)=\frac{|G|}{|H|}
+	\]
+	Lemma~\ref{lemma:1cocycle}.\framebox{FIXME}
+	Como $N\cap H$ es un subgrupo de $N$ y de $H$, entonces $N\cap H=\{1\}$ pues
+	$|N|$ y $(G:N)=|H|$ son coprimos.  Como $|NH|=|N||H|=|G|$, se concluye que
+	$G=NH$ y entonces $H$ es un complemento para $N$.
+
+	Veamos ahora que dos complementos para $N$ son conjugados. 
+	Sea $K$ un complemento de $N$ en $G$. Como $NK=G$ y $N\cap K=\{1\}$, $K$ es un
+	transversal para $N$. Sea $m=d(T,K)\in N$. Como $\theta|_N$ es
+	sobreyectiva, existe $n\in N$ tal que $\theta(n)=m$. Por el
+	lema~\ref{lemma:d}, para todo $k\in K$ se tiene
+	\[
+	kmk^{-1}=kd(T,K)k^{-1}=d(kT,kK)=d(kT,K)=d(kT,T)d(T,K)=\theta(k)m.
+	\]
+	Entonces, como $N$ es abeliano,
+	$\theta(n^{-1})=m^{-1}$ y luego 
+	\begin{align*}
+		\theta(nkn^{-1})&=\theta(n)n\theta(kn^{-1})n^{-1}
+		=m\theta(kn^{-1})\\
+		&=m\theta(k)k\theta(n^{-1})k^{-1}
+		=m\theta(k)km^{-1}k^{-1}=1.
+	\end{align*}
+	Queda demostrado entonces que $nKn^{-1}\subseteq H=\ker\theta$. Como
+	$|K|=(G:N)=|H|$, se concluye que $nKn^{-1}=H$.
+\end{proof}
+
+En el siguiente teorema vemos que no es necesario suponer que el subgrupo
+normal $N$ es abeliano.
+
+\begin{theorem}[Schur--Zassenhaus]
+	\index{Schur--Zassenhaus!theorem}
+	\label{thm:SchurZassenhaus}
+	Sea $G$ un grupo finito y sea $N$ un subgrupo normal de $G$. Si $|N|$ y
+	$(G:N)$ son coprimos entonces $N$ se complementa en $G$.
+\end{theorem}
+
+\begin{proof}
+	Procederemos por inducción en $|G|$. Si existe un subgrupo propio $K$ de
+	$G$ tal que $NK=G$ entonces, como $(K:K\cap N)=(G:N)$ es coprimo con $|N|$,
+	es también coprimo con $|K\cap N|$. Como además $K\cap N$ es normal en $K$,
+	por hipótesis inductiva, $K\cap N$ se complementa en $K$, y luego existe un
+	subgrupo $H$ de $K$ tal que $|H|=(K:K\cap N)=(G:N)$. 
+	
+	Supongamos entonces que no existe un subgrupo propio $K$ de $G$ tal que
+	$NK=G$.  Podemos suponer que $N\ne1$ (de lo contrario, basta tomar $G$ como
+	complemento de $N$ en $G$).  Como $N$ está contenido en todo subgrupo
+	maximal de $G$ (pues si existe un maximal $M\subsetneq G$ tal que
+	$N\not\subseteq M$ entonces $NM=G$), se tiene que $N\subseteq\Phi(G)$. Por
+	el teorema de Frattini ~\ref{theorem:Frattini}, $\Phi(G)$ es nilpotente y
+	luego $N$ es nilpotente; en particular, $Z(N)\ne\{1\}$. Sea $\pi\colon G\to
+	G/Z(N)$ el morfismo canónico. Como $N$ es normal en $G$ y $Z(N)$ es
+	característico en $N$, $Z(N)$ es normal en $G$.  Además 
+	\[
+	(\pi(G):\pi(N))=\frac{|\pi(G)|}{|\pi(N)|}=\frac{|G/Z(N)|}{|N/N\cap Z(N)|}=(G:N)
+	\]
+	es coprimo con $|N|$, y entonces es también coprimo con $|\pi(N)|$. Por hipótesis
+	inductiva, $\pi(N)$ admite un complemento en $G/Z(N)$, digamos $\pi(K)$
+	para algún subgrupo $K$ de $G$. Luego $G=NK$ pues 
+	$\pi(G)=\pi(N)\pi(K)=\pi(NK)$. 
+	Como entonces $K=G$ (pues sabíamos que no existe $K$ tal que $G=NK$), 
+	$\pi(N)$ es abeliano pues 
+	\[
+		\pi(Z(N))=\pi(N)\cap\pi(K)=\pi(N)\cap\pi(G)=\pi(N).
+	\]
+	Luego $N\subseteq Z(N)$ es abeliano y entonces, por el
+	teorema~\ref{theorem:SchurZassenhaus:abeliano}, el subgrupo $N$ admite un
+	complemento. 
+\end{proof}
+
+\begin{theorem}
+	\label{them:SchurZassenhaus:conjugacion}
+	Let $G$ be a fintie group and $N$ be a normal subgroup of $G$ such that $|N|$ and 
+	$(G:N)$ are coprime. If either $N$ or $G/N$ is solvable, then all complements of $N$ in $G$ 
+	are conjugate. 
+\end{theorem}
+
+%\begin{proof}
+%	Sea $G$ un contraejemplo minimal, es decir: existen complementos $K_1$ y
+%	$K_2$ a $N$ en $G$ que no son conjugados.
+%
+%	\begin{claim}
+%		$N$ es minimal en $G$.
+%	\end{claim}
+%
+%	Si $M\subseteq N$ es minimal normal en $G$, $M\ne1$ pues $N\ne1$. Sea
+%	$\pi\colon G\to G/M$ el morfismo canónico. El grupo $\pi(G)$ contiene un
+%	subgrupo normal $\pi(N)$ de índice coprimo con $|\pi(N)|$. Además
+%	$\pi(K_1)$ y $\pi(K_2)$ complementan a $\pi(N)$. Como $|G|$ es minimal,
+%	$\pi(K_1)$ y $\pi(K_2)$ son conjugados en $\pi(G)$, es decir: existe $x\in G$ tal que 
+%	$\pi(K_1)=\pi(xK_2x^{-1})$.
+%
+%\end{proof}
+
+\begin{proof}
+	Let $G$ be a minimal counterexample, so there are complements $K_1$ and 
+	$K_2$ of $N$ in $G$ such that $K_1$ and $K_2$ are not conjugate and $|G|$ is minimal with this
+	property. 
+	
+	\begin{claim}
+		Each subgroup $U$ of $G$ satiasfies the hypotheses of the theorem with
+		respect to the normal subgroup $U\cap N$.
+%		Sea $U$ un subgrupo de $G$. Entonces $U$ satisface las hipótesis del
+%		teorema con respecto al subgrupo normal $U\cap N$. Si $U$ contiene un
+%		complemento $H$ para $N$ en $G$, entonces $H$ complementa a $U\cap N$
+%		en $U$.
+	\end{claim}
+	
+	Since $N$ is normal in $G$, the subgroup $U\cap N$ is normal in $U$. Moreover, $|U\cap N|$ and 
+	$(U:U\cap N)$ are coprime, as $|U\cap N|$ divides $|N|$ and $(U:U\cap
+	N)=(UN:N)$ divides $(G:N)$. If $G/N$ is solvable, then $U/U\cap N$
+	is solvable since $U/U\cap N$ is isomorphic to a subgroup of $G/N$. If $N$ is
+	solvable, the subgroup $U\cap N$ is solvable. 
+	
+%	Como $|H|$ divide a $|U|$ y $|H|$ es coprimo con $|U\cap N|$, se tiene que
+%	$|H|$ divide a $(U:U\cap N)$. Como además $(U:U\cap N)$ divide a
+%	$(G:N)=|H|$, se concluye que $|H|=|U:U\cap N|$. Luego $H$ complementa a
+%	$U\cap N$ en $U$.
+
+	\begin{claim}
+		If thre is a normal subgroup $L$ of $G$ such that $\pi(N)$ is normal in 
+		$\pi(G)$, where $\pi\colon G\to G/L$ is the canonical map, then 
+		$\pi(G)$ satifies the hypotheses of the theorem with respect to $\pi(N)$.
+		In this case, if $H$ is a complement of $N$ in $G$, then $\pi(H)$ is a complement
+		of $\pi(N)$ in $\pi(G)$.
+	\end{claim}
+
+	If $N$ is solvable, then $\pi(N)$ is solvable. If $G/N$ is solvable, then the group 
+	$\pi(G)/\pi(N)\simeq G/NL$ is solvable. Moreover, 
+	$(\pi(G):\pi(N))=\frac{|G/L|}{|N/N\cap L|}$ divides the index $(G:N)$ of $N$ in $G$. 
+	
+	If $H$ is a complement of $N$ in $G$, $|\pi(H)|$ and $|\pi(N)|$ are coprime.
+	Thus $\pi(H)$ is a complement of $\pi(N)$, as 
+	$\pi(G)=\pi(N)\pi(H)=\pi(NH)$ and 
+	$\pi(N)\cap\pi(H)=\{1\}$. 
+
+	\begin{claim}
+		$N$ is minimal normal in $G$.
+	\end{claim}
+
+	Let $M\ne\{1\}$ be a normal subgroup of $G$ such that $M\subseteq N$. Let $\pi\colon G\to G/M$
+	be the canonical map. The group $\pi(G)$ satiafies the hypotheses of the theorem
+	with respect to the normal subgroup $\pi(N)$. By the minimality of $|G|$, there exists 
+	$x\in G$ such that $\pi(xK_1x^{-1})=\pi(K_2)$. The subgroup 
+	$U=MK_2$ satisfies the hypotheses of the theorem with respect to the normal subgroup 
+	$U\cap N$. Since $xK_1x^{-1}\cup K_2\subseteq U$,
+	we conclude that $xK_1x^{-1}$ and $K_2$ are complements of $U\cap N$ in $U$.
+	Thus $MK_2=G$, as $xK_1x^{-1}$ and $K_2$ are not conjugate and $|G|$ is minimal. 
+	Therefore $M=N$, as  
+	\[
+		\frac{|K_2|}{|M\cap K_2|}=(MK_2:M)=(G:M)=\frac{|NK_2|}{|M|}=(N:M)|K_2|.
+	\]
+
+	\begin{claim}
+		$N$ is not solvable and $G/N$ is solvable. 
+	\end{claim}
+	
+	Otherwise, by Lemma~\ref{lemma:minimal_normal}, 	$N$ is minimal normal
+	and hence abelia. This yields a contradiction, as 
+	the previous version of the Schur--Zassenhaus's theorem implies that
+	$K_1$ and $K_2$ are conjugate. 
+	
+	\medskip
+	Let $p\colon G\to G/N$ be the canonical map and $S$ be such that $p(S)$
+	is minimal normal in $p(G)=G/N$.  By Lemma~\ref{lemma:minimal_normal},
+	$p(S)$ is a $p$-group for some prime number $p$.  Since $G=NK_1=NK_2$ and $N\subseteq
+	S$, Dedekind's lemma implies that  
+	\[
+	S=N(S\cap K_1)=N(S\cap K_2).
+	\]
+	Thus $S\cap K_1$ and $S\cap K_2$
+	are complements of $N$ in $S$. Since $p(S)=p(S\cap K_1)=p(S\cap K_2)$ is a $p$-group,
+	$p$ divides $|S|$. The group $S$ 
+	satisafies the hypotheses of the theorem 
+	with respect to the normal subgroup $N$,
+	so $|N|$ and $(S:N)$ are coprime. If $p\mid |N|$, then  
+	$p\nmid (S:N)=|S\cap K_1|=|S\cap K_2|$, a contradiction. Therefore $p\nmid |N|$ and, in particular,  
+	$p\nmid |S|$. This implies that $S\cap K_1$ and $S\cap K_2$ are
+	Sylow $p$-subgroups of $S$, as 
+	\[
+		|S\cap K_1|=(S:N)=|S\cap K_2|.
+	\]
+	By the second Sylow's theorem, there exists $s\in
+	S$ such that 
+	\[
+	S\cap sK_1s^{-1}=S\cap K_2.
+	\]
+	In particular, $S\ne G$ by the minimality of $|G|$.
+	Let  
+	\[
+		L=S\cap K_2=S\cap sK_1s^{-1}\ne\{1\}.
+	\]
+	Since $S$ is normal in $G$, it follows that $sK_1s^{-1}\cup K_2\subseteq N_G(L)$ (because $L$
+	is normal both in $sK_1s^{-1}$ and in $K_2$). The subgroups $sK_1s^{-1}\subseteq
+	N_G(L)$ and $K_2\subseteq N_G(L)$ are complements of $N\cap N_G(L)$ in $N_G(L)$. Thus 
+	$N_G(L)=G$ by the minimality of $|G|$ (if $N_G(L)\ne G$, then both 
+	$sK_1s^{-1}$ and $K_2$ are conjugate in $G$ because they are conjugate in $N_G(L)$). Therefore 
+	$L$ is normal in $G$. 
+	
+	Let $\pi_L\colon G\to G/L$ be the canonical map. Since both 
+	$\pi_L(K_1)$ and $\pi_L(K_2)$ are complements of $\pi_L(N)$ in $\pi_L(G)$, the minimality 
+	of $|G|$ implies that there exists $g\in G$ such that $\pi_L(gK_1g^{-1})=\pi_L(K_2)$, so  
+	there exists $g\in G$ such that $(gK_1g^{-1})L=K_2L$.  Thus $gK_1g^{-1}\cup
+	K_2\subseteq \langle K_2,L\rangle=K_2$, as $L\subseteq K_2$. In conclusion,	
+	$gK_1g^{-1}=K_2$, a contradiction to the minimality of $|G|z$. 
+\end{proof}
+
+By Feit--Thompson´s theorem, we do not need to assume that
+$N$ or $G/N$ is solvable. Indeed, since every group of odd order is solvable and
+$|N|$ and $(G:N)$ are coprime, it follows that either $|N|$ or $(G:N)$ is odd. 
+
+\section*{C}
 
 Let $A$ be an additive group and $G$ be a group and let 
 $G\times A\to A$, $(g,a)\mapsto g\cdot a$,
