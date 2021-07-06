@@ -114,6 +114,8 @@
 % para enumerar
 \renewcommand{\labelenumi}{\textbf{\arabic{enumi})}}
 
+\setcounter{secnumdepth}{1}
+
 \makeindex             
 
 \renewcommand{\I}{\operatorname{I}}
@@ -203,7 +205,6 @@
 % multiset
 \def\multiset#1#2{\ensuremath{\left(\kern-.3em\left(\genfrac{}{}{0pt}{}{#1}{#2}\right)\kern-.3em\right)}}
 
-
 % column vector
 \newcount\colveccount
 \newcommand*\colvec[1]{
@@ -223,7 +224,8 @@
 }
 
 % numero como secciones
-\renewcommand{\thesection}{\arabic{chapter}} 
+\renewcommand{\thesection}{\arabic{chapter}}
+\renewcommand{\thesubsection}{\Alph{section}}
 
 % To remove Springer from the title page
 \usepackage{etoolbox}
@@ -232,7 +234,7 @@
 \makeatother
 
 \begin{document}
-
+ 
 \lstset{language=GAP,
   showstringspaces=false,
   xleftmargin=0.6cm,

@@ -244,8 +244,16 @@ A subgroup $H$ of $G$ is a \textbf{$p$-complement} if $|H|=m$.
 \end{example}
 
 A famous theorem of Burnside states that finite groups whose order are divisible 
-by exactly two primes are solvable. Burnside's theorem will be used in our proof 
-of the following result. 
+by exactly two primes are solvable. 
+
+\begin{theorem}[Burnside]
+\index{Burnside!Theorem}
+Let $p$ and $q$ be prime numbers and let $G$ be a group of order $p^\alpha q^\beta$. Then
+$G$ is solvable. 
+\end{theorem}
+
+There is a quite easy proof that uses basic character theory, see for example.
+A non-character-theoretic proof is known but it is harder, see~\cite{MR2426855}.
 
 \begin{theorem}[Hall]
 	\label{theorem:Hall:solvable}
@@ -296,8 +304,6 @@ the multiplicative group of $A$ is solvable.
     each $i\in\{1,\dots,n\}$ there exists a subgroup of $G$ of order coprime with $p$. 
     Then $G$ is solvable by Hall's theorem. 
 \end{proof}
-
-
 
 
 % The previous theorem is not true in the case of finite braces of non-nilpotent type. 

@@ -379,7 +379,6 @@ passing it to article class \MessageBreak
 {\thispagestyle{empty} \newpage}
 %
 % (re)define sectioning
-\setcounter{secnumdepth}{3}
 
 \def\seccounterend{}
 \def\seccountergap{\hskip\betweenumberspace}
