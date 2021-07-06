@@ -18,7 +18,7 @@ The group
 C_{K}(G)=\{x\in K:g\cdot x=x\text{ for all }g\in G\}
 \]
 acts on the 
-set of $G$-orbits. Indeed, if $x\in K$ and $c\in C_K(G)$, then $g\cdot c=c$ for all $g\in G$. Thus  
+set of $G$-orbits by left multiplication. Indeed, if $x\in K$ and $c\in C_K(G)$, then $g\cdot c=c$ for all $g\in G$. Thus  
 \begin{align*}
   c(G\cdot x)
   &=\{c(g\cdot x):g\in G\}\\
@@ -56,22 +56,24 @@ Our proof is that of Isaacs, see~\cite{MR2922681}.
 
 \begin{proof}
   The group $C$ acts by left multiplication on the set $\Omega$ of
-  $G$-orbits on $K$. Let $X=G\cdot g\in\Omega$ be an orbit and $C_X$ be the stabilizer of $X$ 
+  $G$-orbits on $K$. Let $X=G\cdot x\in\Omega$ be an orbit and $C_X$ be the stabilizer of $X$ 
   in $C$ de $X$. If $c\in C_X$, then $cX=X$. In particular, if $c\in C_X$, then 
-  $cg=a\cdot g$ for some $a\in G$. Thus 
+  $cx=g\cdot x$ for some $g\in G$. Thus 
   \[
-  c=(a\cdot
-  g)g^{-1}=[a,g]\in [G,K]
+  c=(g\cdot
+  x)x^{-1}=[g,x]\in [G,K]
   \]
   and hence $C_X\subseteq N$.
 
-  To prove that $(C:N)$ divides the size of $\Omega$, it is enoug to show that 
+  To prove that $(C:N)$ divides the size of $\Omega$, 
+  decompose $\Omega$ as a disjoint union of $C$-orbits. Then 
+  it is enough to show that 
   $(C:N)$ divides the size of each $C$-orbit. If $X\in\Omega$, then $C\cdot
   X$ has size 
   \[
 	(C:C_X)=(C:N)(N:C_X).
   \]
-  Thus  $(C:N)$ divides the size of $C\cdot X$.
+  Thus $(C:N)$ divides the size of $C\cdot X$.
 \end{proof}
 
 \begin{corollary}
@@ -128,13 +130,8 @@ if and only if $f\in C_{\Aut(K)}(\Inn(K))$.
   N=[K,K]$.
 \end{proof}
 
-<<<<<<< HEAD
-
-
 \section*{B}
-=======
 \section*{{{\thesection}B}}
->>>>>>> 09f70757ab25f3fdf1633722e0e980d542f7cde1
 
 % A-nilpotentes
 % 4C de Isaacs
