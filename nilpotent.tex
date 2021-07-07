@@ -8,8 +8,12 @@ by $\prescript{x}{}y=xyx^{-1}$. The commutator between $x$ and $y$ is then
 [x,y]=xyx^{-1}y^{-1}=(\prescript{x}{}y)y^{-1}.
 \]
 We also write 
-$[x,y,z]=[x,[y,z]]$. If $X$, $Y$ and $Z$ are subgroups of $G$, we write 
-$[X,Y,Z]=\left[ X,[Y,Z] \right]$. Note that $[X,Y]=[Y,X]$. 
+$[x,y,z]=[x,[y,z]]$. 
+If $X$, $Y$ and $Z$ are subgroups of $G$, we write 
+\[
+[X,Y]=\langle [x,y]:x\in X,\,y\in Y\rangle
+\]
+and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Note that $[X,Y]=[Y,X]$. 
 
 \begin{exercise}[Hall--Witt]
 	\label{xca:HallWitt}
@@ -25,28 +29,28 @@ $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Note that $[X,Y]=[Y,X]$.
 
 \index{Jacobi, G.}
 \index{Jacobi!identity}
-Note that if $G$ is such that $[G,G]$ is central, then Jacobi's identity 
+Note that if $G$ is such that $[G,G]$ is central, then Hall--Witt's identity 
 turns out to be Jacobi's identity. 
 
+%\begin{lemma}[three subgroups lemma]
+%	\label{lemma:3subgrupos}
+%	\index{Lemma!three subgroups}
+%	Let $X$, $Y$ and $Z$ be subgroups of $G$ such that $[X,Y,Z]=[Y,Z,X]=\{1\}$.
+%	Then $[Z,X,Y]=\{1\}$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Since $[x,y]\in C_G(z)$ implies that 
+%	$[X,Y]\subseteq C_G(Z)$, it
+%	is enough to prove that $[z,x^{-1},y]=1$ for all $x\in X$, $y\in Y$ and $z\in Z$, 
+%	Since $[y^{-1},z]\in [Y,Z]$, it follows that 
+%	$[x,y^{-1},z]\in [X,Y,Z]=\{1\}$. Thus $\prescript{y}{}[x,y^{-1},z]=1$.
+%	Similarly, $\prescript{z}{}[y,z^{-1},x]=1$. Hence the 
+%	Hall--Witt identity yields 
+%	$[z,x^{-1},y]=1$.
+%\end{proof}
+
 \begin{lemma}[three subgroups lemma]
-	\label{lemma:3subgrupos}
-	\index{Lemma!three subgroups}
-	Let $X$, $Y$ and $Z$ be subgroups of $G$ such that $[X,Y,Z]=[Y,Z,X]=\{1\}$.
-	Then $[Z,X,Y]=\{1\}$.
-\end{lemma}
-
-\begin{proof}
-	Since $[x,y]\in C_G(z)$ implies that 
-	$[X,Y]\subseteq C_G(Z)$, it
-	is enough to prove that $[z,x^{-1},y]=1$ for all $x\in X$, $y\in Y$ and $z\in Z$, 
-	Since $[y^{-1},z]\in [Y,Z]$, it follows that 
-	$[x,y^{-1},z]\in [X,Y,Z]=\{1\}$. Thus $\prescript{y}{}[x,y^{-1},z]=1$.
-	Similarly, $\prescript{z}{}[y,z^{-1},x]=1$. Hence the 
-	Hall--Witt identity yields 
-	$[z,x^{-1},y]=1$.
-\end{proof}
-
-\begin{lemma}
 	\label{lemma:3subgrupos_general}
 	Let $N$ be a normal subgroup of $G$ and let $X$, $Y$ and $Z$
 	be subgroups of $G$. If $[X,Y,Z]\subseteq N$ and $[Y,Z,X]\subseteq N$, then 
@@ -54,12 +58,22 @@ turns out to be Jacobi's identity.
 \end{lemma}
 
 \begin{proof}
-	Let $\pi\colon G\to G/N$ be the canonical map. Since $[X,Y,Z]\subseteq N$, 
+	We first prove the lemma in the case where $N=\{1\}$. 	Since $[x,y]\in C_G(z)$ implies that 
+	$[X,Y]\subseteq C_G(Z)$, it
+	is enough to prove that $[z,x^{-1},y]=1$ for all $x\in X$, $y\in Y$ and $z\in Z$, 
+	Since $[y^{-1},z]\in [Y,Z]$, it follows that 
+	$[x,y^{-1},z]\in [X,Y,Z]=\{1\}$. Thus $\prescript{y}{}[x,y^{-1},z]=1$.
+	Similarly, $\prescript{z}{}[y,z^{-1},x]=1$. Hence the 
+	Hall--Witt identity yields 
+	$[z,x^{-1},y]=1$.
+
+	We now demonstrate the general case. Let $N$ be a normal subgroup of $G$ 
+	and $\pi\colon G\to G/N$ be the canonical map. Since $[X,Y,Z]\subseteq N$, 
 	\begin{align*}
 		\{1\}&=\pi([X,Y,Z])=\pi([ X,[Y,Z]])\\
 		&=[\pi(X),\pi([Y,Z])]=[ \pi(X),[\pi(Y),\pi(Z)]]=[\pi(X),\pi(Y),\pi(Z)]. 
 	\end{align*}
-	Similarly one proves that $[\pi(Y),\pi(Z),\pi(X)]=\{1\}$. By the three subgroups lemma,  
+	Similarly one proves that $[\pi(Y),\pi(Z),\pi(X)]=\{1\}$. By the previous paragraph,  
 	$[\pi(Z),\pi(X),\pi(Y)]=\{1\}$, so $[Z,X,Y]\subseteq N$.
 \end{proof}
 
@@ -146,7 +160,7 @@ the \textbf{nilpotency index} (or \textbf{nilpotency class}) of $G$.
 \end{example}
 
 There exist a non-nilpotent group $G$ with a normal subgroup $K$ 
-such that $K$ and $G/K$ are both nilpotent. For example, $G=\Sym_3$ and $K=\Alt_3$. 
+such that $K$ and $G/K$ are both nilpotent. For example, take $G=\Sym_3$ and $K=\Alt_3$. 
 
 \begin{exercise}
 	Let $p$ be a prime number. Prove that finite $p$-groups are nilpotent. 
@@ -177,50 +191,56 @@ such that $K$ and $G/K$ are both nilpotent. For example, $G=\Sym_3$ and $K=\Alt_
 	\]
 \end{proof}
 
-Podríamos considerar conmutadores arbitrarios donde no necesariamente se asocia
-siempre hacia la izquierda. Por ejemplo $[G,G,G]=[ [G,G],G]$ y $[G,[G,G]]$ son
-ambos conmutadores de peso tres. 
+Certainly we can consider other type of arbitrary commutators, say for example 
+$[[G,G],G]$ and $[G,G,G]=[G,[G,G]]$. This naturally suggest the notion of the
+weight of a commutator. For example, $[[G,G],G]$ and $[G,G,G]=[G,[G,G]]$ are
+both commutators of weight three. 
 
 \begin{corollary}
-	Sea $G$ un grupo.  Entonces todo conmutador de peso $n$ está contenido en
+	Every commutator of weight $n$ is contained in 
 	$\gamma_n(G)$.
 \end{corollary}
 
 \begin{proof}
-	Procederemos por inducción en $n$. El caso $n=1$ es trivial. Supongamos
-	entonces que el resultado es válido para algún $n\geq1$.  Tenemos entonces
-	un conmutador de la forma $[A,B]$, donde $A$ es un conmutador de peso $k$,
-	$B$ es un conjuntador de peso $l$ y $n+1=k+l$. Como $k<n$ y $l<n$, la
-	hipótesis inductiva implica que $A\subseteq \gamma_k(G)$ y $B\subseteq
-	\gamma_l(G)$. Luego $[A,B]\subseteq [\gamma_k(G),\gamma_l(G)]\subseteq
-	\gamma_{k+l}(G)$ por el
-	teorema anterior. 
+	We proceed by induction on $n$. The case $n=1$ is trivial, so assume that
+	the result holds for some $n\geq1$.  Let  
+	$[A,B]$ be a commutator, where $A$ is a commutator of weight $k$,
+	$B$ is a commutator of weight $l$ and $n+1=k+l$. Since $k<n$ and $l<n$, the inductive 
+	hypothesis implies that $A\subseteq \gamma_k(G)$ y $B\subseteq
+	\gamma_l(G)$. Thus 
+	\[
+	[A,B]\subseteq [\gamma_k(G),\gamma_l(G)]\subseteq
+	\gamma_{k+l}(G)
+	\]
+	by the previous theorem. 
 \end{proof}
 
+\index{Normalizer condition}
+Nilpotent groups satisfy the normalizer condition. A group 
+$G$ satisfies the \textbf{normalizer condition} if each proper subset is smaller 
+than its normalizer. 
 
-En el siguiente lema veremos que los grupos nilpotentes satisfacen la
-\textbf{condición normalizadora}.
-
-\begin{lemma}[condición normalizadora]
-	\label{lemma:normalizadora}
-	\index{Condición normalizadora}
-	Sea $G$ un grupo nilpotente. Si $H$ es un subgrupo propio de $G$ entonces
+\begin{lemma}[normalizer condition]
+	\label{lem:normalizer}
+	Let $G$ be a nilpotent group. If $H$ is a proper subgroup of $G$, then 
 	$H\subsetneq N_G(H)$.
 \end{lemma}
 
 \begin{proof}
-	Sabemos que existe $c$ tal que $G=\gamma_1(G)\supseteq\cdots\supseteq\gamma_{c+1}(G)=\{1\}$. Como 
-	$\{1\}=\gamma_{c+1}(G)\subseteq H$ y $\gamma_1(G)\not\subseteq H$, 
-	sea el mínimo $k$ tal que $\gamma_k(G)\subseteq H$. Como
+	Since $G$ is nilpotent, there a positive integer $c$ such that 
+	\[
+	G=\gamma_1(G)\supseteq\cdots\supseteq\gamma_{c+1}(G)=\{1\}.
+	\]
+	Since 
+	$\{1\}=\gamma_{c+1}(G)\subseteq H$ and $\gamma_1(G)\not\subseteq H$, 
+	let $k$ be the smallest positive integer such that $\gamma_k(G)\subseteq H$. Since 
 	\[
 		[\gamma_{k-1}(G),H]\subseteq [\gamma_{k-1}(G),G]=\gamma_k(G)\subseteq H,
 	\]
-	se tiene que 
-	%$xhx^{-1}h^{-1}\in H$ para todo $x\in\gamma_{k-1}(G)$ y $h\in
-	%H$. Esto implica que 
-	$xHx^{-1}\subseteq H$ para todo $x\in\gamma_{k-1}(G)$,
-	es decir $\gamma_{k-1}(G)\subseteq N_G(H)$. Si $N_G(H)=H$ entonces
-	$\gamma_{k-1}(G)\subseteq H$, que contradice la minimalidad de $k$. 
+	it follows that 
+	$xHx^{-1}\subseteq H$ for all $x\in\gamma_{k-1}(G)$,
+	so  $\gamma_{k-1}(G)\subseteq N_G(H)$. If $N_G(H)=H$, then 
+	$\gamma_{k-1}(G)\subseteq H$, a contradiction to the minimality of $k$. 
 \end{proof}
 
 %\begin{example}
@@ -228,48 +248,76 @@ En el siguiente lema veremos que los grupos nilpotentes satisfacen la
 
 %\end{example}
 
-Si $G$ es un grupo se define sucesión $\zeta_0(G),\zeta_1(G),\dots$
-inductivamente de la siguiente forma:
+For a group $G$ we define the sequence $\zeta_0(G),\zeta_1(G),\dots$
+recursively as 
 \[
 	\zeta_0(G)=\{1\},\quad
 	\zeta_{i+1}(G)=\{g\in G:[g,x]\in\zeta_{i}(G)\text{ para todo $x\in G$}\},\quad i\geq 0.
 \]
-Por ejemplo: $\zeta_1(G)=Z(G)$.
+In particular, $\zeta_1(G)=Z(G)$.
 
 \begin{lemma}
-	\label{lemma:central_ascendente}
-	Sea $G$ un grupo. Para todo $i\geq0$ el conjunto $\zeta_i(G)$ es un
-	subgrupo normal de $G$. 
+	\label{lem:central_ascendente}
+	Let $G$ be a group. Each $\zeta_i(G)$ is a normal
+	subgroup of $G$. 
 \end{lemma}
 
 \begin{proof}
-	Procederemos por inducción en $i$. El caso $i=0$ es trivial pues
-	$\zeta_0(G)=1$.  Supongamos entonces que el resultado es válido para $i$.
-	Veamos primero que $\zeta_{i+1}(G)$ es un subgrupo de $G$. 
-	Sean $g,h\in \zeta_{i+1}(G)$ y sea $x\in G$. Por hipótesis inductiva,
+	We proceed by induction on $i$. The case $i=0$ is trivial, as 
+	$\zeta_0(G)=\{1\}$.  Assume that the result holds for some $i\geq0$.
+	We claim that $\zeta_{i+1}(G)$ is a subgroup of $G$. 
+	Let $g,h\in \zeta_{i+1}(G)$ and $x\in G$. The inductive hypothesis implies that 
 	\begin{align*}
 	&[g^{-1},x]=(xg^{-1})[g,x^{-1}](xg^{-1})^{-1}\in (xg^{-1})\zeta_i(G)(xg^{-1})^{-1}=\zeta_i(G),\\
 	&[gh,x]=[g,hxh^{-1}][h,x]\in \zeta_{i}(G).
 	\end{align*}
-	Como $1\in\zeta_{i+1}(G)$, se concluye que todos los $\zeta_i(G)$ son
-	subgrupos de $G$. La normalidad también se demuestra por inducción en $i$:
-	si $g\in\zeta_{i+1}(G)$, $x\in G$ entonces $xgx^{-1}\in\zeta_{i+1}(G)$ pues 
+	Since $1\in\zeta_{i+1}(G)$, the sets $\zeta_i(G)$ are subgroups of $G$. 
+	
+	To prove 
+	that each subgroup is normal we also proceed by induction on $i$. 
+	If $g\in\zeta_{i+1}(G)$ and $x\in G$, then $xgx^{-1}\in\zeta_{i+1}(G)$. Indeed,  
 	\[
 	[xgx^{-1},y]=x[g,x^{-1}yx]x^{-1}\in\zeta_{i}(G)
 	\]
-	para todo $y\in G$.
+	for all $y\in G$.
 \end{proof}
 
 
-	\index{Serie!central ascendente}
-	Sea $G$ un grupo. Se define la \textbf{serie central ascendente} de $G$
-	como la sucesión
-	\[
-		1=\zeta_0(G)\subseteq\zeta_1(G)\subseteq\zeta_2(G)\subseteq\cdots
-	\]
+\index{Ascending!central series}
+For a group $G$ the \textbf{ascending central series} of $G$ is the sequence 
+\[
+	\{1\}=\zeta_0(G)\subseteq\zeta_1(G)\subseteq\zeta_2(G)\subseteq\cdots
+\]
 
-\index{Grupo!perfecto}
-Recordemos que un grupo $G$ se dice \textbf{perfecto} si $[G,G]=G$.
+%\index{Grupo!perfecto}
+A group $G$ is said to be \textbf{perfect} if $[G,G]=G$. Note that
+$G$ is perfect if and only if $G/[G,G]$ is trivial. The alternating 
+simple group $\Alt_5$ is the smallest non-trivial perfect group. 
+
+\begin{example}
+The groups $\SL_2(2)$ and $\SL_2(3)$ are not perfect. 	
+\end{example}
+
+Let $p$ be a prime number and $q=p^m$ for some $m\in\N$.  
+The groups $\SL_n(q)$ are perfect except the cases $\SL_2(2)$ and $\SL_2(3)$. As an example,
+let us prove that $\SL_2(p)$ is perfect if $p\geq5$ is a prime number. We first 
+claim that $\SL_2(q)$ is generated by matrices
+$X_{ij}(\lambda)=I+\lambda*E_{ij}$, where $I$ denotes the identity, 
+$E_{ij}$ is the matriz with a one at position $(i,j)$ and zero in all other entries, 
+$i,j\in\{1,2\}$ and $\lambda\in\F_q$.  
+
+\begin{exercise}
+Let $q\geq5$. 
+Prove that $\SL_n(q)$ is perfect.  	
+\end{exercise}
+
+
+\begin{exercise}
+Let $G$ be a perfect group and $N$ be a normal subgroup of $G$. Then $G/N$ is perfect.  	
+\end{exercise}
+
+
+%A $G$ se dice \textbf{perfecto} si $[G,G]=G$.
 
 \begin{theorem}[Gr\"un]
 	\label{theorem:Grun}
@@ -278,18 +326,14 @@ Recordemos que un grupo $G$ se dice \textbf{perfecto} si $[G,G]=G$.
 \end{theorem}
 
 \begin{proof}
-	Si usamos el lema de los tres subgrupos con $X=Y=G$ y $Z=\zeta_2(G)$, 
-	%, como 
-	%$[G,\zeta^2(G),G]=[G,G,\zeta_2(G)]=[G,(G)]=1$, se concluye que 
-	$\{1\}=[\zeta_2(G),G,G]=[\zeta_2(G),[G,G]]=[\zeta_2(G),G]$. Luego 	
-	$\zeta_2(G)\subseteq Z(G)$ y
-	entonces $\zeta_2(G)=Z(G/Z(G))=\{1\}$. 
+	The three subgroups lemma with $X=Y=G$ and $Z=\zeta_2(G)$ yields  
+	\[
+	\{1\}=[\zeta_2(G),G,G]=[\zeta_2(G),[G,G]]=[\zeta_2(G),G].
+	\]
+	Thus 	
+	$\zeta_2(G)\subseteq Z(G)$ and hence 
+	$\zeta_2(G)=Z(G/Z(G))=\{1\}$. 
 \end{proof}
-
-Si $H$ y $K$ son subgrupos de $G$ se define
-\[
-	[H,K]=\langle [h,k]:h\in H,\,k\in K\rangle.
-\]
 
 	\index{Normalizador}
     Sea $G$ un grupo. Se dice que un subgrupo $K$ de $G$ \textbf{normaliza} a
