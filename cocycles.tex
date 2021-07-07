@@ -853,82 +853,74 @@ $N$ or $G/N$ is solvable. Indeed, since every group of odd order is solvable and
 $|N|$ and $(G:N)$ are coprime, it follows that either $|N|$ or $(G:N)$ is odd. 
 
 \section*{C}
+%
+%As an application of Schur--Zassenhaus' theorem we present
+%Hall's theory of $\pi$-groups.  
 
-As an application of Schur--Zassenhaus' theorem we present
-Hall's theory of $\pi$-groups.  
+\index{$\pi$-number}
+\index{$\pi$-group}
+\index{$\pi$-subgroup}
+Let $G$ be a finite group and $\pi$ be a set of (positive) prime numbers. We say that
+$G$ is a $\pi$-group if all prime divisors of $|G|$ belong to $\pi$.
+A $\pi$-subgroup of $G$ is a subgroup of $G$ that is also a $\pi$-group. 
+A $\pi$-number is an integer with all prime divisors in 
+$\pi$. The complement of $\pi$ is the set of prime numbers will be denoted by 
+$\pi'$. A $\pi'$-number is then an integer not divisible by the primes 
+of $\pi$.
 
-\index{$\pi$-número}
-\index{$\pi$-grupo}
-\index{$\pi$-subgrupo}
-Sea $G$ un grupo finito y sea $\pi$ un conjunto de números primos. Diremos que
-$G$ es un $\pi$-grupo si todo primo que divide a $|G|$ pertenece a $\pi$.
-Obviamente un $\pi$-subgrupo de $G$ es un subgrupo de $G$ que además es un
-$\pi$-grupo. Un $\pi$-número es un entero tal que sus divisores primos están en
-$\pi$. El complemento de $\pi$ en el conjunto de los números primos será
-denotado por $\pi'$. Luego un $\pi'$-número será un entero no divisible por los
-primos de $\pi$.
-
-\begin{definition}
-	\index{Hall!subgrupo de}
-	\index{Subgrupo!de Hall}
-	Sea $\pi$ un conjunto de números primos. Un subgrupo $H$ de $G$ se dice un
-	\textbf{$\pi$-subgrupo de Hall} si $H$ es $\pi$-subgrupo de $G$ y el índice $(G:H)$
-	es un $\pi'$-número.
-\end{definition}
+\medskip
+\index{Hall!subgroup}
+Let $\pi$ be a set of primes.A subgroup $H$ of a group $G$ is a 
+\textbf{Hall $\pi$-subgroup} if $H$ is a $\pi$-subgroup of $G$ and the index $(G:H)$
+is a $\pi'$-number.
 
 \begin{theorem}[Hall]
-	\index{Teorema!de Hall}
-	\index{Hall!teorema de}
-	\label{theorem:HallE}
-	Sea $\pi$ un conjunto de primos y sea $G$ un grupo finito resoluble. Entonces
-	$G$ tiene un $\pi$-subgrupo de Hall.
-%	Si $G$ es un grupo resoluble de orden $nm$ con $(n:m)=1$ entonces $G$
-%	contiene un subgrupo de orden $m$.
+	\index{Hall's!theorem}
+	\label{thm:HallE}
+	Let $\pi$ be a set of primes and $G$ be a finite solvable group. Then 
+	$G$ admits a Hall $\pi$-subgroup. 
 \end{theorem}
 
 \begin{proof}
-	Supongamos que $G$ tiene orden $nm>1$ con $\gcd(n,m)=1$. Demostraremos por
-	inducción en $|G|$ que 	existe un subgrupo de orden $m$. Sea $K$ un
-	subgrupo de $G$ minimal-normal. Sea $\pi\colon G\to G/K$ el morfismo
-	canónico.  Como $G$ es resoluble, $K$ es un $p$-grupo por el
-	lema~\ref{lemma:minimal_normal}.
+	Assume that $|G|=nm>1$ with $\gcd(n,m)=1$. We prove by induction on  
+	$|G|$ that there exists a subgroup of order $m$. Let $K$ 
+	be a minimal normal subgroup of $G$ 
+	and let $\pi\colon G\to G/K$ be the canonical map. (We are using $\pi$ for a fixed set
+	of primes and for the canonical map $G\to G/K$, but hopefully no confusion will arise.) 
+	Since $G$ is solvable, $K$ is an abelian $p$-group by Lemma~\ref{lemma:minimal_normal}.
 	
-	Hay dos casos a considerar.  Supongamos primero que $p$ divide a $m$. Como
-	$|G/K|<|G|$, por hipótesis inductiva y por la correspondencia, existe un
-	subgrupo $J$ de $G$ que contiene a $K$ tal que $\pi(J)$ es un subgrupo de
-	$\pi(G)=G/K$ de orden $m/|K|$. Entonces $J$ tiene orden $m$ pues 
+	There are two cases to consider. Assume first that $p$ divides $m$. Since 
+	$|G/K|<|G|$, the inductive hypothesis and the correspondence theorem imply that there exists 
+	a subgroup $J$ of $G$ containing $K$ such that $\pi(J)$ is a subgroup of 
+	$\pi(G)=G/K$ of order $m/|K|$. Thus $|J|=m$ since  
 	\[
 	m/|K|=|\pi(J)|=\frac{|J|}{|K\cap J|}=(J:K).
 	\]
 
-	Supongamos ahora que $p$ no divide a $m$. Por hipótesis inductiva y por la
-	correspondencia, existe un subgrupo $H$ de $G$ que contiene a $K$ tal que
-	$\pi(H)$ es un subgrupo de $G/K$ de orden $m$.  Como $|H|=m|K|$, $K$ es
-	normal en $H$ y $|K|$ es coprimo con $|H:K|$, el teorema de
-	Schur--Zassenhaus~\ref{theorem:SchurZassenhaus} implica que existe un
-	complemento $J$ de $K$ en $H$. Luego $J$ es un subgrupo de $G$ de orden
+	Assume now tht $p$ does not divide $m$. The inductive hypothesis and the correspondence theorem 
+	imply that there exists a subgroup $H$ of $G$ containing $K$ such that 
+	$\pi(H)$ is a subgroup of $G/K$ of order $m$.  Since $|H|=m|K|$, $K$ 
+	is normal in $H$ and $|K|$ is coprime with $|H:K|$, 
+	Schur--Zassenhaus's theorem (Theorem~\ref{thm:SchurZassenhaus:abelian}) implies 
+	that there exists a complement 
+	$J$ of $K$ in $H$. Thus $J$ is a subgroup of $G$ of order 
 	$|J|=m$.
 \end{proof}
 
 \begin{example}
-	El grupo $\Alt_5$ contiene un $\{2,3\}$-subgrupo de Hall isomorfo a
-	$\Alt_4$.
+	The group $\Alt_5$ contains a Hall $\{2,3\}$-subgroup isomorphic to 	$\Alt_4$.
 \end{example}
 
 \begin{example}
-	El grupo simple $\PSL_3(2)$ de orden $168$ no contiene $\{2,7\}$-subgrupos
-	de Hall.
+	The simple group $\PSL_3(2)$ of order $168$ does not contain Hall $\{2,7\}$-subgroups. 
 \end{example}
 
-El teorema~\ref{theorem:HallE} dice que para todo conjunto de primos $\pi$
-todo grupo finito contiene $\pi$-subgrupos de Hall.
 
 \begin{theorem}[Hall]
-	\index{Teorema!de Hall}
-	\index{Hall!teorema de}
-	\label{theorem:HallC}
-	Sea $G$ un grupo finito resoluble y sea $\pi$ un conjunto de primos. Todos los
-	$\pi$-subgrupos de Hall de $G$ son conjugados.
+	\index{Hall's!theorem}
+	\label{thm:HallC}
+	Let $G$ be a finite solvable group and $\pi$ be a set of primes. All 
+	Hall $\pi$-subgroups of $G$ are conjugate. 
 \end{theorem}
 
 \begin{proof}
@@ -965,12 +957,6 @@ todo grupo finito contiene $\pi$-subgrupos de Hall.
 \begin{proof}
 	Sea $H$ un complemento para $N$ en $G$. Entonces $|H|=m$. Sea $H_1$
 	subgrupo de $G$ tal que $|H_1|=m_1$. 
-	%Entonces,
-	%como  $G=NH$ y $N\subseteq NH_1$, el lema de Dedekind~\ref{lemma:Dedekind}
-	%implica que 
-	%\[
-	%NH_1=NH_1\cap NH=N(H\cap NH_1).
-	%\]
 	Como $n$ y $m$ son coprimos, $m_1=|H_1|=|H\cap NH_1|$ pues
 	\[
 	\frac{|H||N||H_1|}{|H\cap NH_1|}=
@@ -980,8 +966,6 @@ todo grupo finito contiene $\pi$-subgrupos de Hall.
 	orden coprimo con $n$, existe $g\in G$ tal que $H_1=g(H\cap NH_1)g^{-1}$. Luego 
 	$H_1\subseteq gHg^{-1}$ y entonces $|gHg^{-1}|=m$. 
 \end{proof}
-
-
 
 \section*{D}
 
