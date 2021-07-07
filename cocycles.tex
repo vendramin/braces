@@ -267,7 +267,7 @@ An extension $E$ \textbf{splits} if there is a lifting of $E$ that it is a group
 \index{Derivation}
 \index{$1$-cocyclo}
 Let $Q$ and $K$ be groups. Assume that $Q$ acts by automorphism on $K$.
-A map $\varphi\colon Q\to K$ is said to be a $1$-\textbf{cocycle} (or a derivation) if
+A map $\varphi\colon Q\to K$ is said to be a \textbf{1-cocycle} (or a derivation) if
 \[
 		\varphi(xy)=\varphi(x)(x\cdot\varphi(y))
 \]
@@ -293,7 +293,7 @@ for all $x,y\in Q$.  The set of 1-cocycles $Q\to K$ is defined as
 
 \begin{exercise}
 	\label{xca:1cocycle}
-	Let $\varphi\colon Q\to K$ be a $1$-cocycle. 
+	Let $\varphi\colon Q\to K$ be a 1-cocycle. 
 	\begin{enumerate}
 		\item $\varphi(1)=1$.
 		\item $\varphi(y^{-1})=(y^{-1}\cdot\phi(y))^{-1}=y^{-1}\cdot\phi(y)^{-1}$.
@@ -310,7 +310,7 @@ and $Q$ is a subgroup of $G$ such that $K\cap Q=\{1\}$.
 	\label{thm:complements}
 	Let $Q$ acts by automorphism on $K$. Then there exists a bijective correspondence between
 	the set $\mathcal{C}$ of complements $K$ in $K\rtimes Q$ and the set 
-    $\Der(Q,K)$ of $1$-cocycles $Q\to K$.
+    $\Der(Q,K)$ of 1-cocycles $Q\to K$.
 \end{theorem}
 
 \begin{proof}
@@ -345,8 +345,8 @@ and $Q$ is a subgroup of $G$ such that $K\cap Q=\{1\}$.
 	(\delta(x)x)^{-1}=x^{-1}\delta(x)^{-1}xx^{-1}=\delta(x^{-1})x^{-1}.
 	\]
 	
-	Let us prove that $\Delta\cap K=\{1\}$. If $x\in Q$ is such that $\delta(x)x\in K$, then 
-    since $\delta(x)\in K$, it follows that $x\in K\cap Q=1$. If $g\in G$, then 
+	We claim that $\Delta\cap K=\{1\}$. If $x\in Q$ is such that $\delta(x)x\in K$, then 
+    since $\delta(x)\in K$, it follows that $x\in K\cap Q=\{1\}$. If $g\in G$, then 
 	there are unique $k\in K$ and $x\in Q$ such that $g=kx$. We write 
 	$g=k\delta(x)^{-1}\delta(x)x$. Since $k\delta(x)^{-1}\in K$ and $\delta(x)x\in
 	\Delta$, we conclude that $G=K\Delta$. Thus there is a well-defined map 
@@ -537,7 +537,7 @@ Another consequence:
 \section*{B}
 
 \begin{lemma}
-	\label{lemma:1cocycle}
+	\label{lem:1cocycle}
 	Let $G$ be a group and $N$ be a normal subgroup of $G$. If $G$ acts on $N$ by conjugation and  
 	$\varphi\colon G\to N$ is a 1-cocycle with kernel $K$, then 
 	$\varphi(x)=\varphi(y)$ if and only if $xK=yK$. In particular,
@@ -565,7 +565,7 @@ Another consequence:
 \end{proof}
 
 \begin{lemma}
-	\label{lemma:d}
+	\label{lem:d}
 	Let $G$ be a finite group, $N$ be a normal abelian subgroup of $G$ and $S$, $T$ and $U$
 	be transversal of$N$ in $G$. Let  
 	\[
@@ -603,14 +603,14 @@ We now prove the first version of Schur--Zassenhaus' theorem.
 \begin{theorem}[Schur--Zassenhaus]
 	\index{Schur--Zassenhaus!theorem}
 	\label{thm:SchurZassenhaus:abelian}
-	Sea $G$ un grupo finito y sea $N$ un subgrupo normal abeliano de $G$. Si
-	$|N|$ y $(G:N)$ son coprimos, $N$ se complementa en $G$. Si $N$ se
-	complementa en $G$, todos los complementos son conjugados.  
+	Let $G$ be a finite group and $N$ be an abelian normal subgroup of $G$. If 
+	$|N|$ and $(G:N)$ are coprime, then $N$ admits a complement in $G$. In this case, all complements
+	of $N$ are conjugate in $G$.  
 \end{theorem}
 
 \begin{proof}
-	Let $T$ be a transversal if $N$ in $G$. Let $\theta\colon G\to N$,
-	$\theta(g)=d(gT,T)$. Since $N$ is abelian, Lemma~\ref{lemma:d} implies that 
+	Let $T$ be a transversal of $N$ in $G$. Let $\theta\colon G\to N$,
+	$\theta(g)=d(gT,T)$. Since $N$ is abelian, Lemma~\ref{lem:d} implies that 
 	$\theta$ is a 1-cocycle, where $G$ acts on $N$ by conjugation: 
 	\begin{align*}
 		\theta(xy)&=d(xyT,T)
@@ -622,8 +622,8 @@ We now prove the first version of Schur--Zassenhaus' theorem.
 		$\theta|_N\colon N\to N$ is surjective.
 	\end{claim}
 
-	If $n\in N$, Lemma~\ref{lemma:d} implies that 
-	$\theta(n)=d(nT,T)=n^{(G:N)}$. Since $|N|$ and $(G:N)$ are coprime, 
+	If $n\in N$, then  
+	$\theta(n)=d(nT,T)=n^{(G:N)}$ by Lemma~\ref{lem:d}. Since $|N|$ and $(G:N)$ are coprime, 
 	there exist $r,s\in\Z$ such that $r|N|+s(G:N)=1$. Thus
 	\[
 		n=n^{r|N|+s(G:N)}=(n^s)^{(G:N)}=\theta(n^s).
@@ -634,47 +634,52 @@ We now prove the first version of Schur--Zassenhaus' theorem.
 	\[
 		|N|=|\theta(G)|=(G:H)=\frac{|G|}{|H|}
 	\]
-	Lemma~\ref{lemma:1cocycle}.\framebox{FIXME}
-	Como $N\cap H$ es un subgrupo de $N$ y de $H$, entonces $N\cap H=\{1\}$ pues
-	$|N|$ y $(G:N)=|H|$ son coprimos.  Como $|NH|=|N||H|=|G|$, se concluye que
-	$G=NH$ y entonces $H$ es un complemento para $N$.
+	by Lemma~\ref{lem:1cocycle}, it follows that $N\cap H=\{1\}$ because 
+	$|N|$ and $(G:N)=|H|$ are coprime. Since $|NH|=|N||H|=|G|$, we conclude that 
+	$G=NH$ and hence $H$ is a complement of $N$ in $G$.
 
-	Veamos ahora que dos complementos para $N$ son conjugados. 
-	Sea $K$ un complemento de $N$ en $G$. Como $NK=G$ y $N\cap K=\{1\}$, $K$ es un
-	transversal para $N$. Sea $m=d(T,K)\in N$. Como $\theta|_N$ es
-	sobreyectiva, existe $n\in N$ tal que $\theta(n)=m$. Por el
-	lema~\ref{lemma:d}, para todo $k\in K$ se tiene
+	We now prove that two complements of $N$ in $G$ are conjugate. Let  
+	$K$ be a complement of $N$ in $G$. Since $NK=G$ and $N\cap K=\{1\}$, it follows that 
+	$K$ is a transversal of $N$ in $G$. Let $m=d(T,K)\in N$. Since $\theta|_N$ is surjective, 
+	there exists $n\in N$ such that $\theta(n)=m$. By 
+	Lemma~\ref{lem:d}, for each $k\in K$, 
 	\[
-	kmk^{-1}=kd(T,K)k^{-1}=d(kT,kK)=d(kT,K)=d(kT,T)d(T,K)=\theta(k)m.
+	kmk^{-1}=kd(T,K)k^{-1}=d(kT,kK)=d(kT,K)=d(kT,T)d(T,K)=\theta(k)m
 	\]
-	Entonces, como $N$ es abeliano,
-	$\theta(n^{-1})=m^{-1}$ y luego 
+	holds. Since $N$ is abelian,
+	$\theta(n^{-1})=m^{-1}$ and hence  
 	\begin{align*}
 		\theta(nkn^{-1})&=\theta(n)n\theta(kn^{-1})n^{-1}
 		=m\theta(kn^{-1})\\
 		&=m\theta(k)k\theta(n^{-1})k^{-1}
 		=m\theta(k)km^{-1}k^{-1}=1.
 	\end{align*}
-	Queda demostrado entonces que $nKn^{-1}\subseteq H=\ker\theta$. Como
-	$|K|=(G:N)=|H|$, se concluye que $nKn^{-1}=H$.
+	Therefore $nKn^{-1}\subseteq H=\ker\theta$. Since
+	$|K|=(G:N)=|H|$, we conclude that $nKn^{-1}=H$.
 \end{proof}
 
-En el siguiente teorema vemos que no es necesario suponer que el subgrupo
-normal $N$ es abeliano.
+The general version of 
+Schur--Zassenhaus' theorem does not need $N$ to be abelian. 
+
+% todo: necesito frattini
+% lo quito? pongo solamente una referencia?
 
 \begin{theorem}[Schur--Zassenhaus]
 	\index{Schur--Zassenhaus!theorem}
 	\label{thm:SchurZassenhaus}
-	Sea $G$ un grupo finito y sea $N$ un subgrupo normal de $G$. Si $|N|$ y
-	$(G:N)$ son coprimos entonces $N$ se complementa en $G$.
+	Let $G$ be a finite group and $N$ be a normal subgroup of $G$. If 
+	$|N|$ and $(G:N)$ are coprime, then $N$ admits a complement in $G$. 
 \end{theorem}
 
 \begin{proof}
-	Procederemos por inducción en $|G|$. Si existe un subgrupo propio $K$ de
-	$G$ tal que $NK=G$ entonces, como $(K:K\cap N)=(G:N)$ es coprimo con $|N|$,
-	es también coprimo con $|K\cap N|$. Como además $K\cap N$ es normal en $K$,
-	por hipótesis inductiva, $K\cap N$ se complementa en $K$, y luego existe un
-	subgrupo $H$ de $K$ tal que $|H|=(K:K\cap N)=(G:N)$. 
+	We proceed by induction on $|G|$. If there exists a proper subgroup $K$ of
+	$G$ such that $NK=G$, then, since $(K:K\cap N)=(G:N)$ is coprime with $|N|$, it coprime with  
+	$|K\cap N|$. Moreover, $K\cap N$ is normal in $K$. By inductive hypothesis, 
+	$K\cap N$ admits a complement in $K$. Hence there exists a subgroup 
+    $H$ of $K$ such that 
+    \[
+    |H|=(K:K\cap N)=(G:N).
+    \] 
 	
 	Supongamos entonces que no existe un subgrupo propio $K$ de $G$ tal que
 	$NK=G$.  Podemos suponer que $N\ne1$ (de lo contrario, basta tomar $G$ como
@@ -849,6 +854,137 @@ $|N|$ and $(G:N)$ are coprime, it follows that either $|N|$ or $(G:N)$ is odd.
 
 \section*{C}
 
+As an application of Schur--Zassenhaus' theorem we present
+Hall's theory of $\pi$-groups.  
+
+\index{$\pi$-número}
+\index{$\pi$-grupo}
+\index{$\pi$-subgrupo}
+Sea $G$ un grupo finito y sea $\pi$ un conjunto de números primos. Diremos que
+$G$ es un $\pi$-grupo si todo primo que divide a $|G|$ pertenece a $\pi$.
+Obviamente un $\pi$-subgrupo de $G$ es un subgrupo de $G$ que además es un
+$\pi$-grupo. Un $\pi$-número es un entero tal que sus divisores primos están en
+$\pi$. El complemento de $\pi$ en el conjunto de los números primos será
+denotado por $\pi'$. Luego un $\pi'$-número será un entero no divisible por los
+primos de $\pi$.
+
+\begin{definition}
+	\index{Hall!subgrupo de}
+	\index{Subgrupo!de Hall}
+	Sea $\pi$ un conjunto de números primos. Un subgrupo $H$ de $G$ se dice un
+	\textbf{$\pi$-subgrupo de Hall} si $H$ es $\pi$-subgrupo de $G$ y el índice $(G:H)$
+	es un $\pi'$-número.
+\end{definition}
+
+\begin{theorem}[Hall]
+	\index{Teorema!de Hall}
+	\index{Hall!teorema de}
+	\label{theorem:HallE}
+	Sea $\pi$ un conjunto de primos y sea $G$ un grupo finito resoluble. Entonces
+	$G$ tiene un $\pi$-subgrupo de Hall.
+%	Si $G$ es un grupo resoluble de orden $nm$ con $(n:m)=1$ entonces $G$
+%	contiene un subgrupo de orden $m$.
+\end{theorem}
+
+\begin{proof}
+	Supongamos que $G$ tiene orden $nm>1$ con $\gcd(n,m)=1$. Demostraremos por
+	inducción en $|G|$ que 	existe un subgrupo de orden $m$. Sea $K$ un
+	subgrupo de $G$ minimal-normal. Sea $\pi\colon G\to G/K$ el morfismo
+	canónico.  Como $G$ es resoluble, $K$ es un $p$-grupo por el
+	lema~\ref{lemma:minimal_normal}.
+	
+	Hay dos casos a considerar.  Supongamos primero que $p$ divide a $m$. Como
+	$|G/K|<|G|$, por hipótesis inductiva y por la correspondencia, existe un
+	subgrupo $J$ de $G$ que contiene a $K$ tal que $\pi(J)$ es un subgrupo de
+	$\pi(G)=G/K$ de orden $m/|K|$. Entonces $J$ tiene orden $m$ pues 
+	\[
+	m/|K|=|\pi(J)|=\frac{|J|}{|K\cap J|}=(J:K).
+	\]
+
+	Supongamos ahora que $p$ no divide a $m$. Por hipótesis inductiva y por la
+	correspondencia, existe un subgrupo $H$ de $G$ que contiene a $K$ tal que
+	$\pi(H)$ es un subgrupo de $G/K$ de orden $m$.  Como $|H|=m|K|$, $K$ es
+	normal en $H$ y $|K|$ es coprimo con $|H:K|$, el teorema de
+	Schur--Zassenhaus~\ref{theorem:SchurZassenhaus} implica que existe un
+	complemento $J$ de $K$ en $H$. Luego $J$ es un subgrupo de $G$ de orden
+	$|J|=m$.
+\end{proof}
+
+\begin{example}
+	El grupo $\Alt_5$ contiene un $\{2,3\}$-subgrupo de Hall isomorfo a
+	$\Alt_4$.
+\end{example}
+
+\begin{example}
+	El grupo simple $\PSL_3(2)$ de orden $168$ no contiene $\{2,7\}$-subgrupos
+	de Hall.
+\end{example}
+
+El teorema~\ref{theorem:HallE} dice que para todo conjunto de primos $\pi$
+todo grupo finito contiene $\pi$-subgrupos de Hall.
+
+\begin{theorem}[Hall]
+	\index{Teorema!de Hall}
+	\index{Hall!teorema de}
+	\label{theorem:HallC}
+	Sea $G$ un grupo finito resoluble y sea $\pi$ un conjunto de primos. Todos los
+	$\pi$-subgrupos de Hall de $G$ son conjugados.
+\end{theorem}
+
+\begin{proof}
+	Podemos suponer que $G\ne\{1\}$. Procederemos por inducción en $|G|$.  Sean $H$
+	y $K$ dos $\pi$-subgrupos de Hall de $G$. Sea $M$ un subgrupo de $G$
+	minimal-normal y sea $\pi\colon G\to G/M$ el morfismo canónico. Como $G$ es
+	resoluble, el lema~\ref{lemma:minimal_normal} implica que  $M$ es un
+	$p$-grupo para algún primo $p$.  Como $\pi(H)$ y $\pi(K)$ son
+	$\pi$-subgrupos de Hall de $G/M$, los subgrupos $\pi(H)$ y $\pi(K)$ con
+	conjugados en $G/M$. Luego existe $g\in G$ tal que $gHMg^{-1}=KM$. 
+
+	Hay dos casos a considerar. Supongamos primero que $p\in\pi$. Como $|HM|$ y
+	$|KM|$ son $\pi$-números y $|H|=|K|$ es el mayor $\pi$-número que divide al
+	orden de $G$, se concluye que $H=HM$ y $K=KM$. En particular, $gHg^{-1}=K$. 
+
+	Supongamos ahora que $p\not\in\pi$. Es evidente que $K$ complementa a $M$ en
+	$KM$ pues $K\cap M=1$. Veamos que $gHg^{-1}$ complementa a $M$ en $KM$:
+	como $M$ es normal en $G$, 
+	\[
+	(gHg^{-1})M=gHMg^{-1}=KM,
+	\]
+	y $gHg^{-1}\cap M=1$ ya que $p\not\in\pi$. Estos complementos tienen que
+	ser conjugados por el teorema de
+	Schur--Zassenhaus~\ref{theorem:SchurZassenhaus:conjugacion}.
+\end{proof}
+
+\begin{corollary}
+	Sea $G$ un grupo finito y sea $N$ un subgrupo normal de $G$ de orden $n$.
+	Supongamos que $N$ o $G/N$ es resoluble. Si $|G:N|=m$ es coprimo con $n$ y
+	$m_1$ divide a $m$, todo subgrupo de $G$ de orden $m_1$ está contenido en
+	algún subgrupo de orden $m$.
+\end{corollary}
+
+\begin{proof}
+	Sea $H$ un complemento para $N$ en $G$. Entonces $|H|=m$. Sea $H_1$
+	subgrupo de $G$ tal que $|H_1|=m_1$. 
+	%Entonces,
+	%como  $G=NH$ y $N\subseteq NH_1$, el lema de Dedekind~\ref{lemma:Dedekind}
+	%implica que 
+	%\[
+	%NH_1=NH_1\cap NH=N(H\cap NH_1).
+	%\]
+	Como $n$ y $m$ son coprimos, $m_1=|H_1|=|H\cap NH_1|$ pues
+	\[
+	\frac{|H||N||H_1|}{|H\cap NH_1|}=
+	\frac{|H||NH_1|}{|H\cap NH_1|}=|H(NH_1)|=|G|=|NH|=|N||H|.
+	\]
+	Como $H_1$ y $H\cap NH_1$ son complementos para $N$ en $NH_1$, ambos de
+	orden coprimo con $n$, existe $g\in G$ tal que $H_1=g(H\cap NH_1)g^{-1}$. Luego 
+	$H_1\subseteq gHg^{-1}$ y entonces $|gHg^{-1}|=m$. 
+\end{proof}
+
+
+
+\section*{D}
+
 Let $A$ be an additive group and $G$ be a group and let 
 $G\times A\to A$, $(g,a)\mapsto g\cdot a$,
 is a left action of $G$ on $A$ by automorphisms. This means that the action of $G$ on $A$ satisfies 
@@ -867,7 +1003,7 @@ We now prove the equivalence between braces and bijective 1-cocycles.
     Over any additive group $A$ the following data are equivalent:
     \begin{enumerate}
         \item A group $G$ and a bijective
-            $1$-cocycle $\pi\colon G\to A$. 
+            1-cocycle $\pi\colon G\to A$. 
         \item A brace structure over $A$. 
     \end{enumerate}
 
@@ -890,7 +1026,7 @@ We now prove the equivalence between braces and bijective 1-cocycles.
         and $\pi=\id$. By
         Proposition~\ref{pro:lambda}, $a\mapsto\lambda_a$, is a group homomorphism and 
         hence $G$ acts on $A$ by automorphisms. Then~\eqref{eq:1cocycle} holds
-        and therefore $\pi\colon G\to A$ is a bijective $1$-cocycle. 
+        and therefore $\pi\colon G\to A$ is a bijective 1-cocycle. 
     \end{proof}
 \end{theorem}
 
@@ -926,16 +1062,16 @@ The construction of Theorem~\ref{thm:1cocycle} is functorial, see Exercise~\ref{
 
 \begin{prob}
 \label{prob:1cocycle}
-Let $\pi\colon G\to A$ and $\eta\colon H\to B$ be bijective $1$-cocycles.  A
-\emph{homorphism} between these bijective $1$-cocycles is a pair $(f,g)$ of
+Let $\pi\colon G\to A$ and $\eta\colon H\to B$ be bijective 1-cocycles.  A
+\emph{homorphism} between these bijective 1-cocycles is a pair $(f,g)$ of
 group homomorphisms  $f\colon G\to H$, $g\colon A\to B$ such that
 \begin{align*}
 &\eta\circ f=g\circ \pi,\\
 &g(h\cdot a)=f(h)\cdot g(a),&&a\in A,\;h\in G.
 \end{align*}
-Bijective $1$-cocycles and homomorphisms form a category. 
+Bijective 1-cocycles and homomorphisms form a category. 
 For a given additive group $A$ 
-the full subcategory of the category of bijective $1$-cocycles with objects
+the full subcategory of the category of bijective 1-cocycles with objects
 $\pi\colon G\to A$ is equivalent to the full subcategory of the category of
 braces with additive group $A$. 
 \end{prob}

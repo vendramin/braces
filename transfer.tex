@@ -272,19 +272,9 @@ Another application.
 
 \section*{B}
 
-\begin{lemma}
-	\label{lemma:[s,t]} 
-	Let $G$ be a group and $T$ be a transversal of $Z(G)$ in
-	$G$. Then each commutator of $G$ is of the form $[s,t]$ for $s,t\in T$. In particular, 
-	$G$ has a finite number of commutators if $Z(G)$ is of finite index. 
-\end{lemma}
-
-\begin{proof}
-	Every element of $G$ is of the form $sx$ for $s\in T$ and $x\in
-	Z(G)$. To prove the first claim note that 
-	$[sx,ty]=[s,t]$, 
-	as $x,y\in Z(G)$. The second claim now follows from	$|T|=(G:Z(G))$.
-\end{proof}
+As an application of the transfer map we will prove several theorems
+about the commutator subgroup. We start
+with the following auxiliar
 
 \begin{theorem}[Dietzmann]
 	\index{Dietzmann!theorem}
@@ -328,6 +318,24 @@ Another application.
 	\]
 	a contradiction to the minimality of $m$. 
 \end{proof}
+
+We prove Schur's theorem we need a lemma.
+
+\begin{lemma}
+	\label{lemma:[s,t]} 
+	Let $G$ be a group and $T$ be a transversal of $Z(G)$ in
+	$G$. Then each commutator of $G$ is of the form $[s,t]$ for $s,t\in T$. In particular, 
+	$G$ has a finite number of commutators if $Z(G)$ is of finite index. 
+\end{lemma}
+
+\begin{proof}
+	Every element of $G$ is of the form $sx$ for $s\in T$ and $x\in
+	Z(G)$. To prove the first claim note that 
+	$[sx,ty]=[s,t]$, 
+	as $x,y\in Z(G)$. The second claim now follows from	$|T|=(G:Z(G))$.
+\end{proof}
+
+We now prove Schur's theorem. 
 
 \begin{theorem}[Schur]
 	\label{theorem:Schur_commutador}
