@@ -460,88 +460,79 @@ An application to infinite groups.
 \section*{C}
 
 \begin{lemma}
-	\label{lemma:normal_complement}
-	Sea $G$ un grupo finito y sea $p$ un primo que divide al orden de $G$. Sea
-	$P\in\Syl_p(G)$. Si $g,h\in C_G(P)$ son conjugados en $G$ entonces son
-	conjugados en $N_G(P)$.
+	\label{lem:normal_complement}
+	Let $G$ be a finite group and $p$ be a prime number dividing the order of $G$. Let
+	$P\in\Syl_p(G)$. If $g,h\in C_G(P)$ are conjugate in $G$, then they are
+	conjugate in $N_G(P)$.
 \end{lemma}
 
 \begin{proof}
-	Sea $x\in G$ tal que $g=xhx^{-1}$. Entonces $g\in C_G(xPx^{-1})$. Luego $P$
-	y $xPx^{-1}$ son subgrupos de Sylow de $C_G(g)$. Por el teorema de Sylow,
-	existe $c\in C_G(g)$ tal que $P=cxP(cx)^{-1}$. Tenemos $cx\in N_G(P)$ y 
+	Let $x\in G$ be such that $g=xhx^{-1}$. Then $g\in C_G(xPx^{-1})$ and hence $P$
+	and $xPx^{-1}$ are Sylow subgroups of $C_G(g)$. By the second Sylow's theorem, 
+	there exists 
+	$c\in C_G(g)$ such that $P=cxP(cx)^{-1}$. Theredfore $cx\in N_G(P)$ and
 	\[
-	(cx)h(cx)^{-1}=c(xhx^{-1})c^{-1}=cgc^{-1}=g.
+	(cx)h(cx)^{-1}=c(xhx^{-1})c^{-1}=cgc^{-1}=g.\qedhere
 	\]
 \end{proof}
 
-\begin{definition}
-	\index{Complemento normal}
-	Sea $G$ un grupo finito y sea $p$ un primo que divide al orden de $G$. Un
-	\textbf{$p$-complemento normal} es un subgrupo normal $N$ de orden coprimo
-	con $p$ y tal que $(G:N)$ es una potencia de $p$.
-\end{definition}
-
-\begin{definition}
-	\index{$p$-nilpotente}
-	Un grupo finito se dice \textbf{$p$-nilpotente} si tiene un $p$-complemento
-	normal. 
-\end{definition}
+\index{Normal complement}
+\index{Group!$p$-nilpotente}
+Let $G$ be a finite group and $p$ a prime number dividing the order of $G$. A 
+\textbf{normal $p$-complement} is a normal subgroup $N$ of $G$ of
+order not divisible by $p$ and such that $(G:N)$ is a power of $p$.
+We say that $G$ is \textbf{$p$-nilpotent} if $G$ contains a normal $p$-complement.
 
 \begin{proposition}
-	Si $G$ tiene un $p$-complemento normal $N$, entonces $N$ es un subgrupo
-	característico de $G$.
+	If the group $G$ admits a normal $p$-complement $N$, then $N$ is a characteristic subgroup of $G$.
 \end{proposition}
 
 \begin{proof}
-	Supongamos que $|G|=p^\alpha n$, donde $n$ es coprimo con $p$, y sea
-	$\pi\colon G\to G/N$ el morfismo canónico.  Por hipótesis, $N$ tiene orden
-	$n$. Vamos a demostrar que $N$ es el único subgrupo de $G$ de orden $n$. Si
-	$K$ es un subgrupo de $G$ de orden $n$, entonces  $\pi(K)\simeq K/K\cap N$
-	y luego el orden de $\pi(K)$ divide a $m$. Pero además el orden de $\pi(K)$
-	divide al primo $p$ pues $\pi(K)\leq G/N$. Luego $\pi(K)$ es trivial y
-	entonces $K=N$ y luego $G$ tiene un único subgrupo de orden $n$. En
-	particular, $N$ es un subgrupo característico de $G$.
+	Assume that $|G|=p^\alpha n$, where $\gcd(n,p)=1$. Let 
+	$\pi\colon G\to G/N$ be the canonical map. Then $|N|=n$. We claim that 
+	$N$ is the unique subgroup of $G$ of order $n$. If
+	$K$ is a subgroup of $G$ of order $n$, then $\pi(K)\simeq K/K\cap N$
+	and hence $|\pi(K)|$ divides $n$. Since $\pi(K)$ is a subgroup of $G/N$, 
+	it follows that 
+	$|\pi(K)|$ divides $p$. Thus $\pi(K)$ is trivial and hence 
+	$K=N$ and $G$ contains a unique subgroup of order $n$. In particular, $N$ is characteristic in $G$. 
 \end{proof}
 
-
-
 \begin{theorem}[Burnside]
-	\index{Burnside!teorema del complemento normal de}
-	\index{Teorema del complemento normal}
-	\label{theorem:Burnside:normal_complement}
-	Sea $G$ un grupo finito y sea $p$ un primo que divide a $|G|$. Sea
-	$P\in\Syl_p(G)$ tal que $P\subseteq Z(N_G(P))$. Entonces $G$ es
-	$p$-nilpotente.
+	\index{Burnside's!theorem}
+	\label{thm:Burnside:normal_complement}
+	Let $G$ be a finite group and $p$ be a prime number dividing the order of $G$. Let
+	$P\in\Syl_p(G)$ be such that $P\subseteq Z(N_G(P))$. Then $G$ is
+	$p$-nilpotent.
 \end{theorem}
 
 \begin{proof}
-	Como $P$ es abeliano, sea $\nu\colon G\to P$ el morfismo de transferencia.
-	Sea $g\in P$.  Por el lema~\ref{lemma:evaluation} existen $s_1,\dots,s_m\in
-	G$ y existen $n_1,\dots,n_m$ tales que $n_1+\cdots+n_m=n$,
-	$s_i^{-1}g^{n_i}s_i\in P$ y 
+	Since $P$ is abelian, let $\nu\colon G\to P$ be the transfer map. 
+	Let $g\in P$.  By Lemma~\ref{lem:evaluation}, there exist $s_1,\dots,s_m\in
+	G$ and $n_1,\dots,n_m$ such that $n_1+\cdots+n_m=n$,
+	$s_i^{-1}g^{n_i}s_i\in P$ and  
 	\[
 		v(g)=\prod_{i=1}^m s_i^{-1}g^{n_i}s_i.
 	\]
-	Como $P$ es abeliano, $P\subseteq C_G(P)$. Por 
-	el lema~\ref{lemma:normal_complement}, existe $c_i\in N_G(P)$ tal
-	que 
+	Since $P$ is abelian, $P\subseteq C_G(P)$. By Lemma~\ref{lem:normal_complement}, 
+	there exist elements $c_i\in N_G(P)$ such that 
 	\[
-	s_i^{-1}g^{n_i}s_i=c_i^{-1}g^{n_i}c_i,
+	s_i^{-1}g^{n_i}s_i=c_i^{-1}g^{n_i}c_i.
 	\]
-	y luego $s_i^{-1}g^{n_i}s_i=g_i^{n_i}$ pues $P\subseteq Z(N_G(P))$. Tenemos
-	entonces que $\nu(g)=g^n$, donde $n=(G:P)$. Como $n$ y $|P|$ son coprimos,
-	existen $r,s\in\Z$ tales que $rn+s|P|=1$. Esto implica que $\nu|_P$ es
-	sobreyectiva pues
+	Thus $s_i^{-1}g^{n_i}s_i=g_i^{n_i}$, as $P\subseteq Z(N_G(P))$. Therefore 
+	$\nu(g)=g^n$, where $n=(G:P)$. Since $n$ and $|P|$ are coprime, 
+	there exist $r,s\in\Z$ such that $rn+s|P|=1$. Thus the restriction 
+	$\nu|_P$ is surjective, as 
 	\[
 	g=(g^r)^n=\nu(g^r).
 	\]
-	Por el teorema de isomorfismos, $P/\ker\nu\cap P\simeq\nu(P)=P$. 
-	Luego $\ker\nu\cap P=1$. Además $\nu(G)=\nu(P)$ pues 
+	By the isomorphism theorem, $P/\ker\nu\cap P\simeq\nu(P)=P$. 
+	Thus $\ker\nu\cap P=\{1\}$. Moreover, $\nu(G)=\nu(P)$, as  
 	$P\supseteq \nu(G)\supseteq \nu(P)=P$.
 	
-	Veamos que $\ker\nu$ es un $p$-complemento normal en $G$. Es claro que $\ker\nu$ es normal en $G$. 
-	Como $(G:\ker\nu)=|\nu(G)|=|P|$ y $P$ es un $p$-subgrupo de Sylow, se concluye que $\ker\nu$ tiene orden coprimo con $p$.
+	We now claim that $\ker\nu$ is a normal $p$-complement in $G$. Indeed, $\ker\nu$ is normal in $G$. 
+	Since $(G:\ker\nu)=|\nu(G)|=|P|$ and $P$ is a Sylow $p$-subgroup, 
+	$\ker\nu$ has order coprime with $p$.
 %	Sea $K=\ker\nu$. Por el primer teorema de isomorfismo, $G/K\simeq P$. El
 %	subgrupo $K$ es un complemento normal de $P$ en $G$ pues $G=KP$ y $K\cap
 %	P=1$ (pues $|K|=n$ y $|P|$ son coprimos).
