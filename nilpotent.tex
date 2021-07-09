@@ -1111,81 +1111,108 @@ completamente elemental, fue descubierto en 2014.
 
 
 %\section{Grupos nilpotentes de clase dos}
+We conclude the section with an exercise
+on nilpotent groups of class two. 
 
-\begin{lemma}
-	\label{lemma:commutador}
-	Si $x,y\in G$ son tales que $[x,y]\in C_G(x)\cap C_G(y)$, entonces
-	\[
-	[x,y]^n=[x^n,y]=[x,y^n]
-	\]
-	para todo $n\in\Z$.
-\end{lemma}
+\begin{exercise}
+Let $G$ be a group and $x,y\in G$.  
+\begin{enumerate}
+	\item If $[x,y]\in C_G(x)\cap C_G(y)$, entonces
+	$[x,y]^n=[x^n,y]=[x,y^n]$
+	for all $n\in\Z$.
+	\item If $G$ is nilpotent of class two, then $(xy)^n=[y,x]^{n(n-1)/2}x^ny^n$ 
+	for all $n\in\N$.
+\end{enumerate}	
+\end{exercise}
 
-\begin{proof}
-	Procederemos por inducción en $n\geq0$. El caso $n=0$ es trivial. Supongamos entonces
-	que el resultado vale para algún $n\geq0$. Entonces, como $[x,y]\in C_G(x)$, 
-	\begin{align*}
-		[x,y]^{n+1}&=[x,y]^n[x,y]
-		=[x^n,y][x,y]=[x^n,y]xyx^{-1}y^{-1}=x[x^n,y]yx^{-1}y^{-1}=[x^{n+1},y].
-	\end{align*}
-	Para demostrar el lema en el caso $n<0$ basta observar que, como $[x,y]^{-1}=[x^{-1},y]$, 
-	$[x,y]^{-n}=[x^{-1},y]^n=[x^{-n},y]$.
-\end{proof}
+\begin{exercise}
+	Let $p$ be an odd prime number and  
+	$P$ be a $p$-group of nilpotency class $\leq2$. 
+	\begin{enumerate}
+	\item 	If $[y,x]^p=1$ for all $x,y\in P$, then $P\to [P,P]$,
+	$x\mapsto x^p$, is a group homomorphism. 
+	\item $\{x\in P:x^p=1\}$ is a subgroup of $P$. 
+	\end{enumerate}
+\end{exercise}
 
-\begin{lemma}[Hall]
-    \index{Lema!de Hall}
-	\label{lemma:Hall}
-	Sea $G$ un grupo nilpotente de clase dos y $x,y\in G$. Entonces
-	\[
-		(xy)^n=[y,x]^{n(n-1)/2}x^ny^n
-	\]
-	para todo $n\in\N$.
-\end{lemma}
 
-\begin{proof}
-	Procederemos por inducción en $n$. Como el caso $n=1$ es trivial,
-	supongamos que el resultado es válido para algún $n\geq1$. Entonces,
-	gracias al lema anterior, 
-	\begin{align*}
-		(xy)^{n+1} &= (xy)^n(xy)=[y,x]^{n(n-1)/2}x^ny^{n-1}(yx)y\\
-		&=[y,x]^{n(n-1)/2}x^{n}[y^n,x]xy^{n+1}=[y,x]^{n(n-1)/2}[y,x]^nx^{n+1}y^{n+1}.\qedhere 
-	\end{align*}
-\end{proof}
 
-\begin{lemma}
-	\label{lemma:class2}
-	Sea $p>2$ un número primo y sea 
-	$P$ un $p$-grupo de clase de nilpotencia $\leq2$. 
-	Si $[y,x]^p=1$ para todo $x,y\in P$ entonces $P\to [P,P]$,
-	$x\mapsto x^p$, es un morfismo de grupos.
-\end{lemma}
 
-\begin{proof}
-	Por lema de Hall,
-	$(xy)^p=[y,x]^{p(p-1)/2}x^py^p=x^py^p$. 	
-\end{proof}
+%
+%\begin{lemma}
+%	\label{lemma:commutador}
+%	Si $x,y\in G$ son tales que $[x,y]\in C_G(x)\cap C_G(y)$, entonces
+%	\[
+%	[x,y]^n=[x^n,y]=[x,y^n]
+%	\]
+%	para todo $n\in\Z$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Procederemos por inducción en $n\geq0$. El caso $n=0$ es trivial. Supongamos entonces
+%	que el resultado vale para algún $n\geq0$. Entonces, como $[x,y]\in C_G(x)$, 
+%	\begin{align*}
+%		[x,y]^{n+1}&=[x,y]^n[x,y]
+%		=[x^n,y][x,y]=[x^n,y]xyx^{-1}y^{-1}=x[x^n,y]yx^{-1}y^{-1}=[x^{n+1},y].
+%	\end{align*}
+%	Para demostrar el lema en el caso $n<0$ basta observar que, como $[x,y]^{-1}=[x^{-1},y]$, 
+%	$[x,y]^{-n}=[x^{-1},y]^n=[x^{-n},y]$.
+%\end{proof}
 
-\begin{theorem}
-	\label{thm:class2}
-	Sea $p>2$ un número primo y sea 
-	$P$ un $p$-grupo de clase de nilpotencia $\leq2$. 
-	Entonces $\{x\in P:x^p=1\}$ es un subgrupo de $P$.
-\end{theorem}
+%\begin{lemma}[Hall]
+%    \index{Lema!de Hall}
+%	\label{lemma:Hall}
+%	Sea $G$ un grupo nilpotente de clase dos y $x,y\in G$. Entonces
+%	\[
+%		(xy)^n=[y,x]^{n(n-1)/2}x^ny^n
+%	\]
+%	para todo $n\in\N$.
+%\end{lemma}
+%
+%\begin{proof}
+%	Procederemos por inducción en $n$. Como el caso $n=1$ es trivial,
+%	supongamos que el resultado es válido para algún $n\geq1$. Entonces,
+%	gracias al lema anterior, 
+%	\begin{align*}
+%		(xy)^{n+1} &= (xy)^n(xy)=[y,x]^{n(n-1)/2}x^ny^{n-1}(yx)y\\
+%		&=[y,x]^{n(n-1)/2}x^{n}[y^n,x]xy^{n+1}=[y,x]^{n(n-1)/2}[y,x]^nx^{n+1}y^{n+1}.\qedhere 
+%	\end{align*}
+%\end{proof}
 
-\begin{proof}
-	Como $P$ tiene clase de nilpotencia dos, los conmutadores son centrales.
-	Para cada $x\in G$, la función $g\mapsto [g,x]$ es un morfismo de grupos
-	pues
-	\[
-		[gh,x]=ghxh^{-1}g^{-1}x^{-1}=g[h,x]xg^{-1}x^{-1}=[g,x][h,x].
-	\]
-	En particular, si $x,y\in P$ con $x^p=y^p=1$, entonces
-	\[
-		[x,y]^p=[x^p,y]=[1,y]=1.
-	\]
-	Luego, al usar el lema de Hall, se concluye que
-	$(xy)^p=[y,x]^{p(p-1)/2}x^py^p=1$.
-\end{proof}
+%\begin{lemma}
+%	\label{lemma:class2}
+%	Sea $p>2$ un número primo y sea 
+%	$P$ un $p$-grupo de clase de nilpotencia $\leq2$. 
+%	Si $[y,x]^p=1$ para todo $x,y\in P$ entonces $P\to [P,P]$,
+%	$x\mapsto x^p$, es un morfismo de grupos.
+%\end{lemma}
+%
+%\begin{proof}
+%	Por lema de Hall,
+%	$(xy)^p=[y,x]^{p(p-1)/2}x^py^p=x^py^p$. 	
+%\end{proof}
+%
+%\begin{theorem}
+%	\label{thm:class2}
+%	Sea $p>2$ un número primo y sea 
+%	$P$ un $p$-grupo de clase de nilpotencia $\leq2$. 
+%	Entonces $\{x\in P:x^p=1\}$ es un subgrupo de $P$.
+%\end{theorem}
+%
+%\begin{proof}
+%	Como $P$ tiene clase de nilpotencia dos, los conmutadores son centrales.
+%	Para cada $x\in G$, la función $g\mapsto [g,x]$ es un morfismo de grupos
+%	pues
+%	\[
+%		[gh,x]=ghxh^{-1}g^{-1}x^{-1}=g[h,x]xg^{-1}x^{-1}=[g,x][h,x].
+%	\]
+%	En particular, si $x,y\in P$ con $x^p=y^p=1$, entonces
+%	\[
+%		[x,y]^p=[x^p,y]=[1,y]=1.
+%	\]
+%	Luego, al usar el lema de Hall, se concluye que
+%	$(xy)^p=[y,x]^{p(p-1)/2}x^py^p=1$.
+%\end{proof}
 
 \section*{B}
 
@@ -1264,20 +1291,19 @@ Otherwise, $\Phi(G)=G$.
 \end{proof}
 
 \begin{lemma}
-	\label{lemma:G=HPhi(G)}
-	Sea $G$ un grupo finito. Si $H$ es un subgrupo de $G$ tal que $G=H\Phi(G)$
-	entonces $H=G$.
+	\label{lem:G=HPhi(G)}
+	Let $G$ be a finite group. If $H$ is a subgroup of $G$ such that $G=H\Phi(G)$,
+	then $H=G$.
 \end{lemma}
 
 \begin{proof}
-	Supongamos que $H\ne G$ y sea $M$ un subgrupo maximal de $G$ tal que
-	$H\subseteq M$. Como $\Phi(G)\subseteq M$, $G=H\Phi(G)\subseteq M$, una
-	contradicción.
+	Assume that $H\ne G$. Let $M$ be a maximal subgroup of $G$ such that
+	$H\subseteq M$. Since $\Phi(G)\subseteq M$, it follows that $G=H\Phi(G)\subseteq M$, a contradiction
 \end{proof}
 
 \begin{proposition}
-	\label{proposition:phi(N)phi(G)}
-	Let $N$ be a normal subgroup of a finite group $G$. Then $\Phi(N)\subseteq\Phi(G)$.
+	\label{pro:phi(N)phi(G)}
+	Let $G$ be a finite group and $N$ be a normal subgroup of $G$. Then $\Phi(N)\subseteq\Phi(G)$.
 \end{proposition}
 
 \begin{proof}
@@ -1285,8 +1311,8 @@ Otherwise, $\Phi(G)=G$.
 	$\Phi(N)$
 	is normal in $G$.  Let $M$ be a maximal subgroup of $G$ such that 
 	$\Phi(N)\not\subseteq M$.  Then $\Phi(N)M=G$, as 
-	$M=\Phi(N)M\supseteq\Phi(N)$ otherwise.  Dedekind's lemma with 
-	$H=\Phi(N)$, $K=M$ and $L=N$ yields  
+	$M=\Phi(N)M\supseteq\Phi(N)$ otherwise. By applying Dedekind's lemma with 
+	$H=\Phi(N)$, $K=M$ and $L=N$,   
 	\[
 		N=G\cap N=(\Phi(N)M)\cap N=\Phi(N)(M\cap N).
 	\]
@@ -1303,7 +1329,7 @@ los "no-generadores" del grupo.
 	\index{Lema!de los no-generadores}
 	Sea $G$ un grupo finito. Entonces 
 	\[
-	\Phi(G)=\{x\in G:\text{si $G=\langle x,Y\rangle$ para algún $Y\subseteq G$ entonces $G=\langle Y\rangle$}\}.
+	\Phi(G)=\{x\in G:\text{if $G=\langle x,Y\rangle$ for some $Y\subseteq G$, then $G=\langle Y\rangle$}\}.
 	\]
 \end{lemma}
 
@@ -1319,33 +1345,34 @@ los "no-generadores" del grupo.
 	$x\in M$, $G=\langle x,Y\rangle\subseteq M$, una contradicción.
 \end{proof}
 
-\begin{example}
-	Sea $p$ un número primo. Sea $G$ un $p$-grupo elemental abeliano, es decir
-	$G\simeq C_p^m$ para algún $m\in\N$.  Supongamos además que
-	$G=\langle x_1\rangle\times\cdots\times\langle x_m\rangle$ con $\langle x_j\rangle\simeq C_p$.  
-	Veamos que $\Phi(G)$ es trivial. 
-	Sea $j\in\{1,\dots,m\}$ y sea $n_j\in\{1,\dots,p-1\}$. Como el conjunto
-	\[
-	\{x_1,\dots,x_{j-1},x_j^{n_j},x_{j+1},\dots,x_m\}
-	\]
-	genera al grupo $G$ y $\{x_1,\dots,x_{j-1},x_{j+1},\dots,x_m\}$ no lo hace,
-	entonces $x_j^{n_j}\not\in\Phi(G)$ por el lema de los no-generadores. 
-	Luego $\Phi(G)=\{1\}$.
-\end{example}
+\begin{exercise}
+	Let $p$ be a prime number and $G$ be an elementary abelian $p$-group. Then 
+%	Sea $p$ un número primo. Sea $G$ un $p$-grupo elemental abeliano, es decir
+%	$G\simeq C_p^m$ para algún $m\in\N$.  Supongamos además que
+%	$G=\langle x_1\rangle\times\cdots\times\langle x_m\rangle$ con $\langle x_j\rangle\simeq C_p$.  
+%	Veamos que $\Phi(G)$ es trivial. 
+%	Sea $j\in\{1,\dots,m\}$ y sea $n_j\in\{1,\dots,p-1\}$. Como el conjunto
+%	\[
+%	\{x_1,\dots,x_{j-1},x_j^{n_j},x_{j+1},\dots,x_m\}
+%	\]
+%	genera al grupo $G$ y $\{x_1,\dots,x_{j-1},x_{j+1},\dots,x_m\}$ no lo hace,
+%	entonces $x_j^{n_j}\not\in\Phi(G)$ por el lema de los no-generadores. 
+	$\Phi(G)=\{1\}$.
+\end{exercise}
 
 \begin{theorem}[Frattini]
 	\label{theorem:Frattini}
-	\index{Teorema!de Frattini}
-	\index{Frattini!teorema de}
-	Sea $G$ un grupo finito. Entonces $\Phi(G)$ es nilpotente.
+	\index{Frattini's!theorem}
+	If $G$ is a finite group, then $\Phi(G)$ is nilpotent. 
 \end{theorem}
 
 \begin{proof}
-	Sea $P\in\Syl_p(\Phi(G))$ para algún primo $p$. Como $\Phi(G)$ es normal en
-	$G$, gracias al argumento de Frattini (que vimos en el lema~\ref{lemma:Frattini_argument}) 
-	podemos escribir $G=\Phi(G)N_G(P)$. Por el lema~\ref{lemma:G=HPhi(G)},
-	$G=N_G(P)$. Como todo subgrupo de Sylow de $\Phi(G)$ es normal en $G$,
-	$\Phi(G)$ es nilpotente.
+	Let $P\in\Syl_p(\Phi(G))$ for some prime $p$. Since $\Phi(G)$ is normal in
+	$G$, Frattini argument implies that 
+	% (que vimos en el lema~\ref{lemma:Frattini_argument}) 
+	$G=\Phi(G)N_G(P)$. By Lemma~\ref{lem:G=HPhi(G)},
+	$G=N_G(P)$. Since Sylow subgroups of $\Phi(G)$ are normal in $G$,
+	$\Phi(G)$ is nilpotent.
 \end{proof}
 
 \begin{exercise}
@@ -1360,9 +1387,8 @@ los "no-generadores" del grupo.
 % \end{svgraybox}
 
 \begin{theorem}[Gasch\"utz]
-	\label{theorem:Gaschutz}
-	\index{Teorema!de Gasch\"utz}
-	\index{Gasch\"utz!teorema de}
+	\label{thm:Gaschutz}
+	\index{Gasch\"utz's!teorema de}
 	Si $G$ es un grupo finito entonces 
 	\[
 	[G,G]\cap Z(G)\subseteq\Phi(G).
@@ -1370,7 +1396,7 @@ los "no-generadores" del grupo.
 \end{theorem}
 
 \begin{proof}
-	Sea $D=[G,G]\cap Z(G)$. Supongamos que $D$ no está contenido en $\Phi(G)$.
+	Let $D=[G,G]\cap Z(G)$. Supongamos que $D$ no está contenido en $\Phi(G)$.
 	Como $\Phi(G)$ está contenido en todo subgrupo maximal de $G$, existe un
 	subgrupo maximal $M$ de $G$ tal que $D$ no está contenido en $M$.  Esto
 	implica que $G=MD$. Como $D\subseteq Z(G)$, $M$ es normal en $G$ pues si
