@@ -551,9 +551,10 @@ We say that $G$ is \textbf{$p$-nilpotent} if $G$ contains a normal $p$-complemen
 
 % $P\subseteq Z(N_G(P))$ si y sólo si $N_G(P)=C_G(P)$.
 
+We now prove an interesting corollary. We shall need the following lemma. 
 
 \begin{lemma}
-	\label{lemma:NC}
+	\label{lem:NC}
 	Sea $G$ un grupo y $H$ un subgrupo de $G$. Entonces $C_G(H)$ es un subgrupo
 	normal de $N_G(H)$ y $N_G(H)/C_G(H)$ es isomorfo a un subgrupo de
 	$\Aut(H)$.
@@ -567,41 +568,46 @@ We say that $G$ is \textbf{$p$-nilpotent} if $G$ contains a normal $p$-complemen
 	$N_G(H)/C_G(H)\simeq\phi(N_G(H))\leq\Aut(H)$.
 \end{proof}
 
+Now we prove the following corollary of Burnside's theorem. 
+
 \begin{corollary}
-	\label{corollary:Sylow_ciclico}
-	Sea $G$ un grupo finito y sea $p$ el menor primo que divide a $|G|$. Si
-	algún $P\in\Syl_p(G)$ es cíclico, $G$ es $p$-nilpotente.
+	\label{cor:Sylow_ciclico}
+	Let $G$ be a finite group and $p$ be the smallest prime divisor of $|G|$. 
+	If some $P\in\Syl_p(G)$ is cyclic, then $G$ is $p$-nilpotent.
 \end{corollary}
 
 \begin{proof}
-	Supongamos que $|P|=p^m$.  Por el lema~\ref{lemma:NC}, $N_G(P)/C_G(P)$ es
-	isomorfo a un subgrupo de $\Aut(P)$. Como $P$ es cíclico, $|N_G(P)/C_G(P)|$ divide a 
+	Assume that $|P|=p^m$. By Lemma~\ref{lem:NC}, $N_G(P)/C_G(P)$ is isomorphic to 
+	a subgroup of $\Aut(P)$. Since $P$ is cyclic, $|N_G(P)/C_G(P)|$ divides 
 	\[
 		|\Aut(P)|=\phi(|P|)=p^{m-1}(p-1).
 	\]
-	Como $P\subseteq C_G(P)$ por ser $P$ abeliano, $p$ es coprimo con
-	$|N_G(P)/C_G(P)|$.  Luego $|N_G(P)/C_G(P)|$ divide a $p-1$. Pero $p-1$ y
-	$|G|$ son coprimos, pues $p$ es el menor primo que divide a $|G|$.  Como
-	además $|N_G(P)/C_G(P)|$ divide al orden de $G$, se concluye que
-	$|N_G(P)/C_G(P)|=1$, es decir: $N_G(P)=C_G(P)$. 
+	Since $P\subseteq C_G(P)$, $p$ is coprime with 
+	$|N_G(P)/C_G(P)|$.  Thus $|N_G(P)/C_G(P)|$ divides $p-1$. Since $p$ is the smallest prime divisor
+	of $|G|$, it follows that $p-1$ and 
+	$|G|$ are coprime. Moreover, 
+	$|N_G(P)/C_G(P)|$ divides $|G|$ and hence 
+	$|N_G(P)/C_G(P)|=1$. Therefore $N_G(P)=C_G(P)$. 
 
-	Como $P$ es abeliano, $P\subseteq Z(C_G(P))=Z(N_G(P))$. El teorema de
-	Burnside~\ref{theorem:Burnside:normal_complement} implica entonces que $G$
-	es $p$-nilpotente. 
+	Since $P$ is abelian, $P\subseteq Z(C_G(P))=Z(N_G(P))$. Burnside's theorem implies that
+	$G$ is $p$-nilpotent. 
 \end{proof}
 
+\index{Group!Z}
+\index{Z-group}
+A \textbf{Z-group} is a group such that all its Sylow subgroups are cyclic. 
+
 \begin{exercise}
-	Sea $G$ un grupo finito tal que todos sus subgrupos de Sylow son cíclicos.
-	Entonces $G$ es resoluble.
+	Prove that Z-groups are solvable. 
 \end{exercise}
 
-Vamos a demostrar algo más fuerte:
-
-\begin{corollary}
-	\label{corollary:Sylow_ciclicos:resoluble}
-	Sea $G$ un grupo finito tal que todos sus subgrupos de Sylow son cíclicos.
-	Entonces $G$ es superresoluble.
-\end{corollary}
+%Vamos a demostrar algo más fuerte:
+%
+%\begin{corollary}
+%	\label{corollary:Sylow_ciclicos:resoluble}
+%	Sea $G$ un grupo finito tal que todos sus subgrupos de Sylow son cíclicos.
+%	Entonces $G$ es superresoluble.
+%\end{corollary}
 
 %\begin{proof}
 %	Supongamos que $G$ es no trivial y hagamos inducción en $|G|$. Si $p$ es el
@@ -625,52 +631,51 @@ Vamos a demostrar algo más fuerte:
 % 	divide a $|G|$, sabemos que existe un $p$-complemento. Este subgrupo podría no ser cíclico!
 %\end{example}
 
-\begin{proof}
-	Supongamos que $G$ es no trivial y hagamos inducción en $|G|$. Si $p$ es el
-	menor primo que divide a $|G|$, por el
-	corolario~\ref{corollary:Sylow_ciclico} el grupo $G$ tiene un
-	$p$-complemento normal $N$. Por hipótesis inductiva, $N$ es resoluble. Como
-	$G/N$ es un $p$-grupo, es resoluble. Luego $G$ es resoluble.
-\end{proof}
+%\begin{proof}
+%	Supongamos que $G$ es no trivial y hagamos inducción en $|G|$. Si $p$ es el
+%	menor primo que divide a $|G|$, por el
+%	corolario~\ref{corollary:Sylow_ciclico} el grupo $G$ tiene un
+%	$p$-complemento normal $N$. Por hipótesis inductiva, $N$ es resoluble. Como
+%	$G/N$ es un $p$-grupo, es resoluble. Luego $G$ es resoluble.
+%\end{proof}
 
-\begin{corollary}
-	Sea $G$ un grupo finito cuyo orden es libre de cuadrados. Entonces $G$ es
-	resoluble.
-\end{corollary}
+The previous exercise show in particular that finite 
+groups of square-free order are always solvable. 
 
-\begin{proof}
-	Es consecuencia del corolario~\ref{corollary:Sylow_ciclicos:resoluble} pues
-	en este caso todo subgrupo de Sylow es cíclico.  
-\end{proof}
-
-\begin{corollary}
-	Sea $G$ un grupo finito simple no abeliano y sea $p$ el menor primo que
-	divide a $|G|$. Entonces $p^3$ divide a $|G|$ o bien $12$ divide a $|G|$.
-\end{corollary}
+\begin{theorem}
+	Let $G$ be a finite non-abelian simple group and $p$ be the smallest prime divisor of $|G|$. 
+	Then either $p^3$ divides $|G|$ or $12$ divides $|G|$.
+\end{theorem}
 
 \begin{proof}
-	Sea $P\in\Syl_p(G)$. Por el corolario~\ref{corollary:Sylow_ciclico}, $P$ no
-	es cíclico, y entonces $|P|\geq p^2$. Si $p^3$ no divide a $|G|$, $P\simeq
-	C_p\times C_p$ es un $\F_p$-espacio vectorial de dimensión dos. Como
-	$|N_G(P)/C_G(P)|$ divide al orden de $G$, los divisores primos de
-	$|N_G(P)/C_G(P)|$ son $\geq p$. Además, como $N_G(P)/C_G(P)$ es isomorfo a
-	un subgrupo de $\Aut(P)$ por el lema~\ref{lemma:NC} y
-	$\Aut(P)\simeq\GL_2(p)$ tiene orden $(p^2-1)(p^2-p)=p(p+1)(p-1)^2$,
-	$|N_G(P)/C_G(P)|$ divide a $p(p+1)(p-1)^2$.  Como $P$ es abeliano,
-	$P\subseteq C_G(P)$. Entonces $|N_G(P)/C_G(P)|$ es coprimo con $p$ y luego
-	$|N_G(P)/C_G(P)|$ divide a $(p+1)(p-1)^2$. Como $p$ es el menor primo que
-	divide a $|G|$, los números $p-1$ y $|N_G(P)/C_G(P)|$ son coprimos, y
-	entonces $|N_G(P)/C_G(P)|$ divide a $p+1$.  Además, por el teorema de
-	Burnside~\ref{theorem:Burnside:normal_complement}, $|N_G(P)/C_G(P)|\ne1$.
-	Esto implica que $p=2$ pues si $p$ es impar el menor primo que divide a
-	$|N_G(P)/C_G(P)|$ es $\geq p+2$.  Como entonces $p=2$, se concluye que
-	$|N_G(P)/C_G(P)|=3$ y luego $|G|$ es divisible por $12=2^23$. 
+	Sea $P\in\Syl_p(G)$. By Corollary~\ref{cor:Sylow_ciclico}, $P$ is not cyclic  
+	and then $|P|\geq p^2$. If $p^3$ does not divide $|G|$, $P\simeq
+	C_p\times C_p$ is a two-dimensional vector space over the field $\F_p$. Since 
+	$|N_G(P)/C_G(P)|$ divides $|G|$, all prime divisors of 
+	$|N_G(P)/C_G(P)|$ are $\geq p$. Since $N_G(P)/C_G(P)$ is isomorphic to a subgroup of 
+	$\Aut(P)$ by Lemma~\ref{lem:NC} and 
+	$\Aut(P)\simeq\GL_2(p)$ has order 
+	\[
+	(p^2-1)(p^2-p)=p(p+1)(p-1)^2,
+	\]
+	it follows that 
+	$|N_G(P)/C_G(P)|$ divides $p(p+1)(p-1)^2$.
+	
+	Since $P$ is abelian,
+	$P\subseteq C_G(P)$. Thus $|N_G(P)/C_G(P)|$ is coprime with $p$ and hence 
+	$|N_G(P)/C_G(P)|$ divides $(p+1)(p-1)^2$. Since $p$ is the smallest prime divisor of 
+	$|G|$, the numbers $p-1$ and $|N_G(P)/C_G(P)|$ are coprime. Thus 
+	$|N_G(P)/C_G(P)|$ divides $p+1$. 
+	Burnside's theorem implies that $|N_G(P)/C_G(P)|\ne1$.
+	Hence $p=2$ because if $p$ is odd, the smallest prime divisor of 
+	$|N_G(P)/C_G(P)|$ is $\geq p+2$.  We conclude that  
+	$|N_G(P)/C_G(P)|=3$ and hence $|G|$ is divisible by $12=2^23$. 
 \end{proof}
 
 \begin{theorem}
 	\label{theorem:[GG]PZNG(P)=1}
-	Sea $G$ un grupo finito y sea $P$ un subgrupo de Sylow abeliano. Entonces 
-	$[G,G]\cap P\cap Z(N_G(P))=1$.
+	Let $G$ be a finite group and $P$ be an abelian Sylow subgroup of $G$. Then
+	$[G,G]\cap P\cap Z(N_G(P))=\{1\}$.
 \end{theorem}
 
 \begin{proof}
