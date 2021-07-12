@@ -134,7 +134,6 @@ if and only if $f\in C_{\Aut(K)}(\Inn(K))$.
 % A-nilpotentes
 % 4C de Isaacs
 
-\section*{C}
 
 Let a group $G$ acts on $K$ by automorphisms. Recall that $G$ can be identified with a subgroup
 of the semidirect product $K\rtimes G$ and $K$ can be identified by a normal 
@@ -146,6 +145,55 @@ is normal in $K$.
 
 A subgroup $H$ of $K$ is $G$-invariant if...
 For example, $[G,K]$ is $G$-invaraint. 
+
+\section*{C}
+
+Let $G$ be a finite group and $\sigma\in\Aut(G)$. The $\sigma$-orbit of an element $g\in G$ is defined
+as the set
+\[
+O(\sigma,g)=\{\sigma^j(g):j\in\Z\}=\{\sigma^j(g):\sigma_j\in\langle\sigma\rangle\}.
+\]
+
+\index{Faithful orbit}
+We say that $O(\sigma,g)$ is a \textbf{faithful orbit} if $|O(\sigma,g)|=|\sigma|$. 
+
+\begin{lemma}
+Let $G$ be a finite group and $p$ be a prime number such that $p^2$ divides $|\sigma|$. 
+Then $\sigma$ admits a faithful orbit if and only if $\sigma^p$ admits a faithful orbit. 	
+\end{lemma}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{lemma}
+Let $N$ be a normal subgroup of $G$ and $\sigma\in\Aut(G)$. If $\sigma|_N=\id$, then 
+$\sigma$ induces the identity in $G/C_G(N)$. 	
+\end{lemma}
+
+\begin{proof}
+ 	Let $g\in C_G(M)$, $n\in N$ and $x\in G$.
+	We first prove that 	the subgroup $C_G(N)$ is normal in $G$. In fact,  
+	\[
+	xgx^{-1}n=xg(x^{-1}nx)x^{-1}=x(x^{-1}nx)gx^{-1}=nxgx^{-1}.
+	\]
+	
+	We now prove that $C_G(N)$ is $\sigma$-invariant. Since $\sigma(n)=n$, 
+	\[
+	[\sigma(g),n]=\sigma(g)n\sigma(g)^{-1}n^{-1}=\sigma(gng^{-1}n^{-1})=\sigma(1)=1.
+	\] 
+	
+	Since $N$ is normal in $G$, 
+	\[
+	xnx^{-1}=\sigma(xnx^{-1})=\sigma(x)\sigma(n)\sigma(x)^{-1}=\sigma(x)n\sigma(x)^{-1}
+	\]
+	and hence $x^{-1}\sigma(x)\in C_G(N)$. Therefore the homomorphism on $C/C_G(N)$ induced
+	by $\sigma$ satisfies   
+	\[
+	\sigma(xC_G(N))=\sigma(x)C_G(N)=xC_G(N)C_G(N)=xC_G(N).\qedhere
+	\]
+\end{proof}
+
 
 
 \section*{D}
