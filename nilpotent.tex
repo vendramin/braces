@@ -855,40 +855,36 @@ We now turn out attention to finite nilpotent groups.
 \end{theorem}
 
 \begin{proof}
-	Veamos que $(1)\implies(2)$. Sea $P\in\Syl_p(G)$. Queremos ver que $P$ es
-	normal en $G$, es decir $N_G(P)=G$.  Por el lema anterior, 
-	$N_G(N_G(P))=N_G(P)$. La condición normalizadora implica entonces que $N_G(P)=G$.
+	We prove that $1)\implies 2)$. Let $P\in\Syl_p(G)$. We show that $P$ is normal in $G$, this means 
+	$N_G(P)=G$. By Lemma~\ref{lem:normalizador},  
+	$N_G(N_G(P))=N_G(P)$. Now  $N_G(P)=G$ by the normalizer condition.
 
-	Veamos ahora que $(2)\implies(3)$. Sean $p_1,\cdots,p_k$ los factores
+	Veamos ahora que $2)\implies 3)$. Sean $p_1,\cdots,p_k$ los factores
 	primos de $|G|$ y para cada $i\in\{1,\dots,k\}$ sea $P_i\in\Syl_{p_i}(G)$.
 	Por hipótesis, cada $P_j$ es normal en $G$.
-
-	Vamos a demostrar que $P_1\cdots P_j\simeq P_1\times\cdots\times P_j$ para todo $j$.
-	El caso $j=1$ es trivial. Supongamos entonces que el resultado vale para
-	algún $j\geq 1$. Como 
+	We now prove that $P_1\cdots P_j\simeq P_1\times\cdots\times P_j$ for all $j$.
+	The case $j=1$ is trivial. Assume that the result holds for some 
+	$j\geq 1$. Since  
 	\[
 	N=P_1\cdots P_j\simeq P_1\times\cdots\times P_j
 	\]
-	es normal en $G$ y tiene orden coprimo con $|P_{j+1}|$, $N\cap
-	P_{j+1}=\{1\}$. Luego
+	is normal in $G$ and has order coprime with $|P_{j+1}|$, it follows that $N\cap
+	P_{j+1}=\{1\}$. Thus 
 	\[
-		NP_{j+1}\simeq N\times P_{j+1}\simeq P_1\times\cdots\times P_j\times P_{j+1}
+		NP_{j+1}\simeq N\times P_{j+1}\simeq P_1\times\cdots\times P_j\times P_{j+1}, 
 	\]
-	pues $P_{j+1}$ es también normal en $G$. 
+	as $P_{j+1}$ is normal in $G$. 
+	Now that we know that $P_1\cdots P_k\simeq P_1\times\cdots\times P_k$ is a subgroup of order 
+	$|G|$, we conclude that $G=P_1\times\cdots\times P_k$.
 
-	Ahora que sabemos que $P_1\cdots P_k\simeq P_1\times\cdots\times P_k$ es un
-	subgrupo de orden $|G|$, se concluye que $G=P_1\times\cdots\times P_k$.
-
-	Para ver que $(3)\implies(1)$ simplemente hace falta observar que todo
-	$p$-grupo es nilpotente (proposición~\ref{proposition:pgrupo_nilpotente}) y
-	que el producto directo de finitos nilpotentes es nilpotente.
-	%(ejercicio~\ref{exercise:HxK_nilpotente}).
+	Finally, to prove that $3)\implies 1)$ we note that every 
+	$p$-group is nilpotent and that a finite direct product of nilpotent groups is nilpotent. 
 \end{proof}
 
 \begin{exercise}
 	\label{xca:truco}
-	Sea $G$ un grupo finito. Demuestre que si $P\in\Syl_p(G)$ y $M$ es un subgrupo de $G$ tal que
-	$N_G(P)\subseteq M$ entonces $M=N_G(M)$. 
+	Let $G$ be a finite group. If $P\in\Syl_p(G)$ and $M$ is a subgroup of $G$ such that 
+	$N_G(P)\subseteq M$, then $M=N_G(M)$. 
 \end{exercise}
 
 % \begin{svgraybox}
@@ -904,11 +900,11 @@ We now turn out attention to finite nilpotent groups.
 
 \begin{exercise}
 	\label{xca:normalizadora}
-	Sea $G$ un grupo finito. Son equivalentes:
+	Let $G$ be a finite nilpotent group. The following statements are equivalent:  
 	\begin{enumerate}
-		\item $G$ es nilpotente.
-		\item Si $H\subsetneq G$ es un subgrupo entonces $H\subsetneq N_G(H)$.
-		\item Todo subgrupo maximal de $G$ es normal en $G$.
+		\item $G$ is nilpotent.
+		\item If $H\subsetneq G$ is a subgroup, then $H\subsetneq N_G(H)$.
+		\item Every maximal subgroup of $G$ is normal in $G$.
 	\end{enumerate}
 \end{exercise}
 
@@ -928,30 +924,27 @@ We now turn out attention to finite nilpotent groups.
 % ejercicio: G finito. Es nilpotente si y solo si dos elementos de ordenes coprimos conmnutan
 % 5.41 rotman
 
-\begin{theorem}
-	Sea $G$ un grupo finito nilpotente. Si $p$ es un primo que divide al orden
-	de $G$, existe un subgrupo minimal-normal de orden $p$ y existe un subgrupo
-	maximal de índice $p$.
-\end{theorem}
+\begin{exercise}
+	Let $G$ be a finite nilpotent group. If $p$ is a prime dividing the order of $G$, then there
+	exists a minimal normal subgroup of order $p$ and there exists a maximal subgroup of index $p$.
+\end{exercise}
 
-\begin{proof}
-	Supongamos que $|G|=p^{\alpha}m$, donde $p$ es un primo coprimo con $m$.
-	Escribamos $G=P\times H$, donde $P\in\Syl_p(G)$.  Como $Z(P)$ es un
-	subgrupo normal no trivial de $P$, todo subgrupo 
-	de $Z(P)$ minimal-normal en $G$ tiene orden $p$ (y esos subgrupos 
-	existen porque $G$ es un grupo finito). Por otro lado, como $P$ contiene un subgrupo
-	de índice $p$, que resulta maximal. Luego $P\times H$ también contiene un
-	subgrupo maximal de índice $p$.
-\end{proof}
+%\begin{proof}
+%	Assume that $|G|=p^{\alpha}m$, where $p$ is coprime with $m$.
+%	Write $G=P\times H$, where $P\in\Syl_p(G)$.  Since $Z(P)$ is a non-trivial subgroup of 
+%	of $P$, subgroup   
+%	of $Z(P)$ minimal-normal en $G$ tiene orden $p$ (y esos subgrupos 
+%	existen porque $G$ es un grupo finito). Por otro lado, como $P$ contiene un subgrupo
+%	de índice $p$, que resulta maximal. Luego $P\times H$ también contiene un
+%	subgrupo maximal de índice $p$.
+%\end{proof}
 
 \begin{exercise}
 	\label{xca:pgrupos}
-	Sea $p$ un primo y sea $G$ un grupo no trivial de orden $p^n$.
-	Demuestre las siguientes afirmaciones:
+	Let $p$ be a prime and $G$ be a non-trivial group of order $p^n$.
 	\begin{enumerate}
-		\item $G$ tiene un subgrupo normal de orden $p$.
-		\item Para todo $j\in\{0,\dots,n\}$ existe un subgrupo normal de
-			$G$ de orden $p^j$. 
+		\item $G$ has a normal subgroup of order $p$.
+		\item For each $j\in\{0,\dots,n\}$ there exists a normal subgroup of order $p^j$. 
 	\end{enumerate}
 \end{exercise}
 
@@ -978,15 +971,13 @@ We now turn out attention to finite nilpotent groups.
 
 \begin{exercise}
 \label{xca:nilpotente_equivalencia}
-	Sea $G$ un grupo finito. Demuestre que las siguientes afirmaciones son
-	equivalentes: 
+	Let $G$ be a finite group. The following statements are equivalent:
 	\begin{enumerate}
-		\item $G$ es nilpotente.
-		\item Cualesquiera dos elementos de órdenes coprimos conmutan. 
-		\item Todo cociente no trivial de $G$ tiene centro no trivial.
-		\item Si $d$ divide al orden de $G$, existe un subgrupo normal de $G$
-			de orden $d$.
-	\end{enumerate}
+		\item $G$ is nilpotent.
+		\item Any two elements of coprime order commute. 
+		\item Every non-trivial quotient of $G$ has non-trivial center.
+		\item If $d$ divides $|G|$, there exists a normal subgroup of $G$ of order $d$. 
+		\end{enumerate}
 \end{exercise}
 
 % \begin{svgraybox}
@@ -1030,46 +1021,40 @@ We now turn out attention to finite nilpotent groups.
 % 	se aplica la hipótesis a cada $p$-subgrupo de $G$ de orden maximal.
 % \end{svgraybox}
 
-El siguiente resultado, que puede demostrarse en forma
-completamente elemental, fue descubierto en 2014. 
-
 \begin{theorem}[Baumslag--Wiegold]
-	\index{Teorema de!Baumslag--Wiegold}
-	Sea $G$ un grupo finito tal que $|xy|=|x||y|$ si $x$ e $y$ son elementos de
-	órdenes coprimos. Entonces $G$ es nilpotente.
+	\index{Baumslag--Wiegold's theorem}
+	Let $G$ be a finite group such that $|xy|=|x||y|$ whenever $x$ and $y$ have coprime order. Then
+	$G$ is nilpotent. 
 \end{theorem}
 
 \begin{proof}
-	Sean $p_1,\dots,p_n$ los distintos primos que dividen al orden de $G$. Para cada
-	$i\in\{1,\dots,n\}$ sea $P_i\in\Syl_{p_i}(G)$.  Primero vamos a demostrar
-	que $G=P_1\cdots P_n$. La inclusión no trivial equivale a 
-	demostrar que la función 
+	Let $p_1,\dots,p_n$ be the distinct primes dividing the order of $G$. For each 
+	$i\in\{1,\dots,n\}$ let $P_i\in\Syl_{p_i}(G)$. We claim that 
+	$G=P_1\cdots P_n$. The non-trivial inclusion is equivalent to show that the map
 	\[
 		\psi\colon P_1\times\cdots\times P_n\to G,\quad
 		(x_1,\dots,x_n)\mapsto x_1\cdots x_n
 	\]
-	es sobreyectiva. Procederemos de la siguiente forma. Primero vemos que  
-	la función $\psi$ es inyectiva. En efecrto, si
-	$\psi(x_1,\dots,x_n)=\psi(y_1,\dots,y_n)$, entonces 
+	is surjective. We first show that $\psi$ is injective. If 
+	$\psi(x_1,\dots,x_n)=\psi(y_1,\dots,y_n)$, then  
 	\[
 		x_1\cdots
 	x_n=y_1\cdots y_n. 
 	\]
-	Si $y_n\ne x_n$, entonces $x_1\cdots x_{n-1}=(y_1\cdots
-	y_{n-1})y_nx_n^{-1}$. Pero $x_1\cdots x_{n-1}$ es un elemento de orden
-	coprimo con $p_n$ y $y_1\cdots y_{n-1}y_nx_n^{-1}$ es un elemento de orden
-	múltiplo de $p_n$, una contradicción. Entonces $x_n=y_n$ y luego, el mismo
-	argumento, prueba que $\psi$ es inyectiva. Como $|P_1\times\cdots\times
-	P_n|=|G|$, se concluye que $\psi$ es biyectiva. En particular, $\psi$ es sobreyectiva
-	y luego $G=P_1\cdots P_n$.
+	If $y_n\ne x_n$, then $x_1\cdots x_{n-1}=(y_1\cdots
+	y_{n-1})y_nx_n^{-1}$. But $x_1\cdots x_{n-1}$ has order coprime with 
+	$p_n$ and $y_1\cdots y_{n-1}y_nx_n^{-1}$ has order divisible by $p_n$, a contradiction. 
+	Thus $x_n=y_n$ and hence the same argument proves that $\psi$ is injective. 
+	Since $|P_1\times\cdots\times
+	P_n|=|G|$, we conclude that $\psi$ is bijective. In particular, $\psi$ is surjective and hence 
+	$G=P_1\cdots P_n$.
 
-	Veamos ahora que cada $P_j$ es normal en $G$.  Sea $j\in\{1,\dots,n\}$ y
-	sea $x_j\in P_j$. Sea $g\in G$ y sea $y_j=gx_jg^{-1}$.  Como $y_j\in G$,
-	podemos escribir $y_j=z_1\cdots z_n$ con $z_k\in P_k$ para todo $k$.  Como
-	el orden de $y_j$ es una potencia del primo $p_j$, el elemento $z_1\cdots
-	z_n$ tiene orden una potencia de $p_j$ y luego $z_k=1$ para todo $k\ne j$ y
-	además $y_j=z_j\in P_j$. Como cada subgrupo de Sylow es normal en $G$, se
-	concluye que $G$ es nilpotente.
+	We now show that each $P_j$ is normal in $G$.  Let $j\in\{1,\dots,n\}$ and 
+	$x_j\in P_j$. Let $g\in G$ and $y_j=gx_jg^{-1}$.  Since $y_j\in G$,
+	we write $y_j=z_1\cdots z_n$ with $z_k\in P_k$ for all $k$. Since the order of 
+	$y_j$ is a power of $p_j$, it follows that $z_1\cdots
+	z_n$ has order a power of $p_j$. Thus $z_k=1$ for all $k\ne j$ and 
+	$y_j=z_j\in P_j$. Since each Sylow subgroup is normal, $G$ is nilpotent. 
 \end{proof}
 
 
