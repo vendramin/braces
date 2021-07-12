@@ -624,169 +624,136 @@ the additive group of rational numbers.
 	$g\in G$, then $g^n\in H$.
 \end{proposition}
 
-%%% TODO: hacer inducción en el índice para escribirlo mejor
-
 \begin{proof}
-	El resultado es obvio en el caso en que $H$ sea un subgrupo normal.  Sea
-	$H_0=H$ y $H_{i+1}=N_G(H_i)$ para $i\geq0$. Por definición, $H_{i}$ es
-	normal en $H_{i+1}$ y además, como $G$ es nilpotente, si $H_i\ne G$
-	entonces $H_i\subsetneq H_{i+1}$ por la condición normalizadora. 
-	Como $(G:H)$ es finito, existe $k$ tal que $H_k=G$. Veamos que 
+	We proceed by induction on $n$. The case $n=1$ is trivial. Assume that the result holds 
+	for all subgroups of index $<n$. If $H$ is a subgroup of index $n$, let 
+	$H_0=H$ and $H_{i+1}=N_G(H_i)$ for $i\geq1$. Then $H_{i}$ is normal in 
+	$H_{i+1}$. Since $G$ is nilpotent, if $H_i\ne G$, then 
+    $H_i\subsetneq H_{i+1}$ by the normalizer condition. Since  
+	$(G:H)$ is finite, there exists $k$ such that $H_k=G$. By the inductive hypothesis, since
+	$(H_j:H_{j-1})<n$ for all $j$, it follows that 
+	$x^{(H_j:H_{j-1})}\in H_{j-1}$ for all $x\in H_j$ and all $j$. Thus   
 	\[
-		g^{(G:H)}=g^{(H_k:H_{k-1})(H_{k-1}:H_{k-2})\cdots (H_1:H_0)}\in H.
+		g^{(G:H)}=g^{(H_k:H_{k-1})(H_{k-1}:H_{k-2})\cdots (H_1:H_0)}\in H.\qedhere 
 	\]
-	Observemos que $g^{(H_k:H_{k-1})}\in H_{k-1}$ pues $H_{k-1}$ es normal en $H_k=G$, y que, como 
-	$g^{(H_k:H_{k-1})}\in H_k$, entonces 
-	\[
-	g^{(H_k:H_{k-2})}=g^{(H_k:H_{k-1})(H_{k-1}:H_{k-2})}=\left(g^{(H_k:H_{k-1})}\right)^{(H_{k-1}:H_{k-2})}\in H_{k-2}
-	\]
-	pues $H_{k-2}$ es normal en $H_{k-1}$. Al repetir este argumento, $g^{(G:H)}\in H$. 
 \end{proof}
 
 \begin{example}
-	La proposición anterior no vale si el grupo $G$ no es
-	nilpotente. Sea $G=\Sym_3$ y sea $H=\{\id,(12)\}$ de índice tres.  Si
-	$g=(13)$ entonces $g^{3}=(13)\not\in H$.
+The nilpotency of $G$ is needed in the previous proposition. 
+If $G=\Sym_3$ and $H=\{\id,(12)\}$, then $(G:H)=3$ and  de índice tres. If 
+$g=(13)$, then $g^{3}=(13)\not\in H$. 	
 \end{example}
 
-El lema que daremos a continuación es una herramienta útil para hacer demostraciones por inducción
-en grupos nilpotentes. 
+The following tool is useful to perform induction 
+on nilpotent groups.  
 
 \begin{lemma}
 	\label{lem:a[GG]}
-	Sea $G$ un grupo nilpotente de clase $c\geq2$. Si $x\in G$ entonces el subgrupo 
-	$\langle x,[G,G]\rangle$ es nilpotente de clase $<c$.
+	Let $G$ be a nilpotent group of class $c\geq2$. If $x\in G$, then the subgroup 
+	$\langle x,[G,G]\rangle$ is nilpotent of class $<c$.
 \end{lemma}
 
 \begin{proof}
-	Sea $H=\langle x,[G,G]\rangle$.  Si $x\in [G,G]$, el resultado es cierto.
-	Supongamos entonces que $x\not\in [G,G]$. Observemos que 
+	Let $H=\langle x,[G,G]\rangle$.  If $x\in [G,G]$, the claim holds. 
+	Assume that $x\not\in [G,G]$. Note that  
 	\[
 		H=\{x^nc:n\in\Z,c\in [G,G]\},
 	\]
-	pues $[G,G]$ es normal en $G$. Para demostrar el lema  
-	alcanza entonces con probar que $[H,H]\subseteq\gamma_3(G)$. Sean $h=x^nc,k=x^md\in H$
-	con $c,d\in [G,G]$. 
-	Como 
+	as $[G,G]$ is normal in $G$. It is enough to show that   
+	$[H,H]\subseteq\gamma_3(G)$. Let $h=x^nc,k=x^md\in H$
+	where $c,d\in [G,G]$. 
+	Since 
 	\[
 	[h,x^m]=[x^n,[c,x^m]][c,x^m]\in\gamma_4(G)\gamma_3(G)\subseteq\gamma_3(G),
 	\]
-	entonces 
+	it follows that  
 	\begin{align*}
 		[h,k]&=[h,x^m][x^m,[h,d]][h,d]\\
 			&=[x^n,[c,x^m]][c,x^m][x^m,[h,d]][h,d]\in\gamma_3(G).\qedhere
 	\end{align*}
-%	Como
-%	$[G,G]=\gamma_2(G)\subseteq\zeta_{c-1}(G)$, al usar la definición de $H$ se
-%	obtiene que $[G,G]\subseteq \zeta_{c-1}(G)\cap H\subseteq\zeta_{c-1}(H)$.
-%	Luego $H/\zeta_{c-1}(H)$ es cíclico generado por $a\zeta_{c-1}(H)$. Si
-%	$\zeta_{c-1}(H)=H$, no hay nada para demostrar. En caso contrario,
-%	$Z(H)\subseteq\zeta_{c-1}(H)$ implicaría que $H$ es abeliano y luego $H$ es
-%	nilpotente de clase uno.
 \end{proof}
 
-Veamos un ejemplo, está hecho con la computadora. 
-
 \begin{example}
-	Sea $G=\D_{8}=\langle r,s:r^{8}=s^2=1,srs=r^{-1}\rangle$ el grupo diedral
-	de orden 16. El grupo $G$ es nilpotente de clase tres
-	y $[G,G]=\{1,r^2,r^4,r^6\}\simeq C_4$. El subgrupo $\langle
-	s,[G,G]\rangle\simeq\D_4$ es nilpotente de clase dos.
+	Let $G=\D_{8}=\langle r,s:r^{8}=s^2=1,srs=r^{-1}\rangle$ be the dihedral group of order 
+	16. Then $G$ is nilpotent of class three and 
+	$[G,G]=\{1,r^2,r^4,r^6\}\simeq C_4$. The subgroup $\langle
+	s,[G,G]\rangle\simeq\D_4$ is nilpotent of class two.
 \end{example}
 
-Ahora una aplicación del lema. 
+Now an application of Lemma~\ref{lem:a[GG]}. 
 
 \begin{theorem}
-	\label{theorem:T(nilpotent)}
-	Si $G$ es un grupo nilpotente, entonces
+	\label{thm:T(nilpotent)}
+	If $G$ is a nilpotent group, then 
 	\[
 	T(G)=\{g\in G:g^n=1\text{ para algún $n\in\N$}\}
 	\]
-	es un subgrupo de $G$. 
+	is a subgroup of $G$. 
 \end{theorem}
 
 \begin{proof}
-	Sean $a,b\in T(G)$ y sean
-	\[
-		A=\langle a,[G,G]\rangle,\quad
-		B=\langle b,[G,G]\rangle.
-	\]
-	Como $A$ y $B$ son nilpotentes por el lema anterior, por hipótesis
-	inductiva, $T(A)$ es un subgrupo de $A$ y $T(B)$ es un subgrupo de $B$.
-	Como $T(A)$ es característico en $A$ y $A$ es normal en $G$, $T(A)$ es
-	normal en $G$. Similarmente se demuestra que $T(B)$ es normal en $B$.  
-	Veamos ahora que todo elemento de $T(A)T(B)$ tiene orden finito: si
-	$x\in T(A)T(B)$, digamos $x=a_1b_1$ con
-	$a_1$ de orden $m$, entonces $x$ tiene orden finito pues 
+	Let $a,b\in T(G)$ and let $A=\langle a,[G,G]\rangle$ and $B=\langle b,[G,G]\rangle$, 
+	Since $A$ and $B$ are both nilpotent by the previous lemma, the inductive hypothesis implies that
+	$T(A)$ is a subgroup of $A$ and $T(B)$ is a subgroup of $B$. 
+	Since $T(A)$ is characteristic in $A$ and $A$ is normal in $G$, it follows that 
+	$T(A)$ is
+	normal in $G$. Similarly, $T(B)$ is normal in $B$.  
+	We claim that every element of $T(A)T(B)$ has finite order. Indeed, if 
+	$x\in T(A)T(B)$, say $x=a_1b_1$ with 
+	$a_1$ of order $m$, then $x$ has finite order since  
 	\begin{align*}
-	x^m=(a_1b_1)^m&=%(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})\cdots (a_1^{m-1} b_1 a_1^{-m+1}b_1)\\
-	(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})\cdots (a^{m-1} b_1 a^{-m+1})b_1\in T(B).
+	x^m=(a_1b_1)^m&=
+		(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})\cdots (a^{m-1} b_1 a^{-m+1})b_1\in T(B).
 	\end{align*}
-	
-	Para entender mejor el truco hagamos un caso concreto, digamos $m=3$. La fórmula en este caso queda así:
-	\begin{align*}
-	(a_1b_1)^3&=(a_1b_1)(a_1b_1)(a_1b_1)\\
-	&=(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})a_1^3b_1
-	=(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})b_1,
-	\end{align*}
-	pues $a_1^3=1$.
-	
-	El truco nos permite entonces demostrar que $ab$ y $a^{-1}$ tienen ambos 
-	orden finito. Luego $T(G)$ es un
-	subgrupo de $G$.
+	This trick allows us to prove that both $ab$ and $a^{-1}$ have finite order. 
+	Hence $T(G)$ is a subgroup of $G$. 
 \end{proof}
 
-Otra aplicación.
+Another application.
 
 \begin{theorem}
-	\label{theorem:a=b}
-	Sea $G$ un grupo nilpotente y sin torsión y sean $a,b\in G$. Si existe
-	$n\ne 0$ tal que $a^n=b^n$ entonces $a=b$.
+	\label{thm:a=b}
+	Let $G$ be a torsion-free nilpotent group and let $a,b\in G$. If $a^n=b^n$ for some 
+	$n\ne 0$, then $a=b$.
 \end{theorem}
 
 \begin{proof}
-	Procederemos por inducción en el orden de nilpotencia $c$ de $G$. El
-	resultado es trivialmente cierto si $G$ es abeliano. Supongamos entonces
-	que $G$ es nilpotente de índice $c\geq1$. Como $\langle a,[G,G]\rangle$ es un
-	subgrupo de $G$ nilpotente de índice $<c$, y $bab^{-1}=[b,a]a\in \langle
-	a,[G,G]\rangle$, por hipótesis inductiva, $ba=ab$ pues 
-	\[
-		a^n=(bab^{-1})^n=b^n.
-	\]
-	Luego $(ab^{-1})^n=a^nb^{-n}=1$ y por lo tanto, como $G$ no tiene torsión,
-	se concluye que $a=b$.
+	We proceed by induction on the nilpotency class $c$ of $G$. The claim holds if $G$ is abelian. Assume 
+	that $G$ is nilpotent of class $c\geq1$. Since $\langle a,[G,G]\rangle$ is a nilpotent subgroup of
+	$G$ of nilpotency class $<c$ and $bab^{-1}=[b,a]a\in \langle
+	a,[G,G]\rangle$, the inductive hypothesis implies that $ba=ab$, as  
+	$a^n=(bab^{-1})^n=b^n$. Thus $(ab^{-1})^n=a^nb^{-n}=1$. Since $G$ is torsion-free, it follows that $a=b$.
 \end{proof}
 
 \begin{corollary}
-	Sea $G$ un grupo nilpotente sin torsión. Sean $x,y\in G$ tales que
-	$x^ny^m=y^mx^n$ para algún $n,m\ne 0$, entonces $xy=yx$.
+	Let $G$ be a torsion-free nilpotent group. If $x,y\in G$ are such that 
+	$x^ny^m=y^mx^n$ for some $n,m\ne 0$, then $xy=yx$.
 \end{corollary}
 
 \begin{proof}
-	Sean $a=x$ y $b=y^nxy^{-n}$. Como $a^m=b^m$, el teorema anterior
-	implica que $a=b$ y luego $xy^n=y^nx$. Al usar nuevamente ese 
-	teorema, esta vez con con $a=y$ y $b=xyx^{-1}$, se
-	concluye que $xy=yx$. 
+	Let $a=x$ and $b=y^nxy^{-n}$. Since $a^m=b^m$, Theorem~\ref{thm:a=b} implies that $a=b$. Thus $xy^n=y^nx$. 
+	By using Theorem~\ref{thm:a=b} now with $a=y$ and $b=xyx^{-1}$, we conclude that 
+	$xy=yx$. 
 \end{proof}
 
+The following lemma is well-known. We include the proof for completeness. 
+
 \begin{lemma}
-	\label{lemma:fg}
-	Sea $G$ un grupo finitamente generado y sea $H$ un subgrupo de índice
-	finito. Entonces $H$ es finitamente generado.
+	\label{lem:fg}
+	Let $G$ be a finitely generated group and $H$ be a finite-index subgroup of $G$. 
+	Then $H$ is finitely generated. 
 \end{lemma}
 
 \begin{proof}
-	Supongamos que $G$ está generado por $\{g_1,\dots,g_m\}$. Podemos suponer, sin pérdida de generalidad, que
-	para cada $i$ existe $k$ tal que $g_i^{-1}=g_k$. 
-	
-	Sea $\{1=t_1,\dots,t_n\}$ un transversal de $H$ en $G$, es decir un 
-	conjunto de representantes de $G/H$. Para $i\in\{1,\dots,n\}$,
-	$j\in\{1,\dots,m\}$, escribimos
+	Assume that $G=\langle g_1,\dots,g_m\rangle$. Without loss of generality we may assume that 
+	for each $i$ there exists $k$ such that $g_i^{-1}=g_k$. 
+	Let $\{1=t_1,\dots,t_n\}$ be a transversal of $H$ in $G$. For 
+	$i\in\{1,\dots,n\}$ and 
+	$j\in\{1,\dots,m\}$ we write 
 	\[
 		t_ig_j=h(i,j)t_{k(i,j)}.
 	\]
-	Vamos a demostrar que $H$ está generado por los $h(i,j)$. Sea $x\in H$.
-	Escribamos 
+	We claim that $H$ is generated by the $h(i,j)$. If $x\in H$, then 
 	\begin{align*}
 	x &=g_{i_1}\cdots g_{i_s}\\
 	&= (t_1g_{i_1})g_{i_2}\cdots g_{i_s}\\
@@ -794,24 +761,30 @@ Otra aplicación.
 	&= h(1,i_1)h(k_1,i_2)t_{k_2}g_{i_3}\cdots g_{i_s}\\
 	&= h(1,i_1)h(k_1,i_2)\cdots h(k_{s-1},i_s)t_{k_s},
 	\end{align*}
-	donde $k_1,\dots,k_{s-1}\in\{1,\dots,n\}$. Como $t_{k_s}\in H$ pues $x\in H$, entonces
-	$t_{k_s}=1\in H$ y luego $x$ está generado por los $h(i,j)$.
+	where $k_1,\dots,k_{s-1}\in\{1,\dots,n\}$. Thus $t_{k_s}\in H$ and hence 
+	$t_{k_s}=1\in H$, which implies the claim.  
 \end{proof}
 
 \begin{theorem}
-	\label{theorem:T(G)finito}
-	Sea $G$ un grupo finitamente generado, de torsión y nilpotente. Entonces
-	$G$ es finito. 	
+	\label{thm:T(G)finito}
+	Let $G$ be a finitely generated torsion nilpotent group. Then
+	$G$ is finite.  	
 \end{theorem}
 
 \begin{proof}
-	Procederemos por inducción en la clase de nilpotencia $c$. El caso $c=1$ es
-	verdadero pues $G$ es abeliano. Supongamos entonces que el resultado es
-	válido para $c\geq1$.  Como $[G,G]$ y $G/[G,G]$ son nilpotentes de clase
-	$<c$, finitamente generados por el lema anterior y de torsión, por
-	hipótesis inductiva se tiene que $[G,G]$ y $G/[G,G]$ son finitos. Luego $G$
-	es también finito, de hecho puede probarse que $G$ es de orden $|[G,G]|(G:[G,G])$.
+	We proceed by induction on the nilpotency class $c$. The case $c=1$ is true since $G$ is abelian. Assume 
+	that the result holds for some $c\geq1$.  Since both $[G,G]$ and $G/[G,G]$ 
+	finitely generated by Lemma~\ref{lem:fg}, 
+	nilpotent of class 
+	$<c$ and torsion groups, the inductive hypothesis implies that both $[G,G]$ and $G/[G,G]$ are finite. Thus $G$
+	is finite
 \end{proof}
+
+%\begin{exercise}
+%Prove that in the previous theorem 
+%, de hecho puede probarse que $G$ es de orden $|[G,G]|(G:[G,G])$.	
+%\end{exercise}
+%
 
 %\begin{lemma}
 %	\label{lemma:kgenerators}
@@ -852,40 +825,32 @@ Otra aplicación.
 %\end{proof}
 
 
-
-
-%\section{Grupos finitos nilpotentes}
-
-El siguiente lema también resultará muy útil, especialmente en caso de trabajar con 
-grupos finitos nilpotentes. 
+We now turn out attention to finite nilpotent groups. 
 
 \begin{lemma}
-	\label{lemma:normalizador}
-	Sean $G$ un grupo finito, $p$ un primo que divide a $|G|$ y
-	$P\in\Syl_p(G)$. Entonces
-	\[
-	N_G(N_G(P))=N_G(P). 
-	\]
+	\label{lem:normalizador}
+	Let $G$ be a finite group, $p$ a prime divisor of $|G|$ and 
+	$P\in\Syl_p(G)$. Then
+	$N_G(N_G(P))=N_G(P)$. 
 \end{lemma}
 
 \begin{proof}
-	Sea $H=N_G(P)$. Como $P$ es normal en $H$, $P$ es el único $p$-subgrupo de
-	Sylow de $H$. Para ver que $N_G(H)=H$ basta demostrar que $N_G(H)\subseteq
-	H$. Sea $g\in N_G(H)$. Como 
-	\[
-	gPg^{-1}\subseteq gHg^{-1}=H,
-	\]
-	$gPg^{-1}\in\Syl_p(H)$ y $H$ tiene un único $p$-subgrupo de Sylow, 
-	$P=gPg^{-1}$.  Luego $g\in N_G(P)=H$. 
+	Let $H=N_G(P)$. Since $P$ is normal in $H$, $P$ is the unique Sylow 
+	$p$-subgroup of $H$. To prove that $N_G(H)=H$ it is enough to show that $N_G(H)\subseteq
+	H$. Let $g\in N_G(H)$. Since  
+	$gPg^{-1}\subseteq gHg^{-1}=H$, 
+	both 
+	$gPg^{-1}\in\Syl_p(H)$ and $H$ have a unique Sylow $p$-subgroup, so   
+	$P=gPg^{-1}$. Thus $g\in N_G(P)=H$. 
 \end{proof}
 
 \begin{theorem}
-	\label{theorem:nilpotente:eq}
-	Sea $G$ un grupo finito. Son equivalentes:
+	\label{thm:nilpotente:eq}
+	Let $G$ be a finite group. The following statements are equivalent: 
 	\begin{enumerate}
-		\item $G$ es nilpotente.
-		\item Todo subgrupo de Sylow de $G$ es normal.
-		\item $G$ es producto directo de sus subgrupos de Sylow.
+		\item $G$ is nilpotent.
+		\item Every Sylow subgroup of $G$ is normal.
+		\item $G$ is the direct product of its Sylow subgroups. 
 	\end{enumerate}
 \end{theorem}
 
