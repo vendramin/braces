@@ -13,7 +13,8 @@ If $X$, $Y$ and $Z$ are subgroups of $G$, we write
 \[
 [X,Y]=\langle [x,y]:x\in X,\,y\in Y\rangle
 \]
-and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Note that $[X,Y]=[Y,X]$. 
+and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Since $[X,Y]=[Y,X]$, it follows that  
+$[X,Y,Z]=[X,Z,Y]$. 
 
 \begin{exercise}[Hall--Witt]
 	\label{xca:HallWitt}
@@ -175,21 +176,22 @@ such that $K$ and $G/K$ are both nilpotent. For example, take $G=\Sym_3$ and $K=
 \end{theorem}
 
 \begin{proof}
-	We proceed by induction on $j$. The case where $j=1$ is trivial, as by definition one has 
+	We proceed by induction on $i$. The case where $i=1$ is trivial, as by definition one has 
 	$[G,\gamma_j(G)]=\gamma_{j+1}(G)$. Assume now that the result holds for 
-	some $j\geq1$ and all $i\geq1$. 
+	some $i\geq1$ and all $j\geq1$. 
 	We first note that 	
 	\begin{equation*}
-		[G,\gamma_i(G),\gamma_j(G)]=[\gamma_i(G),G,\gamma_j(G)]=[\gamma_{i+1}(G),\gamma_j(G)]\subseteq \gamma_{i+j+1}(G)
+		[G,\gamma_i(G),\gamma_j(G)]=[G,\gamma_{i+j}(G)]\subseteq \gamma_{i+j+1}(G)
 	\end{equation*}
 	by the inductive hypothesis. Moreover, again using the inductive hypothesis,  
 	\begin{equation*}
-	[\gamma_i(G),\gamma_j(G),G]\subseteq [\gamma_{i+j}(G),G]=\gamma_{i+j+1}(G).
+	[\gamma_i(G),\gamma_j(G),G]=[\gamma_{i}(G),G,\gamma_{j}(G)]=[\gamma_i(G),\gamma_{j+1}(G)]\subseteq \gamma_{i+j+1}(G).
 	\end{equation*}
 	Lemma~\ref{lemma:3subgrupos_general} implies that 
 	$[\gamma_j(G),G,\gamma_i(G)]\subseteq \gamma_{i+j+1}(G)$. Thus  
 	\[
-	[\gamma_i(G),\gamma_{j+1}(G)]=[\gamma_{j+1}(G),\gamma_i(G)]=[\gamma_j(G),G,\gamma_i(G)]\subseteq \gamma_{i+j+1}(G).\qedhere
+	[\gamma_{i+1}(G),\gamma_{j}(G)]=[[G,\gamma_{i}(G)],\gamma_j(G)]=[\gamma_j(G),G,\gamma_i(G)]
+	\subseteq \gamma_{i+j+1}(G).\qedhere
 	\]
 \end{proof}
 
@@ -237,7 +239,7 @@ than its normalizer.
 	$\{1\}=\gamma_{c+1}(G)\subseteq H$ and $\gamma_1(G)\not\subseteq H$, 
 	let $k$ be the smallest positive integer such that $\gamma_k(G)\subseteq H$. Since 
 	\[
-		[\gamma_{k-1}(G),H]\subseteq [\gamma_{k-1}(G),G]=\gamma_k(G)\subseteq H,
+		[H,\gamma_{k-1}(G)]\subseteq [G,\gamma_{k-1}(G)]=\gamma_k(G)\subseteq H,
 	\]
 	it follows that 
 	$xHx^{-1}\subseteq H$ for all $x\in\gamma_{k-1}(G)$,
@@ -254,7 +256,7 @@ For a group $G$ we define the sequence $\zeta_0(G),\zeta_1(G),\dots$
 recursively as 
 \[
 	\zeta_0(G)=\{1\},\quad
-	\zeta_{i+1}(G)=\{g\in G:[g,x]\in\zeta_{i}(G)\text{ para todo $x\in G$}\},\quad i\geq 0.
+	\zeta_{i+1}(G)=\{g\in G:[x,g]\in\zeta_{i}(G)\text{ para todo $x\in G$}\},\quad i\geq 0.
 \]
 In particular, $\zeta_1(G)=Z(G)$.
 
@@ -423,145 +425,139 @@ Let $G$ be a perfect group and $N$ be a normal subgroup of $G$. Then $G/N$ is pe
 	\{1\}=[\zeta_2(G),G,G]=[\zeta_2(G),[G,G]]=[\zeta_2(G),G].
 	\]
 	Thus 	
-	$\zeta_2(G)\subseteq Z(G)$ and hence 
-	$\zeta_2(G)=Z(G/Z(G))=\{1\}$. 
+	$\zeta_2(G)\subseteq Z(G)$. Now we prove that $Z(G/Z(G))$ is trivial. Let $\pi\colon G\to G/Z(G)$ be the canonical map
+	and $x\in G$ be such that 
+	$\pi(x)$ is a central element. Then 
+	\[
+	[\pi(x),\pi(y)]=\pi([x,y])=1
+	\]
+	for all $y\in G$. In particular, 
+	$[x,y]\in Z(G)=\zeta_1(G)$ for all $y\in G$. This means that $x\in\zeta_2(G)\subseteq Z(G)$. 
 \end{proof}
 
-	\index{Normalizador}
-    Sea $G$ un grupo. Se dice que un subgrupo $K$ de $G$ \textbf{normaliza} a
-	$H$ si $K\subseteq N_G(H)$.
-	\index{Centralizador}
-	Se dice que un subgrupo $K$ de $G$ \textbf{centraliza} a
-	$H$ si $K\subseteq C_G(H)$, es decir si y sólo si $[H,K]=\{1\}$.
+\index{Normalizer}
+\index{Centralizer}
+A subgroup $K$ of $G$ \textbf{normalizes} a subgroup 
+$H$ if $K\subseteq N_G(H)$.
+A subgroup $K$ of $G$ \textbf{centralizes} a subgroup 
+$H$ if $K\subseteq C_G(H)$, that is if and only if $[H,K]=\{1\}$.
 
 %\begin{exercise}
 %	Sean $K$ y $H$ subgrupos de $G$ con $K\subseteq H$ y $K$ normal en $G$.
 %	Demuestre que $[H,G]\subseteq K$ si y sólo si $H/K\subseteq Z(G/K)$. 
 %\end{exercise}
 \begin{lemma}
-	\label{lemma:gamma_zeta}
-	Sea $G$ un grupo. Existe $c$ tal que $\zeta_c(G)=G$ si y sólo si 
-	$\gamma_{c+1}(G)=\{1\}$. Más aún, en ese caso 
+	\label{lem:gamma_zeta}
+	Let $G$ be a group. There exists $c$ such that $\zeta_c(G)=G$ if and only if 
+	$\gamma_{c+1}(G)=\{1\}$. In this case,  
 	\[
 	\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)
 	\]
-	para todo $i\in\{0,1,\dots,c\}$. 
+	for all $i\in\{0,1,\dots,c\}$. 
 \end{lemma}
 
 \begin{proof}
-	Supongamos primero que $\zeta_c(G)=G$. Por inducción vamos a demostrar
-	que $\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)$.  Como el caso $i=0$ es
-	trivial, supongamos que el resultado es válido para un cierto $i\geq0$. Si
-	$g\in\gamma_{i+2}(G)=[\gamma_{i+1}(G),G]$, podemos escribir 
+	Assume first that $\zeta_c(G)=G$. To prove that 
+    $\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)$ we proceed by induction. The case where $i=0$ is
+	trivial, so assume the result holds for some $i\geq0$. If
+	$g\in\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]$, then   
 	\[
-	g=\prod_{k=1}^N [g_k,x_k],
+	g=\prod_{k=1}^N [x_k,g_k],
 	\]
-	donde $g_1,\dots,g_N\in\gamma_{i+1}(G)$ y $x_1,\dots,x_N\in G$. Por
-	hipótesis inductiva 
+	for some $g_1,\dots,g_N\in\gamma_{i+1}(G)$ and $x_1,\dots,x_N\in G$. By the inductice hypothesis, 
 	\[
-	g_j\in\gamma_j(G)\subseteq\zeta_{c-j}(G)
+	g_k\in\gamma_i(G)\subseteq\zeta_{c-i}(G)
 	\]
-	y entonces $[g_j,x_j]\in\zeta_{c-i-1}(G)$ para todo $j$. Luego
-	$g\in\zeta_{c-(i+1)}(G)$. La implicación que queremos queda demostrada
-	al tomar $i=c$. 
-
-	Supongamos ahora que $\gamma_{c+1}(G)=1$. Demostremos por inducción en $c-i$ que
-	$\gamma_{c+1-i}(G)\subseteq\zeta_{c-i}(G)$. El caso $c-i=0$ es trivial. Si el
-	resultado es válido para algún $c-i\geq0$, sea
-	$g\in\gamma_{c+2-i}(G)=[\gamma_{c+1-i}(G),G]$. Escribimos
+	for all $k$ and thus $[x_k,g_k]\in\zeta_{c-i-1}(G)$ for all $k$. Hence 
+	$g\in\zeta_{c-(i+1)}(G)$. From this the claim follows.
+	
+	Assume now that $\gamma_{c+1}(G)=\{1\}$. We prove that 
+	$\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)$ for all $i$. We proceed by backward induction on $i$. 
+	The case $i=c$ is trivial, so assume the
+	result holds for some $i+1\leq c$. Let $g\in\gamma_{i}(G)$. By the inductive hypothesis, 
 	\[
-		g=\prod_{k=1}^N[g_k,x_k]
+	[x,g]\in [G,\gamma_i(G)]=\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G).
 	\]
-	con $g_1,\dots,g_N\in\gamma_{c+1-i}(G)\subseteq\zeta_{i}(G)$ por
-	hipótesis inductiva. Luego $g\in \zeta_{c-(i+1)}(G)$ pues cada
-	$[g_j,x_j]\in\zeta_{i-1}(G)$. Al tomar $i=0$ se obtiene la implicación
-	buscada.
+	Thus $g\in\zeta_{c-i+1}(G)$ by definition. 
 \end{proof}
 
 \begin{example}
-	Sea $G=\Sym_3$. Entonces $\zeta_j(G)=\{1\}$ para todo $j\geq 0$: 
+	If $G=\Sym_3$, then $\zeta_j(G)=\{1\}$ for all $j\geq 0$: 
 \end{example}
 
-\begin{definition}
-	\index{Serie!central}
-	Sea $G$ un grupo. Una \textbf{serie central} para $G$ es una sucesión 
-	\[
-		G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}
-	\]
-	de subgrupos normales de $G$ tal que para cada $i\in\{1,\dots,n\}$, 
-	$\pi_i(G_{i-1})$ es un subgrupo de $Z(G/G_i)$, donde $\pi_i\colon G\to
-	G/G_i$ es el morfismo canónico.
-\end{definition}
+\index{Central!series}
+A \textbf{central series} of a group $G$ is a sequence
+\[
+	G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}
+\]
+of normal subgroups of $G$ such that for each $i\in\{1,\dots,n\}$, 
+$\pi_i(G_{i-1})$ is a subgroup of $Z(G/G_i)$, where $\pi_i\colon G\to
+G/G_i$ is the canonical map. 
 
-\begin{lemma}
-	\label{lemma:serie_central}
-	Sea $G$ un grupo y sea $G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}$
-	una serie central para $G$. Entonces $\gamma_{i+1}(G)\subseteq G_i$ para
-	todo $i$.
-\end{lemma}
+\begin{proposition}
+	\label{pro:serie_central}
+	Let $G$ be a group and $G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}$
+	be a central series of $G$. Then $\gamma_{i+1}(G)\subseteq G_i$ for all $i$.
+\end{proposition}
 
 \begin{proof}
-	Procederemos por inducción en $i$. El caso $i=0$ es trivial.  Supongamos
-	que el resultado es válido para algún $i\geq0$. Entonces 
+	We proceed by induction on $i$. 
+	The case $i=0$ is trivial, so we assume that 
+	the result holds for some 
+	$i\geq0$. 
+	Let $\pi_i\colon G\to G/G_i$ is the canonical map. 
+	Since $\pi_i(G_{i-1})\subseteq Z(G/G_{i})$, it follows that
 	\[
-	\gamma_{i+1}(G)=[G,\gamma_i(G)]\subseteq [G,G_{i-1}]\subseteq G_i
+	\pi([G,G_{i-1}])=[\pi_i(G),\pi_i(G_{i-1})]=\{1\}.
 	\]
-	pues, como $\pi_i(G_{i-1})\subseteq Z(G/G_{i})$, entonces
-	$\pi([G,G_{i-1}])=[\pi(G),\pi(G_{i-1})]=\{1\}$ y luego $[G,G_{i-1}]\subseteq
-	G_i$.
+	This implies that $[G,G_{i-1}]\subseteq\ker\pi_i=G_{i-1}$. Hence
+	\[
+	\gamma_{i+1}(G)=[G,\gamma_i(G)]\subseteq [G,G_{i-1}]\subseteq G_i.\qedhere 
+	\]
 \end{proof}
 
 % extender el lema para ver qué pasa con zeta_i
 
-\begin{theorem}
-	Un grupo es nilpotente si y sólo si admite una serie central.
-\end{theorem}
+\begin{exercise}
+	A group is nilpotent if and only if it admits a central series.
+\end{exercise}
 
-\begin{proof}
-	Si el grupo $G$ es nilpotente, entonces los $\gamma_j(G)$ forman una serie
-	central para $G$. Recíprocamente, si $G=G_0\supseteq
-	G_1\supseteq\cdots\supseteq G_n=\{1\}$ es una serie central para $G$, entonces,
-	por el lema anterior, $G$ es nilpotente pues
-	\[
-	\gamma_{n+1}(G)\subseteq G_n=\{1\}.\qedhere
-	\]
-\end{proof}
+%\begin{proof}
+%	If $G$ is nilpotent, then the $\gamma_j(G)$ form a central series for $G$. Conversely, if 
+%	$G=G_0\supseteq
+%	G_1\supseteq\cdots\supseteq G_n=\{1\}$ is a central series of $G$, then 
+%	$G$ is nilpotent by Lemma~\ref{lem:serie_central}. 
+%\end{proof}
 
 \begin{exercise}
 \label{xca:nilpotente_central}
-	Sea $G$ un grupo. Demuestre que si $K$ es un subgrupo de $Z(G)$ tal que
-	$G/K$ es nilpotente, entonces $G$ es nilpotente.
+	Let $G$ be a group. If $K$ is a central subgroup of $G$ such that 
+	$G/K$ is nilpotent, then $G$ is nilpotent.
 \end{exercise}
 
 \begin{theorem}[Hirsch]
-	\label{theorem:Z(nilpotent)}
-	\index{Teorema!de Hirsch}
-	Sea $G$ un grupo nilpotente. Si $H$ es un subgrupo normal no trivial de $G$
-	entonces $H\cap Z(G)\ne\{1\}$. En particular, $Z(G)\ne\{1\}$. 
-%	Si $G$ es un grupo nilpotente entonces $Z(G)\ne1$. 
+	\label{thm:Z(nilpotent)}
+	\index{Hirsch's Theorem}
+	Let $G$ be a nilpotent group. If $H$ is a non-trivial normal subgroup of $G$, then 
+	$H\cap Z(G)\ne\{1\}$. In particular, $Z(G)\ne\{1\}$. 
 \end{theorem}
 
 \begin{proof}
-	Como $\zeta_0(G)=\{1\}$ y existe $c$ tal que $\zeta_c(G)=G$, existe 
+	Since $\zeta_0(G)=\{1\}$ and there exists $c$ such that $\zeta_c(G)=G$, there exists  
 	\[
 	m=\min\{k:H\cap\zeta_k(G)\ne\{1\}\}.
 	\]
-	Como $H$ es normal, 
+	Since $H$ is normal, 
 	\[
 	[H\cap\zeta_m(G),G]\subseteq H\cap[\zeta_m(G),G]\subseteq H\cap\zeta_{m-1}(G)=\{1\}.
 	\]
-	Luego $\{1\}\ne H\cap\zeta_m(G)\subseteq H\cap Z(G)$. Si $H=G$ entonces $Z(G)\ne\{1\}$. 
-%	Sea $c$ tal que $\gamma_{c+1}(G)=1$ y $\gamma_{c}(G)\ne1$. 
-%	Por el lema~\ref{lemma:gamma_zeta}, 
-%	\[
-%	1\ne\gamma_{c}(G)\subseteq \zeta_{1}(G)=Z(G).
-%	\]
+	Thus $\{1\}\ne H\cap\zeta_m(G)\subseteq H\cap Z(G)$. If $H=G$, then $Z(G)\ne\{1\}$. 
 \end{proof}
 
 \begin{exercise}
 \label{xca:nilpotente_minimalnormal}
-	Sea $G$ un grupo nilpotente y sea $M$ un subgrupo minimal-normal de $G$.
-	Demuestre que $M\subseteq Z(G)$.
+	Let $G$ be a nilpotent group and $M$ be a minimal normal subgroup of $G$. 
+	Then $M\subseteq Z(G)$.
 \end{exercise}
 
 % \begin{svgraybox}
@@ -570,60 +566,62 @@ Let $G$ be a perfect group and $N$ be a normal subgroup of $G$. Then $G/N$ is pe
 % 	Por el teorema~\ref{theorem:Z(nilpotent)}, $M\cap Z(G)\ne 1$.
 % \end{svgraybox}
 
+A subgroup $M$ of $G$ is \textbf{maximal normal} if it is maximal
+among all normal subgroups of $G$.  
+
 \begin{corollary}
-	Sea $G$ un grupo nilpotente no abeliano y sea $A$ un subgrupo
-	maximal-normal y abeliano de $G$. Entonces $A=C_G(A)$.
+	Let $G$ be a non-abelian nilpotent group and $A$ be an abelian 
+	maximal normal subgroup of $G$. Then $A=C_G(A)$.
 \end{corollary}
 
 \begin{proof}
-	Como $A$ es abeliano, $A\subseteq C_G(A)$. Supongamos que $A\ne C_G(A)$.
-	El centralizador $C_G(A)$ es normal en $G$ pues, como $A$ es normal en $G$, 
+	Since $A$ is abelian, $A\subseteq C_G(A)$. Assume that $A\ne C_G(A)$.
+	The centralizer $C_G(A)$ is normal in $G$. In fact, since $A$ is normal in $G$, 
 	\[
-		gC_G(A)g^{-1}=C_G(gAg^{-1})=C_G(A).
+		gC_G(A)g^{-1}=C_G(gAg^{-1})=C_G(A)
 	\]
-	para todo $g\in G$.  Sea $\pi\colon G\to G/A$ el morfismo canónico.
-	Entonces $\pi(C_G(A))$ es un subgrupo normal no trivial de $\pi(G)$. Como
-	$G$ es nilpotente, $\pi(G)$ es nilpotente y, por el
-	teorema de Hirsch, $\pi(C_G(A))\cap Z(\pi(G))\ne\{1\}$. Sea
-	$x\in C_G(A)\setminus A$ tal que $\pi(x)$ es central en $\pi(G)$.  El grupo
-	$\langle A,x\rangle$ es abeliano pues $x\in C_G(A)$. Además $\langle
-	A,x\rangle$ es normal en $G$ pues $A$ es normal en $G$ y  si $g\in G$
-	entonces $gxg^{-1}x^{-1}\in A$ porque $\pi(x)$ es central y luego
-	$gxg^{-1}\in \langle A,x\rangle$. Luego $A\subsetneq \langle
-	A,x\rangle\subsetneq G$, una contradicción.
+	for all $g\in G$.  Let $\pi\colon G\to G/A$ be the canonical map.
+	Then $\pi(C_G(A))$ is a non-trivial normal subgroup of $\pi(G)$. Since 
+	$G$ is nilpotent, $\pi(G)$ is nilpotent. By Hirsch's theorem, 
+	$\pi(C_G(A))\cap Z(\pi(G))\ne\{1\}$. Let
+	$x\in C_G(A)\setminus A$ be such that $\pi(x)$ is central in $\pi(G)$. 
+	Note that if $g\in G$, then $gxg^{-1}\in C_G(A)$. 
+	Then 
+	$\langle A,x\rangle$ is an abelian normal subgroup of $G$ such that   
+	$A\subsetneq \langle
+	A,x\rangle\subsetneq G$, a contradiction. 
 \end{proof}
 
 \begin{theorem}
-	Sea $G$ un grupo nilpotente. Valen las siguientes afirmaciones:
+	Let $G$ be a nilpotent group. The following statements hold:
 	\begin{enumerate}
-		\item Todo subgrupo minimal-normal tiene orden primo y es central.
-		\item Todo subgrupo maximal es normal de índice primo y contiene a
-			$[G,G]$. 
+		\item Every minimal normal subgroup of $G$ has prime order and it is central. 
+		\item Every maximal subgroup of $G$ is normal, has prime index and contains $[G,G]$. 
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
-	Demostremos la primera afirmación. Sea $N$ un subgrupo minimal-normal. Como
-	$N\cap Z(G)\ne\{1\}$ por el teorema el Hirsch, $N\cap Z(G)$ es
-	un subgrupo normal de $G$ contenido en $N$. Luego $N=N\cap Z(G)\subseteq
-	Z(G)$ por la minimalidad de $N$. En particular, $N$ es abeliano. Además,
-	como todo subgrupo de $N$ es normal en $G$, $N$ es simple y luego $N\simeq
-	C_p$ para algún primo $p$.
+	We first prove (1). Let $N$ be a minimal normal subgroup of $G$. Since $G$ is nilpotent, 
+	$N\cap Z(G)\ne\{1\}$ by Hirsch's theorem. It follows that $N\cap Z(G)$ is a normal subgroup of $G$ contained in $N$. 
+	Thus $N=N\cap Z(G)\subseteq
+	Z(G)$ by the minimality of $N$. In particular, $N$ is abelian. Since 
+	every subgroup of $N$ is normal in $G$, $N$ is simple and therefore $N\simeq
+	C_p$ for some prime number $p$.
 
-	Demostremos ahora la segunda afirmación. Si $M$ es un subgrupo maximal, $M$
-	es normal en $G$ gracias a la condidición normalizadora. La
-	maximalidad de $M$ implica que $G/M$ no contiene subgrupos propios no
-	triviales. Luego $G/M\simeq C_p$ para algún primo $p$. Como en particular
-	$G/M$ es abeliano, $[G,G]\subseteq M$. 
+	We now prove (2). If $M$ is a maximal subgroup, then $M$
+	is normal en $G$ by the normalizer condition. The maximality of $M$ implies that 
+	$G/M$ contains no non-trivial proper subgroups. Thus 
+	$G/M\simeq C_p$ for some prime number $p$. Since  
+	$G/M$ is abelian, $[G,G]\subseteq M$. 
 \end{proof}
 
-Es importante remarcar que el teorema anterior no garantiza, por ejemplo, la existencia de subgrupos maximales.
-Recordemos que $\Q$ es un grupo abeliano (por lo tanto, nilpotente) que no tiene subgrupos maximales. 
+The theorem does not prove the existence of maximal subgroups, see for example what happens with
+the additive group of rational numbers. 
 
 \begin{proposition}
-	\label{proposition:g^n}
-	Sea $G$ un grupo nilpotente y sea $H$ un subgrupo de $G$ de índice $n$. Si
-	$g\in G$ entonces $g^n\in H$.
+	\label{pro:g^n}
+	Let $G$ be a nilpotent group and $H$ be a subgroup of $G$ of index $n$. If 
+	$g\in G$, then $g^n\in H$.
 \end{proposition}
 
 %%% TODO: hacer inducción en el índice para escribirlo mejor
@@ -655,7 +653,7 @@ El lema que daremos a continuación es una herramienta útil para hacer demostra
 en grupos nilpotentes. 
 
 \begin{lemma}
-	\label{lemma:a[GG]}
+	\label{lem:a[GG]}
 	Sea $G$ un grupo nilpotente de clase $c\geq2$. Si $x\in G$ entonces el subgrupo 
 	$\langle x,[G,G]\rangle$ es nilpotente de clase $<c$.
 \end{lemma}
