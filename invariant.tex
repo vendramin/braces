@@ -137,13 +137,19 @@ if and only if $f\in C_{\Aut(K)}(\Inn(K))$.
 % 4C de Isaacs
 
 
-Let a group $G$ acts on $K$ by automorphisms. Recall that $G$ can be identified with a subgroup
-of the semidirect product $K\rtimes G$ and $K$ can be identified by a normal 
-subgroup of $K\rtimes G$. The subgroup
+Let a group $G$ acts on $K$ by automorphisms. The subgroup
 \[
 [G,K]=\langle (g\cdot x)x^{-1}:g\in G,\,x\in K\rangle
 \]
-is normal in $K$. 
+of $K$ is normal in $K$. Moreover, 
+\[
+C_G(K)=\{g\in G:g\cdot x=x\text{ for all $x\in K$}\}
+\]
+is a subgroup of $G$. 
+
+Recall $G$ can be identified with a subgroup
+of the semidirect product $K\rtimes G$ and $K$ can be identified by a normal 
+subgroup of $K\rtimes G$. 
 
 \index{Subgroup!invariant}
 A subgroup $H$ of $K$ is \textbf{$G$-invariant} if $g\cdot H\subseteq H$ for all $g\in G$. 
@@ -152,6 +158,9 @@ For example, $[G,K]$ is $G$-invaraint, as
 g_1\cdot [g,x]&=[g_1gg_1^{-1}, g_1\cdot x]
 \end{align*}
 for all $g,g_1\in G$ and $x\in K$.
+
+Note that if $G$ acts trivially on $K$, i.e. $g\cdot x=x$ for all $g\in G$ and $x\in K$, then 
+$[G,K]=\{1\}$. 
 
 If $H$ is a $G$-invariant subgroup of $K$, then $G$ permutes the cosets of $H$ in $K$. If, moreover, $H$ is normal in $K$, then
 $G$ acts on $K/H$ by automorphisms. This is the \textbf{induced action} of $G$ on $K/H$. Let $\pi\colon K\to K/H$ be the canonical
@@ -238,29 +247,140 @@ and its derived series has length $\leq m-1$.
 	By the inductive hypothesis, $G^{(m-2)}\subseteq C_G(L)$, which 
 	implies that $[G^{(m-2)},L]=\{1\}$. Thus 
 	\[
-	[G^{(m-2)},G^{(m-2)},K]\subseteq [G^{(m-2)},G,K]=[G^{(m-2},L]=\{1\}.
+	[G^{(m-2)},[G^{(m-2)},K]]\subseteq [G^{(m-2)},[G,K]]=[G^{(m-2)},L]=\{1\}.
 	\]
 	Moreover, since $[G^{(m-2)},K]=[K,G^{(m-2)}]$, 
 	it follows that 
 	\[
-	[G^{(m-2)},K,G^{(m-2)}]=\{1\}.
+	[G^{(m-2)},[K,G^{(m-2)}]]=\{1\}.
 	\]
 	The three-subgroups Lemma
 	with $X=Y=G^{(m-2)}$ and $Z=K$ implies that 
 	\[
-	\{1\}=[K,G^{(m-2},G^{(m-2)}]=[K,G^{(m-1)}].
+	\{1\}=[K,[G^{(m-2)},G^{(m-2)}]]=[K,G^{(m-1)}].
 	\]  
 	Hence $G^{(m-1)}\subseteq C_G(K)$. In particular, if the action is faithful, 
 	then $C_G(K)=\{1\}$ and the claim follows. 
 \end{proof}
 
+\begin{exercise}
+Let $G$ acts faithfully on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $G$ is abelian. 	
+\end{exercise}
+
 \begin{theorem}[Hall]
 \index{Hall's theorem}
-Let $G$ be a finite group that acts faithfully on $K$. If $[G,\dots,G,K]_m=\{1\}$ for some $m$, then $G$ is nilpotent. 
+	Let $G$ be a finite group that acts faithfully on a finite group $K$. 
+	If $[G,\dots,G,K]_m=\{1\}$ for some $m$, then $G$ is nilpotent. 
 \end{theorem}
 
 \begin{proof}
-	We proceed by induction on $|G|$. 
+	We proceed by induction on $|K|$. We may assume that $K$ is non-trivial. Let 
+	\[
+	G=\gamma_1(G)\supseteq \gamma_2(G)\supseteq\cdots\supseteq \gamma_n(G)\supseteq\cdots 
+	\]
+	be the lower central series of $G$. Since $G$ is finite, this sequence stabilizes. 
+	Let $n\in\N$ be the smallest positive integer such that
+	$\gamma_n(G)=\gamma_{n+k}(G)$ for all $k$. 
+		
+	\begin{claim}
+		$[G,K]\ne K$. 	
+	\end{claim}
+	
+	In fact, if $[G,K]=K$, then 
+	\[
+	\{1\}=[\underbrace{G,\dots,G}_{m},K]_m=[\underbrace{G,\dots,G}_{m-1},[G,K]]=\cdots=[G,K]=K,
+	\]
+	a contradiction. 
+	
+	\begin{claim}
+		$\gamma_n(G)$ acts trivially on $K$. 
+	\end{claim}
+	
+	In this case, if the action is faithful, then $\gamma_n(G)=\{1\}$ and
+	hence $G$ is nilpotent. By assumption, 
+	\[
+	\{1\}=[\underbrace{G,\dots,G}_{m},K]=[\underbrace{G,\dots,G}_{m-1},[G,K]].
+	\]
+	Since $[G,K]$ is a proper $G$-invariant subgroup of $K$, 
+	the inductive hypothesis implies that $\gamma_n(G)$ acts
+	trivially on $[G,K]$ and hence   
+	$[\gamma_n(G),[G,K]]=\{1\}$.  
+	
+	In order to use the three-subgroups lemma, we need to show that 
+	\[
+	[G,[K,\gamma_n(G)]]=\{1\}.
+	\]
+	This is tricky, we need to find a non-trivial normal subgroup $C$ of $K$ 
+	such that $G$ acts trivially on $C$. With this subgroup we proceed as follows. 
+	Let $\pi\colon K\to K/C$ be the canonical map. 
+	Since $|K/C|<|K|$ and
+	\[
+	[G,\dots,G,\pi(K)]=\pi([G,\dots,G,K])=\{1\},
+	\]
+	the inductive hypothesis implies that 
+	\[
+	\{1\}=[\gamma_n(G),\pi(K)]=\pi([\gamma_n(G),K]).
+	\]
+	Thus $[K,\gamma_n(G)]=[\gamma_n(G),K]\subseteq C$. In particular, 
+	\[
+	[G,[K,\gamma_n(G)]]=[G,[\gamma_n(G),K]]=\{1\},
+	\]
+	as $G$ acts trivially on $C$. 
+	
+	Let $C=C_{[\gamma_n(G),K]}(G)$. 
+	Clearly $C$ is a subgroup of $K$ and $G$ acts trivially on $C$. 
+	Since the group $\gamma_n(G)$ acts trivially on $[G,K]$, it follows that 
+	$[\gamma_n(G),[G,K]]=\{1\}$. Thus
+	\[
+	[K,[\gamma_n(G),[G,K]]=[K,\{1\}]=\{1\}
+	\]
+	and hence, since $[G,K]$ is normal in $K$, it follows that  
+	\[
+	[\gamma_n(G),[[G,K],K]]\subseteq [\gamma_n(G),[G,K]]=\{1\}.
+	\]
+	By the three-subgroups lemma with $X=K$, $Y=\gamma_n(G)$ and $Z=[G,K]$, 
+	\[
+	[[G,K],[\gamma_n(G),K]]=[[G,K],[K,\gamma_n(G)]]=\{1\}.
+	\]
+	By definition, $C\subseteq [\gamma_n(G),K]$ and 
+	$[C,G]=\{1\}$. Thus  
+	\begin{align*}
+	[C,[G,K]]\subseteq [[\gamma_n(G),K],[G,K]]=\{1\}
+	\shortintertext{and}
+	[K,[C,G]]=[K,\{1\}]=\{1\}.
+	\end{align*}
+	By using the three-subgroups lemma with $X=K$, $Y=C$ and $Z=G$, it follows that 
+	$[G,[C,K]]=\{1\}$, so $G$ centralizes $[C,K]$. Since $C\subseteq [\gamma_n(G),K]$ and
+	$[\gamma_n(G),K]$ is a normal subgroup of $K$, it follows that
+	$[C,K]\subseteq [\gamma_n(G),K]$. But 
+	\[
+	[C,K]\subseteq C_{[\gamma_n(G),K]}(G)=C
+	\]
+	and therefore $C$ is normal in $G$.  
+\end{proof}
+
+\begin{exercise}
+Let $G$ act on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $[G,K]$ is abelian.	
+\end{exercise}
+
+\begin{theorem}
+	Let $p$ be a prime number 
+	and $G$ be a $p$-group that acts by automorphisms on a finite group $K$. If $[G,\dots,G,K]_m=\{1\}$ for some 
+	$m$, then $[G,K]$ is a $p$-group. 
+\end{theorem}
+
+\begin{proof}
+	
+\end{proof}
+
+\begin{theorem}
+	Let the finite group $G$ act on a finite group $K$ by automorphisms. 
+	If $[G,\dots,G,K]_m=\{1\}$ for some $m$, then
+	$[G,K]$ is nilpotent. 
+\end{theorem}
+
+\begin{proof}
+	
 \end{proof}
 
 
