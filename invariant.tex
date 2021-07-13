@@ -2,6 +2,8 @@
 
 % horovevski
 % A-nilpotencia
+\label{invariant}
+
 \section*{A}
 
 We say that a group $G$ acts on a group $K$ by automorphism if the (left) action
@@ -143,8 +145,124 @@ subgroup of $K\rtimes G$. The subgroup
 \]
 is normal in $K$. 
 
-A subgroup $H$ of $K$ is $G$-invariant if...
-For example, $[G,K]$ is $G$-invaraint. 
+\index{Subgroup!invariant}
+A subgroup $H$ of $K$ is \textbf{$G$-invariant} if $g\cdot H\subseteq H$ for all $g\in G$. 
+For example, $[G,K]$ is $G$-invaraint, as
+\begin{align*}
+g_1\cdot [g,x]&=[g_1gg_1^{-1}, g_1\cdot x]
+\end{align*}
+for all $g,g_1\in G$ and $x\in K$.
+
+If $H$ is a $G$-invariant subgroup of $K$, then $G$ permutes the cosets of $H$ in $K$. If, moreover, $H$ is normal in $K$, then
+$G$ acts on $K/H$ by automorphisms. This is the \textbf{induced action} of $G$ on $K/H$. Let $\pi\colon K\to K/H$ be the canonical
+map. Then 
+\[
+\pi(g\cdot x)=(g\cdot x)H=g\cdot (xH)=g\cdot\pi(x)
+\]
+for all $g\in G$ and $x\in K$. Moreover, 
+\[
+\pi([g,x])=\pi( (g\cdot x)x^{-1})=\pi(g\cdot x)\pi(x)^{-1}=(g\cdot\pi(x))\pi(x)^{-1}=[g,\pi(x)].
+\]
+
+\begin{exercise}
+Let $G$ acts on $K$ by automorphisms. Then $[G,K]$ is the unique smallest $G$-invariant 
+subgroup of $K$ such that the induced action of $G$ on $K/[G,K]$ is trivial. 	
+\end{exercise}
+
+%\begin{proof}
+%Let $H$ be a normal $G$-invariant subgroup of $K$ and let $\pi\colon K\to K/H$ be the canonical map. The group 
+%$G$ acts trivially on $K/H$ 	if and only if 
+%\[
+%\{1\}=[G,\pi(K)]=\pi([G,K])
+%\Longleftrightarrow [G,K]\subseteq H.\qedhere
+%\]
+%\end{proof}
+
+\begin{proposition}
+Let $H$ be a subgroup of $K$. Each right coset of $H$ in $K$ is $G$-invariant if and only if 
+$[G,K]\subseteq H$. In particular, $[G,K]$ is the unique smallest subgroup of $K$ with the 
+property that all its right cosets are $G$-invariant. 	
+\end{proposition}
+
+\begin{proof}
+	Assume first that all right cosets of $H$ in $K$ are $G$-invariant. If $g\in G$ and $x\in K$, then
+	$g\cdot x\in g\cdot (Hx)=Hx$ and hence $[g,x]=(g\cdot x)x^{-1}\in H$. This implies that $[G,K]\subseteq H$. 
+	Conversely, assume that $[G,K]\subseteq H$. Then every right coset of $H$ in $K$ 
+	is a disjoint union of right cosets of $[G,K]$ in $K$. 
+	Since all these right cosets are $G$-invariant, it follows
+	that each right coset of $H$ is also $G$-invariant. 	 
+\end{proof}
+
+The bijective map $xH\mapsto Hx^{-1}$ can be used to prove that all right cosets 
+of $H$ in $K$ are $G$-invariant if and only if all left cosets of $H$ in $K$ are $G$-invariant. 
+
+An action is said to be \textbf{faithful} if $g\cdot x=x$ for all $x$ implies that $g=1$. 
+Note that if the action is faithful, then $C_G(K)=\{1\}$. 
+
+The \textbf{kernel}
+of an action is the (normal) subgroup $N$ of elements that act trivially. In this case, the quotient group
+$G/N$ acts by $\pi(g)\cdot x=g\cdot x$ and the action is faithful. Note that
+the kernel of the action 
+is the subgroup $C_G(K)$ of $K\rtimes G$. Note that $C_G(K)$ is isomorphic to 
+the largest subgroup $N$ of $G$ such that $[N,K]=\{1\}$. If $N=C_G(K)$, then $N$ is normal in $G$. In this case,
+the quotient group $G/N$ acts on $K$ by $g\cdot x=\pi(g)\cdot x$. 
+
+%\begin{exercise}
+%If $H$ is a $G$-invariant subgroup of $K$, then $G/N	
+%\end{exercise
+It will be convenient to introduce the following notaiton. 
+
+Let 
+$[G,\dots,G,K]_1 = [G,K]$ and $[G,\dots,G,K]_{m+1}=[G,\dots,G,[G,K]]_m$ for $m\geq 1$. Note that 
+\[
+[G,\dots,G,K]_{m}=[\underbrace{G,\dots,G}_{\text{$m$-copies}},K]
+\] 
+for $m\geq 1$.
+
+\begin{theorem}
+Let $G$ act by automorphisms on $K$. If $[G,\dots,G,K]_m=\{1\}$, then
+$G^{(m-1)}\subseteq  C_G(K)$. In particular, if the action is faithful, 
+then $G$ is solvable 
+and its derived series has length $\leq m-1$.
+\end{theorem}
+
+\begin{proof}
+	Let us prove that $G^{(m-1)}\subseteq  C_G(K)$ for all $m$. We proceed by induction on $m$. If $m=1$, then 
+	$[G,K]=\{1\}$ by assumption and thus 
+	$G^{(0)}=G=C_G(K)$. Assume now that the result holds for some $m\geq1$. L
+	et $L=[G,K]$. Then
+	\[
+	\{1\}=[G,\dots,G,K]_m=[G,\dots,G,L]_{m-1}.
+	\]
+	Since $L$ is $G$-invariant, $G$ acts on $L$. 
+	By the inductive hypothesis, $G^{(m-2)}\subseteq C_G(L)$, which 
+	implies that $[G^{(m-2)},L]=\{1\}$. Thus 
+	\[
+	[G^{(m-2)},G^{(m-2)},K]\subseteq [G^{(m-2)},G,K]=[G^{(m-2},L]=\{1\}.
+	\]
+	Moreover, since $[G^{(m-2)},K]=[K,G^{(m-2)}]$, 
+	it follows that 
+	\[
+	[G^{(m-2)},K,G^{(m-2)}]=\{1\}.
+	\]
+	The three-subgroups Lemma
+	with $X=Y=G^{(m-2)}$ and $Z=K$ implies that 
+	\[
+	\{1\}=[K,G^{(m-2},G^{(m-2)}]=[K,G^{(m-1)}].
+	\]  
+	Hence $G^{(m-1)}\subseteq C_G(K)$. In particular, if the action is faithful, 
+	then $C_G(K)=\{1\}$ and the claim follows. 
+\end{proof}
+
+\begin{theorem}[Hall]
+\index{Hall's theorem}
+Let $G$ be a finite group that acts faithfully on $K$. If $[G,\dots,G,K]_m=\{1\}$ for some $m$, then $G$ is nilpotent. 
+\end{theorem}
+
+\begin{proof}
+	We proceed by induction on $|G|$. 
+\end{proof}
+
 
 \section*{C}
 
@@ -162,9 +280,7 @@ Let $G$ be a finite group and $p$ be a prime number such that $p^2$ divides $|\s
 Then $\sigma$ admits a faithful orbit if and only if $\sigma^p$ admits a faithful orbit. 	
 \end{lemma}
 
-\begin{proof}
-	
-\end{proof}
+
 
 \begin{lemma}
 Let $N$ be a normal subgroup of $G$ and $\sigma\in\Aut(G)$. If $\sigma|_N=\id$, then 
