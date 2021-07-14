@@ -131,7 +131,113 @@ if and only if $f\in C_{\Aut(K)}(\Inn(K))$.
   N=[K,K]$.
 \end{proof}
 
+
 \section*{B}
+
+In this section we will develop Sylow theory for invariant subgroups. This will be used
+in the next section. 
+
+\begin{lemma}[Glauberman]
+	Let $G$ and $K$ be finite groups of coprime order, where either $G$ or $K$ is solvable. 
+	Assume that $G$ acts on $K$ by automorphisms and that
+	\begin{enumerate}
+		\item $G$ acts on a set $\Omega$,
+		\item $K$ acts transitively on $\Omega$, and 
+		\item $(g\cdot x)\cdot (g\cdot\omega)=g\cdot (x\cdot\omega)$ for all $g\in G$, $x\in K$ and $\omega\in\Omega$. 
+	\end{enumerate}
+	Then there exists a $G$-invariant element of $\Omega$. Moreover, 
+	if $\omega,\omega\in\Omega$ are $G$-invariant elements, then 
+	$c\cdot\omega=\omega_1$ for some $c\in C_K(G)$. 
+\end{lemma}
+
+By Feit--Thompson's theorem, the solvability of $G$ or $K$ is not really needed 
+since at least one of $|G|$ or $|K|$ is of odd order. 
+
+\begin{proof}[Proof of Glauberman's lemma]
+	We demonstrate the first claim. 
+	Let $\Gamma=K\rtimes G$. Each $\gamma\in\Gamma$ can be written uniquely as $\gamma=xg$ for
+	$x\in K$ and $g\in G$. Thus $\Gamma$ acts on $\Omega$ by
+	\[
+	(xg)\cdot \omega=x\cdot (g\cdot \omega),\quad x\in K,\,g\in G,\,\omega\in\Omega.
+	\]
+	To prove that this is an action we use the compatibility condition to compute
+	\begin{align*}
+	(xg)\cdot ((x_1g_1)\cdot\omega) &= (xg)\cdot \left(x_1\cdot (g_1\cdot\omega)\right)\\
+	&=x\cdot \left(g\cdot (x_1\cdot (g_1\cdot\omega))\right)
+	=x\cdot \left((g\cdot x_1)\cdot (g\cdot (g_1\cdot\omega)\right)\\
+	&=(x(g\cdot x_1))\cdot ((gg_1)\cdot \omega)
+	=(x(g\cdot x_1)(gg_1))\cdot\omega.	
+	\end{align*}
+	
+	Let $\omega\in\Omega$ nd $U=\Gamma_\omega$ be the stabilizer of $\omega$ in $\Gamma$. Let $\gamma\in\Gamma$. Since
+	$K$ acts transitively on $\Omega$, there exists $x\in K$ such that 
+	$\gamma\cdot\omega=x\cdot\omega$. Thus $\gamma^{-1}x\in U$ and
+	hence 
+	$x\in \gamma U\subseteq \Gamma U=\Gamma$. 
+	
+	Since $K$ is normal in $\Gamma$, it follows that 
+	$U\cap K$ is normal in $U$. Moreover, 
+	\[
+	(U:U\cap K)=(KU:K)=(\Gamma:K)=|G|
+	\]
+	is coprime with $|U\cap K|$. By Schur--Zassenhaus' theorem, there exists a complement 
+	$H$ of $U\cap K$ in $U$. Since 
+	\[
+	|H|=(U:U\cap K)=|G|,
+	\]
+	it follows that $H$ is also a complement of $K$ in $\Gamma$. Since $G$ is a complement of $K$ in $\Gamma$, 
+	Schur--Zassenhaus' theorem states that $H$ and $G$ are conjugate in $\Gamma$, this means 
+	$G=\gamma H\gamma^{-1}$ for some some $\gamma\in\Gamma$. Since $H\subseteq U$, it follows that $H$ stabilizes $\omega$ and
+	hence 
+	\[
+	G=\gamma H\gamma^{-1}=\gamma H_\omega \gamma^{-1}=H_{\gamma\cdot \omega}.
+	\]
+	In particular, $\gamma\cdot\omega$ is a $G$-invariant element. 
+	
+	Let us prove the second claim. 
+	Let $\omega,\omega_1\in\Omega$ be $G$-invariant elements. By assumption, $K$ acts transitively on $\Omega$ and thus 
+	the set
+	\[
+	X=\{x\in K:x\cdot \omega=\omega_1\}
+	\]
+	is non-empty. 
+	
+	\begin{claim}
+		The groups $G$ acts on $X$.		
+	\end{claim}
+
+	If $x\in X$, then $x\cdot\omega=\omega_1$. By applying $g\in G$ to this equality we obtain that 
+	$g\cdot (x\cdot \omega)=g\cdot\omega_1$. By the compatibility condition and using that
+	$\omega$ and $\omega_1$ are both $G$-invariant elements, 
+	\[
+	(g\cdot x)\cdot \omega=(g\cdot x)\cdot (g\cdot\omega)= g\cdot (x\cdot \omega)=g\cdot\omega_1=\omega_1.
+	\]
+	This proves that $G\cdot X\subseteq X$ and hence $G$ acts on $X$. 
+	
+	\begin{claim}
+		There exists a $G$-invariant element of $X$. 	
+	\end{claim}
+
+	Let $H=K_{\omega_1}$. Note that $H$ is a subgroup of $K$. The group 
+	$H$ acts transitively on $X$ by left multiplication: if $h\in H$ and $x\in X$, then
+	\[
+	(hx)\cdot\omega=h\cdot (x\cdot w)=h\cdot\omega_1=\omega_1.
+	\]
+	
+	The previous paragraph shows that $G$ acts on $H$ and 
+	this is an action by automorphisms. The orders
+	of $G$ and $H$ are coprime and either $G$ or $H$ is solvable. The group $G$ acts on $X$ 
+	and . The compatiblity condition holds:
+	\[
+	g\cdot (h\cdot x)=g\cdot(hx)=(g\cdot h)(g\cdot x)= (g\cdot h)\cdot (g\cdot x), 
+	\]
+	as $G$ acts on $K$ by automorphisms. Hence the first part of the 
+	lemma implies the existence of a $G$-invariant element of $X$. 
+	
+\end{proof}
+
+
+\section*{C}
 
 % A-nilpotentes
 % 4C de Isaacs
@@ -359,18 +465,50 @@ Let $G$ acts faithfully on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $G$ 
 	and therefore $C$ is normal in $G$.  
 \end{proof}
 
-\begin{exercise}
+For the next result we need a lemma.
+
+\begin{lemma}
+\label{lem:[G,K]abelian}
 Let $G$ act on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $[G,K]$ is abelian.	
-\end{exercise}
+\end{lemma}
+
+\begin{proof}
+	Since $[G,[G,K]]=\{1\}$, it follows that $[K,[[G,[G,K]]]=\{1\}$. Moreover, $[G,K]$ is normal in $K$ and thus 
+	\[
+	[G,[[G,K],K]]\subseteq [G,[G,K]]=\{1\}. 
+	\]
+	The three-subgroups lemma with $X=K$, $Y=G$ and $Z=[G,K]$ implies that
+	\[
+	\{1\}=[[G,K],[G,K]],
+	\]
+	so the commutator subgroup of the group 
+	$[G,K]$ is trivial. This means that $[G,K]$ is abelian. 
+\end{proof}
+
 
 \begin{theorem}
+\label{thm:[G,K]_pgroup}
 	Let $p$ be a prime number 
 	and $G$ be a $p$-group that acts by automorphisms on a finite group $K$. If $[G,\dots,G,K]_m=\{1\}$ for some 
 	$m$, then $[G,K]$ is a $p$-group. 
 \end{theorem}
 
 \begin{proof}
-	
+	We proceed by induction on $|K|$. We may assume that $K\ne\{1\}$. Then, since $[G,\dots,G,K]=\{1\}$, 
+	it follows that $[G,K]\ne K$. Let $L=[G,K]$. Then $L$ is a $G$-invariant proper 
+	normal subgroup of $K$. Since 
+	\[
+	[L,\dots,L,K]\subseteq [G,\dots,G,K]=\{1\},
+	\]
+	the inductive hypothesis on $L$ implies that $[G,L]$ is $p$-group. 
+	Note that $[G,L]$ is a normal subgroup of $L$. Then $[G,L]\subseteq O_p(L)$ and since $O_p(L)$ is characteristic in $L$
+	and $L$ is normal in $K$, it follows
+	that $O_p(L)$ is normal in $K$. Let $\pi\colon K\to K/O_p(L)$ be the canonical map. Since $[G,L]\subseteq O_p(L)$, the group 
+	$G$ acts trivially on $\pi(L)$. Now
+	\[
+	[\pi(G),K]=\pi([G,K])=\pi(L)
+	\]
+	implies that $G$ acts trivially on $\pi(G)/\pi(L)$.	\framebox{?}
 \end{proof}
 
 \begin{theorem}
@@ -380,9 +518,16 @@ Let $G$ act on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $[G,K]$ is abeli
 \end{theorem}
 
 \begin{proof}
-	
+	We proceed by induction on $|G|$. If $G=\{1\}$, then $[G,K]=\{1\}$ and there is nothing to demonstrate. So we may assume 
+	that $G\ne\{1\}$. Let $G_1$ be a proper subgroup of $G$. Since 
+	\[
+	[G_1,\dots,G_1,K]\subseteq [G,\dots,G,K]=\{1\},
+	\]
+	the inductive hypothesis implies that $[G_1,K]$ is nilpotent. Since $[G_1,K]$ is a normal subgroup of $K$, 
+	$[G_1,K]\subseteq F(K)$ and thus $G_1$ acts trivially on the quotient $K/F(K)$. \framebox{?}
 \end{proof}
 
+% actions?
 
 \section*{C}
 
@@ -767,28 +912,24 @@ the group $\Gamma$.
     it follows that $A$ is left nilpotent.
 \end{proof}
 
-\framebox{HERE}
-The following results follow immediately from theorems of P.  Hall:
+\begin{exercise}
+    Let $A$ be finite brace such that $A^3=0$. Then 
+    $A^2$ is a trivial brace of abelian type.
+\end{exercise}
 
-\begin{lemma}
-    Let $A$ be finite brace such that $A^3=0$. Then the additive group of
-    $A^2$ is abelian. In fact, $A^2$ is a trivial brace.
-\end{lemma}
-
-\begin{proof}
-The first part follows by \cite[Theorem~6]{Hall}. Note that
-$(A^2)^2\subseteq A^3=0$, hence $a\circ b=a+b$ for all $a,b\in A^2$, and
-the result follows.
-\end{proof}
-
+%\begin{proof}
+%The first part follows by \cite[Theorem~6]{Hall}. Note that
+%$(A^2)^2\subseteq A^3=0$, hence $a\circ b=a+b$ for all $a,b\in A^2$, and
+%the result follows.
+%\end{proof}
 
 \begin{theorem}
     \label{thm:A2}
-    Let $A$ be left nilpotent skew left brace. Then the following statements
+    Let $A$ be a finite left nilpotent brace. Then the following statements
     hold:
     \begin{enumerate}
-        \item The additive group of $A^2$ is locally nilpotent.
-        \item The multiplicative group of $A/\ker\lambda$ is locally nilpotent.
+        \item The additive group of $A^2$ is nilpotent.
+        \item The multiplicative group of $A/\ker\lambda$ is nilpotent.
     \end{enumerate}
 \end{theorem}
 

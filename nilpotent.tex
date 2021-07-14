@@ -1270,28 +1270,27 @@ Otherwise, $\Phi(G)=G$.
 	contains $\Phi(N)$ and therefore $\Phi(G)\supseteq\Phi(N)$. 
 \end{proof}
 
-El lema que sigue nos dice que los elementos del subgrupo de Frattini son esencialmente
-los "no-generadores" del grupo. 
+The Frattini subgroup can be characterized in terms of non-generators.  
 
 \begin{lemma}[non-generators]
 	\label{lemma:nongenerators}
 	\index{Lema!de los no-generadores}
-	Sea $G$ un grupo finito. Entonces 
+	Let $G$ be a finite group. Then 
 	\[
 	\Phi(G)=\{x\in G:\text{if $G=\langle x,Y\rangle$ for some $Y\subseteq G$, then $G=\langle Y\rangle$}\}.
 	\]
 \end{lemma}
 
 \begin{proof}
-	Veamos primero la inclusión $\supseteq$.  Sea $x\in G$ y sea $M$ un
-	subgrupo maximal de $G$.  Si $x\not\in M$ entonces, como $G=\langle
-	x,M\rangle$, se tiene $G=\langle M\rangle=M$, absurdo. Luego $x\in M$ para
-	todo subgrupo maximal $M$ y entonces $x\in \Phi(G)$. 
-
-	Veamos ahora la inclusión $\subseteq$. Sea $x\in\Phi(G)$ tal que $G=\langle
-	x,Y\rangle$ para algún subconjunto $Y$ de $G$. Si $G\ne \langle Y\rangle$,
-	existe un subgrupo maximal $M$ tal que $\langle Y\rangle\subseteq M$. Como
-	$x\in M$, $G=\langle x,Y\rangle\subseteq M$, una contradicción.
+	Let $x\in\Phi(G)$ be such that $G=\langle
+	x,Y\rangle$ for some subset $Y$ of $G$. If $G\ne \langle Y\rangle$, then 
+	there exists a maximal subgroup $M$ such that $\langle Y\rangle\subseteq M$. Since 
+	$x\in M$, $G=\langle x,Y\rangle\subseteq M$, a contradiction.
+	
+	Conversely, 
+	let $x\in G$ and $M$ be a maximal subgroup of $G$. If $x\not\in M$, then, since $G=\langle
+	x,M\rangle$, it follows that $G=\langle M\rangle=M$, a contradiction. Thus $x\in M$ for all
+	maximal subgroup $M$. Hence $x\in \Phi(G)$. 
 \end{proof}
 
 \begin{exercise}
@@ -1326,8 +1325,8 @@ los "no-generadores" del grupo.
 
 \begin{exercise}
 	\label{exercise:G/M}
-	Sea $G$ un grupo y sea $M$ un subgrupo normal de $G$ maximal. Demuestre que
-	$G/M$ es cíclico de orden primo. 
+	Let $G$ br a group and $M$ be a normal subgroup of $G$ that is maximal. Then
+	$G/M$ is cyclic of prime order.
 \end{exercise}
 
 % \begin{svgraybox}
@@ -1338,24 +1337,19 @@ los "no-generadores" del grupo.
 \begin{theorem}[Gasch\"utz]
 	\label{thm:Gaschutz}
 	\index{Gasch\"utz's!teorema de}
-	Si $G$ es un grupo finito entonces 
-	\[
-	[G,G]\cap Z(G)\subseteq\Phi(G).
-	\]
+	If $G$ is a finite group, then $[G,G]\cap Z(G)\subseteq\Phi(G)$.
 \end{theorem}
 
 \begin{proof}
-	Let $D=[G,G]\cap Z(G)$. Supongamos que $D$ no está contenido en $\Phi(G)$.
-	Como $\Phi(G)$ está contenido en todo subgrupo maximal de $G$, existe un
-	subgrupo maximal $M$ de $G$ tal que $D$ no está contenido en $M$.  Esto
-	implica que $G=MD$. Como $D\subseteq Z(G)$, $M$ es normal en $G$ pues si
-	$g=md\in G=MD$ entonces
+	Let $D=[G,G]\cap Z(G)$. Assume that $D$ is not contained in $\Phi(G)$.
+	Since $\Phi(G)$ is contained in every maximal subgroup of $G$, there exists a maximal subgroup $M$ 
+	such that $D$ is not contained in $M$. Thus $G=MD$. Since $D\subseteq Z(G)$, $M$ is normal in $G$, since if  
+	$g=md\in G=MD$, then 
 	\[
 		gMg^{-1}=(md)Md^{-1}m^{-1}=mMm^{-1}=M.
 	\]
-	Como $G/M$ es cíclico de orden
-	primo, en particular, $G/M$ es abeliano y luego $[G,G]\subseteq M$. En consecuencia, 
-	$D\subseteq [G,G]\subseteq M$, una contradicción.
+	Since $G/M$ is cyclic of prime order, $G/M$ is abelian. Thus $[G,G]\subseteq M$ and hence 
+	$D\subseteq [G,G]\subseteq M$, a contradiction. 
 \end{proof}
 
 \begin{lemma}
