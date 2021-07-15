@@ -138,16 +138,20 @@ In this section we will develop Sylow theory for invariant subgroups. This will 
 in the next section. 
 
 \begin{lemma}[Glauberman]
-	Let $G$ and $K$ be finite groups of coprime order, where either $G$ or $K$ is solvable. 
+	Let $G$ and $K$ be finite groups of coprime order, where at least one of $G$ or $K$ is solvable. 
 	Assume that $G$ acts on $K$ by automorphisms and that
+	$G$ acts on a set $\Omega$,
+	$K$ acts transitively on $\Omega$ and  
+	\[
+	(g\cdot x)\cdot (g\cdot\omega)=g\cdot (x\cdot\omega)
+	\]
+	for all $g\in G$, $x\in K$ and $\omega\in\Omega$. 
+	The following statements hold:
 	\begin{enumerate}
-		\item $G$ acts on a set $\Omega$,
-		\item $K$ acts transitively on $\Omega$, and 
-		\item $(g\cdot x)\cdot (g\cdot\omega)=g\cdot (x\cdot\omega)$ for all $g\in G$, $x\in K$ and $\omega\in\Omega$. 
-	\end{enumerate}
-	Then there exists a $G$-invariant element of $\Omega$. Moreover, 
-	if $\omega,\omega\in\Omega$ are $G$-invariant elements, then 
+	\item There exists a $G$-invariant element of $\Omega$.
+	\item If $\omega,\omega\in\Omega$ are $G$-invariant elements, then 
 	$c\cdot\omega=\omega_1$ for some $c\in C_K(G)$. 
+	\end{enumerate}
 \end{lemma}
 
 By Feit--Thompson's theorem, the solvability of $G$ or $K$ is not really needed 
@@ -195,7 +199,8 @@ since at least one of $|G|$ or $|K|$ is of odd order.
 	In particular, $\gamma\cdot\omega$ is a $G$-invariant element. 
 	
 	Let us prove the second claim. 
-	Let $\omega,\omega_1\in\Omega$ be $G$-invariant elements. By assumption, $K$ acts transitively on $\Omega$ and thus 
+	Let $\omega,\omega_1\in\Omega$ be $G$-invariant elements. 
+	By assumption, $K$ acts transitively on $\Omega$ and thus 
 	the set
 	\[
 	X=\{x\in K:x\cdot \omega=\omega_1\}
@@ -203,7 +208,7 @@ since at least one of $|G|$ or $|K|$ is of odd order.
 	is non-empty. 
 	
 	\begin{claim}
-		The groups $G$ acts on $X$.		
+		The groups $G$ acts on $X$. 
 	\end{claim}
 
 	If $x\in X$, then $x\cdot\omega=\omega_1$. By applying $g\in G$ to this equality we obtain that 
@@ -215,7 +220,10 @@ since at least one of $|G|$ or $|K|$ is of odd order.
 	This proves that $G\cdot X\subseteq X$ and hence $G$ acts on $X$. 
 	
 	\begin{claim}
-		There exists a $G$-invariant element of $X$. 	
+		There exists a $G$-invariant element of $X$. (This completes the proof, 
+		as if $x\in X$ is $G$-invariant, then $x\in K$ is such that 
+		$x\cdot \omega=\omega_1$ and $g\cdot x=x$ for all $g\in G$, i.e.   
+		$x\in C_K(G)$.)
 	\end{claim}
 
 	Let $H=K_{\omega_1}$. Note that $H$ is a subgroup of $K$. The group 
@@ -224,18 +232,55 @@ since at least one of $|G|$ or $|K|$ is of odd order.
 	(hx)\cdot\omega=h\cdot (x\cdot w)=h\cdot\omega_1=\omega_1.
 	\]
 	
-	The previous paragraph shows that $G$ acts on $H$ and 
-	this is an action by automorphisms. The orders
-	of $G$ and $H$ are coprime and either $G$ or $H$ is solvable. The group $G$ acts on $X$ 
+	The action of $G$ on $K$ restricts to $H$ and hence
+	$G$ acts on $H$ by automorphisms. The orders
+	of $G$ and $H$ are coprime and either $G$ or $H$ is solvable. 
+	The group $G$ acts on $X$ 
 	and . The compatiblity condition holds:
 	\[
 	g\cdot (h\cdot x)=g\cdot(hx)=(g\cdot h)(g\cdot x)= (g\cdot h)\cdot (g\cdot x), 
 	\]
 	as $G$ acts on $K$ by automorphisms. Hence the first part of the 
 	lemma implies the existence of a $G$-invariant element of $X$. 
-	
 \end{proof}
 
+We now prove Sylow's theorems for invariant 
+subgroups.
+
+\begin{theorem}
+	Let $G$ act by automorphisms on $K$, where $G$ and $K$ are 
+	finite groups of coprime order. Assume
+	that $G$ and $K$ have coprime orders and that 
+	at least one of $G$ or $K$ is solvable. Let $p$ be a prime number.
+	\begin{enumerate}
+		\item There exists a Sylow $p$-group of $K$ which is $G$-invariant.
+		\item If $S$ and $T$ are $G$-invariant Sylow $p$-subgroups, then there exists 
+		$c\in G_K(G)$ such that $cSc^{-1}=T$. 
+	\end{enumerate}
+\end{theorem}
+
+\begin{proof}
+	Let us prove the first claim. By Sylow's theorems, the group $K$ acts transitively by conjugation
+	on the non-empty set 
+	$\Omega=\Syl_p(K)$. Since $G$ acts on $K$ by automorphisms, $G$ acts on $\Omega$. Let us check the
+	compatibility condition. Since $g\cdot P=gPg^{-1}\in\Omega$, $K$ acts by conjugation
+	on $\Omega$ and $G$ acts by automorphisms on $K$, 
+	\begin{align*}
+	(g\cdot x)\cdot (g\cdot P) &= (g\cdot x)(gPg^{-1})(g\cdot x)^{-1}
+	=g\cdot (xPx^{-1})=g\cdot (x\cdot P).
+	\end{align*}
+	The first part of Glauberman's lemma implies that there exists a Sylow $p$-subgroup 
+	of $K$ that is $G$-invariant. 
+	
+	Let us now prove the second claim. 
+	Let $S$ and $T$ be $G$-invariant Sylow $p$-subgroups of $K$, so $S$ and $T$ are $G$-invariant elements of $\Omega$. 
+	By the second part of Glauberman's lemma, 
+	there exits $c\in C_K(G)$ such that $c\cdot S=cSc^{-1}=T$. 
+\end{proof}
+
+\begin{corollary}
+	
+\end{corollary}
 
 \section*{C}
 
