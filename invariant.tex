@@ -279,8 +279,58 @@ subgroups.
 \end{proof}
 
 \begin{corollary}
-	
+	Let $G$ act by automorphisms on $K$, where $G$ and $K$ are finite groups of coprime orders. Assume that 
+	at least one of $K$ or $G$ is solvable. Let $P$ be a $G$-invariant $p$-subgroup 
+	of $K$ for some prime number $p$. Then $P$ is contained in some $G$-invariant Sylow $p$-subgroup of $K$.  
 \end{corollary}
+
+\begin{proof}
+	We may assume that $P$ is not contained in any proper $p$-subgroup of $K$, otherwise replace $P$ by the subgroup
+	containing it. Let $N=N_K(P)$. Note that $N$ is $G$-invariant: if $n\in N$ and $g\in G$, then
+	\[
+	(g\cdot n)P(g\cdot n)^{-1}=g\cdot (nPn^{-1})=g\cdot P=P
+	\]	
+	since $P$ is $G$-invariant. 
+	
+	We claim that $P\in\Syl_p(K)$. By the first part of the previous theorem, there exists 
+	$S\in\Syl_p(N)$ that is $G$-invariant. By Sylow's theorem, 
+	some conjugate of $P$ is contained in $S$, say $xPx^{-1}\subseteq S$ for some $x\in N$, and hence
+	\[
+	P=xPx^{-1}\subseteq S
+	\]
+	since $P$ is normal in $N$. Since $P$ is not contained in any proper $G$-invariant 
+	$p$-subgroup of $K$, it follows that $P=S$ 
+	and thus $P\in\Syl_p(N)$.   
+	Let $Q\in\Syl_p(K)$ be such that $P\subseteq Q$. If $P\ne Q$, then  
+	$Q\cap N$ is a $G$-invariant $p$-subgroup of $N$ such that $P\subsetneq Q\cap N$, a contradiction. 
+	Hence $P=Q$ and therefore
+	$P\in\Syl_p(K)$.
+\end{proof}
+
+\begin{theorem}
+Let $G$ acts by automorphisms on $K$, where $G$ and 
+$K$ are both finite groups of coprime orers. Let $C=C_K(G)$ and assume that at least $K$ or $G$ is solvable. 
+The map
+\begin{align*}
+%\{\text{$G$-invariant conjugacy classes of $K$\text{\}&\leftrightarrow{\text{conjugacy classes of $K$}\},
+X\mapsto X\cap C,
+...
+\end{align*}
+is bijective.
+\end{theorem}
+
+%\begin{align*}
+%\{\text{$G$-invariant conjugacy classes of $K$\text{\}&\leftrightarrow{\text{conjugacy classes of $K$}\},
+%X\mapto X\cap C,
+%\wns{align*}
+%is bijective. 
+%\end{theorem}
+%
+
+% Sylow para braces? Sylow para acciones de braces? 
+% 3.26 en adelante, página 100 
+% hay mas sobre acciones coprimas, no sé si vale la pena incluirlo. 
+% biyección de clases de conj? Acciones coprimas de braces. Hay una versión de las órbitas?
 
 \section*{C}
 
