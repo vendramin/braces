@@ -80,9 +80,9 @@ r(x,y)=(\sigma_x(y),\tau_y(x)).
     Let $X$ be a non-empty set and $r\colon X\times X\to X\times X$ be a bijective map.
     Then $(X,r)$ is a set-theoretic solution to the YBE if and only if 
     \begin{align*}
-        &\sigma_x\circ\sigma_y = \sigma_{\sigma_x(y)}\circ\sigma_{\tau_y(x)},&
+        &\sigma_x\sigma_y = \sigma_{\sigma_x(y)}\sigma_{\tau_y(x)},&
         &\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y)=\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y),&
-        &\tau_z\circ\tau_y=\tau_{\tau_z(y)}\circ\tau_{\sigma_y(z)}
+        &\tau_z\tau_y=\tau_{\tau_z(y)}\tau_{\sigma_y(z)}
     \end{align*}
     for all $x,y,z\in X$. 
 \end{lemma}
@@ -116,9 +116,9 @@ invertible. By convention, we write
  Since $(X,r^{-1})$ is a solution, Lemma~\ref{lem:YB} implies that 
  the following formulas hold:
  \[
- \widehat{\tau}_y\circ\widehat{\tau_x}=\widehat{\tau}_{\tau_y(x)}\circ\widehat{\tau}_{\sigma_x(y)},
+ \widehat{\tau}_y\widehat{\tau_x}=\widehat{\tau}_{\tau_y(x)}\widehat{\tau}_{\sigma_x(y)},
  \quad
- \widehat{\sigma}_x\circ\widehat{\sigma_y}=\widehat{\sigma}_{\sigma_x(y)}\circ\widehat{\sigma}_{\tau_y(x)}.
+ \widehat{\sigma}_x\widehat{\sigma_y}=\widehat{\sigma}_{\sigma_x(y)}\widehat{\sigma}_{\tau_y(x)}.
  \]
 % Since $r(\tau^{-1}_y(x),y)=(\sigma_{\tau^{-1}_y(x)}(y),x)$, 
 % it follows that 
@@ -255,7 +255,7 @@ holds for all $u,v\in G$, then the pair $(G,r)$, where
 r\colon G\times G\to G\times G,\quad
 r(u,v)=(u\rhd v,u\lhd v)
 \]
-is a bijective solution. 
+is a solution. 
 \end{theorem}
 
 \begin{proof}
@@ -269,9 +269,9 @@ So we need to prove that $u_1=u_2$ and $v_1=v_2$. From Lemma~\ref{lem:YB}
 we note that
 \begin{align*}
 &u_1=(u\rhd v)\rhd ( (u\lhd v)\rhd w),
-&&v_1=(u\lhd v)\lhd w,\\
+&&w_1=(u\lhd v)\lhd w,\\
 &u_2=u\rhd (v\rhd w),
-&&v_2=(u\lhd (v\rhd w))\lhd (v\lhd w).
+&&w_2=(u\lhd (v\rhd w))\lhd (v\lhd w).
 \end{align*}
 Using the compatibility condition and the fact that $\xi$ is a left action, 
 \begin{align*}
@@ -279,7 +279,7 @@ Using the compatibility condition and the fact that $\xi$ is a left action,
 \end{align*}
 Similarly, since $\eta$ is a right action, 
 \[
-v_2=u\lhd ((v\rhd w)(v\lhd w))=u\lhd (vw)=(u\lhd v)\lhd w=v_1.
+w_2=u\lhd ((v\rhd w)(v\lhd w))=u\lhd (vw)=(u\lhd v)\lhd w=w_1.
 \]
 
 To prove that $r$ is invertible we proceed as follows. 
@@ -292,7 +292,7 @@ it follows that $y\rhd v^{-1}=x^{-1}$, i.e. $v^{-1}=y^{-1}\rhd x^{-1}$. Similarl
 v(u^{-1}\lhd x)=(u^{-1}\rhd x)(u^{-1}\lhd x)=u^{-1}x=vy^{-1}
 \]
 implies that $u^{-1}=y^{-1}\lhd x^{-1}$. Clearly 
-$r^{-1}=\zeta\circ (i\times i)\circ r\circ (i\times i)\circ \zeta$,
+$r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
 is the inverse of $r$, where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. 
 \end{proof}
 
@@ -310,7 +310,7 @@ r(v,y^{-1})=(u^{-1},x).
 
 \begin{proof}
 In the proof of Theorem~\ref{thm:LYZ} we found that 
-the inverse of $r$ is given by $r^{-1}=\zeta\circ (i\times i)\circ r\circ (i\times i)\circ \zeta$,
+the inverse of $r$ is given by $r^{-1}=\zeta\circ (i\times i) r\circ (i\times i) \zeta$,
 where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$, it follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
 To prove the equality $r(x^{-1},u)=(y,v^{-1})$ we proceed as follows. Since $r(x,y)=(u,v)$, it 
 follows that $x\triangleright y=u$. Then $x^{-1}\triangleright u=y$ and
@@ -321,32 +321,32 @@ $z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
 
 \section*{Exercises}
 
-\begin{prob}
-\label{prob:Wada}
-Let $G$ be a group. Prove that $r(x,y)=(xy^{-1}x^{-1},xy^2)$ 
-is involutive if and only if $x^2=1$ for all $x\in G$. 
-\end{prob}
-
-\begin{prob}
-Let $X$ be a \framebox{finite} non-empty set and $r\colon X\times X\to X\times X$, $(x,y)\mapsto (\sigma_x(y),\tau_y(x))$, be a map.
-Prove that $(X,r)$ is a solution if and only if 
-the maps $\sigma_x\colon X\to X$ are bijective for all $x\in X$,
-$r^2=\id_{X\times X}$ and 
-\[
-\sigma_x\circ\sigma_{\sigma^{-1}_x(y)}=\sigma_y\circ\sigma_{\sigma^{-1}_y(x)}
-\]
-for all $x,y\in X$. 
-\end{prob}
-
-
-\begin{prob}
-Prove that if $(X,r)$ be a solution...? \framebox{FIXME}
-\end{prob}
-
-\begin{prob}
-\label{prob:perm_group}
-Let $(X,r)$ be a solution. Prove that $\mathcal{G}(X,r)\simeq\langle (\sigma_x,\tau^{-1}_x):x\in X\rangle$. 
-\end{prob}
+%\begin{prob}
+%\label{prob:Wada}
+%Let $G$ be a group. Prove that $r(x,y)=(xy^{-1}x^{-1},xy^2)$ 
+%is involutive if and only if $x^2=1$ for all $x\in G$. 
+%\end{prob}
+%
+%\begin{prob}
+%Let $X$ be a \framebox{finite} non-empty set and $r\colon X\times X\to X\times X$, $(x,y)\mapsto (\sigma_x(y),\tau_y(x))$, be a map.
+%Prove that $(X,r)$ is a solution if and only if 
+%the maps $\sigma_x\colon X\to X$ are bijective for all $x\in X$,
+%$r^2=\id_{X\times X}$ and 
+%\[
+%\sigma_x\circ\sigma_{\sigma^{-1}_x(y)}=\sigma_y\circ\sigma_{\sigma^{-1}_y(x)}
+%\]
+%for all $x,y\in X$. 
+%\end{prob}
+%
+%
+%\begin{prob}
+%Prove that if $(X,r)$ be a solution...? \framebox{FIXME}
+%\end{prob}
+%
+%\begin{prob}
+%\label{prob:perm_group}
+%Let $(X,r)$ be a solution. Prove that $\mathcal{G}(X,r)\simeq\langle (\sigma_x,\tau^{-1}_x):x\in X\rangle$. 
+%\end{prob}
 
 
 \section*{Notes}
