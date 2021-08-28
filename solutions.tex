@@ -225,11 +225,11 @@ with permutations $\sigma$ and $\tau$.
 %The solution $(X,r)$ is involutive 
 %if and only if $\tau^{-1}=\sigma$. 
 \end{example}
-
-\begin{example}
-\label{exa:Wada}
-Let $G$ be a group. Then $(G,r)$, where $r(x,y)=(xy^{-1}x^{-1},xy^2)$, is a solution. 
-\end{example}
+%
+%\begin{example}
+%\label{exa:Wada}
+%Let $G$ be a group. Then $(G,r)$, where $r(x,y)=(xy^{-1}x^{-1},xy^2)$, is a solution. 
+%\end{example}
 
 \begin{example}
 \label{exa:Venkov}
@@ -310,8 +310,8 @@ r(v,y^{-1})=(u^{-1},x).
 
 \begin{proof}
 In the proof of Theorem~\ref{thm:LYZ} we found that 
-the inverse of $r$ is given by $r^{-1}=\zeta\circ (i\times i) r\circ (i\times i) \zeta$,
-where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$, it follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
+the inverse of the map $r$ is given by $r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
+where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. It follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
 To prove the equality $r(x^{-1},u)=(y,v^{-1})$ we proceed as follows. Since $r(x,y)=(u,v)$, it 
 follows that $x\triangleright y=u$. Then $x^{-1}\triangleright u=y$ and
 hence $r(x^{-1},u)=(y,z)$ for some $z\in G$. 
@@ -321,12 +321,40 @@ $z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
 
 \section*{Exercises}
 
-%\begin{prob}
-%\label{prob:Wada}
-%Let $G$ be a group. Prove that $r(x,y)=(xy^{-1}x^{-1},xy^2)$ 
-%is involutive if and only if $x^2=1$ for all $x\in G$. 
-%\end{prob}
-%
+\begin{prob}
+\label{prob:Wada}
+Let $G$ be a group. Prove that the following maps satisfy the set-theoretic YBE:
+\begin{enumerate}[label=\alph*)]
+\item $r(x,y)=(y,x^{-1})$.
+\item $r(x,y)=(y^{-1},x^{-1})$.
+\item $r(x,y)=(xyx,x^{-1})$.
+\item $r(x,y)=(x^2y,y^{-1}x^{-1}y)$.	
+\end{enumerate}	
+\end{prob}
+
+\begin{prob}
+\label{prob:Wada_racks}
+	Let $G$ be a group. Prove that the following maps satisfy the set-theoreic YBE:
+	\begin{enumerate}[label=\alph*)]
+	\item $r(x,y)=(x^myx^{-m},x)$.
+	\item $r(x,y)=(xy^{-1}x,x)$.
+\end{enumerate}	
+\end{prob}
+
+\begin{prob}
+\label{prob:D_n}
+Let $n\geq2$ and $X=\Z/(n)$ be the ring of integers modulo $n$. Prove that
+the map $r(x,y)=(2x-y,x)$ satisfy the the set-theoreic YBE.  	
+\end{prob}
+
+
+\begin{prob}
+Let $G$ be a group and $f\in\Aut(G)$. Prove that 
+the map $r(x,y)=(f(y),f(y)^{-1}xy)$ satisfy the set-theoretic YBE.	
+\end{prob}
+
+
+
 %\begin{prob}
 %Let $X$ be a \framebox{finite} non-empty set and $r\colon X\times X\to X\times X$, $(x,y)\mapsto (\sigma_x(y),\tau_y(x))$, be a map.
 %Prove that $(X,r)$ is a solution if and only if 
@@ -355,17 +383,15 @@ $z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
 \index{Van den Bergh, M.}
 The first papers where set-theoretic solutions are studied are those of Etingof, Schedler and Soloviev~\cite{MR1722951} 
 and Gateva--Ivanova and Van den Bergh~\cite{MR1637256}. 
-Both papers deal with non-degenerate involutive solutions. 
+Both papers deal with non-degenerate involutive solutions, i.e. solutions
+$(X,r)$ where $r^2=\id$.  
 
-\index{Rump, W.}
+%\index{Rump, W.}
 \index{Drinfeld, V.}
 \index{Wada, M.}
 \index{Lyubashenko, V.}
 In~\cite{MR1183474}, Drinfeld attributes Example~\ref{exa:Lyubashenko} to 
-Lyubashenko. Example~\ref{exa:Wada} 
-appears in the work of Wada~\cite{MR1167178}. Proposition~\ref{pro:Rump} 
-was proved by Rump~\cite{MR2278047}. 
-%a similar example appears in the appendix of~\cite{MR1722951}. 
+Lyubashenko. 
 
 \index{Lu, J--H.}
 \index{Yan, M.}
@@ -374,6 +400,16 @@ was proved by Rump~\cite{MR2278047}.
 \index{Schedler, T.}
 \index{Soloviev, A.}
 Theorem~\ref{thm:LYZ} goes back to Lu, Yan and Zhu, see~\cite{MR1769723}.
-Similar results can be found in the work of Etingof, Schedler and Soloviev~\cite{MR1722951} for involutive solutions and 
-in Soloviev's paper~\cite{MR1809284}. 
+Similar results can be found in the work of Etingof, Schedler and Soloviev~\cite{MR1722951} 
+for involutive solutions 
+and in Soloviev's paper~\cite{MR1809284}.
+
+Exercises~\ref{prob:Wada} and~\ref{prob:Wada_racks} 
+appear in the work of Wada~\cite{MR1167178} on representations of braid groups. 
+The solutions of Exercises~\ref{prob:Wada_racks} and~\ref{prob:D_n} 
+are particular cases of a more general type of set-theoretic solutions that we will study in 
+Chapter~\ref{racks}.  
+%Proposition~\ref{pro:Rump} was proved by Rump~\cite{MR2278047}. 
+%a similar example appears in the appendix of~\cite{MR1722951}. 
+ 
 
