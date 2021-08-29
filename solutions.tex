@@ -135,6 +135,32 @@ invertible. By convention, we write
 % \]
 % for all $x,y\in X$. 
 
+\begin{example}
+Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$, where
+\begin{align*}
+&\sigma_1=(132),&&
+\sigma_2=(124),&&
+\sigma_3=(143),&&
+\sigma_4=(234),\\
+&\tau_1=(12)(34),&&
+\tau_2=(12)(34),&&
+\tau_3=(12)(34),&&
+\tau_4=(12)(34).
+\end{align*}
+Then $r$ is invertible with $r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))$ given by
+\begin{align*}
+&\widehat{\sigma}_1=(12)(34), &&
+\widehat{\sigma}_2=(12)(34), &&
+\widehat{\sigma}_3=(12)(34), &&
+\widehat{\sigma}_4=(12)(34),\\
+&\widehat{\tau}_1=(142),&&
+\widehat{\tau}_1=(123),&&
+\widehat{\tau}_1=(243),&&
+\widehat{\tau}_1=(134).
+\end{align*}
+\end{example}
+
+
 \begin{definition}
 A \emph{homomorphism} between the set-theoretic solutions $(X,r)$ and
 $(Y,s)$ is a map $f\colon X\to Y$ such that the diagram 
