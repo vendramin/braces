@@ -285,7 +285,15 @@ holds for all $u,v\in G$, then the pair $(G,r)$, where
 r\colon G\times G\to G\times G,\quad
 r(u,v)=(u\rhd v,u\lhd v)
 \]
-is a solution. 
+is a solution. Moreover, 
+if $r(x,y)=(u,v)$, then 
+\[
+r(x^{-1},y^{-1})=(u^{-1},v^{-1}),
+\quad
+r(x^{-1},u)=(y,v^{-1}),
+\quad
+r(v,y^{-1})=(u^{-1},x).
+\]
 \end{theorem}
 
 \begin{proof}
@@ -324,30 +332,37 @@ v(u^{-1}\lhd x)=(u^{-1}\rhd x)(u^{-1}\lhd x)=u^{-1}x=vy^{-1}
 implies that $u^{-1}=y^{-1}\lhd x^{-1}$. Clearly 
 $r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
 is the inverse of $r$, where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. 
-\end{proof}
 
-\begin{proposition}
-Under the assumptions of Theorem~\ref{thm:LYZ}, 
-if $r(x,y)=(u,v)$, then 
-\[
-r(x^{-1},y^{-1})=(u^{-1},v^{-1}),
-\quad
-r(x^{-1},u)=(y,v^{-1}),
-\quad
-r(v,y^{-1})=(u^{-1},x).
-\]
-\end{proposition}
-
-\begin{proof}
-In the proof of Theorem~\ref{thm:LYZ} we found that 
-the inverse of the map $r$ is given by $r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
-where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. It follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
-To prove the equality $r(x^{-1},u)=(y,v^{-1})$ we proceed as follows. Since $r(x,y)=(u,v)$, it 
+It now follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
+Let us prove that $r(x^{-1},u)=(y,v^{-1})$ holds. Since $r(x,y)=(u,v)$, it 
 follows that $x\triangleright y=u$. Then $x^{-1}\triangleright u=y$ and
 hence $r(x^{-1},u)=(y,z)$ for some $z\in G$. 
-Since $xy=uv$ and $x^{-1}u=yz$, it follows that $yt=yv^{-1}$. Then 
+Since $xy=uv$ and $x^{-1}u=yz$, it immediately follows that $yt=yv^{-1}$. Then 
 $z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
 \end{proof}
+%
+%\begin{proposition}
+%Under the assumptions of Theorem~\ref{thm:LYZ}, 
+%if $r(x,y)=(u,v)$, then 
+%\[
+%r(x^{-1},y^{-1})=(u^{-1},v^{-1}),
+%\quad
+%r(x^{-1},u)=(y,v^{-1}),
+%\quad
+%r(v,y^{-1})=(u^{-1},x).
+%\]
+%\end{proposition}
+%
+%\begin{proof}
+%In the proof of Theorem~\ref{thm:LYZ} we found that 
+%the inverse of the map $r$ is given by $r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
+%where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. It follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
+%To prove the equality $r(x^{-1},u)=(y,v^{-1})$ we proceed as follows. Since $r(x,y)=(u,v)$, it 
+%follows that $x\triangleright y=u$. Then $x^{-1}\triangleright u=y$ and
+%hence $r(x^{-1},u)=(y,z)$ for some $z\in G$. 
+%Since $xy=uv$ and $x^{-1}u=yz$, it follows that $yt=yv^{-1}$. Then 
+%$z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
+%\end{proof}
 
 \section*{Exercises}
 
