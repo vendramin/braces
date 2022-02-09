@@ -7,9 +7,9 @@
 \begin{definition}
 \label{defn:rack}
 \index{Rack}
-A \emph{rack} is a pair $(X,\triangleright)$, 
+A \emph{rack} is a pair $(X,\triangleleft)$, 
 where $X$ is a non-empty set and 
-$X\times X\to X$, $(x,y)\mapsto x\triangleright y$, is a binary operation on $X$ such that
+$X\times X\to X$, $(x,y)\mapsto x\triangleleft y$, is a binary operation on $X$ such that
 the maps $\rho_y\colon X\to X$, $x\mapsto x\triangleleft y$, are bijective for all $y\in X$, and 
 \begin{equation}
 \label{eq:rack}
@@ -100,12 +100,12 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
     Since $r(x,\sigma_x^{-1}(y))=(y,\tau_{\sigma_x^{-1}(y)}(x))$, 
     it follows that 
     $\widehat{\sigma}_y^{-1}(x)=\tau_{\sigma_x^{-1}(y)}(x)$ 
-    for all $x,y\in X$. Hence the second equality of~\eqref{eq:derived} holds. 
+    for all $x,y\in X$. Hence the second equality of~\eqref{eq:derived} holds. {\bf Therefore the maps $X\to X,\, x\mapsto x\triangleleft y$ are bijective}.
     
-    To prove that each $\tau_z$ is a rack homomorphism it is enough to show that
-    \[
+    {\bf Now we shall show that}
+    \begin{equation}\label{eq:rackhom}
     \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)=\sigma_x(y\triangleleft\sigma_y(z))
-    \]
+    \end{equation}
     for all $x,y\in X$. Write $r(x,y)=(u,v)$. On the one hand, by 
     Lemma~\ref{lem:YB}, 
     \begin{align*}
@@ -117,12 +117,13 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
     On the other hand, 
     \begin{align*}
         \sigma_x(y\triangleleft\sigma_y(z)) 
-        &=\sigma_x\sigma_{\sigma_y(z)\tau_z(y)}
+        &=\sigma_x\sigma_{\sigma_y(z)}\tau_z(y)
         =\sigma_{\sigma_x\sigma_y(z)}\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y).
     \end{align*}
+{\bf Therefore, (\ref{eq:rackhom}) follows.}
     
     By Proposition~\ref{pro:Venkov}, in order to prove that $(X,\triangleright)$ is a rack it is enough to show that
-    $r(x,y)=(y,x\triangleleft y)$ satisfies the YBE. For that purpose, we demonstrate that 
+    $s(x,y)=(y,x\triangleleft y)$ satisfies the YBE. For that purpose, we demonstrate that 
     the map $J\colon X^3\to X^3$, $J(x,y,z)=(x,\sigma_x(y),\sigma_x\sigma_y(z))$ 
     is invertible and 
     satisfies 
@@ -131,9 +132,9 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
     \quad
     (s\times\id)\circ J=J\circ(r\times\id).
     \]
-    The map $(x,y,z)\mapsto (x,\sigma_x^{-1}(y),\sigma_{\sigma_x^{-1}(y)}^{-1}\sigma_x^{-1}(z))$ is the inverse of $J$. 
+    {\bf One can easily check that the} map $(x,y,z)\mapsto (x,\sigma_x^{-1}(y),\sigma_{\sigma_x^{-1}(y)}^{-1}\sigma_x^{-1}(z))$ is the inverse of $J$. 
 
-    Since $\sigma_x$ is a rack homomorphism, 
+    {\bf By (\ref{eq:rackhom}),} 
     \begin{align*}
     \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)
     &=\sigma_x(y\triangleleft \sigma_y(z))
@@ -165,7 +166,7 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
 %\begin{definition}
 \index{Solution!derived rack}
 The rack constructed in Proposition~\ref{pro:derived} is 
-known as the \emph{derived solution} of $(X,r)$. 
+known as the \emph{derived rack} of $(X,r)$. 
 %\end{definition}
 There is a dual version of the derived rack:
 
@@ -181,9 +182,14 @@ There is a dual version of the derived rack:
 \begin{proof}
     Since $(X,r)$ is a solution, then so is $(X,r_0)$, where 
     $r_0(x,y)=(\tau_x(y),\sigma_y(x))$. Then the claim follows 
-    from Proposition~\ref{pro:derived_dual} applied to 
+    from Proposition~\ref{pro:derived} applied to 
     the solution $(X,r_0)$.
 \end{proof}
+
+\index{Solution!dual derived rack}
+{\bf The rack constructed in Proposition~\ref{pro:derived_dual} is 
+known as the \emph{dual derived rack} of $(X,r)$.} 
+
 
 In general, the racks constructed in Propositions~\ref{pro:derived} 
 and~\ref{pro:derived_dual} are different:
@@ -248,13 +254,13 @@ T(U(x))&=T(\tau^{-1}_x(x\blacktriangleleft x))=T(\sigma_{\tau^{-1}_x(x)}(x))\\
 \end{align*}
 \end{proof}
 
-There is version of Proposition~\ref{pro:T} for arbitrary solutions. 
+There is {\bf a} version of Proposition~\ref{pro:T} for arbitrary solutions. 
 A similar result appears in Exercise~\ref{prob:variationT}.
 
 
 
 \begin{proposition}
-    Let $(X,r)$ be a solution. Then $T\colon X\to X$, $x\mapsto\tau_x^{-1}(x)$, is a bijective
+    Let $(X,r)$ be a solution. Then $T\colon X\to X$, $x\mapsto\sigma_x^{-1}(x)$, is a bijective
     map such that 
     \[
       T\circ\tau_y=\widehat{\sigma}^{-1}_y\circ T,
@@ -273,7 +279,7 @@ A similar result appears in Exercise~\ref{prob:variationT}.
         =\sigma^{-1}_{\tau_y(x)}\sigma^{-1}_{\sigma_x(y)}\sigma_{\sigma_x(y)}\tau_y(x)\\
         &=\sigma^{-1}_y\sigma^{-1}_x\sigma_{\sigma_x(y)}\tau_y(x)
         =\sigma^{-1}_y\sigma_x^{-1}(x\triangleleft\sigma_x(y))
-        =\sigma^{-1}_y(T(y)\triangleleft y)
+        =\sigma^{-1}_y(T(x)\triangleleft y)
         =\widehat{\sigma}^{-1}_yT(x).
     \end{align*}
 
@@ -281,7 +287,7 @@ A similar result appears in Exercise~\ref{prob:variationT}.
     \begin{align*}
         T\widehat{\tau_y}(x) 
         &=\sigma^{-1}_{\widehat{\tau}_y(x)}\widehat{\tau}_y(x)
-        =\sigma^{-1}_{\widehat{\tau}_y(x)}\sigma^{-1}_{\widehat{\sigma}_x(y)}
+        =\sigma^{-1}_{\widehat{\tau}_y(x)}\sigma^{-1}_{\widehat{\sigma}_x(y)}(x)
         =\sigma^{-1}_{y}\sigma^{-1}_{x}(x)
         =\sigma^{-1}_{y}T(x).
     \end{align*}
@@ -294,7 +300,7 @@ A similar result appears in Exercise~\ref{prob:variationT}.
     \end{equation}
 
     We evaluate Equality~\eqref{eq:T_rack} on $X$. On the one hand, 
-    $T(x\blacktriangleleft y)=T\sigma_x\widehat{\sigma_x}^{-1}(y)$.
+    $T(x\blacktriangleleft y)=T\tau_y\widehat{\tau_y}^{-1}(x)$.
     On the other hand,
     \begin{align*}
         \widehat{\sigma}_y^{-1}\sigma_yT(x)
@@ -409,15 +415,15 @@ non-degenerate if the map $X\times X$, $x\mapsto x\cdot x$, is bijective.
 \begin{definition}
 \index{Homomorphism!of skew cycle sets}
 Let $X$ and $Z$ be skew cycle sets. 
-A \emph{homomorphism} between the cycle sets $X$ and $Z$ is a 
-map $f\colon X\to Z$ such that $f(x\cdot y)=f(x)\cdot f(y)$ for all $x,y\in X$. An \emph{isomorphism} of cycle sets
-is a bijective homomorphism of cycle sets. 
+A \emph{homomorphism} between the {\bf skew} cycle sets $X$ and $Z$ is a 
+map $f\colon X\to Z$ such that $f(x\cdot y)=f(x)\cdot f(y)$ {\bf and $f(x\triangleleft y)=f(x)\triangleleft f(y)$,} for all $x,y\in X$. An \emph{isomorphism} of {\bf skew} cycle sets
+is a bijective homomorphism of {\bf skew} cycle sets. 
 \end{definition}
 
-Cycle sets and cycle set homomorphisms form a category. 
-It is possible to prove that the category of 
-solutions is equivalent to the category of cycle sets, 
-see Exercise~\ref{prob:cycle_sets}. 
+%Cycle sets and cycle set homomorphisms form a category. 
+%It is possible to prove that the category of 
+%solutions is equivalent to the category of cycle sets, 
+%see Exercise~\ref{prob:cycle_sets}. 
 
 
 Theorem~\ref{thm:CS} can be generalized to arbitrary solutions.
@@ -451,7 +457,9 @@ On the other hand,
 =\left(\sigma_y\circ\sigma_{\tau_{\sigma^{-1}_x(y)}(x)}\right)^{-1}(z).
 \end{align*}
 
-Now we prove the converse statement. 
+{\bf Therefore $(X,\triangleleft ,\cdot)$ is a skew cycle set. Furthermore, by Lemma \ref{lem:T_invertible}, this skew cycle set is non-degenerate.}
+
+Now we prove the converse statement. {\bf Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set.} 
 For $x,y\in X$ let 
 \[
 \sigma_x(y)=x*y,
@@ -461,12 +469,12 @@ For $x,y\in X$ let
 where $x*y=z$ if and only if $x\cdot z=y$. 
 Since $X$ is a skew cycle set, each $\sigma_x$ is bijective. Let us prove that the $\tau_x$ are bijective. 
 Equality~\eqref{eq:skew_CS} with $y=\sigma_x(z)$ implies that
-\[
+\begin{equation}\label{eq:solskew}
 \sigma_z^{-1}\sigma_x^{-1}=\sigma^{-1}_{\sigma_x^{-1}(y)}\sigma_x^{-1}
 =\sigma^{-1}_{\sigma_y^{-1}(x\triangleleft y)}\sigma_y^{-1}
 =\sigma^{-1}_{\sigma^{-1}_{\sigma_x(z)}(x\triangleleft\sigma_x(z))}\sigma^{-1}_{\sigma_x(z)}
 =\sigma^{-1}_{\tau_z(x)}\sigma^{-1}_{\sigma_x(z)}
-\]
+\end{equation}
 for all $x,z\in X$. 
 Since each $\sigma_x$ is a rack homomorphism, 
 \[
@@ -478,10 +486,25 @@ Therefore $T\circ\tau_y=\sigma_y^{-1}\circ\rho_y\circ T$, where $T\colon X\to X$
 and $\rho_y\colon X\to X$, $\rho_y(x)=x\triangleleft y$ are bijective maps. In particular, 
 $\tau_y$ is bijective for all $y\in X$. 
 
-Now we prove that...
-\framebox{solution?}
+Let $r\colon X\times X\to X\times X$ be the map defined by $r(x,y)=(\sigma_x(y),\tau_y(x))$, for all $x,y\in X$. 
+Now we prove that $(X,r)$ is a solution. Let $s\colon X\times X\to X\times X$ be the map defined by $s(x,y)=(y,x\triangleleft y)$. By Proposition \ref{pro:Venkov}, $(X,s)$ is a solution. As in the proof of Proposition \ref{pro:derived}, The map $J\colon X^3\to X^3$, $J(x,y,z)=(x,\sigma_x(y),\sigma_x\sigma_y(z))$ is invertible and satisfies that 
+$$(\id\times s)\circ J=J\circ (\id\times r),$$
+because the $\sigma_x$ are rack homomorphisms. Furthermore, by (\ref{eq:solskew}) we have that
+\begin{align*}
+	(s\times \id)J(x,y,z)&=(s\times \id)(x,\sigma_x(y),\sigma_x\sigma_y(z))\\
+	&=(\sigma_x(y),x\triangleleft \sigma_x(y),\sigma_x\sigma_y(z))\\
+	&=(\sigma_x(y), \sigma_{\sigma_x(y)}\tau_y(x),\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}(z))\\
+	&=J(\sigma_x(y),\tau_y(x),z)\\
+	&=J(r\times \id).
+\end{align*}
+Therefore $(X,r)$ is a solution.
 
-\framebox{invertible?}
+Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set. Let $\varphi(X,\triangleleft,\cdot)=(X,r)$, where
+$r(x,y)=(x*y,(x*y)\cdot(x\triangleleft (x*y)))$, where $x*y=z$ if and only if $y=x\cdot z$. We have seen that $(X,r)$ is a solution.
+
+For every solution $(X,r)$ we define $\psi(X,r)=(X,\triangleleft,\cdot)$, where $x\triangleleft y=\sigma_y\tau_{\sigma_x^{-1}(y)}(x)$ and $x\cdot y=\sigma_x^{-1}(y)$. We have seen that $(X,\triangleleft,\cdot)$ is a non-degenerate skew cycle set.
+
+It is easy to check that $\psi(\varphi(X,\triangleleft,\cdot))=(X,\triangleleft,\cdot)$, for every non-degenerate skew cycle set $(X,\triangleleft,\cdot)$, and $\varphi(\psi(X,r))=(X,r)$, for every solution $(X,r)$.
 \end{proof}
 
 Theorem~\ref{thm:skewCS} can be used to construct small solutions, see Table~\ref{tab:non_involutive}.
@@ -503,7 +526,9 @@ $s(n)$ & 2 & 21 & 253 & 3519 & 100071 & 4602720 & 422449480\tabularnewline
 
 \index{Quandle}
 An interesting family of racks is that that of quandles. A \textbf{quandle} is a rack $(X,\triangleleft)$ 
-such that $x\triangleleft x=x$ for all $x\in X$. 
+such that $x\triangleleft x=x$ for all $x\in X$.
+
+{\bf (Ferran: ¿Tienes alguna idea de c\'omo desarrollar el tema?)} 
 
 
 \section*{Exercises}
@@ -517,11 +542,12 @@ such that $x\triangleleft x=x$ for all $x\in X$.
 % \end{prob}
 \begin{prob}
     \label{prob:xx}
-    Prove that $x\triangleright x=x\blacktriangleright x$ for all $x\in X$. 
+    {\bf Let $(X,r)$ be a solution. Let $(X,\triangleleft)$ and $(X,\blacktriangleleft)$ be the derived and the dual derived racks of $(X,r)$.} Prove that $x\triangleright x=x\blacktriangleright x$ for all $x\in X$. 
 \end{prob}
 
 \begin{prob}
     \label{prob:tau_hat}
+    {\bf Let $(X,r)$ be a solution. Let $(X,\triangleleft)$  be its derived rack.}
     Prove that $\widehat{\tau}_x(y\triangleright z)=\widehat{\tau}_x(y)\triangleright \widehat{\tau}_x(z)$ for all $x,y,z\in X$. 
 \end{prob}
 
@@ -537,12 +563,13 @@ such that $x\triangleleft x=x$ for all $x\in X$.
 
 \begin{prob}
 \label{prob:guitar}
-Let $(X,r)$ be a solution and $(X,\triangleright)$ its derived rack. Let $T_2(x,y)=(\tau_y(x),y)$ and
+Let $(X,r)$ be a solution {\bf and $(X,s)$ its derived solution}. Let $T_2(x,y)=(\tau_y(x),y)$ and
 $T_{n+1}=Q_n\circ (T_n\times\id)$ for $n\geq2$, where 
 \[
 Q_n(x_1,\dots,x_{n+1})=(\tau_{x_{n+1}}(x_1),\dots,\tau_{x_{n+1}}(x_n),x_{n+1}).
 \]
 Prove that $T_n\circ r_{i,i+1}=s_{i,i+1}\circ T_n$ for all $n\geq2$ and $i\in\{1,\dots,n-1\}$. 
+{\bf (Ferran: Creo que se tendr\'{i}an que definir $r_{i,i+1}(x_1,\dots, x_n)=(x_1,\dots ,x_{i-1},r(x_i,x_{i+1},x_{i+2},\dots ,x_n))$ y similarmente para $s_{i,i+1}$. A\'un as\'{i}, la notaci\'on me parece mala, ya que $r_{i,i+1}$ depende también de $n$. Tal y como se ha desarrollado el texto, ¿no ser\'{i}a mejor una versi\'on con las $\sigma$ en vez de las $\tau$?)}
 \end{prob}
 
 \section*{Open problems}
@@ -570,7 +597,7 @@ Enumerate non-involutive solutions of size $\geq9$.
 % As we did in Proposition~\ref{pro:derived}, one proves that $x\triangleleft y=...$ turns $X$ into a 
 % right rack. This leads to the right derived solution of $(X,r)$. 
 %According to Drinfeld, Exercise~\label{prob:Venkov} 
-A particular family of racks turns out to be useful in combinatorial know theory. A quandle
+A particular family of racks turns out to be useful in combinatorial {\bf knot} theory. A quandle
 is a rack $(X,\triangleleft)$ such that $x\triangleleft x=x$ for all $x\in X$. 
 
 In~\cite{MR1183474}, Drinfeld attributes Proposition~\ref{pro:Venkov} to Venkov. 
@@ -586,7 +613,7 @@ However, it should be noted that a huge number of solutions is expected.
 
 Exercises~\ref{prob:xx} and~\ref{prob:tau_hat} appear in~\cite{MR3974961}. 
 
-The map $J$ of Exercise~\ref{prob:guitar} is known as the \emph{guitar map}. 
+The map $J$ of Exercise~\ref{prob:guitar} is known as the \emph{guitar map}. {\bf (Ferran: Con $J$, ¿te refieres a la versi\'on del ejercicio con las $\sigma$?)}
 It was first considered by Etingof, Schedler and
 Soloviev in~\cite{MR1722951} for involutive solutions. The construction was extended to non-involutive solutions
 by Soloviev in~\cite{MR1809284} and Lu, Yan and Zhu in~\cite{MR1769723}. In~\cite{MR3374524} Dehornoy

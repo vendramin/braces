@@ -12,7 +12,7 @@ it makes sense to consider the Yang--Baxter equation in the category of sets and
 \index{Solution}
 \index{Solution!finite}
 A \emph{set-theoretic solution} to the Yang--Baxter equation (YBE) is a pair $(X,r)$, 
-where $X$ is a set and $r\colon X\times X\to X\times X$ is a bijective map that satisfies 
+where $X$ is a {\bf non-empty} set and $r\colon X\times X\to X\times X$ is a bijective map that satisfies 
 \[
 (r\times\id)(\id\times r)(r\times\id)=
 (\id\times r)(r\times\id)(\id\times r),
@@ -58,19 +58,24 @@ The solution $(X,r)$ is said to be \emph{finite} if $X$ is a finite set.
 For $n\geq2$, the \emph{braid group} $\B_n$ is defined as the group with generators $\sigma_1,\dots,\sigma_{n-1}$ and relations
 \begin{align*}
     &\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1} && \text{if }1\leq i\leq n-2,\\
-    &\sigma_i\sigma_j=\sigma_j\sigma_i && \text{if }|i-j|\geq 1.
+    &\sigma_i\sigma_j=\sigma_j\sigma_i && \text{if }|i-j|> 1.
 \end{align*}
+{\bf (Ferran: he modificado la \'ultima desigualdad)}
 Let $(X,r)$ be a set-theoretic solution to the YBE. Write $X^n=X\times\cdots\times X$ ($n$-times).  
-For $i<n$ let $r_{i,i+1}=\id_{X^{i-1}}\times r\times\id_{X^{n-i-1}}\colon X^n\to X^n$. Then the map $\sigma_i\mapsto r_{i,i+1}$ extends 
+For $i<n$ let 
+\[
+r_{i,i+1}=\id_{X^{i-1}}\times r\times\id_{X^{n-i-1}}\colon X^n\to X^n.
+\]
+Then the map $\sigma_i\mapsto r_{i,i+1}$ extends 
 to an action of $\B_n$ on $X^n$.
 
 \begin{example}
-Let $X$ be a set. Then $(X,\id)$ is a solution to the YBE. 	
+Let $X$ be a {\bf non-empty} set. Then $(X,\id)$ is a {\bf set-theoretic} solution to the YBE. 	
 \end{example}
 
 \begin{example}
 \index{Solution!trivial}
-Let $X$ be a set. Then $(X,r)$, where $r(x,y)=(y,x)$, is a solution to the YBE. This solution 
+Let $X$ be a {\bf non-empty} set. Then $(X,r)$, where $r(x,y)=(y,x)$, is a {\bf set-theoretic} solution to the YBE. This solution 
 is known as the \emph{trivial solution} over the set $X$. 
 \end{example}
 
@@ -95,7 +100,7 @@ r(x,y)=(\sigma_x(y),\tau_y(x)).
     We write $r_1=r\times\id$ and $r_2=\id\times r$. We first compute
     \begin{align*}
         r_1r_2r_1(x,y,z)&=r_1r_2(\sigma_x(y),\tau_y(x),z)
-        =r_1(\sigma_x(y),\sigma_{\tau_y(x)}(z),\tau_z\sigma_x(y))\\
+        =r_1(\sigma_x(y),\sigma_{\tau_y(x)}(z),\tau_z\tau_y(x))\\
         &=\left(\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}(z),\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y),\tau_z\tau_y(x)\right).
     \end{align*}
     Then we compute
@@ -107,7 +112,7 @@ r(x,y)=(\sigma_x(y),\tau_y(x)).
     and the claim follows.    
 \end{proof}
 
-If $(X,r)$ is a solution, by definition the map $r\colon X\times X\to X\times X$ is 
+If $(X,r)$ is a {\bf set-theoretic} solution, by definition the map $r\colon X\times X\to X\times X$ is 
 invertible. By convention, we write 
  \[
  r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x)).
@@ -117,7 +122,7 @@ invertible. By convention, we write
  x=\widehat{\sigma}_{\sigma_x(y)}\tau_y(x),\quad
  y=\widehat{\tau}_{\tau_y(x)}\sigma_x(y).
  \]
- Since $(X,r^{-1})$ is a solution, Lemma~\ref{lem:YB} implies that 
+ {\bf It is easy to check that $(X,r^{-1})$ is a set-theoretic solution to the YBE. Thus,} Lemma~\ref{lem:YB} implies that 
  the following formulas hold:
  \[
  \widehat{\tau}_y\widehat{\tau_x}=\widehat{\tau}_{\tau_y(x)}\widehat{\tau}_{\sigma_x(y)},
@@ -154,10 +159,11 @@ Then $r$ is invertible with $r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y
 \widehat{\sigma}_3=(12)(34), &&
 \widehat{\sigma}_4=(12)(34),\\
 &\widehat{\tau}_1=(142),&&
-\widehat{\tau}_1=(123),&&
-\widehat{\tau}_1=(243),&&
-\widehat{\tau}_1=(134).
+\widehat{\tau}_2=(123),&&
+\widehat{\tau}_3=(243),&&
+\widehat{\tau}_4=(134).
 \end{align*}
+{\bf (Ferran: he modificado los subindices de las $\widehat{\tau}$)}
 \end{example}
 
 
@@ -173,7 +179,7 @@ $(Y,s)$ is a map $f\colon X\to Y$ such that the diagram
 	\arrow["s"', from=2-1, to=2-2]
 \end{tikzcd}
 \]
-is commutative. An \emph{isomorphism} of solutions is a bijective
+is commutative, {\bf that is $s\circ (f\times f)=(f\times f)\circ r$}. An \emph{isomorphism} of solutions is a bijective
 homomorphism of solutions.
 \end{definition}
 
@@ -182,12 +188,12 @@ it makes sense to study the following family of solutions.
 
 \begin{definition}
 \index{Solution!non-degenerate}
-We say that a solution $(X,r)$ to the YBE 
+We say that a {\bf set-theoretic} solution $(X,r)$ to the YBE 
 is \emph{non-degenerate} if the maps $\sigma_x$ and $\tau_x$ are 
 permutations of $X$. 
 \end{definition}
 
-By convention, a \emph{solution} we will mean a non-degenerate solution to the YBE.
+By convention, a \emph{solution} we will mean a non-degenerate {\bf set-theoretic} solution to the YBE.
 
 \begin{lemma}
 \label{lem:LYZ}
@@ -267,16 +273,16 @@ Let $G$ be a group. Then $(G,r)$, where $r(x,y)=(xyx^{-1},x)$, is a solution.
 %It is involutive if and only if $G$ is abelian. 
 \end{example}
 
-The now prove the main theorem of the chapter. The result
+{\bf Now we will prove} the main theorem of {\bf this} chapter. The result
 shows an intriguing connection between group actions and non-degenerate solutions. It 
 was proved by Lu, Yan and Zhu. 
 
 \begin{theorem}
 \label{thm:LYZ}
 Let $G$ be a group and let $\xi\colon G\times G\to G$, $\xi(x,y)=x\rhd y$,
-be a left action of $G$ on itself, and 
+be a left action of {\bf the group} $G$ on itself {\bf as a set}, and 
 let $\eta\colon G\times G\to G$, $\eta(x,y)=x\lhd y$, 
-be a right action of $G$ on itself. If the compatibility condition
+be a right action of {\bf the group} $G$ on itself {\bf as a set}. If the compatibility condition
 \[
 uv=(u\rhd v)(u\lhd v)
 \]
@@ -303,8 +309,7 @@ r_1r_2r_1(u,v,w)=(u_1,v_1,w_1),\quad
 r_2r_1r_2(u,v,w)=(u_2,v_2,w_2).
 \]
 The compatibility condition implies that $u_1v_1w_1=u_2v_2w_2$. 
-So we need to prove that $u_1=u_2$ and $v_1=v_2$. From Lemma~\ref{lem:YB}
-we note that
+So we need to prove that $u_1=u_2$ {\bf and $w_1=w_2$.} We note that
 \begin{align*}
 &u_1=(u\rhd v)\rhd ( (u\lhd v)\rhd w),
 &&w_1=(u\lhd v)\lhd w,\\
@@ -333,8 +338,27 @@ implies that $u^{-1}=y^{-1}\lhd x^{-1}$. Clearly
 $r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
 is the inverse of $r$, where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. 
 
-It now follows that $r(x^{-1},y^{-1})=(u^{-1},v^{-1})$.  
-Let us prove that $r(x^{-1},u)=(y,v^{-1})$ holds. Since $r(x,y)=(u,v)$, it 
+\begin{proposition}
+Under the assumptions of Theorem~\ref{thm:LYZ}, 
+if $r(x,y)=(u,v)$, {\bf then 
+\[
+r(v^{-1},u^{-1})=(y^{-1},x^{-1}),
+\quad
+r(x^{-1},u)=(y,v^{-1}),
+\quad
+r(v,y^{-1})=(u^{-1},x).
+\]}
+\end{proposition}
+
+\begin{proof}
+In the proof of Theorem~\ref{thm:LYZ} we found that 
+the inverse of the map $r$ is given by $r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
+where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. {\bf Hence 
+\[
+r^{-1}(y^{-1},x^{-1})=\zeta (i\times i) r (i\times i) \zeta(y^{-1},x^{-1})=\zeta (i\times i) r (x,y)=(v^{-1},u^{-1}).
+\]
+} It follows that $r(v^{-1},u^{-1})=(y^{-1},x^{-1})$.  
+To prove the equality $r(x^{-1},u)=(y,v^{-1})$ we proceed as follows. Since $r(x,y)=(u,v)$, it 
 follows that $x\triangleright y=u$. Then $x^{-1}\triangleright u=y$ and
 hence $r(x^{-1},u)=(y,z)$ for some $z\in G$. 
 Since $xy=uv$ and $x^{-1}u=yz$, it immediately follows that $yt=yv^{-1}$. Then 
@@ -381,7 +405,7 @@ Let $G$ be a group. Prove that the following maps satisfy the set-theoretic YBE:
 \label{prob:Wada_racks}
 	Let $G$ be a group. Prove that the following maps satisfy the set-theoreic YBE:
 	\begin{enumerate}[label=\alph*)]
-	\item $r(x,y)=(x^myx^{-m},x)$.
+	\item $r(x,y)=(x^myx^{-m},x)$, {\bf for an integer $m$.}
 	\item $r(x,y)=(xy^{-1}x,x)$.
 \end{enumerate}	
 \end{prob}
@@ -389,13 +413,13 @@ Let $G$ be a group. Prove that the following maps satisfy the set-theoretic YBE:
 \begin{prob}
 \label{prob:D_n}
 Let $n\geq2$ and $X=\Z/(n)$ be the ring of integers modulo $n$. Prove that
-the map $r(x,y)=(2x-y,x)$ satisfy the the set-theoretic YBE.  	
+the map $r(x,y)=(2x-y,x)$ {\bf satisfies} the the set-theoretic YBE.  	
 \end{prob}
 
 
 \begin{prob}
 Let $G$ be a group and $f\in\Aut(G)$. Prove that 
-the map $r(x,y)=(f(y),f(y)^{-1}xy)$ satisfy the set-theoretic YBE.	
+the map $r(x,y)=(f(y),f(y)^{-1}xy)$ {\bf satisfies} the set-theoretic YBE.	
 \end{prob}
 
 

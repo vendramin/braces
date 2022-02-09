@@ -16,8 +16,7 @@
 \usepackage{listings}
 \usepackage{multicol}
 \usepackage{mathptmx}
-%\usepackage{newtxtext,newtxmath}
-%\usepackage{txfonts}
+\usepackage{newtxtext,newtxmath}
 \usepackage{datetime}
 \usepackage{tikz-cd}
 \usepackage{enumitem}
@@ -28,7 +27,7 @@
 \usepackage{makeidx}        
 \usepackage{graphicx}        
 \usepackage{multicol}        
-\usepackage[all]{xy}
+%\usepackage[all]{xy}
 \usepackage{hyperref} 
 %\usepackage{tikz-cd}
 
@@ -41,9 +40,12 @@
 
 % for QED
 \let\proof\relax\let\endproof\relax
+\let\openbox\relax
 \usepackage{amsthm}
 
 \overfullrule=1mm
+
+\allowdisplaybreaks[1]
 
 %%% for Spanish
 % \def\abstractname{Resumen}%
@@ -188,6 +190,8 @@
 \newcommand{\supp}{\operatorname{supp}}
 \newcommand{\trace}{\operatorname{traza}}
 \newcommand{\sgn}{\operatorname{signo}}
+\newcommand{\St}{\operatorname{St}}
+
 
 \newcommand{\inner}{\operatorname{inn}}
 \newcommand{\ext}{\operatorname{ext}}
@@ -246,7 +250,7 @@
 }
 
 
-\author{Leandro Vendramin}
+\author{Ferran Ced\'o and Leandro Vendramin}
 \title{Groups, radical rings and the Yang--Baxter equation}
 \subtitle{A combinatorial approach to solutions}
 \maketitle
@@ -255,7 +259,7 @@
 
 \include{dedic}
 %\include{foreword}
-\include{preface}
+%\include{preface}
 %\include{acknow}
 
 \tableofcontents
@@ -265,8 +269,10 @@
 \mainmatter
 
 %\include{part}
+\include{preliminaries}
 \include{solutions}
-\include{radical}
+%\include{radical}
+\include{RADJAC}
 \include{racks}
 \include{skew}
 \include{cocycles}
@@ -282,6 +288,8 @@
 \include{ordered}
 \include{transitive}
 \include{transfer}
+\include{reduction}
+\include{simple}
 
 
 \backmatter
