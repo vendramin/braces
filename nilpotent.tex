@@ -1,9 +1,24 @@
 \chapter{Nilpotent groups}
 \label{nilpotent}
 
-\section*{A}
+\section*{\bf Central series}
 
-If $G$ is a group and $x,y,z\in G$, the conjugation (as a left action) will be denoted
+{\bf Let $G$ be a group. The {\em center} of $G$ is 
+\[ Z(G)=\{ x\in G\mid xy=yx,\; \mbox{ for all } y\in G\}.\]
+A subgroup $H$ of $G$ is {\em central} in $G$ if $H\subseteq Z(G).$
+
+A subgroup $H$ of $G$ is said to be {\em characteristic} in $G$ if $f(H)=H$ for all $f\in\Aut(G)$. It is easy to check that $Z(G)$ is a characteristic subgroup of $G$. 
+
+Let $X$ be a non-empty subset of $G$. The {\em centralizer} of $X$ in $G$ is
+\[ C_G(X)=\{ y\in G\mid xy=yx,\;\mbox{ for all }x\in X\}.
+\]
+Note that $C_G(X)$ is a subgroup of $G$. In particular, $C_G(G)=Z(G)$.
+
+Let $H$ be a normal subgroup of $G$. Let $\varphi\colon G\rightarrow \Aut(H)$ be the map defined by $\varphi(x)=\varphi_x$ and
+$\varphi_x(h)=xhx^{-1}$, for all $x\in G$ and $h\in H$. It is easy to check that $\varphi$ is a homomorphism of groups and $\ker(\varphi)=C_G(H)$. Hence $C_G(H)$ is a normal subgroup of $G$. We also say that $\varphi$ is a left action of $G$ on $H$ by conjugation.
+}
+
+If $G$ is a group and $x,y,z\in G$, {\bf then} the conjugation (as a left action) will be denoted
 by $\prescript{x}{}y=xyx^{-1}$. The commutator between $x$ and $y$ is then 
 \[
 [x,y]=xyx^{-1}y^{-1}=(\prescript{x}{}y)y^{-1}.
@@ -32,7 +47,8 @@ $[X,Y,Z]=[X,Z,Y]$.
 \index{Jacobi, G.}
 \index{Jacobi!identity}
 Note that if $G$ is such that $[G,G]$ is central, then Hall--Witt's identity 
-turns out to be Jacobi's identity. 
+turns out to be Jacobi's identity, {\bf i.e. 
+\[ [x,y,z][y,z,x][z,x,y]=1.\] } 
 
 %\begin{lemma}[three subgroups lemma]
 %	\label{lemma:3subgrupos}
@@ -60,11 +76,11 @@ turns out to be Jacobi's identity.
 \end{lemma}
 
 \begin{proof}
-	We first prove the lemma in the case where $N=\{1\}$. 	Since $[x,y]\in C_G(z)$ implies that 
-	$[X,Y]\subseteq C_G(Z)$, it
-	is enough to prove that $[z,x^{-1},y]=1$ for all $x\in X$, $y\in Y$ and $z\in Z$, 
-	Since $[y^{-1},z]\in [Y,Z]$, it follows that 
-	$[x,y^{-1},z]\in [X,Y,Z]=\{1\}$. Thus $\prescript{y}{}[x,y^{-1},z]=1$.
+	We first prove the lemma in the case where $N=\{1\}$. 	{\bf In this case,  
+	$[Y,Z]\subseteq C_G(X)$ and $[Z,X]\subseteq C_G(Y)$. It
+	is enough to prove that $[z,x^{-1},y]=1$, for all $x\in X$, $y\in Y$ and $z\in Z$. 
+	Let $x\in X$, $y\in Y$ and $z\in Z$. Since $[x,y^{-1},z]=1$, it follows that 
+	$\prescript{y}{}[x,y^{-1},z]=1$.}
 	Similarly, $\prescript{z}{}[y,z^{-1},x]=1$. Hence the 
 	Hall--Witt identity yields 
 	$[z,x^{-1},y]=1$.
@@ -80,7 +96,7 @@ turns out to be Jacobi's identity.
 \end{proof}
 
 \index{Lower central series}
-The \textbf{lower central series} of a group $G$ is 
+The {\em lower central series} of a group $G$ is 
 the sequence $\gamma_k(G)$, $k\in\N$, 
 defined recursively as 
 \[
@@ -91,9 +107,9 @@ defined recursively as
 \index{Group!nilpotent}
 \index{Nilpotency index}
 \index{Nilpotency class}
-A group $G$ is said to be \textbf{nilpotent} if there exists positive integer $c$ such that 
+A group $G$ is said to be {\em nilpotent} if there exists {\bf a non-negative} integer $c$ such that 
 $\gamma_{c+1}(G)=\{1\}$. The smallest $c$ such that $\gamma_{c+1}(G)=\{1\}$ is
-the \textbf{nilpotency index} (or \textbf{nilpotency class}) of $G$. 
+the {\em nilpotency index} (or {\em nilpotency class}) of $G$. 
 
 % \begin{exercise}
 % \label{xca:nilpotente=>resoluble}
@@ -101,7 +117,7 @@ the \textbf{nilpotency index} (or \textbf{nilpotency class}) of $G$.
 % \end{exercise}
 
 \begin{example}
-	A group is nilpotent of class one if and only if it is abelian.  
+	A group is nilpotent of class one if and only if it is {\bf non-trivial} and abelian.  
 \end{example}
 
 % \begin{example}
@@ -127,10 +143,10 @@ the \textbf{nilpotency index} (or \textbf{nilpotency class}) of $G$.
 	\label{xca:gamma}
 	Let $G$ be group. Prove the following statements:
 	\begin{enumerate}
-		\item Each $\gamma_i(G)$ is a characteristic group of $G$.
+		\item Each $\gamma_i(G)$ is a characteristic {\bf subgroup} of $G$.
 		\item $\gamma_i(G)\supseteq\gamma_{i+1}(G)$ for all $i\geq1$.
 		\item If $f\colon G\to H$ is a surjective group homomorphism, then 
-			$f(\gamma_i(G))=\gamma_i(H)$ for all $i\geq1$.
+			$f(\gamma_i(G))=\gamma_i(H)$ for all $i\geq 1$.
 	\end{enumerate}
 \end{exercise}
 
@@ -151,7 +167,7 @@ the \textbf{nilpotency index} (or \textbf{nilpotency class}) of $G$.
 
 \begin{proof}
 	For the first statement note that $\gamma_i(H)\subseteq\gamma_i(G)$ for all 
-	$i\geq1$. Let us prove the second claim, if there exists $c$ such that $\gamma_{c+1}(G)=\{1\}$, 
+	$i\geq 1$. Let us prove the second claim, if there exists $c$ such that $\gamma_{c+1}(G)=\{1\}$, 
 	then 
 	\[
 	\gamma_{c+1}(H)=f(\gamma_{c+1}(G))=f(\{1\})=\{1\}.\qedhere
