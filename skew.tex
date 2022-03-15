@@ -1138,6 +1138,27 @@ is a brace homomorphism. The brace $A/I$ is the \emph{quotient brace} of $A$ mod
 to prove the isomorphism theorems for braces, see Exercises~\ref{prob:iso1},~\ref{prob:iso2}, \ref{prob:iso3} and
 \ref{prob:correspondence}.
 
+\section*{B}
+
+We now use Hall's theorem to obtain information related to the
+structure of finite braces. 
+
+
+\begin{theorem}
+\label{thm:add_nilpotent}
+Let $A$ be a finite brace of nilpotent type. Then 
+the multiplicative group of $A$ is solvable.
+\end{theorem}
+
+\begin{proof}
+    Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. Assume
+    that $|A|=p_1^{\alpha_1}\cdots p_n^{\alpha}$ for different primes numbers $p_1,\dots,p_n$. 
+    Since $K$ is nilpotent, each $K_i\in\Syl_{p_j}(K)$ is normal in $K$, so 
+    each $K_i$ is a left ideal of $A$. It follows that for each $i\in\{1,\dots,n\}$ both $K_i$ and 
+    $\prod_{j\ne i}K_j$ are braces of coprime order. In particular, for 
+    each $i\in\{1,\dots,n\}$ there exists a subgroup of $G$ of order coprime with $p$. 
+    Then $G$ is solvable by Hall's theorem. 
+\end{proof}
 
 \section*{Exercises}
 
@@ -1267,6 +1288,13 @@ $A/J\simeq (A/I)/(J/I)$.
 Let $A$ be a brace and $I$ be an ideal of $A$. There is a bijective correspondence between (left) ideals 
 of $A$ containing $I$ and (left) ideals of $A/I$. 
 \end{prob}
+
+\begin{prob}
+\label{prob:G(X,r)solvable}
+Let $(X,r)$ be a finite involutive solution. Prove that $G(X,r)$ is solvable. 
+\end{prob}
+
+
 \section*{Notes}
 
 \index{Rump, W.}

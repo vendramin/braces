@@ -1,25 +1,31 @@
 \chapter{Nilpotent groups}
 \label{nilpotent}
 
-\section*{\bf Central series}
+\section*{Central series}
 
-{\bf Let $G$ be a group. The {\em center} of $G$ is 
+\index{Group!central series}\index{Group!center}
+Let $G$ be a group. The {\em center} of $G$ is 
 \[ Z(G)=\{ x\in G\mid xy=yx,\; \mbox{ for all } y\in G\}.\]
-A subgroup $H$ of $G$ is {\em central} in $G$ if $H\subseteq Z(G).$
+A subgroup $H$ of $G$ is {\em central} in $G$ if $H\subseteq Z(G)$. \index{Subgroup!central}
 
-A subgroup $H$ of $G$ is said to be {\em characteristic} in $G$ if $f(H)=H$ for all $f\in\Aut(G)$. It is easy to check that $Z(G)$ is a characteristic subgroup of $G$. 
+\index{Subgroup!characteristic}
+A subgroup $H$ of a group $G$ is said to be {\em characteristic} if 
+$f(H)= H$ for all $f\in\Aut(G)$. The center $Z(G)$ of $G$ is a characteristic subgroup of $G$. Every characteristic subgroup of $G$ is normal in $G$. 
+If $H$ is a characteristic subgroup of $K$ and $K$ is normal in $G$, 
+then $H$ is normal in $G$. 
 
-Let $X$ be a non-empty subset of $G$. The {\em centralizer} of $X$ in $G$ is
+
+\index{Centralizer} Let $X$ be a non-empty subset of $G$. The {\em centralizer} of $X$ in $G$ is
 \[ C_G(X)=\{ y\in G\mid xy=yx,\;\mbox{ for all }x\in X\}.
 \]
 Note that $C_G(X)$ is a subgroup of $G$. In particular, $C_G(G)=Z(G)$.
 
 Let $H$ be a normal subgroup of $G$. Let $\varphi\colon G\rightarrow \Aut(H)$ be the map defined by $\varphi(x)=\varphi_x$ and
 $\varphi_x(h)=xhx^{-1}$, for all $x\in G$ and $h\in H$. It is easy to check that $\varphi$ is a homomorphism of groups and $\ker(\varphi)=C_G(H)$. Hence $C_G(H)$ is a normal subgroup of $G$. We also say that $\varphi$ is a left action of $G$ on $H$ by conjugation.
-}
 
-If $G$ is a group and $x,y,z\in G$, {\bf then} the conjugation (as a left action) will be denoted
-by $\prescript{x}{}y=xyx^{-1}$. The commutator between $x$ and $y$ is then 
+
+If $G$ is a group and $x,y,z\in G$, then the conjugation (as a left action) will be denoted
+by $\prescript{x}{}y=xyx^{-1}$. \index{Commutator} The {\em commutator} between $x$ and $y$ is then 
 \[
 [x,y]=xyx^{-1}y^{-1}=(\prescript{x}{}y)y^{-1}.
 \]
@@ -32,7 +38,11 @@ If $X$, $Y$ and $Z$ are subgroups of $G$, we write
 and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Since $[X,Y]=[Y,X]$, it follows that  
 $[X,Y,Z]=[X,Z,Y]$. 
 
-\begin{exercise}[Hall--Witt]
+\index{Subgroup!commutator} Note that the {\em commutator subgroup} $[G,G]$ of $G$ is a characteristic subgroup of $G$.
+
+The proof of the following lemma is an easy exercise.
+
+\begin{lemma}[Hall--Witt's identity]
 	\label{xca:HallWitt}
 	\index{Hall--Witt!identity}
 	\index{Hall, P.}
@@ -42,13 +52,13 @@ $[X,Y,Z]=[X,Z,Y]$.
 		\label{eq:HallWitt}
 	\left(\prescript{y}{}[x,y^{-1},z]\right)\left(\prescript{z}{}[y,z^{-1},x]\right)\left(\prescript{x}{}[z,x^{-1},y]\right)=1.
 	\end{equation}
-\end{exercise}
+\end{lemma}
 
 \index{Jacobi, G.}
 \index{Jacobi!identity}
 Note that if $G$ is such that $[G,G]$ is central, then Hall--Witt's identity 
-turns out to be Jacobi's identity, {\bf i.e. 
-\[ [x,y,z][y,z,x][z,x,y]=1.\] } 
+turns out to be Jacobi's identity, i.e. 
+\[ [x,y,z][y,z,x][z,x,y]=1.\]  
 
 %\begin{lemma}[three subgroups lemma]
 %	\label{lemma:3subgrupos}
@@ -68,6 +78,7 @@ turns out to be Jacobi's identity, {\bf i.e.
 %	$[z,x^{-1},y]=1$.
 %\end{proof}
 
+\index{Three subgroup lemma}
 \begin{lemma}[three subgroups lemma]
 	\label{lemma:3subgrupos_general}
 	Let $N$ be a normal subgroup of $G$ and let $X$, $Y$ and $Z$
@@ -76,11 +87,11 @@ turns out to be Jacobi's identity, {\bf i.e.
 \end{lemma}
 
 \begin{proof}
-	We first prove the lemma in the case where $N=\{1\}$. 	{\bf In this case,  
+	We first prove the lemma in the case where $N=\{1\}$. 	In this case,  
 	$[Y,Z]\subseteq C_G(X)$ and $[Z,X]\subseteq C_G(Y)$. It
 	is enough to prove that $[z,x^{-1},y]=1$, for all $x\in X$, $y\in Y$ and $z\in Z$. 
 	Let $x\in X$, $y\in Y$ and $z\in Z$. Since $[x,y^{-1},z]=1$, it follows that 
-	$\prescript{y}{}[x,y^{-1},z]=1$.}
+	$\prescript{y}{}[x,y^{-1},z]=1$.
 	Similarly, $\prescript{z}{}[y,z^{-1},x]=1$. Hence the 
 	Hall--Witt identity yields 
 	$[z,x^{-1},y]=1$.
@@ -97,7 +108,7 @@ turns out to be Jacobi's identity, {\bf i.e.
 
 \index{Lower central series}
 The {\em lower central series} of a group $G$ is 
-the sequence $\gamma_k(G)$, $k\in\N$, 
+the sequence $\gamma_k(G)$, for positive integers $k$, 
 defined recursively as 
 \[
 		\gamma_1(G)=G,\quad
@@ -107,7 +118,7 @@ defined recursively as
 \index{Group!nilpotent}
 \index{Nilpotency index}
 \index{Nilpotency class}
-A group $G$ is said to be {\em nilpotent} if there exists {\bf a non-negative} integer $c$ such that 
+A group $G$ is said to be {\em nilpotent} if there exists a non-negative integer $c$ such that 
 $\gamma_{c+1}(G)=\{1\}$. The smallest $c$ such that $\gamma_{c+1}(G)=\{1\}$ is
 the {\em nilpotency index} (or {\em nilpotency class}) of $G$. 
 
@@ -117,7 +128,7 @@ the {\em nilpotency index} (or {\em nilpotency class}) of $G$.
 % \end{exercise}
 
 \begin{example}
-	A group is nilpotent of class one if and only if it is {\bf non-trivial} and abelian.  
+	A group is nilpotent of class one if and only if it is  non-trivial and abelian.  
 \end{example}
 
 % \begin{example}
@@ -139,16 +150,24 @@ the {\em nilpotency index} (or {\em nilpotency class}) of $G$.
 	for all $j\geq2$. 
 \end{example}
 
-\begin{exercise}
+\begin{lemma}
 	\label{xca:gamma}
-	Let $G$ be group. Prove the following statements:
+	Let $G$ be group. Then the following conditions hold. %Prove the following statements:
 	\begin{enumerate}
-		\item Each $\gamma_i(G)$ is a characteristic {\bf subgroup} of $G$.
+		\item Each $\gamma_i(G)$ is a characteristic subgroup of $G$.
 		\item $\gamma_i(G)\supseteq\gamma_{i+1}(G)$ for all $i\geq1$.
 		\item If $f\colon G\to H$ is a surjective group homomorphism, then 
 			$f(\gamma_i(G))=\gamma_i(H)$ for all $i\geq 1$.
 	\end{enumerate}
-\end{exercise}
+\end{lemma}
+
+\begin{proof}
+    We shall prove the first statement by induction on $i$. Let $h\in \Aut(G)$. For $i=1$, the result is clear. Suppose that the result holds for some $i\geq 1$. By the inductive hypothesis,
+    \[h(\gamma_{i+1}(G))=h([G,\gamma_i(G)])=[h(G),h(\gamma_i(G))]=[G,\gamma_i(G)]=\gamma_{i+1}(G).\]
+    Therefore, the first statement follows by induction.
+    
+    The second and the third statements can be easily proved by induction on $i$.
+\end{proof}
 
 % \begin{exercise}
 % 	\label{xca:HxK_nilpotente}
@@ -174,17 +193,14 @@ the {\em nilpotency index} (or {\em nilpotency class}) of $G$.
 	\]
 \end{proof}
 
-\begin{example}
-    The group $\SL_2(3)$ is not nilpotent, as $\Alt_4$ 
-	is a quotient of $\SL_2(3)$. 
-\end{example}
+%\begin{example}
+%    The group $\SL_2(3)$ is not nilpotent, as $\Alt_4$ 
+%	is a quotient of $\SL_2(3)$. 
+%\end{example}
 
 There exist a non-nilpotent group $G$ with a normal subgroup $K$ 
 such that $K$ and $G/K$ are both nilpotent. For example, take $G=\Sym_3$ and $K=\Alt_3$. 
 
-\begin{exercise}
-	Let $p$ be a prime number. Prove that finite $p$-groups are nilpotent. 
-\end{exercise}
 
 \begin{theorem}
 	\label{theorem:gamma}
@@ -198,7 +214,7 @@ such that $K$ and $G/K$ are both nilpotent. For example, take $G=\Sym_3$ and $K=
 	some $i\geq1$ and all $j\geq1$. 
 	We first note that 	
 	\begin{equation*}
-		[G,\gamma_i(G),\gamma_j(G)]=[G,\gamma_{i+j}(G)]\subseteq \gamma_{i+j+1}(G)
+		[G,\gamma_i(G),\gamma_j(G)]\subseteq [G,\gamma_{i+j}(G)]= \gamma_{i+j+1}(G)
 	\end{equation*}
 	by the inductive hypothesis. Moreover, again using the inductive hypothesis,  
 	\begin{equation*}
@@ -223,23 +239,22 @@ both commutators of weight three.
 \end{corollary}
 
 \begin{proof}
-	We proceed by induction on $n$. The case $n=1$ is trivial, so assume that
-	the result holds for some $n\geq1$.  Let  
+	We proceed by induction on $n$. The case $n=1$ is trivial, so assume that $n\geq 1$ and
+	the result holds for all $m$ such that  $n\geq m\geq 1$.  Let  
 	$[A,B]$ be a commutator, where $A$ is a commutator of weight $k$,
-	$B$ is a commutator of weight $l$ and $n+1=k+l$. Since $k<n$ and $l<n$, the inductive 
+	$B$ is a commutator of weight $l$ and $n+1=k+l$. Since $k\leq n$ and $l\leq n$, the inductive 
 	hypothesis implies that $A\subseteq \gamma_k(G)$ y $B\subseteq
 	\gamma_l(G)$. Thus 
 	\[
 	[A,B]\subseteq [\gamma_k(G),\gamma_l(G)]\subseteq
 	\gamma_{k+l}(G)
 	\]
-	by the previous theorem. 
+	by the previous theorem. Therefore, the result follows by induction.
 \end{proof}
 
 \index{Normalizer condition}
-Nilpotent groups satisfy the normalizer condition. A group 
-$G$ satisfies the \textbf{normalizer condition} if each proper subset is smaller 
-than its normalizer. 
+A group 
+$G$ satisfies the {\em normalizer condition} if each  proper subgroup $H$ is properly contained in its normalizer $N_G(H)$, that is $H\subsetneq N_G(H)$. 
 
 \begin{lemma}[normalizer condition]
 	\label{lem:normalizer}
@@ -261,7 +276,8 @@ than its normalizer.
 	it follows that 
 	$xHx^{-1}\subseteq H$ for all $x\in\gamma_{k-1}(G)$,
 	so  $\gamma_{k-1}(G)\subseteq N_G(H)$. If $N_G(H)=H$, then 
-	$\gamma_{k-1}(G)\subseteq H$, a contradiction to the minimality of $k$. 
+	$\gamma_{k-1}(G)\subseteq H$, in contradiction with the minimality of $k$. Therefore
+	$H$ is a proper subgroup of $N_G(H)$.
 \end{proof}
 
 %\begin{example}
@@ -273,7 +289,7 @@ For a group $G$ we define the sequence $\zeta_0(G),\zeta_1(G),\dots$
 recursively as 
 \[
 	\zeta_0(G)=\{1\},\quad
-	\zeta_{i+1}(G)=\{g\in G:[x,g]\in\zeta_{i}(G)\text{ para todo $x\in G$}\},\quad i\geq 0.
+	\zeta_{i+1}(G)=\{g\in G:[x,g]\in\zeta_{i}(G)\text{ for all $x\in G$}\},\quad i\geq 0.
 \]
 In particular, $\zeta_1(G)=Z(G)$.
 
@@ -285,178 +301,41 @@ In particular, $\zeta_1(G)=Z(G)$.
 
 \begin{proof}
 	We proceed by induction on $i$. The case $i=0$ is trivial, as 
-	$\zeta_0(G)=\{1\}$.  Assume that the result holds for some $i\geq0$.
-	We claim that $\zeta_{i+1}(G)$ is a subgroup of $G$. 
-	Let $g,h\in \zeta_{i+1}(G)$ and $x\in G$. The inductive hypothesis implies that 
-	\begin{align*}
-	&[g^{-1},x]=(xg^{-1})[g,x^{-1}](xg^{-1})^{-1}\in (xg^{-1})\zeta_i(G)(xg^{-1})^{-1}=\zeta_i(G),\\
-	&[gh,x]=[g,hxh^{-1}][h,x]\in \zeta_{i}(G).
-	\end{align*}
-	Since $1\in\zeta_{i+1}(G)$, the sets $\zeta_i(G)$ are subgroups of $G$. 
-	
-	To prove 
-	that each subgroup is normal we also proceed by induction on $i$. 
-	If $g\in\zeta_{i+1}(G)$ and $x\in G$, then $xgx^{-1}\in\zeta_{i+1}(G)$. Indeed,  
-	\[
-	[xgx^{-1},y]=x[g,x^{-1}yx]x^{-1}\in\zeta_{i}(G)
-	\]
-	for all $y\in G$.
+	$\zeta_0(G)=\{1\}$.  Assume that the result holds for some $i\geq0$. Thus $\zeta_i(G)$ is a normal subgroup of $G$.
+	Let $\pi\colon G\rightarrow G/\zeta_i(G)$ be the canonical map. Note that
+	\[ \zeta_{i+1}(G)=\pi^{-1}(Z(G/\zeta_i(g))).\]
+	Therefore $\zeta_{i+1}(G)$ is a normal subgroup of $G$, and the result follows by induction.
+%	
+%	We claim that $\zeta_{i+1}(G)$ is a subgroup of $G$. 
+%	Let $g,h\in \zeta_{i+1}(G)$ and $x\in G$. The inductive hypothesis implies that 
+%	\begin{align*}
+%	&[g^{-1},x]=(xg^{-1})[g,x^{-1}](xg^{-1})^{-1}\in (xg^{-1})\zeta_i(G)(xg^{-1})^{-1}=\zeta_i(G),\\
+%	&[gh,x]=[g,hxh^{-1}][h,x]\in \zeta_{i}(G).
+%	\end{align*}
+%	Since $1\in\zeta_{i+1}(G)$, the sets $\zeta_i(G)$ are subgroups of $G$. 
+%	
+%	To prove 
+%	that each subgroup is normal we also proceed by induction on $i$. 
+%	If $g\in\zeta_{i+1}(G)$ and $x\in G$, then $xgx^{-1}\in\zeta_{i+1}(G)$. Indeed,  
+%	\[
+%	[xgx^{-1},y]=x[g,x^{-1}yx]x^{-1}\in\zeta_{i}(G)
+%	\]
+%	for all $y\in G$.
 \end{proof}
 
 
-\index{Ascending!central series}
-For a group $G$ the \textbf{ascending central series} of $G$ is the sequence 
+\index{Upper central series}
+For a group $G$ the \textbf{\em upper central series} of $G$ is the sequence 
 \[
 	\{1\}=\zeta_0(G)\subseteq\zeta_1(G)\subseteq\zeta_2(G)\subseteq\cdots
 \]
 
-%\index{Grupo!perfecto}
-A group $G$ is said to be \textbf{perfect} if $[G,G]=G$. Note that
-$G$ is perfect if and only if $G/[G,G]$ is trivial. The alternating 
-simple group $\Alt_5$ is the smallest non-trivial perfect group. 
-
-\begin{example}
-The groups $\SL_2(2)$ and $\SL_2(3)$ are not perfect. 	
-\end{example}
-
-Let $p$ be a prime number and $q=p^m$ for some $m\in\N$.  
-The groups $\SL_n(q)$ are perfect except the cases $\SL_2(2)$ and $\SL_2(3)$. As an example,
-let us prove that $\SL_2(q)$ is perfect if $p\geq5$ is a prime number. We first 
-claim that $\SL_2(q)$ is generated by matrices
-$X_{ij}(\lambda)=I+\lambda E_{ij}$, where $I$ denotes the identity matrix, 
-$E_{ij}$ is the matriz with a one at position $(i,j)$ and zero in all other entries, 
-$i,j\in\{1,2\}$ and $\lambda\in\F_q\setminus\{0\}$. First note that
-a matrix $\begin{pmatrix}1&b\\c&d\end{pmatrix}\in\SL_2(q)$ is 
-a product of some of the $X_{ij}(\lambda)$, as 
-\[
-\begin{pmatrix}
-1&b\\
-c&d	
-\end{pmatrix}
-=\begin{pmatrix}
-1&0\\
-c&1
-\end{pmatrix}
-\begin{pmatrix}
-1&b\\
-0&1	
-\end{pmatrix}
-=X_{21}(c)X_{12}(b).
-\]
-This implies that a matrix $\begin{pmatrix}a&b\\c&d\end{pmatrix}\in\SL_2(q)$ 
-with $c\ne 0$ is also a product
-of some $X_{ij}(\lambda)$. Indeed, if
-$\lambda$ is such that $a=1-\lambda c$, then
-\begin{align*}
-\begin{pmatrix}
-a&b\\
-c&d	
-\end{pmatrix}
-&=\begin{pmatrix}
-1&-\lambda\\
-0&1	
-\end{pmatrix}
-\begin{pmatrix}
-1&b+\lambda d\\
-c&d	
-\end{pmatrix}
-%&=
-%\begin{pmatrix}
-%1&-\lambda\\
-%0&1	
-%\end{pmatrix}
-%\begin{pmatrix}
-%1&0\\
-%c&1	
-%\end{pmatrix}
-%\begin{pmatrix}
-%1&b+\lambda d\\
-%0&1	
-%\end{pmatrix}
-%=X_{12}(-\lambda)X_{21}(c)X_{12}(b+\lambda d.
-%\shortintertext{and hence}
-%\begin{pmatrix}
-%a&b\\
-%c&d	
-%\end{pmatrix}
-=X_{12}(-\lambda)X_{21}(c)X_{12}(b+\lambda d).
-\end{align*}
-Finally, 
-\[
-\begin{pmatrix}
-	a&b\\
-	0&d
-\end{pmatrix}
-=\begin{pmatrix}
-	1&0\\
-	-1&1
-\end{pmatrix}
-\begin{pmatrix}
-	a&b\\
-	a&b+d
-\end{pmatrix}
-\]
-and therefore $\begin{pmatrix}
-	a&b\\
-	0&d
-\end{pmatrix}$ is a product of some $X_{ij}(\lambda)$ since
-$\begin{pmatrix}
-a&b\\
-a&b+d	
-\end{pmatrix}$ 
-is a product of some $X_{ij}(\lambda)$. 
-To prove that $[\SL_2(q),\SL_2(q)]=\SL_2(q)$ we first 
-note that
-\[
-\left[\begin{pmatrix}a&0\\0&a^{-1}\end{pmatrix},\begin{pmatrix}1&b\\0&1\end{pmatrix}\right]
-=\begin{pmatrix}
-1 & (a^2-1)b\\
-0 & 1
-\end{pmatrix}.
-\]	
-
-Since $q\geq 3$, given $\lambda\in\F_q$ and $a\in\F_q\setminus\{-1,0,1\}$, there exists
-$b\in\F_q$ such that $\lambda=(a^2-1)b$. This implies that each $X_{ij}(\lambda)$ belongs to the
-commutator subgroup of $\SL_2(q)$. 
-
-
-\begin{exercise}
-Let $q\geq5$. 
-Prove that $\SL_n(q)$ is perfect.  	
-\end{exercise}
-
-
-\begin{exercise}
-Let $G$ be a perfect group and $N$ be a normal subgroup of $G$. Then $G/N$ is perfect.  	
-\end{exercise}
-
-\begin{theorem}[Gr\"un]
-	\label{theorem:Grun}
-	\index{Gr\"un!theorem}
-	If $G$ is a perfect group, then $Z(G/Z(G))=\{1\}$. 
-\end{theorem}
-
-\begin{proof}
-	The three subgroups lemma with $X=Y=G$, $Z=\zeta_2(G)$ and $N=\{1\}$ yields  
-	\[
-	\{1\}=[\zeta_2(G),G,G]=[\zeta_2(G),[G,G]]=[\zeta_2(G),G].
-	\]
-	Thus 	
-	$\zeta_2(G)\subseteq Z(G)$. Now we prove that $Z(G/Z(G))$ is trivial. Let $\pi\colon G\to G/Z(G)$ be the canonical map
-	and $x\in G$ be such that 
-	$\pi(x)$ is a central element. Then 
-	\[
-	[\pi(x),\pi(y)]=\pi([x,y])=1
-	\]
-	for all $y\in G$. In particular, 
-	$[x,y]\in Z(G)=\zeta_1(G)$ for all $y\in G$. This means that $x\in\zeta_2(G)\subseteq Z(G)$. 
-\end{proof}
 
 \index{Normalizer}
 \index{Centralizer}
-A subgroup $K$ of $G$ \textbf{normalizes} a subgroup 
+A subgroup $K$ of $G$ {\em normalizes} a subgroup 
 $H$ if $K\subseteq N_G(H)$.
-A subgroup $K$ of $G$ \textbf{centralizes} a subgroup 
+A subgroup $K$ of $G$ {\em centralizes} a subgroup 
 $H$ if $K\subseteq C_G(H)$, that is if and only if $[H,K]=\{1\}$.
 
 %\begin{exercise}
@@ -474,36 +353,43 @@ $H$ if $K\subseteq C_G(H)$, that is if and only if $[H,K]=\{1\}$.
 \end{lemma}
 
 \begin{proof}
+    For $c=0$, the result is trivial. Suppose that $c\geq 1$.
 	Assume first that $\zeta_c(G)=G$. To prove that 
     $\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)$ we proceed by induction. The case where $i=0$ is
-	trivial, so assume the result holds for some $i\geq0$. If
-	$g\in\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]$, then   
-	\[
-	g=\prod_{k=1}^N [x_k,g_k],
-	\]
-	for some $g_1,\dots,g_N\in\gamma_{i+1}(G)$ and $x_1,\dots,x_N\in G$. By the inductice hypothesis, 
-	\[
-	g_k\in\gamma_i(G)\subseteq\zeta_{c-i}(G)
-	\]
-	for all $k$ and thus $[x_k,g_k]\in\zeta_{c-i-1}(G)$ for all $k$. Hence 
-	$g\in\zeta_{c-(i+1)}(G)$. From this the claim follows.
+	trivial, so assume the result holds for some $i\geq0$. 
+	Let $x\in G$ and $g\in \gamma_{i+1}(G)$. By the inductive hypothesis $g\in \zeta_{c-i}(G)$. 
+	Hence $[x,g]\in \zeta_{c-i-1}(G)$. Therefore, $\gamma_{i+2}(G)\subseteq \zeta_{c-i-1}$.
+%	If
+%	$g\in\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]$, then   
+%	\[
+%	g=\prod_{k=1}^N [x_k,g_k],
+%	\]
+%	for some $g_1,\dots,g_N\in\gamma_{i+1}(G)$ and $x_1,\dots,x_N\in G$. By the inductice hypothesis, 
+%	\[
+%	g_k\in\gamma_i(G)\subseteq\zeta_{c-i}(G)
+%	\]
+%	for all $k$ and thus $[x_k,g_k]\in\zeta_{c-i-1}(G)$ for all $k$. Hence 
+%	$g\in\zeta_{c-(i+1)}(G)$.
+	By induction, this claim follows. In particular, $\gamma_{c+1}(G)\subseteq \zeta_{0}(G)=\{ 1\}$.
 	
 	Assume now that $\gamma_{c+1}(G)=\{1\}$. We prove that 
 	$\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)$ for all $i$. We proceed by backward induction on $i$. 
 	The case $i=c$ is trivial, so assume the
 	result holds for some $i+1\leq c$. Let $g\in\gamma_{i}(G)$. By the inductive hypothesis, 
 	\[
-	[x,g]\in [G,\gamma_i(G)]=\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G).
+	[x,g]\in [G,\gamma_i(G)]=\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G),
 	\]
-	Thus $g\in\zeta_{c-i+1}(G)$ by definition. 
+	for all $x\in G$.
+	Thus $g\in\zeta_{c-i+1}(G)$ by definition. Hence $\gamma_{i}(G)\subseteq\zeta_{c-i+1}(G)$, and the result follows
+	by induction. 
 \end{proof}
 
 \begin{example}
-	If $G=\Sym_3$, then $\zeta_j(G)=\{1\}$ for all $j\geq 0$: 
-\end{example}
+	If $G=\Sym_3$, then $\zeta_j(G)=\{1\}$ for all $j\geq 0$.
+	\end{example}
 
 \index{Central!series}
-A \textbf{central series} of a group $G$ is a sequence
+A {\em central series} of a group $G$ is a sequence
 \[
 	G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}
 \]
@@ -513,31 +399,35 @@ G/G_i$ is the canonical map.
 
 \begin{proposition}
 	\label{pro:serie_central}
-	Let $G$ be a group and $G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}$
-	be a central series of $G$. Then $\gamma_{i+1}(G)\subseteq G_i$ for all $i$.
+	Let $G$ be a group and let $G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}$
+	be a central series of $G$. Then $\gamma_{i+1}(G)\subseteq G_i\subseteq \zeta_{n-i}(G)$, for all $i$.
 \end{proposition}
 
 \begin{proof}
-	We proceed by induction on $i$. 
+    We shall prove that $\gamma_{i+1}(G)\subseteq G_i$ by induction on $i$. 
 	The case $i=0$ is trivial, so we assume that 
 	the result holds for some 
-	$i\geq0$. 
-	Let $\pi_i\colon G\to G/G_i$ is the canonical map. 
-	Since $\pi_i(G_{i-1})\subseteq Z(G/G_{i})$, it follows that
+	$i\geq 0$. 
+	Let $\pi_{i+1}\colon G\to G/G_{i+1}$ is the canonical map. 
+	Since $\pi_{i+1}(G_{i})\subseteq Z(G/G_{i+1})$, it follows that
 	\[
-	\pi([G,G_{i-1}])=[\pi_i(G),\pi_i(G_{i-1})]=\{1\}.
+	\pi_{i+1}([G,G_{i}])=[\pi_{i+1}(G),\pi_{i+1}(G_{i})]=\{1\}.
 	\]
-	This implies that $[G,G_{i-1}]\subseteq\ker\pi_i=G_{i-1}$. Hence
+	This implies that $[G,G_{i}]\subseteq\ker\pi_{i+1}=G_{i+1}$. Hence, by the inductive hypothesis,
 	\[
-	\gamma_{i+1}(G)=[G,\gamma_i(G)]\subseteq [G,G_{i-1}]\subseteq G_i.\qedhere 
-	\]
+	\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]\subseteq [G,G_{i}]\subseteq G_{i+1}. 
+	\] Thus the first inclusion follows by induction.
+	
+	We shall prove that $G_i\subseteq \zeta_{n-i}(G)$, by induction on $n-i$. For $n-i=0$, $G_n=\{ 1\}=\zeta_0(G)$. Suppose that the
+	inclusion holds for some $n-i\geq 0$. Since $G_i\subseteq \zeta_{n-i}(G)$, there exists a surjective group homomorphism
+	$f\colon G/G_i\rightarrow G/\zeta_{n-i}(G)$, such that $f(gG_i)=g\zeta_{n-i}(G)$, for all $g\in G$. 
+	Hence $f(Z(G/G_i))\subseteq Z(G/\zeta_{n-i}(G))$. Since  $f\circ\pi_i\colon G\rightarrow G/\zeta_{n-i}(G)$ is the canonical map and
+	$f(\pi_i(G_{i-1}))\subseteq f(Z(G/G_i))\subseteq Z(G/\zeta_{n-i}(G))$, we have that 
+	$G_{i-1}\subseteq (f\circ \pi_i)^{-1}(Z(G/\zeta_{n-i}(G)))=\zeta_{n-i+1}(G)$. Therefore, the result follows by induction.
 \end{proof}
 
 % extender el lema para ver qué pasa con zeta_i
 
-\begin{exercise}
-	A group is nilpotent if and only if it admits a central series.
-\end{exercise}
 
 %\begin{proof}
 %	If $G$ is nilpotent, then the $\gamma_j(G)$ form a central series for $G$. Conversely, if 
@@ -546,21 +436,17 @@ G/G_i$ is the canonical map.
 %	$G$ is nilpotent by Lemma~\ref{lem:serie_central}. 
 %\end{proof}
 
-\begin{exercise}
-\label{xca:nilpotente_central}
-	Let $G$ be a group. If $K$ is a central subgroup of $G$ such that 
-	$G/K$ is nilpotent, then $G$ is nilpotent.
-\end{exercise}
+
 
 \begin{theorem}[Hirsch]
 	\label{thm:Z(nilpotent)}
 	\index{Hirsch's Theorem}
-	Let $G$ be a nilpotent group. If $H$ is a non-trivial normal subgroup of $G$, then 
+	Let $G$ be a non-trivial nilpotent group. If $H$ is a non-trivial normal subgroup of $G$, then 
 	$H\cap Z(G)\ne\{1\}$. In particular, $Z(G)\ne\{1\}$. 
 \end{theorem}
 
 \begin{proof}
-	Since $\zeta_0(G)=\{1\}$ and there exists $c$ such that $\zeta_c(G)=G$, there exists  
+	Since $\zeta_0(G)=\{1\}$ and there exists $c\geq 1$ such that $\zeta_c(G)=G$, there exists  
 	\[
 	m=\min\{k:H\cap\zeta_k(G)\ne\{1\}\}.
 	\]
@@ -571,11 +457,6 @@ G/G_i$ is the canonical map.
 	Thus $\{1\}\ne H\cap\zeta_m(G)\subseteq H\cap Z(G)$. If $H=G$, then $Z(G)\ne\{1\}$. 
 \end{proof}
 
-\begin{exercise}
-\label{xca:nilpotente_minimalnormal}
-	Let $G$ be a nilpotent group and $M$ be a minimal normal subgroup of $G$. 
-	Then $M\subseteq Z(G)$.
-\end{exercise}
 
 % \begin{svgraybox}
 % 	Como $M\cap Z(G)$ es normal en $G$, la minimalidad de $M$ implica que hay
@@ -583,8 +464,9 @@ G/G_i$ is the canonical map.
 % 	Por el teorema~\ref{theorem:Z(nilpotent)}, $M\cap Z(G)\ne 1$.
 % \end{svgraybox}
 
-A subgroup $M$ of $G$ is \textbf{maximal normal} if it is maximal
-among all normal subgroups of $G$.  
+\index{Subgroup!maximal normal}
+A subgroup $M$ of $G$ is {\em maximal normal} if it is maximal
+among all normal proper subgroups of $G$.  
 
 \begin{corollary}
 	Let $G$ be a non-abelian nilpotent group and $A$ be an abelian 
@@ -593,24 +475,45 @@ among all normal subgroups of $G$.
 
 \begin{proof}
 	Since $A$ is abelian, $A\subseteq C_G(A)$. Assume that $A\ne C_G(A)$.
-	The centralizer $C_G(A)$ is normal in $G$. In fact, since $A$ is normal in $G$, 
-	\[
-		gC_G(A)g^{-1}=C_G(gAg^{-1})=C_G(A)
-	\]
-	for all $g\in G$.  Let $\pi\colon G\to G/A$ be the canonical map.
+	We know that the centralizer of a normal subgroup is normal. Thus the centralizer $C_G(A)$ is normal in $G$. 
+%	In fact, since $A$ is normal in $G$, 
+%	\[
+%		gC_G(A)g^{-1}=C_G(gAg^{-1})=C_G(A)
+%	\]
+%	for all $g\in G$.  
+	Let $\pi\colon G\to G/A$ be the canonical map.
 	Then $\pi(C_G(A))$ is a non-trivial normal subgroup of $\pi(G)$. Since 
 	$G$ is nilpotent, $\pi(G)$ is nilpotent. By Hirsch's theorem, 
 	$\pi(C_G(A))\cap Z(\pi(G))\ne\{1\}$. Let
 	$x\in C_G(A)\setminus A$ be such that $\pi(x)$ is central in $\pi(G)$. 
-	Note that if $g\in G$, then $gxg^{-1}\in C_G(A)$. 
-	Then 
+	Note that if $g\in G$, then $gxg^{-1}\in xA$. 
+	Hence 
 	$\langle A,x\rangle$ is an abelian normal subgroup of $G$ such that   
 	$A\subsetneq \langle
-	A,x\rangle\subsetneq G$, a contradiction. 
+	A,x\rangle\subsetneq G$, a contradiction. Therefore $A=C_G(A)$. 
 \end{proof}
 
-\begin{theorem}
-	Let $G$ be a nilpotent group. The following statements hold:
+\index{Subgroup!minimal normal}
+A subgroup $M$ of a group $G$ is said to be {\em minimal normal} if $M\ne\{1\}$,
+$M$ is normal in $G$ and the unique normal subgroup of $G$ strictly contained in $M$ is
+the trivial subgroup. Every finite group contains a minimal normal subgroup.  
+
+\begin{example}
+	If a non-trivial normal subgroup $M$ is minimal (with respect to the inclusion), then it is
+	minimal normal. The converse statement is not true. The subgroup of 
+	$\Alt_4$ generated by $(12)(34)$, $(13)(24)$ and $(14)(23)$ is minimal normal in 
+	$\Alt_4$ but it is not minimal {\bf non-trivial}. 
+\end{example}
+
+\begin{example}
+	Let $G=\D_{6}=\langle r,s:r^6=s^2=1,\,srs=r^{-1}\rangle$ be the dihedral group
+	of size twelve. The subgroups $S=\langle r^2\rangle$ 
+	and $T=\langle r^3\rangle$ are minimal normal subgroups.
+	\end{example}
+
+
+\begin{theorem}\label{theorem:minmax_nilpotent}
+	Let $G$ be a non-trivial nilpotent group. The following statements hold:
 	\begin{enumerate}
 		\item Every minimal normal subgroup of $G$ has prime order and it is central. 
 		\item Every maximal subgroup of $G$ is normal, has prime index and contains $[G,G]$. 
@@ -622,14 +525,12 @@ among all normal subgroups of $G$.
 	$N\cap Z(G)\ne\{1\}$ by Hirsch's theorem. It follows that $N\cap Z(G)$ is a normal subgroup of $G$ contained in $N$. 
 	Thus $N=N\cap Z(G)\subseteq
 	Z(G)$ by the minimality of $N$. In particular, $N$ is abelian. Since 
-	every subgroup of $N$ is normal in $G$, $N$ is simple and therefore $N\simeq
-	C_p$ for some prime number $p$.
+	every subgroup of $N$ is normal in $G$, $N$ should be cyclic of prime order.
 
 	We now prove (2). If $M$ is a maximal subgroup, then $M$
 	is normal en $G$ by the normalizer condition. The maximality of $M$ implies that 
-	$G/M$ contains no non-trivial proper subgroups. Thus 
-	$G/M\simeq C_p$ for some prime number $p$. Since  
-	$G/M$ is abelian, $[G,G]\subseteq M$. 
+	$G/M$ contains no non-trivial proper subgroups.  Since $G/M$ is nilpotent and $Z(G/M)$ is non-trivial, we have that $G/M$ is abelian. Thus 
+	$G/M$ should be cyclic of prime order and thus $[G,G]\subseteq M$. 
 \end{proof}
 
 The theorem does not prove the existence of maximal subgroups, see for example what happens with
@@ -642,22 +543,19 @@ the additive group of rational numbers.
 \end{proposition}
 
 \begin{proof}
-	We proceed by induction on $n$. The case $n=1$ is trivial. Assume that the result holds 
-	for all subgroups of index $<n$. If $H$ is a subgroup of index $n$, let 
-	$H_0=H$ and $H_{i+1}=N_G(H_i)$ for $i\geq1$. Then $H_{i}$ is normal in 
-	$H_{i+1}$. Since $G$ is nilpotent, if $H_i\ne G$, then 
-    $H_i\subsetneq H_{i+1}$ by the normalizer condition. Since  
-	$(G:H)$ is finite, there exists $k$ such that $H_k=G$. By the inductive hypothesis, since
-	$(H_j:H_{j-1})<n$ for all $j$, it follows that 
-	$x^{(H_j:H_{j-1})}\in H_{j-1}$ for all $x\in H_j$ and all $j$. Thus   
+	We proceed by induction on $n$. The case $n=1$ is trivial. Assume  that $n>1$ and the result holds 
+	for all subgroups of index $<n$. If $H$ is  a normal subgroup of index $n$, then clearly $g^n\in H$, for all $g\in G$. 
+	Hence we may assume that $H$ is a non-normal subgroup of $G$ of index $n$. By the normalizer condition, $H\subsetneq N_G(H)$. Hence
+	$(G:N_G(H)),(N_G(H):H)<n$, and thus, by the inductive hypothesis, $g^{(G:N_G(H))}\in N_G(H)$ and
 	\[
-		g^{(G:H)}=g^{(H_k:H_{k-1})(H_{k-1}:H_{k-2})\cdots (H_1:H_0)}\in H.\qedhere 
+		g^n=g^{(G:H)}=g^{(G:N_G(H))(N_G(H):H)}\in H, 
 	\]
+	for all $g\in G$. Therefore, the result follows by induction.
 \end{proof}
 
 \begin{example}
 The nilpotency of $G$ is needed in the previous proposition. 
-If $G=\Sym_3$ and $H=\{\id,(12)\}$, then $(G:H)=3$ and  de índice tres. If 
+If $G=\Sym_3$ and $H=\{\id,(12)\}$, then $(G:H)=3$. If 
 $g=(13)$, then $g^{3}=(13)\not\in H$. 	
 \end{example}
 
@@ -671,8 +569,7 @@ on nilpotent groups.
 \end{lemma}
 
 \begin{proof}
-	Let $H=\langle x,[G,G]\rangle$.  If $x\in [G,G]$, the claim holds. 
-	Assume that $x\not\in [G,G]$. Note that  
+	Let $H=\langle x,[G,G]\rangle$.   Note that  
 	\[
 		H=\{x^nc:n\in\Z,c\in [G,G]\},
 	\]
@@ -703,30 +600,33 @@ Now an application of Lemma~\ref{lem:a[GG]}.
 	\label{thm:T(nilpotent)}
 	If $G$ is a nilpotent group, then 
 	\[
-	T(G)=\{g\in G:g^n=1\text{ para algún $n\in\N$}\}
+	T(G)=\{g\in G:g^n=1\text{ for some positive integer }n\}
 	\]
 	is a subgroup of $G$. 
 \end{theorem}
 
-\begin{proof}
-	Let $a,b\in T(G)$ and let $A=\langle a,[G,G]\rangle$ and $B=\langle b,[G,G]\rangle$, 
-	Since $A$ and $B$ are both nilpotent by the previous lemma, the inductive hypothesis implies that
+\begin{proof} 
+    We shall show the result by induction on the nilpotency class $c$ of $G$.
+    If $G$ is abelian, then the result is clear. Suppose that $c\geq 2$ and that the result holds for all nilpotent 
+    groups of class $<c$. 
+	Let $a,b\in T(G)$ and let $A=\langle a,[G,G]\rangle$ and $B=\langle b,[G,G]\rangle$. 
+	Since $A$ and $B$ are both nilpotent of class $<2$ by the previous lemma, the inductive hypothesis implies that
 	$T(A)$ is a subgroup of $A$ and $T(B)$ is a subgroup of $B$. 
 	Since $T(A)$ is characteristic in $A$ and $A$ is normal in $G$, it follows that 
 	$T(A)$ is
 	normal in $G$. Similarly, $T(B)$ is normal in $B$.  
 	We claim that every element of $T(A)T(B)$ has finite order. Indeed, if 
 	$x\in T(A)T(B)$, say $x=a_1b_1$ with 
-	$a_1$ of order $m$, then $x$ has finite order since  
+	$a_1\in T(A)$ of order $m$ and $b_1\in T(B)$, then $x$ has finite order since  
 	\begin{align*}
 	x^m=(a_1b_1)^m&=
-		(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})\cdots (a^{m-1} b_1 a^{-m+1})b_1\in T(B).
+		(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})\cdots (a_1^{m-1} b_1 a_1^{-m+1})b_1\in T(B).
 	\end{align*}
 	This trick allows us to prove that both $ab$ and $a^{-1}$ have finite order. 
-	Hence $T(G)$ is a subgroup of $G$. 
+	Hence $T(G)$ is a subgroup of $G$.  Therefore, the result follows by induction. 
 \end{proof}
 
-Another application.
+Another application of Lemma \ref{lem:a[GG]}.
 
 \begin{theorem}
 	\label{thm:a=b}
@@ -736,7 +636,7 @@ Another application.
 
 \begin{proof}
 	We proceed by induction on the nilpotency class $c$ of $G$. The claim holds if $G$ is abelian. Assume 
-	that $G$ is nilpotent of class $c\geq1$. Since $\langle a,[G,G]\rangle$ is a nilpotent subgroup of
+	that $G$ is nilpotent of class $c\geq2$. Since $\langle a,[G,G]\rangle$ is a nilpotent subgroup of
 	$G$ of nilpotency class $<c$ and $bab^{-1}=[b,a]a\in \langle
 	a,[G,G]\rangle$, the inductive hypothesis implies that $ba=ab$, as  
 	$a^n=(bab^{-1})^n=b^n$. Thus $(ab^{-1})^n=a^nb^{-n}=1$. Since $G$ is torsion-free, it follows that $a=b$.
@@ -748,7 +648,7 @@ Another application.
 \end{corollary}
 
 \begin{proof}
-	Let $a=x$ and $b=y^nxy^{-n}$. Since $a^m=b^m$, Theorem~\ref{thm:a=b} implies that $a=b$. Thus $xy^n=y^nx$. 
+	Let $a=x$ and $b=y^mxy^{-m}$. Since $a^n=b^n$, Theorem~\ref{thm:a=b} implies that $a=b$. Thus $xy^m=y^mx$. 
 	By using Theorem~\ref{thm:a=b} now with $a=y$ and $b=xyx^{-1}$, we conclude that 
 	$xy=yx$. 
 \end{proof}
@@ -764,12 +664,13 @@ The following lemma is well-known. We include the proof for completeness.
 \begin{proof}
 	Assume that $G=\langle g_1,\dots,g_m\rangle$. Without loss of generality we may assume that 
 	for each $i$ there exists $k$ such that $g_i^{-1}=g_k$. 
-	Let $\{1=t_1,\dots,t_n\}$ be a transversal of $H$ in $G$. For 
+	Let $\{1=t_1,\dots,t_n\}$ be a right transversal of $H$ in $G$. For 
 	$i\in\{1,\dots,n\}$ and 
 	$j\in\{1,\dots,m\}$ we write 
 	\[
-		t_ig_j=h(i,j)t_{k(i,j)}.
+		t_ig_j=h(i,j)t_{k(i,j)},
 	\]
+	where $h(i,j)\in H$.
 	We claim that $H$ is generated by the $h(i,j)$. If $x\in H$, then 
 	\begin{align*}
 	x &=g_{i_1}\cdots g_{i_s}\\
@@ -779,8 +680,12 @@ The following lemma is well-known. We include the proof for completeness.
 	&= h(1,i_1)h(k_1,i_2)\cdots h(k_{s-1},i_s)t_{k_s},
 	\end{align*}
 	where $k_1,\dots,k_{s-1}\in\{1,\dots,n\}$. Thus $t_{k_s}\in H$ and hence 
-	$t_{k_s}=1\in H$, which implies the claim.  
+	$t_{k_s}=1$, which implies the claim.  
 \end{proof}
+
+\index{Order!of an element}
+Let $G$ be a group. The {\em order} of an element $x\in G$ is the order of the group $\langle x\rangle$, and it is denoted by $|x|$. \index{Group!periodic}\index{Group!torsion} The group $G$ is said to be {\em torsion} or {\em periodic} if every element of $G$ has finite order.
+
 
 \begin{theorem}
 	\label{thm:T(G)finito}
@@ -790,11 +695,8 @@ The following lemma is well-known. We include the proof for completeness.
 
 \begin{proof}
 	We proceed by induction on the nilpotency class $c$. The case $c=1$ is true since $G$ is abelian. Assume 
-	that the result holds for some $c\geq1$.  Since both $[G,G]$ and $G/[G,G]$ 
-	finitely generated by Lemma~\ref{lem:fg}, 
-	nilpotent of class 
-	$<c$ and torsion groups, the inductive hypothesis implies that both $[G,G]$ and $G/[G,G]$ are finite. Thus $G$
-	is finite
+	that $c\geq 2$ and the result holds groups of nilpotency class $<c$.  Since $G/[G,G]$ is an abelian finitely generated torsion group, it is finite. By Lemma \ref{lem:fg}, $[G,G]$ also is finitely generated. Since $[G,G]$ is a finitely generated torsion nilpotent group of class $<c$, the inductibe hypothesis implies that $[G,G]$ is finite. Thus $G$
+	is finite. Therefore the result follows by induction.
 \end{proof}
 
 %\begin{exercise}
@@ -841,29 +743,65 @@ The following lemma is well-known. We include the proof for completeness.
 %	$G$ con factores cíclicos. 
 %\end{proof}
 
+\section*{Finite nilpotent groups}
 
-We now turn out attention to finite nilpotent groups. 
+%We now turn out attention to finite nilpotent groups. 
+Let $G$ be a finite group and $p$ a prime. We denote by $\Syl_p(G)$ the set of the Sylow $p$-subgroups of $G$.
 
 \begin{lemma}
-	\label{lem:normalizador}
-	Let $G$ be a finite group, $p$ a prime divisor of $|G|$ and 
-	$P\in\Syl_p(G)$. Then
-	$N_G(N_G(P))=N_G(P)$. 
+	\label{lemma:N_G(H)=H}
+	Let $G$ be a finite group and let $P\in\Syl_p(G)$. If $H$ is a subgroup of $G$
+	such that $N_G(P)\subseteq H$, then $N_G(H)=H$.
 \end{lemma}
 
 \begin{proof}
-	Let $H=N_G(P)$. Since $P$ is normal in $H$, $P$ is the unique Sylow 
-	$p$-subgroup of $H$. To prove that $N_G(H)=H$ it is enough to show that $N_G(H)\subseteq
-	H$. Let $g\in N_G(H)$. Since  
-	$gPg^{-1}\subseteq gHg^{-1}=H$, 
-	both 
-	$gPg^{-1}\in\Syl_p(H)$ and $H$ have a unique Sylow $p$-subgroup, so   
-	$P=gPg^{-1}$. Thus $g\in N_G(P)=H$. 
+	Let $x\in N_G(H)$. Since $P\in\Syl_p(H)$ and $xPx^{-1}\subseteq xHx^{-1}=H$, we have that there exists
+	$h\in H$ such that $(hx)P(hx)^{-1}=P$. Hence $hx\in
+	N_G(P)\subseteq H$, and thus $x\in H$. This proves the result. 
 \end{proof}
+
+%\begin{lemma}
+%	\label{lem:normalizador}
+%	Let $G$ be a finite group, $p$ a prime divisor of $|G|$ and 
+%	$P\in\Syl_p(G)$. Then
+%	$N_G(N_G(P))=N_G(P)$. 
+%\end{lemma}
+%
+%\begin{proof}
+%	Let $H=N_G(P)$. Since $P$ is normal in $H$, $P$ is the unique Sylow 
+%	$p$-subgroup of $H$. To prove that $N_G(H)=H$ it is enough to show that $N_G(H)\subseteq
+%	H$. Let $g\in N_G(H)$. Since  
+%	$gPg^{-1}\subseteq gHg^{-1}=H$, 
+%	both 
+%	$P, gPg^{-1}\in\Syl_p(H)$ and $H$ have a unique Sylow $p$-subgroup, so   
+%	$P=gPg^{-1}$. Thus $g\in N_G(P)=H$. 
+%\end{proof}
+
+\begin{lemma}\label{pgroup}
+	Let $p$ be a prime number. Then $p$-groups are nilpotent.
+\end{lemma}
+
+\begin{proof}
+    We know that every non-trivial $p$-group has non-trivial center. Let $G$ be a $p$-group. Suppose that $|G|=p^n$. We shall prove the result by induction on $n$. For $n=1$, $G$ is cyclic of order $p$ and the result is trivial. Suppose that $n>1$ and that the result holds for $p$-groups of order $<p^n$. We may assume that $G$ is non-abelian. Since $Z(G)$ is a non-trivial proper subgroup of $G$, by the inductive hypothesis, $Z(G)$ and $G/Z(G)$ are nilpotent. Let $\pi\colon G\rightarrow G/Z(G)$ be the canonical map. By Lemma \ref{lem:gamma_zeta}, there exists $c$ such that $\zeta_c(G/Z(G))=G/Z(G)$. Note that
+    \[ \pi^{-1}(\zeta_i(G/Z(G)))=\zeta_{i+1}(G).\]
+    Hence $\zeta_{c+1}(G)=G$ is nilpotent by Lemma \ref{lem:gamma_zeta}. Therefore the result follows by induction. 
+\end{proof}
+
+\index{Direct product of subgroups}
+We say that a group $G$ is the {\em direct product} of its subgroups $H_1,\dots ,H_n$ if every subgroup $H_i$ is normal in $G$, $G=H_1\cdots H_n$ and
+$H_{k+1}\cap H_1\cdots H_{k}=\{ 1\}$, for all $k=1,\dots, n-1$. Note that, for $i<j$, $h_i\in H_i$ and $h_j\in H_j$, we have that $[h_i,h_j]\in H_i\cap H_j=\{ 1\}$. Note that, in this case the map $f\colon H_1\times\dots\times H_n\rightarrow G$, defined by $f(h_1,\dots ,h_n)=h_1\cdots h_n$, for all $h_i\in H_i$, is an isomorphism of groups. It is clear that $f$ is surjective. Let $(a_1,\dots,a_n),(b_1,\dots,b_n)\in H_1\times\dots\times H_n$. We have that
+\begin{align*}
+f((a_1,\dots,a_n)(b_1,\dots,b_n))&=f(a_1b_1,\dots,a_nb_n)\\
+&=a_1b_1\cdots a_nb_n\\
+&=a_1\cdots a_nb_1\cdots b_n\\
+&=f(a_1,\dots ,a_n)f(b_1,\dots ,b_n).
+\end{align*}
+Thus $f$ is a surjective homomorphism of groups. Now it is easy to see that $\ker(f)=\{ 1\}$. 
+
 
 \begin{theorem}
 	\label{thm:nilpotente:eq}
-	Let $G$ be a finite group. The following statements are equivalent: 
+	Let $G$ be a finite group. The following conditions are equivalent: 
 	\begin{enumerate}
 		\item $G$ is nilpotent.
 		\item Every Sylow subgroup of $G$ is normal.
@@ -872,180 +810,26 @@ We now turn out attention to finite nilpotent groups.
 \end{theorem}
 
 \begin{proof}
-	We prove that $1)\implies 2)$. Let $P\in\Syl_p(G)$. We show that $P$ is normal in $G$, this means 
-	$N_G(P)=G$. By Lemma~\ref{lem:normalizador},  
-	$N_G(N_G(P))=N_G(P)$. Now  $N_G(P)=G$ by the normalizer condition.
+	We prove that $1)\implies 2)$. Suppose that $G$ is nilpotent. Let $P\in\Syl_p(G)$.  By Lemma~\ref{lemma:N_G(H)=H},  
+	$N_G(N_G(P))=N_G(P)$. Now  $N_G(P)=G$ by the normalizer condition. Hence $P$ is normal in $G$.
 
-	Veamos ahora que $2)\implies 3)$. Sean $p_1,\cdots,p_k$ los factores
-	primos de $|G|$ y para cada $i\in\{1,\dots,k\}$ sea $P_i\in\Syl_{p_i}(G)$.
-	Por hipótesis, cada $P_j$ es normal en $G$.
-	We now prove that $P_1\cdots P_j\simeq P_1\times\cdots\times P_j$ for all $j$.
-	The case $j=1$ is trivial. Assume that the result holds for some 
-	$j\geq 1$. Since  
-	\[
-	N=P_1\cdots P_j\simeq P_1\times\cdots\times P_j
-	\]
-	is normal in $G$ and has order coprime with $|P_{j+1}|$, it follows that $N\cap
-	P_{j+1}=\{1\}$. Thus 
-	\[
-		NP_{j+1}\simeq N\times P_{j+1}\simeq P_1\times\cdots\times P_j\times P_{j+1}, 
-	\]
-	as $P_{j+1}$ is normal in $G$. 
-	Now that we know that $P_1\cdots P_k\simeq P_1\times\cdots\times P_k$ is a subgroup of order 
-	$|G|$, we conclude that $G=P_1\times\cdots\times P_k$.
+	Now we prove that $2)\implies 3)$. Let $p_1,\dots,p_n$ be the distinct prime divisors of $|G|$. For every $i\in\{1,\dots,n\}$, let $P_i\in\Syl_{p_i}(G)$.
+	By hypothesis, each $P_j$ is normal in $G$. Since $|P_1\cdots P_n|=|G|$, we have that $G=P_1\cdots P_n$. Clearly
+	$|P_{k+1}|, |P_1\cdots P_k|$ are coprime for all $k=1,\dots, n-1$. Hence $P_{k+1}\cap P_1\cdots P_k=\{ 1\}$, for all $k=1,\dots, n-1$. Thus $G$ is the direct product of its Sylow subgroups. 
 
 	Finally, to prove that $3)\implies 1)$ we note that every 
 	$p$-group is nilpotent and that a finite direct product of nilpotent groups is nilpotent. 
 \end{proof}
 
-\begin{exercise}
-	\label{xca:truco}
-	Let $G$ be a finite group. If $P\in\Syl_p(G)$ and $M$ is a subgroup of $G$ such that 
-	$N_G(P)\subseteq M$, then $M=N_G(M)$. 
-\end{exercise}
-
-% \begin{svgraybox}
-% 	Sea $x\in N_G(M)$. Como $P\subseteq M$ y $M$ es normal en $N_G(M)$,
-% 	$xPx^{-1}\subseteq M$.  Como $P$ y $xPx^{-1}$ son $p$-subgrupos de Sylow de
-% 	$M$, existe $m\in M$ tal que 
-% 	\[
-% 	mPm^{-1}=xPx^{-1}.
-% 	\]
-% 	Luego $x\in M$ pues
-% 	$m^{-1}x\in N_G(P)\subseteq M$. 
-% \end{svgraybox}
-
-\begin{exercise}
-	\label{xca:normalizadora}
-	Let $G$ be a finite nilpotent group. The following statements are equivalent:  
-	\begin{enumerate}
-		\item $G$ is nilpotent.
-		\item If $H\subsetneq G$ is a subgroup, then $H\subsetneq N_G(H)$.
-		\item Every maximal subgroup of $G$ is normal in $G$.
-	\end{enumerate}
-\end{exercise}
-
-% \begin{svgraybox}
-% 	Para demostrar que $(1)\implies(2)$ simplemente usamos el
-% 	lema~\ref{lemma:normalizadora}. Para demostrar que $(2)\implies(3)$ hacemos
-% 	lo siguiente: si $M$ es un subgrupo maximal, como $M\subsetneq N_G(M)$ por
-% 	hipótesis, $N_G(M)=G$ por maximalidad. Finalmente demostremos que
-% 	$(3)\implies(1)$.  Sea $P\in\Syl_p(G)$. Si $P$ no es normal en $G$,
-% 	$N_G(P)\ne G$ y entonces existe un subgrupo maximal $M$ tal que
-% 	$N_G(P)\subseteq M$. Como $M$ es normal en $G$, el
-% 	ejercicio~\ref{exercise:truco} implica que $M=N_G(M)=G$, una contradicción.
-% 	Luego $P$ es normal en $G$ y entonces $G$ es nilpotente por el
-% 	teorema~\ref{theorem:nilpotente:eq}.
-% \end{svgraybox}
-
-% ejercicio: G finito. Es nilpotente si y solo si dos elementos de ordenes coprimos conmnutan
-% 5.41 rotman
-
-\begin{exercise}
-	Let $G$ be a finite nilpotent group. If $p$ is a prime dividing the order of $G$, then there
-	exists a minimal normal subgroup of order $p$ and there exists a maximal subgroup of index $p$.
-\end{exercise}
-
-%\begin{proof}
-%	Assume that $|G|=p^{\alpha}m$, where $p$ is coprime with $m$.
-%	Write $G=P\times H$, where $P\in\Syl_p(G)$.  Since $Z(P)$ is a non-trivial subgroup of 
-%	of $P$, subgroup   
-%	of $Z(P)$ minimal-normal en $G$ tiene orden $p$ (y esos subgrupos 
-%	existen porque $G$ es un grupo finito). Por otro lado, como $P$ contiene un subgrupo
-%	de índice $p$, que resulta maximal. Luego $P\times H$ también contiene un
-%	subgrupo maximal de índice $p$.
-%\end{proof}
-
-\begin{exercise}
-	\label{xca:pgrupos}
-	Let $p$ be a prime and $G$ be a non-trivial group of order $p^n$.
-	\begin{enumerate}
-		\item $G$ has a normal subgroup of order $p$.
-		\item For each $j\in\{0,\dots,n\}$ there exists a normal subgroup of order $p^j$. 
-	\end{enumerate}
-\end{exercise}
-
-% \begin{svgraybox}
-% 	\begin{enumerate}
-% 		\item Sabemos que $Z(G)\ne1$. Sea $g\in Z(G)$ tal que $g\ne 1$.
-% 			Supongamos que el orden de $g$ es $p^k$ para algún $k\geq1$.
-% 			Entonces $g^{p^{k-1}}$ tiene orden $p$ y luego genera un subgrupo
-% 			central de orden $p$. 
-% 		\item Procederemos por inducción en $n$. Si $n=1$ el resultado es
-% 			trivial.  Supongamos entonces que el resultado vale para un cierto
-% 			$n\geq2$. Por el punto anterior, $G$ posee un subgrupo normal $N$
-% 			de orden $p$. Luego $G/N$ tiene orden $p^{n-1}$. Sea $\pi\colon G\to G/N$ el morfismo canónico. 
-% 			Por hipótesis
-% 			inductiva, para cada $j\in\{0,\dots,n-1\}$. Por el teorema de la
-% 			correspondecia, cada subgrupo normal $S_j$ de $G/N$ de orden $p^j$ se
-% 			corresponde con un subgrupo $\pi^{-1}(S_j)$ de $G$ de orden $p^{j+1}$ pues, como
-% 			$\pi$ es sobreyectiva, se tiene $\pi(\pi^{-1}(S_j))=S_j$, y luego
-% 			\[
-% 			p^j=|S_j|=|\pi(\pi^{-1}(S_j))|=\frac{|\pi^{-1}(S_j)|}{|\pi^{-1}(S_j)\cap N|}=\frac{|\pi^{-1}(S_j)|}{|N|}=\frac{|\pi^{-1}(S_j)|}{p}.
-% 			\]
-% 	\end{enumerate}
-% \end{svgraybox}
-
-\begin{exercise}
-\label{xca:nilpotente_equivalencia}
-	Let $G$ be a finite group. The following statements are equivalent:
-	\begin{enumerate}
-		\item $G$ is nilpotent.
-		\item Any two elements of coprime order commute. 
-		\item Every non-trivial quotient of $G$ has non-trivial center.
-		\item If $d$ divides $|G|$, there exists a normal subgroup of $G$ of order $d$. 
-		\end{enumerate}
-\end{exercise}
-
-% \begin{svgraybox}
-% 	Veamos que $(1)\implies(2)$. Sabemos que $G$ es producto directo de sus
-% 	subgrupos de Sylow, digamos $G=\prod_{i=1}^k S_i$, donde los $S_i$ son los
-% 	distintos subgrupos de Sylow de $G$.  Sean
-% 	$x=(x_1,\dots,x_k),y=(y_1,\dots,y_k)\in G$. Como $|x|$ y $|y|$ son
-% 	coprimos, para cada $i\in\{1,\dots,k\}$ se tiene $x_i=1$ o $y_i=1$. Luego
-% 	\[
-% 		[x,y]=([x_1,y_1],[x_2,y_2],\dots,[x_k,y_k])=1. 
-% 	\]
-% 	Demostremos ahora que $(2)\implies(1)$. Supongamos que
-% 	$|G|=p_1^{\alpha_1}\cdots p_k^{\alpha_k}$, donde los $p_j$ son primos
-% 	distintos y para cada $j$ sea $P_j\in\Syl_{p_j}(G)$. Como elementos de
-% 	órdenes coprimos conmutan, la función $P_1\times\cdots\times P_k\to G$,
-% 	$(x_1,\dots,x_k)\mapsto x_1\cdots x_k$, es un morfismo inyectivo de grupos.
-% 	Como entonces $G\simeq P_1\times\cdots P_k$, y cada $P_j$ es nilpotente,
-% 	$G$ es nilpotente. 
-
-% 	Para demostrar que $(1)\implies(3)$ simplemente hay que observar que todo
-% 	cociente de $G$ es nilpotente y luego utilizar el
-% 	teorema~\ref{theorem:Z(nilpotent)}. Demostremos que $(3)\implies(1)$. Como
-% 	todo cociente no trivial de $G$ tiene centro no trivial, en particular
-% 	$Z_1=Z(G)$ es no trivial. Si $Z_1=G$ entonces $G$ es abeliano y no hay nada
-% 	para demostrar. Si $Z_1\ne G$ entonces $G/Z_1\ne 1$; luego $Z(G/Z_1)\ne 1$.
-% 	Si $\pi_1\colon G\to G/Z_1$ es el morfismo canónico,
-% 	$Z_2=\pi_1^{-1}(Z(G/Z_1))$. Inductivamente, si tenemos construido el
-% 	subgrupo $Z_i$, $Z_i\ne G$ y  $\pi_i\colon G\to G/Z_{i}$ es el morfismo
-% 	canónico, se define el subgrupo $Z_{i+1}=\pi_i^{-1}(Z(G/Z_i))$. Por
-% 	construcción, $Z_i\subseteq Z_{i+1}$ para todo $i$. Como $G$ es finito,
-% 	existe $k$ tal que $Z_k=G$ y luego $G$ es nilpotente.
-
-% 	Demostremos que $(1)\implies(4)$. Esta implicación es consecuencia
-% 	inmediata del ejercicio~\ref{exercise:pgrupos}. 
-% 	Como $G$ es nilpotente, $G$ producto
-% 	directo de sus $p$-grupos de Sylow. Si $d=p_1^{\alpha_1}\cdots
-% 	p_k^{\alpha_k}$ es un divisor del orden de $G$, basta tomar
-% 	$H=H_1\times\cdots\times H_k$, 
-% 	donde cada $H_j$ es un subgrupo normal del $p_j$-subgrupo de Sylow de $G$
-% 	de orden $p_j^{\alpha_j}$. Para demostrar que $(4)\implies(1)$ simplemente
-% 	se aplica la hipótesis a cada $p$-subgrupo de $G$ de orden maximal.
-% \end{svgraybox}
 
 \begin{theorem}[Baumslag--Wiegold]
 	\index{Baumslag--Wiegold's theorem}
-	Let $G$ be a finite group such that $|xy|=|x||y|$ whenever $x$ and $y$ have coprime order. Then
+	Let $G$ be a finite group such that $|xy|=|x||y|$ whenever $x,y\in G$ have coprime order. Then
 	$G$ is nilpotent. 
 \end{theorem}
 
 \begin{proof}
-	Let $p_1,\dots,p_n$ be the distinct primes dividing the order of $G$. For each 
+	Let $p_1,\dots,p_n$ be the distinct prime divisors of the order of $G$. For each 
 	$i\in\{1,\dots,n\}$ let $P_i\in\Syl_{p_i}(G)$. We claim that 
 	$G=P_1\cdots P_n$. The non-trivial inclusion is equivalent to show that the map
 	\[
@@ -1071,34 +855,14 @@ We now turn out attention to finite nilpotent groups.
 	we write $y_j=z_1\cdots z_n$ with $z_k\in P_k$ for all $k$. Since the order of 
 	$y_j$ is a power of $p_j$, it follows that $z_1\cdots
 	z_n$ has order a power of $p_j$. Thus $z_k=1$ for all $k\ne j$ and 
-	$y_j=z_j\in P_j$. Since each Sylow subgroup is normal, $G$ is nilpotent. 
+	$y_j=z_j\in P_j$. Since each Sylow subgroup is normal, $G$ is nilpotent, by Theorem \ref{thm:nilpotente:eq}. 
 \end{proof}
 
 
 %\section{Grupos nilpotentes de clase dos}
-We conclude the section with an exercise
-on nilpotent groups of class two. 
+%We conclude the section with an exercise
+%on nilpotent groups of class two. 
 
-\begin{exercise}
-Let $G$ be a group and $x,y\in G$.  
-\begin{enumerate}
-	\item If $[x,y]\in C_G(x)\cap C_G(y)$, entonces
-	$[x,y]^n=[x^n,y]=[x,y^n]$
-	for all $n\in\Z$.
-	\item If $G$ is nilpotent of class two, then $(xy)^n=[y,x]^{n(n-1)/2}x^ny^n$ 
-	for all $n\in\N$.
-\end{enumerate}	
-\end{exercise}
-
-\begin{exercise}
-	Let $p$ be an odd prime number and  
-	$P$ be a $p$-group of nilpotency class $\leq2$. 
-	\begin{enumerate}
-	\item 	If $[y,x]^p=1$ for all $x,y\in P$, then $P\to [P,P]$,
-	$x\mapsto x^p$, is a group homomorphism. 
-	\item $\{x\in P:x^p=1\}$ is a subgroup of $P$. 
-	\end{enumerate}
-\end{exercise}
 
 
 
@@ -1179,17 +943,15 @@ Let $G$ be a group and $x,y\in G$.
 %	$(xy)^p=[y,x]^{p(p-1)/2}x^py^p=1$.
 %\end{proof}
 
-\section*{B}
+\section*{Fratini subgroup}
 
 \index{Frattini!subgroup}
-Let $G$ be a group. If $G$ has maximal subgroups, the Frattini subgroup
+Let $G$ be a group. If $G$ has maximal subgroups, the {\em Frattini subgroup}
 $\Phi(G)$ of $G$ is defined as the intersection of all maximal subgroups of $G$. 
-Otherwise, $\Phi(G)=G$.
+Otherwise, $\Phi(G)=G$. 
 
-\begin{exercise}
-\label{xca:Phi(G)char}
-	If $G$ is a group, then $\Phi(G)$ is characteristic in $G$.
-\end{exercise}
+Note that $\Phi(G)$ is a characteristic subgroup of $G$.
+
 
 \begin{example}
 	Let $G=\Sym_3$. The maximal subgroups of $G$ are 
@@ -1236,9 +998,6 @@ Otherwise, $\Phi(G)=G$.
 \end{tikzcd}\]
 \end{example}
 
-\begin{exercise}
-	Compute the Frattini subgroup of $G=\SL_2(3)$.  
-\end{exercise}
 
 \begin{lemma}[Dedekind]
 	\label{lem:Dedekind}
@@ -1276,13 +1035,12 @@ Otherwise, $\Phi(G)=G$.
 	$\Phi(N)$
 	is normal in $G$.  Let $M$ be a maximal subgroup of $G$ such that 
 	$\Phi(N)\not\subseteq M$.  Then $\Phi(N)M=G$, as 
-	$M=\Phi(N)M\supseteq\Phi(N)$ otherwise. By applying Dedekind's lemma with 
+	$M=\Phi(N)M\supseteq\Phi(N)$ otherwise. By applying Lemma \ref{lem:Dedekind} with 
 	$H=\Phi(N)$, $K=M$ and $L=N$,   
 	\[
 		N=G\cap N=(\Phi(N)M)\cap N=\Phi(N)(M\cap N).
 	\]
-	The previous lemma with $G=N$ and $H=M\cap N$ implies that $\Phi(N)\subseteq
-	N\subseteq M$, a contradiction. Hence every maximal subgroup of $G$ 
+	By Lemma \ref{lem:G=HPhi(G)} $N=M\cap N\subseteq M$, a contradiction. Hence every maximal subgroup of $G$ 
 	contains $\Phi(N)$ and therefore $\Phi(G)\supseteq\Phi(N)$. 
 \end{proof}
 
@@ -1309,41 +1067,37 @@ The Frattini subgroup can be characterized in terms of non-generators.
 	maximal subgroup $M$. Hence $x\in \Phi(G)$. 
 \end{proof}
 
-\begin{exercise}
-	Let $p$ be a prime number and $G$ be an elementary abelian $p$-group. Then 
-%	Sea $p$ un número primo. Sea $G$ un $p$-grupo elemental abeliano, es decir
-%	$G\simeq C_p^m$ para algún $m\in\N$.  Supongamos además que
-%	$G=\langle x_1\rangle\times\cdots\times\langle x_m\rangle$ con $\langle x_j\rangle\simeq C_p$.  
-%	Veamos que $\Phi(G)$ es trivial. 
-%	Sea $j\in\{1,\dots,m\}$ y sea $n_j\in\{1,\dots,p-1\}$. Como el conjunto
-%	\[
-%	\{x_1,\dots,x_{j-1},x_j^{n_j},x_{j+1},\dots,x_m\}
-%	\]
-%	genera al grupo $G$ y $\{x_1,\dots,x_{j-1},x_{j+1},\dots,x_m\}$ no lo hace,
-%	entonces $x_j^{n_j}\not\in\Phi(G)$ por el lema de los no-generadores. 
-	$\Phi(G)=\{1\}$.
-\end{exercise}
+\begin{lemma}[Frattini's argument]
+\index{Frattini's argument}
+Let $G$ be a finite group, $H$ a normal subgroup of $G$ and $p$ a prime. Then, for every $P\in \Syl_p(H)$, $G=HN_G(P)$.
+\end{lemma}
+
+\begin{proof}
+    Let $P\in\Syl_p(H)$ and $g\in G$. We have that $gPg^{-1}\subseteq gHg^{-1}=H$. Hence $gPg^{-1}\in\Syl_p(H)$.
+    Therefore, there exists $h\in H$ such that $hPh^{-1}=gPg^{-1}$. Thus $h^{-1}g\in N_G(P)$. Now we have that
+    $g=hh^{-1}g\in HN_G(P)$, and the result follows.
+\end{proof}
 
 \begin{theorem}[Frattini]
 	\label{theorem:Frattini}
-	\index{Frattini's!theorem}
+	\index{Frattini's theorem}
 	If $G$ is a finite group, then $\Phi(G)$ is nilpotent. 
 \end{theorem}
 
 \begin{proof}
 	Let $P\in\Syl_p(\Phi(G))$ for some prime $p$. Since $\Phi(G)$ is normal in
-	$G$, Frattini argument implies that 
+	$G$, Frattini's argument implies that 
 	% (que vimos en el lema~\ref{lemma:Frattini_argument}) 
 	$G=\Phi(G)N_G(P)$. By Lemma~\ref{lem:G=HPhi(G)},
 	$G=N_G(P)$. Since Sylow subgroups of $\Phi(G)$ are normal in $G$,
-	$\Phi(G)$ is nilpotent.
+	$\Phi(G)$ is nilpotent, by Theorem \ref{thm:nilpotente:eq}.
 \end{proof}
 
-\begin{exercise}
-	\label{exercise:G/M}
-	Let $G$ br a group and $M$ be a normal subgroup of $G$ that is maximal. Then
-	$G/M$ is cyclic of prime order.
-\end{exercise}
+%\begin{exercise}
+%	\label{exercise:G/M}
+%	Let $G$ be a group and $M$ be a normal subgroup of $G$ that is maximal. Then
+%	$G/M$ is cyclic of prime order.
+%\end{exercise}
 
 % \begin{svgraybox}
 % 	Por el teorema de la correspondencia, $G/M$ no tiene subgrupos no trivales.
@@ -1352,114 +1106,84 @@ The Frattini subgroup can be characterized in terms of non-generators.
 
 \begin{theorem}[Gasch\"utz]
 	\label{thm:Gaschutz}
-	\index{Gasch\"utz's!teorema de}
+	\index{Gasch\"utz's theorem}
 	If $G$ is a finite group, then $[G,G]\cap Z(G)\subseteq\Phi(G)$.
 \end{theorem}
 
 \begin{proof}
 	Let $D=[G,G]\cap Z(G)$. Assume that $D$ is not contained in $\Phi(G)$.
-	Since $\Phi(G)$ is contained in every maximal subgroup of $G$, there exists a maximal subgroup $M$ 
-	such that $D$ is not contained in $M$. Thus $G=MD$. Since $D\subseteq Z(G)$, $M$ is normal in $G$, since if  
-	$g=md\in G=MD$, then 
-	\[
-		gMg^{-1}=(md)Md^{-1}m^{-1}=mMm^{-1}=M.
-	\]
-	Since $G/M$ is cyclic of prime order, $G/M$ is abelian. Thus $[G,G]\subseteq M$ and hence 
-	$D\subseteq [G,G]\subseteq M$, a contradiction. 
+	Hence there exists a maximal subgroup $M$ 
+	such that $D$ is not contained in $M$. Thus $G=MD$. Since $D\subseteq Z(G)$, it is clear that $M$ is normal in $G$.
+%	, since if  
+%	$g=md\in G=MD$, then 
+%	\[
+%		gMg^{-1}=(md)Md^{-1}m^{-1}=mMm^{-1}=M.
+%	\]
+	Since $G/M\cong D/(D\cap M)$ is abelian,  $[G,G]\subseteq M$ and hence 
+	$D\subseteq [G,G]\subseteq M$, a contradiction. Therefore, the result follows.
 \end{proof}
 
-\begin{lemma}
-	\label{lemma:N_G(H)=H}
-	Sea $G$ un grupo finito y sea $P\in\Syl_p(G)$. Sea $H$ un subgrupo de $G$
-	tal que $N_G(P)\subseteq H$. Entonces $N_G(H)=H$.
-\end{lemma}
-
-\begin{proof}
-	Sea $x\in N_G(H)$. Como $P\in\Syl_p(H)$ y $Q=xPx^{-1}\in\Syl_p(H)$, gracias al segundo teorema de Sylow 
-	existe
-	$h\in H$ tal que $hQh^{-1}=(hx)P(hx)^{-1}=P$. Entonces $hx\in
-	N_G(P)\subseteq H$ y luego $x\in H$. 
-\end{proof}
 
 \begin{theorem}[Wielandt]
 	\label{theorem:Wielandt}
-	\index{Teorema!de Wielandt}
-	\index{Wielandt!teorema de}
-	Sea $G$ un grupo finito. Entonces $G$ es nilpotente si y sólo si
+	\index{Wielandt's!theorem}
+	Let $G$ be a finite group. Then $G$ is nilpotent if and only if
 	$[G,G]\subseteq\Phi(G)$.
 \end{theorem}
 
 \begin{proof}
-	Supongamos que $[G,G]\subseteq\Phi(G)$. Sea $P\in\Syl_p(G)$. Si $N_G(P)\ne
-	G$ entonces $N_G(P)\subseteq M$ para algún subgrupo maximal $M$ de $G$. Si
-	$g\in G$ y $m\in M$ entonces, como 
+	Suppose that $[G,G]\subseteq\Phi(G)$. Let $P\in\Syl_p(G)$. If $N_G(P)\ne
+	G$, then $N_G(P)\subseteq M$ for some maximal subgroup $M$ of $G$. Let
+	$g\in G$ and $m\in M$. Since 
 	\[
 		gmg^{-1}m^{-1}=[g,m]\in [G,G]\subseteq\Phi(G)\subseteq M,
 	\]
-	$M$ es normal en $G$. Como además $N_G(P)\subseteq M$, el
-	lema~\ref{lemma:N_G(H)=H} implica que 
-	\[
-	G=N_G(M)=M,
-	\]
-	una contradicción.
-	Luego $N_G(P)=G$. Todo subgrupo de Sylow de $G$ es normal en $G$ y entonces
-	$G$ es nilpotente.
-
-	Supongamos ahora que $G$ es nilpotente. Sea $M$ un subgrupo maximal de $G$.
-	Como $M$ es normal en $G$ y maximal, $G/M$ no tiene subgrupos propios no triviales.
-	Luego $G/M\simeq C_p$ para algún primo $p$. En particular $G/M$ es abeliano
-	y luego $[G,G]\subseteq M$. Como $[G,G]$ está contenido en
-	todo subgrupo maximal de $G$, $[G,G]\subseteq\Phi(G)$.
+	we get that $gmg^{-1}\in M$. Hence $M$ is normal in $G$, that is $G=N_G(M)$. But, since $N_G(P)\subseteq M$, by
+	lemma~\ref{lemma:N_G(H)=H}, $N_G(M)=M$, a contradiction. Therefore $P$ is normal in $G$, and thus $G$ is nilpotent, by Theorem \ref{thm:nilpotente:eq}.
+	
+	The converse follows by Theorem \ref{theorem:minmax_nilpotent}.
 \end{proof}
 
 \begin{theorem}
 	\label{theorem:G/phi(G)}
-	Sea $G$ un grupo finito. Entonces $G$ es nilpotente si y sólo si
-	$G/\Phi(G)$ es nilpotente.
+	Let $G$ be a finite group. Then $G$ is nilpotent if and only if	$G/\Phi(G)$ is nilpotent.
 \end{theorem}
 
 %%% TODO: la demostración no está bien explicada!
 \begin{proof}
-	Si $G$ es nilpotente, entonces $G/\Phi(G)$ es nilpotente. Supongamos que $G/\Phi(G)$ es
-	nilpotente. Sea $P\in\Syl_p(G)$. Como
-	$\Phi(G)P/\Phi(G)\in\Syl_p(G/\Phi(G))$ y $G/\Phi(G)$ es nilpotente,
-	$\Phi(G)P/\Phi(G)$ es un subgrupo normal de $G/\Phi(G)$. Luego, por el
-	teorema de la correspondencia, $\Phi(G)P$ es un subgrupo normal de $G$.
-	Como $P\in\Syl_p(\Phi(G)P)$, el argumento de Frattini 
-	(que vimos en el lema~\ref{lemma:Frattini_argument}) implica que
+	If $G$ is nilpotent, then clearly $G/\Phi(G)$ also is nilpotent. Suppose that $G/\Phi(G)$ is
+	nilpotent. Let $P\in\Syl_p(G)$. Since
+	$\Phi(G)P/\Phi(G)\in\Syl_p(G/\Phi(G))$ and $G/\Phi(G)$ is nilpotent,
+	$\Phi(G)P/\Phi(G)$ is a normal subgroup of $G/\Phi(G)$. Hence,  $\Phi(G)P$ is  normal in $G$.
+	By Frattini's argument,  
 	\[
-		G=\Phi(G)PN_G(P)=\Phi(G)N_G(P)
+		G=\Phi(G)PN_G(P)=\Phi(G)N_G(P).
 	\]
-	pues $P\subseteq N_G(P)$. Luego $G=N_G(P)$ por el
-	lema \ref{lemma:G=HPhi(G)}) 
-	y entonces $P$ es normal en $G$. Esto
-	implica que $G$ es nilpotente.
+	By Lemma \ref{lem:G=HPhi(G)}),  $G=N_G(P)$, and thus $P$ is normal in $G$. By Theorem \ref{thm:nilpotente:eq}, $G$ is nilpotent.
 \end{proof}
 
 \begin{theorem}[Hall]
-	\index{Teorema!de Hall}
-	\index{Hall!teorema de}
+	\index{Hall's!theorem}
 	\label{theorem:Hall_nilpotente}
-	Sea $G$ un grupo finito y sea $N$ un subgrupo normal de $G$. Si $N$ y
-	$G/[N,N]$ son nilpotentes, entonces $G$ es nilpotente.
+	Let $G$ be a finite group and $N$ a normal subgroup of $G$. If $N$ and
+	$G/[N,N]$ are nilpotent, then $G$ is nilpotent.
 \end{theorem}
 
 \begin{proof}
-	Como $N$ es nilpotente, $[N,N]\subseteq\Phi(N)$ por el
-	teorema de Wielandt (teorema~\ref{theorem:Wielandt}).	
-	Por la proposición~\ref{proposition:phi(N)phi(G)},
+	Since $N$ is nilpotent, by Theorem~\ref{theorem:Wielandt}, $[N,N]\subseteq\Phi(N)$.
+	By Proposition~\ref{pro:phi(N)phi(G)},
 	$[N,N]\subseteq\Phi(N)\subseteq\Phi(G)$. 
-	Por propiedad universal, existe un morfismo
-	$G/[N,N]\to G/\Phi(G)$ sobreyectivo que hace conmutar el diagrama
-    \[
-    \begin{tikzcd}
-	G & {G/\Phi(G)} \\
-	{G/[N,N]}
-	\arrow[from=1-1, to=1-2]
-	\arrow[from=1-1, to=2-1]
-	\arrow[dashed, from=2-1, to=1-2]
-    \end{tikzcd}
-    \]
+	Hence, there exists a surjective homomorphism
+	$G/[N,N]\to G/\Phi(G)$. Since $G/[N,N]$ is nilpotent, we get that $G/\Phi(G)$ is nilpotent.
+%    \[
+%    \begin{tikzcd}
+%	G & {G/\Phi(G)} \\
+%	{G/[N,N]}
+%	\arrow[from=1-1, to=1-2]
+%	\arrow[from=1-1, to=2-1]
+%	\arrow[dashed, from=2-1, to=1-2]
+%   \end{tikzcd}
+%    \]
 %     \[
 % 	\xymatrix{
 % 	G
@@ -1471,69 +1195,52 @@ The Frattini subgroup can be characterized in terms of non-generators.
 % 	}
 %    \xymatrix{ & P\ar[d]^f\ar@{-->}[ld]_h\\ M\ar[r]^g & N\ar[r] & 0 }
 %    \]
-	Como por hipótesis $G/[N,N]$ es nilpotente, $G/\Phi(G)$ es nilpotente por
-	el teorema~\ref{theorem:nilpotente}. Luego $G$ es nilpotente por el
-	teorema anterior. %~\ref{theorem:G/phi(G)}.
+Hence $G$ is nilpotent by Theorem~\ref{theorem:G/phi(G)}.
 \end{proof}
 
 \begin{definition}
-	Un \textbf{conjunto minimal de generadores} de un grupo $G$ es un conjunto
-	$X$ de generadores de $G$ tal que ningún subconjunto propio de $X$ genera a
-	$G$.
+	A {\em minimal generating set} of a group $G$ is a subset $X$ of $G$ such that $G=\langle X\rangle$ and $G\neq \langle Y\rangle$ for every proper subset $Y$ of $X$.
 \end{definition}
 
-Es importante observar que un conjunto minimal de generadores puede no
-tener cardinal mínimo. 
+Note that the minimal number of generators of a group $G$ can be less than the number of element of a minimal generating set of $G$.
 	
 \begin{example}
-	Sea $G=\langle g\rangle\simeq C_6$.  Si $a=g^2$ y
-	$b=g^3$ entonces $\{a,b\}$ es un conjunto minimal de generadores de $G$,
-	aunque no tiene cardinal mínimo pues por ejemplo $G=\langle ab\rangle$.
+	Let $G=\langle g\mid g^6=1\rangle$.  If $a=g^2$ and
+	$b=g^3$, then $\{a,b\}$ is a minimal generating set of $G$,
+	but the minimal number of generators of $G$ is $1$.
 \end{example}
 	
-Si $p$ es un número primo, $\F_p$ denota al cuerpo de $p$ elementos. 
-
 \begin{lemma}
 	\label{lemma:Burnside:minimal}
-	Sea $p$ un número primo y sea 
-	$G$ un $p$-grupo finito. Entonces $G/\Phi(G)$ es un espacio vectorial
-	sobre $\F_p$.
+	Let $p$ be a prime and 
+	$G$ a $p$-group. Then $G/\Phi(G)$ is a vector space over the field $\F_p$ of $p$ elements.
 \end{lemma}
 
 \begin{proof}
-	Sea $K$ un subgrupo maximal de $G$. Como $G$ es nilpotente por la
-	proposición~\ref{proposition:pgrupo_nilpotente}, $K$ es normal en $G$
-	(ejercicio~\ref{xca:normalizadora}). Luego $G/K\simeq C_p$ por ser un $p$-grupo
-	simple. 
+	Let $K$ be a maximal subgroup of $G$. Since $G$ is nilpotent, by Theorem~\ref{theorem:minmax_nilpotent}, 
+	$K$ is normal in $G$ of index $p$. Hence $G/K$ is a cyclic group of order $p$. 
 	
-	Basta ver que $G/\Phi(G)$ es $p$-grupo elemental abeliano. En un $p$-grupo
-	pues $G$ es un $p$-grupo.  Sean $K_1,\dots,K_m$ son los subgrupos maximales
-	de $G$. Si $x\in G$ entonces $x^p\in K_j$ para todo $j\in\{1,\dots,m\}$ y
-	luego $x^p\in\Phi(G)=\cap_{j=1}^m K_j$. Además $G/\Phi(G)$ es abeliano pues
-	$[G,G]\subseteq \Phi(G)$ por ser $G$ nilpotente por el teorema de Wielandt 
-	(teorema~\ref{theorem:Wielandt}). 
+    Let $K_1,\dots,K_m$ be the distinct maximal subgroups of $G$.
+    Let $f\colon G\rightarrow G/K_1\times\cdots\times G/K_m$ be the map defined by $f(g)=(gK_1,\dots ,gK_m)$, for all $g\in G$.
+    It is clear that $f$ is a homomorphism of groups and $\ker(f)=\Phi(G)$. Hence $G/\Phi(G)$ is isomorphic to $\im(f)$, a subgroup of 
+    the $\F_p$-vector space $G/K_1\times\cdots\times G/K_m$. Therefore, the result follows.
 \end{proof}
 
 \begin{theorem}[Burnside]
 	\label{theorem:Burnside:basis}
-	Sea $p$ un número primo y sea $G$ un $p$-grupo finito. Si $X$ es un
-	conjunto minimal de generadores entonces $|X|=\dim G/\Phi(G)$. 
+	Let $p$ be a prime and  $G$ a $p$-group. If $X$ is a minimal generating set of $G$, then $|X|=\dim_{\F_p} (G/\Phi(G))$. 
 \end{theorem}
 
 %%% TODO: explicar mejor la demostración
 
 \begin{proof}
-	Vimos en el lema anterior que $G/\Phi(G)$ es un espacio
-	vectorial sobre $\F_p$. Sea $\pi\colon G\to G/\Phi(G)$ el morfismo canónico
-	y sea $\{x_1,\dots,x_n\}$ un conjunto minimal de generadores de $G$.
-	Veamos que $\{\pi(x_1),\dots,\pi(x_n)\}$ es un conjunto linealmente
-	independiente de $G/\Phi(G)$.  Supongamos sin perder generalidad que
-	$\pi(x_1)\in\langle \pi(x_2),\dots,\pi(x_n)\rangle$. Existe entonces $y\in
-	\langle x_2,\dots,x_n\rangle$ tal que $x_1y^{-1}\in\Phi(G)$. Como $G$ está
-	generado por $\{x_1y^{-1},x_2,\dots,x_n\}$ y $x_1y^{-1}\in\Phi(G)$, el 
-	lema de los no-generadores (lema~\ref{lemma:nongenerators}) implica que $G$ también está generado por
-	$\{x_2,\dots,x_n\}$, una contradicción a la minimalidad. Luego $n=\dim
-	G/\Phi(G)$.
+	By the previous lemma, we know that $G/\Phi(G)$ is an $\F_p$-vector space. Let $\pi\colon G\to G/\Phi(G)$ be the canonical map
+	and $\{x_1,\dots,x_n\}$ a minimal generating set of $G$, with $|\{x_1,\dots,x_n\}|=n$.
+	We shall see that $\pi(x_1),\dots,\pi(x_n)$ are linearly independent in $G/\Phi(G)$.  Suppose that
+	$\pi(x_1),\dots,\pi(x_n)$ are not linearly independent. Without loss of generality, we may assume that
+	$\pi(x_1)\in\langle \pi(x_2),\dots,\pi(x_n)\rangle$. Then there exists $y\in
+	\langle x_2,\dots,x_n\rangle$ such that $x_1y^{-1}\in\Phi(G)$. Since $G=\langle x_1y^{-1},x_2,\dots,x_n\rangle$ and $x_1y^{-1}\in\Phi(G)$, by lemma~\ref{lemma:nongenerators}, we have that $G=\langle x_2,\dots, x_n\rangle$, a contradiction.
+	Therefore $n=\dim_{\F_p}(G/\Phi(G))$.
 \end{proof}
 
 % TODO: agregar una aplicación (teorema de Hall). Ver Passman permutation groups, 11.7, pag 47
@@ -1543,56 +1250,53 @@ Si $p$ es un número primo, $\F_p$ denota al cuerpo de $p$ elementos.
 %	$\Phi(G)$ pertenece a algún conjunto minimal de generadores.
 %\end{corollary}
 
-\section*{C}
+\section*{Fitting subgroup}
 
 \begin{definition}
-	\index{$p$-radical!de un grupo}
-	Sea $G$ un grupo finito y sea $p$ un número primo. Se define el
-	\textbf{$p$-radical} de $G$ como el subgrupo
+	\index{$p$-radical!group}
+	Let $G$ be a finite group and $p$ a prime. The
+	{\em $p$-radical} of $G$ is the subgroup
 	\[
 		O_p(G)=\bigcap_{P\in\Syl_p(G)}P.
 	\]
 \end{definition}
 
+The following result is an easy consequence of Sylow's theorem.  
 \begin{lemma}
 	\label{lemma:core:Op(G)}
-	Sea $G$ un grupo finito y sea $p$ un número primo. 
+	Let $G$ be a finite group and $p$ a prime. 
 	\begin{enumerate}
-		\item $O_p(G)$ es normal en $G$.
-		\item Si $N$ es un subgrupo normal de $G$ contenido en algún
-			$P\in\Syl_p(G)$, entonces $N\subseteq O_p(G)$.
+		\item $O_p(G)$ is normal in $G$.
+		\item If $N$ is a normal $p$-subgroup of $G$, then $N\subseteq O_p(G)$.
 	\end{enumerate}
 \end{lemma}
 
-\begin{proof}
-	Sea $P\in\Syl_p(G)$ y hagamos actuar a $G$ en $G/P$ por multiplicación a
-	izquierda. Tenemos entonces un morfismo $\rho\colon G\to\Sym_{G/P}$ con
-	núcleo
-	\begin{align*}
-		\ker\rho&=\{x\in G:\rho_x=\id\}
-		=\{x\in G:xgP=gP\;\forall g\in G\}\\
-		&=\{x\in G:x\in gPg^{-1}\;\forall g\in G\}=\bigcap_{g\in G}gPg^{-1}=O_p(G).
-	\end{align*}
-	Luego $O_p(G)$ es normal en $G$.
-
-	Sea ahora $N$ un subgrupo normal de $G$ tal que $N\subseteq P$. Como para
-	todo $g\in G$ se tiene $N=gNg^{-1}\subseteq gPg^{-1}$, se concluye que
-	$N\subseteq O_p(G)$.
-\end{proof}
+%\begin{proof}
+%	Let $P\in\Syl_p(G)$ y hagamos actuar a $G$ en $G/P$ por multiplicación a
+%	izquierda. Tenemos entonces un morfismo $\rho\colon G\to\Sym_{G/P}$ con
+%	núcleo
+%	\begin{align*}
+%		\ker\rho&=\{x\in G:\rho_x=\id\}
+%		=\{x\in G:xgP=gP\;\forall g\in G\}\\
+%		&=\{x\in G:x\in gPg^{-1}\;\forall g\in G\}=\bigcap_{g\in G}gPg^{-1}=O_p(G).
+%	\end{align*}
+%	Luego $O_p(G)$ es normal en $G$.
+%
+%	Sea ahora $N$ un subgrupo normal de $G$ tal que $N\subseteq P$. Como para
+%	todo $g\in G$ se tiene $N=gNg^{-1}\subseteq gPg^{-1}$, se concluye que
+%	$N\subseteq O_p(G)$.
+%\end{proof}
 
 \begin{definition}
-	\index{Subgrupo!de Fitting}
-	\index{Fitting!subgrupo de}
-	Sea $G$ un grupo finito y sean $p_1,\dots,p_k$ los factores primos de
-	$|G|$.  Se define el \textbf{subgrupo de Fitting} como el subgrupo
+	\index{Fitting's! subgroup}
+	Let $G$ be a finite group and let $p_1,\dots,p_k$ be the distinct prime divisors of	$|G|$.  
+	The {\em Fitting's subgroup} of $G$ is the subgroup
 	\[
 		F(G)=O_{p_1}(G)\cdots O_{p_k}(G)
 	\]
 \end{definition}
 
-\begin{exercise}
-	Demuestre que $F(G)$ es characterístico en $G$.
-\end{exercise}
+Note that $F(G)$ is a characteristic subgroup of $G$.
 
 % \begin{svgraybox}
 % 	Sea $f\in\Aut(G)$ y sea $p$ un primo. Como $f$ 
@@ -1602,170 +1306,94 @@ Si $p$ es un número primo, $\F_p$ denota al cuerpo de $p$ elementos.
 
 
 \begin{example}
-	Sea $G=\Sym_3$. Es fácil ver que $O_2(G)=\{1\}$ y que $O_3(G)=\langle
-	(123)\rangle$. Entonces $F(G)=\langle (123)\rangle$.
+	Let $G=\Sym_3$. It is easy to see that $O_2(G)=\{1\}$ and $O_3(G)=\langle
+	(123)\rangle$. Thus $F(G)=\langle (123)\rangle$.
 \end{example}
 
 \begin{theorem}[Fitting]
 	\label{theorem:Fitting}
-	Sea $G$ un grupo finito. El subgrupo de Fitting $F(G)$ es normal en $G$ y
-	nilpotente. Además $F(G)$ contiene a todo subgrupo normal nilpotente de
+	\index{Fitting's theorem}
+	Let $G$ be a finite group. The Fitting subgroup $F(G)$ is nilpotent and it is normal in $G$. 
+	Furthermore $F(G)$ contains all normal nilpotent subgroups of
 	$G$.
 \end{theorem}
 
 \begin{proof}
-	Por definición $|F(G)|$ es el producto de los órdenes de los $O_p(G)$.
-	Como entonces $O_p(G)\in\Syl_p(F(G))$,  se concluye que $F(G)$ es
-	nilpotente por tener un $p$-subgrupo de Sylow normal para cada primo $p$.
-	Luego $F(G)$ es nilpotente por el teorema~\ref{theorem:nilpotente:eq}.
+	Note that for every prime $p$, $O_p(G)$ is a Sylow $p$-subgroup of $F(G)$. Since $O_p(G)$ is normal in $G$, also is normal in $F(G)$. Hence by Theorem~\ref{thm:nilpotente:eq}, $F(G)$ is
+	nilpotent. 
 
-	Sea $N$ un subgrupo normal de $G$ nilpotente y sea $P\in\Syl_p(N)$. Como
-	$N$ es nilpotente, $P$ es normal en $N$ y entonces $P$ es el único
-	$p$-subgrupo de Sylow de $N$. Luego $P$ es característico en $N$ y entonces
-	$P$ es normal en $G$. Como $N$ es nilpotente, $N$ es producto directo de
-	sus subgrupos de Sylow. Luego $N\subseteq O_p(G)$ por el
-	lema~\ref{lemma:core:Op(G)}.
+	Let $N$ be a normal nilpotent subgroup of $G$ and let $P\in\Syl_p(N)$. Since
+	$N$ is nilpotent, $P$ is normal in $N$. Then $P$ is the unique
+	Sylow $p$-subgrup of $N$. Hence $P$ is a characteristic subgroup of $N$ and thus
+	$P$ is normal in $G$. By Lemma~\ref{lemma:core:Op(G)}, $P\subseteq O_p(G)$. By Theorem~\ref{thm:nilpotente:eq}, $N$ is the direct product of its Sylow subgroups. Hence $N\subseteq F(G)$.
 \end{proof}
 
 \begin{corollary}
 	\label{corollary:Z(G)subsetF(G)}
-	Sea $G$ un grupo finito. Entonces $Z(G)\subseteq F(G)$.
+	Let $G$ be a finite group. Then $Z(G)\subseteq F(G)$.
 \end{corollary}
 
 \begin{proof}
-	Como $Z(G)$ es nilpotente (por ser abeliano) y $Z(G)$ es normal en $G$,
-	$Z(G)\subseteq F(G)$ por el teorema de Fitting. 
+	Since $Z(G)$ is a normal nilpotent subgroup of $G$, by Fitting's theorem,
+	$Z(G)\subseteq F(G)$. 
 	%~\ref{theorem:Fitting}.
 \end{proof}
 
 \begin{corollary}[Fitting]
 	\label{corollary:Fitting}
-	Sean $K$ y $L$ subgrupos normales nilpotentes de un grupo finito $G$.
-	Entonces $KL$ es nilpotente.
+	Let $K$ and $L$ be normal nilpotent subgroups of a finite group $G$.
+	Then $KL$ is nilpotent.
 \end{corollary}
 
 \begin{proof}
-	Por el teorema de Fitting sabemos que $K\subseteq F(G)$ y
-	$L\subseteq F(G)$. Esto implica que $KL\subseteq F(G)$ y luego $KL$ es
-	nilpotente pues $F(G)$ es nilpotente.
+	By Fitting's theorem, $K$ and $L$ are subgroups of $F(G)$. Hence $KL$ also is a subgroup of $F(G)$. By Fitting's theorem, 
+	$F(G)$ is nilpotent. Therefore  $KL$ also is nilpotent.
 \end{proof}
 
 \begin{corollary}
 	\label{corollary:McapF(G)}
-	Sea $G$ un grupo finito y sea $N$ un subgrupo normal de $G$. Entonces
+	Let $G$ be a finite group and $N$ a normal subgroup of $G$. Then
 	$N\cap F(G)=F(N)$.
 \end{corollary}
 
 \begin{proof}
-	Como $F(N)$ es característico en $N$, $F(N)$ es normal en $G$. Luego
-	$F(N)\subseteq N\cap F(G)$ pues $F(N)$ es nilpotente. 
-	Para la otra inclusión, como
-	$F(G)$ es normal en $G$, el subgrupo $F(G)\cap N$ es normal en $N$. Como $F(G)\cap N$
-	es nilpotente, $F(G)\cap N\subseteq F(N)$. 
+	Since $F(N)$ is a characteristic subgroup of $N$, $F(N)$ is normal in $G$. By Fitting's theorem, $F(N)$ is nilpotent and
+	$F(N)\subseteq N\cap F(G)$. 
+	On the other hand, since 
+	$F(G)$ is normal in $G$, we have that $F(G)\cap N$ is normal in $N$. By Fitting's theorem $F(G)$ is nilpotent and thus $F(G)\cap N$
+	also is nilpotent. Again by Fitting's theorem, $F(G)\cap N\subseteq F(N)$. Therefore the result follows. 
 \end{proof}
 
-Veamos una aplicación a grupos finitos resolubles. 
 
 \begin{theorem}
-	Sea $G$ un grupo finito no trivial y resoluble. Todo subgrupo normal $N$ no
-	trivial contiene un subgrupo normal abeliano no trivial y este subgrupo está en realidad 
-	contenido en $F(N)$. 
+	Let $G$ be a finite group. Then
+    $\Phi(G)\subseteq F(G)$ and $F(G)/\Phi(G)\cong F(G/\Phi(G))$.
 \end{theorem}
 
 \begin{proof}
-	Sabemos que $N\cap G^{(0)}=N\ne\{1\}$. Como $G$ es un grupo resoluble resoluble, 
-	existe $m\in\N$ tal que $N\cap
-	G^{(m)}=\{1\}$. Sea $n\in\N$ maximal tal que $N\cap G^{(n)}$ es no trivial. 
-	%\ne \{1\}$. 
-	Como $[N,N]\subseteq N$ y $[G^{(n)},G^{(n)}]=G^{(n+1)}$, 
+	By Theorem~\ref{theorem:Frattini}, $\Phi(G)$ is a normal nilpotent subgroup of $G$. Hence, by Fitting's theorem,
+	$\Phi(G)\subseteq F(G)$.
+
+    Let $\pi\colon G\to G/\Phi(G)$ be the canonical map. By Fitting's theorem $F(G)$ is nilpotent, thus $\pi(F(G))$ also is 
+    nilpotent. Since $\Phi(G)\subseteq F(G)$ and $F(G)$ is normal in $G$, we have that $\pi(F(G))=F(G)/\Phi(G)$ 
+    is normal in $G/\Phi(G)$. By Fitting's theorem,
 	\[
-	[N\cap G^{(n)},N\cap G^{(n)}]\subseteq N\cap G^{(n+1)}=\{1\}.
+	\pi(F(G))\subseteq F(G/\Phi(G)).
 	\]
-	Luego $N\cap G^{(n)}$ es un subgrupo abeliano de $G$. Como además es normal
-	y nilpotente, $N\cap G^{(n)}\subseteq N\cap F(G)=F(N)$.
-\end{proof}
-
-\begin{theorem}
-	\label{theorem:F(G)centraliza}
-	Si $G$ es un grupo finito y $N$ es un subgrupo minimal-normal entonces
-	entonces $F(G)\subseteq C_G(N)$.
-\end{theorem}
-
-\begin{proof}
-	Por el teorema de Fitting, $F(G)$ es un subgrupo normal y nilpotente. 
-	Sea $N$ un subgrupo minimal-normal de $G$. 
-	El subgrupo $N\cap F(G)$
-	es normal en $G$.  Además $[F(G),N]\subseteq N\cap F(G)$. Si $N\cap F(G)=\{1\}$ entonces
-	$[F(G),N]=\{1\}$. Si no, $N=N\cap F(G)\subseteq F(G)$ por la minimalidad de $N$. Como
-	$F(G)$ es nilpotente, $N\cap Z(F(G))\ne \{1\}$ por el
-	teorema de Hirsch. 
-	%~\ref{theorem:Z(nilpotent)}. 
-	Como $Z(F(G))$ es característico en $F(G)$ y
-	$F(G)$ es normal en $G$, $Z(F(G))$ es normal en $G$. Como $\{1\}\ne N\cap Z(F(G))$ es
-	normal en $G$, la minimalidad de $N$ implica que $N=N\cap Z(F(G))\subseteq
-	Z(F(G))$ y luego $[F(G),N]=\{1\}$. 
-\end{proof}
-
-\begin{corollary}
-	Sea $G$ un grupo finito y resoluble. 
-	\begin{enumerate}
-		\item Si $N$ es un subgrupo minimal-normal entonces $N\subseteq
-			Z(F(G))$. 
-		\item Si $H$ es un subgrupo normal entonces $H\cap F(G)\ne\{1\}$.
-	\end{enumerate}
-\end{corollary}
-
-\begin{proof}
-	Demostremos la primera afirmación. Como $N$ es un $p$-grupo por el
-	lema~\ref{lemma:minimal_normal}, $N$ es nilpotente y luego $N\subseteq
-	F(G)$. 	Además $F(G)\subseteq C_G(N)$ por el
-	teorema anterior.  Luego $N\subseteq Z(F(G))$. 
-
-	Demostremos ahora la segunda afirmación. El subgrupo $H$ contiene un
-	subgrupo minimal-normal $N$ y $N\subseteq F(G)$. Luego $H\cap F(G)\ne\{1\}$. 
-\end{proof}
-
-\begin{theorem}
-	Sea $G$ un grupo finito.
-	\begin{enumerate}
-		\item $\Phi(G)\subseteq F(G)$ y $Z(G)\subseteq F(G)$.
-		\item $F(G)/\Phi(G)\simeq F(G/\Phi(G))$.
-	\end{enumerate}
-\end{theorem}
-
-\begin{proof}
-	Demostremos la primera afirmación. Como $\Phi(G)$ es normal en $G$ y
-	nilpotente por el teorema~\ref{theorem:Frattini} y $F(G)$ contiene a todo
-	subgrupo normal nilpotente de $G$ (teorema~\ref{theorem:Fitting}),
-	$\Phi(G)\subseteq F(G)$. Además $Z(G)$ es normal y nilpotente (por ser
-	abeliano) y luego $Z(G)\subseteq F(G)$.
-
-	Demostremos la segunda afirmación. Sea $\pi\colon G\to G/\Phi(G)$ el
-	morfismo canónico. Como $F(G)$ es nilpotente, $\pi(F(G))$ es nilpotente y
-	luego 
-	\[
-	\pi(F(G))\subseteq F(G/\Phi(G))
-	\]
-	por el teorema~\ref{theorem:Fitting}. Por otro lado, sea
-	$H=\pi^{-1}(F(G/\Phi(G)))$. Por la correspondencia, $H$ es un subgrupo
-	normal de $G$ que contiene a $\Phi(G)$. Si $P\in\Syl_p(H)$ entonces
-	$\pi(P)\in\Syl_p(\pi(H))$ pues $\pi(P)\simeq P/P\cap \Phi(G)$ es un
-	$p$-grupo y además $(\pi(H):\pi(P))$ es coprimo con $p$ pues 
+    Let	$H=\pi^{-1}(F(G/\Phi(G)))$. We know that $H$ i a normal  subgroup
+	of $G$ such that $\Phi(G)\subseteq F(G)\subseteq H$. Let $P\in\Syl_p(H)$. Then
+	$\pi(P)=(P\Phi(G))/\Phi(G)\cong P/P\cap \Phi(G)$ is a
+	$p$-subgroup of $\pi(H)=F(G/\Phi(G))$. Since 
 	\[
 	(\pi(H):\pi(P))
 	=\frac{|\pi(H)|}{|\pi(P)|}
 	=\frac{|H/\Phi(G)|}{|P/P\cap \Phi(G)|}
 	=\frac{(H:P)}{(\Phi(G):P\cap\Phi(G))}
 	\]
-	es un divisor de $(H:P)$, que es coprimo con $p$. Como $\pi(H)$ es
-	nilpotente, $\pi(P)$ es característico en $\pi(H)$ y luego $\pi(P)$ es
-	normal en $\pi(G)=G/\Phi(G)$. Entonces $P\Phi(G)=\pi^{-1}(\pi(P))$ es
-	normal en $G$. Como $P\in\Syl_p(P\Phi(G))$, el argumento de Frattini del
-	lema~\ref{lemma:Frattini_argument} implica que $G=\Phi(G)N_G(P)$. Luego $P$
-	es normal en $G$ por el lema~\ref{lemma:G=HPhi(G)}. Como $P$ es nilpotente
-	y normal en $G$, entonces $P\subseteq F(G)$ por el
-	teorema~\ref{theorem:Fitting}. Luego $H\subseteq F(G)$ y entonces
-	$F(G/\Phi(G))=\pi(H)\subseteq \pi(F(G))$.
+	is a divisor of $(H:P)$, we have that $\pi(P)\in \Syl_p(\pi(H))$. By Fitting's theorem $\pi(H)$ is nilpotent.
+	Hence $\pi(P)$ is a characteristic subgroup of $\pi(H)$, and thus  $P\Phi(G)=\pi^{-1}(\pi(P))$ is
+	normal in $G$. Since $P\in\Syl_p(P\Phi(G))$, by Frattini's argument, $G=P\Phi(G)N_G(P)=\Phi(G)N_G(P)$. By Lemma~\ref{lem:G=HPhi(G)}, $G=N_G(P)$, and thus $P$ is normal in $G$. Hence $P$ is normal in $H$. By Theorem \ref{thm:nilpotente:eq}, $H$ is nilpotent. By Fitting's theorem, $H\subseteq F(G)$. Hence
+	$F(G/\Phi(G))=\pi(H)\subseteq \pi(F(G))$, and the result follows.
 \end{proof}
 
 %\begin{exercise}
@@ -1778,9 +1406,184 @@ Veamos una aplicación a grupos finitos resolubles.
 %	Como $Z(G)$ es abeliano, $\pi(Z(G))$ es nilpotente y luego $\pi(Z(G))\subseteq F(G/Z(G))$. 
 %\end{svgraybox}<++>
 
-\section*{D}
-
+\section*{Exercises}
 % Frattini para braces
 % Qué podemos decir de Fitting?
+
+
+\begin{prob}
+	Prove that a group is nilpotent if and only if it admits a central series.
+\end{prob}
+
+\begin{prob}
+\label{xca:nilpotente_central}
+	Let $G$ be a group. Prove that if $K$ is a central subgroup of $G$ such that 
+	$G/K$ is nilpotent, then $G$ is nilpotent.
+\end{prob}
+
+\begin{prob}
+\label{xca:nilpotente_minimalnormal}
+	Let $G$ be a nilpotent group and $M$ be a minimal normal subgroup of $G$. 
+	Prove that $M\subseteq Z(G)$.
+\end{prob}
+
+%\begin{exercise}
+%	\label{xca:truco}
+%	Let $G$ be a finite group. If $P\in\Syl_p(G)$ and $M$ is a subgroup of $G$ such that 
+%	$N_G(P)\subseteq M$, then $M=N_G(M)$. 
+%\end{exercise}
+
+
+\begin{prob}
+	\label{xca:normalizadora}
+	Let $G$ be a finite group. Prove that the following statements are equivalent:  
+	\begin{enumerate}
+		\item $G$ is nilpotent.
+		\item If $H\subsetneq G$ is a subgroup, then $H\subsetneq N_G(H)$.
+		\item Every maximal subgroup of $G$ is normal in $G$.
+	\end{enumerate}
+\end{prob}
+
+% \begin{svgraybox}
+% 	Para demostrar que $(1)\implies(2)$ simplemente usamos el
+% 	lema~\ref{lemma:normalizadora}. Para demostrar que $(2)\implies(3)$ hacemos
+% 	lo siguiente: si $M$ es un subgrupo maximal, como $M\subsetneq N_G(M)$ por
+% 	hipótesis, $N_G(M)=G$ por maximalidad. Finalmente demostremos que
+% 	$(3)\implies(1)$.  Sea $P\in\Syl_p(G)$. Si $P$ no es normal en $G$,
+% 	$N_G(P)\ne G$ y entonces existe un subgrupo maximal $M$ tal que
+% 	$N_G(P)\subseteq M$. Como $M$ es normal en $G$, el
+% 	ejercicio~\ref{exercise:truco} implica que $M=N_G(M)=G$, una contradicción.
+% 	Luego $P$ es normal en $G$ y entonces $G$ es nilpotente por el
+% 	teorema~\ref{theorem:nilpotente:eq}.
+% \end{svgraybox}
+
+% ejercicio: G finito. Es nilpotente si y solo si dos elementos de ordenes coprimos conmnutan
+% 5.41 rotman
+
+\begin{prob}
+	Let $G$ be a finite nilpotent group. Prove that if $p$ is a prime dividing the order of $G$, then there
+	exists a minimal normal subgroup of order $p$ and there exists a maximal subgroup of index $p$.
+\end{prob}
+
+%\begin{proof}
+%	Assume that $|G|=p^{\alpha}m$, where $p$ is coprime with $m$.
+%	Write $G=P\times H$, where $P\in\Syl_p(G)$.  Since $Z(P)$ is a non-trivial subgroup of 
+%	of $P$, subgroup   
+%	of $Z(P)$ minimal-normal en $G$ tiene orden $p$ (y esos subgrupos 
+%	existen porque $G$ es un grupo finito). Por otro lado, como $P$ contiene un subgrupo
+%	de índice $p$, que resulta maximal. Luego $P\times H$ también contiene un
+%	subgrupo maximal de índice $p$.
+%\end{proof}
+
+\begin{prob}
+	\label{xca:pgrupos}
+	Let $p$ be a prime and let $G$ be a non-trivial group of order $p^n$. Prove the following statements.
+	\begin{enumerate}
+		\item $G$ has a normal subgroup of order $p$.
+		\item For each $j\in\{0,\dots,n\}$ there exists a normal subgroup of order $p^j$. 
+	\end{enumerate}
+\end{prob}
+
+% \begin{svgraybox}
+% 	\begin{enumerate}
+% 		\item Sabemos que $Z(G)\ne1$. Sea $g\in Z(G)$ tal que $g\ne 1$.
+% 			Supongamos que el orden de $g$ es $p^k$ para algún $k\geq1$.
+% 			Entonces $g^{p^{k-1}}$ tiene orden $p$ y luego genera un subgrupo
+% 			central de orden $p$. 
+% 		\item Procederemos por inducción en $n$. Si $n=1$ el resultado es
+% 			trivial.  Supongamos entonces que el resultado vale para un cierto
+% 			$n\geq2$. Por el punto anterior, $G$ posee un subgrupo normal $N$
+% 			de orden $p$. Luego $G/N$ tiene orden $p^{n-1}$. Sea $\pi\colon G\to G/N$ el morfismo canónico. 
+% 			Por hipótesis
+% 			inductiva, para cada $j\in\{0,\dots,n-1\}$. Por el teorema de la
+% 			correspondecia, cada subgrupo normal $S_j$ de $G/N$ de orden $p^j$ se
+% 			corresponde con un subgrupo $\pi^{-1}(S_j)$ de $G$ de orden $p^{j+1}$ pues, como
+% 			$\pi$ es sobreyectiva, se tiene $\pi(\pi^{-1}(S_j))=S_j$, y luego
+% 			\[
+% 			p^j=|S_j|=|\pi(\pi^{-1}(S_j))|=\frac{|\pi^{-1}(S_j)|}{|\pi^{-1}(S_j)\cap N|}=\frac{|\pi^{-1}(S_j)|}{|N|}=\frac{|\pi^{-1}(S_j)|}{p}.
+% 			\]
+% 	\end{enumerate}
+% \end{svgraybox}
+
+\begin{prob}
+\label{xca:nilpotente_equivalencia}
+	Let $G$ be a finite group. Prove that the following conditions are equivalent.
+	\begin{enumerate}
+		\item $G$ is nilpotent.
+		\item Any two elements of coprime order commute. 
+		\item Every non-trivial quotient of $G$ has non-trivial center.
+		\item If $d$ divides $|G|$, there exists a normal subgroup of $G$ of order $d$. 
+		\end{enumerate}
+\end{prob}
+
+% \begin{svgraybox}
+% 	Veamos que $(1)\implies(2)$. Sabemos que $G$ es producto directo de sus
+% 	subgrupos de Sylow, digamos $G=\prod_{i=1}^k S_i$, donde los $S_i$ son los
+% 	distintos subgrupos de Sylow de $G$.  Sean
+% 	$x=(x_1,\dots,x_k),y=(y_1,\dots,y_k)\in G$. Como $|x|$ y $|y|$ son
+% 	coprimos, para cada $i\in\{1,\dots,k\}$ se tiene $x_i=1$ o $y_i=1$. Luego
+% 	\[
+% 		[x,y]=([x_1,y_1],[x_2,y_2],\dots,[x_k,y_k])=1. 
+% 	\]
+% 	Demostremos ahora que $(2)\implies(1)$. Supongamos que
+% 	$|G|=p_1^{\alpha_1}\cdots p_k^{\alpha_k}$, donde los $p_j$ son primos
+% 	distintos y para cada $j$ sea $P_j\in\Syl_{p_j}(G)$. Como elementos de
+% 	órdenes coprimos conmutan, la función $P_1\times\cdots\times P_k\to G$,
+% 	$(x_1,\dots,x_k)\mapsto x_1\cdots x_k$, es un morfismo inyectivo de grupos.
+% 	Como entonces $G\simeq P_1\times\cdots P_k$, y cada $P_j$ es nilpotente,
+% 	$G$ es nilpotente. 
+
+% 	Para demostrar que $(1)\implies(3)$ simplemente hay que observar que todo
+% 	cociente de $G$ es nilpotente y luego utilizar el
+% 	teorema~\ref{theorem:Z(nilpotent)}. Demostremos que $(3)\implies(1)$. Como
+% 	todo cociente no trivial de $G$ tiene centro no trivial, en particular
+% 	$Z_1=Z(G)$ es no trivial. Si $Z_1=G$ entonces $G$ es abeliano y no hay nada
+% 	para demostrar. Si $Z_1\ne G$ entonces $G/Z_1\ne 1$; luego $Z(G/Z_1)\ne 1$.
+% 	Si $\pi_1\colon G\to G/Z_1$ es el morfismo canónico,
+% 	$Z_2=\pi_1^{-1}(Z(G/Z_1))$. Inductivamente, si tenemos construido el
+% 	subgrupo $Z_i$, $Z_i\ne G$ y  $\pi_i\colon G\to G/Z_{i}$ es el morfismo
+% 	canónico, se define el subgrupo $Z_{i+1}=\pi_i^{-1}(Z(G/Z_i))$. Por
+% 	construcción, $Z_i\subseteq Z_{i+1}$ para todo $i$. Como $G$ es finito,
+% 	existe $k$ tal que $Z_k=G$ y luego $G$ es nilpotente.
+
+% 	Demostremos que $(1)\implies(4)$. Esta implicación es consecuencia
+% 	inmediata del ejercicio~\ref{exercise:pgrupos}. 
+% 	Como $G$ es nilpotente, $G$ producto
+% 	directo de sus $p$-grupos de Sylow. Si $d=p_1^{\alpha_1}\cdots
+% 	p_k^{\alpha_k}$ es un divisor del orden de $G$, basta tomar
+% 	$H=H_1\times\cdots\times H_k$, 
+% 	donde cada $H_j$ es un subgrupo normal del $p_j$-subgrupo de Sylow de $G$
+% 	de orden $p_j^{\alpha_j}$. Para demostrar que $(4)\implies(1)$ simplemente
+% 	se aplica la hipótesis a cada $p$-subgrupo de $G$ de orden maximal.
+% \end{svgraybox}
+
+\begin{prob}
+Let $G$ be a group and $x,y\in G$.  Prove the following statements.
+\begin{enumerate}
+	\item If $[x,y]\in C_G(x)\cap C_G(y)$, then
+	$[x,y]^n=[x^n,y]=[x,y^n]$
+	for all $n\in\Z$.
+	\item If $G$ is nilpotent of class two, then $(xy)^n=[y,x]^{n(n-1)/2}x^ny^n$ 
+	for all positive integer $n$.
+\end{enumerate}	
+\end{prob}
+
+\begin{prob}
+	Let $p$ be an odd prime number and  
+	let $P$ be a $p$-group of nilpotency class $\leq2$. Prove the following statements.
+	\begin{enumerate}
+	\item 	If $[y,x]^p=1$ for all $x,y\in P$, then $P\to [P,P]$,
+	$x\mapsto x^p$, is a group homomorphism. 
+	\item $\{x\in P:x^p=1\}$ is a subgroup of $P$. 
+	\end{enumerate}
+\end{prob}
+
+%\begin{exercise}
+%\label{xca:Phi(G)char}
+%	If $G$ is a group, then $\Phi(G)$ is characteristic in $G$.
+%\end{exercise}
+
+
+
 
 \section*{Notes}
