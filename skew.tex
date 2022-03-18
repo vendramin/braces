@@ -1,75 +1,74 @@
-\chapter{Braces}
+\chapter{Skew braces}
 \label{braces}
 
 % Braces were introduced by Rump in~\cite{MR2278047} to study set-theoretical involutive
 % solutions of the Yang--Baxter equation. The following definition of~\cite{MR3647970} 
 % generalizes braces to the non-involutive setting.
-\section*{A}
+\section*{Skew braces and the Yang--Baxter equation}
 
 By convention, an additive group $A$ will be a (not necessarily abelian) group 
-with binary operation $(a,b)\mapsto a+b$. The 
+with a binary operation $(a,b)\mapsto a+b$. The 
 identity of $A$ will be denoted by $0$ and the inverse of an element $a$ will be denoted by $-a$. 
 
 \begin{definition}
     \label{def:brace}
-	\index{Brace}
-	\index{Brace!multiplicative group}
-	\index{Brace!additive group}
-	A \emph{brace} is a triple $(A,+,\circ)$, where $(A,+)$ and $(A,\circ)$ 
+	\index{Skew brace}
+	\index{Skew brace!multiplicative group}
+	\index{Skew brace!additive group}
+	A \emph{skew left brace} is a triple $(A,+,\circ)$, where $(A,+)$ and $(A,\circ)$ 
 	are (not necessarily abelian) 
 	groups and 
 	\begin{equation}
 	    \label{eq:compatibility}
 	    a\circ(b+c)=(a\circ b)-a+(a\circ c)
 	\end{equation}
-	holds for all $a,b,c\in A$, where $-a$ denotes the inverse of $a$ with
-	respect to the group structure given by $(a,b)\mapsto a+b$. The groups 
+	holds for all $a,b,c\in A$. The groups 
 	$(A,+)$ and $(A,\circ)$ are respectively 
 	the \emph{additive} and \emph{multiplicative} group
-	of the brace $A$.
+	of the skew left brace $A$.
 \end{definition}
 
 We write $a'$ to denote the inverse of $a$ with respect to the circle operation $\circ$. 
 
-Our definition is that of a left brace. Right braces are defined similarly, one needs 
+Skew right braces are defined similarly, one needs 
 to replace~\eqref{eq:compatibility} by 
 \[
 (a+b)\circ c=a\circ c-c+b\circ c.
 \]
-There is a bijective correspondence between left and right braces, 
+There is a bijective correspondence between skew left braces and skew right braces, 
 see Exercise~\ref{prob:left_right}. For that reason, 
-a brace will always mean a left brace. 
+a skew brace will always mean a skew left brace. 
 
 \begin{definition}
-    Let $\mathcal{X}$ be a property of groups. A brace $A$ is said to be
+    Let $\mathcal{X}$ be a family of groups. A skew brace $A$ is said to be
     of $\mathcal{X}$-type if its additive group belongs to $\mathcal{X}$.
 \end{definition}
 
-One particularly interesting families of braces is the family of \emph{braces of abelian type}, 
-that is braces with abelian additive group. 
-Braces of abelian type were introduced by Rump in~\cite{MR2278047} to study involutive solutions to the Yang--Baxter equation. 
-In the literature, braces of abelian type are called \emph{left braces}. 
+One particularly interesting family of skew braces is the family of \emph{skew braces of abelian type}, 
+that is skew braces with abelian additive group. 
+Skew braces of abelian type were introduced by Rump in~\cite{MR2278047} to study involutive solutions to the Yang--Baxter equation. 
+In the literature, skew braces of abelian type are called \emph{left braces}. 
 
 \begin{example}
 	\label{exa:trivial}
-	\index{Brace!trivial}
-	Let $A$ be an additive group. Then $A$ is a brace with
+	\index{Skew brace!trivial}
+	Let $A$ be an additive group. Then $A$ is a skew brace with
 	$a\circ b=a+b$ for all $a,b\in A$. 
-	A brace $(A,+,\circ)$ such that $a\circ b=a+b$ for all $a,b\in A$ is
+	A skew brace $(A,+,\circ)$ such that $a\circ b=a+b$ for all $a,b\in A$ is
     said to be \emph{trivial}. 
 	Similarly, the
-   operation $a\circ b=b+a$ turns $A$ into a brace. 
+   operation $a\circ b=b+a$ turns $A$ into a skew brace. 
 \end{example}
 
 \begin{example}
 	\label{exa:times}
-	\index{Direct product!of braces}
-	Let $A$ and $B$ be braces. Then $A\times B$ with 
+	\index{Direct product!of skew braces}
+	Let $A$ and $B$ be skew braces. Then $A\times B$ with 
 	\[
 		(a,b)+(a_1,b_1)=(a+a_1,b+b_1),\quad
 		(a,b)\circ (a_1,b_1)=(a\circ a_1,b\circ b_1),
 	\]
-	is a brace. 
+	is a skew brace. This is the {\em direct product} of the skew braces $A$ and $B$. 
 \end{example}
 
 \begin{example}
@@ -81,12 +80,12 @@ In the literature, braces of abelian type are called \emph{left braces}.
 	\quad
 	(x,a)\circ (y,b)=(x+\alpha_a(y),a+b)
 	\]
-	is a brace. Similarly, $M\times A$ with
+	is a skew brace. Similarly, $M\times A$ with
 	\[
 	(x,a)+(y,b)=(x+\alpha_a(y),a+b),\quad
 	(x,a)\circ (y,b)=(x+y,b+a)
 	\]
-	is a brace. 
+	is a skew brace. 
 \end{example}
 
 \begin{example}
@@ -99,7 +98,7 @@ In the literature, braces of abelian type are called \emph{left braces}.
     &\lambda_{(12)}=\lambda_{(23)}=\lambda_{(13)}=\text{conjugation by $(23)$}.
   \end{align*}
   It is easy to check that $\lambda_{a+\lambda_a(b)}=\lambda_a\lambda_b$
-  for all $a,b\in A$. Hence $A$ is a brace by Exercise~\ref{prob:equivalences}. 
+  for all $a,b\in A$. Hence $A$ with the circle operation defined by $a\circ b=a+\lambda_a(b)$, for all $a,b\in A$, is a skew brace by Exercise~\ref{prob:equivalences}. 
   Since the transposition $(12)$ has order
   six in the multiplicative group of $A$, it follows that the additive group of $A$ is isomorphic to $\Sym_3$ and
   the multiplicative group of $A$ is isomorphic to the cyclic group of order six. 
@@ -110,25 +109,24 @@ The following example is motivated by the paper~\cite{MR1178147}.
 \begin{example}
     \label{exa:WX}
     Let $A$ be an additive group
-	and $B$ and $C$ be subgroups of $A$ such that $A$ admits an \emph{exact
-	factorization} as $A=B+C$. Thus each $a\in A$ can be written in a unique
-	way as $a=b+c$ for some $b\in B$ and $c\in C$.  The map
+	and $B$ and $C$ be subgroups of $A$ such that $B\cap C=\{ 0\}$ and $A=B+C$. In this case, one says that $A$ admits an {\em exact factorization} through the subgroups $B$ and $C$.  Thus each $a\in A$ can be written in a unique
+	way as $a=b+c$, for some $b\in B$ and $c\in C$.  The map
 	\[
 		B\times C\to A,\quad
 		(b,c)\mapsto b-c,
 	\]
 	is bijective. Using this map we transport the group structure of the direct
-	product $B\times C$ into the set $A$. For $a=b+c\in A$ and
-	$a_1\in A$ let 
+	product $B\times C$ into the set $A$. That is, for $a=b+c\in A$, where $b\in B$ and $c\in C$, and
+	$a_1\in A$, let 
 	\begin{align*}
 		a\circ a_1&=b+a_1+c.
 	\end{align*}
 	Then $(A,\circ)$ is a group isomorphic to $B\times C$. Moreover, if $x,y\in A$, 
 	then 
 	\begin{align*}
-	a\circ x-a+a\circ y=b+x+c-(b+c)+b+y+c=b+x+y+c=a\circ (x+y)
+	a\circ x-a+a\circ y=b+x+c-(b+c)+b+y+c=b+x+y+c=a\circ (x+y),
 	\end{align*}
-	and therefore $(A,+,\circ)$ is a brace. 
+	and therefore $(A,+,\circ)$ is a skew brace. 
 \end{example}
 
 % \begin{proof} The map $\eta\colon B\times C\to A$, $\eta(b,c)=bc^{-1}$, is
@@ -140,14 +138,27 @@ The following example is motivated by the paper~\cite{MR1178147}.
 %     &=(ba'c)a^{-1}(ba''c)\\ &=ba'c(c^{-1}b^{-1})ba''c\\ &=ba'a''c\\ &=a\circ
 %     (a'a'').  \end{align*} This completes the proof.  \end{proof}
 
-We now give concrete examples of the previous construction. 
+We now give concrete some examples of the previous construction. 
 
 \begin{example}
   \label{exa:QR}
-  Let $n\in\N$.  The group $\GL_n(\C)$ admits an
-  exact factorization through the subgroups $U(n)$ and $T(n)$, where $U(n)$
+  Let $n$ be a positive integer.  Let $A\in M_n(\C)$. If 
+  \[A=\left(\begin{array}{cccc}
+  a_{1,1}&a_{1,2}&\ldots &a_{1,n}\\
+  a_{2,1}&a_{2,2}&\ddots&\vdots\\
+  \vdots&\ddots&\ddots&a_{n-1,n}\\
+  a_{n,1}&\ldots&a_{n,n-1}&a_{n,n}\end{array}\right),\]
+  we define
+  \[A^*=\bar{A}^t= =\left(\begin{array}{cccc}
+  \bar a_{1,1}&\bar a_{2,1}&\ldots &\bar a_{n,1}\\
+  \bar a_{1,2}&\bar a_{2,2}&\ddots&\vdots\\
+  \vdots&\ddots&\ddots&\bar a_{n,n-1}\\
+  \bar a_{1,n}&\ldots&\bar a_{n-1,n}&\bar a_{n,n}\end{array}\right),\]
+  where $\overline{a+bi}=a-bi$, for all $a,b\in\R$.
+  The group $\GL_n(\C)$ admits an
+  exact factorization through the subgroups $U(n)$ and $T(n)$, where $U(n)=\{ A\in\GL_n(\C)\mid AA^*=I\}$
   is the unitary group and $T(n)$ is the group of upper triangular matrices
-  with positive diagonal entries.  Therefore there exists a brace with additive group 
+  with positive diagonal entries.  Therefore there exists a skew brace with additive group 
   isomorphic to $\GL_n(\C)$ and multiplicative group isomorphic to $U(n)\times T(n)$.  
 \end{example}
 
@@ -158,28 +169,33 @@ extensions, see~\cite[Corollary 1.1]{MR3425626}.
 	\label{exa:a5a4c5}
 	The alternating simple group $\Alt_5$ admits an exact factorization
   through the subgroups 
-  $A=\langle (123),(12)(34)\rangle\simeq\Alt_4$ and 
-  $B=\langle(12345)\rangle\simeq C_5$.  
-  There exists a brace with additive group isomorphic to $\Alt_5$ and multiplicative
+  $A=\langle (123),(12)(34)\rangle\cong\Alt_4$ and 
+  $B=\langle(12345)\rangle\cong C_5$.  
+  There exists a skew brace with additive group isomorphic to $\Alt_5$ and multiplicative
   group isomorphic to $\Alt_4\times C_5$. 
 \end{example}
 
 \begin{example} 
 	\label{exa:PSL27S4C7}
-  The simple group $\PSL_2(7)$ admits an exact factorization through
-  the subgroups $A\simeq\Sym_4$ and $B\simeq C_7$. 
-  There exists a brace with additive
+  The simple group $\PSL_2(7)=\SL_2(7)/Z(\SL_2(7))$ admits an exact factorization through the subgroups \[A=\left\langle\left(\begin{array}{cc}
+  0&1\\
+  -1&-1\end{array}\right)Z(\SL_2(\C)),\left(\begin{array}{cc}
+  1&-2\\
+  1&-1\end{array}\right)Z(\SL_2(\C))\right\rangle\cong\Sym_4\] and \[B=\left\langle\left(\begin{array}{cc}
+  1&1\\
+  0&1\end{array}\right)Z(\SL_2(\C))\right\rangle\cong C_7.\] 
+  Hence there exists a skew brace with additive
   group isomorphic to $\PSL_2(7)$ and multiplicative group isomorphic to 
   $\Sym_4\times C_7$.  
 \end{example}
 
 \begin{lemma}
     \label{lem:basic}
-	Let $A$ be a brace. Then the following properties hold:
+	Let $A$ be a skew brace. Then the following properties hold:
     \begin{enumerate}
         \item $0=1$.  
-        \item $a\circ(-b+c)=a-(a\circ b)+(a\circ c)$ for all $a,b,c\in A$.
-        \item $a\circ(b-c)=(a\circ b)-(a\circ c)+a$ for all $a,b,c\in A$.
+        \item $a\circ(-b+c)=a-(a\circ b)+(a\circ c)$, for all $a,b,c\in A$.
+        \item $a\circ(b-c)=(a\circ b)-(a\circ c)+a$, for all $a,b,c\in A$.
     \end{enumerate}
 \end{lemma}
 
@@ -196,67 +212,79 @@ extensions, see~\cite[Corollary 1.1]{MR3425626}.
 
 \begin{proposition}
 \label{pro:lambda}
-    Let $A$ be a brace. For each $a\in A$, the map
+    Let $A$ be a skew brace. For each $a\in A$, the map
     \[
         \lambda_a\colon A\to A,\quad
         b\mapsto -a+(a\circ b),
     \]
-    is bijective. Moreover, the map 
+    is an automorphism of the additive group $(A,+)$. Moreover, the map 
     $\lambda\colon (A,\circ)\to\Aut(A,+)$, $a\mapsto\lambda_a$, is a group homomorphism. 
 \end{proposition}
 
 \begin{proof}
-The inverse of $\lambda$ is given by $\lambda^{-1}_a\colon A\to A$, $b\mapsto a'\circ (a+b)$. To prove
+The inverse of $\lambda_a$ is given by $\lambda^{-1}_a\colon A\to A$, $b\mapsto a'\circ (a+b)$. To prove
 that $\lambda_a\in\Aut(A,+)$ we note that
 \[
 \lambda_a(b+c)=-a+a\circ(b+c)=-a+a\circ b-a+a\circ c=\lambda_a(b)+\lambda_a(c).
 \]
-To prove that $\lambda$ is a group homomorphism, we 
-use Lemma~\ref{lem:basic} to obtain
+Note that $\lambda_a(b)=-a+a\circ b=a\circ (a'+b)$, for all $a,b\in A$. Hence 
+%To prove that $\lambda$ is a group homomorphism, we 
+%use Lemma~\ref{lem:basic} to obtain
 \begin{align*}
-\lambda_a(\lambda_b(c))&=-a+a\circ (-b+b\circ c)\\
-&=-a+a\circ(-b)-a+a\circ (b\circ c)=-a\circ b+a\circ (b\circ c)=\lambda_{a\circ b}(c).\qedhere    
+\lambda_a(\lambda_b(c))&=a\circ (a'+b\circ (b'+c))=-a+a\circ b\circ (b'+c)\\
+&=-a+a-a\circ b+a\circ b\circ c=-a\circ b+a\circ b\circ c=\lambda_{a\circ b}(c).\qedhere    
 \end{align*}
 \end{proof}
 
-If $A$ is a brace, 
-the map $\lambda$ is the previous proposition yields a left action from $(A,\circ)$ on $(A,+)$ by automorphisms. 
-There is also a right action $(A,\circ)$ on $(A,+)$ by automorphisms:
+If $A$ is a skew brace, then 
+the map $\lambda$ in the previous proposition yields a left action from $(A,\circ)$ on $(A,+)$ by automorphisms. 
+There is also a right action $(A,\circ)$ on the set $A$.
 
 \begin{proposition}
 \label{pro:mu}
-    Let $A$ be a brace. For each $a\in A$, the map
+    Let $A$ be a skew brace. For each $a\in A$, the map
     \[
         \mu_a\colon A\to A,\quad
-        b\mapsto \lambda_a(b)'\circ a\circ b,
+        b\mapsto \lambda_b(a)'\circ b\circ a,
     \]
     is bijective. Moreover, the map 
-    $\mu\colon (A,\circ)\to\Sym_A$, $a\mapsto\mu_a$, satisfies $\mu_b\circ\mu_a=\mu_{a\circ b}$ for all $a,b\in A$. 
+    $\mu\colon (A,\circ)\to\Sym_A$, $a\mapsto\mu_a$, satisfies $\mu_b\circ\mu_a=\mu_{a\circ b}$, for all $a,b\in A$. 
 \end{proposition}
 
 \begin{proof}
-    Let $a,b,c\in A$. To prove that $\mu$ is a brace anti-homorphism, we compute
+    Note that
+    \[\mu_a(b)=\lambda_b(a)'\circ b\circ a=(b\circ (b'+a))'\circ b\circ a=(b'+a)'\circ a,\]
+    for all $a,b\in A$. Hence $\mu_a$ is bijective and
+    \[\mu_a^{-1}(b)=((b\circ a')'-a)'=(a\circ b'-a)'=(b'+a')'\circ a',\]
+    for all $a,b\in A$. Now we have
     \begin{align*}
-    &\mu_{b\circ a}(c)=\lambda_c((b\circ a)'\circ c\circ b\circ a)
-    \shortintertext{and}
-    &\mu_a\mu_b(c)=\mu_a(\lambda_c(b)'\circ c\circ b)
-    =\lambda_{\lambda_c(b)'\circ c\circ b}(a)'\circ (\lambda_c((b\circ a)'\circ c\circ b)).
+        \mu_b(\mu_a(c))&=\mu_b((c'+a)'\circ a)=(a'\circ (c'+a)+b)'\circ b\\
+        &=(a'\circ c'-a'+b)'\circ b=(a'\circ (c'+a\circ b))'\circ b\\
+        &=(c'+a\circ b)\circ a\circ b=\mu_{a\circ b}(c),
     \end{align*}
-    Using the formulas~\eqref{eq:formulas}, 
-    \begin{align*}
-    \lambda_c(b\circ a)'&=\lambda_c(b+\lambda_b(a))'=(\lambda_c(b)+\lambda_{c\circ b}(a))'\\
-    &=(\lambda_c(b)\circ \lambda^{-1}_{\lambda_c(b)}\lambda_{c\circ b}(a))'
-    =\lambda_{\lambda_c(b)'\circ c\circ b}(a)'\circ \lambda_c(b)',
-    \end{align*}
-    which proves that $\mu$ is an anti-homomorphism. 
-    
-    To compute the inverse of $\mu_b$ we proceed as follows. Since $a'\circ (-a)=2a$ by Lemma~\ref{lem:basic}, 
-    \begin{align*}
-    (\lambda_a(b)'\circ a\circ b)'&=b'\circ (a'\circ \lambda_a(b))\\
-    &=b'\circ (a'\circ (-a+a\circ b))
-    =b'\circ (a'+b)=b'\circ a'-b.
-    \end{align*}
-    From this one immediately obtains that $\mu_b^{-1}(a)=(b\circ a'-b)'$. 
+    for all $a,b,c\in A$. Therefore the result follows.
+%    Let $a,b,c\in A$. To prove that $\mu$ is a group anti-homorphism, we compute
+%    \begin{align*}
+%    &\mu_{b\circ a}(c)=\lambda_c(b\circ a)'\circ c\circ b\circ a
+%    \shortintertext{and}
+%    &\mu_a\mu_b(c)=\mu_a(\lambda_c(b)'\circ c\circ b)
+%    =\lambda_{\lambda_c(b)'\circ c\circ b}(a)'\circ \lambda_c(b)'\circ c\circ b\circ a.
+%    \end{align*}
+%    Using the formulas~\eqref{eq:formulas} and Proposition \ref{pro:lambda}, 
+%    \begin{align*}
+%    \lambda_c(b\circ a)'&=\lambda_c(b+\lambda_b(a))'=(\lambda_c(b)+\lambda_{c\circ b}(a))'\\
+%    &=(\lambda_c(b)\circ %\lambda^{-1}_{\lambda_c(b)}\lambda_{c\circ b}(a))'
+%    =\lambda_{\lambda_c(b)'\circ c\circ b}(a)'\circ \lambda_c(b)',
+%    \end{align*}
+%    which proves that $\mu$ is an anti-homomorphism. 
+%    
+%    To compute the inverse of $\mu_b$ we proceed as follows. Since $a'\circ (-a)=2a$ by Lemma~\ref{lem:basic}, 
+%    \begin{align*}
+%    (\lambda_a(b)'\circ a\circ b)'&=b'\circ (a'\circ \lambda_a(b))\\
+%    &=b'\circ (a'\circ (-a+a\circ b))
+%    =b'\circ (a'+b)=b'\circ a'-b.
+%    \end{align*}
+%    From this one immediately obtains that $\mu_b^{-1}(a)=(b\circ a'-b)'$. 
 \end{proof}
 
 
