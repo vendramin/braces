@@ -238,7 +238,7 @@ Note that $\lambda_a(b)=-a+a\circ b=a\circ (a'+b)$, for all $a,b\in A$. Hence
 
 If $A$ is a skew brace, then 
 the map $\lambda$ in the previous proposition yields a left action from $(A,\circ)$ on $(A,+)$ by automorphisms. 
-There is also a right action $(A,\circ)$ on the set $A$.
+There is also a right action of $(A,\circ)$ on the set $A$.
 
 \begin{proposition}
 \label{pro:mu}
@@ -260,7 +260,7 @@ There is also a right action $(A,\circ)$ on the set $A$.
     \begin{align*}
         \mu_b(\mu_a(c))&=\mu_b((c'+a)'\circ a)=(a'\circ (c'+a)+b)'\circ b\\
         &=(a'\circ c'-a'+b)'\circ b=(a'\circ (c'+a\circ b))'\circ b\\
-        &=(c'+a\circ b)\circ a\circ b=\mu_{a\circ b}(c),
+        &=(c'+a\circ b)'\circ a\circ b=\mu_{a\circ b}(c),
     \end{align*}
     for all $a,b,c\in A$. Therefore the result follows.
 %    Let $a,b,c\in A$. To prove that $\mu$ is a group anti-homorphism, we compute
@@ -288,9 +288,9 @@ There is also a right action $(A,\circ)$ on the set $A$.
 \end{proof}
 
 
-Let $A$ be a brace. 
+Let $A$ be a skew brace. 
 \index{Commutator identities!for braces}
-The previous proposition implies that 
+Proposition \ref{pro:lambda} implies that 
 \begin{align}
 \label{eq:formulas}
 &a\circ b = a+\lambda_a(b),
@@ -310,16 +310,37 @@ These last two identities are similar to the usual
 \emph{commutator identities}.
 
  \begin{definition}
- 	\index{Homomorphism!of braces}
- 	A \emph{homomorphism} between two braces $A$ and $B$ is a group
- 	homomorphism $f\colon A\to B$ such that $f\lambda_a=\lambda_{f(a)}f$ for
- 	all $a\in A$.  The \emph{kernel} of $f$ is
+ 	\index{Homomorphism!of skew braces}
+ 	A map $f\colon A\to B$ between two skew braces $A$ and $B$ is a {\em homomorphism of skew braces} if $f(x\circ y)=f(x)\circ f(y)$ and $f(x+y)=f(x)+f(y)$, for all $x,y\in A$.  The \emph{kernel} of $f$ is
      \[
          \ker f=\{a\in A:f(a)=0\}.
      \]
  \end{definition}
 
-Braces and brace homomorphisms form a category.  
+A bijective homomorphism of skew braces is an isomorphism. An automorphism of a skew brace $A$ is an isomorphism from the skew brace $A$ to it self. Two skew braces $A$ and $B$ are isomorphisc if there exist an isomorphism $f\colon A\rightarrow B$. We write $A\cong B$ to denote that the skew braces $A$ and $B$ are isomorphic.
+
+\begin{proposition}
+\label{prop:semidirect} 
+\index{Skew brace!semidirect product} Let $A,B$ be skew braces. Let $\alpha\colon (B,\circ)\rightarrow \Aut(A,+,\circ)$ be a homomorphism of groups. Define two operations on $A\times B$ by
+\[ (a_1,b_1)+(a_2,b_2)=(a_1+a_2,b_1+b_2)\text{ and }(a_1,b_1)\circ (a_2,b_2)=(a_1\circ\alpha_{b_1}(a_2),b_1\circ b_2),\]
+where $\alpha_{b_1}=\alpha(b_1)$, for all $a_1,a_2\in A$ and $b_1,b_2\in B$. Then $(A\times B,+,\circ)$ is a skew brace. This skew brace is the {\em semidirect product} of the skew brace $A$ by $B$ via $\alpha$, and it is denoted by $A\rtimes_{\alpha}B$.
+\end{proposition}
+
+\begin{proof}
+    Note that $(A\times B,+)$ is the direct product of the groups $(A,+)$ and $(B,+)$, and $(A\times B,\circ)$ is the semidirect product of the group $(A,\circ)$ by $(B,\circ)$ via $\alpha$. Hence it is enough to check the compatibility condition.
+    Let $a_1,a_2,a_3\in A$ and $b_1,b_2,b_3\in B$. We have
+    \begin{align*}
+        (a_1,b_1)\circ &((a_2,b_2),(a_3,b_3))\\
+        =&(a_1,b_1)\circ (a_2+a_3,b_2+b_3)\\
+        =&(a_1\circ \alpha_{b_1}(a_2+a_3),b_1\circ (b_2+b_3))\\
+        =&(a_1\circ (\alpha_{b_1}(a_2)+\alpha_{b_1}(a_3)),b_1\circ b_2-b_1+b_1\circ b_3)\\
+        =&(a_1\circ \alpha_{b_1}(a_2)-a_1+a_1\circ\alpha_{b_1}(a_3)),b_1\circ b_2-b_1+b_1\circ b_3)\\
+        =&(a_1\circ \alpha_{b_1}(a_2),b_1\circ b_2)-(a_1,b_1)+(a_1\circ\alpha_{b_1}(a_3)),b_1\circ b_3)\\
+        =&(a_1,b_1)\circ (a_2,b_2)-(a_1,b_1)+(a_1,b_1)\circ (a_2,b_3).
+    \end{align*}
+Therefore the result follows.
+\end{proof}
+%Braces and brace homomorphisms form a category.  
 
 %\begin{example}
 %        \label{exa:trivial}
@@ -496,9 +517,23 @@ Braces and brace homomorphisms form a category.
 %	\]
 %\end{exa}
 
+\begin{lemma}\label{lem:homlambda}
+    Let $A$ and $B$ be skew braces. A map $f\colon A\to B$ is a homomorphism of skew braces if and only if $f(a\circ b)=f(a)\circ f(b)$ and $f(\lambda_a(b))=\lambda_{f(a)}(f(b))$, for all $a,b\in A$.
+\end{lemma}
+
+\begin{proof}
+    Let $a,b\in A$. Suppose that $f$ is a homomorphism of skew braces. Then
+    \[ f(\lambda_a(b))=f(-a+a\circ b)=-f(a)+f(a)\circ f(b)=\lambda_{f(a)}(f(b)).\]
+    Conversely, suppose that $f(x\circ y)=f(x)\circ f(y)$ and $f(\lambda_x(y))=\lambda_{f(x)}(f(y))$, for all $x,y\in A$. We have that 
+    \[f(a+b)=f(a\circ\lambda_{a'}(b))=f(a)\circ f(\lambda_{a'}(b))=f(a)\circ \lambda_{f(a)'}(f(b))=f(a)+f(b).\]
+    Therefore the result follows. 
+\end{proof}
+
+
+
 \begin{definition}
-    \index{Brace!two sided}
-	A brace $A$ is said to be a \emph{two-sided} if 
+    \index{Skew brace!two sided}
+	A skew brace $A$ is said to be a \emph{skew two-sided brace} if 
 	\begin{equation}
 	\label{eq:right_compatibility}
 	(a+b)\circ c=a\circ c-c+b\circ c
@@ -506,31 +541,31 @@ Braces and brace homomorphisms form a category.
 	holds for all $a,b,c\in A$. 
 \end{definition}
 
-If $A$ is a two-sided brace, then 
+If $A$ is a skew two-sided brace, then 
 \begin{align}
 \label{eq:2sided}
 &a\circ(-b)=a-a\circ b+a,
 &&(-a)\circ b=b-a\circ b+b    
 \end{align}
-hold for all $a,b\in A$. The first equality holds for every brace and follows from Lemma~\ref{lem:basic}. 
+hold for all $a,b\in A$. The first equality holds for every skew brace and follows from Lemma~\ref{lem:basic}. 
 The second equality follows from~\eqref{eq:right_compatibility}. 
 
 \begin{example}
-  Any brace with abelian multiplicative group is 
+  Any skew brace with abelian multiplicative group is 
   two-sided.
 \end{example}
 
 \begin{example}
   Let $n\in\N$ be such that $n=p_1^{a_1}\cdots p_k^{a_k}$, where the $p_j$ are
-  distinct primes, all $a_j\in\{0,1,2\}$ and $p_i^m\not\equiv 1\bmod{p_j}$ for
-  all $i,j,m$ with $1\leq m\leq a_i$. Then every brace of size $n$ is a
+  distinct primes, all $a_j\in\{1,2\}$ and $p_i^m\not\equiv 1\bmod{p_j}$ for
+  all $i,j,m$ with $1\leq m\leq a_i$. Then every brace of size $n$ is a skew
   two-sided brace of abelian type, since every group of order $n$ is abelian, see for
   example~\cite{MR1786236}.  
 \end{example}
 
 \index{Jacobson!radical ring}
 \index{Radical ring}
-Two-sided braces of abelian type form an interesting family of rings without unit. 
+Skew two-sided braces of abelian type form an interesting family of rings without unit. 
 % Those rings, known as radical rings, 
 % were introduced by Jacobson in~\cite{MR12271}. In any ring $R$ the \emph{circle operation} 
 % \[
@@ -559,29 +594,29 @@ Two-sided braces of abelian type form an interesting family of rings without uni
 %     \]
 % \end{example}
 
-Braces are a far reaching generalizations of radical rings. The following result was proved by Rump in~\cite{MR2278047}.
+Skew braces are a far reaching generalizations of radical rings. The following result was proved by Rump in~\cite{MR2278047}.
 
 \begin{theorem}
 \label{thm:radical}
-    A brace of abelian type is two-sided if and only if it is a radical ring. 
+    A skew brace of abelian type is two-sided if and only if it is a radical ring. 
 \end{theorem}
 
 \begin{proof}
-    Assume first that $A$ is a two-sided brace of abelian type. Then $(A,+)$ is an abelian group. 
+    Assume first that $A$ is a skew two-sided brace of abelian type. Then $(A,+)$ is an abelian group. 
     Let us prove that the operation
     \[
-    ab=-a+a\circ b-b
+    a*b=-a+a\circ b-b
     \]
-    turns $A$ into a rng. Left distributivity follows from the compatibility condition:
+    turns $A$ into a radical ring. Left distributivity follows from the compatibility condition:
     \begin{align*}
-    a(b+c)&=-a+a\circ (b+c)-(b+c)
-    =-a+a\circ b-a+a\circ c-c-b=ab+ac.
+    a*(b+c)&=-a+a\circ (b+c)-(b+c)
+    =-a+a\circ b-a+a\circ c-c-b=a*b+a*c.
     \end{align*}
-    Similarly, since $A$ is two-sided ones proves $(a+b)c=ac+bc$. It remains to show that the multiplication
+    Similarly, since $A$ is two-sided, one proves $(a+b)*c=a*c+b*c$. It remains to show that the operation $*$
     is associative. On the one hand, using the first equality of~\eqref{eq:2sided} 
-    and the brace compatibility condition, we write
+    and the compatibility condition, we write
     \begin{align*}
-    a(bc)&=a(-b+b\circ c-c)\\
+    a*(b*c)&=a*(-b+b\circ c-c)\\
     &=-a+a\circ(-b+b\circ c-c)-(-b+b\circ c-c)\\
     &=-a+a\circ (-b)-a+a\circ(b\circ c)-a+a\circ (-c)+c-b\circ c+b\\
     &=a\circ (b\circ c)-a\circ b-a\circ c-b\circ c+a+b+c,
@@ -589,14 +624,14 @@ Braces are a far reaching generalizations of radical rings. The following result
     since the group $(A,+)$ is abelian. On the other hand, the second equality of~\eqref{eq:2sided} and
     Equality~\eqref{eq:right_compatibility} imply that
     \begin{align*}
-    (ab)c &= (-a+a\circ b-b)c-(-a+a\circ b-b)+(-a+a\circ b-b)\circ c-c\\
+    (a*b)*c &= (-a+a\circ b-b)*c=-(-a+a\circ b-b)+(-a+a\circ b-b)\circ c-c\\
     &=b-a\circ b+a+(-a)\circ c-c+(a\circ b)\circ c-c+(-b)\circ c-c\\
     &=(a\circ b)\circ c-a\circ b-a\circ c-b\circ c+a+b+c.
     \end{align*}
-    It then follows that the multiplication is associative. 
+    It then follows that the operation $*$ is associative. 
     
     Conversely, if $A$ is a radical ring, say with ring multiplication $(a,b)\mapsto ab$, 
-    then $a\circ b=a+ab+b$ turns $A$ into a two-sided brace 
+    then $a\circ b=a+ab+b$ turns $A$ into a skew two-sided brace 
     of abelian type. In fact, since $A$ is a radical ring, then 
     $(A,+)$ is an abelian group and $(A,\circ)$ is a group. Moreover, 
     \begin{align*}
@@ -606,14 +641,13 @@ Braces are a far reaching generalizations of radical rings. The following result
 \end{proof}
 
 \index{Brace!associative}
-A brace is said to be \emph{associative} if the operation $(x,y)\mapsto
+A skew brace is said to be \emph{associative} if the operation $(x,y)\mapsto
 x*y=\lambda_x(y)-y$ is associative. In \cite[Question 2.1(2)]{MR3818285}, 
-Cedó, Gateva--Ivanova and Smoktunowicz asked if associative braces of abelian type are always radical rings. 
+Cedó, Gateva--Ivanova and Smoktunowicz asked whether associative skew braces of abelian type are always radical rings. 
 To answer this question, we need some lemmas. 
 
-\begin{lemma}
-    If $A$ is an associative brace of abelian type, then 
-	$(-a)*b=-(a*b)$ 
+\begin{lemma}\label{lem:CGIS}
+    If $A$ is an associative skew brace of abelian type, then $(-a)*b=-(a*b)$ 
 	holds for all $a,b\in A$. In particular, $(-a)\circ b=2b-(a\circ b)$ for all $a,b\in A$. 
 \end{lemma}
 
@@ -621,14 +655,14 @@ To answer this question, we need some lemmas.
     The associativity implies that 
  	\begin{align*}
  	    (a*(-a))*b &= 
- 	    (a*(-a)+a+(-a))*b\\
+ 	    (a*(-a)+a+(-a))*b=(a\circ (-a))*b\\
  	    &=a*( (-a)*b)+(-a)*b+a*b\\
  	    &=(a*(-a))*b+(-a)*b+a*b
      \end{align*}
-     and therefore $(-a)*b=-(a*b)$. From this the claim follows. 
+     and therefore $(-a)*b=-(a*b)$. From this the result follows. 
 \end{proof}
 
-If $A$ is a brace of abelian type, then one proves by induction that 
+If $A$ is a skew brace of abelian type, then one proves by induction that 
 \begin{align}
 \label{eq:Lau}
     a\circ \left(\sum_{i=1}^n b_i-\sum_{j=1}^mc_j\right)
@@ -657,7 +691,7 @@ holds for all $a,b,c\in A$, see Exercise~\ref{prob:Lau}.
 
 \begin{theorem}
     \label{thm:Lau}
-	If $A$ is an associative brace of abelian type, then $A$ is a radical ring. 
+	If $A$ is an associative skew brace of abelian type, then $A$ is a radical ring. 
 \end{theorem}
 
 \begin{proof}
@@ -672,31 +706,31 @@ holds for all $a,b,c\in A$, see Exercise~\ref{prob:Lau}.
  	a'\circ ( (a\circ b-a-b)\circ c-a\circ b)
  	=a'\circ ( a\circ (b\circ c-b-c)-a-a-b\circ c+2c).
  	\]
-    By using the formula~\eqref{eq:Lau} 
-    with $n=1$ and $m=2$ in the right hand side and 
-    with $n=m=3$ in the left hand side,  
- 	\[
- 	a'\circ (a\circ b-a+(-b))=b+a'\circ(-b)
+ 	By Lemma \ref{lem:CGIS}, this is equivalent to
+ 	\[ a'\circ ( (a\circ b-a-b)\circ c-a\circ b)
+ 	=a'\circ ( a\circ (b\circ c-b-c)-a-a+(-b)\circ c).
  	\]
- 	Now~\eqref{eq:Lau} with $n=2$ and $m=1$ implies that 
- 	the associativity of $A$ is equivalent to 
+    By using the formula~\eqref{eq:Lau}, this is equivalent to  
+ 	\[
+ 	(b+a'\circ(-b))\circ c-b+a'=b\circ c-b-c+a'\circ (-b)\circ c+a'
+ 	\]
+ 	Hence the associativity of $(A,*)$ is equivalent to 
  	\begin{equation}
  	    \label{eq:asociatividad}
  		(b+a'\circ (-b))\circ c+c=b\circ c+a'\circ(-b)\circ c.
  	\end{equation}
- 	Let $b,c\in A$. If $d\in A$, then there exists $a\in a$ such that $d=a'\circ (-b)$. Equality~\eqref{eq:asociatividad} 
+ 	Let $b,c\in A$. If $d\in A$, then there exists $a\in A$ such that $d=a'\circ (-b)$. Equality~\eqref{eq:asociatividad} 
     implies that 
  	\[
  	(b+d)\circ c+c=b\circ c+d\circ c.\qedhere
  	\]
 \end{proof}
 
-The previous result is not true if the brace is not of abelian type. 
 
-Now we show a brace that is not two-sided: 
+Now we show an associative skew brace that is not two-sided: 
 
 \begin{example}
-
+{\bf Ferran: si el ejemplo es demasiado técnico, entonces quizás es mejor escribir ``There are associative skew braces that are not two-sided, see for example \cite{}.''}
 \end{example}
 
 % \begin{example}
@@ -740,19 +774,19 @@ Now we show a brace that is not two-sided:
 %z)\triangleleft (y\triangleleft z)$ 
 %holds for all $x,y,z\in X$.}
 
-In Proposition~\ref{pro:Rump} we used radical rings to produce examples of solutions. 
+In Proposition~\ref{pro:Rump} we used radical rings to produce examples of solutions of the YBE. 
 A natural question arises: Does one need radical rings? Surprisingly, 
 radical rings are just the tip of the iceberg. 
 
 \begin{theorem}
 \label{thm:YB}
-Let $A$ be a brace. Then 
+Let $A$ be a skew brace. Then 
 $(A,r)$, where 
 \[
 r\colon A\times A\to A\times A,\quad
 r(x,y)=( -x+x\circ y,(-x+x\circ y)'\circ x\circ y),
 \]
-is a solution. 
+is a solution of the YBE. 
 \end{theorem}
 
 \begin{proof}
@@ -783,7 +817,7 @@ The next result generalizes this fact. We shall need a lemma.
 
 \begin{lemma}
 \label{lem:|r|}
-Let $A$ be a brace and $r$ be its associated solution.  Then
+Let $A$ be a skew brace and $r$ be its associated solution.  Then
   \begin{align} 
   \nonumber
   r^{2n}(a,b)&=(-n(a\circ b)+a+n(a\circ
@@ -805,18 +839,27 @@ Let $A$ be a brace and $r$ be its associated solution.  Then
 \end{lemma}
 
 \begin{proof} 
-It suffices to prove~\eqref{eq:r^2n} and~\eqref{eq:r^2n+1}.  We
-  proceed by induction on $n$. The case $n=0$ is trivial for~\eqref{eq:r^2n}
-  and~\eqref{eq:r^2n+1}. Assume that the claim holds for some $n>0$. If $n$ is
-  even, by applying the map $r$ to Equation~\eqref{eq:r^2n} 
+First we shall prove~\eqref{eq:r^2n} and~\eqref{eq:r^2n+1} by induction on $n$. The case $n=0$ is trivial for~\eqref{eq:r^2n}
+  and~\eqref{eq:r^2n+1}. Assume that the claim holds for some $n\geq 0$. By applying the map $r$ to Equation~\eqref{eq:r^2n+1} 
   we obtain that 
   \begin{align*} 
-  r^{2n+1}(a,b) &= r\left(
-    -n(a\circ b)+a+n(a\circ b),(-n(a\circ b)+a+n(a\circ b))'\circ a\circ b)\right)\\
-    &=\left( -n(a\circ b)-a+(n+1),(-n(a\circ b)-a+(n+1)(a\circ b))'\circ a\circ b\right).
+  r^{2(n+1)}(a,b) &=r\left( -n(a\circ b)-a+(n+1)(a\circ b),\right.\\
+    &\phantom{=(-n(a\circ b)+} \left. (-n(a\circ b)-a+(n+1)(a\circ
+    b))'\circ a\circ b\right)\\
+    &=\left( -(n+1)(a\circ b)+a+(n+1)(a\circ b),\right.\\
+    &\phantom{=(-n(a\circ b)+} \left. (-(n+1)(a\circ b)+a+(n+1)(a\circ
+    b))'\circ a\circ b\right).
     \end{align*} 
-    Thus Equation~\eqref{eq:r^2n+1} holds. If $n$ is odd, a similar argument shows
-    that~\eqref{eq:r^2n} holds. The other claims follow easily from
+    By applying $r$ again to this equality, we get 
+    \begin{align*} 
+  r^{2(n+1)+1}(a,b) &= r\left(-(n+1)(a\circ b)+a+(n+1)(a\circ
+    b),\right.\\
+    &\phantom{=(-n(a\circ b)+} \left. (-(n+1)(a\circ b)+a+(n+1)(a\circ b))'\circ a\circ b\right)\\
+    &=\left( -(n+1)(a\circ b)-a+(n+2)(a\circ b),\right.\\
+    &\phantom{=(-n(a\circ b)+} \left. (-(n+1)(a\circ b)-a+(n+2)(a\circ
+    b))'\circ a\circ b\right).
+    \end{align*} 
+   Thus Equations~\eqref{eq:r^2n} and~\eqref{eq:r^2n+1} hold by induction.  The other claims follow easily from
     Equations~\eqref{eq:r^2n} and~\eqref{eq:r^2n+1}.
 \end{proof}
 
@@ -829,39 +872,39 @@ It suffices to prove~\eqref{eq:r^2n} and~\eqref{eq:r^2n+1}.  We
 %for all $a,b\in A$. In particular, if $b=1$, then $a=1$.  \end{proof}
 
 Recall that the (minimal) \emph{exponent} $\exp(G)$ of a 
-finite group $G$ is the minimal $n$ such that 
+finite group $G$ is the least positive integer $n$ such that 
 $g^n=1$ for all $g\in G$. 
 
 \begin{theorem} 
 \label{thm:|r|} 
-  Let $A$ be a finite brace with more than one
+  Let $A$ be a finite skew brace with more than one
   element and let $G$ be the additive group of $A$. 
   If $r$ is the solution associated with $A$, 
   then $r$ has order $2\exp(G/Z(G))$.
 \end{theorem}
 
 \begin{proof} 
-  Let $n$ be such that $r$ has odd order, say $r^{2n+1}=\id$. By applying
-  Lemma~\ref{lem:|r|} one obtains that $-a+(n+1)(a\circ b)=n(a\circ b)+a$
-  for all $a,b\in A$. In particular, if $b=0$, then $a=0$, a contradiction. 
+  Suppose that $r$ has odd order $2n+1$. Since $r^{2n+1}=\id$, by applying
+  Lemma~\ref{lem:|r|}, one obtains that $-a+(n+1)(a\circ b)=n(a\circ b)+a$
+  for all $a,b\in A$. In particular, for $b=0$, we get $a=0$, for all $a\in A$, a contradiction. 
   Therefore we may assume that the order of the permutation $r$ is
   $2n$, where 
   \[
-  n=\min\{k:kb+a=a+kb\;\text{ for all }a,b\in A\}.
+  n=\min\{k\in\Z: k>0\text{ and }kb+a=a+kb\;\text{ for all }a,b\in A\}.
   \]
   Now one computes
   \begin{align*} 
-  n&=\min\{k:kb\in Z(G)\text{ for all }b\in A\}\\ 
-  &=\min\{k:k(b+Z(G)) = Z(G)\text{ for all }b\in A\} =\exp(G/Z(G)).\qedhere
+  n&=\min\{k\in\Z: k>0\text{ and }kb\in Z(G)\text{ for all }b\in A\}\\ 
+  &=\min\{k\in\Z: k>0\text{ and }k(b+Z(G)) = Z(G)\text{ for all }b\in A\} =\exp(G/Z(G)).\qedhere
   \end{align*}
 \end{proof}
 
-An inmmediate consequence:
+An inmmediate consequence is the following result.
 
 \begin{corollary}
-    Let $A$ be a finite brace and $r$ be its associated solution. Then 
-    $r$ is involutive if and only if $A$ is of abelian type.  
-\end{corollary}
+    Let $A$ be a finite skew brace and $r$ be its associated solution. Then 
+    $r$ is involutive if and only if $A$ is of abelian type.
+    \end{corollary}
 
 % \begin{proof}
 %     It follows immediately from Theorem~\ref{thm:|r|}.
@@ -878,34 +921,34 @@ An inmmediate consequence:
 %   is $2p$, the order of $r_A$ is $4p$.
 % \end{exa}
 
-\section*{{{\thesection}B}}
+\section*{Subbraces and ideals}
 
 \begin{definition}
 \index{Subbrace}
-Let $A$ be a brace. A \emph{subbrace} of $A$ is a non-empty 
+Let $A$ be a skew brace. A \emph{subbrace} of $A$ is a non-empty 
 subset $B$ of $A$ such that $(B,+)$ is a subgroup of $(A,+)$ and $(B,\circ)$ is a subgroup of $(A,\circ)$. 
 \end{definition}
 
 \begin{definition}
     \index{Left!ideal}
     \index{Strong!left ideal}
-    Let $A$ be a brace. A \emph{left ideal} of $A$ is a subgroup $(I,+)$ of
+    Let $A$ be a skew brace. A \emph{left ideal} of $A$ is a subgroup $(I,+)$ of
 	$(A,+)$ such that $\lambda_a(I)\subseteq I$ for all $a\in A$, i.e. $\lambda_a(x)\in I$ for all $a\in A$ and $x\in I$. A \emph{strong left ideal} of $A$ 
 	is a left ideal $I$ of $A$ such that $(I,+)$ is a normal subgroup of $(A,+)$. 
 \end{definition}
 
 \begin{proposition}
-    A left ideal $I$ of a brace $A$ is a subbrace of $A$. 
+    A left ideal $I$ of a skew brace $A$ is a subbrace of $A$. 
 \end{proposition}
 
 \begin{proof}
     We need to prove that $(I,\circ)$ is a subgroup of $(A,\circ)$. Clearly $I$ is non-empty, 
     as it is an additive subgroup of $A$. If $x,y\in I$, then
-    $x\circ y=x+\lambda_x(y)\in I+I\subseteq I$ and $x'=-\lambda_x(x)\in I$. 
+    $x\circ y=x+\lambda_x(y)\in I+I\subseteq I$ and $x'=-\lambda_{x'}(x)\in I$. 
 \end{proof}
 
 \begin{example}
-    Let $A$ be a brace. Then 
+    Let $A$ be a skew brace. Then 
     \[
     \Fix(A)=\{a\in A:\lambda_x(a)=a\text{ for all $x\in A$}\}
     \]
@@ -914,78 +957,124 @@ subset $B$ of $A$ such that $(B,+)$ is a subgroup of $(A,+)$ and $(B,\circ)$ is 
 
 \begin{definition}
     \index{Ideal}
-    An \emph{ideal} of $A$ is a strong left ideal $I$ of $A$ such that 
+    An \emph{ideal} of a skew brace $A$ is a strong left ideal $I$ of $A$ such that 
 	$(I,\circ)$ is a normal subgroup of $(A,\circ)$. 
 \end{definition}
 
 In general 
 \[
-\{\text{subbraces}\}\subsetneq \{\text{left ideals}\}\subsetneq\{\text{strong left ideals}\}\subsetneq\{\text{ideals}\}.
+\{\text{subbraces}\}\supsetneq \{\text{left ideals}\}\supsetneq\{\text{strong left ideals}\}\supsetneq\{\text{ideals}\}.
 \]
 For example, $\Fix(A)$ is not a strong left ideal of $A$.
 
 \begin{example}
     Consider the semidirect product $A=\Z/(3)\rtimes \Z/(2)$ of the
-    trivial braces $\Z/(3)$ and $\Z/(2)$
+    trivial skew braces $\Z/(3)$ and $\Z/(2)$
     via the non-trivial action of $\Z/(2)$ over $\Z/(3)$.
     Then 
     \[
-    \lambda_{(x,y)}(a,b)=(x,y)(a,b)-(x,y)=(x+(-1)^ya,y+b)-(x,y)=((-1)^ya,b).
+    \lambda_{(x,y)}(a,b)=-(x,y)+(x,y)\circ(a,b)=-(x,y)+(x+(-1)^ya,y+b)=((-1)^ya,b).
     \]
     Then $\Fix(A)=\{(0,0),(0,1)\}$ is not a 
-    normal subgroup of $(A,\circ)$ and hence $\Fix(A)$ is not a strong left 
+    normal subgroup of $(A,+)$ and hence $\Fix(A)$ is not a strong left 
     ideal of $A$.
 \end{example}
 
 \begin{example}
     \index{Kernel}
-	Let $f\colon A\to B$ be a brace homomorphism. Then $\ker f$ 
+	Let $f\colon A\to B$ be a homomorphism of skew braces. Then $\ker f$ 
 	is an ideal of $A$.
 \end{example}
 
+If $X$ and $Y$ are subsets of a brace $A$, $X*Y$ is defined as the 
+subgroup of $(A,+)$ generated by elements of the form $x*y$, $x\in X$ and $y\in Y$, i.e.
+\[
+X*Y=\langle x*y:x\in X\,,y\in Y\rangle_+.
+\]
+
+\begin{proposition}
+    \label{pro:A*I}
+    Let $A$ be a skew brace. A subgroup $I$ of $(A,+)$ is 
+    a left ideal of $A$ if and only if $A*I\subseteq I$.
+\end{proposition}
+
+\begin{proof}
+    Let $a\in A$ and $x\in I$. If $I$ is a
+    left ideal, then $a*x=\lambda_a(x)-x\in I$. Conversely, if $A*I\subseteq
+    I$, then $\lambda_a(x)=a*x+x\in I$.
+\end{proof}
+
+\begin{proposition}
+    \label{pro:I*A}
+    Let $A$ be a skew brace. A normal subgroup $I$ of $(A,+)$
+    is an ideal of $A$ if and only $\lambda_a(I)\subseteq I$, for all $a\in A$, and
+    $I*A\subseteq I$.
+\end{proposition}
+
+\begin{proof}
+    Let $x\in I$ and $a\in A$.  Assume first that $I$ is invariant under the
+    action of $\lambda$ and that $I*A\subseteq I$. Then
+    \begin{equation}
+    \label{eq:trick:I*A}
+        \begin{aligned}
+        a\circ x\circ a' &=a+\lambda_a(x\circ a')\\
+        &=a+\lambda_a(x+\lambda_x(a'))
+        =a+\lambda_a(x)+\lambda_a\lambda_x(a')+a-a\\
+        &=a+\lambda_a(x+\lambda_x(a')-a')-a
+        =a+\lambda_a(x+x*a')-a\in I,
+    \end{aligned}
+    \end{equation}
+    and hence $I$ is an ideal.
+
+    Conversely, assume that $I$ is an ideal. Then $I*A\subseteq I$ since
+    \begin{align*}
+        x*a&=-x+x\circ a-a\\
+        &=-x+a\circ(a'\circ x\circ a)-a
+        =-x+a+\lambda_a(a'\circ x\circ a)-a\in I.\qedhere
+    \end{align*}
+\end{proof}
+
+
 Let $I$ and $J$ be ideals
-of a $A$. Then $I\cap J$ is an ideal of $A$, see Exercise~\ref{prob:sum_ideals}.  
+of a skew brace $A$. Then $I\cap J$ is an ideal of $A$, see Exercise~\ref{prob:sum_ideals}.  
 The sum $I+J$ of $I$ and $J$ is defined as the
 additive subgroup of $A$ generated by all the 
 elements of the form
 $u+v$, $u\in I$ and $v\in J$. 
 
 \begin{proposition}
-Let $A$ be a brace and let
+Let $A$ be a skew brace and let
 $I$ and $J$ be ideals of $A$. Then $I+J$ is an ideal of $A$.
 \end{proposition}
 
 \begin{proof}
-    Let $a\in A$, $u\in I$ and $v\in J$. Then $\lambda_a(u+v)\in I+J$ and
-    hence it follows that $\lambda_a(I+J)\subseteq I+J$. Moreover, 
+    Since $I$ and $J$ are normal subgroups of $A$, we have that
+    \[ I+J=\{ u+v \mid u\in I,\; v\in J \}.\]
+    First note that $I+J$ is a normal subgroup of $(A,+)$ since
     \[
+        a+(u+v)-a=(a+u-a)+(a+v-a)\in I+J
+    \]
+    for all $u\in I$, $v\in J$ and $a\in A$.
+    Let $a\in A$, $u\in I$ and $v\in J$. Then $\lambda_a(u+v)=\lambda_a(u)+\lambda_a(v)\in I+J$ and
+    hence it follows that $\lambda_a(I+J)\subseteq I+J$. Moreover, by Propositions~\ref{pro:A*I} and~\ref{pro:I*A},
+        \[
         (u+v)*a=(u\circ\lambda^{-1}_u(v))*a
         =u*(\lambda^{-1}_u(v)*a)+\lambda^{-1}_u(v)*a+u*a\in I+J.
     \]
-    This formula implies that  
-    \[
-        a\circ (u+v)\circ a'=a+\lambda_a((u+v)+(u+v)*a')-a\in I+J.
-    \]
-    Thus it follows that $a\circ (I+J)\circ a'\subseteq I+J$.
-    
-    Finally $I+J$ is a normal subgroup of $(A,+)$ since
-    \[
-        a+\sum_{k} (u_k+v_k)-a=\sum_k ((a+u_k-a)+(a+v_k-a))\in I+J
-    \]
-    whenever $u_k\in I$ and $v_k\in J$ for all $k$. 
+    Hence $(I+J)*A\subseteq I+J$. Therefore the result follows by Proposition~\ref{pro:I*A}.
 \end{proof}
 
 
 \begin{definition}
 	\index{Socle}
-	Let $A$ be a brace. The subset 
+	Let $A$ be a skew brace. The subset 
 	$\Soc(A)=\ker\lambda\cap Z(A,+)$
 	is the \emph{socle} of $A$.
 \end{definition}
 
 \begin{lemma}
     \label{lem:socle}
-    Let $A$ be a brace and $a\in\Soc(A)$. Then 
+    Let $A$ be a skew brace and $a\in\Soc(A)$. Then 
     \[
     b+b\circ a=b\circ a+b\quad\text{and}\quad
     \lambda_b(a)=b\circ a\circ b'
@@ -995,7 +1084,7 @@ $I$ and $J$ be ideals of $A$. Then $I+J$ is an ideal of $A$.
 \end{lemma}
 
 \begin{proof}
-    Let $b\in A$. Since
+    Let $b\in A$ and $a\in\Soc(A)$. Since
     $b'\circ (b\circ a+b)=a-b'$ and
     $b'\circ (b+b\circ a)=-b'+a$, the first claim follows since
     $a\in Z(A,+)$.
@@ -1008,7 +1097,9 @@ $I$ and $J$ be ideals of $A$. Then $I+J$ is an ideal of $A$.
 
 \begin{proposition}
 	\label{pro:socle}
-	Let $A$ be a brace. Then $\Soc(A)$ is an ideal of $A$.
+	Let $A$ be a skew brace. Then $\Soc(A)$ is an ideal of $A$.
+	\end{proposition}
+
 	
 	\begin{proof}
 		Clearly $0\in\Soc(A)$, since $\lambda$ is a group homomorphism. Let $a,b\in\Soc(A)$ and $c\in A$. Since 
@@ -1028,7 +1119,7 @@ $I$ and $J$ be ideals of $A$. Then $I+J$ is an ideal of $A$.
         % \[
         % \lambda_c(a)=-c+c\circ a=c\circ a-c=c\circ (a+c')=c\circ a\circ c'.
         % \]
-        For each $d\in A$, $a+c'\circ d=c'\circ d+a$ by Lemma~\ref{lem:socle}. Then 
+        For each $d\in A$, $a+c'\circ d=c'\circ d+a$.  By Lemma~\ref{lem:socle}, we have 
         \begin{align*}
         d+\lambda_c(a) &= d-c+c\circ a
         =c\circ (c'\circ d+a)\\
@@ -1037,7 +1128,7 @@ $I$ and $J$ be ideals of $A$. Then $I+J$ is an ideal of $A$.
         = -c+c\circ a+d
         = \lambda_c(a)+d,
         \end{align*}
-        that is $\lambda_c(a)$ is central in $(A,+)$. Moreover, 
+        that is $\lambda_c(a)$ is central in $(A,+)$. Moreover, again by Lemma~\ref{lem:socle},
         \begin{align*}
             \lambda_c(a)+d &= -c+c\circ a+d 
             = c\circ a-c+d\\
@@ -1051,25 +1142,18 @@ $I$ and $J$ be ideals of $A$. Then $I+J$ is an ideal of $A$.
         Therefore $\Soc(A)$ is a strong left ideal of $A$. In fact, $\Soc(A)$ is an ideal of $A$,
         as $c\circ a\circ c'=\lambda_c(a)\in\Soc(A)$.  
 	\end{proof}
-\end{proposition}
 
-As a corollary we obtain that the socle of a brace $A$ is a trivial brace of abelian type. 
-In particular, if $a\in\Soc(A)$, then $a$ is a central element such that  
-$a\circ b=a+b$ for all $b\in B$. 
+As a corollary we obtain that the socle of a skew brace $A$ is a trivial skew brace of abelian type. 
+%In particular, if $a\in\Soc(A)$, then $a$ is a central element of $(A,+)$ such that  
+%$a\circ b=a+b$, for all $b\in A$. 
 
 \begin{proposition}
     \label{pro:soc_kernels}
-    Let $A$ be a brace. Then $\Soc(A)=\ker\lambda\cap\ker\mu$.
+    Let $A$ be a skew brace. Then $\Soc(A)=\ker\lambda\cap\ker\mu$.
 \end{proposition}
 
 \begin{proof}
-    Let $a\in\Soc(A)$. Then $\lambda_a=\id$ and $a\in Z(A,+)$. Let $c=\mu_a(b)=\lambda_b(a)'\circ b\circ a$. Then
-    $b\circ a=\lambda_b(a)\circ c=(-b+b\circ a)\circ c$. Since this is equivalent to 
-    %\shortintertext{which is equivalent to}
-    \begin{align*}
-        a\circ c'=b'\circ (-b+b\circ a)=b'\circ (-b)-b'+a=b'+a=a+b'=a\circ b',
-    \end{align*}
-    it follows that $c'=b'$ and therefore $c=b$. Thus $a\in\ker\lambda\cap\ker\mu$. 
+    Let $a\in\Soc(A)$ and $b\in A$. Then $\lambda_a=\id$ and $a\in Z(A,+)$. By Lemma~\ref{lem:socle}, \[\mu_a(b)=\lambda_b(a)'\circ b\circ a=(b\circ a\circ b')'\circ b\circ a=b.\]  Thus $a\in\ker\lambda\cap\ker\mu$. 
     
     Conversely, let $a\in\ker\lambda\cap\ker\mu$ and $b\in A$. Then $b'=\mu_a(b')=\lambda_{b'}(a)'\circ b'\circ a$, so
     $\lambda_{b'}(a)=b'\circ a\circ b$. Now 
@@ -1083,108 +1167,61 @@ Another important ideal was defined in~\cite{MR3917122}.
 
 \begin{definition}
 \index{Annihilator}
-Let $A$ be a brace. The \emph{annihilator} of $A$ is 
+Let $A$ be a skew brace. The \emph{annihilator} of $A$ is 
 defined as the set $\Ann(A)=\Soc(A)\cap Z(A,\circ)$. 
 \end{definition}
 
 Note that $\Ann(A)\subseteq\Fix(A)$. 
 
 \begin{proposition}
-The annihilator of a brace $A$ is an ideal of $A$. 
+The annihilator of a skew brace $A$ is an ideal of $A$. 
 \end{proposition}
 
 \begin{proof}
-    Let $a\in A$ and $x\in\Ann(A)$. Since $\Ann(A)\subseteq Z(A,+)\cap Z(A,\circ)$, 
-    we only need to note that $\lambda_a(x)=x\in\Ann(A)$. 
+    Let $x,y\in\Ann(A)$. Note that $x-y=x\circ y'\in Z(A,\circ)$. Hence $\Ann(A)$ is a subbrace of $A$. Since $\Ann(A)\subseteq Z(A,+)\cap Z(A,\circ)$, 
+    we only need to note that $\lambda_a(x)=x\in\Ann(A)$, for all $a\in A$. 
 \end{proof}
 
 
-If $X$ and $Y$ are subsets of a brace $A$, $X*Y$ is defined as the 
-subgroup of $(A,+)$ generated by elements of the form $x*y$, $x\in X$ and $y\in Y$, i.e.
-\[
-X*Y=\langle x*y:x\in X\,,y\in Y\rangle_+.
-\]
-
-\begin{proposition}
-    \label{pro:A*I}
-    Let $A$ be a brace. A subgroup $I$ of $(A,+)$ is 
-    a left ideal of $A$ if and only if $A*I\subseteq I$.
-\end{proposition}
-
-\begin{proof}
-    Let $a\in A$ and $x\in I$. If $I$ is a
-    left ideal, then $a*x=\lambda_a(x)-x\in I$. Conversely, if $A*I\subseteq
-    I$, then $\lambda_a(x)=a*x+x\in I$.
-\end{proof}
-
-\begin{proposition}
-    \label{pro:I*A}
-    Let $A$ be a brace. A normal subgroup $I$ of $(A,+)$
-    is an ideal of $A$ if and only $\lambda_a(I)\subseteq I$ for all $a\in A$ and
-    $I*A\subseteq I$.
-\end{proposition}
-
-\begin{proof}
-    Let $x\in I$ and $a\in A$.  Assume first that $I$ is invariant under the
-    action of $\lambda$ and that $I*A\subseteq I$. Then
-    \begin{equation}
-    \label{eq:trick:I*A}
-        \begin{aligned}
-        a\circ x\circ a' &=a+\lambda_a(x\circ a')\\
-        &=a+\lambda_a(x+\lambda_x(a'))
-        =a+\lambda_a(x)+\lambda_a\lambda_x(a')+a-a\\
-        &=a+\lambda_a(x+\lambda_x(a')-a')-a
-        =a+\lambda_a(x+x*a')-a
-    \end{aligned}
-    \end{equation}
-    and hence $I$ is an ideal.
-
-    Conversely, assume that $I$ is an ideal. Then $I*A\subseteq I$ since
-    \begin{align*}
-        x*a&=-x+x\circ a-a\\
-        &=-x+a\circ(a'\circ x\circ a)-a
-        =-x+a+\lambda_a(a'\circ x\circ a)-a\in I.\qedhere
-    \end{align*}
-\end{proof}
 
 %Clearly $\Soc(A)=\ker(\lambda)\cap Z(A,+)$. In \cite[Lemma~2.5]{MR3647970} it
 %is proved that $\Soc(A)$ is an ideal of $A$.
 
 \index{Quotient brace}
-If $A$ is a brace and $I$ is an ideal of $A$, then $a+I=a\circ I$ for all $a\in A$. Indeed, 
+If $A$ is a skew brace and $I$ is an ideal of $A$, then $a+I=a\circ I$ for all $a\in A$. Indeed, 
 $a\circ x=a+\lambda_a(x)\in a+I$ and 
 $a+x=a\circ\lambda_a^{-1}(x)=a\circ\lambda_{a'}(x)\in a\circ I$ 
 for all $a\in A$ and $x\in I$. 
-This allows us to prove that there exists a unique brace structure over $A/I$ such that
+This allows us to prove that there exists a unique skew brace structure over $A/I$ such that
 the map 
 \[
 \pi\colon A\to A/I,
 \quad
 a\mapsto a+I=a\circ I,
 \]
-is a brace homomorphism. The brace $A/I$ is the \emph{quotient brace} of $A$ modulo $I$. It is possible
-to prove the isomorphism theorems for braces, see Exercises~\ref{prob:iso1},~\ref{prob:iso2}, \ref{prob:iso3} and
+is a homomorphism of skew braces. The brace $A/I$ is the \emph{quotient brace} of $A$ modulo $I$. It is possible
+to prove the isomorphism theorems for skew braces, see Exercises~\ref{prob:iso1},~\ref{prob:iso2}, \ref{prob:iso3} and
 \ref{prob:correspondence}.
 
-\section*{B}
+\section*{Finite skew braces}
 
 We now use Hall's theorem to obtain information related to the
-structure of finite braces. 
+structure of finite skew braces of nilpotent type. 
 
 
 \begin{theorem}
 \label{thm:add_nilpotent}
-Let $A$ be a finite brace of nilpotent type. Then 
+Let $A$ be a finite skew brace of nilpotent type. Then 
 the multiplicative group of $A$ is solvable.
 \end{theorem}
 
 \begin{proof}
     Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. Assume
-    that $|A|=p_1^{\alpha_1}\cdots p_n^{\alpha}$ for different primes numbers $p_1,\dots,p_n$. 
+    that $|A|=p_1^{\alpha_1}\cdots p_n^{\alpha}$ for distinct primes $p_1,\dots,p_n$ and positive integers $\alpha_1,\dots ,\alpha_n$. 
     Since $K$ is nilpotent, each $K_i\in\Syl_{p_j}(K)$ is normal in $K$, so 
     each $K_i$ is a left ideal of $A$. It follows that for each $i\in\{1,\dots,n\}$ both $K_i$ and 
-    $\prod_{j\ne i}K_j$ are braces of coprime order. In particular, for 
-    each $i\in\{1,\dots,n\}$ there exists a subgroup of $G$ of order coprime with $p$. 
+    $\prod_{j\ne i}K_j$ are subbraces of coprime order. In particular, for 
+    each $i\in\{1,\dots,n\}$ there exists a $p_i$-complement of $G$. 
     Then $G$ is solvable by Hall's theorem. 
 \end{proof}
 
@@ -1199,16 +1236,16 @@ the multiplicative group of $A$ is solvable.
 
 \begin{prob}
 \label{prob:left_right}
-    Prove that there exists a bijective correspondence between left and right braces. 
+    Prove that there exists a bijective correspondence between skew left braces and skew right braces. 
 \end{prob}
 
 \begin{prob}
-Let $p$ be a prime number. Prove that $\Z/(p^2)$ is a brace of abelian type with
+Let $p$ be a prime number. Prove that $\Z/(p^2)$ is a skew brace of abelian type with
 the operation $x\circ y=x+y+pxy$. 
 \end{prob}
 
 \begin{prob}
-Let $A$ be a brace. 
+Let $A$ be a skew brace. 
 Prove that 
 \[
 \mu_b(a)=\lambda^{-1}_{\lambda_a(b)}(-a\circ b+a+a\circ b).
@@ -1218,7 +1255,7 @@ Prove that
 \begin{prob}
 \label{prob:star}
 Let $A$ be an additive (not necessarily abelian) group.  
-Prove that a brace structure over $A$ is equivalent to an operation $A\times A\to
+Prove that a structure of skew brace over $A$ is equivalent to an operation $A\times A\to
 A$, $(a,b)\mapsto a*b$, such that 
 \[
 a*(b+c)=a*b+b+a*c-b
@@ -1234,16 +1271,21 @@ into a group.
 	groups, and let $\lambda\colon A\to\Sym_A$, $a\mapsto\lambda_a$, $\lambda_a(b)=-a+a\circ b$. 
 	Prove that the following statements are equivalent:
 	\begin{enumerate}
-		\item $A$ is a brace.
+		\item $A$ is a skew brace.
 		\item $\lambda_{a\circ b}(c)=\lambda_a\lambda_b(c)$ for all $a,b,c\in A$.
 		\item $\lambda_a(b+c)=\lambda_a(b)+\lambda_a(c)$ for all $a,b,c\in A$.
 	\end{enumerate}
 \end{prob}
 
 \begin{prob}
+Let $A$ and $B$ be skew braces. Prove that $f\colon A\rightarrow B$ is a homomorphism of skew braces if and only if $f(a+b)=f(a)+f(b)$ and $f(\lambda_a(b))=\lambda_{f(a)}(b)$, for all $a,b\in A$.
+\end{prob}
+
+
+\begin{prob}
 \label{prob:2sided}
-	Let $A$ be a brace such that $\lambda_a(a)=a$ for all $a\in A$.
-	Then $A$ is two-sided.
+	Let $A$ be a skew brace of abelian type such that $\lambda_a(a)=a$ for all $a\in A$.
+	Prove that $A$ is two-sided.
 \end{prob}
 
 \begin{prob}
@@ -1253,7 +1295,7 @@ into a group.
 
 \begin{prob}
 \label{prob:Landau}
-Let $k,n\in\N$ and $A$ be a finite brace of size $n$ and $k$ orbits. 
+Let $k,n\in\N$ and let $A$ be a finite skew brace of size $n$ and $k$ orbits. 
 Then $|k|\geq\frac{\log\log n}{\log 4}$. 
 \end{prob}
 
@@ -1261,59 +1303,59 @@ Then $|k|\geq\frac{\log\log n}{\log 4}$.
 
 \begin{prob}
 \label{prob:radical}
-Recall that two-sided braces are equivalent to radical rings. Prove that under this equivalence, 
+Recall that skew two-sided braces of abelian type are equivalent to radical rings. Prove that under this equivalence, 
 (left) ideals of the radical ring correspond to (left) ideals of the associated brace. 
 \end{prob}
 
 \begin{prob}
 \label{prob:sum_ideals}
-Prove that the intersection of ideals is an ideal. 
+Prove that the intersection of ideals of a skew brace $A$ is an ideal of $A$. 
 \end{prob}
 
 \begin{prob}
-Let $A$ be a brace and $I$ be a characteristic subgroup of the additive group of $A$. Prove that
+Let $A$ be a skew brace and $I$ be a characteristic subgroup of the additive group of $A$. Prove that
 $I$ is a left ideal of $A$. 
 \end{prob}
 
-\begin{prob}
-Let $A=...$. Prove that $A$ has only three ideals:... Let $I$ be the ideal of $A$ of size four. Prove that
-$A*I$ has size two and hence it is not an ideal of $A$. 
-\end{prob}
+%\begin{prob}
+%Let $A=...$. Prove that $A$ has only three ideals:... Let $I$ be the ideal of $A$ of size four. Prove that
+%$A*I$ has size two and hence it is not an ideal of $A$. 
+%\end{prob}
 
 \begin{prob}
 \label{prob:Bachiller1}
-Prove that the socle of a brace $A$ is the kernel of the 
+Prove that the socle of a skew brace $A$ is the kernel of the 
 group homomorphism $(A,\circ)\to\Aut(A,+)\times\Sym_A$, $a\mapsto (\lambda_a,\mu_a^{-1})$. 
 \end{prob}
 
 \begin{prob}
 \label{prob:Bachiller2}
-Prove that the socle of a brace $A$ is the kernel of the 
+Prove that the socle of a skew brace $A$ is the kernel of the 
 group homomorphism $(A,\circ)\to\Aut(A,+)\times\Aut(A,+)$, $a\mapsto (\lambda_a,\xi_a)$, where
 $\xi_a(b)=a+\lambda_a(b)-a$. 
 \end{prob}
 
 \begin{prob}
 \label{prob:iso1}
-    Let $f\colon A\to B$ be a brace homomorphism. Prove that $A/\ker f\simeq f(A)$. 
+    Let $f\colon A\to B$ be a homomorphism of skew braces. Prove that $A/\ker f\cong f(A)$. 
 \end{prob}
 
 \begin{prob}
 \label{prob:iso2}
-    Let $A$ be a brace and $B$ be a subbrace of $A$. If $I$ is an ideal of $B$, 
-    then $B\circ I$ is a subbrace of $B$, 
-    $B\cap I$ is an ideal of $B$ and $(B\circ I)/I\simeq B/(B\cap I)$. 
+    Let $A$ be a skew brace and let $B$ be a subbrace of $A$. Prove that if $I$ is an ideal of $A$, 
+    then $B\circ I$ is a subbrace of $A$, 
+    $B\cap I$ is an ideal of $B$ and $(B\circ I)/I\cong B/(B\cap I)$. 
 \end{prob}
 
 \begin{prob}
 \label{prob:iso3}
-Let $A$ be a brace and $I$ and $J$ be ideals of $A$. If $I\subseteq J$, then
-$A/J\simeq (A/I)/(J/I)$. 
+Let $A$ be a skew brace and $I$ and $J$ be ideals of $A$. Prove that if $I\subseteq J$, then
+$A/J\cong (A/I)/(J/I)$. 
 \end{prob}
 
 \begin{prob}
 \label{prob:correspondence}
-Let $A$ be a brace and $I$ be an ideal of $A$. There is a bijective correspondence between (left) ideals 
+Let $A$ be a skew brace and let $I$ be an ideal of $A$. Prove that there is a bijective correspondence between (left) ideals 
 of $A$ containing $I$ and (left) ideals of $A/I$. 
 \end{prob}
 
@@ -1329,18 +1371,13 @@ Let $(X,r)$ be a finite involutive solution. Prove that $G(X,r)$ is solvable.
 \index{Ced\'o, F.}
 \index{Jespers, E.}
 \index{Okni\'nski, J.}
-Braces of abelian type were introduced by Rump in~\cite{MR2278047} for studying involutive
+Skew braces of abelian type (i.e. left braces) were introduced by Rump in~\cite{MR2278047} for studying involutive
 solutions to the YBE. 
 Rump's definition was reformulated  
 by Ced\'o, Jespers and Okni\'nski in~\cite{MR3177933}. With this definition at hand, 
 Guarnieri and Vendramin introduced 
-arbitrary braces in~\cite{MR3647970}. 
+arbitrary skew braces in~\cite{MR3647970}. 
 
-\index{Bachiller, D.}
-\index{Rump, W.}
-\index{Gateva--Ivanova, T.}
-Exercise~\ref{prob:equivalences} combines results of Bachiller, Rump~\cite{MR2278047} and
-Gateva--Ivanova~\cite{MR3861714}. Exercise~\ref{prob:2sided} comes from~\cite{MR3177933}. 
 
 Theorem~\ref{thm:radical} was proved by Rump in~\cite{MR2278047}. 
 
@@ -1354,11 +1391,27 @@ a question of Ced\'o, Gateva--Ivanova and Smoktunowicz, see~\cite{MR3818285}.
 \index{Vendramin, L.}
 \index{Guarnieri, L.}
 \index{Smoktunowicz, A.}
-Theorem~\ref{thm:YB} was proved for braces of abelian type appears implicit in the work~\cite{MR2278047} of Rump, see
+Theorem~\ref{thm:YB} for skew braces of abelian type appears implicit in the work~\cite{MR2278047} of Rump, see
 also~\cite{MR3177933}. The general case was proved by Guarnieri and Vendramin in~\cite{MR3647970}. 
 
 Theorem~\ref{thm:|r|} was proved by Smoktunowicz and Vendramin in~\cite{MR3763907}. 
 
+\index{Rump, W.}
+\index{Catino, F.}
+\index{Colazzo, I.}
+\index{Stefanelli, P.}
+The socle was defined by Rump in~\cite{MR2278047}. The annihilator first appeared in the work~\cite{MR3917122}  
+of Catino, Colazzo and Stefanelli. 
+
+\index{Byott, N. P.}
+Theorem \ref{thm:add_nilpotent} was proved by Byott in the context of Hopf-Galois extensions in \cite{MR3425626}. 
+
+
+\index{Bachiller, D.}
+\index{Rump, W.}
+\index{Gateva--Ivanova, T.}
+Exercise~\ref{prob:equivalences} combines results of Bachiller, Rump~\cite{MR2278047} and
+Gateva--Ivanova~\cite{MR3861714}. 
 Exercise~\ref{prob:2sided} comes from~\cite{MR3177933}. 
 Exercises~\ref{prob:Bachiller1} and~\ref{prob:Bachiller2} appear in~\cite{MR3835326}.
 
@@ -1366,5 +1419,3 @@ Exercise~\ref{prob:Landau} is a direct translation into the context of braces
 (or more precisely, the context of groups acting by automorphisms on groups)   
 of Newmann's result based on Landau's method. 
 
-The socle was defined by Rump in~\cite{MR2278047}. The annihilator first appeared in the work~\cite{MR3917122}  
-of Catino, Colazzo and Stefanell. 
