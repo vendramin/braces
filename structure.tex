@@ -3,8 +3,10 @@
 
 % hacerlo con el guitar map
 
-The prove that the structure group $G(X,r)$ of a solution $(X,r)$ is a brace, we follow the 
+To prove that the structure group $G(X,r)$ of a solution $(X,r)$ is a skew brace, we follow the 
 proof of Lu, Yan and Zhu. They use the language of braided groups.
+
+\section*{Braided groups and skew braces}
 
 \begin{definition}
 \index{Braided group}
@@ -21,17 +23,119 @@ The map $r$ is called a \emph{braiding operator} on $G$.
 \end{definition}
 
 
-\begin{proof}
-
-\end{proof}
-
 \begin{theorem}
-    Let $G$ be a group. Then $G$ admits a braiding operator if and only if 
-    there is a brace structure on the set $G$ with multiplicative group $G$. 
+    Let $G$ be a group. Then there is a bijection between the set of braiding operators on $G$ and the set of skew brace structures on the set $G$ with multiplicative group $G$. 
 \end{theorem}
 
 \begin{proof}
+    Let $\mathcal{BO}(G)$ be the set of all the braiding operators on $G$. Let $\mathcal{B}(G)$ be the set of all the skew brace structures $(G,+,\circ)$ on the group $G$, where $x\circ y=xy$, for all $x,y\in G$. For $r\in \mathcal{BO}(G)$, we write $r(x,y)=(x\rhd_r y,x\lhd_r y)$, for all $x,y\in G$. We define
+    \[ f\colon \mathcal{BO}(G)\rightarrow \mathcal{B}(G)\]
+    by $f(r)=(G,+_r,\circ)$, where $x+_r y=x(x^{-1}\rhd_r y)$, for all $x,y\in G$ and $r\in \mathcal{BO}(G)$. By the definition of a braiding operator, we have that
+    \begin{align*}
+        r(xy,z)=& (\id\times m)r_1r_2(x,y,z)\\
+        =&(\id\times m)r_1(x,y\rhd_r z,y\lhd_r z)\\
+        =&(\id\times m)(x\rhd_r (y\rhd_r z),x\lhd_r (y\rhd_r z),y\lhd_r z)\\
+        =&(x\rhd_r (y\rhd_r z),(x\lhd_r (y\rhd_r z))(y\lhd_r z)),
+        \end{align*}
+    and thus $(xy)\rhd_r z=(x\rhd_r (y\rhd_r z)$. Since $r(1,x)=(x,1)$, we have that the map $\xi\colon G\rightarrow \Sym_G$ defined by $\xi(x)(y)=x\rhd_r y$, for all $x,y\in G$ is a left action of $G$ on itself.
+    By the definition of a braiding operator, we have that
+    \begin{align*}
+        r(x,yz)=& (m\times\id)r_2r_1(x,y,z)\\
+        =&(m\times\id)r_2(x\rhd_r y,x\lhd_r y,z)\\
+        =&(m\times\id)(x\rhd_r y,(x\lhd_r y)\rhd_r z, (x\lhd_r y)\lhd_r z)\\
+        =&((x\rhd_r y)((x\lhd_r y)\rhd_r z), (x\lhd_r y)\lhd_r z),
+        \end{align*}
+    and thus $x\lhd_r (yz)=(x\lhd_r y)\lhd_r z$. Since $r(x,1)=(1,x)$, we have that the map $\eta\colon G\rightarrow \Sym_G$ defined by $\eta(x)(y)=y\lhd_r x$, for all $x,y\in G$ is a right action of $G$ on itself. Furthermore, $xy=(x\rhd_r y)(x\lhd_r y)$, for all $x,y\in G$. Hence, by Theorem \ref{thm:LYZ}, $(G,r)$ is a solution to the YBE. Now we have
+    \begin{align}\label{LYZequa}
+        x\rhd_r (y+_r z)=&x\rhd_r(y(y^{-1}\rhd_r z))\nonumber\\
+        =&(x\rhd_r y)((x\lhd_r y)\rhd_r (y^{-1}\rhd_r z))\nonumber\\
+        =&(x\rhd_r y)(((x\lhd_r y)y^{-1})\rhd_r z))\nonumber\\
+        =&(x\rhd_r y)(((x\rhd_r y)^{-1}x)\rhd_r z))\nonumber\\
+        =&(x\rhd_r y)+(x\rhd_r z).
+    \end{align}
+    Note that $1+_r x=1(1^{-1}\rhd_r x)=x$ and
+    $x+_r 1=x(x^{-1}\rhd_r 1)=x1=x$,  for all $x\in G$. For every $x\in G$, we have
+    \[x+_r (x\rhd x^{-1})=x(x^{-1}\rhd_r(x\rhd x^{-1}))=xx^{-1}=1\]
+and
+\begin{align*}
+    (x\rhd x^{-1})+_r x=&(x\rhd x^{-1})((x\rhd x^{-1})^{-1}\rhd x)\\
+    =&(x\rhd x^{-1})((x\lhd x^{-1})\rhd x)\\
+    =&x\rhd_r(x^{-1}x)=1.
+\end{align*}
+By (\ref{LYZequa}), we have that
+\begin{align*}
+    (x+_r y)+_r z=&x(x^{-1}\rhd_r y)(((x^{-1}\rhd_r y)^{-1}x^{-1})\rhd_r z)\\
+    =&x((x^{-1}\rhd_r y)+_r(x^{-1}\rhd_r z))\\
+    =&x(x^{-1}\rhd_r(y+_r z))=x+_r (y+_r z),
+\end{align*}
+for all $x,y,z\in G$. Hence $(G,+_r)$ is a group. By (\ref{LYZequa}), we have
+\begin{align*}
+    x(y+_r z)=&x+_r(x\rhd_r (y+_r z))\\
+    =&x+_r (x\rhd_r y)+_r(x\rhd_r z)\\
+    =&xy-_r x+_r xz,
+\end{align*}
+for all $x,y,z\in G$. Hence $(G,+_r,\circ)$ is a skew brace and $f$ is a well-defined map. Note that the lambda map of this skew brace is defined by
+$\lambda_x(y)=-_r x+_r xy=x\rhd_r y$, for all $x,y\in G$.
+
+Now we define $g\colon \mathcal{B}(G)\rightarrow \mathcal{BO}(G)$, by $g(G,+,\circ)=r_+$ and
+\[ r_+(x,y)=(-x+xy,(-x+xy)^{-1}xy)=(\lambda_x(y),\mu_y(x)),\]
+for all $(G,+,\circ)\in\mathcal{B}(G)$ and $x,y\in G$. We shall prove that $r_+$ is a braiding operator on $G$. Note that, by Proposition \ref{pro:lambda}, 
+\begin{align*}
+    r_+(xy,z)=&(\lambda_{xy}(z),\mu_z(xy))\\
+    =&(\lambda_x\lambda_y(z),\lambda_x(\lambda_y(z))^{-1}xyz)\\
+    =&(\lambda_x\lambda_y(z),\lambda_x(\lambda_y(z))^{-1}x\lambda_y(z)\lambda_y(z)^{-1}yz)\\
+    =&(\lambda_x\lambda_y(z),\mu_{\lambda_y(z)}(x)\mu_z(y))\\
+    =&(\id\times m)(r_+)_1(r_+)_2(x,y,z).
+\end{align*}
+By Propositions \ref{pro:lambda} and \ref{pro:mu},
+\begin{align*}
+    r_+(x,yz)=&(\lambda_{x}(yz),\mu_{yz}(x))\\
+    =&(\lambda_x(y+\lambda_y(z)),\mu_z\mu_y(x))\\
+    =&(\lambda_x(y)+\lambda_x\lambda_y(z),\mu_z\mu_y(x))\\
+    =&(\lambda_x(y)\lambda_{\lambda_x(y)^{-1}xy}(z),\mu_z\mu_y(x))\\
+    =&(\lambda_x(y)\lambda_{\mu_y(x)}(z),\mu_z\mu_y(x))\\
+    =&(m\times \id)(r_+)_2(r_+)_1(x,y,z).
+\end{align*}
+We also have that
+\[ r_+(1,x)=(\lambda_1(x),\mu_x(1))=(x,1),\]
+\[ r_+(x,1)=(\lambda_x(1),\mu_1(x))=(1,x),\]
+and
+\[ \lambda_x(y)\mu_y(x)=\lambda_x(y)\lambda_x(y)^{-1}xy=xy,\]
+for all $x,y\in G$. Hence $r_+$ is a braiding operator on $G$, thus $g$ is a well-defined map. Now it is easy to check that $f\circ g=\id_{\mathcal{B}(G)}$ and $g\circ f=\id_{\mathcal{BO}(G)}$.
 \end{proof}
+
+\section*{The structure group of a solution}
+\index{Solution!structure group}
+Let $(X,r)$ be asolution to the YBE. Write as usual $r(x,y)=(\sigma_x(y),\tau_y(x))$. The {\em structure group} of $(X,r)$ is the group
+\[ G(X,r)=\gr(X : xy=\sigma_x(y)\tau_y(x), \text{ for all }x,y\in X).\]
+In this section we shall see that there is a natural braiding operator on $G(X,r)$ induced by $r$ that satisfies a nice universal property. 
+
+To do so we prove first that there is an interesting extension of the solution $(X,r)$.
+
+\begin{proposition}
+\label{prop:extendsol}
+Let $(X,r)$ be a solution of the YBE. Let $X'=\{x'\mid x\in X\}$ be a copy of $X$ and let $Y$ be the disjoint union of $X$ and $X'$. We write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))$. We define $r'\colon Y\times Y\rightarrow Y\times Y$ by $r'(z,t)=(\sigma'_z(t),\tau'_t(z))$, for all $z,t\in Y$, where
+\[ \sigma'_x(y)=\sigma_x(y),\; \sigma'_{x'}(y)=\sigma^{-1}_x(y),\; \sigma'_{x}(y')=\widehat{\tau}^{-1}_x(y)',\; \sigma'_{x'}(y')=\widehat{\tau}_x(y)'\]
+and
+\[ \tau'_x(y)=\tau_x(y),\; \tau'_{x'}(y)=\tau^{-1}_x(y),\; \tau'_{x}(y')=\widehat{\sigma}^{-1}_x(y)',\; \tau'_{x'}(y')=\widehat{\sigma}_x(y)',\]
+for all $x,y\in X$. Then $(Y,r')$ is a solution of the YBE.
+\end{proposition}
+
+\begin{proof}
+By Lemma \ref{lem:YB} it is enough to prove that
+\begin{itemize}
+    \item[(a)] $\sigma'_{z}\sigma'_{t}=\sigma'_{\sigma'_z(t)}\sigma'_{\tau'_t(z)}$,
+    \item[(b)]$\sigma'_{\tau'}$
+\end{itemize}
+\end{proof}
+
+
+
+\begin{theorem}
+\label{thm:LYZ9}
+Let $(X,r)$ be a solution to the YBE. Let $i\colon X\rightarrow G(X,r)$ be the natural map. Then There exists a unique braiding operator $r_G$ on $G(X,r)$ such that $r_G\circ (i\times i)=(i\times i)\circ r$. Furthermore, if $(H,s)$ is a braided group and $j\colon X\rightarrow H$ is a map such that
+$s\circ (j\times j)=(j\times j)\circ r$, then there exists a unique group homomorphism $f\colon G(X,r)\rightarrow H$ such that $s\circ (f\times f)=(f\times f)\circ r_G$ and $j=f\circ i$.
+\end{theorem}
 
 \section*{Exercises}
 

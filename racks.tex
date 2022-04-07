@@ -495,7 +495,7 @@ because the $\sigma_x$ are rack homomorphisms. Furthermore, by (\ref{eq:solskew}
 	&=(\sigma_x(y),x\triangleleft \sigma_x(y),\sigma_x\sigma_y(z))\\
 	&=(\sigma_x(y), \sigma_{\sigma_x(y)}\tau_y(x),\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}(z))\\
 	&=J(\sigma_x(y),\tau_y(x),z)\\
-	&=J(r\times \id).
+	&=J(r\times \id)(x,y,z).
 \end{align*}
 Therefore $(X,r)$ is a solution.
 
@@ -563,13 +563,12 @@ such that $x\triangleleft x=x$ for all $x\in X$.
 
 \begin{prob}
 \label{prob:guitar}
-Let $(X,r)$ be a solution {\bf and $(X,s)$ its derived solution}. Let $T_2(x,y)=(\tau_y(x),y)$ and
-$T_{n+1}=Q_n\circ (T_n\times\id)$ for $n\geq2$, where 
+Let $(X,r)$ be a solution {\bf and $(X,s)$ its derived solution}. Let $J_2(x,y)=(x,\sigma_x(y))$ and
+$J_{n+1}=Q_{n+1}\circ (\id\times J_n)$ for $n\geq 2$, where 
 \[
-Q_n(x_1,\dots,x_{n+1})=(\tau_{x_{n+1}}(x_1),\dots,\tau_{x_{n+1}}(x_n),x_{n+1}).
+Q_{n+1}(x_1,\dots,x_{n+1})=(x_1,\sigma_{x_{1}}(x_2),\dots,\sigma_{x_{1}}(x_{n+1})).
 \]
-Prove that $T_n\circ r_{i,i+1}=s_{i,i+1}\circ T_n$ for all $n\geq2$ and $i\in\{1,\dots,n-1\}$. 
-{\bf (Ferran: Creo que se tendr\'{i}an que definir $r_{i,i+1}(x_1,\dots, x_n)=(x_1,\dots ,x_{i-1},r(x_i,x_{i+1},x_{i+2},\dots ,x_n))$ y similarmente para $s_{i,i+1}$. A\'un as\'{i}, la notaci\'on me parece mala, ya que $r_{i,i+1}$ depende también de $n$. Tal y como se ha desarrollado el texto, ¿no ser\'{i}a mejor una versi\'on con las $\sigma$ en vez de las $\tau$?)}
+Prove that $J_n\circ r_{i,i+1}=s_{i,i+1}\circ J_n$ for all $n\geq2$ and $i\in\{1,\dots,n-1\}$, where $r_{i,i+1}=\id^{\times i-1}\times r\times \id^{\times n-i-1}$ and $s_{i,i+1}=\id^{\times i-1}\times s\times \id^{\times n-i-1}$. 
 \end{prob}
 
 \section*{Open problems}
@@ -613,7 +612,7 @@ However, it should be noted that a huge number of solutions is expected.
 
 Exercises~\ref{prob:xx} and~\ref{prob:tau_hat} appear in~\cite{MR3974961}. 
 
-The map $J$ of Exercise~\ref{prob:guitar} is known as the \emph{guitar map}. {\bf (Ferran: Con $J$, ¿te refieres a la versi\'on del ejercicio con las $\sigma$?)}
+The map $J_n$ of Exercise~\ref{prob:guitar} is known as the \emph{guitar map}. 
 It was first considered by Etingof, Schedler and
 Soloviev in~\cite{MR1722951} for involutive solutions. The construction was extended to non-involutive solutions
 by Soloviev in~\cite{MR1809284} and Lu, Yan and Zhu in~\cite{MR1769723}. In~\cite{MR3374524} Dehornoy

@@ -288,15 +288,16 @@ holds for all $u,v\in G$, then the pair $(G,r)$, where
 r\colon G\times G\to G\times G,\quad
 r(u,v)=(u\rhd v,u\lhd v)
 \]
-is a solution. Moreover, 
-if $r(x,y)=(u,v)$, then 
-\[
-r(x^{-1},y^{-1})=(u^{-1},v^{-1}),
-\quad
-r(x^{-1},u)=(y,v^{-1}),
-\quad
-r(v,y^{-1})=(u^{-1},x).
-\]
+is a solution. 
+%Moreover, 
+%if $r(x,y)=(u,v)$, then 
+%\[
+%r(x^{-1},y^{-1})=(u^{-1},v^{-1}),
+%\quad
+%r(x^{-1},u)=(y,v^{-1}),
+%\quad
+%r(v,y^{-1})=(u^{-1},x).
+%\]
 \end{theorem}
 
 \begin{proof}
@@ -336,7 +337,7 @@ $r^{-1}=\zeta (i\times i) r (i\times i) \zeta$,
 is the inverse of $r$, where $\zeta(x,y)=(y,x)$ and $i(x)=x^{-1}$. 
 \end{proof}
 
-\begin{proposition}
+\begin{proposition}\label{prop:LYZ}
 Under the assumptions of Theorem~\ref{thm:LYZ}, 
 if $r(x,y)=(u,v)$, then 
 \[
@@ -357,9 +358,9 @@ r^{-1}(y^{-1},x^{-1})=\zeta (i\times i) r (i\times i) \zeta(y^{-1},x^{-1})=\zeta
 \]
 It follows that $r(v^{-1},u^{-1})=(y^{-1},x^{-1})$.  
 To prove the equality $r(x^{-1},u)=(y,v^{-1})$ we proceed as follows. Since $r(x,y)=(u,v)$, it 
-follows that $x\triangleright y=u$. Then $x^{-1}\triangleright u=y$ and
+follows that $x\rhd y=u$. Then $x^{-1}\rhd u=y$ and
 hence $r(x^{-1},u)=(y,z)$ for some $z\in G$. 
-Since $xy=uv$ and $x^{-1}u=yz$, it immediately follows that $yt=yv^{-1}$. Then 
+Since $xy=uv$ and $x^{-1}u=yz$, it immediately follows that $yz=yv^{-1}$. Then 
 $z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x)$.
 \end{proof}
 %
