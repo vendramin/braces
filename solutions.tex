@@ -2,6 +2,7 @@
 \label{YB}
 
 %\section*{A}
+\section{Set-theoretic solutions}
 
 In \cite{MR1183474}, Drinfeld briefly discuss set-theoretic solutions to the Yang--Baxter equation. 
 He observed that
@@ -387,7 +388,894 @@ $z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x)$.
 %$z=v^{-1}$. Similarly one proves $r(v,y^{-1})=(u^{-1},x).$
 %\end{proof}
 
-\section*{Exercises}
+\section{Racks}
+
+\begin{definition}
+\label{defn:rack}
+\index{Rack}
+A \emph{rack} is a pair $(X,\triangleleft)$, 
+where $X$ is a non-empty set and 
+$X\times X\to X$, $(x,y)\mapsto x\triangleleft y$, is a binary operation on $X$ such that
+the maps $\rho_y\colon X\to X$, $x\mapsto x\triangleleft y$, are bijective for all $y\in X$, and 
+\begin{equation}
+\label{eq:rack}
+(x\triangleleft y)\triangleleft z=(x\triangleleft z)\triangleleft (y\triangleleft z)
+\end{equation}
+for all $x,y,z\in X$.
+\end{definition}
+
+Racks are used in low-dimensional topology~\cite{MR3379534}, singularities~\cite{MR975077} 
+and in the classification of finite-dimensional pointed Hopf algebras~\cite{MR1994219}.
+
+\begin{example}
+\index{Rack!trivial}
+    Let $X$ be a set. Then $x\triangleleft y=x$ turns $X$ into a rack. 
+    This is the \emph{trivial rack} on $X$. 
+\end{example}
+
+\begin{example}
+    \index{Rack!dihedral}
+    Let $X=\Z/n$. Then $x\triangleleft y=2y-x$ turns $X$ into a rack. This is 
+    the \emph{dihedral rack} of size $n$. 
+\end{example}
+
+\begin{example}
+    \index{Rack!Alexander}
+    Let $A$ be an abelian group and $f\in\Aut(A)$. Then 
+    \[
+    x\triangleleft y=(\id-f)(y)+f(x)
+    \]
+    turns $A$ into a rack. These racks 
+    are known as the \emph{Alexander racks}.
+\end{example}
+
+\begin{definition}
+    \index{Rack!homomorphism}
+    \index{Rack!isomorphism}
+    \index{Homomorphism!of racks}
+    Let $X$ and $Z$ be racks. 
+    A \emph{rack homomorphism} between the racks $X$ and $Z$ is a map $f\colon X\to Z$ such that 
+    $f(x\triangleleft y)=f(x)\triangleleft f(y)$ for all $x,y\in X$. 
+    An \emph{isomorphism} of racks is a bijective rack homomorphism. 
+\end{definition}
+
+For $n\in\N$, let $r(n)$ be the number of isomorphism classes of racks of size
+$n$. Some values of $r(n)$ appear in Table~\ref{tab:racks}, see for example~\cite{MR3957904}.  
+
+\begin{table}[H]
+\centering
+\caption{Enumeration of non-isomorphic racks.}
+\begin{tabular}{|c|cccccccccccc|}
+\hline
+$n$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 & 13\tabularnewline
+\hline
+$r(n)$ & 2 & 6 & 19 &74&353 & 2080 & 16023 & 159526 & 2093244 & 36265070 & 836395102 & 25794670618\tabularnewline
+\hline
+\end{tabular}
+\label{tab:racks}
+\end{table}
+
+\begin{proposition}
+\label{pro:Venkov}
+Let $X$ be a non-empty set and $X\times X\to X$, $(x,y)\mapsto x\triangleleft y$ be a binary operation on $X$. Then
+$r(x,y)=(y,x\triangleleft y)$ is a solution if and only if $(X,\triangleleft)$ is a rack. 
+\end{proposition}
+
+\begin{proof}
+The map $r$ satisfies $(r\times\id)(\id\times r)(r\times\id)=(\id\times r)(r\times\id)(\id\times r)$ if and only
+if~\eqref{eq:rack} holds for all $x,y,z\in X$. The solution $(X,r)$ is non-degenerate if 
+the maps $X\to X$, $x\mapsto x\triangleleft y$, are bijective. 
+\end{proof}
+
+The connection between racks and solutions goes deeper than 
+the phenomenon appearing in Proposition~\ref{pro:Venkov}. 
+
+
+\begin{proposition}
+    \label{pro:derived}
+    Let $(X,r)$ be a solution. Then 
+    \begin{equation}
+    \label{eq:derived}
+    x\triangleleft y=\sigma_y\tau_{\sigma_x^{-1}(y)}(x)=\sigma_y\widehat{\sigma}^{-1}_y(x)
+    \end{equation}
+    turns $X$ into a rack and each $\sigma_x$ is a rack homomorphism. 
+    Moreover, $(X,r)$ is involutive if and only if the rack $(X,\triangleleft)$ is trivial. 
+\end{proposition}
+
+\begin{proof}
+    Since $r(x,\sigma_x^{-1}(y))=(y,\tau_{\sigma_x^{-1}(y)}(x))$, 
+    it follows that 
+    $\widehat{\sigma}_y^{-1}(x)=\tau_{\sigma_x^{-1}(y)}(x)$ 
+    for all $x,y\in X$. Hence the second equality of~\eqref{eq:derived} holds. {\bf Therefore the maps $X\to X,\, x\mapsto x\triangleleft y$ are bijective}.
+    
+    {\bf Now we shall show that}
+    \begin{equation}\label{eq:rackhom}
+    \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)=\sigma_x(y\triangleleft\sigma_y(z))
+    \end{equation}
+    for all $x,y\in X$. Write $r(x,y)=(u,v)$. On the one hand, by 
+    Lemma~\ref{lem:YB}, 
+    \begin{align*}
+        \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)
+        &=u\triangleleft \sigma_u\sigma_v(z)
+        =\sigma_{\sigma_u\sigma_v(z)}\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y)
+        =\sigma_{\sigma_x\sigma_y(z)}\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y).
+    \end{align*}
+    On the other hand, 
+    \begin{align*}
+        \sigma_x(y\triangleleft\sigma_y(z)) 
+        &=\sigma_x\sigma_{\sigma_y(z)}\tau_z(y)
+        =\sigma_{\sigma_x\sigma_y(z)}\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y).
+    \end{align*}
+{\bf Therefore, (\ref{eq:rackhom}) follows.}
+    
+    By Proposition~\ref{pro:Venkov}, in order to prove that $(X,\triangleright)$ is a rack it is enough to show that
+    $s(x,y)=(y,x\triangleleft y)$ satisfies the YBE. For that purpose, we demonstrate that 
+    the map $J\colon X^3\to X^3$, $J(x,y,z)=(x,\sigma_x(y),\sigma_x\sigma_y(z))$ 
+    is invertible and 
+    satisfies 
+    \[
+    (\id\times s)\circ J=J\circ(\id\times r),
+    \quad
+    (s\times\id)\circ J=J\circ(r\times\id).
+    \]
+    {\bf One can easily check that the} map $(x,y,z)\mapsto (x,\sigma_x^{-1}(y),\sigma_{\sigma_x^{-1}(y)}^{-1}\sigma_x^{-1}(z))$ is the inverse of $J$. 
+
+    {\bf By (\ref{eq:rackhom}),} 
+    \begin{align*}
+    \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)
+    &=\sigma_x(y\triangleleft \sigma_y(z))
+    =\sigma_x\sigma_{\sigma_y(z)}\tau_{\sigma_y^{-1}\sigma_y(z)}(y)
+    =\sigma_x\sigma_{\sigma_y(z)}\tau_z(y)
+    \end{align*}
+    Then it follows that 
+    \begin{align*}
+        (\id\times s)J(x,y,z)
+        &=(\id\times s)(x,\sigma_x(y),\sigma_x\sigma_y(z))\\
+        &=(x,\sigma_x\sigma_y(z),\sigma_x(y)\triangleleft \sigma_x\sigma_y(z))\\
+        &=(x,\sigma_x\sigma_y(z),\sigma_x\sigma_{\sigma_y(z)}\tau_z(y))\\
+        &=J(x,\sigma_y(z),\tau_z(y))\\
+        &=J(\id\times r)(x,y,z).
+    \end{align*}
+    Similarly one proves that $(s\times\id)\circ J=J\circ (r\times\id)$.  
+    This implies that $(X,s)$ is a solution and 
+    hence $(X,\triangleleft)$ is a rack by Proposition~\ref{pro:Venkov}. 
+
+    If $(X,r)$ is involutive, 
+    then $x\triangleleft\sigma_x(y)=\sigma_{\sigma_x(y)}\tau_y(x)=x$ by~\eqref{eq:involutive}. 
+    Conversely, if $x\triangleleft y=x$ for all $x,y\in X$,
+    then $r$ is involutive, as 
+    \[
+    r^2(x,\sigma_x^{-1}(y))=r(y,\sigma_y^{-1}(x))=(x,\sigma_x^{-1}(y)).\qedhere
+    \]
+\end{proof}
+
+%\begin{definition}
+\index{Solution!derived rack}
+The rack constructed in Proposition~\ref{pro:derived} is 
+known as the \emph{derived rack} of $(X,r)$. 
+%\end{definition}
+There is a dual version of the derived rack:
+
+\begin{proposition}
+    \label{pro:derived_dual}
+    Let $(X,r)$ be a solution. Then 
+    \[
+    x\blacktriangleleft y=\tau_y\sigma_{\tau_x^{-1}(y)}(x)=\tau_y\widehat{\tau}^{-1}_y(x)
+    \]
+    turns $X$ into a rack and each $\tau_x$ is a rack homomorphism. 
+\end{proposition}
+
+\begin{proof}
+    Since $(X,r)$ is a solution, then so is $(X,r_0)$, where 
+    $r_0(x,y)=(\tau_x(y),\sigma_y(x))$. Then the claim follows 
+    from Proposition~\ref{pro:derived} applied to 
+    the solution $(X,r_0)$.
+\end{proof}
+
+\index{Solution!dual derived rack}
+{\bf The rack constructed in Proposition~\ref{pro:derived_dual} is 
+known as the \emph{dual derived rack} of $(X,r)$.} 
+
+
+In general, the racks constructed in Propositions~\ref{pro:derived} 
+and~\ref{pro:derived_dual} are different:
+
+\begin{example}
+Let $X=\{1,\dots,5\}$ and $(X,r)$ be the solution given by
+\begin{align*}
+&\sigma_1=\id, && \sigma_2=\id, && \sigma_3=\id, && \sigma_4=(13)(45), &&\sigma_5=(12)(45),\\
+&\tau_1=\id, && \tau_2=\id, && \tau_3=\id, && \tau_4=(23)(45), &&\tau_5=(23)(45).
+\end{align*}
+On the one hand the derived rack of $(X,r)$ is given by the permutations 
+\begin{align*}
+&\sigma_1\widehat{\sigma}_1^{-1}=\sigma_2\widehat{\sigma}_2^{-1}=\sigma_3\widehat{\sigma}_3^{-1}=\id,
+&&\sigma_4\widehat{\sigma}_4^{-1}=(132),
+&&\sigma_5\widehat{\sigma}_5^{-1}=(123).
+\end{align*}
+On the other hand, the dual derived rack by 
+\begin{align*}
+&\tau_1\widehat{\tau}_1^{-1}=\tau_2\widehat{\tau}_2^{-1}=\tau_3\widehat{\tau}_3^{-1}=\id,
+&&\tau_4\widehat{\tau}_4^{-1}=(123),
+&&\tau_5\widehat{\tau}_5^{-1}=(132).
+\end{align*}
+% [ [ (), (), (), (1,3)(4,5), (1,2)(4,5) ], [ (), (), (), (2,3)(4,5), (2,3)(4,5) ] ]
+%[ [ (), (), (), (2,3)(4,5), (2,3)(4,5) ], [ (), (), (), (1,3)(4,5), (1,2)(4,5) ] ]
+% [ (), (), (), (1,3,2), (1,2,3) ]
+% [ (), (), (), (1,2,3), (1,3,2) ]
+\end{example}
+
+We now prove that the racks 
+of Propositions~\ref{pro:derived} 
+and~\ref{pro:derived_dual} are isomorphic. 
+We shall need a lemma. 
+
+
+
+\begin{lemma}
+\label{lem:T_invertible}
+Let $(X,r)$ be a solution. 
+The map $T\colon X\to X$, $x\mapsto\sigma_x^{-1}(x)$, is invertible with
+inverse $U\colon X\to X$, $x\mapsto\tau^{-1}_x(x\blacktriangleleft x)$. 
+\end{lemma}
+
+\begin{proof}
+Let $x\in X$ and $y=U(x)=\tau^{-1}_x(x\blacktriangleleft x)$. 
+Then $\tau_x(y)=x\blacktriangleleft x=\tau_x\widehat{\tau}^{-1}_x(x)$ and hence
+$y=\widehat{\tau}^{-1}_x(x)$. Then $\widehat{\tau}_x(y)=x$ and 
+\[
+r^{-1}(y,x)=(\widehat{\sigma}_y(x),x)=(z,x),
+\]
+where $z\in X$ is such that $\sigma_z(x)=y$. By Lemma~\ref{lem:YB}, $\sigma_y=\sigma_z$. Then 
+it follows that $x=\sigma^{-1}_y(y)=T(y)$. Therefore $y=U(x)=U(T(y))$.
+
+To prove that $T(U(x))=x$, first note that 
+\[
+r(\tau^{-1}_x(x),x)=(\sigma_{\tau^{-1}_x(x)}(x),x)
+\]
+and Lemma~\ref{lem:YB} imply that $\sigma_{\tau^{-1}_x(x)}=\sigma_{\sigma_{\tau^{-1}_x(x)}(x)}$. Now
+\begin{align*}
+T(U(x))&=T(\tau^{-1}_x(x\blacktriangleleft x))=T(\sigma_{\tau^{-1}_x(x)}(x))\\
+&=\sigma^{-1}_{\sigma_{\tau^{-1}_x(x)}(x)}\sigma_{\tau^{-1}_x(x)}(x)
+=\sigma^{-1}_{\tau^{-1}_x(x)}\sigma_{\tau^{-1}_x(x)}(x)=x.\qedhere
+\end{align*}
+\end{proof}
+
+There is {\bf a} version of Proposition~\ref{pro:T} for arbitrary solutions. 
+A similar result appears in Exercise~\ref{prob:variationT}.
+
+
+
+\begin{proposition}
+    Let $(X,r)$ be a solution. Then $T\colon X\to X$, $x\mapsto\sigma_x^{-1}(x)$, is a bijective
+    map such that 
+    \[
+      T\circ\tau_y=\widehat{\sigma}^{-1}_y\circ T,
+      \quad
+      T\circ \widehat{\tau_y}=\sigma^{-1}_{y}\circ T
+    \]
+    and $T(x\blacktriangleleft y)=T(x)\triangleleft T(y)$ for all $x,y\in X$. 
+\end{proposition}
+
+\begin{proof}
+    Lemma~\ref{lem:T_invertible} proves that $T$ is bijective. 
+    We now compute 
+    \begin{align*}
+        T\tau_y(x) &= 
+        \sigma^{-1}_{\tau_y(x)}\tau_y(x)
+        =\sigma^{-1}_{\tau_y(x)}\sigma^{-1}_{\sigma_x(y)}\sigma_{\sigma_x(y)}\tau_y(x)\\
+        &=\sigma^{-1}_y\sigma^{-1}_x\sigma_{\sigma_x(y)}\tau_y(x)
+        =\sigma^{-1}_y\sigma_x^{-1}(x\triangleleft\sigma_x(y))
+        =\sigma^{-1}_y(T(x)\triangleleft y)
+        =\widehat{\sigma}^{-1}_yT(x).
+    \end{align*}
+
+    Since $\widehat{\tau}_y(x)=\sigma^{-1}_{\widehat{\sigma}_x(y)}(x)$, Lemma~\ref{lem:YB} implies that 
+    \begin{align*}
+        T\widehat{\tau_y}(x) 
+        &=\sigma^{-1}_{\widehat{\tau}_y(x)}\widehat{\tau}_y(x)
+        =\sigma^{-1}_{\widehat{\tau}_y(x)}\sigma^{-1}_{\widehat{\sigma}_x(y)}(x)
+        =\sigma^{-1}_{y}\sigma^{-1}_{x}(x)
+        =\sigma^{-1}_{y}T(x).
+    \end{align*}
+    These formulas imply that
+    \begin{equation}
+        \label{eq:T_rack}
+        T\circ\tau_y\circ\widehat{\tau}_y^{-1}
+        =\widehat{\sigma}^{-1}_y\circ T\circ \widehat{\tau}^{-1}_y
+        =\widehat{\sigma}^{-1}_y\circ \sigma_y\circ T.
+    \end{equation}
+
+    We evaluate Equality~\eqref{eq:T_rack} on $X$. On the one hand, 
+    $T(x\blacktriangleleft y)=T\tau_y\widehat{\tau_y}^{-1}(x)$.
+    On the other hand,
+    \begin{align*}
+        \widehat{\sigma}_y^{-1}\sigma_yT(x)
+        &=\sigma_y^{-1}\sigma_y\widehat{\sigma}_y^{-1}\sigma_yT(x)
+        =\sigma_y^{-1}(\sigma_yT(x)\triangleleft y)=T(x)\triangleleft T(y).\qedhere
+    \end{align*}
+\end{proof}
+
+
+%If $(X,r)$ is a solution, the map $r\colon X\times X\to X\times X$ is invertible. Write 
+% \[
+% r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x)).
+% \]
+% Since $(X,r^{-1})$ is a solution, Lemma~\ref{lem:YB} implies that 
+% the following formulas hold:
+% \[
+% \widehat{\tau}_y\widehat{\tau_x}=\widehat{\tau}_{\tau_y(x)}\widehat{\tau}_{\sigma_x(y)},
+% \quad
+% \widehat{\sigma}_x\widehat{\sigma_y}=\widehat{\sigma}_{\sigma_x(y)}\widehat{\sigma}_{\tau_y(x)}.
+% \]
+% Since $r(\tau^{-1}_y(x),y)=(\sigma_{\tau^{-1}_y(x)}(y),x)$, 
+% it follows that 
+% \[
+% \widehat{\tau}_x\sigma_{\tau^{-1}_y(x)}(y)=y.
+% \]
+% for all $x,y\in X$. Moreover, 
+% \[
+% x\triangleright y=\tau_x\sigma_{\tau^{-1}_y(x)}(y)=\tau_x\widehat{\tau}^{-1}_x(y)
+% \]
+% for all $x,y\in X$. 
+
+%We first need a lemma. 
+
+% \begin{proposition}
+%     Let $(X,r)$ be a solution and let $(X,\triangleright)$ be its derived rack. 
+%     Then 
+%     \[
+%     T\circ \sigma_x=\tau_x^{-1}\circ\rho_x\circ T
+%     \]
+%     for all $x\in X$, where $T\colon X\to X$, $T(y)=\tau_y^{-1}(y)$, and 
+%     $\rho_x\colon X\to X$, $\rho_x(y)=x\triangleright y$.
+% \end{proposition}
+
+% \begin{proof}
+% By using Lemma~\ref{lem:YB} we compute 
+% \begin{align*}
+%     T\sigma_x(y) &= \tau^{-1}_{\sigma_x(y)}\sigma_x(y)
+%     =\tau^{-1}_{\sigma_x(y)}(\tau^{-1}_{\tau_y(x)}(\tau_y(x)\triangleright y))\\
+%     &=\tau^{-1}_{\sigma_x(y)}\tau^{-1}_{\tau_y(x)}(\tau_y(x)\triangleright y))\\
+%     &=\tau^{-1}_{x}\tau^{-1}_{y}(\tau_y(x)\triangleright y))\\
+%     &=\tau^{-1}_{x}(x\triangleright T(y)).\qedhere 
+% \end{align*}
+% \end{proof}
+
+% \begin{proposition}
+% \label{pro:T_general}
+% Let $(X,r)$ be a solution. 
+% The map $T\colon X\to X$, $x\mapsto\sigma_{\tau_x^{-1}(x)}(x)$, is invertible with
+% inverse $U\colon X\to X$, $x\mapsto\sigma^{-1}_x(x)$. 
+% \end{proposition}
+
+% \begin{proof}
+% Let $(X,\triangleright)$ be the derived rack of $(X,r)$. Then 
+% $T(x)=\tau_x^{-1}(x\triangleright x)$. Since 
+% $r(\tau_z^{-1}(z),z)=(\sigma_{\tau^{-1}_z(z)}(z),z)$, 
+% \begin{equation}
+%     \label{eq:Ttrick}
+%     \sigma_{\tau^{-1}_z(z)}\circ\sigma_z=\sigma_{\sigma_{\tau^{-1}_z(z)}(z)}\circ\sigma_z
+% \end{equation}
+% holds for all $z\in X$ by 
+% Lemma~\ref{lem:YB}. On the one hand, 
+% \begin{align*}
+%     U(T(x)) 
+%     &= U(\sigma_{\tau^{-1}_x(x)}(x))
+%     =\sigma^{-1}_{\sigma_{\tau^{-1}_x(x)}(x)}\sigma_{\tau^{-1}_x(x)}(x)=x
+% \end{align*}
+% because $\sigma_{\tau^{-1}_x(x)}=\sigma_{\sigma_{\tau^{-1}_x(x)}(x)}$ by~\eqref{eq:Ttrick}. 
+
+% Now let $x,y\in X$ be such that $U(x)=y$. Since $r^{-1}(\sigma_x(y),\tau_y(x))=(x,y)$, 
+% it follows that $\widehat{\tau}_{\tau_y(x)}\sigma_x(y)=y$ and that 
+% $\widehat{\tau}_{\tau_y(x)}=\widehat{\tau_y}$. Then
+% \[
+% \widehat{\tau}_y(x)=\widehat{\tau}_{\tau_y(x)}(x)=\widehat{\tau}_{\tau_y(x)}\sigma_x(y)=y
+% \]
+% and hence $\widehat{\tau}^{-1}_y(y)=x$. Now $y\triangleright y=\tau_y\widehat{\tau}^{-1}_y(y)=\tau_y(x)$ and therefore
+% \[
+% T(y)=\tau_y^{-1}(y\triangleright y)=x.\qedhere
+% \]
+% \end{proof}
+
+As it happens in the involutive case, there is a nice combinatorial structure that describes  
+a solution. 
+
+\begin{definition}
+\index{Skew cycle set}
+\index{Skew cycle set!non-degenerate}
+\label{defn:skewCS}
+A \emph{skew cycle set} is a triple $(X,\triangleleft,\cdot)$, where $X$ is a non-empty set, 
+$(X,\triangleleft)$ is a rack and
+$X\times X\to X$, $(x,y)\mapsto x\cdot y$, is a binary operation on $X$ such that the maps 
+$X\to X$, $y\mapsto x\cdot y$, are bijective rack homomorphisms, and 
+\begin{equation}
+\label{eq:skew_CS}
+(x\cdot y)\cdot (x\cdot z)=(y\cdot (x\triangleleft y))\cdot (y\cdot z)
+\end{equation}
+for all $x,y,z\in X$. A skew cycle set $(X,\triangleleft,\cdot)$ is said to be 
+non-degenerate if the map $X\times X$, $x\mapsto x\cdot x$, is bijective.
+\end{definition}
+
+\framebox{FIXME}
+
+\begin{definition}
+\index{Homomorphism!of skew cycle sets}
+Let $X$ and $Z$ be skew cycle sets. 
+A \emph{homomorphism} between the {\bf skew} cycle sets $X$ and $Z$ is a 
+map $f\colon X\to Z$ such that $f(x\cdot y)=f(x)\cdot f(y)$ {\bf and $f(x\triangleleft y)=f(x)\triangleleft f(y)$,} for all $x,y\in X$. An \emph{isomorphism} of {\bf skew} cycle sets
+is a bijective homomorphism of {\bf skew} cycle sets. 
+\end{definition}
+
+%Cycle sets and cycle set homomorphisms form a category. 
+%It is possible to prove that the category of 
+%solutions is equivalent to the category of cycle sets, 
+%see Exercise~\ref{prob:cycle_sets}. 
+
+
+Theorem~\ref{thm:CS} can be generalized to arbitrary solutions.
+
+\begin{theorem}
+\label{thm:skewCS}
+There exists a bijective correspondence between solutions 
+and non-degenerate skew cycle sets. 
+\end{theorem}
+
+\begin{proof}
+Let $(X,r)$ be a solution and $(X,\triangleleft)$ its derived rack. We will prove that 
+the operation $x\cdot y=\sigma_x^{-1}(y)$ turns $(X,\triangleleft)$ into a skew cycle set.
+By Proposition~\ref{pro:derived}, 
+the 
+maps $X\to X$, $y\mapsto x\cdot y$, are bijective rack homomorphisms. 
+
+On the one hand, since $r(x,\sigma_x^{-1}(y))=(y,\tau_{\sigma_x^{-1}(y)}(x))$, 
+\begin{align*}
+(x\cdot y)\cdot (x\cdot z)
+&=\sigma_x^{-1}(y)\cdot\sigma_x^{-1}(z)
+=\sigma_{\sigma_x^{-1}(y)}^{-1}\sigma_x^{-1}(z)\\
+&=\left(\sigma_x\circ\sigma_{\sigma_x^{-1}(y)}\right)^{-1}(z)
+=\left(\sigma_y\circ\sigma_{\tau_{\sigma_x^{-1}(y)}(x)}\right)^{-1}(z).
+\end{align*}
+On the other hand, 
+\begin{align*}
+(y\cdot (x\triangleleft y))\cdot (y\cdot z)
+&=\sigma_y^{-1}(\sigma_y\tau_{\sigma_x^{-1}(y)}(x))\cdot\sigma_y^{-1}(z)\\
+&=\sigma^{-1}_{\tau_{\sigma_x^{-1}(y)}(x)}\sigma_y^{-1}(z)
+=\left(\sigma_y\circ\sigma_{\tau_{\sigma^{-1}_x(y)}(x)}\right)^{-1}(z).
+\end{align*}
+
+{\bf Therefore $(X,\triangleleft ,\cdot)$ is a skew cycle set. Furthermore, by Lemma \ref{lem:T_invertible}, this skew cycle set is non-degenerate.}
+
+Now we prove the converse statement. {\bf Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set.} 
+For $x,y\in X$ let 
+\[
+\sigma_x(y)=x*y,
+\quad
+\tau_y(x)=\sigma_{\sigma_x(y)}^{-1}(x\triangleleft\sigma_x(y)), 
+\]
+where $x*y=z$ if and only if $x\cdot z=y$. 
+Since $X$ is a skew cycle set, each $\sigma_x$ is bijective. Let us prove that the $\tau_x$ are bijective. 
+Equality~\eqref{eq:skew_CS} with $y=\sigma_x(z)$ implies that
+\begin{equation}\label{eq:solskew}
+\sigma_z^{-1}\sigma_x^{-1}=\sigma^{-1}_{\sigma_x^{-1}(y)}\sigma_x^{-1}
+=\sigma^{-1}_{\sigma_y^{-1}(x\triangleleft y)}\sigma_y^{-1}
+=\sigma^{-1}_{\sigma^{-1}_{\sigma_x(z)}(x\triangleleft\sigma_x(z))}\sigma^{-1}_{\sigma_x(z)}
+=\sigma^{-1}_{\tau_z(x)}\sigma^{-1}_{\sigma_x(z)}
+\end{equation}
+for all $x,z\in X$. 
+Since each $\sigma_x$ is a rack homomorphism, 
+\[
+\tau_y(x)=\sigma^{-1}_{\sigma_x(y)}(x\triangleleft\sigma_x(y))
+=\sigma^{-1}_{\sigma_x(y)}\sigma_x(\sigma^{-1}_x(x)\triangleleft y)
+=\sigma_{\tau_y(x)}\sigma_y^{-1}(\sigma_x^{-1}(x)\triangleleft y).
+\]
+Therefore $T\circ\tau_y=\sigma_y^{-1}\circ\rho_y\circ T$, where $T\colon X\to X$, $T(x)=x\cdot x$ 
+and $\rho_y\colon X\to X$, $\rho_y(x)=x\triangleleft y$ are bijective maps. In particular, 
+$\tau_y$ is bijective for all $y\in X$. 
+
+Let $r\colon X\times X\to X\times X$ be the map defined by $r(x,y)=(\sigma_x(y),\tau_y(x))$, for all $x,y\in X$. 
+Now we prove that $(X,r)$ is a solution. Let $s\colon X\times X\to X\times X$ be the map defined by $s(x,y)=(y,x\triangleleft y)$. By Proposition \ref{pro:Venkov}, $(X,s)$ is a solution. As in the proof of Proposition \ref{pro:derived}, The map $J\colon X^3\to X^3$, $J(x,y,z)=(x,\sigma_x(y),\sigma_x\sigma_y(z))$ is invertible and satisfies that 
+$$(\id\times s)\circ J=J\circ (\id\times r),$$
+because the $\sigma_x$ are rack homomorphisms. Furthermore, by (\ref{eq:solskew}) we have that
+\begin{align*}
+	(s\times \id)J(x,y,z)&=(s\times \id)(x,\sigma_x(y),\sigma_x\sigma_y(z))\\
+	&=(\sigma_x(y),x\triangleleft \sigma_x(y),\sigma_x\sigma_y(z))\\
+	&=(\sigma_x(y), \sigma_{\sigma_x(y)}\tau_y(x),\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}(z))\\
+	&=J(\sigma_x(y),\tau_y(x),z)\\
+	&=J(r\times \id)(x,y,z).
+\end{align*}
+Therefore $(X,r)$ is a solution.
+
+Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set. Let $\varphi(X,\triangleleft,\cdot)=(X,r)$, where
+$r(x,y)=(x*y,(x*y)\cdot(x\triangleleft (x*y)))$, where $x*y=z$ if and only if $y=x\cdot z$. We have seen that $(X,r)$ is a solution.
+
+For every solution $(X,r)$ we define $\psi(X,r)=(X,\triangleleft,\cdot)$, where $x\triangleleft y=\sigma_y\tau_{\sigma_x^{-1}(y)}(x)$ and $x\cdot y=\sigma_x^{-1}(y)$. We have seen that $(X,\triangleleft,\cdot)$ is a non-degenerate skew cycle set.
+
+It is easy to check that $\psi(\varphi(X,\triangleleft,\cdot))=(X,\triangleleft,\cdot)$, for every non-degenerate skew cycle set $(X,\triangleleft,\cdot)$, and $\varphi(\psi(X,r))=(X,r)$, for every solution $(X,r)$.
+\end{proof}
+
+Theorem~\ref{thm:skewCS} can be used to construct small solutions, see Table~\ref{tab:non_involutive}.
+
+\begin{table}[H]
+\centering
+\caption{Enumeration of non-involutive solutions.}
+\begin{tabular}{|c|ccccccc|}
+\hline
+$n$ & 2 & 3 & 4 & 5 & 6 & 7 & 8\tabularnewline
+\hline
+$s(n)$ & 2 & 21 & 253 & 3519 & 100071 & 4602720 & 422449480\tabularnewline
+\hline
+\end{tabular}
+\label{tab:non_involutive}
+\end{table}
+
+\section*{B}
+
+\index{Quandle}
+An interesting family of racks is that that of quandles. A \textbf{quandle} is a rack $(X,\triangleleft)$ 
+such that $x\triangleleft x=x$ for all $x\in X$.
+
+{\bf (Ferran: ¿Tienes alguna idea de c\'omo desarrollar el tema?)} 
+
+
+
+% \begin{prob}
+%     \label{prob:Venkov}
+%     Let $X$ be a set and $X\times X\to X$, $(x,y)\to x\triangleright y$. Prove that 
+%     the pair $(X,s)$, where
+%     $s(x,y)=(x\triangleright y,x)$, is a solution if and only if $(X,\triangleright)$ is a rack. 
+%     Prove that
+% \end{prob}
+
+\section{Involutive solutions}
+
+We now go back to study solutions to the YBE and discuss the intriguing interplay
+between radical rings and involutive solutions. 
+
+\begin{definition}
+	\index{Solution!involutive}
+	A solution $(X,r)$ is said to be \emph{involutive} if $r^2=\id$. 
+\end{definition}
+
+\index{Symmetric group}
+For $n\geq2$, the \emph{symmetric group} $\Sym_n$ can be presented 
+as the group with generators $\sigma_1,\dots,\sigma_{n-1}$ and relations
+\begin{align*}
+	&\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1} && \text{if }1\leq i\leq n-2,\\
+	&\sigma_i\sigma_j=\sigma_j\sigma_i && \text{if }|i-j|> 1,\\
+	&\sigma_i^2=1 && \text{for all $i\in\{1,\dots,n-1\}$}.
+\end{align*}
+Let $(X,r)$ be an involutive solution. 
+Then the map $\sigma_i\mapsto r_{i,i+1}=\id_{X^{i-1}}\times r\times\id_{X^{n-i-1}}$ extends 
+to an action of $\Sym_n$ on $X^n$.
+
+\begin{example}
+	Let $X$ be a non-empty set and $\sigma$ be a bijection on $X$. Then 
+	$(X,r)$, where $r(x,y)=(\sigma(y),\sigma^{-1}(x))$, is an involutive solution. 
+\end{example}
+
+\index{Jacobson!radical ring}
+\index{Radical ring}
+We now present a very important family of involutive solutions. 
+These examples show an intriguing connection between the YBE and the 
+theory of non-commutative rings. 
+
+
+% In any ring $R$ the \emph{circle operation} 
+% \[
+% x\circ y=x+xy+y
+% \]
+% is always associative and such that $x\circ 0=0\circ x=x$ for all $x\in R$. 
+% A non-unital ring (or \emph{ring}, for short) 
+% $R$ is said to be a \emph{radical ring} if $(R,\circ)$ is a group. 
+% In this case, following Jacobson's notation, the inverse of 
+% an element $x$ with respect to the circle operation is denoted by $x'$. 
+
+
+\begin{example}
+	Let $p$ be a prime and let $A=\Z/(p^2)=\Z/p^2\Z$ be the cylic additive group of order $p^2$. 
+	Then $A$ with a new multiplication $*$ defined by $a*b=pab$ is a radical ring. In this case, $x\circ y=x+y+pxy$, and $x'=-x+px^2$. 
+\end{example}
+
+\begin{example}
+	Let $n$ be an integer such that $n>1$. Let $A=\left\{\frac{nx}{ny+1}:x,y\in\Z\right\}\subseteq \Q$. Note that A is a subring without unity of the field $\Q$. In fact $A$ is a radical ring. A straightforward computation shows that 
+	\[
+	\left(\frac{nx}{ny+1}\right)'=\frac{-nx}{n(x+y)+1}.
+	\]
+\end{example}
+
+The following fundamental family of solutions appears in~\cite{MR2278047}. 
+It turns out to be fundamental in the study of 
+set-theoretic solutions to the YBE. 
+
+\begin{proposition}
+	\label{pro:Rump}
+	Let $R$ be a radical ring. Then $(R,r)$, where 
+	\[
+	r(x,y)=( -x+x\circ y,(-x+x\circ y)'\circ x\circ y)
+	\]
+	is an involutive solution.
+\end{proposition}
+
+The proposition can demonstrated using Theorem~\ref{thm:LYZ}, 
+see Exercise~\ref{prob:Rump}. 
+We will prove a stronger result in Theorem~\ref{thm:YB}. 
+
+Note that if $(X,r)$ is an  involutive solution, then 
+\[
+(x,y)=r^2(x,y)=r(\sigma_x(y),\tau_y(x))=(\sigma_{\sigma_x(y)}\tau_y(x),\tau_{\tau_y(x)}\sigma_x(y)).
+\]
+Hence 
+\begin{equation}
+	\label{eq:involutive}
+	\tau_y(x)=\sigma_{\sigma_x(y)}^{-1}(x),
+	\quad
+	\sigma_x(y)=\tau_{\tau_y(x)}^{-1}(y)
+\end{equation}
+for all $x,y\in X$. Thus for involutive solutions
+it is enough to know $\{\sigma_x:x\in X\}$, as from this we obtain the
+set $\{\tau_x:x\in X\}$. 
+
+
+\begin{proposition}
+	\label{pro:T}
+	Let $(X,r)$ be an involutive solution. 
+	Then the map $T\colon X\to X$, $x\mapsto\sigma_x^{-1}(x)$, is 
+	invertible with inverse $T^{-1}(y)=\tau^{-1}_y(y)$ and 
+	\[
+	T^{-1}\circ\sigma_x^{-1}\circ T=\tau_x
+	\]
+	for all $x\in X$. 
+\end{proposition}
+
+\begin{proof}
+	Let $U(x)=\tau_x^{-1}(x)$. Since $r$ is involutive, 
+	\[
+	(U(x),x)=r^2(U(x),x)=r(\sigma_{U(x)}(x),x)=(\sigma_{\sigma_{U(x)}(x)}(x),\tau_x\sigma_{U(x)}(x)).
+	\]
+	The second coordinate can be written as $U(x)=\sigma_{U(x)}(x)$. This 
+	implies that 
+	\[
+	T(U(x))=\sigma^{-1}_{U(x)}(U(x))=x.
+	\]
+	Similarly one obtains $U(T(x))=x$. 
+	
+	Since $(X,r)$ is a solution, Lemma~\ref{lem:YB} implies that 
+	$\sigma_x\sigma_y=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}$
+	%$\tau_{\tau_y(x)}\circ\tau_{\sigma_x(y)}=\tau_y\circ\tau_x$ 
+	holds for all $x,y\in X$. Then  
+	\[
+	\sigma_y^{-1}T(x)
+	=\sigma_y^{-1}\sigma_x^{-1}(x)
+	=\sigma^{-1}_{\tau_y(x)}\sigma^{-1}_{\sigma_x(y)}(x)
+	=\sigma^{-1}_{\tau_y(x)}\tau_y(x)
+	=T\tau_y(x)
+	\]
+	for all $y\in X$, by Equality~\eqref{eq:involutive}.
+\end{proof}
+
+
+
+\begin{definition}
+	\index{Cycle set}
+	\index{Cycle set!non-degenerate}
+	A \emph{cycle set} is a pair $(X,\cdot)$, where $X$ is a non-empty 
+	set provided with a binary operation $X\times X\to X$, $(x,y)\mapsto x\cdot y$, 
+	such that 
+	\begin{equation}
+		\label{eq:cycle_set}
+		(x\cdot y)\cdot (x\cdot z)=(y\cdot x)\cdot (y\cdot z)
+	\end{equation}
+	holds for all $x,y,z\in X$ and each map $\varphi_x\colon X\to X$, $y\mapsto x\cdot y$, is bijective. 
+	A cycle set $(X,\cdot)$ is said to be \emph{non-degenerate} 
+	if the map $X\to X$, $x\mapsto x\cdot x$, is bijective. 
+\end{definition}
+
+\begin{definition}
+	\index{Homomorphism!of cycle sets}
+	Let $X$ and $Z$ be cycle sets. 
+	A \emph{homomorphism} between the cycle sets $X$ and $Z$ is a 
+	map $f\colon X\to Z$ such that $f(x\cdot y)=f(x)\cdot f(y)$ for all $x,y\in X$. An \emph{isomorphism} of cycle sets
+	is a bijective homomorphism of cycle sets. 
+\end{definition}
+
+%Cycle sets and cycle set homomorphisms form a category. 
+%It is possible to prove that the category of 
+%solutions is equivalent to the category of cycle sets, 
+%see Exercise~\ref{prob:cycle_sets}. 
+
+% \framebox{Exercise!}
+
+% \begin{lemma}
+% \label{lem:T_forCS}
+% If $X$ is a cycle set, then $x\cdot (y\cdot y)=((y*x)\cdot y)\cdot ((y*x)\cdot y)$, where
+% $y*x=z$ if and only if $y\cdot z=x$. 
+% \end{lemma}
+
+% \begin{proof}
+%     Since the operation $x\mapsto y\cdot x$ is bijective, we can write $x=y\cdot (y*x)$. Then, using~\eqref{eq:cycle_set}, 
+%     $x\cdot (y\cdot y)=(y\cdot (y*x))\cdot (y\cdot y)=((y*x)\cdot y)\cdot (y*x)\cdot y)$.
+% \end{proof}
+
+\begin{theorem}
+	\label{thm:CS}
+	There exists a bijective correspondence between non-isomorphic involutive solutions 
+	and non-isomorphic non-degenerate cycle sets. 
+\end{theorem}
+
+
+
+% \begin{proof}
+%     Let us assume first that $r(x,y)=(\sigma_x(y),\tau_y(x))$ is an involutive solution. 
+%     We want to prove that the operation
+%     $x\cdot y=\sigma_x^{-1}(y)$ turns the set $X$ into a non-degenerate cycle set. 
+%     It is clear that the maps $y\mapsto x\cdot y=\sigma_x^{-1}(y)$ are invertible. 
+%     By Proposition~\ref{pro:T}, the operation $x\mapsto x\cdot x$ is bijective. \framebox{!}
+%     Since $r(\tau^{-1}_y(x),y)=(\sigma_{\tau^{-1}_y(x)}(y),x)$, Lemma~\ref{lem:YB} implies that
+%     \[
+%     \tau_x\circ\tau_{\sigma_{\tau^{-1}_y(x)}(y)}=\tau_y\circ\tau_{\tau^{-1}_y(x)}.
+%     \]
+%     Moreover, since $r(\sigma_{\tau^{-1}_y(x)}(y),x)=(\tau^{-1}_y(x),y)$, it follows that
+%     %$\tau_x\sigma_{\tau^{-1}_y(x)}(y)=y$, i.e.
+%     \[
+%     \sigma_{\tau^{-1}_y(x)}(y)=\tau_x^{-1}(y).
+%     \]
+%     % Since $r^2=\id_{X\times X}$, it follows that
+%     % \[
+%     % (\tau^{-1}_y(x),y)=r^2(\tau^{-1}_y(x),y)=r(\sigma_{\tau^{-1}_y(x)}(y),x)
+%     % \]
+%     % and hence $\sigma_{\tau^{-1}_y(x)}(y)=\tau^{-1}_x(y)$. 
+%     This implies that
+%     \[
+%     \tau_x\circ\tau_{\tau^{-1}_x(y)}=\tau_x\circ\tau_{\sigma_{\tau^{-1}_y(x)}(y)}=\tau_y\circ\tau_{\tau^{-1}_y(x)},
+%     \]
+%     which turns out to be equivalent to
+%     \[
+%     \tau^{-1}_{\tau^{-1}_x(y)}\circ\tau^{-1}_x=\tau^{-1}_{\tau^{-1}_y(x)}\circ\tau^{-1}_y
+%     \]
+%     and hence equivalent to Equality~\eqref{eq:cycle_set}. 
+
+%     Conversely, if $X$ is a non-degenerate cycle set, we want to prove that
+%     \[
+%     r(x,y)=((y*x)\cdot y,y*x),
+%     \]
+%     where $y*x=z$ if and only if $y\cdot z=x$, is an involutive solution. The definition of $r$ implies that
+%     $r^2=\id_{X\times X}$. 
+%     By Lemma~\ref{lem:YB}, we need to prove that
+%     \begin{align*}
+%         &\sigma_x\circ\sigma_y = \sigma_{\sigma_x(y)}\circ\sigma_{\tau_y(x)},&
+%         &\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y)=\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y),&
+%         &\tau_z\circ\tau_y=\tau_{\tau_z(y)}\circ\tau_{\sigma_y(z)}
+%     \end{align*}
+
+%     Write $\sigma_x(y)=(y*x)\cdot y$ and $\tau_y(x)=y*x$. 
+%     We know that the third formula is equivalent to~\eqref{eq:cycle_set}. 
+%     Let $T\colon X\to X$, $x\mapsto x\cdot x$. By assumption, $T$ is bijective and hence 
+%     $T^{-1}\circ \tau^{-1}_x\circ T=\sigma_x$ for all $x\in X$, since by Lemma~\ref{lem:T_forCS}
+%         \begin{align*}
+%     \tau_x^{-1}T(y)&=\tau_x^{-1}(y\cdot y)=x\cdot (y\cdot y)\\
+%     &=((y*x)\cdot y)\cdot ((y*x)\cdot y)=T((y*x)\cdot y)=T\sigma_x(y)
+%     \end{align*}
+%     for all $x,y\in X$. In particular, $(X,r)$ is non-degenerate. 
+%     Moreover, 
+%     \begin{align*}
+%     \sigma_x\circ\sigma_y
+%     &=(T^{-1}\circ\tau_x^{-1}\circ T)\circ (T^{-1}\circ\tau_y^{-1}\circ T)\\
+%     &=T^{-1}\circ (\tau_y\circ\tau_x)^{-1}\circ T\\
+%     &=T^{-1}\circ (\tau_{\tau_y(x)}\circ\tau_{\sigma_x(y)})^{-1}\circ T\\
+%     &=(T^{-1}\circ\tau^{-1}_{\sigma_x(y)}\circ T)\circ (T^{-1}\circ\tau^{-1}_{\tau_y(x)}\circ T)\\
+%     &=\sigma_{\sigma_x(y)}\circ\sigma_{\tau_y(x)}
+% \end{align*}
+% for all $x,y\in X$. Finally, Equality~\eqref{eq:cycle_set} can be written as
+% \[
+% \tau^{-1}_{\tau^{-1}_v(u)}\circ\tau^{-1}_v=\tau^{-1}_{\tau^{-1}_u(v)}\circ\tau^{-1}_u.
+% \]
+% With $u=\tau_z\tau_y(x)$ and $v=z$, it becomes
+% \[
+% \tau^{-1}_{\tau_y(x)}\circ\tau^{-1}_z
+% =\tau^{-1}_{\tau^{-1}_{\tau_z\tau_y(x)}(z)}\circ\tau^{-1}_{\tau_z\tau_y(x)}
+% =\tau^{-1}_{\sigma_{\tau_y(x)}(z)}\circ\tau^{-1}_{\tau_z\tau_y(x)},
+% \]
+% where the last equality holds $r^2=\id_{X\times X}$. 
+% Using Lemma~\ref{lem:YB} one rewrites this formula as
+% \[
+% \tau_{\sigma_{\tau_y(x)}(z)}\circ\tau^{-1}_{\tau_y(x)}
+% =\tau^{-1}_{\tau_z\tau_y(x)}\circ\tau_z
+% =\tau^{-1}_{\tau_{\tau_z(y)}\tau_{\sigma_y(z)}(x)}\circ\tau_z.
+% \]
+% Evaluating this equality at $y$, 
+% \[
+% \tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y)=\tau_{\sigma_{\tau_y(x)}(z)}\tau^{-1}_{\tau_y(x)}(y)
+% =\tau^{-1}_{\tau_{\tau_z(y)}\tau_{\sigma_y(z)}(x)}\tau_z(y)
+% =\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y).\qedhere
+% \]
+% \end{proof}
+
+For the readers who are not familiar with the above-mentioned result, 
+the bijective correspondence is given by 
+\[
+r(x,y)=(x*y,(x*y)\cdot x),
+\]
+where $x*y=z$ if and only if $x\cdot z=y$. We leave the proof for the reader, see 
+Exercise~\ref{prob:CS}. However, we will prove a more 
+general result in Theorem~\ref{thm:skewCS}. 
+
+Theorem~\ref{thm:CS} can be used to construct and enumerate small 
+involutive solutions~\cite{AMV}. Table~\ref{tab:IYB} shows the 
+number of non-isomorphic involutive solutions of size $\leq10$. 
+For size $\leq7$ the numbers of Table~\ref{tab:IYB} coincide with those in~\cite{MR1722951}
+but differ by two for $n=8$, as two solutions of size eight 
+are missing in~\cite{MR1722951}. 
+
+\begin{table}[H]
+	\centering
+	\caption{Involutive solutions of size $\leq10$.}
+	\begin{tabular}{|r|ccccccccc|}
+		\hline
+		$n$ & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10\tabularnewline
+		\hline 
+		solutions & 2 & 5 & 23 & 88 & 595 & 3456 & 34530 & 321931 & 4895272\tabularnewline
+		% square-free & 1 & 2 & 5 & 17 & 68 & 336 & 2041 & \cellcolor{gray!30}{15534} & \cellcolor{gray!30}{150957}\tabularnewline
+		% indecomposable & 1 & 1 & 5 & 1 & 10 & 1 & \cellcolor{gray!30}{100} & \cellcolor{gray!30}{16} & \cellcolor{gray!30}{36}\tabularnewline
+		% multipermutation & 2 & 5 & 21 & 84 & 554 & 3295 & \cellcolor{gray!30}{32155} & \cellcolor{gray!30}{305916} & \cellcolor{gray!30}{4606440}\tabularnewline
+		% irretractable & 0 & 0 & 2 & 4 & 9 & 13 & 191 & \cellcolor{gray!30}{685} & \cellcolor{gray!30}{3590}\tabularnewline
+		\hline
+	\end{tabular}
+	\label{tab:IYB}
+\end{table}
+
+
+
+% \begin{definition}
+% \index{Solution!permutation group}
+% The \emph{permutation group} of a solution $(X,r)$ is the group
+% \[
+% \mathcal{G}(X,r)=\langle (\sigma_x,\widehat{\sigma_x}):x\in X\rangle\subseteq\Sym_X\times\Sym_X.
+% \]
+% \end{definition}
+
+% \index{Solutions!linear involutive}
+% Let us finish the chapter with the family of affine involutive solutions. Let $A$ be an abelian group and
+% $a,b,c,d\in\colon A\to A$ be group homomorphisms. If 
+% \[
+% r(x,y)=(a(x)+b(y),c(x)+d(y))
+% \]
+% is bijective and $(A,r)$ is an solution involutive solution, then $(A,r)$ is an \emph{linear solution}.
+% Note that $r$ satisfies the YBE if and only if
+% \begin{subequations}
+% \begin{gather}
+% \label{eq:linear}
+% (\id-a)\circ d\circ b=b\circ d,
+% \quad
+% d\circ(\id-d)=c\circ d\circ b,\\
+% c\circ d\circ (\id-a)=d\circ c,
+% \quad
+% a\circ(\id-a)=b\circ a\circ c,
+% \quad
+% c\circ a=(\id-d)\circ a\circ c,\\
+% a\circ b=b\circ a\circ (\id-d),
+% \quad
+% c\circ b-b\circ c=a\circ d\circ a-d\circ d.
+% \end{gather}
+% \end{subequations}
+% Moreover, $r^2=\id$ if and only if
+% \begin{align}
+%     &a\circ a+b\circ c=\id,
+%     &&
+%     c\circ b+d\circ d=\id,
+%     &&
+%     a\circ b+b\circ d=0,
+%     &&
+%     c\circ a+d\circ c=0.
+% \end{align}
+% \end{equation}
+
+%\begin{prob}
+%	\label{prob:cycle_sets}
+%	Prove that the category of non-degenerate 
+%	cycle sets and the category of solutions are equivalent. 
+%\end{prob}
+
+\section{Exercises}
 
 \begin{prob}
 \label{prob:Wada}
@@ -421,6 +1309,37 @@ Let $G$ be a group and $f\in\Aut(G)$. Prove that
 the map $r(x,y)=(f(y),f(y)^{-1}xy)$ satisfies the set-theoretic YBE.	
 \end{prob}
 
+\begin{prob}
+    \label{prob:xx}
+    {\bf Let $(X,r)$ be a solution. Let $(X,\triangleleft)$ and $(X,\blacktriangleleft)$ be the derived and the dual derived racks of $(X,r)$.} Prove that $x\triangleright x=x\blacktriangleright x$ for all $x\in X$. 
+\end{prob}
+
+\begin{prob}
+    \label{prob:tau_hat}
+    {\bf Let $(X,r)$ be a solution. Let $(X,\triangleleft)$  be its derived rack.}
+    Prove that $\widehat{\tau}_x(y\triangleright z)=\widehat{\tau}_x(y)\triangleright \widehat{\tau}_x(z)$ for all $x,y,z\in X$. 
+\end{prob}
+
+\begin{prob}
+    \label{prob:variationT}
+    Let $(X,r)$ be a solution and let $(X,\triangleright)$ be its derived rack. 
+    Prove that 
+    \[
+    T\sigma_x(y)=\tau_x^{-1}(x\triangleright T(y))
+    \]
+    for all $x\in X$, where $T\colon X\to X$, $T(y)=\tau_y^{-1}(y)$. 
+\end{prob}
+
+\begin{prob}
+\label{prob:guitar}
+Let $(X,r)$ be a solution {\bf and $(X,s)$ its derived solution}. Let $J_2(x,y)=(x,\sigma_x(y))$ and
+$J_{n+1}=Q_{n+1}\circ (\id\times J_n)$ for $n\geq 2$, where 
+\[
+Q_{n+1}(x_1,\dots,x_{n+1})=(x_1,\sigma_{x_{1}}(x_2),\dots,\sigma_{x_{1}}(x_{n+1})).
+\]
+Prove that $J_n\circ r_{i,i+1}=s_{i,i+1}\circ J_n$ for all $n\geq2$ and $i\in\{1,\dots,n-1\}$, where $r_{i,i+1}=\id^{\times i-1}\times r\times \id^{\times n-i-1}$ and $s_{i,i+1}=\id^{\times i-1}\times s\times \id^{\times n-i-1}$. 
+\end{prob}
+
 
 
 %\begin{prob}
@@ -444,8 +1363,20 @@ the map $r(x,y)=(f(y),f(y)^{-1}xy)$ satisfies the set-theoretic YBE.
 %Let $(X,r)$ be a solution. Prove that $\mathcal{G}(X,r)\simeq\langle (\sigma_x,\tau^{-1}_x):x\in X\rangle$. 
 %\end{prob}
 
+\section{Open problems}
 
-\section*{Notes}
+
+\begin{problem}
+\label{problem:racks14}
+Enumerate isomorphism classes of racks of size 14. 
+\end{problem}
+
+\begin{problem}
+Enumerate non-involutive solutions of size $\geq9$. 
+\end{problem}
+
+
+\section{Notes}
 
 \index{Gateva--Ivanova, T.}
 \index{Van den Bergh, M.}
@@ -480,4 +1411,48 @@ Chapter~\ref{racks}.
 %Proposition~\ref{pro:Rump} was proved by Rump~\cite{MR2278047}. 
 %a similar example appears in the appendix of~\cite{MR1722951}. 
  
+
+
+% Definition~\ref{defn:rack} is that of a \emph{left rack}. 
+% A \emph{right rack} is defined as a pair $(X,\triangleleft)$, where $X$ is a non-empty set, 
+% $X\times X\to X$, $(x,y)\mapsto x\triangleleft y$, is 
+% a binary operation on $X$ such that the maps $x\mapsto x\triangleleft y$, are bijective and 
+% \[
+% (x\triangleleft y)\triangleleft z=(x\triangleleft z)\triangleleft (y\triangleleft z)
+% \]
+% for all $x,y,z\in X$. 
+% As we did in Proposition~\ref{pro:derived}, one proves that $x\triangleleft y=...$ turns $X$ into a 
+% right rack. This leads to the right derived solution of $(X,r)$. 
+%According to Drinfeld, Exercise~\label{prob:Venkov} 
+A particular family of racks turns out to be useful in combinatorial {\bf knot} theory. A quandle
+is a rack $(X,\triangleleft)$ such that $x\triangleleft x=x$ for all $x\in X$. 
+
+In~\cite{MR1183474}, Drinfeld attributes Proposition~\ref{pro:Venkov} to Venkov. 
+
+There are several papers on the enumeration of isomorphic classes of finite racks~\cite{MR3665565,MR3118951,MR3904151}. 
+Estimations on the number of finite
+racks of size $n$ appear in~\cite{MR3118951}. 
+
+The numbers of Table~\ref{tab:non_involutive} were computed using 
+Theorem~\ref{thm:skewCS} essentially with the same technique used to construct involutive solutions~\cite{AMV}. 
+The construction of non-involutive solutions of size 9 seems to be feasible with these methods. 
+However, it should be noted that a huge number of solutions is expected. 
+
+Exercises~\ref{prob:xx} and~\ref{prob:tau_hat} appear in~\cite{MR3974961}. 
+
+The map $J_n$ of Exercise~\ref{prob:guitar} is known as the \emph{guitar map}. 
+It was first considered by Etingof, Schedler and
+Soloviev in~\cite{MR1722951} for involutive solutions. The construction was extended to non-involutive solutions
+by Soloviev in~\cite{MR1809284} and Lu, Yan and Zhu in~\cite{MR1769723}. In~\cite{MR3374524} Dehornoy
+used the inverse of the guitar map to develop his right-cyclic calculus and to
+obtain short proofs for results on the structure group of involutive solutions. 
+In~\cite{MR1994219} Andruskiewitsch and Graña use the guitar map to study certain isomorphisms of Nichols algebras. 
+A particular case of the guitar map also appears in the work of Przytycki~\cite{MR2906433}. 
+
+The derived rack of a solution was first defined in the work of Soloviev~\cite{MR1809284}. Most of the properties
+of the derived racks mentioned in this chapter were proved in~\cite{MR3974961}.
+
+Problem~\ref{problem:racks14} appears in~\cite{MR3957904}. 
+
+
 

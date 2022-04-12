@@ -114,7 +114,7 @@ To do so we prove first that there is an interesting extension of the solution $
 
 \begin{proposition}
 \label{prop:extendsol}
-Let $(X,r)$ be a solution of the YBE. Let $X'=\{x'\mid x\in X\}$ be a copy of $X$ and let $Y$ be the disjoint union of $X$ and $X'$. We write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))$. We define $r'\colon Y\times Y\rightarrow Y\times Y$ by $r'(z,t)=(\sigma'_z(t),\tau'_t(z))$, for all $z,t\in Y$, where
+Let $(X,r)$ be a solution of the YBE. Let $X'=\{x'\mid x\in X\}$ be a copy of $X$ and let $Y$ be the disjoint union of $X$ and $X'$. We write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))$. We define $r'\colon Y\times Y\rightarrow Y\times Y$ by $r'(u,v)=(\sigma'_u(v),\tau'_v(u))$, for all $u,v\in Y$, where
 \[ \sigma'_x(y)=\sigma_x(y),\; \sigma'_{x'}(y)=\sigma^{-1}_x(y),\; \sigma'_{x}(y')=\widehat{\tau}^{-1}_x(y)',\; \sigma'_{x'}(y')=\widehat{\tau}_x(y)'\]
 and
 \[ \tau'_x(y)=\tau_x(y),\; \tau'_{x'}(y)=\tau^{-1}_x(y),\; \tau'_{x}(y')=\widehat{\sigma}^{-1}_x(y)',\; \tau'_{x'}(y')=\widehat{\sigma}_x(y)',\]
@@ -122,11 +122,69 @@ for all $x,y\in X$. Then $(Y,r')$ is a solution of the YBE.
 \end{proposition}
 
 \begin{proof}
+Let $x,y\in X$. Since 
+\[ r(\tau^{-1}_y(x),y)=(\sigma_{\tau^{-1}_y(x)}(y),x) \text{ and }
+r(y,\sigma^{-1}_y(x))=(x,\tau_{\sigma^{-1}_y(x)}(y)),\] we have that
+\[ \widehat{\tau}^{-1}_x(y)=\sigma_{\tau^{-1}_y(x)}(y)\text{ and } \widehat{\sigma}^{-1}_x(y)=\tau_{\sigma^{-1}_y(x)}(y).\]
+Similarly one can see that
+\[ \tau^{-1}_x(y)=\widehat{\sigma}_{\widehat{\tau}^{-1}_y(x)}(y)\text{ and } \sigma^{-1}_x(y)=\widehat{\tau}_{\widehat{\sigma}^{-1}_y(x)}(y).\]
+Now it is easy to check that $r'$ is bijective and
+\[ (r')^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x)),\; (r')^{-1}(x',y)=(\widehat{\sigma}^{-1}_x(y),\sigma^{-1}_y(x)'),\] 
+\[ (r')^{-1}(x,y')=(\tau^{-1}_x(y)',\widehat{\tau}^{-1}_y(x)), \; (r')^{-1}(x',y')=(\sigma_x(y)',\tau_y(x)').\]
 By Lemma \ref{lem:YB} it is enough to prove that
 \begin{itemize}
-    \item[(a)] $\sigma'_{z}\sigma'_{t}=\sigma'_{\sigma'_z(t)}\sigma'_{\tau'_t(z)}$,
-    \item[(b)]$\sigma'_{\tau'}$
+    \item[(a)] $\sigma'_{u}\sigma'_{v}=\sigma'_{\sigma'_u(v)}\sigma'_{\tau'_v(u)}$,
+    \item[(b)]$\sigma'_{\tau'_{\sigma'_u(v)}(w)}\tau'_v(u)=\tau'_{\sigma'_{\tau'_u(w)}(v)}\sigma'_w(u)$,
+    \item[(c)] $\tau'_{u}\tau'_{v}=\tau'_{\tau'_u(v)}\tau'_{\sigma'_v(u)}$,
 \end{itemize}
+for all $u,v,w\in Y$.
+
+Let $x,y,z\in X$. Since $(X,r^{-1})$ is a solution of the YBE, by Lemma \ref{lem:YB}, we have that
+\begin{align*}
+    \sigma'_{x}\sigma'_{y}(z)=&\sigma_{x}\sigma_{y}(z)=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}(z)\\
+    =&\sigma'_{\sigma'_x(y)}\sigma'_{\tau'_y(x)}(z),\\
+        \sigma'_{x}\sigma'_{y}(z')=&\sigma'_{x}(\widehat{\tau}^{-1}_{y}(z)')=\widehat{\tau}^{-1}_{x}\widehat{\tau}^{-1}_{y}(z)'\\
+        =&\widehat{\tau}^{-1}_{\sigma_x(y)}\widehat{\tau}^{-1}_{\tau_y(x)}(z)'\\
+    =&\sigma'_{\sigma'_x(y)}\sigma'_{\tau'_y(x)}(z').
+    \end{align*}
+Hence $\sigma'_x\sigma'_y=\sigma'_{\sigma'_x(y)}\sigma'_{\tau'_y(x)}$. We also have that   
+\begin{align*}
+    \sigma'_{x}\sigma'_{y'}(z)=&\sigma_{x}\sigma^{-1}_{y}(z)=\sigma^{-1}_{\sigma_{\tau^{-1}_y(x)}(y)}\sigma_{\tau^{-1}_y(x)}(z)\\
+    =&\sigma^{-1}_{\widehat{\tau}^{-1}_x(y)}\sigma_{\tau^{-1}_y(x)}(z)=\sigma'_{\sigma'_x(y')}\sigma'_{\tau'_{y'}(x)}(z),\\
+        \sigma'_{x}\sigma'_{y'}(z')=&\sigma'_{x}(\widehat{\tau}_{y}(z)')=\widehat{\tau}^{-1}_{x}\widehat{\tau}_{y}(z)'\\
+        =&\widehat{\tau}_{\widehat{\tau}^{-1}_x(y)}\widehat{\tau}^{-1}_{\sigma_{\tau^{-1}_x(y)}(x)}(z)'=\widehat{\tau}_{\widehat{\tau}^{-1}_x(y)}\widehat{\tau}^{-1}_{\widehat{\tau}^{-1}_y(x)}(z)'\\
+    =&\sigma'_{\sigma'_x(y')}\sigma'_{\tau'_{y'}(x)}(z').
+    \end{align*}
+Hence $\sigma'_x\sigma'_{y'}=\sigma'_{\sigma'_x(y')}\sigma'_{\tau'_{y'}(x)}$. Similarly one can check that
+$\sigma'_{x'}\sigma'_{y}=\sigma'_{\sigma'_{x'}(y)}\sigma'_{\tau'_{y}(x')}$ and $\sigma'_{x'}\sigma'_{y'}=\sigma'_{\sigma'_{x'}(y')}\sigma'_{\tau'_{y'}(x')}$. Hence (a) follows.
+By a symmetric argument (c) follows.
+
+Now we prove (b). By Lemma \ref{lem:YB}, we have
+\begin{align*}
+    \sigma'_{\tau'_{\sigma'_{x'}(y)}(z)}\tau'_y(x')=&
+    \sigma'_{\tau'_{\sigma^{-1}_{x}(y)}(z)}\left(\widehat{\sigma}^{-1}_y(x)'\right)\\
+    =&
+    \sigma'_{\tau_{\sigma^{-1}_{x}(y)}(z)}\left(\tau_{\sigma^{-1}_x(y)}(x)'\right)\\
+    =&
+    \left(\widehat{\tau}^{-1}_{\tau_{\sigma^{-1}_{x}(y)}(z)}\tau_{\sigma^{-1}_x(y)}(x)\right)'\\
+     =&
+    \left(\sigma_{\tau^{-1}_{\tau_{\sigma^{-1}_x(y)}(x)}\tau_{\sigma^{-1}_{x}(y)}(z)}\tau_{\sigma^{-1}_x(y)}(x)\right)'\\
+    =&
+    \left(\sigma_{\tau_{y}\tau^{-1}_{x}(z)}\tau_{\sigma^{-1}_x(y)}(x)\right)'\\
+    =&
+    \left(\sigma_{\tau_{\sigma_x\sigma^{-1}_x(y)}\tau^{-1}_{x}(z)}\tau_{\sigma^{-1}_x(y)}(x)\right)'\\
+    =&
+    \left(\tau_{\sigma_{\tau_x\tau^{-1}_x(z)}\sigma^{-1}_{x}(y)}\sigma_{\tau^{-1}_x(z)}(x)\right)'\\
+    =&\tau'_{\sigma'_{\tau'_{x'}(z)}(y)}\sigma'_z(x'),
+\end{align*}
+where the last equality follows by a symmetric argument. By similar calculations one get that
+\[\tau'_{\sigma'_{\tau'_x(y')}(z')}\sigma'_{y'}(x)=\sigma'_{\tau'_{\sigma'_x(z')}(y')}\tau'_{z'}(x).\]
+Note that, 
+\begin{align*}
+    \sigma'_{\tau'_{\sigma'_x(y')}(z)}\tau'_{y'}(x)=&\sigma'_{\tau'_{\widehat{\tau}^{-1}_x(y)'}(z)}\tau^{-1}_y(x)\\
+    =&\sigma_{\tau^{-1}_{\sigma_{\tau^{-1}_y(x)}(y)}(z)}\tau^{-1}_y(x)
+\end{align*}
+and
 \end{proof}
 
 

@@ -117,7 +117,7 @@
 % para enumerar
 \renewcommand{\labelenumi}{\textbf{\arabic{enumi})}}
 
-\setcounter{secnumdepth}{1}
+\setcounter{secnumdepth}{2}
 
 \makeindex             
 
@@ -229,8 +229,8 @@
 }
 
 % numero como secciones
-\renewcommand{\thesection}{\arabic{chapter}}
-\renewcommand{\thesubsection}{\Alph{section}}
+%\renewcommand{\thesection}{\arabic{chapter}}
+%\renewcommand{\thesubsection}{\Alph{section}}
 
 % To remove Springer from the title page
 \usepackage{etoolbox}
@@ -270,10 +270,8 @@
 
 %\include{part}
 \include{preliminaries}
+\include{jacobson}
 \include{solutions}
-%\include{radical}
-\include{RADJAC}
-\include{racks}
 \include{nilpotent}
 \include{solvable}
 \include{skew}
