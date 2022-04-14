@@ -4,9 +4,9 @@
 %\section*{A}
 \section{Set-theoretic solutions}
 
-In \cite{MR1183474}, Drinfeld briefly discuss set-theoretic solutions to the Yang--Baxter equation. 
-He observed that
-it makes sense to consider the Yang--Baxter equation in the category of sets and that 
+In \cite{MR1183474}, Drinfeld briefly discuss set-theoretic solutions to the YBE. 
+He not only observed that
+it makes sense to consider the YBE in the category of sets but also that 
 "maybe it would be interesting to study set-theoretical solutions". 
 
 \begin{definition}
@@ -55,33 +55,36 @@ The solution $(X,r)$ is said to be \emph{finite} if $X$ is a finite set.
 \label{fig:braid}
 \end{figure}
 
-\index{Braid group}
-For $n\geq2$, the \emph{braid group} $\B_n$ is defined as the group with generators $\sigma_1,\dots,\sigma_{n-1}$ and relations
-\begin{align*}
-    &\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1} && \text{if }1\leq i\leq n-2,\\
-    &\sigma_i\sigma_j=\sigma_j\sigma_i && \text{if }|i-j|> 1.
-\end{align*}
-Let $(X,r)$ be a set-theoretic solution to the YBE. Write $X^n=X\times\cdots\times X$ ($n$-times).  
-For $i<n$ let 
-$r_{i,i+1}=\id_{X^{i-1}}\times r\times\id_{X^{n-i-1}}\colon X^n\to X^n$.
-Then the map $\sigma_i\mapsto r_{i,i+1}$ extends 
-to an action of $\B_n$ on $X^n$.
-
 \begin{example}
-Let $X$ be a non-empty set. Then $(X,\id)$ is a set-theoretic 
-solution to the YBE. 	
+    Let $X$ be a non-empty set. Then $(X,\id)$ is a set-theoretic 
+    solution to the YBE. 	
 \end{example}
 
 \begin{example}
-\index{Solution!trivial}
-Let $X$ be a non-empty set. Then $(X,r)$, where $r(x,y)=(y,x)$, is a  set-theoretic solution to the YBE. This solution 
-is known as the \emph{trivial solution} over the set $X$. 
+    \index{Solution!trivial}
+    Let $X$ be a non-empty set. Then $(X,r)$, 
+    where $r(x,y)=(y,x)$, is a  set-theoretic solution to the YBE. This solution 
+    is known as the \emph{trivial solution} over the set $X$. 
 \end{example}
 
-By convention, we write
+\begin{convention}
+If $(X,r)$ is a set-theoretic solution to the YBE, we always write
 \[
 r(x,y)=(\sigma_x(y),\tau_y(x)).
 \]
+By definition, the map $r\colon X\times X\to X\times X$ is 
+invertible. By convention, we always write 
+\[
+ r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x)).
+\]
+It follows that
+\[
+x=\widehat{\sigma}_{\sigma_x(y)}\tau_y(x),\quad
+y=\widehat{\tau}_{\tau_y(x)}\sigma_x(y).
+\]
+\end{convention}
+
+
 
 \begin{lemma}
     \label{lem:YB}
@@ -108,36 +111,19 @@ r(x,y)=(\sigma_x(y),\tau_y(x)).
         =r_2(\sigma_x\sigma_y(z),\tau_{\sigma_y(z)}(x),\tau_z(y))\\
         &=\left(\sigma_x\sigma_y(z),\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y),\tau_{\tau_z(y)}\tau_{\sigma_y(z)}(x)\right)
     \end{align*}
-    and the claim follows.    
+    and the first claim follows. 
 \end{proof}
 
-If $(X,r)$ is a set-theoretic solution, by definition the map $r\colon X\times X\to X\times X$ is 
-invertible. By convention, we write 
- \[
- r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x)).
- \]
- Note that this implies that
- \[
- x=\widehat{\sigma}_{\sigma_x(y)}\tau_y(x),\quad
- y=\widehat{\tau}_{\tau_y(x)}\sigma_x(y).
- \]
- It is easy to check that $(X,r^{-1})$ is a set-theoretic solution to the YBE. Thus Lemma~\ref{lem:YB} implies that 
- the following formulas hold:
- \[
- \widehat{\tau}_y\widehat{\tau_x}=\widehat{\tau}_{\tau_y(x)}\widehat{\tau}_{\sigma_x(y)},
- \quad
- \widehat{\sigma}_x\widehat{\sigma_y}=\widehat{\sigma}_{\sigma_x(y)}\widehat{\sigma}_{\tau_y(x)}.
- \]
-% Since $r(\tau^{-1}_y(x),y)=(\sigma_{\tau^{-1}_y(x)}(y),x)$, 
-% it follows that 
-% \[
-% \widehat{\tau}_x\sigma_{\tau^{-1}_y(x)}(y)=y.
-% \]
-% for all $x,y\in X$. Moreover, 
-% \[
-% x\triangleright y=\tau_x\sigma_{\tau^{-1}_y(x)}(y)=\tau_x\widehat{\tau}^{-1}_x(y)
-% \]
-% for all $x,y\in X$. 
+\begin{example}
+If $(X,r)$ is a set-theoretic solution to the YBE, then
+so is $(X,r^{-1})$. By Lemma~\ref{lem:YB},
+the following formulas hold:
+\[
+\widehat{\tau}_y\widehat{\tau_x}=\widehat{\tau}_{\tau_y(x)}\widehat{\tau}_{\sigma_x(y)},
+\quad
+\widehat{\sigma}_x\widehat{\sigma_y}=\widehat{\sigma}_{\sigma_x(y)}\widehat{\sigma}_{\tau_y(x)}.
+\]
+\end{example}
 
 \begin{example}
 Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$, where
@@ -186,14 +172,18 @@ it makes sense to study the following family of solutions.
 \begin{definition}
 \index{Solution!non-degenerate}
 We say that a set-theoretic solution $(X,r)$ to the YBE 
-is \emph{non-degenerate} if the maps $\sigma_x$ and $\tau_x$ are 
+is \emph{non-degenerate} if all 
+the maps $\sigma_x$ and $\tau_x$ are 
 permutations of $X$. 
 \end{definition}
 
-By convention, a \emph{solution} we will mean a non-degenerate {\bf set-theoretic} solution to the YBE.
+\begin{convention}
+A \emph{solution} we will always mean a non-degenerate set-theoretic 
+solution to the YBE.
+\end{convention}
 
 \begin{lemma}
-\label{lem:LYZ}
+%\label{lem:LYZ}
 Let $(X,r)$ be a solution. 
 \begin{enumerate}
     \item Given $x,u\in X$, there exist unique $y,v\in X$ such that $r(x,y)=(u,v)$. 
@@ -244,20 +234,21 @@ means that any column also determines the whole square, see Figure~\ref{fig:brai
 \end{figure}
 
 \begin{example}
-If the map $(x,y)\mapsto(\sigma_x(y),\tau_y(x))$ satisfies the Yang--Baxter equation, then 
-so does $(x,y)\mapsto (\tau_x(y),\sigma_y(x))$. 
+    If the map $(x,y)\mapsto(\sigma_x(y),\tau_y(x))$ satisfies the YBE, then 
+    so does $(x,y)\mapsto (\tau_x(y),\sigma_y(x))$. 
 \end{example}
 
 \begin{example}
 \label{exa:Lyubashenko}
+\index{Solution!permutation}
+\index{Solution!Lyubashenko}
 Let $X$ be a non-empty set and $\sigma$ and $\tau$ be 
-bijections on $X$ such that $\sigma\circ\tau=\tau\circ\sigma$. Then 
-$(X,r)$, where $r(x,y)=(\sigma(y),\tau(x))$, is a non-degenerate solution. 
+bijections on $X$ such that $\sigma\tau=\tau\sigma$. Then 
+$(X,r)$, where $r(x,y)=(\sigma(y),\tau(x))$, is a solution. 
 This is known as the \emph{permutation solution} associated
 with permutations $\sigma$ and $\tau$. 
-%The solution $(X,r)$ is involutive 
-%if and only if $\tau^{-1}=\sigma$. 
 \end{example}
+
 %
 %\begin{example}
 %\label{exa:Wada}
@@ -440,7 +431,8 @@ and in the classification of finite-dimensional pointed Hopf algebras~\cite{MR19
 \end{definition}
 
 For $n\in\N$, let $r(n)$ be the number of isomorphism classes of racks of size
-$n$. Some values of $r(n)$ appear in Table~\ref{tab:racks}, see for example~\cite{MR3957904}.  
+$n$. Some values of $r(n)$ appear 
+in Table~\ref{tab:racks}, see for example~\cite{MR3957904}.  
 
 \begin{table}[H]
 \centering
@@ -486,9 +478,10 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
     Since $r(x,\sigma_x^{-1}(y))=(y,\tau_{\sigma_x^{-1}(y)}(x))$, 
     it follows that 
     $\widehat{\sigma}_y^{-1}(x)=\tau_{\sigma_x^{-1}(y)}(x)$ 
-    for all $x,y\in X$. Hence the second equality of~\eqref{eq:derived} holds. {\bf Therefore the maps $X\to X,\, x\mapsto x\triangleleft y$ are bijective}.
+    for all $x,y\in X$. Hence the second equality of~\eqref{eq:derived} holds 
+    and the maps $X\to X,\, x\mapsto x\triangleleft y$ are bijective.
     
-    {\bf Now we shall show that}
+    Now we show that
     \begin{equation}\label{eq:rackhom}
     \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)=\sigma_x(y\triangleleft\sigma_y(z))
     \end{equation}
@@ -496,8 +489,8 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
     Lemma~\ref{lem:YB}, 
     \begin{align*}
         \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)
-        &=u\triangleleft \sigma_u\sigma_v(z)
-        =\sigma_{\sigma_u\sigma_v(z)}\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y)
+        &=u\triangleleft \sigma_u\sigma_v(z)\\
+        &=\sigma_{\sigma_u\sigma_v(z)}\tau_{\sigma_{\tau_y(x)}(z)}\sigma_x(y)
         =\sigma_{\sigma_x\sigma_y(z)}\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y).
     \end{align*}
     On the other hand, 
@@ -506,21 +499,24 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
         &=\sigma_x\sigma_{\sigma_y(z)}\tau_z(y)
         =\sigma_{\sigma_x\sigma_y(z)}\sigma_{\tau_{\sigma_y(z)}(x)}\tau_z(y).
     \end{align*}
-{\bf Therefore, (\ref{eq:rackhom}) follows.}
+    Therefore \eqref{eq:rackhom} follows.
     
-    By Proposition~\ref{pro:Venkov}, in order to prove that $(X,\triangleright)$ is a rack it is enough to show that
+    By Proposition~\ref{pro:Venkov}, 
+    to prove that $(X,\triangleright)$ is a rack it is enough to show that
     $s(x,y)=(y,x\triangleleft y)$ satisfies the YBE. For that purpose, we demonstrate that 
     the map $J\colon X^3\to X^3$, $J(x,y,z)=(x,\sigma_x(y),\sigma_x\sigma_y(z))$ 
     is invertible and 
     satisfies 
     \[
-    (\id\times s)\circ J=J\circ(\id\times r),
+    (\id\times s) J=J(\id\times r),
     \quad
-    (s\times\id)\circ J=J\circ(r\times\id).
+    (s\times\id) J=J(r\times\id).
     \]
-    {\bf One can easily check that the} map $(x,y,z)\mapsto (x,\sigma_x^{-1}(y),\sigma_{\sigma_x^{-1}(y)}^{-1}\sigma_x^{-1}(z))$ is the inverse of $J$. 
+    One checks that the map 
+    $(x,y,z)\mapsto (x,\sigma_x^{-1}(y),\sigma_{\sigma_x^{-1}(y)}^{-1}\sigma_x^{-1}(z))$ 
+    is the inverse of $J$. 
 
-    {\bf By (\ref{eq:rackhom}),} 
+    By \eqref{eq:rackhom}, 
     \begin{align*}
     \sigma_x(y)\triangleleft \sigma_x\sigma_y(z)
     &=\sigma_x(y\triangleleft \sigma_y(z))
@@ -549,11 +545,12 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
     \]
 \end{proof}
 
-%\begin{definition}
+\begin{definition}
 \index{Solution!derived rack}
 The rack constructed in Proposition~\ref{pro:derived} is 
 known as the \emph{derived rack} of $(X,r)$. 
-%\end{definition}
+\end{definition}
+
 There is a dual version of the derived rack:
 
 \begin{proposition}
@@ -572,10 +569,11 @@ There is a dual version of the derived rack:
     the solution $(X,r_0)$.
 \end{proof}
 
+\begin{definition}
 \index{Solution!dual derived rack}
-{\bf The rack constructed in Proposition~\ref{pro:derived_dual} is 
-known as the \emph{dual derived rack} of $(X,r)$.} 
-
+The rack constructed in Proposition~\ref{pro:derived_dual} is 
+known as the \emph{dual derived rack} of $(X,r)$. 
+\end{definition}
 
 In general, the racks constructed in Propositions~\ref{pro:derived} 
 and~\ref{pro:derived_dual} are different:
@@ -640,18 +638,16 @@ T(U(x))&=T(\tau^{-1}_x(x\blacktriangleleft x))=T(\sigma_{\tau^{-1}_x(x)}(x))\\
 \end{align*}
 \end{proof}
 
-There is {\bf a} version of Proposition~\ref{pro:T} for arbitrary solutions. 
+There is a version of Proposition~\ref{pro:T} for arbitrary solutions. 
 A similar result appears in Exercise~\ref{prob:variationT}.
-
-
 
 \begin{proposition}
     Let $(X,r)$ be a solution. Then $T\colon X\to X$, $x\mapsto\sigma_x^{-1}(x)$, is a bijective
     map such that 
     \[
-      T\circ\tau_y=\widehat{\sigma}^{-1}_y\circ T,
+      T\tau_y=\widehat{\sigma}^{-1}_y T,
       \quad
-      T\circ \widehat{\tau_y}=\sigma^{-1}_{y}\circ T
+      T \widehat{\tau_y}=\sigma^{-1}_{y} T
     \]
     and $T(x\blacktriangleleft y)=T(x)\triangleleft T(y)$ for all $x,y\in X$. 
 \end{proposition}
@@ -784,7 +780,8 @@ a solution.
 \index{Skew cycle set}
 \index{Skew cycle set!non-degenerate}
 \label{defn:skewCS}
-A \emph{skew cycle set} is a triple $(X,\triangleleft,\cdot)$, where $X$ is a non-empty set, 
+A \emph{skew cycle set} is a triple $(X,\triangleleft,\cdot)$, 
+where $X$ is a non-empty set, 
 $(X,\triangleleft)$ is a rack and
 $X\times X\to X$, $(x,y)\mapsto x\cdot y$, is a binary operation on $X$ such that the maps 
 $X\to X$, $y\mapsto x\cdot y$, are bijective rack homomorphisms, and 
@@ -793,17 +790,17 @@ $X\to X$, $y\mapsto x\cdot y$, are bijective rack homomorphisms, and
 (x\cdot y)\cdot (x\cdot z)=(y\cdot (x\triangleleft y))\cdot (y\cdot z)
 \end{equation}
 for all $x,y,z\in X$. A skew cycle set $(X,\triangleleft,\cdot)$ is said to be 
-non-degenerate if the map $X\times X$, $x\mapsto x\cdot x$, is bijective.
+\emph{non-degenerate} if the map $X\times X$, $x\mapsto x\cdot x$, is bijective.
 \end{definition}
-
-\framebox{FIXME}
 
 \begin{definition}
 \index{Homomorphism!of skew cycle sets}
 Let $X$ and $Z$ be skew cycle sets. 
-A \emph{homomorphism} between the {\bf skew} cycle sets $X$ and $Z$ is a 
-map $f\colon X\to Z$ such that $f(x\cdot y)=f(x)\cdot f(y)$ {\bf and $f(x\triangleleft y)=f(x)\triangleleft f(y)$,} for all $x,y\in X$. An \emph{isomorphism} of {\bf skew} cycle sets
-is a bijective homomorphism of {\bf skew} cycle sets. 
+A \emph{homomorphism} between the skew cycle sets $X$ and $Z$ is a 
+map $f\colon X\to Z$ such that $f(x\cdot y)=f(x)\cdot f(y)$ and 
+$f(x\triangleleft y)=f(x)\triangleleft f(y)$ for all $x,y\in X$. 
+An \emph{isomorphism} of skew cycle sets
+is a bijective homomorphism of skew cycle sets. 
 \end{definition}
 
 %Cycle sets and cycle set homomorphisms form a category. 
@@ -821,7 +818,7 @@ and non-degenerate skew cycle sets.
 \end{theorem}
 
 \begin{proof}
-Let $(X,r)$ be a solution and $(X,\triangleleft)$ its derived rack. We will prove that 
+Let $(X,r)$ be a solution and $(X,\triangleleft)$ be its derived rack. We will prove that 
 the operation $x\cdot y=\sigma_x^{-1}(y)$ turns $(X,\triangleleft)$ into a skew cycle set.
 By Proposition~\ref{pro:derived}, 
 the 
@@ -832,20 +829,21 @@ On the one hand, since $r(x,\sigma_x^{-1}(y))=(y,\tau_{\sigma_x^{-1}(y)}(x))$,
 (x\cdot y)\cdot (x\cdot z)
 &=\sigma_x^{-1}(y)\cdot\sigma_x^{-1}(z)
 =\sigma_{\sigma_x^{-1}(y)}^{-1}\sigma_x^{-1}(z)\\
-&=\left(\sigma_x\circ\sigma_{\sigma_x^{-1}(y)}\right)^{-1}(z)
-=\left(\sigma_y\circ\sigma_{\tau_{\sigma_x^{-1}(y)}(x)}\right)^{-1}(z).
+&=\left(\sigma_x\sigma_{\sigma_x^{-1}(y)}\right)^{-1}(z)
+=\left(\sigma_y\sigma_{\tau_{\sigma_x^{-1}(y)}(x)}\right)^{-1}(z).
 \end{align*}
 On the other hand, 
 \begin{align*}
 (y\cdot (x\triangleleft y))\cdot (y\cdot z)
-&=\sigma_y^{-1}(\sigma_y\tau_{\sigma_x^{-1}(y)}(x))\cdot\sigma_y^{-1}(z)\\
+&=\sigma_y^{-1}(\sigma_y\tau_{\sigma_x^{-1}(y)}(x))\sigma_y^{-1}(z)\\
 &=\sigma^{-1}_{\tau_{\sigma_x^{-1}(y)}(x)}\sigma_y^{-1}(z)
-=\left(\sigma_y\circ\sigma_{\tau_{\sigma^{-1}_x(y)}(x)}\right)^{-1}(z).
+=\left(\sigma_y\sigma_{\tau_{\sigma^{-1}_x(y)}(x)}\right)^{-1}(z).
 \end{align*}
+Therefore $(X,\triangleleft ,\cdot)$ is a skew cycle set. 
+Furthermore, by Lemma \ref{lem:T_invertible}, this skew cycle set is non-degenerate.
 
-{\bf Therefore $(X,\triangleleft ,\cdot)$ is a skew cycle set. Furthermore, by Lemma \ref{lem:T_invertible}, this skew cycle set is non-degenerate.}
-
-Now we prove the converse statement. {\bf Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set.} 
+Now we prove the converse statement. 
+Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set.
 For $x,y\in X$ let 
 \[
 \sigma_x(y)=x*y,
@@ -855,11 +853,15 @@ For $x,y\in X$ let
 where $x*y=z$ if and only if $x\cdot z=y$. 
 Since $X$ is a skew cycle set, each $\sigma_x$ is bijective. Let us prove that the $\tau_x$ are bijective. 
 Equality~\eqref{eq:skew_CS} with $y=\sigma_x(z)$ implies that
-\begin{equation}\label{eq:solskew}
-\sigma_z^{-1}\sigma_x^{-1}=\sigma^{-1}_{\sigma_x^{-1}(y)}\sigma_x^{-1}
-=\sigma^{-1}_{\sigma_y^{-1}(x\triangleleft y)}\sigma_y^{-1}
+\begin{equation}
+\begin{aligned}
+\label{eq:solskew}
+\sigma_z^{-1}\sigma_x^{-1}
+&=\sigma^{-1}_{\sigma_x^{-1}(y)}\sigma_x^{-1}\\
+&=\sigma^{-1}_{\sigma_y^{-1}(x\triangleleft y)}\sigma_y^{-1}
 =\sigma^{-1}_{\sigma^{-1}_{\sigma_x(z)}(x\triangleleft\sigma_x(z))}\sigma^{-1}_{\sigma_x(z)}
 =\sigma^{-1}_{\tau_z(x)}\sigma^{-1}_{\sigma_x(z)}
+\end{aligned}    
 \end{equation}
 for all $x,z\in X$. 
 Since each $\sigma_x$ is a rack homomorphism, 
@@ -874,8 +876,8 @@ $\tau_y$ is bijective for all $y\in X$.
 
 Let $r\colon X\times X\to X\times X$ be the map defined by $r(x,y)=(\sigma_x(y),\tau_y(x))$, for all $x,y\in X$. 
 Now we prove that $(X,r)$ is a solution. Let $s\colon X\times X\to X\times X$ be the map defined by $s(x,y)=(y,x\triangleleft y)$. By Proposition \ref{pro:Venkov}, $(X,s)$ is a solution. As in the proof of Proposition \ref{pro:derived}, The map $J\colon X^3\to X^3$, $J(x,y,z)=(x,\sigma_x(y),\sigma_x\sigma_y(z))$ is invertible and satisfies that 
-$$(\id\times s)\circ J=J\circ (\id\times r),$$
-because the $\sigma_x$ are rack homomorphisms. Furthermore, by (\ref{eq:solskew}) we have that
+$$(\id\times s) J=J (\id\times r),$$
+because the $\sigma_x$ are rack homomorphisms. Furthermore, by \eqref{eq:solskew} we have that
 \begin{align*}
 	(s\times \id)J(x,y,z)&=(s\times \id)(x,\sigma_x(y),\sigma_x\sigma_y(z))\\
 	&=(\sigma_x(y),x\triangleleft \sigma_x(y),\sigma_x\sigma_y(z))\\
@@ -885,12 +887,17 @@ because the $\sigma_x$ are rack homomorphisms. Furthermore, by (\ref{eq:solskew}
 \end{align*}
 Therefore $(X,r)$ is a solution.
 
-Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set. Let $\varphi(X,\triangleleft,\cdot)=(X,r)$, where
-$r(x,y)=(x*y,(x*y)\cdot(x\triangleleft (x*y)))$, where $x*y=z$ if and only if $y=x\cdot z$. We have seen that $(X,r)$ is a solution.
+Let $(X,\triangleleft,\cdot)$ be a non-degenerate skew cycle set. 
+Let $G(X,\triangleleft,\cdot)=(X,r)$, where
+$r(x,y)=(x*y,(x*y)\cdot(x\triangleleft (x*y)))$, where $x*y=z$ 
+if and only if $y=x\cdot z$. We have seen that $(X,r)$ is a solution.
 
-For every solution $(X,r)$ we define $\psi(X,r)=(X,\triangleleft,\cdot)$, where $x\triangleleft y=\sigma_y\tau_{\sigma_x^{-1}(y)}(x)$ and $x\cdot y=\sigma_x^{-1}(y)$. We have seen that $(X,\triangleleft,\cdot)$ is a non-degenerate skew cycle set.
+For every solution $(X,r)$ we define $F(X,r)=(X,\triangleleft,\cdot)$, 
+where $x\triangleleft y=\sigma_y\tau_{\sigma_x^{-1}(y)}(x)$ 
+and $x\cdot y=\sigma_x^{-1}(y)$. 
+We have seen that $(X,\triangleleft,\cdot)$ is a non-degenerate skew cycle set.
 
-It is easy to check that $\psi(\varphi(X,\triangleleft,\cdot))=(X,\triangleleft,\cdot)$, for every non-degenerate skew cycle set $(X,\triangleleft,\cdot)$, and $\varphi(\psi(X,r))=(X,r)$, for every solution $(X,r)$.
+A direct calculation shows that $F(G(X,\triangleleft,\cdot))=(X,\triangleleft,\cdot)$ for every non-degenerate skew cycle set $(X,\triangleleft,\cdot)$ and $G(F(X,r))=(X,r)$ for every solution $(X,r)$.
 \end{proof}
 
 Theorem~\ref{thm:skewCS} can be used to construct small solutions, see Table~\ref{tab:non_involutive}.
@@ -908,13 +915,11 @@ $s(n)$ & 2 & 21 & 253 & 3519 & 100071 & 4602720 & 422449480\tabularnewline
 \label{tab:non_involutive}
 \end{table}
 
-\section*{B}
-
-\index{Quandle}
-An interesting family of racks is that that of quandles. A \textbf{quandle} is a rack $(X,\triangleleft)$ 
-such that $x\triangleleft x=x$ for all $x\in X$.
-
-{\bf (Ferran: ¿Tienes alguna idea de c\'omo desarrollar el tema?)} 
+%\section*{B}
+%\index{Quandle}
+%An interesting family of racks is that that of quandles. A \textbf{quandle} is a rack $(X,\triangleleft)$ 
+%such that $x\triangleleft x=x$ for all $x\in X$.
+%{\bf (Ferran: ¿Tienes alguna idea de c\'omo desarrollar el tema?)} 
 
 
 
@@ -1200,7 +1205,7 @@ Exercise~\ref{prob:CS}. However, we will prove a more
 general result in Theorem~\ref{thm:skewCS}. 
 
 Theorem~\ref{thm:CS} can be used to construct and enumerate small 
-involutive solutions~\cite{AMV}. Table~\ref{tab:IYB} shows the 
+involutive solutions~\cite{MR4405502}. Table~\ref{tab:IYB} shows the 
 number of non-isomorphic involutive solutions of size $\leq10$. 
 For size $\leq7$ the numbers of Table~\ref{tab:IYB} coincide with those in~\cite{MR1722951}
 but differ by two for $n=8$, as two solutions of size eight 
@@ -1276,6 +1281,20 @@ are missing in~\cite{MR1722951}.
 %\end{prob}
 
 \section{Exercises}
+
+\begin{prob}
+\index{Braid group}
+For $n\geq2$, the \emph{braid group} $\B_n$ is defined as the group with generators $\sigma_1,\dots,\sigma_{n-1}$ and relations
+\begin{align*}
+    &\sigma_i\sigma_{i+1}\sigma_i=\sigma_{i+1}\sigma_i\sigma_{i+1} && \text{if }1\leq i\leq n-2,\\
+    &\sigma_i\sigma_j=\sigma_j\sigma_i && \text{if }|i-j|> 1.
+\end{align*}
+Let $(X,r)$ be a set-theoretic solution to the YBE. Write $X^n=X\times\cdots\times X$ ($n$-times).  
+For $i<n$ let 
+$r_{i,i+1}=\id_{X^{i-1}}\times r\times\id_{X^{n-i-1}}\colon X^n\to X^n$.
+Then the map $\sigma_i\mapsto r_{i,i+1}$ extends 
+to an action of $\B_n$ on $X^n$.
+\end{prob}
 
 \begin{prob}
 \label{prob:Wada}
@@ -1434,7 +1453,7 @@ Estimations on the number of finite
 racks of size $n$ appear in~\cite{MR3118951}. 
 
 The numbers of Table~\ref{tab:non_involutive} were computed using 
-Theorem~\ref{thm:skewCS} essentially with the same technique used to construct involutive solutions~\cite{AMV}. 
+Theorem~\ref{thm:skewCS} essentially with the same technique used to construct involutive solutions~\cite{MR4405502}. 
 The construction of non-involutive solutions of size 9 seems to be feasible with these methods. 
 However, it should be noted that a huge number of solutions is expected. 
 

@@ -6,7 +6,7 @@
 To prove that the structure group $G(X,r)$ of a solution $(X,r)$ is a skew brace, we follow the 
 proof of Lu, Yan and Zhu. They use the language of braided groups.
 
-\section*{Braided groups and skew braces}
+\section{Braided groups and skew braces}
 
 \begin{definition}
 \index{Braided group}
@@ -104,7 +104,7 @@ and
 for all $x,y\in G$. Hence $r_+$ is a braiding operator on $G$, thus $g$ is a well-defined map. Now it is easy to check that $f\circ g=\id_{\mathcal{B}(G)}$ and $g\circ f=\id_{\mathcal{BO}(G)}$.
 \end{proof}
 
-\section*{The structure group of a solution}
+\section{The structure group of a solution}
 \index{Solution!structure group}
 Let $(X,r)$ be asolution to the YBE. Write as usual $r(x,y)=(\sigma_x(y),\tau_y(x))$. The {\em structure group} of $(X,r)$ is the group
 \[ G(X,r)=\gr(X : xy=\sigma_x(y)\tau_y(x), \text{ for all }x,y\in X).\]
@@ -185,9 +185,122 @@ Note that,
     =&\sigma_{\tau^{-1}_{\sigma_{\tau^{-1}_y(x)}(y)}(z)}\tau^{-1}_y(x)
 \end{align*}
 and
+\begin{align*}
+    \tau'_{\sigma'_{\tau'_x(z)}(y')}\sigma'_{z}(x)
+    =&\tau'_{\widehat{\tau}^{-1}_{\tau_x(z)}(y)'}\sigma_z(x)\\
+    =&\tau^{-1}_{\sigma_{\tau^{-1}_y\tau_x(z)}(y)}\sigma_z(x)\\
+    =&\tau^{-1}_{\sigma_{\tau_{\tau^{-1}_y(x)}\tau^{-1}_{\sigma_{\tau^{-1}_y(x)}(y)}(z)}(y)}\sigma_z(x),
+\end{align*}
+by Lemma \ref{lem:YB}.
+
+Since, by Lemma \ref{lem:YB},
+\begin{align*}
+\tau_{\sigma_{\tau_{\tau^{-1}_y(x)}\tau^{-1}_{\sigma_{\tau^{-1}_y(x)}(y)}(z)}(y)}&\sigma_{\tau^{-1}_{\sigma_{\tau^{-1}_y(x)}(y)}(z)}\tau^{-1}_y(x)\\
+=&\sigma_{\tau_{\sigma_{\tau^{-1}_y(x)}(y)}\tau^{-1}_{\sigma_{\tau^{-1}_y(x)}(y)}(z)} \tau_y{\tau^{-1}_y}(x)\\
+=&\sigma_z(x), 
+\end{align*}
+we have that
+\[\sigma'_{\tau'_{\sigma'_x(y')}(z)}\tau'_{y'}(x)=\tau'_{\sigma'_{\tau'_x(z)}(y')}\sigma'_{z}(x).\]
+By a symmetric argument one can prove that
+\[\tau'_{\sigma'_{\tau'_x(y')}(z)}\sigma'_{y'}(x)=\sigma'_{\tau'_{\sigma'_x(z)}(y')}\tau'_{z}(x).\]
+By a similar calculations one get that
+\[\tau'_{\sigma'_{\tau'_{x'}(y)}(z')}\sigma'_{y}(x')=\sigma'_{\tau'_{\sigma'_{x'}(z')}(y)}\tau'_{z'}(x')\]
+and
+\[\sigma'_{\tau'_{\sigma'_{x'}(y)}(z')}\tau'_{y}(x')=\tau'_{\sigma'_{\tau'_{x'}(z')}(y)}\sigma'_{z'}(x').\]
+Hence, by Lemma \ref{lem:YB}, (c) follows. Therefore $(Y,r')$ is a solution of the YBE.
 \end{proof}
 
+We also need the following result. We use the following notation. For every solution $(X,r)$ of the YBE,
+\[r_k=\id^{\times (k-1)}\times r\times\id^{\times (n-k-1)}\colon X^{n}\rightarrow X^n\]
+for all $1\leq k<n$ and $n\geq 3$.
+\begin{theorem}
+\label{thm:solfreemonoid}
+Let $(X,r)$ be a solution of the YBE. Let $\mathrm{FM}(X)$ be the free monoid on $X$. Let $m_k\colon X^{k}\rightarrow \mathrm{FM}(X)$ be the map defined by $m_k(x_1,\dots ,x_k)=x_1\cdots x_k$ for every positive integer $k$. Let $r_{FM}\colon \mathrm{FM}(X)\times \mathrm{FM}(X)\rightarrow \mathrm{FM}(X)\times \mathrm{FM}(X)$ be the map defined by $r_{FM}(x_1\cdots x_n,\, y_1\cdots y_k)$
+\[=(m_k\times m_n)(r_k\cdots r_2r_1)(r_{k+1}\cdots r_3r_2)\cdots(r_{n+k-1}\cdots r_{n+1}r_n)(x_1,\dots ,x_n,y_1,\dots ,y_k)\]
+for all $x_1,\dots ,x_n,y_1,\dots ,y_k\in X$ and all positive integers $n,k$,   $r_{FM}(1,a)=(a,1)$ and $r_{FM}(a,1)=(1,a)$ for all $a\in \mathrm{FM}(X)$. Then $(\mathrm{FM}(X),r_{FM})$ is a solution of the YBE.
+\end{theorem}
 
+\begin{proof}
+Note that if we write $r_{FM}(a,b)=(\sigma_a(b),\tau_b(a))$ for all $a,b\in \mathrm{FM}(X)$, then
+\begin{align*}
+(\id\times r_{FM})(r_{FM}\times \id)&(\id\times r_{FM})(1,a,b)\\
+=&(\id\times r_{FM})(r_{FM}\times \id)(1,\sigma_a(b),\tau_b(a))\\
+=&(\id\times r_{FM})(\sigma_a(b),1,\tau_b(a))=(\sigma_a(b),\tau_b(a),1)
+\end{align*}
+and
+\begin{align*}
+(r_{FM}\times \id)(\id\times r_{FM})&(r_{FM}\times \id)(1,a,b)\\
+=&(r_{FM}\times \id)(\id\times r_{FM})(a,1,b)\\
+=&(r_{FM}\times \id)(a,b,1)=(\sigma_a(b),\tau_b(a),1)
+\end{align*}
+Similarly one can check that
+\[(\id\times r_{FM})(r_{FM}\times \id)(\id\times r_{FM})(a,1,b)=
+(r_{FM}\times \id)(\id\times r_{FM})(r_{FM}\times \id)(a,1,b)\]
+and
+\[(\id\times r_{FM})(r_{FM}\times \id)(\id\times r_{FM})(a,b,1)=
+(r_{FM}\times \id)(\id\times r_{FM})(r_{FM}\times \id)(a,b,1).\]
+Hence
+to prove that
+\[(\id\times r_{FM})(r_{FM}\times \id)(\id\times r_{FM})=(r_{FM}\times \id)(\id\times r_{FM})(r_{FM}\times \id)\]
+we need to show that
+\begin{align*}
+    (r_{k+t}\cdots r_{1+t})&\cdots (r_{k+t+n-1}\cdots r_{t+n})(r_{t}\cdots r_2r_{1})\cdots (r_{n+t-1}\cdots r_{n})\\
+    &\cdot (r_{n+t}\cdots r_{n+1})\cdots (r_{n+k+t-1}\cdots r_{n+k})
+    (x_1,\dots ,x_n,y_1,\dots ,y_k,z_1,\dots,z_t)\\
+    =&(r_{t}\cdots r_2r_{1})\cdots (r_{k+t-1}\cdots r_{k})(r_{k+t}\cdots r_{k+1})\cdots (r_{n+k+t-1}\cdots r_{n+k})\\
+    &\cdot (r_{k}\cdots r_2r_{1})\cdots (r_{n+k-1}\cdots r_{n})(x_1,\dots ,x_n,y_1,\dots ,y_k,z_1,\dots,z_t)
+\end{align*}
+for all positive integers $n,k,t$ and $x_1,\dots ,x_n,y_1,\dots ,y_k,z_1,\dots ,z_t\in X$.
+
+Note that 
+\begin{equation}\label{eq:SFcom}
+r_{l+m}r_{m}=r_mr_{l+m}
+\end{equation}
+for all $1\leq m<n+k+t-2$ and $2\leq l\leq n+k+t-m-1$. Hence
+\begin{align}\label{eq:solfree}
+r_m(r_{m+l}\cdots r_{m+1}r_m)=&r_{m+l}\cdots r_{m+2}r_mr_{m+1}r_m\nonumber\\
+&(r_{m+l}\cdots r_{m+2}r_{m+1}r_{m})r_{m+1}.
+\end{align}
+By using (\ref{eq:SFcom}) and (\ref{eq:solfree}), we have that
+\begin{align*}
+    (r_{t+k}\cdots r_{t+1})&\cdots (r_{t+k+n-1}\cdots r_{t+n})(r_{t}\cdots r_2r_{1})\cdots (r_{n+t-1}\cdots r_{n})\\
+    &\cdot (r_{n+t}\cdots r_{n+1})\cdots (r_{n+k+t-1}\cdots r_{n+k})\\
+    =&(r_{t+k}\cdots r_{t+1}r_t\cdots r_2r_1)\cdots (r_{t+k+n-1}\cdots r_{t+n}r_{n+t-1}\cdots r_{n})\\
+    &\cdot (r_{n+t}\cdots r_{n+1})\cdots (r_{n+k+t-1}\cdots r_{n+k})\\
+     =&(r_t\cdots r_2r_1)(r_{t+k}\cdots r_{t+1}r_t\cdots r_2r_1)\\
+     &\cdots (r_{t+k+n-1}\cdots r_{t+n}r_{n+t-1}\cdots r_{n})\\
+    &\cdot (r_{n+t+1}\cdots r_{n+2})\cdots (r_{n+k+t-1}\cdots r_{n+k})\\
+    =&(r_t\cdots r_2r_1)\cdots (r_{k+t-1}\cdots r_{k})\\
+    &\cdot (r_{t+k}\cdots r_{t+1}r_t\cdots r_2r_1)\cdots (r_{t+k+n-1}\cdots r_{t+n}r_{n+t-1}\cdots r_{n})\\
+    =&(r_t\cdots r_2r_1)\cdots (r_{k+t-1}\cdots r_{k})\\
+    &\cdot (r_{k+t}\cdots r_{k+1}r_k\cdots r_2r_1)\cdots (r_{n+k+t-1}\cdots r_{n+k}r_{n+k-1}\cdots r_{n})\\
+    =&(r_t\cdots r_2r_1)\cdots (r_{k+t-1}\cdots r_{k})\\
+    &\cdot (r_{k+t}\cdots r_{k+1})\cdots (r_{n+k+t-1}\cdots r_{n+k})(r_k\cdots r_2r_1)\cdots (r_{n+k-1}\cdots r_{n}).
+\end{align*}
+Hence
+\[(\id\times r_{FM})(r_{FM}\times \id)(\id\times r_{FM})=(r_{FM}\times \id)(\id\times r_{FM})(r_{FM}\times \id).\]
+By the definition of the free monoid on $X$, every $m_k$ is bijective. Hence by the definition of $r_{FM}$, since $r$ is bijective, we have that $r_{FM}$ is bijective.
+
+Note that $\sigma_1=\id$ and $\tau_1=\id$. We know that the restrictions of $\sigma_x$ and $\tau_x$ on $X$ for all $x\in X$ are bijective.
+We shall prove, by induction on $k$, that the restrictions of $\sigma_x$ and $\tau_x$ on the set $X_k$ of words of length $k$ for all $x\in X$ are bijective. For $k=0$, $\sigma_x(1)=1$ and $\tau_x(1)=1$, by the definition of $r_{FM}$. Suppose that $k\geq 1$ and that the restrictions of $\sigma_x$ and $\tau_x$ on the set $X_l$ of words of length $l\leq k$ for all $x\in X$ are bijective. Let $x,y_1,\dots ,y_{k+1}\in X$. By the definition of $r_{FM}$ we have that
+\[\sigma_x(y_1\cdots y_{k+1})=\sigma_x(y_1\cdots y_k)\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(y_{k+1}).\]
+Let $z_1,\dots,z_{k+1}\in X$  such that $\sigma_x(y_1\cdots y_{k+1})=\sigma_x(z_1\cdots z_{k+1})$. Hence
+\[\sigma_x(y_1\cdots y_{k+1})=\sigma_x(z_1\cdots z_{k+1}) \text{ and }
+\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(y_{k+1})=\sigma_{\tau_{z_k}\cdots \tau_{z_1}(x)}(z_{k+1}).\]
+By the inductive hypothesis the restriction of $\sigma_x$ to $X_k$ is bijective. Hence $y_1\cdots y_k=z_1\cdots z_k$, and thus $y_i=z_i$ for all $1\leq i\leq k$. Now
+\[\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(y_{k+1})=\sigma_{\tau_{z_k}\cdots \tau_{z_1}(x)}(z_{k+1})=\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(z_{k+1})\]
+and thus $y_{k+1}=z_{k+1}$. Therefore the restriction of $\sigma_x$ on $X_{k+1}$ is injective. Let $c_1,\dots ,c_{k+1}\in X$. By the inductive hypothesis there exist $x_1,\dots ,x_k\in X$ such that
+\[\sigma_x(x_1\cdots x_k)=c_1\cdots c_k.\]
+There exists $x_{k+1}\in X$ such that
+\[\sigma_{\tau_{x_k}\cdots \tau_{x_1}(x)}(x_{k+1})=z_{k+1}.\]
+Hence
+\[\sigma_x(x_1\cdots x_{k+1})=c_1\cdots c_{k+1},\]
+and therefore the restriction of $\sigma_x$ on $X_{k+1}$ is bijective.
+
+
+
+
+\end{proof}
 
 \begin{theorem}
 \label{thm:LYZ9}
