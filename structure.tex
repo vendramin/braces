@@ -8,7 +8,7 @@ proof of Lu, Yan and Zhu. They use the language of braided groups.
 
 \section{Braided groups and skew braces}
 
-\begin{definition}
+\begin{definition}\label{braidedgroup}
 \index{Braided group}
 A \emph{braided group} is a pair $(G,r)$, where 
 $G$ is a group with operation $m\colon G\times G\to G$, $m(x,y)=xy$, and 
@@ -22,30 +22,38 @@ $r\colon G\times G\to G\times G$ is a bijective map such that
 The map $r$ is called a \emph{braiding operator} on $G$. 
 \end{definition}
 
-
-\begin{theorem}
-    Let $G$ be a group. Then there is a bijection between the set of braiding operators on $G$ and the set of skew brace structures on the set $G$ with multiplicative group $G$. 
-\end{theorem}
+\begin{lemma}
+\label{lem:braidedsolYBE}
+Let $(G,r)$ be a braided group. We write $r(x,y)=(x\rhd_r y,x\lhd_r y)$, for all $x,y\in G$. Let $\xi\colon G\rightarrow \Sym_G$ be the map defined by $\xi(x)(y)=x\rhd_r y$ for all $x,y\in G$. Let $\eta\colon G\rightarrow \Sym_G$ be the map defined by $\eta(x)(y)=y\lhd_r x$ for all $x,y\in G$. Then $\xi$ is a left action of $G$ on itself, $\eta$ is a right action of $G$ on itself and $(G,r)$ is a solution to the YBE. 
+\end{lemma}
 
 \begin{proof}
-    Let $\mathcal{BO}(G)$ be the set of all the braiding operators on $G$. Let $\mathcal{B}(G)$ be the set of all the skew brace structures $(G,+,\circ)$ on the group $G$, where $x\circ y=xy$, for all $x,y\in G$. For $r\in \mathcal{BO}(G)$, we write $r(x,y)=(x\rhd_r y,x\lhd_r y)$, for all $x,y\in G$. We define
-    \[ f\colon \mathcal{BO}(G)\rightarrow \mathcal{B}(G)\]
-    by $f(r)=(G,+_r,\circ)$, where $x+_r y=x(x^{-1}\rhd_r y)$, for all $x,y\in G$ and $r\in \mathcal{BO}(G)$. By the definition of a braiding operator, we have that
+By the definition of a braiding operator, we have that
     \begin{align*}
         r(xy,z)=& (\id\times m)r_1r_2(x,y,z)\\
         =&(\id\times m)r_1(x,y\rhd_r z,y\lhd_r z)\\
         =&(\id\times m)(x\rhd_r (y\rhd_r z),x\lhd_r (y\rhd_r z),y\lhd_r z)\\
         =&(x\rhd_r (y\rhd_r z),(x\lhd_r (y\rhd_r z))(y\lhd_r z)),
         \end{align*}
-    and thus $(xy)\rhd_r z=(x\rhd_r (y\rhd_r z)$. Since $r(1,x)=(x,1)$, we have that the map $\xi\colon G\rightarrow \Sym_G$ defined by $\xi(x)(y)=x\rhd_r y$, for all $x,y\in G$ is a left action of $G$ on itself.
+    and thus $(xy)\rhd_r z=(x\rhd_r (y\rhd_r z)$. Since $r(1,x)=(x,1)$, we have that the map $\xi$ is a left action of $G$ on itself.
     By the definition of a braiding operator, we have that
-    \begin{align*}
-        r(x,yz)=& (m\times\id)r_2r_1(x,y,z)\\
-        =&(m\times\id)r_2(x\rhd_r y,x\lhd_r y,z)\\
-        =&(m\times\id)(x\rhd_r y,(x\lhd_r y)\rhd_r z, (x\lhd_r y)\lhd_r z)\\
+    \begin{align}\label{LYZequa1}
+        r(x,yz)=& (m\times\id)r_2r_1(x,y,z)\nonumber\\
+        =&(m\times\id)r_2(x\rhd_r y,x\lhd_r y,z)\nonumber\\
+        =&(m\times\id)(x\rhd_r y,(x\lhd_r y)\rhd_r z, (x\lhd_r y)\lhd_r z)\nonumber\\
         =&((x\rhd_r y)((x\lhd_r y)\rhd_r z), (x\lhd_r y)\lhd_r z),
-        \end{align*}
-    and thus $x\lhd_r (yz)=(x\lhd_r y)\lhd_r z$. Since $r(x,1)=(1,x)$, we have that the map $\eta\colon G\rightarrow \Sym_G$ defined by $\eta(x)(y)=y\lhd_r x$, for all $x,y\in G$ is a right action of $G$ on itself. Furthermore, $xy=(x\rhd_r y)(x\lhd_r y)$, for all $x,y\in G$. Hence, by Theorem \ref{thm:LYZ}, $(G,r)$ is a solution to the YBE. Now we have
+        \end{align}
+    and thus $x\lhd_r (yz)=(x\lhd_r y)\lhd_r z$. Since $r(x,1)=(1,x)$, we have that the map $\eta$ is a right action of $G$ on itself. Furthermore, $xy=(x\rhd_r y)(x\lhd_r y)$, for all $x,y\in G$. Hence, by Theorem \ref{thm:LYZ}, $(G,r)$ is a solution to the YBE.
+\end{proof}
+
+\begin{theorem}\label{thm:braidedbraces}
+    Let $G$ be a group. Then there is a bijection between the set of braiding operators on $G$ and the set of skew brace structures on the set $G$ with multiplicative group $G$. 
+\end{theorem}
+
+\begin{proof}
+    Let $\mathcal{BO}(G)$ be the set of all the braiding operators on $G$. Let $\mathcal{B}(G)$ be the set of all the skew brace structures $(G,+,\circ)$ on the group $G$, where $x\circ y=xy$, for all $x,y\in G$. For $r\in \mathcal{BO}(G)$, we write $r(x,y)=(x\rhd_r y,x\lhd_r y)$, for all $x,y\in G$. We define
+    \[ f\colon \mathcal{BO}(G)\rightarrow \mathcal{B}(G)\]
+    by $f(r)=(G,+_r,\circ)$, where $x+_r y=x(x^{-1}\rhd_r y)$, for all $x,y\in G$ and $r\in \mathcal{BO}(G)$. Now, by (\ref{LYZequa1}) and Lemma \ref{lem:braidedsolYBE}, we have
     \begin{align}\label{LYZequa}
         x\rhd_r (y+_r z)=&x\rhd_r(y(y^{-1}\rhd_r z))\nonumber\\
         =&(x\rhd_r y)((x\lhd_r y)\rhd_r (y^{-1}\rhd_r z))\nonumber\\
@@ -54,21 +62,25 @@ The map $r$ is called a \emph{braiding operator} on $G$.
         =&(x\rhd_r y)+(x\rhd_r z).
     \end{align}
     Note that $1+_r x=1(1^{-1}\rhd_r x)=x$ and
-    $x+_r 1=x(x^{-1}\rhd_r 1)=x1=x$,  for all $x\in G$. For every $x\in G$, we have
-    \[x+_r (x\rhd x^{-1})=x(x^{-1}\rhd_r(x\rhd x^{-1}))=xx^{-1}=1\]
-and
+    $x+_r 1=x(x^{-1}\rhd_r 1)=x1=x$  for all $x\in G$. By Lemma \ref{lem:braidedsolYBE},  for every $x\in G$, we have
+    \[x+_r (x\rhd_r x^{-1})=x(x^{-1}\rhd_r(x\rhd_r x^{-1}))=xx^{-1}=1\]
+and by (\ref{LYZequa1}),
 \begin{align*}
-    (x\rhd x^{-1})+_r x=&(x\rhd x^{-1})((x\rhd x^{-1})^{-1}\rhd x)\\
-    =&(x\rhd x^{-1})((x\lhd x^{-1})\rhd x)\\
+    (x\rhd_r x^{-1})+_r x=&(x\rhd_r x^{-1})((x\rhd_r x^{-1})^{-1}\rhd_r x)\\
+    =&(x\rhd_r x^{-1})((x\lhd_r x^{-1})\rhd_r x)\\
     =&x\rhd_r(x^{-1}x)=1.
 \end{align*}
-By (\ref{LYZequa}), we have that
+By Lemma \ref{lem:braidedsolYBE} and (\ref{LYZequa}), we have that
 \begin{align*}
     (x+_r y)+_r z=&x(x^{-1}\rhd_r y)(((x^{-1}\rhd_r y)^{-1}x^{-1})\rhd_r z)\\
+    =&x(x^{-1}\rhd_r y)((x^{-1}\rhd_r y)^{-1}\rhd_r (x^{-1}\rhd_r z))\\
     =&x((x^{-1}\rhd_r y)+_r(x^{-1}\rhd_r z))\\
-    =&x(x^{-1}\rhd_r(y+_r z))=x+_r (y+_r z),
+    =&x(x^{-1}\rhd_r(y+_r z))=x+_r (y+_r z)
 \end{align*}
-for all $x,y,z\in G$. Hence $(G,+_r)$ is a group. By (\ref{LYZequa}), we have
+for all $x,y,z\in G$. Hence $(G,+_r)$ is a group. By Lemma \ref{lem:braidedsolYBE}, 
+\[x+(x\rhd_r y)=x(x^{-1}\rhd_r(x\rhd_r y))=xy\]
+for all $x,y\in G$.
+By (\ref{LYZequa}), we have
 \begin{align*}
     x(y+_r z)=&x+_r(x\rhd_r (y+_r z))\\
     =&x+_r (x\rhd_r y)+_r(x\rhd_r z)\\
@@ -106,19 +118,19 @@ for all $x,y\in G$. Hence $r_+$ is a braiding operator on $G$, thus $g$ is a wel
 
 \section{The structure group of a solution}
 \index{Solution!structure group}
-Let $(X,r)$ be asolution to the YBE. Write as usual $r(x,y)=(\sigma_x(y),\tau_y(x))$. The {\em structure group} of $(X,r)$ is the group
+Let $(X,r)$ be a solution to the YBE. Write as usual $r(x,y)=(\sigma_x(y),\tau_y(x))$. The {\em structure group} of $(X,r)$ is the group
 \[ G(X,r)=\gr(X : xy=\sigma_x(y)\tau_y(x), \text{ for all }x,y\in X).\]
 In this section we shall see that there is a natural braiding operator on $G(X,r)$ induced by $r$ that satisfies a nice universal property. 
 
-To do so we prove first that there is an interesting extension of the solution $(X,r)$.
+To do so we prove first that there are interesting extensions of the solution $(X,r)$.
 
 \begin{proposition}
 \label{prop:extendsol}
-Let $(X,r)$ be a solution of the YBE. Let $X'=\{x'\mid x\in X\}$ be a copy of $X$ and let $Y$ be the disjoint union of $X$ and $X'$. We write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))$. We define $r'\colon Y\times Y\rightarrow Y\times Y$ by $r'(u,v)=(\sigma'_u(v),\tau'_v(u))$, for all $u,v\in Y$, where
+Let $(X,r)$ be a solution to the YBE. Let $X'=\{x'\mid x\in X\}$ be a copy of $X$ and let $Y$ be the disjoint union of $X$ and $X'$. We write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))$. We define $r'\colon Y\times Y\rightarrow Y\times Y$ by $r'(u,v)=(\sigma'_u(v),\tau'_v(u))$, for all $u,v\in Y$, where
 \[ \sigma'_x(y)=\sigma_x(y),\; \sigma'_{x'}(y)=\sigma^{-1}_x(y),\; \sigma'_{x}(y')=\widehat{\tau}^{-1}_x(y)',\; \sigma'_{x'}(y')=\widehat{\tau}_x(y)'\]
 and
 \[ \tau'_x(y)=\tau_x(y),\; \tau'_{x'}(y)=\tau^{-1}_x(y),\; \tau'_{x}(y')=\widehat{\sigma}^{-1}_x(y)',\; \tau'_{x'}(y')=\widehat{\sigma}_x(y)',\]
-for all $x,y\in X$. Then $(Y,r')$ is a solution of the YBE.
+for all $x,y\in X$. Then $(Y,r')$ is a solution to the YBE.
 \end{proposition}
 
 \begin{proof}
@@ -130,8 +142,11 @@ Similarly one can see that
 \[ \tau^{-1}_x(y)=\widehat{\sigma}_{\widehat{\tau}^{-1}_y(x)}(y)\text{ and } \sigma^{-1}_x(y)=\widehat{\tau}_{\widehat{\sigma}^{-1}_y(x)}(y).\]
 Now it is easy to check that $r'$ is bijective and
 \[ (r')^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x)),\; (r')^{-1}(x',y)=(\widehat{\sigma}^{-1}_x(y),\sigma^{-1}_y(x)'),\] 
-\[ (r')^{-1}(x,y')=(\tau^{-1}_x(y)',\widehat{\tau}^{-1}_y(x)), \; (r')^{-1}(x',y')=(\sigma_x(y)',\tau_y(x)').\]
-By Lemma \ref{lem:YB} it is enough to prove that
+\[ (r')^{-1}(x,y')=(\tau^{-1}_x(y)',\widehat{\tau}^{-1}_y(x)), \; (r')^{-1}(x',y')=(\sigma_x(y)',\tau_y(x)')\]
+for all $x,y\in X$.
+
+Hence, to show that $(Y,r')$ is a solution to the YBE,  
+by Lemma \ref{lem:YB} it is enough to prove that
 \begin{itemize}
     \item[(a)] $\sigma'_{u}\sigma'_{v}=\sigma'_{\sigma'_u(v)}\sigma'_{\tau'_v(u)}$,
     \item[(b)]$\sigma'_{\tau'_{\sigma'_u(v)}(w)}\tau'_v(u)=\tau'_{\sigma'_{\tau'_u(w)}(v)}\sigma'_w(u)$,
@@ -139,7 +154,7 @@ By Lemma \ref{lem:YB} it is enough to prove that
 \end{itemize}
 for all $u,v,w\in Y$.
 
-Let $x,y,z\in X$. Since $(X,r^{-1})$ is a solution of the YBE, by Lemma \ref{lem:YB}, we have that
+Let $x,y,z\in X$. Since $(X,r^{-1})$ is a solution to the YBE, by Lemma \ref{lem:YB}, we have that
 \begin{align*}
     \sigma'_{x}\sigma'_{y}(z)=&\sigma_{x}\sigma_{y}(z)=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}(z)\\
     =&\sigma'_{\sigma'_x(y)}\sigma'_{\tau'_y(x)}(z),\\
@@ -207,17 +222,17 @@ By a similar calculations one get that
 \[\tau'_{\sigma'_{\tau'_{x'}(y)}(z')}\sigma'_{y}(x')=\sigma'_{\tau'_{\sigma'_{x'}(z')}(y)}\tau'_{z'}(x')\]
 and
 \[\sigma'_{\tau'_{\sigma'_{x'}(y)}(z')}\tau'_{y}(x')=\tau'_{\sigma'_{\tau'_{x'}(z')}(y)}\sigma'_{z'}(x').\]
-Hence, by Lemma \ref{lem:YB}, (c) follows. Therefore $(Y,r')$ is a solution of the YBE.
+Hence, by Lemma \ref{lem:YB}, (c) follows. Therefore $(Y,r')$ is a solution to the YBE.
 \end{proof}
 
-We also need the following result. We use the following notation. For every solution $(X,r)$ of the YBE,
+We use the following notation. For every solution $(X,r)$ of the YBE,
 \[r_k=\id^{\times (k-1)}\times r\times\id^{\times (n-k-1)}\colon X^{n}\rightarrow X^n\]
 for all $1\leq k<n$ and $n\geq 3$.
 \begin{theorem}
 \label{thm:solfreemonoid}
 Let $(X,r)$ be a solution of the YBE. Let $\mathrm{FM}(X)$ be the free monoid on $X$. Let $m_k\colon X^{k}\rightarrow \mathrm{FM}(X)$ be the map defined by $m_k(x_1,\dots ,x_k)=x_1\cdots x_k$ for every positive integer $k$. Let $r_{FM}\colon \mathrm{FM}(X)\times \mathrm{FM}(X)\rightarrow \mathrm{FM}(X)\times \mathrm{FM}(X)$ be the map defined by $r_{FM}(x_1\cdots x_n,\, y_1\cdots y_k)$
 \[=(m_k\times m_n)(r_k\cdots r_2r_1)(r_{k+1}\cdots r_3r_2)\cdots(r_{n+k-1}\cdots r_{n+1}r_n)(x_1,\dots ,x_n,y_1,\dots ,y_k)\]
-for all $x_1,\dots ,x_n,y_1,\dots ,y_k\in X$ and all positive integers $n,k$,   $r_{FM}(1,a)=(a,1)$ and $r_{FM}(a,1)=(1,a)$ for all $a\in \mathrm{FM}(X)$. Then $(\mathrm{FM}(X),r_{FM})$ is a solution of the YBE.
+for all $x_1,\dots ,x_n,y_1,\dots ,y_k\in X$ and all positive integers $n,k$,   $r_{FM}(1,a)=(a,1)$ and $r_{FM}(a,1)=(1,a)$ for all $a\in \mathrm{FM}(X)$. Then $(\mathrm{FM}(X),r_{FM})$ is a solution to the YBE.
 \end{theorem}
 
 \begin{proof}
@@ -259,7 +274,7 @@ r_{l+m}r_{m}=r_mr_{l+m}
 for all $1\leq m<n+k+t-2$ and $2\leq l\leq n+k+t-m-1$. Hence
 \begin{align}\label{eq:solfree}
 r_m(r_{m+l}\cdots r_{m+1}r_m)=&r_{m+l}\cdots r_{m+2}r_mr_{m+1}r_m\nonumber\\
-&(r_{m+l}\cdots r_{m+2}r_{m+1}r_{m})r_{m+1}.
+=&(r_{m+l}\cdots r_{m+2}r_{m+1}r_{m})r_{m+1}.
 \end{align}
 By using (\ref{eq:SFcom}) and (\ref{eq:solfree}), we have that
 \begin{align*}
@@ -285,9 +300,9 @@ Note that $\sigma_1=\id$ and $\tau_1=\id$. We know that the restrictions of $\si
 We shall prove, by induction on $k$, that the restrictions of $\sigma_x$ and $\tau_x$ on the set $X_k$ of words of length $k$ for all $x\in X$ are bijective. For $k=0$, $\sigma_x(1)=1$ and $\tau_x(1)=1$, by the definition of $r_{FM}$. Suppose that $k\geq 1$ and that the restrictions of $\sigma_x$ and $\tau_x$ on the set $X_l$ of words of length $l\leq k$ for all $x\in X$ are bijective. Let $x,y_1,\dots ,y_{k+1}\in X$. By the definition of $r_{FM}$ we have that
 \[\sigma_x(y_1\cdots y_{k+1})=\sigma_x(y_1\cdots y_k)\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(y_{k+1}).\]
 Let $z_1,\dots,z_{k+1}\in X$  such that $\sigma_x(y_1\cdots y_{k+1})=\sigma_x(z_1\cdots z_{k+1})$. Hence
-\[\sigma_x(y_1\cdots y_{k+1})=\sigma_x(z_1\cdots z_{k+1}) \text{ and }
+\[\sigma_x(y_1\cdots y_{k})=\sigma_x(z_1\cdots z_{k}) \text{ and }
 \sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(y_{k+1})=\sigma_{\tau_{z_k}\cdots \tau_{z_1}(x)}(z_{k+1}).\]
-By the inductive hypothesis the restriction of $\sigma_x$ to $X_k$ is bijective. Hence $y_1\cdots y_k=z_1\cdots z_k$, and thus $y_i=z_i$ for all $1\leq i\leq k$. Now
+By the inductive hypothesis the restriction of $\sigma_x$ on $X_k$ is bijective. Hence $y_1\cdots y_k=z_1\cdots z_k$, and thus $y_i=z_i$ for all $1\leq i\leq k$. Now
 \[\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(y_{k+1})=\sigma_{\tau_{z_k}\cdots \tau_{z_1}(x)}(z_{k+1})=\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x)}(z_{k+1})\]
 and thus $y_{k+1}=z_{k+1}$. Therefore the restriction of $\sigma_x$ on $X_{k+1}$ is injective. Let $c_1,\dots ,c_{k+1}\in X$. By the inductive hypothesis there exist $x_1,\dots ,x_k\in X$ such that
 \[\sigma_x(x_1\cdots x_k)=c_1\cdots c_k.\]
@@ -295,22 +310,332 @@ There exists $x_{k+1}\in X$ such that
 \[\sigma_{\tau_{x_k}\cdots \tau_{x_1}(x)}(x_{k+1})=z_{k+1}.\]
 Hence
 \[\sigma_x(x_1\cdots x_{k+1})=c_1\cdots c_{k+1},\]
-and therefore the restriction of $\sigma_x$ on $X_{k+1}$ is bijective.
+and thus the restriction of $\sigma_x$ on $X_{k+1}$ is bijective.
+Therefore, by induction, $\sigma_x$ is bijective for all $x\in X$.
 
+By the definition of $r_{FM}$ we have that
+\[\tau_x(y_1\cdots y_{k+1})=\tau_{\sigma_{y_2}\cdots \sigma_{y_{k+1}}(x)}(y_{1})\tau_x(y_2\cdots y_{k+1}).\]
+Let $z_1,\dots,z_{k+1}\in X$  such that $\tau_x(y_1\cdots y_{k+1})=\tau_x(z_1\cdots z_{k+1})$. Hence
+\[\tau_x(y_2\cdots y_{k+1})=\tau_x(z_2\cdots z_{k+1}) \text{ and }
+\tau_{\sigma_{y_2}\cdots \sigma_{y_{k+1}}(x)}(y_{1})=\tau_{\sigma_{z_2}\cdots \sigma_{z_{k+1}}(x)}(z_{1}).\]
+By the inductive hypothesis the restriction of $\tau_x$ on $X_k$ is bijective. Hence $y_2\cdots y_{k+1}=z_2\cdots z_{k+1}$, and thus $y_i=z_i$ for all $2\leq i\leq k+1$. Now
+\[\tau_{\sigma_{y_2}\cdots \sigma_{y_{k+1}}(x)}(y_{1})=\tau_{\sigma_{z_2}\cdots \sigma_{z_{k+1}}(x)}(z_{1})=\tau_{\sigma_{y_2}\cdots \sigma_{y_{k+1}}(x)}(z_{1})\]
+and thus $y_{1}=z_{1}$. Therefore the restriction of $\tau_x$ on $X_{k+1}$ is injective. Let $c_1,\dots ,c_{k+1}\in X$. By the inductive hypothesis there exist $x_2,\dots ,x_{k+1}\in X$ such that
+\[\tau_x(x_2\cdots x_{k+1})=c_2\cdots c_{k+1}.\]
+There exists $x_{1}\in X$ such that
+\[\tau_{\sigma_{x_2}\cdots \sigma_{x_{k+1}}(x)}(x_{1})=z_{1}.\]
+Hence
+\[\tau_x(x_1\cdots x_{k+1})=c_1\cdots c_{k+1},\]
+and thus the restriction of $\tau_x$ on $X_{k+1}$ is bijective.
+Therefore, by induction, $\tau_x$ is bijective for all $x\in X$.
 
-
-
+Let $x_1,\dots ,x_{n+1},y_1,\dots ,y_{k+1}\in X$. We shall prove that
+\[\sigma_{x_1\cdots x_n}(y_1\cdots y_k)=\sigma_{x_1}\cdots \sigma_{x_n}(y_1\cdots y_k)\] 
+and 
+\[\tau_{x_1\cdots x_n}(y_1\cdots y_k)=\tau_{x_n}\cdots \tau_{x_1}(y_1\cdots y_k)\]
+by induction on $n+k$.
+Note that by the definition of $r_{FM}$,
+\[\sigma_{x_1\cdots x_n}(y)=\sigma_{x_1}\cdots \sigma_{x_n}(y)\text{ and }\tau_{x_1\cdots x_n}(y)=\tau_{x_n}\cdots \tau_{x_1}(y)\]
+for all positive integer $n$ and all $y\in \{1\}\cup X_1$.  Suppose that $k,n\geq 1$ and
+\[\sigma_{x_1\cdots x_l}(y_1\cdots y_t)=\sigma_{x_1}\cdots \sigma_{x_l}(y_1\cdots y_t)\]
+and
+\[\tau_{x_1\cdots x_l}(y_1\cdots y_t)=\tau_{x_l}\cdots \tau_{x_1}(y_1\cdots y_t)\]
+for all positive integers $l,t$ such that $l+t\leq n+k$.
+Clearly we may assume that $n>1$. By the definition of $r_{FM}$ and the inductive hypothesis, we have that
+\begin{align*}
+    \sigma_{x_1\cdots x_n}(y_1\cdots y_{k+1})=&\sigma_{x_1\cdots x_n}(y_1\cdots y_k)\sigma_{\tau_{y_{k}}\cdots \tau_{y_1}(x_1\cdots x_n)}(y_{k+1})\\
+    =&\sigma_{x_1\cdots x_n}(y_1\cdots y_k)\sigma_{\tau_{y_{1}\cdots y_k}(x_1\cdots x_n)}(y_{k+1})\\
+    =&\sigma_{x_1\cdots x_n}(y_1\cdots y_k)\sigma_{\tau_{\sigma_{x_2}\cdots\sigma_{x_n}(y_{1}\cdots y_k)}(x_1)\tau_{y_1\cdots y_k}(x_2\cdots x_n)}(y_{k+1})\\
+    =&\sigma_{x_1}\sigma_{x_2\cdots x_n}(y_1\cdots y_k)\sigma_{\tau_{\sigma_{x_2}\cdots\sigma_{x_n}(y_{1}\cdots y_k)}(x_1)}\sigma_{\tau_{y_1\cdots y_k}(x_2\cdots x_n)}(y_{k+1})\\
+    =&\sigma_{x_1}\left(\sigma_{x_2\cdots x_n}(y_1\cdots y_k)\sigma_{\tau_{y_1\cdots y_k}(x_2\cdots x_n)}(y_{k+1})\right)\\
+    =&\sigma_{x_1}\left(\sigma_{x_2\cdots x_n}(y_1\cdots y_k)\sigma_{\tau_{y_k}\cdots \tau_{y_1}(x_2\cdots x_n)}(y_{k+1})\right)\\
+    =&\sigma_{x_1}\sigma_{x_2\cdots x_n}(y_1\cdots y_{k+1})\\
+    =&\sigma_{x_1}\cdots\sigma_{x_n}(y_1\cdots y_{k+1})
+    \end{align*}
+and
+\begin{align*}
+    \tau_{x_1\cdots x_n}(y_1\cdots y_{k+1})=&\tau_{\sigma_{y_{2}}\cdots \sigma_{y_{k+1}}(x_1\cdots x_n)}(y_{1})\tau_{x_1\cdots x_n}(y_2\cdots y_{k+1})\\
+    =&\tau_{\sigma_{y_{2}\cdots y_{k+1}}(x_1\cdots x_n)}(y_{1})\tau_{x_1\cdots x_n}(y_2\cdots y_{k+1})\\
+    =&\tau_{\sigma_{y_2\cdots y_{k+1}}(x_1\cdots x_{n-1})\sigma_{\tau_{x_{n-1}}\cdots\tau_{x_{1}}(y_{2}\cdots y_{k+1})}(x_n)}(y_{1})\tau_{x_1\cdots x_n}(y_2\cdots y_{k+1})\\
+    =&\tau_{\sigma_{\tau_{x_{1}\cdots x_{n-1}}(y_{2}\cdots y_{k+1})}(x_n)}\tau_{\sigma_{y_2\cdots y_{k+1}}(x_1\cdots x_{n-1})}(y_{1})\\
+    &\cdot\tau_{x_n}\tau_{x_1\cdots x_{n-1}}(y_2\cdots y_{k+1})\\
+    =&\tau_{x_n}\left(\tau_{\sigma_{y_2\cdots y_{k+1}}(x_1\cdots x_{n-1})}(y_{1})\tau_{x_1\cdots x_{n-1}}(y_2\cdots y_{k+1})\right)\\
+    =&\tau_{x_n}\left(\tau_{\sigma_{y_2}\cdots\sigma_{y_{k+1}}(x_1\cdots x_{n-1})}(y_{1})\tau_{x_1\cdots x_{n-1}}(y_2\cdots y_{k+1})\right)\\
+    =&\tau_{x_n}\tau_{x_1\cdots x_{n-1}}(y_1\cdots y_{k+1})\\
+    =&\tau_{x_n}\cdots\tau_{x_1}(y_1\cdots y_{k+1}).
+    \end{align*}
+Therefore, by induction,
+\[\sigma_{x_1\cdots x_n}=\sigma_{x_1}\cdots\sigma_{x_n}\text{ and }\tau_{x_1\cdots x_n}=\tau_{x_n}\cdots \tau_{x_1}\]
+for all positive integer $n$. Hence $\sigma_a$ and $\tau_a$ are bijective for all $a\in FM(X)$, and thus $(FM(X),r_{FM})$ is a solution to the YBE.
 \end{proof}
 
 \begin{theorem}
 \label{thm:LYZ9}
-Let $(X,r)$ be a solution to the YBE. Let $i\colon X\rightarrow G(X,r)$ be the natural map. Then There exists a unique braiding operator $r_G$ on $G(X,r)$ such that $r_G\circ (i\times i)=(i\times i)\circ r$. Furthermore, if $(H,s)$ is a braided group and $j\colon X\rightarrow H$ is a map such that
-$s\circ (j\times j)=(j\times j)\circ r$, then there exists a unique group homomorphism $f\colon G(X,r)\rightarrow H$ such that $s\circ (f\times f)=(f\times f)\circ r_G$ and $j=f\circ i$.
+Let $(X,r)$ be a solution to the YBE. Let $i\colon X\rightarrow G(X,r)$ be the natural map. Then there exists a unique braiding operator $r_G$ on $G(X,r)$ such that $r_G (i\times i)=(i\times i) r$. Furthermore, if $(H,s)$ is a braided group and $j\colon X\rightarrow H$ is a map such that
+$s (j\times j)=(j\times j) r$, then there exists a unique group homomorphism $f\colon G(X,r)\rightarrow H$ such that $s (f\times f)=(f\times f) r_G$ and $j=f i$.
 \end{theorem}
+
+\begin{proof}
+We use the notation of Proposition \ref{prop:extendsol}. Thus, by Proposition \ref{prop:extendsol}, $(Y,r')$ is a solution to the YBE. By Theorem \ref{thm:solfreemonoid}, we extend $(Y,r')$ to a solution $(FM(Y),r'_{FM})$ to the YBE. We write $r'_{FN}(a,b)=(\sigma'_a(b),\tau'_b(a))$ for all $a,b\in FM(Y)$. Note that, by the definition of $r'_{FM}$,
+\[\sigma'_{ab}=\sigma'_a\sigma'_b,\quad \tau'_{ab}=\tau'_b\tau'_a,\]
+\[\sigma'_c(ab)=\sigma'_c(a)\sigma'_{\tau'_a(c)}(b)\quad\text{and}\quad
+\tau'_c(ab)=\tau'_{\sigma'_b(c)}(a)\tau'_c(b)\]
+for all $a,b,c\in FM(Y)$. Hence it is easy to check that $r'_{FM}$ satisfies conditions (1), (2) and (3) of the Definition \ref{braidedgroup}. 
+
+Note that $G(X,r)=FM(Y)/\sim$, where $\sim$ is the equivalence relation on $FM(Y)$ generated by $axx'b\sim ab$, $ax'xb\sim ab$ and $axyb\sim a\sigma_x(y)\tau_y(x)b$ for all $a,b\in FM(Y)$ and $x,y\in X$.
+
+We define $r_G(\overline{a},\overline{b})=(\overline{\sigma'_a(b)},\overline{\tau'_b(a)})$ for all $a,b\in FM(Y)$, where $\overline{a}\in G(X.r)$ is the the $\sim$-class of $a\in FM(Y)$. By Lemma \ref{lem:YB}, \[\sigma'_{xy}=\sigma'_{x}\sigma'_{y}=\sigma'_{\sigma_x(y)}\sigma'_{\tau_y(x)}=\sigma'_{\sigma_x(y)\tau_y(x)}\]
+and
+\[\tau'_{xy}=\tau'_{y}\tau'_{x}=\tau'_{\tau_y(x)}\tau'_{\sigma_x(y)}=\tau'_{\sigma_x(y)\tau_y(x)}\]
+for all $x,y\in X$. Hence, to prove that $r_G$ is well-defined it is enough to check that \[\id=\sigma'_{xx'}=\sigma_{x'x}=\tau'_{xx'}=\tau'_{x'x},\] 
+\[ \sigma'_{a}(bxx'c)\sim\sigma'_{a}(bc)\sim \sigma'_a(bx'xc),\]
+\[ \tau'_{a}(bxx'c)\sim\tau'_{a}(bc)\sim \tau'_a(bx'xc),\]
+\[\sigma'_{a}(bxyc)\sim \sigma'_a(b\sigma_x(y)\tau_y(x)c)\]
+and 
+\[\tau'_{a}(bxyc)\sim \tau'_a(b\sigma_x(y)\tau_y(x)c)\]
+for all $a,b,c\in FM(Y)$ and $x,y\in X$.
+We shall prove that $\sigma'_{xx'}(a)=a$ for all $x\in X$ and $a\in FM(Y)$ by induction on the length of $a$. Let $x,y\in X$. We have that
+\[\sigma'_{xx'}(y)=\sigma'_x\sigma'_{x'}(y)=\sigma_x\sigma^{-1}_x(y)=y,\]
+\[\sigma'_{xx'}(y')=\sigma'_x\sigma'_{x'}(y')=\sigma'_x(\widehat{\tau}_x(y)')=\widehat{\tau}^{-1}_x\widehat{\tau}_x(y)'=y'.\]
+Let $n$ be a positive integer and let $y_1,\dots ,y_{n+1}\in Y$. Suppose that $\sigma_{xx'}(a)=a$ for all $x\in X$ and all $a\in FM(Y)$ of length $\leq n$. By the inductive hypothesis, we have that
+\begin{align*}
+    \sigma'_{xx'}(y_1\cdots y_{n+1})=&\sigma'_{xx'}(y_1\cdots y_n)\sigma'_{\tau'_{y_n}\cdots \tau'_{y_1}(xx')}(y_{n+1})\\
+    =&y_1\cdots y_n\sigma'_{\tau'_{y_n}\cdots \tau'_{y_1}(xx')}(y_{n+1}).
+\end{align*}
+Note that $\tau'_{y}(xx')=\tau'_{\sigma'_{x'}(y)}(x)\tau'_y(x')=\tau_{\sigma^{-1}_x(y)}(x)\widehat{\sigma}_y^{-1}(x)'=\widehat{\sigma}_y^{-1}(x)\widehat{\sigma}_y^{-1}(x)'$ and
+\begin{align*}\tau'_{y'}(xx')=&\tau'_{\sigma'_{x'}(y')}(x)\tau'_{y'}(x')
+=\tau'_{\widehat{\tau}_x(y)'}(x)\widehat{\sigma}_y(x)'\\
+=&\tau^{-1}_{\widehat{\tau}_x(y)}(x)\widehat{\sigma}_y(x)'=\widehat{\sigma}_{\widehat{\tau}^{-1}_x(\widehat{\tau}_x(y))}(x)\widehat{\sigma}_y(x)'\\
+=&\widehat{\sigma}_y(x)\widehat{\sigma}_y(x)'
+\end{align*} 
+for all $x,y\in X$. Hence $\sigma'_{xx'}(y_1\cdots y_{n+1})=y_1\cdots y_{n+1}$, and thus, by induction, $\sigma'_{xx'}(a)=a$ for all $x\in X$ and all $a\in FM(Y)$. 
+Similarly one can check that $\sigma'_{x'x}=\id=\tau'_{xx'}=\tau'_{x'x}$ for all $x\in X$. 
+
+Let $x\in X$ and $a,b,c\in FM(Y)$. We have
+\begin{align*}
+    \sigma'_a(bxx'c)=&\sigma'_a(bxx')\sigma'_{\tau'_{bxx'}(a)}(c)\\
+    =&\sigma'_a(b)\sigma'_{\tau'_{b}(a)}(xx')\sigma'_{\tau'_{xx'}\tau'_b(a)}(c)\\
+    =&\sigma'_a(b)\sigma'_{\tau'_b(a)}(xx')\sigma'_{\tau'_b(a)}(c)
+\end{align*}
+and
+\[ \sigma'_a(bc)=\sigma'_a(b)\sigma'_{\tau'_{b}(a)}(c).
+\]
+Note that $\sigma'_{y'}(xx')=\sigma'_{y'}(x)\sigma'_{\tau'_{x}(y')}(x')
+=\sigma^{-1}_{y}(x)\sigma'_{\widehat{\sigma}^{-1}_{x}(y)'}(x')
+=\sigma^{-1}_{y}(x)\widehat{\tau}_{\widehat{\sigma}^{-1}_{x}(y)}(x)'
+=\sigma^{-1}_{y}(x)\sigma^{-1}_{y}(x)'$ and \begin{align*}\sigma'_{y}(xx')=&\sigma'_{y}(x)\sigma'_{\tau'_{x}(y)}(x')=\sigma_y(x)\sigma'_{\tau_x(y)}(x')\\
+=&\sigma_y(x)\widehat{\tau}^{-1}_{\tau_x(y)}(x)'=\sigma_y(x)\sigma_{\tau_x^{-1}(\tau_x(y))}(x)'\\
+=&\sigma_y(x)\sigma_{y}(x)'
+\end{align*} 
+for all $x,y\in X$. Hence
+\[\sigma'_a(bxx'c)\sim\sigma'_a(bc)\]
+for all $x\in X$ and $a,b,c\in FM(Y)$. Similarly one can check that
+\[ \sigma'_{a}(bx'xc)\sim\sigma'_{a}(bc)\]
+and 
+\[ \tau'_{a}(bxx'c)\sim\tau'_{a}(bc)\sim \tau'_a(bx'xc)\]
+for all $x\in X$ and $a,b,c\in FM(Y)$.
+
+Let $x,y\in X$ and $a,b,c\in FM(Y)$. We have 
+\begin{align*}
+    \sigma'_a(bxyc)=&\sigma'_a(bxy)\sigma'_{\tau'_{bxy}(a)}(c)\\
+    =&\sigma'_a(b)\sigma'_{\tau'_b(a)}(xy)\sigma'_{\tau'_{bxy}(a)}(c)
+\end{align*}
+and
+\begin{align*}
+    \sigma'_a(b\sigma_x(y)\tau_y(x)c)=&\sigma'_a(b\sigma_x(y)\tau_y(x))\sigma'_{\tau'_{b\sigma_x(y)\tau_y(x)}(a)}(c)\\
+    =&\sigma'_a(b)\sigma'_{\tau'_b(a)}(\sigma_x(y)\tau_y(x))\sigma'_{\tau'_{\sigma_x(y)\tau_y(x)}\tau'_b(a)}(c)\\
+    =&\sigma'_a(b)\sigma'_{\tau'_b(a)}(\sigma_x(y)\tau_y(x))\sigma'_{\tau'_{xy}\tau'_b(a)}(c)\\
+    =&\sigma'_a(b)\sigma'_{\tau'_b(a)}(\sigma_x(y)\tau_y(x))\sigma'_{\tau'_{bxy}(a)}(c).
+\end{align*}
+Note that
+\begin{align}\label{eq:LYZ1}
+    \sigma'_z(xy)=&\sigma'_z(x)\sigma'_{\tau'_x(z)}(y)\nonumber\\
+    =&\sigma_z(x)\sigma_{\tau_x(z)}(y),
+\end{align}
+\begin{align}\label{eq:LYZ2}
+    \sigma'_{z'}(xy)=&\sigma'_{z'}(x)\sigma'_{\tau'_x(z')}(y)\nonumber\\
+    =&\sigma^{-1}_z(x)\sigma_{\widehat{\sigma}^{-1}_x(z)'}(y)\nonumber\\
+    =&\sigma^{-1}_z(x)\sigma^{-1}_{\widehat{\sigma}^{-1}_x(z)}(y)
+\end{align}
+
+and by Lemma \ref{lem:YB},
+\begin{align}\label{eq:LYZ3}
+    \sigma'_z(\sigma_x(y)\tau_y(x))=&\sigma'_z(\sigma_x(y))\sigma'_{\tau'_{\sigma_x(y)}(z)}(\tau_y(x))\nonumber\\
+    =&\sigma_z\sigma_x(y)\sigma_{\tau_{\sigma_x(y)}(z)}(\tau_y(x))\nonumber\\
+    =&\sigma_{\sigma_z(x)}\sigma_{\tau_x(z)}(y)\tau_{\sigma_{\tau_x(z)}(y)}(\sigma_z(x))
+\end{align}
+and 
+\begin{align}\label{eq:LYZ4}
+    \sigma'_{z'}(\sigma_x(y)\tau_y(x))=&\sigma'_{z'}(\sigma_x(y))\sigma'_{\tau'_{\sigma_x(y)}(z')}(\tau_y(x))\nonumber\\
+    =&\sigma^{-1}_z\sigma_x(y)\sigma'_{\tau'_{\sigma'_x(y)}(z')}(\tau'_y(x))\nonumber\\
+    =&\sigma_{\sigma^{-1}_z(x)}\sigma^{-1}_{\tau_{\sigma^{-1}_z(x)}(z)}(y)\tau'_{\sigma'_{\tau'_x(z')}(y)}(\sigma'_{z'}(x))\nonumber\\
+    =&\sigma_{\sigma^{-1}_z(x)}\sigma^{-1}_{\widehat{\sigma}^{-1}_x(z)}(y)\tau_{\sigma^{-1}_{\widehat{\sigma}^{-1}_x(z)}(y)}(\sigma^{-1}_{z}(x))
+\end{align}
+for all $x,y,z\in X$. 
+Hence, by (\ref{eq:LYZ1}), (\ref{eq:LYZ2}), (\ref{eq:LYZ3}) and (\ref{eq:LYZ4}), we have that 
+\[\sigma'_{a}(bxyc)\sim \sigma'_a(b\sigma_x(y)\tau_y(x)c)\]
+for all $x,y\in X$ and $a,b,c\in FM(Y)$. Similarly one can check that
+\[\tau'_{a}(bxyc)\sim \tau'_a(b\sigma_x(y)\tau_y(x)c)\]
+for all $x,y\in X$ and $a,b,c\in FM(Y)$. Therefore $r_G$ is well-defined. 
+
+Since $r'_{FM}$ satisfies conditions (1), (2) and (3) of the Definition \ref{braidedgroup}, $r_G$ also satisfies these conditions.  To prove that $r_G$ is a braiding operator on $G(X,r)$, it is enough to show that
+\begin{equation}\label{eq:LYZ5}\overline{ab}=\overline{\sigma'_a(b)\tau'_b(a)}\end{equation}
+for all $a,b\in FM(Y)$. 
+We shall prove (\ref{eq:LYZ5}) by induction on the length of $ab$. For $b=1$, clearly $a=\sigma'_a(1)\tau'_1(a)$, and thus (\ref{eq:LYZ5}) holds in this case. For $a=1$, we have that $b=\sigma'_1(b)\tau'_b(1)$, and thus (\ref{eq:LYZ5}) holds in this case. Hence we may assume that $a\neq 1$ and $b\neq 1$. Note that
+\begin{align*}
+    \sigma'_x(y)\tau'_y(x)=& \sigma_x(y)\tau_y(x)\sim xy,\\
+    \sigma'_x(y')\tau'_{y'}(x)=& \widehat{\tau}^{-1}_x(y)'\tau^{-1}_y(x)
+    \sim  \widehat{\tau}^{-1}_x(y)'\tau^{-1}_y(x)yy'\\
+    \sim & \widehat{\tau}^{-1}_x(y)'\sigma_{\tau^{-1}_y(x)}(y)\tau_y(\tau^{-1}_y(x))y'\\
+    =& \widehat{\tau}^{-1}_x(y)'\widehat{\tau}^{-1}_x(y)xy'
+    \sim xy',\\
+    \sigma'_{x'}(y)\tau'_{y}(x')=& \sigma^{-1}_x(y)\widehat{\sigma}^{-1}_y(x)'
+    \sim  x'x\sigma^{-1}_x(y)\widehat{\sigma}^{-1}_y(x)'\\
+    \sim & x'\sigma_x(\sigma^{-1}_x(y))\tau_{\sigma^{-1}_x(y)}(x)\widehat{\sigma}^{-1}_y(x)'\\
+    =& x'y\widehat{\sigma}^{-1}_y(x)\widehat{\sigma}^{-1}_y(x)'
+    \sim x'y,\\
+    \sigma'_{x'}(y')\tau'_{y'}(x')=& \widehat{\tau}_x(y)'\widehat{\sigma}_y(x)'
+    \sim  x'x\widehat{\tau}_x(y)'\widehat{\sigma}_y(x)'\\
+    \sim & x'\sigma'_x(\widehat{\tau}_x(y)')\tau'_{\widehat{\tau}_x(y)'}(x)\widehat{\sigma}_y(x)'\\
+    =& x'y'\tau^{-1}_{\widehat{\tau}_x(y)}(x)\widehat{\sigma}_y(x)'=x'y'\widehat{\sigma}_{\widehat{\tau}^{-1}_x(\widehat{\tau}_x(y))}(x)\widehat{\sigma}_y(x)'\\
+    = &x'y'\widehat{\sigma}_{y}(x)\widehat{\sigma}_y(x)'
+    \sim x'y'
+    \end{align*}
+for all $x,y\in X$. Hence (\ref{eq:LYZ5}) holds for all $a,b\in FM(Y)$ such that the length of $ab$ is $\leq 2$. Let $a,b\in FM(Y)$ be elements such that the length of $ab$ is $n>2$ and suppose that
+\[cd\sim \sigma'_c(d)\tau'_d(c)\] 
+for all $c,d\in FM(Y)$ such that the length of $cd$ is $<n$. We may assume that $a\neq 1$ and $b\neq 1$. Hence there exist $y,z\in Y$ and $c,d\in FM(Y)$ such that $a=cy$ and $b=zd$. Suppose that $c=1$. In this case, by the inductive hypothesis, we have
+\begin{align*}ab=&yzd\sim \sigma'_y(z)\tau'_z(y)d\sim \sigma'_y(z)\sigma'_{\tau'_z(y)}(d)\tau'_d(\tau'_z(y))\\
+=&\sigma'_y(zd)\tau'_{zd}(y)=\sigma'_a(b)\tau'_b(a).
+\end{align*}
+Suppose that $c\neq 1$. In this case, by the inductive hypothesis, we have 
+\begin{align*} ab=& cyb\sim c\sigma'_y(b)\tau'_b(y)\sim \sigma'_c(\sigma'_y(b))\tau'_{\sigma'_{y}(b)}(c)\tau'_{b}(y)\\
+=&\sigma'_{cy}(b)\tau'_{b}(cy)=\sigma'_a(b)\tau'_b(a).
+\end{align*}
+Hence, by induction, (\ref{eq:LYZ5}) follows. Therefore $r_G$ is a braiding operator on $G(X,r)$.
+
+Note that $r_G(i\times i)(x,y)=r_G(\bar x,\bar y)=(\overline{\sigma_x(y)},\overline{\tau_y(x)})=(i\times i)r(x,y)$ for all $x,y\in X$. Let $(H,s)$ be a braided group and let $j\colon X\rightarrow H$ be a map such that $s(j\times j)=(j\times j)r$.
+We write $s(\bar a,\bar b)=(\bar a\rhd_s \bar b, \bar a\lhd_s \bar b)$ for all $a,b\in FM(Y)$. Since 
+\[ j(x)j(y)=(j(x)\rhd_s j(y))(j(x)\lhd_s j(y))=j(\sigma_x(y))j(\tau_y(x))\]
+for all $x,y\in Y$, there exists a unique group homomorphism $f\colon G(X,r)\rightarrow H$ such that $fi=j$. We shall prove that
+\[ s(f\times f)(\bar a,\bar b)=(f\times f)r_G(\bar a, \bar b)\]
+for all $a,b\in FM(Y)$ by induction on the length of $ab$.
+We know that
+\[ s(f\times f)(\bar a,1)=s(f(\bar a),1)=(1,f(\bar a))=(f\times f)(1,\bar a)=(f\times f)r_G(\bar a ,1)\]
+and
+\[ s(f\times f)(1,\bar a)=s(1,f(\bar a))=(f(\bar a),1)=(f\times f)(\bar a,1)=(f\times f)r_G(1,\bar a)\]
+for all $a\in FM(Y)$. Note that
+\[s(f\times f)(\bar x,\bar y)=s(j(x),j(y))=(j(\sigma_x(y),\tau_y(x))=(f\times f)r_G(\bar x,\bar y)\]
+for all $x,y\in X$.
+Since 
+\begin{align*}
+\left(f(\bar y),f\left(\overline{\widehat{\sigma}^{-1}_y(x)}\right)\right)=&(f\times f)(i\times i)r( x,\sigma^{-1}_x(y))\\
+=&(j\times j)r( x,\sigma^{-1}_x(y))=s(j\times j)( x,\sigma^{-1}_x(y))\\
+=&(j(x)\rhd_s j(\sigma^{-1}_x(y)),j(x)\lhd_s j(\sigma^{-1}_x(y))),
+\end{align*}
+we have that
+\[ f(\bar x)\rhd_s f\left(\overline{\sigma^{-1}_x(y)}\right)=j(x)\rhd_s j(\sigma^{-1}_x(y))=f(\bar y),\]
+and thus 
+\[f\left(\overline{x'}\right)\rhd_s f(\bar y)=f(\bar x)^{-1}f(\bar y)=f\left(\overline{\sigma^{-1}_x(y)}\right)=f\left(\overline{\sigma'_{x'}(y)}\right)\]
+for all $x,y\in X$. Furthermore
+\begin{align*}
+    f\left(\overline{\sigma'_{x'}(y)}\right)\left(f\left(\overline{x'}\right)\lhd_s f(\bar y)\right)=&
+    \left( f\left(\overline{x'}\right)\rhd_s f(\bar y)\right)\left(f\left(\overline{x'}\right)\lhd_s f(\bar y)\right)\\
+    =&f\left(\overline{x'}\right)f(\bar y)=f\left(\overline{x'y}\right)\\
+    =&f\left(\overline{\sigma'_{x'}(y)\tau'_y(x')}\right)\\
+    =&f\left(\overline{\sigma'_{x'}(y)}\right)f\left(\overline{\tau'_y(x')}\right).
+\end{align*}
+Hence
+\[f\left(\overline{x'}\right)\lhd_s f(\bar y)=f\left(\overline{\tau'_y(x')}\right),\]
+and thus
+\[s(f\times f)\left(\overline{x'},\bar y\right)=(f\times f)r_G\left(\overline{x'},\bar y\right)\]
+for all $x,y\in X$. Similarly one can check that
+\[s(f\times f)\left(\bar x,\overline{y'}\right)=(f\times f)r_G\left(\bar x,\overline{y'}\right)\]
+for all $x,y\in X$. 
+
+
+Since 
+\begin{align*}
+\left(f\left(\overline{y'}\right),f\left(\overline{\tau'_{(\sigma')^{-1}_x(y')}(x)}\right)\right)=&(f\times f)r_G\left( \bar x,\overline{(\sigma')^{-1}_x(y')}\right)\\
+=&s(f\times f)\left(\bar x,\overline{(\sigma')^{-1}_x(y')}\right)\\
+=&\left(f(\bar x)\rhd_s f\left(\overline{(\sigma')^{-1}_x(y')}\right),f(\bar x)\lhd_s f\left(\overline{(\sigma')^{-1}_x(y')}\right)\right),
+\end{align*}
+we have that
+\[ f(\bar x)\rhd_s f\left(\overline{(\sigma')^{-1}_x(y')}\right)
+=f\left(\overline{y'}\right),\]
+and thus 
+\[f\left(\overline{x'}\right)\rhd_s f\left(\overline{y'}\right)=f(\bar x)^{-1}f\left(\overline{y'}\right)=f\left(\overline{(\sigma')^{-1}_x(y')}\right)=f\left(\overline{\sigma'_{x'}(y')}\right)\]
+for all $x,y\in X$. Furthermore
+\begin{align*}
+    f\left(\overline{\sigma'_{x'}(y')}\right)\left(f\left(\overline{x'}\right)\lhd_s f\left(\overline{y'}\right)\right)=&
+    \left( f\left(\overline{x'}\right)\rhd_s f\left(\overline{y'}\right)\right)\left(f\left(\overline{x'}\right)\lhd_s f\left(\overline{y'}\right)\right)\\
+    =&f\left(\overline{x'}\right)f\left(\overline{y'}\right)=f\left(\overline{x'y'}\right)\\
+    =&f\left(\overline{\sigma'_{x'}(y')\tau'_{y'}(x')}\right)\\
+    =&f\left(\overline{\sigma'_{x'}(y')}\right)f\left(\overline{\tau'_{y'}(x')}\right).
+\end{align*}
+Hence
+\[f\left(\overline{x'}\right)\lhd_s f\left(\overline{y'} \right)=f\left(\overline{\tau'_{y'}(x')}\right),\]
+and thus
+\[s(f\times f)\left(\overline{x'},\overline{y'}\right)=(f\times f)r_G\left(\overline{x'},\overline{y'}\right)\]
+for all $x,y\in X$.
+Hence 
+\[s(f\times f)\left(\bar a,\bar b\right)=(f\times f)r_G\left(\bar a,\bar b\right)\]
+for all $a,b\in FM(Y)$ such that the length of $ab$ is $\leq 2$. Let $a,b\in FM(Y)$ be elements such that the length of $ab$ is $n>2$ and suppose that
+\[s(f\times f)\left(\bar c,\bar d\right)=(f\times f)r_G\left(\bar c,\bar d\right)\]
+for all $c,d\in FM(Y)$ such that the length of $cd$ is $<n$. We may assume that $a\neq 1$ and $b\neq 1$. Hence there exist $y,z\in Y$ and $c,d\in FM(Y)$ such that $a=cy$ and $b=zd$. Suppose that $c\neq 1$. In this case, by the inductive hypothesis,
+\begin{align*}
+    s(f\times f)(\bar a,\bar b)=&s(f(\bar c)f(\bar y),f(\bar b))\\
+    =&(\id\times m)s_1s_2(f(\bar c), f(\bar y), f(\bar b))\\
+    =&(\id \times m)(f\times f\times f)(r_G)_1(r_G)_2(\bar c,\bar y,\bar b)\\
+    =&(f\times f)(\id\times m)(r_G)_1(r_G)_2(\bar c,\bar y,\bar b)\\
+    =&(f\times f)r_G(\bar c\bar y,\bar b)=(f\times f)r_G(\bar a,\bar b).
+\end{align*}
+Suppose that $c=1$. In this case, by the inductive hypothesis,
+\begin{align*}
+    s(f\times f)(\bar a,\bar b)=&s(f(\bar a),f(\bar z)f(\bar d))\\
+    =&(m\times \id)s_2s_1(f(\bar a), f(\bar z), f(\bar d))\\
+    =&(m \times \id)(f\times f\times f)(r_G)_2(r_G)_1(\bar a,\bar z,\bar d)\\
+    =&(f\times f)(m\times \id)(r_G)_2(r_G)_1(\bar a,\bar z,\bar d)\\
+    =&(f\times f)r_G(\bar a,\bar z\bar d)=(f\times f)r_G(\bar a,\bar b).
+\end{align*}
+Hence, by induction, we have that
+\[s(f\times f)=(f\times f)r_G.\]
+
+The uniqueness of $r_G$ follows by the above argument taking $H=G(X,r)$ and $j=i$, because in this case $f=\id$, and thus $s=r_G$.
+\end{proof}
+
+\begin{theorem}\label{thm:GVbraces}
+Let $(X,r)$ be a solution to the YBE. Let $i\colon X\rightarrow G(X,r)$ be the natural map. Then there exists a unique structure of skew brace on $G(X,r)$ with multiplicative group the structure group $G(X,r)$ such that $\lambda_{i(x)}(i(y))=i(\sigma_x(y))$ for all $x,y\in X$. Furthermore, if $(B,+,\circ)$ is a skew brace and $j\colon X\rightarrow B$ is a map such that $\lambda_{j(x)}(j(y))=j(\sigma_x(y))$ and $j(x)j(y)=j(\sigma_x(y))j(\tau_y(x))$ for all $x,y\in X$, then there exists a unique homomorphism of skew braces $f\colon G(X,r)\rightarrow B$ such that $fi=j$.  
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{thm:LYZ9}, there exists a unique braiding operator $r_G$ on $G(X,r)$ such that $r_G(i\times i)=(i\times i)r$. Consider the structure of skew brace on $G(X,r)$ associated to the braided group $(G(X,r),r_G)$ by the bijective correspondence described in the proof of Theorem \ref{thm:braidedbraces}. Thus the addition on $G(X,r)$ is defined by $\bar a+\bar b=\bar a\overline{(\sigma')^{-1}_a(b)}$ for all $a,b\in FM(Y)$. Hence
+\begin{align*}\lambda_{i(x)}(i(y))=&-i(x)+i(x)i(y)=i(x)(i(x)^{-1}+i(y))\\
+=&i(x)i(x)^{-1}\overline{(\sigma')^{-1}_{x'}(y)}\\
+=&\overline{\sigma_x(y)}=i(\sigma_x(y))
+\end{align*}
+for all $x,y\in X$.
+
+Let $(B,+,\circ)$ be a skew brace and $j\colon X\rightarrow B$ is a map such that $\lambda_{j(x)}(j(y))=j(\sigma_x(y))$ and $j(x)j(y)=j(\sigma_x(y))j(\tau_y(x))$ for all $x,y\in X$. By the definition of $G(X,r)$ there exists a unique group homomorphism $f\colon G(X,r)\rightarrow B$ such that $fi=j$. Let $r_B\colon B\times B\rightarrow B\times B$ be the map defined by $r_B(u,v)=(\lambda_u(v),\lambda_u(v)^{-1}uv)$. By Theorem \ref{thm:YB}, $(B,r_B)$ is a solution to the YBE. Furthermore, it is easy to check that $r_B$ is a braiding operator on the multiplicative group of $B$. Note that
+\begin{align*} r_B(j\times j)(x,y)=&(\lambda_{j(x)}j(y),\lambda_{j(x)}j(y)^{-1}j(x)j(y))\\
+=&(j(\sigma_x(y)),j(\tau_y(x)))=(j\times j)r(x,y)
+\end{align*}
+for all $x,y\in X$. By Theorem \ref{thm:LYZ9}, $r_B(f\times f)=(f\times f)r_G$. In particular, $f\left(\lambda_{\bar a}(\bar b)\right)=\lambda_{f(\bar a)}(f(\bar b))$ for all $a,b\in FM(Y)$. Hence
+\begin{align*}f(\bar a+\bar b)=& f\left(\bar a\overline{(\sigma')^{-1}_a(b)}\right)\\
+=&f(\bar a)f\left(\overline{(\sigma')^{-1}_a(b)}\right)\\
+=&f(\bar a)f\left(\lambda_{(\bar a)^{-1}}(\bar b)\right)\\
+=&f(\bar a)\lambda_{f(\bar a)^{-1}}(f(\bar b))=f(\bar a)+f(\bar b)
+\end{align*}
+for all $a,b\in FM(Y)$. Hence $f$ is a homomorphism of skew braces.
+\end{proof}
+
+\begin{definition}
+\index{structure skew brace of a solution}
+Given a solution $(X,r)$ to the YBE, its structure skew brace is the skew brace structure on the group $G(X,r)$ given in Theorem \ref{thm:GVbraces}.
+\end{definition}
 
 \section*{Exercises}
 
 \begin{prob}
-Prove that a braiding operator is a solution. 
+Check the missing steps of the proofs of all the results of this chapter. 
 \end{prob}
 

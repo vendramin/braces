@@ -96,12 +96,12 @@ the subsets of $G$ of the form
 xH=\{ xh: h\in H\},
 \]
 for $x\in G$. A subset of $G$ containing just one element from each left coset of $H$ in $G$ is called a {\em left transversal} of $H$ in $G$. 
-\textcolor{blue}{Note that $xH=yH$ if and only if $x^{-1}y\in H$.}
+Note that $xH=yH$ if and only if $x^{-1}y\in H$.
 Right cosets and right transversals are defined similarly.
 We say that $H$ is a {\em normal subgroup} of $G$ if $xH=Hx$ for all $x\in G$. In this case the set
 $G/H=\{xH: x\in G\}$, with the operation defined by the rule $(xH)\cdot (yH)=(xy)H$ for all $x,y\in G$, 
 is a group called the {\em quotient group} of $G$ by the normal subgroup $H$. 
-\textcolor{blue}{The notation $H\unlhd G$ will mean that $H$ is a normal subgroup of $G$.}
+The notation $H\unlhd G$ will mean that $H$ is a normal subgroup of $G$.
 Note that every subgroup of an abelian group is normal.
 
 \begin{example}
@@ -113,7 +113,7 @@ Note that every subgroup of an abelian group is normal.
 \end{example} 
 
 \begin{example}
-\textcolor{blue}{The group $\Z/n\Z=\{0,1,\dots,n-1\}$ of integers modulo $n$ is a cyclic group.}
+The group $\Z/n\Z=\{0,1,\dots,n-1\}$ of integers modulo $n$ is a cyclic group.
 \end{example}
 
 \begin{example} 
@@ -129,9 +129,8 @@ The \emph{normalizer} of $H$ in $G$ is the set
 \index{Order!of a group}
 \index{Order!of an element}
 \index{Index!of a subgroup}
-\textcolor{blue}{Let $G$ be a finite group. The {\em order} $|G|$ of $G$ is the number of elements of $G$. Let $H$ be a subgroup of $G$. The {\em index} 
-$(G:H)$ of $H$ in $G$ is the number of left cosets of $H$ in $G$.}
-The index $(G:H)$ also coincides with the number of right cosets of $H$ in $G$.
+\textcolor{red}{Let $G$ be a group. If $G$ is finite, then the number of elements of $G$ is called the {\em order} of $G$ and it is denoted by $|G|$. Let $H$ be a subgroup of $G$. If the number of left cosets of $H$ in $G$ is finite then it coincides with the number of right cosets of $H$ in $G$, and this number is called the {\em index} 
+of $H$ in $G$ and it is denoted by $(G:H)$.}
 
 \begin{theorem}[Lagrange's theorem]
 \index{Lagrange's theorem}
@@ -142,10 +141,10 @@ Then $|G|=(G:H)|H|$.\qed
 \index{Homomorphism!of groups}
 \index{Isomorphism!of groups}
 \index{Automorphism group}
-A {\em homomorphism of groups} is a map $f\colon G_1\rightarrow G_2$, where $G_1$ \textcolor{blue}{and} $G_2$ 
-are groups, and such that $f(xy)=f(x)f(y)$ for all $x,y\in G_1$. A bijective homomorphism is called an {\em isomorphism}. Two groups $G_1$ \textcolor{blue}{and} $G_2$ are isomorphic if there exists an isomorphism $f\colon G_1\rightarrow G_2$. The notation $G_1\cong G_2$ will mean that $G_1$ and $G_2$ are isomorphic. 
-An {\em automorphism} of a group $G$ is an isomorphism $G\to G$. \textcolor{blue}{The set $\Aut(G)$ of all automorphisms of a group $G$ is a group with the usual 
-composition of maps; it is called the {\em automorphism group} of $G$.}
+A {\em homomorphism of groups} is a map $f\colon G_1\rightarrow G_2$, where $G_1$ and $G_2$ 
+are groups, and such that $f(xy)=f(x)f(y)$ for all $x,y\in G_1$. A bijective homomorphism is called an {\em isomorphism}. Two groups $G_1$ and $G_2$ are isomorphic if there exists an isomorphism $f\colon G_1\rightarrow G_2$. The notation $G_1\cong G_2$ will mean that $G_1$ and $G_2$ are isomorphic. 
+An {\em automorphism} of a group $G$ is an isomorphism $G\to G$. The set $\Aut(G)$ of all automorphisms of a group $G$ is a group with the usual 
+composition of maps; it is called the {\em automorphism group} of $G$.
 
 \begin{example} 
     Let $G$ be a group and let $H$ be a subgroup of $G$. 
@@ -155,8 +154,8 @@ composition of maps; it is called the {\em automorphism group} of $G$.}
 \begin{example}
 \index{Inner automorphism group}
 	Let $G$ be a group. For every $x\in G$, the map $\varphi_x\colon G\rightarrow G$ defined by $\varphi_x(y)=xyx^{-1}$, for all $y\in G$, is an automorphism of $G$. The map $\varphi\colon G\rightarrow \Aut(G)$ defined by $\varphi(x)=\varphi_x$, for all $x\in G$, is a homomorphism of groups. 
-    \textcolor{blue}{The group $\Inn(G)$ of {\em inner automorphisms} of $G$ is defined as the 
-	image of $\varphi$.}
+    The group $\Inn(G)$ of {\em inner automorphisms} of $G$ is defined as the 
+	image of $\varphi$.
 \end{example}
 
 \index{Kernel!of a group homomorphism}
@@ -165,16 +164,15 @@ The {\em kernel} of a homomorphism of groups $f\colon G_1\rightarrow G_2$ is the
 \[
 \ker (f)=\{ x\in G_1: f(x)=1\}.
 \]
-\textcolor{blue}{The kernel $\ker(f)$ is a normal 
+\textcolor{red}{The kernel $\ker(f)$ of $f$} is a normal 
 subgroup of $G_1$. The image $\im(f)=\{f(g):g\in G_1\}$ 
-of $f$ is a subgroup of $G_2$.}
+of $f$ is a subgroup of $G_2$.
 
 \begin{example}
 \index{Quotient group}
 \index{Quotient group!canonical map}
-\textcolor{blue}{
 Let $G$ be a group and $N$ be a normal subgroup of $G$. 
-The natural map $\pi\colon G\rightarrow G/N$, $x\mapsto xN$, is a surjective homomorphism of groups with kernel equal to $N$.}
+The natural map $\pi\colon G\rightarrow G/N$, $x\mapsto xN$, is a surjective homomorphism of groups with kernel equal to $N$.
 \end{example}
 
 \begin{theorem}[First isomorphism theorem]
@@ -189,21 +187,21 @@ The natural map $\pi\colon G\rightarrow G/N$, $x\mapsto xN$, is a surjective hom
 		\arrow["{\tilde f}", from=2-1, to=2-2]
 	\end{tikzcd}
 	\]
-	is commutative, that is \textcolor{blue}{$f=\iota\tilde f\pi$}, 
+	is commutative, that is $f=\iota\tilde f\pi$, 
 	where $\iota$ is the inclusion mapping and $\pi$ is the natural homomorphism. \qed	
 \end{theorem} 
  
-\textcolor{blue}{
+
 Let $H$ and $K$ be subgroups of a group $G$. If $H\leq N_G(K)$, 
 then \[
 KH=\{xy: x\in K,\; y\in H\}
 \]
-is a subgroup of $G$. Furthermore $K\unlhd KH$.}
+is a subgroup of $G$. Furthermore $K\unlhd KH$.
 
 \begin{theorem}[Second isomorphism theorem]
 \index{Second isomorphism theorem!for groups}
 	Let $G$ be a group and $H$ and $K$ be subgroups of $G$ 
-	uch that $H\leq N_G(K)$. Then $K\cap H\unlhd H$ and
+	\textcolor{red}{such} that $H\leq N_G(K)$. Then $K\cap H\unlhd H$ and
 	\[
 	H/(K\cap H)\cong (KH)/K.\;\qed
 	\]
@@ -212,25 +210,26 @@ is a subgroup of $G$. Furthermore $K\unlhd KH$.}
 \begin{theorem}[Third isomorphism theorem] 
 \index{Third isomorphism theorem!for groups}
 Given a group $G$ and $N\unlhd G$, 
-\textcolor{blue}{the map $H\mapsto H/N$ yields} 
-a bijective correspondence between \textcolor{blue}{(normal)} 
-subgroups of $G$ containing $N$ and \textcolor{blue}{(normal)} subgroups of $G/N$. 
+the map $H\mapsto H/N$ yields 
+a bijective correspondence between (normal) 
+subgroups of $G$ containing $N$ and (normal) subgroups of $G/N$. 
 Furthermore, if $N\leq H\unlhd G$, then
 \[
 (G/N)/(H/N)\cong G/H.\;\qed
 \]
 \end{theorem}
 
-Let $n$ be a positive integer. The elements of $\Sym_n$ are called permutations. For $\sigma\in\Sym_n$ and $\tau\in\Sym_n$ 
-we will write $\sigma\tau$ to denote the composition $\sigma\circ\tau$. 
-We denote each element $\sigma\in\Sym_n$ by
+Let $n$ be a positive integer. The elements of $\Sym_n$ are called permutations. 
+%For $\sigma\in\Sym_n$ and $\tau\in\Sym_n$ 
+%we will write $\sigma\tau$ to denote the composition $\sigma\circ\tau$. 
+\textcolor{red}{We denote} each element $\sigma\in\Sym_n$ by
 \[ 
 \sigma=\left(\begin{array}{cccc}
 1&2&\ldots&n\\
 \sigma(1)&\sigma(2)&\ldots&\sigma(n)\end{array}\right).
 \]
 
-\textcolor{blue}{
+
 A permutation $\sigma\in \Sym_n$ is a {\em cycle} of length $r$ 
 if there exist $r$ distinct elements 
 $a_1,\dots ,a_r\in\{ 1,\dots, n\}$ such that $\sigma(a_i)=a_{i+1}$ for $1\leq i\leq r-1$, $\sigma(a_n)=a_1$ and $\sigma(b)=b$ 
@@ -238,58 +237,48 @@ for all $b\in \{1,\dots, n\}\setminus\{ a_1,\dots ,a_r\}$. In this case, we will
 \[ 
 \sigma=(a_1\,\dots\, a_r).
 \]
-}
-\textcolor{blue}{A {\em transposition} is a cycle of length two. 
+A {\em transposition} is a cycle of length two. 
 We say that the cycles
 $(a_1\,\dots\, a_r)$ and $(b_1\,\dots\, b_s)$ are disjoint if 
 \[
 \{ a_1,\dots, a_r\}\cap \{ b_1,\dots, b_s\}=\emptyset.
 \]
-Note that if $\sigma$ and $\tau$ are disjoint cycles, then $\sigma\tau=\tau\sigma$.}
+Note that if $\sigma$ and $\tau$ are disjoint cycles, then $\sigma\tau=\tau\sigma$.
 
 \begin{theorem}
-    \textcolor{blue}{
-    Every permutation $\sigma\in\Sym_n$ can be written as a product of pairwise disjoint cycles.
-    % \[ 
-    % \sigma=(a_1\,\dots\, a_{r_1})(a_{r_1+1}\,\dots\, a_{r_2})\cdots (a_{r_s+1}\,\dots\, a_n),
-    % \]
-    % with $1\leq r_1<r_2<\dots<r_s\leq n$. 
-    This factorization is unique except for the order in which the factors occur.}
+        Every permutation $\sigma\in\Sym_n$ can be written as a product of pairwise disjoint cycles.
+        This factorization is unique except for the order in which the factors occur. \qed
 \end{theorem}
 
 \begin{theorem}
-    \textcolor{blue}{
     Let $n>1$ be an integer. There exists a unique surjective group homomorphism 
-    $\sgn\colon \Sym_n\rightarrow \{ 1,-1\}$
-    such that $\sgn(\tau)=-1$ for every transposition $\tau\in\Sym_n$.}
+    \textcolor{red}{$\sgn\colon \Sym_n\rightarrow (\{ 1,-1\} ,\cdot)$}
+    such that $\sgn(\tau)=-1$ for every transposition $\tau\in\Sym_n$. \qed
 \end{theorem}
 
-\textcolor{blue}{
+
 \index{Sign!of a permutation}
 \index{Alternating group}
 The group homomorphism $\sgn$ is known as the {\em sign homomorphism} of $\Sym_n$. 
 The kernel of $\sgn$ is the {\em alternating group} $\Alt_n$.
 We say that the elements of $\Alt_n$ are the {\em even} permutations of $\Sym_n$ 
 and the elements of $\Sym_n\setminus\Alt_n$
-are the {\em odd} permutations of $\Sym_n$.}
+are the {\em odd} permutations of $\Sym_n$.
 
 \begin{theorem}
-\textcolor{blue}{
 Let $n>1$ be an integer. Then the following statements hold:  
 \begin{enumerate}
-    %\item $\Sym_n$ is generated by $(1\, 2),(1\, 3),\dots (1\, n)$,
-    %\item $\Alt_n$ is generated by $(1\, 2\, 3),(1\, 2\, 4),\dots (1\, 2\, n)$.
     \item $\Sym_n=\langle (ij):1\leq i<j\leq n\rangle$. 
 	\item $\Sym_n=\langle (12),(13),\dots,(1n)\rangle$.
 	\item $\Sym_n=\langle (12),(23),\dots,(n-1\,n)\rangle$.
 	\item $\Sym_n=\langle (12),(12\cdots n)\rangle$.
 	\item $\Alt_n=\langle (ijk):1\leq i<j<k\leq n\rangle$.
-	\item $\Alt_n=\langle (12k):3\leq k\leq n\rangle$.
-    \end{enumerate}}
+	\item $\Alt_n=\langle (12k):3\leq k\leq n\rangle$. \qed
+    \end{enumerate}
 \end{theorem}
 
 \begin{theorem}[Cayley's theorem]
-    Let $G$ be a finite group of order $n$. Then $G$ is isomorphic to a subgroup of $\Sym_n$.
+    Let $G$ be a finite group of order $n$. Then $G$ is isomorphic to a subgroup of $\Sym_n$. \qed
 \end{theorem}
 
 \index{$p$-group}
@@ -298,77 +287,28 @@ Let $p$ be a prime. A {\em $p$-group} is a group of order a power of $p$. Let $G
 $n=p^\alpha m$, where $\gcd(p,m)=1$. 
 Any subgroup of $G$ of order $p^\alpha$ is called a {\em Sylow $p$-subgroup} of $G$. 
 
-\textcolor{blue}{Let 
-$\Syl_p(G)$ be the set of Sylow $p$-subgroups of $G$. }
+Let 
+$\Syl_p(G)$ be the set of Sylow $p$-subgroups of $G$. 
 
 \begin{theorem}[Sylow]
 \index{Sylow's theorems}
-\textcolor{blue}{
     Let $G$ be a finite group and $p$ a prime. The following statements hold:
     \begin{enumerate}
         \item $\Syl_p(G)\ne\emptyset$.
         \item 
-        %$G$ has Sylow $p$-subgroups and 
         Every $p$-subgroup of $G$ is contained in a Sylow $p$-subgroup of $G$.
         \item 
-        %All Sylow $p$-subgroups of $G$ are conjugate, i.e. 
         If $P_1,P_2\in\Syl_p(G)$, then  
-        %are Sylow $p$-subgroups of $G$, 
         there exists $x\in G$ such that $xP_1x^{-1}=P_2$. 
-        \item %The number of Sylow $p$-subgroups is congruent to 
-        $|\Syl_p(G)|\equiv 1\bmod p$.
-    \end{enumerate}}
+        \item 
+        $|\Syl_p(G)|\equiv 1\bmod p$. \qed
+    \end{enumerate}
 \end{theorem}
 
 \begin{theorem}
-    Let $p$ be a prime. Any \textcolor{blue}{finite} non-trivial $p$-group has a non-trivial center.
+    Let $p$ be a prime. Any finite non-trivial $p$-group has a non-trivial center. \qed
 \end{theorem}
 
-\index{Free group}
-Let $F$ be a group and $X$ a set. It is said that $F$ is a \emph{free group} 
-on $X$ if there exists a function
-$\sigma\colon X\rightarrow F$ such that for every function $\alpha\colon X\rightarrow G$, where $G$ is a group, there exists 
-a unique group homomorphism $f\colon F\rightarrow G$ such that $f\sigma=\alpha$. Note that, in this case, 
-$\sigma$ is injective and $F$ also is a free group on $\sigma(X)$ with respect the inclusion map $\sigma(X)\rightarrow F$.
-A group is free if it is free on some set.
-
-\begin{theorem}
-    Let $X$ be a set. Then there exists a free group $F$ on $X$.
-\end{theorem}
-
-\begin{proposition}
-    Let $G$ be a group and $X$ a subset of $G$. If every element $g\in G$ can be written uniquely in the form
-    \begin{equation}\label{1normalform}
-    g=x_1^{n_1}\cdots x_s^{n_s},
-    \end{equation}
-    \textcolor{blue}{
-    for some $s\geq 0$, 
-    where $x_1,\dots,x_s\in X$ are all different and $n_1,\dots,n_s\in \mathbb{Z}\setminus \{0\}$, 
-    then $G$ is free on $X$. }
-\end{proposition}
-
-If $G$ is a free group on \textcolor{blue}{a subset} $X\subseteq G$, 
-then we say that $X$ is a {\em basis} of $G$, and the 
-right-hand side of the equality (\ref{1normalform}) is called the {\em normal form} 
-of $g\in G$ with respect the basis $X$. All the \textcolor{blue}{bases} 
-of $G$ have the same cardinal,
-which is then called the {\em rank} of the free group $G$.
-
-A {\em free presentation} of a group $G$ is a surjective homomorphism $\pi \colon F\rightarrow G$, where $F$ is a free group. The kernel of $\pi$ is the subgroup of the {\em relators} of the presentation. Let $Y$ be a basis of $F$ and let $S$ be a subset of $\ker(\pi)$ such that $\ker(\pi)$ is the smallest normal subgroup of $F$ containing $S$, i.e. $\ker(\pi)$ is the intersection of all normal subgroups containing $S$. \textcolor{blue}{Every $s\in S$ has a normal form $w(s)$ with respect to $Y$.}
-Then we write
-\[
-G=\gr(Y: w(s)=1\mbox{ for all }s\in S)
-\]
-and say that the right-hand side of this equality is a presentation of $G$ with set of generators $Y$ and defining relations $w(s)=1$ 
-for all $s\in S$. If $Y=\{ y_1,\dots, y_n\}$, then we also write
-\[
-G=\gr(y_1,\dots, y_n: w(s)=1\mbox{ for all }s\in S).
-\]
-
-\begin{example}
-    Let $C_n$ be a cyclic group of order $n$. 
-    Then $C_n=\gr(x: x^n=1)$ is a presentation of $C_n$.
-\end{example}
 
 \section{Rings}
 
@@ -390,10 +330,10 @@ satisfying the following properties:
     \item $a(b+c)=ab+ac$ and $(a+b)c=ac+bc$ for all $a,b,c\in R$.
 \end{enumerate}
 If $(R,\cdot)$ has an identity element, then this is denoted by $1$ 
-and it is said that $R$ is a \textcolor{blue}{unitary ring}. 
+and it is said that $R$ is a unitary ring. 
 
 \begin{convention}
-    From now on, a ring will mean a \textcolor{blue}{unitary ring}, unless otherwise specified. 
+    From now on, a ring will mean a unitary ring, unless otherwise specified. 
 \end{convention}
 
 \index{Ring!commutative}
@@ -406,7 +346,7 @@ $ab=ba$ for all $a,b\in R$.
 Let $R$ be a ring. We say that $a\in R$ is a {\em zero-divisor} if there exists $b\in R\setminus\{0\}$ 
 such that $ab=0$ or $ba=0$. We say that $a\in R$ is an {\em idempotent} if $a^2=a$. 
 We say that $a\in R$ is {\em nilpotent} if there exists a positive integer $n$ such that $a^n=0$.  
-\textcolor{blue}{An idempotent $a\in R$ is {\em non-trivial} if $a\not\in\{0,1\}$.}
+An idempotent $a\in R$ is {\em non-trivial} if $a\not\in\{0,1\}$.
 
 \index{Integral domain}
 \index{Divison ring}
@@ -423,25 +363,6 @@ A {\em field} is a commutative division ring. Any division ring is an integral d
     $\Q$, $\R$ and $\C$ are fields.
 \end{example}
 
-%\demo{Exemple}
-
-%Considerem a $\Bbb R^4$ el seg{\"u}ent producte: $(a,b,c,d)(x,y,z,t)=$
-%$$=(ax-by-cz-dt,ay+bx+ct-dz,az-bt+cx+dy,at+bz-cy+dx).$$
-%Es deixa com a exercici comprovar que l'$\Bbb R$-e.v. $\Bbb R^4$ junt
-%amb aquest producte {\'e}s una $\Bbb R$-{\`a}lgebra i $(1,0,0,0)$ {\'e}s la seva
-%unitat. Aquesta {\`a}lgebra es denota per $\Bbb H$ i es diu {\`a}lgebra dels
-%quaternions de Hamilton. Siguin
-%$$\bold 1=(1,0,0,0),\; i=(0,1,0,0),\; j=(0,0,1,0),\; k=(0,0,0,1).$$
-%Si identifiquem $\Bbb R$ amb $\Bbb R\bold 1$ per $a=a\bold 1$, tenim
-%$$\Bbb H=\{ a+bi+cj+dk\mid a,b,c,d\in \Bbb R\}$$
-%i $i^2=j^2=k^2=-1$, $ij=k=-ji$, $jk=i=-kj$, $ki=j=-ik$, a m{\'e}s
-%$$(a+bi+cj+dk)(a-bi-cj-dk)=a^2+b^2+c^2+d^2,$$
-%per tant tot element de $\Bbb H$ no nul t{\'e} invers, i aix{\'\i} $\Bbb H$ {\'e}s
-%un {\`a}lgebra de divisi{\'o} sobre $\Bbb R$.
-%De forma natural es veu que $\Bbb C$ {\'e}s una sub{\`a}lgebra de $\Bbb H$.
-%\enddemo
-%
-%\medpagebreak
 
 \begin{example}
     If $\{ R_i\} _{i\in I}$ is a non-empty family of rings, then
@@ -499,19 +420,13 @@ where $c_{i,j}=\sum_{k=1}^na_{i,k}b_{k,j}$.
 \end{example}
 
 \index{Subring}
-\textcolor{blue}{A {\em subring} of a ring $R$ is a subset $S$ of $R$ such that
+A {\em subring} of a ring $R$ is a subset $S$ of $R$ such that
 $a-b\in S$ and $ab\in S$ for all $a,b\in S$ 
-and $1\in S$.}
+and $1\in S$.
 
-% \begin{itemize}
-% \item[(i)] $a-b\in S\quad\forall a,b\in S$.
-% \item[(ii)] $ab\in S\quad\forall a,b\in S$.
-% \item[(iii)] $1\in S$.
-% \end{itemize}
 
 \begin{example}
-    \textcolor{blue}{$\Z\subseteq\Q\subseteq\R\subseteq\C$ is a chain of subrings.}
-	%$\Z$ is a subring of $\Q$, which is a subring of $\R$, which is a subring of $\C$.
+    $\Z\subseteq\Q\subseteq\R\subseteq\C$ is a chain of subrings.
 \end{example}
 
 \begin{example}
@@ -523,23 +438,19 @@ and $1\in S$.}
 	form $\sum_{i=0}^na_iX^{i}$ and are called polynomials. Note also that $R$ is a subring of $R[X]$.
 \end{example}
 
-\textcolor{blue}{
+
 Let $R$ be a ring. A \emph{right ideal} of $R$ is an additive subgroup $I$ of $R$ such that $xa\in I$ for all $x\in I$ and $a\in R$.
 Similarly one defines a \emph{left ideal} 
 of $R$. An ideal of $R$ is, by definition, an additive subgroup of $R$ that is
-both a left and right ideal of $R$.}
+both a left and right ideal of $R$.
 
-\textcolor{blue}{
+
 If $I$ and $J$ are left (right) ideals of a ring $R$, then
 \[
 IJ=\left\{\sum_{i=1}^{n} a_ib_i:n\in\Z_{\geq0},\; a_i\in I,\; b_i\in J\right\}
 \]
-also is a left (right) ideal of $R$.}
+also is a left (right) ideal of $R$.
 
-% \textcolor{blue}{
-% An {\em ideal} of a ring $R$ is a non-empty subset $I$ of $R$ such that
-% $a+b\in I$ for $a,b\in I$, 
-% $ar\in I$ and $ra\in I$ for all $a\in I$ and $r\in R$. }
 
 \begin{example}
     Let $R$ be a ring. Then $\{ 0\}$ and $R$ are ideals of $R$. The ideal $\{ 0\}$
@@ -549,7 +460,7 @@ also is a left (right) ideal of $R$.}
 Any ideal of $R$ different from $R$ is said to be {\em proper}.
 
 \begin{example}
-    \textcolor{blue}{The ideals of the ring $\Z$ are of the form $n\Z$ for some integer $n\geq0$.}
+    The ideals of the ring $\Z$ are of the form $n\Z$ for some integer $n\geq0$.
 \end{example}
 
 \begin{example} 
@@ -566,21 +477,15 @@ $R/I$ with the multiplication of left cosets defined by
 \[
 (a+I)(b+I)=(ab)+I
 \]
-for $a,b\in R$. \textcolor{blue}{Since $I$ is an ideal of $R$, the multiplication is well-defined. It follows that 
-$R/I$ with the addition and the multiplication of left cosets is a ring.}
+for $a,b\in R$. Since $I$ is an ideal of $R$, the multiplication is well-defined. It follows that 
+$R/I$ with the addition and the multiplication of left cosets is a ring.
 
-\textcolor{blue}{
+
 Let $R$ and $S$ be rings. A map $f\colon R\rightarrow S$
 is said to be a {\em homomorphism of rings} if 
 $f(a+b)=f(a)+f(b)$ and $f(ab)=f(a)f(b)$ for all $a,b\in R$ and $f(1)=1$.
-% it satisfies the following properties:
-% \begin{enumerate}
-% 	\item $f(a+b)=f(a)+f(b)$ for all $a,b\in R$.
-%     \item $f(ab)=f(a)f(b)$ for all $a,b\in R$.
-%     \item $f(1)=1$.
-% \end{enumerate}
 The image $\im(f)$ of $f$ is a subring of $S$ and the kernel 
-$\ker(f)=\{ r\in R: f(r)=0\}$ of $f$ is an ideal of $R$.}
+$\ker(f)=\{ r\in R: f(r)=0\}$ of $f$ is an ideal of $R$.
 
 \begin{example}
 Let  $R$ be a ring. The map $f\colon \Z\rightarrow R$ defined by
@@ -596,7 +501,7 @@ $\ker(f)=n\Z$. This integer $n$ is said to be the {\em characteristic} of $R$.
 \end{example}
 
 \begin{example} 
-\textcolor{blue}{Let $R$ be a ring and let $S$ be a subring of $R$. The inclusion $\iota\colon S\rightarrow R$, $a\mapsto a$, is an injective homomorphism of rings. Let $I$ be an ideal of $R$. The natural map $\pi\colon R\rightarrow R/I$, $a\mapsto a+I$, is a surjective homomorphism of rings with kernel equal to $I$.}  
+Let $R$ be a ring and let $S$ be a subring of $R$. The inclusion $\iota\colon S\rightarrow R$, $a\mapsto a$, is an injective homomorphism of rings. Let $I$ be an ideal of $R$. The natural map $\pi\colon R\rightarrow R/I$, $a\mapsto a+I$, is a surjective homomorphism of rings with kernel equal to $I$.  
 \end{example}
 
 
@@ -649,10 +554,10 @@ An {\em upper bound} for a non-empty subset $B\subseteq A$ is an element $d\in
 A$ such that $b\leq d$ for all $b\in B$. A {\em chain} in $A$ is a subset 
 $B$ such that every pair of elements of $B$ are comparable. 
 {\em Zorn's lemma} states the following property: 
-\begin{quote}
-	If $A$ is a non-empty partially ordered set such that every chain in 
-	$A$ has an upper bound in $A$, then $A$ contains a maximal element. 
-\end{quote}
+\medskip
+
+{\em If $A$ is a non-empty partially ordered set such that every chain in 
+	$A$ has an upper bound in $A$, then $A$ contains a maximal element.} 
 
 \section{Modules}
 
@@ -661,9 +566,6 @@ Let $R$ be a ring. A (left) $R$-module is an abelian group $M$ with a multiplica
 R\times M\to M,\quad
 (a,m)\mapsto am,
 \]
-% $$\begin{array}{ccc} R\times M&\rightarrow &M\\
-% (a,m)&\mapsto & am
-% \end{array}$$
 satisfying the following properties:
 \begin{enumerate}
 	\item $(a+b)m=am+bm$ for all $m\in M$ and $a,b\in R$. 
@@ -696,7 +598,7 @@ the quotient additive group $M/N$ with the multiplication by elements of $R$ def
 a(m+N)=am+N
 \]
 for all $m\in M$ and $a\in R$.
-\textcolor{blue}{This} multiplication is well-defined and, moreover, 
+This multiplication is well-defined and, moreover, 
 $M/N$ is an $R$-module. If $(m_i)_{i\in I}$ is a family of elements of $M$, 
 the submodule generated by this family is 
 $\sum_{i \in I}Rm_i$.
@@ -714,12 +616,12 @@ automorphism. We say that $M$ and $N$ are isomorphic if there exists
 an isomorphism from $M$ to $N$. The notation
 $M\cong N$ will mean that $M$ and $N$ are isomorphic.
 
-Let $f\colon M\rightarrow N$ be a homomorphism of $R$-modules. \textcolor{blue}{Then
+Let $f\colon M\rightarrow N$ be a homomorphism of $R$-modules. Then
 $\im(f)$ is a submodule
-of $N$ and $\ker(f)=\{m\in M:f(m)=0\}$} is a submodule of $M$.
+of $N$ and $\ker(f)=\{m\in M:f(m)=0\}$ is a submodule of $M$.
 
-The proofs of the following three results are similar 
-to the proof of the analogous results for groups or rings. 
+%The proofs of the following three results are similar 
+%to the proof of the analogous results for groups or rings. 
  
 \begin{theorem}[First isomorphism theorem]
 Let $R$ be a ring.	For any homomorphism of $R$-modules $f\colon M\rightarrow N$ 
@@ -750,7 +652,89 @@ Furthermore, if $H$ is a submodule of $M$ containing $N$, then
 \]
 \end{theorem}
 
+\section{Free groups and free monoids}
 
+\index{Free group}
+Let $F$ be a group and $X$ a set. It is said that $F$ is a \emph{free group} 
+on $X$ if there exists a function
+$\sigma\colon X\rightarrow F$ such that for every function $\alpha\colon X\rightarrow G$, where $G$ is a group, there exists 
+a unique group homomorphism $f\colon F\rightarrow G$ such that $f\sigma=\alpha$. Note that, in this case, 
+$\sigma$ is injective and $F$ also is a free group on $\sigma(X)$ with respect the inclusion map $\sigma(X)\rightarrow F$.
+A group is free if it is free on some set.
+
+\begin{theorem}
+    Let $X$ be a set. Then there exists a free group $F$ on $X$. \qed
+\end{theorem}
+
+\begin{proposition}
+    Let $G$ be a group and $X$ a subset of $G$. If every element $g\in G$ can be written uniquely in the form
+    \begin{equation}\label{1normalform}
+    g=x_1^{n_1}\cdots x_s^{n_s},
+    \end{equation}
+    \textcolor{red}{
+    for some $s\geq 0$, 
+    where $x_1,\dots,x_s\in X$, $n_1,\dots,n_s\in \mathbb{Z}\setminus \{0\}$ and $x_i\neq x_{i+1}$ for all $1\leq i<s$,} 
+    then $G$ is free on $X$. \qed
+\end{proposition}
+
+If $G$ is a free group on a subset $X\subseteq G$, 
+then we say that $X$ is a {\em basis} of $G$, and the 
+right-hand side of the equality (\ref{1normalform}) is called the {\em normal form} 
+of $g\in G$ with respect the basis $X$. All the bases 
+of $G$ have the same cardinal,
+which is then called the {\em rank} of the free group $G$.
+
+A {\em free presentation} of a group $G$ is a surjective homomorphism $\pi \colon F\rightarrow G$, where $F$ is a free group. The kernel of $\pi$ is the subgroup of the {\em relators} of the presentation. Let $Y$ be a basis of $F$ and let $S$ be a subset of $\ker(\pi)$ such that $\ker(\pi)$ is the smallest normal subgroup of $F$ containing $S$, i.e. $\ker(\pi)$ is the intersection of all normal subgroups containing $S$. Every $s\in S$ has a normal form $w(s)$ with respect to $Y$.
+Then we write
+\[
+G=\gr(Y: w(s)=1\mbox{ for all }s\in S)
+\]
+and say that the right-hand side of this equality is a presentation of $G$ with set of generators $Y$ and defining relations $w(s)=1$ 
+for all $s\in S$. If $Y=\{ y_1,\dots, y_n\}$, then we also write
+\[
+G=\gr(y_1,\dots, y_n: w(s)=1\mbox{ for all }s\in S).
+\]
+\textcolor{red}{ If, for example, $y_1y_2y_1^{-1}y_2^{-1}\in S$, then the defining relation $y_1y_2y_1^{-1}y_2^{-1}=1$ can also be written in the form $y_1y_2=y_2y_1$. }
+
+\begin{example}
+    Let $C_n$ be a cyclic group of order $n$. 
+    Then $C_n=\gr(x: x^n=1)$ is a presentation of $C_n$.
+\end{example}
+
+\textcolor{red}{
+\begin{proposition}\label{prop:presentation}
+Let $G=\gr(Y: w(s)=1\mbox{ for all }s\in S)$. Let $H$ be a group and let $\alpha\colon Y\rightarrow H$ be a function such that for every $s\in S$, if $w(s)=y_1^{n_1}\cdots y_k^{n_k}$, then $\alpha(y_1)^{n_1}\cdots \alpha(y_k)^{n_k}=1$. Then there exists a unique group homomorphism $f\colon G\rightarrow H$ such that $f(y)=\alpha(y)$ for all $y\in Y$. \qed
+\end{proposition}}
+
+\index{Homomorphism!of monoids}
+\index{Isomorphism!of monoids}
+A {\em Homomorphism of monoids} is a map $f\colon M_1\rightarrow M_2$, where $M_1$ and $M_2$ are monoids, and such that $f(xy)=f(x)f(y)$ for all $x,y\in M_1$ and $f(1)=1$. A bijective homomorphism is called an {\em isomorphism}. Two monoids $M_1$ and $M_2$ are isomorphic if there exists an isomorphism $f\colon M_1\rightarrow M_2$. The notation $M_1\cong M_2$ will mean that $M_1$ and $M_2$ are isomorphic. 
+
+\index{Free monoid}
+Let $X$ be a set. We denote by $FM(X)$ the set of all the words $x_1\cdots x_n$ with letters $x_1,\dots ,x_n\in X$. The empty word is denoted by $1$. We define an operation on $FM(X)$ by the rule
+\[ (x_1\cdots x_n)\cdot (y_1\cdots y_m)=x_1\cdots x_ny_1\cdots y_m\]
+for all $x_1,\dots ,x_n,y_1,\dots ,y_m\in X$. It is clear that $FM(X)$ with this operation is a monoid. This is the {\em free monoid} on $X$.
+
+\begin{proposition}
+Let $X$ be a set. Let $M$ be a monoid and let $\alpha\colon X\rightarrow M$ be a function. Then there exists a unique homomorphism of monoids $f\colon FM(X)\rightarrow M$ such that $f(x)=\alpha(x)$ for all $x\in X$.
+\end{proposition}
+
+\index{Congruence on a monoid}
+Let $M$ be a monoid. A congruence on $M$ is an equivalence relation $\sim$ on $M$ such that, for $a,b\in M$,
+\[ a\sim b\Rightarrow \forall c,d\in M, cad\sim cbd.\]
+Let $\bar a=\{ b\in M : b\sim a\}$, where $\sim$ is as congruence on the monoid $M$. We define an operation on $M/\sim=\{ \bar a : a\in M\}$ by the rule $\bar a\cdot \bar b=\overline{ab}$ for all $a,b\in M$. It is easy to check that this operation is well-defined and that $M/\sim$ with this operation is a monoid. The natural map $\pi\colon M\rightarrow M/\sim$, $a\mapsto \bar a$, is a surjective homomorphism of monoids.
+
+\begin{example}
+Let $f\colon M_1\rightarrow M_2$ be a homomorphism of monoids. Let $\rho$ be the binary relation on $M_1$ defined by
+$a\rho b$ if and only if $f(a)=f(b)$. Then $\rho$ is a congruence on $M_1$ and the map $\tilde f\colon M_1/\rho\rightarrow M_2$, defined by $\tilde f(\bar a)=f(a)$ for all $a\in M_1$, is an injective homomorphism of monoids.
+\end{example}
+
+\begin{example}
+Let $X$ be a set. Let $X'=\{ x' : x\in X\}$ be a copy of $X$ and let $Y$ be the disjoint union of $X$ and $X'$. Let $G=\gr(X)$ be the free group on $X$. Let $\alpha\colon Y\rightarrow G$ be the function defined by $\alpha(x)=x$ and $\alpha(x')=x^{-1}$ for all $x\in X$. Let $f\colon FM(Y)\rightarrow G$ be the unique homomorphism of monoids such that $f(y)=\alpha(y)$ for all $y\in Y$. Let $\sim$ be the congruence on $FM(Y)$ such that $a\sim b$ if and only if $f(a)=f(b)$. Then the homomorphism $\tilde f\colon FM(Y)/\sim\rightarrow G$, defined by $\tilde f(\bar a)=f(a)$ for all $a\in FM(Y)$, is an isomorphism of groups. Note that $\sim$ is the smallest congruence on $FM(Y)$ such that $xx'\sim 1$ and $x'x\sim 1$ for all $x\in X$. 
+\end{example}
+
+Let $X$ be a set. Let $W_1=(w_i)_{i\in I}$ and $W_2=(u_i)_{i\in I}$ be two families of elements in $FM(X)$. The monoid $M$ presented with set of generators $X$ and set of relations $\{(w_i,u_i) : i\in I\}$ is $FM(X)/\sim$, where $\sim$ is the smallest congruence on $FM(X)$ such that $w_i\sim u_i$ for all $i\in I$. We will denote $M$ by
+\[ M=\langle X : w_i=u_i\text{ for all }i\in I\rangle.\]
 
 \section{Exercises}
 
