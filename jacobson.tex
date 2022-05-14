@@ -9,7 +9,7 @@ Let $M$ be an $R$-module and $S$ a subset of $M$. The \emph{annihilator} of $S$ 
 \]
 If $S=\{m\}$, then we will write $\Ann_R(m)=\Ann_R(\{m\})$.
 
-It is \textcolor{blue}{an exercise} to check that $\Ann_R(S)$ is a left ideal of $R$. Furthermore,
+It is an exercise to check that $\Ann_R(S)$ is a left ideal of $R$. Furthermore,
 if $S$ is a submodule of $M$, then $\Ann_R(S)$ is an ideal of $R$.
 
 Let $T$ be a subset of a right $R$-module, then the annihilator of $T$ is
@@ -31,7 +31,7 @@ I=\left(\begin{array}{cc} K&K\\
 0&0\end{array} \right): a,b\in K\right\} 
 \]
 is a right ideal of $R$ which is not a left ideal.
-\textcolor{blue}{It is an exercise to show that} 
+It is an exercise to show that 
 \[
 \Ann_R(I)=\left(\begin{array}{cc} 0&K\\
 0&K\end{array}\right)\quad\mbox{and}\quad \Ann^r_R(I)=\{0\}.
@@ -46,7 +46,7 @@ $(R/\Ann_R(M))$-module.
 
 \begin{proof}
 We know that $\Ann_R(M)$ is an ideal of $R$, and thus $R/\Ann_R(M)$ is a ring. 
-We define on $M$ the multiplication by element of $R/\Ann_R(M)$ by
+We define on $M$ the multiplication by \textcolor{red}{elements} of $R/\Ann_R(M)$ by
 \[
 (a+\Ann_R(M))m=am
 \]
@@ -54,7 +54,7 @@ for all $m\in M$ and $a\in R$. This multiplication is well-defined.
 Let $m\in M$ and $a,a'\in R$ \textcolor{blue}{be} such that $a+\Ann_R(M)=a'+\Ann_R(M)$.
 Since $a-a'\in \Ann_R(M)$, 
 $(a-a')m=0$, that is $am=a'm'$. 
-\textcolor{blue}{A straightforward calculation shows that} $M$ 
+A straightforward calculation shows that $M$ 
 with the addition and this multiplication is a faithful $R/\Ann_R(M)$-module.
 \end{proof}
 
@@ -83,7 +83,39 @@ $\ker(f)$ or $R$, and thus $\ker(f)$ is a maximal left ideal of $R$.
 The converse is clear. 
 \end{proof}
 
-Note that Zorn's lemma implies that every \textcolor{blue}{unitary} ring has simple modules, see Exercise \ref{prob:Zorn_simple}. 
+Note that Zorn's lemma implies that every unitary ring has simple modules, see Exercise \ref{prob:Zorn_simple}. 
+
+\textcolor{red}{
+\begin{definition}\index{Direct sum of submodules}
+Let $(M_i)_{i\in I}$ be a family of submodules of an $R$-module $M$. We say that the sum $\sum_{i\in I}M_i$ is a {\em direct sum} if for every $j\in I$, $M_i\cap\sum_{i\in I\setminus\{ j\}}M_i=\{0\}$. We will write $\bigoplus_{i\in I}M_i$ to denote the direct sum of the submodules $M_i$ of $M$.
+\end{definition}}
+
+\textcolor{red}{
+\begin{definition}
+\index{Module!semisimple}
+An $R$-module is {\em semisimple} if it is the sum of its simple submodules.
+\end{definition}}
+\textcolor{red}{
+\begin{proposition}\label{prop:semisimple}
+    Let $M$ be a semisimple module. Let $N$ be a submodule of $M$. Then 
+    \begin{enumerate}
+    \item There exists a submodule $L$ of $M$ such that $M=N\oplus L$,
+    \item $N$ and $M/N$ are semisimple,
+    \item $M$ is a direct sum of simple submodules.
+    \end{enumerate}
+\end{proposition}}
+\begin{proof} \textcolor{red}{
+Let $I=\{ S : S \text{ is a simple submodule of }M\}$. Let
+\[\mathcal{C}=\{ J : J\subseteq I, \text{ such that } N+\sum_{S\in J}S \text{ is a direct sum } \} .\]
+Note that $\emptyset\in\mathcal{C}$. Then, applying Zorn's lemma to $\mathcal{C}$ ordered by the inclusion, we get that there exists a maximal element $J\in\mathcal{C}$. Let
+\[ M_1=N\oplus\bigoplus_{S\in J}S.\]
+We shall see that $M_1=M$. Suppose that $M_1\neq M$. Then there exists a simple submodule $S'\in I$ such that $S'\not\subseteq M_1$. Since $S'$ is simple, we have that $S'\cap M_1=\{0\}$ and thus $J\cup\{ S'\}\in \mathcal{C}$, in contradiction with the maximality of $J$. Hence $M_1=M$ and (1) follows. Note that for $N=\{0\}$, we have that $M=\bigoplus_{S\in J}S$ is a dirct sum of simple submodules, and this proves (3).}
+
+\textcolor{red}{
+Let $I'=\{ S : S \text{ is a simple submodule of }N\}$. $N_1=\sum_{S\in I'}S$.  By (1), there exists a submodule $L$ of $M$ such that $M=N_1\oplus L$. Hence $N=N_1\oplus (N\cap L)$. Suppose that  $N_1\neq N$. Let $a\in N\cap L$. By Zorn's lemma there exists a submodule $N_2$ of $N\cap L$ maximal with the property that $a\notin N_2$. By $(1)$, there exists a submodule $L_1$ of $M$ such that $M=N_2\oplus L_1$. Hence $N\cap L=N_2\oplus (N\cap L\cap L_1)$. Since $N\cap L\cap L_1$ is not simple, there exist a nonzero proper submodule $N_3$ of $N\cap L\cap L_1$. Then, by the maximality of $N_2$, $a\in N_2\oplus N_3$. By (1) there exists a submodule $L_2$ of $M$ such that $M=N_3\oplus L_2$. Hence $N\cap L\cap L_1=N_3\oplus (N\cap L\cap L_1\cap L_2)$. By the maximality of $N_2$, $a\in N_2\oplus (N\cap L\cap L_1\cap L_2)$. Hence there exist $a_1,a'_1\in N_2$, $a_2\in N_3$ and $a_3\in N\cap L\cap L_1\cap L_2$ such that 
+\[a=a_1+a_2=a'_1+a_3.\]
+Since $N\cap L=N_2\oplus N_3\oplus (N\cap L\cap L_1\cap L_2)$, we have that $a_2=a_3=0$ and $a=a_1=a'_1\in N_2$, a contradiction. Therefore $N_1=N$ is semisimple. Since $M=N\oplus L$, we have that $M/N\cong L$ also is semisimple, and this proves (2).}
+\end{proof}
 
 \begin{convention}
 From now on, a ring will mean a non-zero ring, unless otherwise specified. 
@@ -102,7 +134,7 @@ Similarly one defines \emph{right primitive} rings.
 A ring $R$ is \emph{simple} if $\{0\}$ and $R$ are the only ideals of $R$.
 \end{definition}
 
-Note that every simple simple ring is (left and right) primitive.
+Note that every \textcolor{red}{simple} ring is (left and right) primitive.
 
 \begin{example}
 Let $K$ be a field. Then $M_n(K)$ is a simple ring for all positive integer $n$. Furthermore,
@@ -152,7 +184,7 @@ $\End_K(V)$ is a primitive ring which is not simple.
 \begin{proof}
 Let $R=\End_K(V)$. Define on $V$ a multiplication by elements of $R$ by the rule 
 $f\cdot v=f(v)$ for $f\in R$ and $v\in V$.
-\textcolor{blue}{Then} $V$ is an $R$-module.
+Then $V$ is an $R$-module.
 It is clear that for every $v\in V\setminus \{ 0\}$ and $w\in V$ there exists
 $f\in R$ such that $f(v)=w$. Hence $V$ is a simple $R$-module. Clearly, 
 $\Ann_R(V)=\{0\}$ and thus $V$ is a faithful $R$-module. 
@@ -162,7 +194,7 @@ Let $V^*=\Hom_K(V,K)$ the dual space of $V$. Define on $V^*$ a multiplication by
 $\omega\cdot f=\omega f$ for $f\in R$ and $\omega\in V^*$. Then $V^*$ is a
 faithful simple right $R$-module. Hence $R$ is right primitive.
 
-Note that $I=\{ f\in R\mid \dim_K(\im(f))<\infty\}$ 
+Note that $I=\{ f\in R : \dim_K(\im(f))<\infty\}$ 
 is a non-zero proper ideal of $R$. 
 Hence $R$ is not simple. 
 \end{proof}
@@ -181,7 +213,7 @@ Let $V$ be a faithful simple $R$-module. Then $M_{n\times 1}(V)$ is a faithful s
 
 
 
-Note that every division ring is a simple ring. The \textcolor{blue}{following result gives us a method to construct division rings.}
+Note that every division ring is a simple ring. The following result gives us a method to construct division rings.
 
 \begin{lemma}[Schur]
 \index{Schur's lemma}
@@ -189,11 +221,11 @@ Let $V$ be a simple $R$-module. Then $\End_R(V)$ is a division ring.
 \end{lemma}
 
 \begin{proof}
-Let $f\in \End_R(V)\setminus \{ 0\}$. Since $V$ is simple and $\im(f)\neq\{0\}$, \textcolor{blue}{it follows that} $\im(f)=V$. Since
+Let $f\in \End_R(V)\setminus \{ 0\}$. Since $V$ is simple and $\im(f)\neq\{0\}$, it follows that $\im(f)=V$. Since
 $\ker(f)\neq V$, $\ker(f)=\{0\}$. Hence $f$ is an automorphism of $V$ and therefore $\End_R(V)$ is a division ring.
 \end{proof}
 
-\textcolor{blue}{The following theorem goes back to Chevalley and Jacobson.}
+The following theorem goes back to Chevalley and Jacobson.
 
 \begin{theorem}[Density theorem]
 \index{Chevalley--Jacobson's theorem}
@@ -209,11 +241,9 @@ We define on $V$ a multiplication by elements of $D$ by
 \[
 f\cdot v=f(v)
 \]
-for $f\in D$ and $v\in V$. \textcolor{blue}{Then} $V$ with the addition and this multiplication is a $D$-vector space.
+for $f\in D$ and $v\in V$. Then $V$ with the addition and this multiplication is a $D$-vector space.
 
-%Let $x_1,\dots,x_n\in V$ be $D$-linearly 
-%independent and $x'_1,\dots,x'_n\in V$, 
-\textcolor{blue}{We claim that there} exists $r\in R$ such that $rx_i=y_i$ for all $i=1,\dots,n$. \textcolor{blue}{We proceed by induction on $n$.}
+We claim that there exists $r\in R$ such that $rx_i=y_i$ for all $i=1,\dots,n$. We proceed by induction on $n$.
 For $n=1$, since $V$ is a simple $R$-module, $Rx_1=V$ and thus there exists $r\in R$ such that $rx_1=y_1$.
 
 Suppose that $n>1$ and that the result is true for $n-1$.
@@ -247,14 +277,14 @@ Let $R$ be a left primitive ring. Then one of the following conditions holds:
 \end{theorem}
 
 \begin{proof}
-Let $V$ be a faithful simple $R$-module \textcolor{blue}{and}
+Let $V$ be a faithful simple $R$-module and
 $D=\End_R(V)$. By Schur's lemma, $D$ is a division ring. 
-\textcolor{blue}{Moreover,} 
+Moreover, 
 $V$ is a $D$-vector space.
 Let $\psi\colon R\rightarrow\End_D(V)$, $\psi
 (r)(v)=rv$ for $r\in R$ and $v\in V$. It is clear that $\psi$ is a homomorphism of rings.
 
-Suppose that $\dim_D(V)<\infty$ and let $v_1,\dots,v_n$ \textcolor{blue}{be} 
+Suppose that $\dim_D(V)<\infty$ and let $v_1,\dots,v_n$ be 
 a $D$-basis of $V$. Let $f\in \End_D(V)$. By the density theorem, 
 there exists $r\in R$ such that $f(v_i)=rv_i$ for all
 $i=1,\dots,n$. Hence $\psi (r)=f$ and thus $\psi$ is surjective. Since
@@ -326,7 +356,7 @@ Since condition $(iv)$ is left-right symmetric, the result follows.
     of the rings $R_i$ if for every $j\in I$ the restiction $\pi_j|_S$ of $\pi_j$ to $S$ is surjective.
 \end{definition}
 
-Let $R$ be a ring and $I=\{ \Ann_R(V)\mid V$ is a simple $R$-module $\}$. Define
+Let $R$ be a ring and $I=\{ \Ann_R(V) : V$ is a simple $R$-module $\}$. Define
 \[
 \begin{array}{cccc}\varphi\colon &R&\rightarrow &\prod_{A\in I}R/A\\
 &r&\mapsto &(r+A)_{A\in I}\end{array}
@@ -419,7 +449,7 @@ Furthermore, $\mathcal{U}(R)$ is a nilradical and it is called the upper nilradi
 \begin{proof}
 First we shall see that the sum of two nil ideals is a nil ideal. Let $I_1,I_2$ be  nil ideals of $R$. 
 Let $x\in I_1$ and $y\in I_2$. There exists a positive integer $n$ such that $x^n=0$. Hence $(x+y)^n\in
-I_2$. Thus $x+y$ is nilpotent and $I_1+I_2$ is a nil ideal. Let $\mathcal{C}=\{ I\mid I\mbox{ is a nil ideal of }R\}$
+I_2$. Thus $x+y$ is nilpotent and $I_1+I_2$ is a nil ideal. Let $\mathcal{C}=\{ I : I\mbox{ is a nil ideal of }R\}$.
 Let $\mathcal{U}(R)=\sum_{I\in \mathcal{C}}I$. It is clear that  $\mathcal{U}(R)$ is the unique maximal nil ideal of $R$. 
 Let $I$ be a nilpotent ideal of $R/\mathcal{U}(R)$ and let
 $\pi\colon R\rightarrow R/\mathcal{U}(R)$ be the natural map. Then
@@ -455,7 +485,7 @@ $IV=V$ and $JV=V$. Hence $IJV=IV=V$ and thus $IJ\neq \{0\}$.
 An ideal $P$ of a ring $R$ is said to be \emph{prime} if $R/P$ is a prime ring.
 \end{definition}
 
-Let $\mathcal{C}=\{ P\mid P$ prime ideal of $R\}$. Define
+Let $\mathcal{C}=\{ P : P$ prime ideal of $R\}$. Define
 \[
 \varphi\colon R\rightarrow \prod_{P\in\mathcal{C}}R/P
 \]
@@ -496,7 +526,7 @@ $a_n\in a_{n-1}Ra_{n-1}$ for all positive integer $n$. Suppose we have construct
 $a_mRa_m\neq 0$. Let $a_{m+1}\in a_mRa_m\setminus\{ 0\}$. Hence we get $a_0,a_1,\dots,a_n,\dots$ nonzero elements in $R$
 such that $a_n\in a_{n-1}Ra_{n-1}$. Let $S=\{ a_n\mid n\geq
 0\}$. Let
-$$\mathcal{C}=\{ I\mid I\;\mbox{ideal of}\; R\;\mbox{such that}\; I\cap
+$$\mathcal{C}=\{ I : I\;\mbox{ideal of}\; R\;\mbox{such that}\; I\cap
 S=\emptyset \} .$$
 It is clear that $\{0\}\in \mathcal{C}$ and that any chain in $\mathcal{C}$ (ordered by inclusion) has an upper bound in $\mathcal{C}$.
 By Zorn's lemma, there exists a maximal element $P$ in $\mathcal{C}$. We shall see that $P$ is prime. Let $I,J$ be ideals
@@ -514,11 +544,11 @@ if $I$ is a nilradical of $R$, then $\mathcal{B}(R)\subseteq I$.
 \end{proposition}
 
 \begin{proof}
-Let $I$ a nilradical of $R$. By definition $R/I$ has no nonzero nilpotent ideals. By Theorem \ref{Teorema 1.3.6}, $R/I$ is semiprime. Hence
+Let $I$ \textcolor{red}{be} a nilradical of $R$. By definition $R/I$ has no nonzero nilpotent ideals. By Theorem \ref{Teorema 1.3.6}, $R/I$ is semiprime. Hence
 $I$  is the intersection of the prime ideals of $R$ containing $I$, and thus $\mathcal{B}(R)\subseteq I$. By Proposition \ref{Prop1.3.4}, $R$ has nilradicals, and thus $\mathcal{B}(R)$ is a nil ideal of $R$. By Theorem \ref{Teorema 1.3.6}, $R/\mathcal{B}(R)$ has no nonzero nilpotent ideals. Hence $\mathcal{B}(R)$ is a nilradical of $R$, and the result follows.
 \end{proof}
 
-Let $R$ be a ring. Let $\mathcal{N}=\{ I\mid I$ nilpotent ideal of $R\}$. The \emph{nilpotent radical} of $R$ is
+Let $R$ be a ring. Let $\mathcal{N}=\{ I : I$ nilpotent ideal of $R\}$. The \emph{nilpotent radical} of $R$ is
 $N(R)=\sum_{I\in\mathcal{N}} I$. It is clear that $N(R)\subseteq \mathcal{B}(R)$, but in general this inclusion is not an equality, 
 that is, in general, $N(R)$ is not a nilradical of $R$. Furthermore,
 $N(R)$, in general, is not a nilpotent ideal.
@@ -594,8 +624,8 @@ $(iv)\Rightarrow (i)$ It is easy to check that $M_n(D)$ is an Artinian simple ri
 
 Let $D,D'$ be division rings and $n,m$ positive integers such that
 $M_n(D)\cong M_m(D')$. We shall prove that $n=m$ and $D\cong D'$. Let
-$\varphi\colon M_n(D)\rightarrow M_m(D')$ an isomorphism. Let
-$E_{1,1}\in M_n(D)$ the matrix with $1$ in the $(1,1)$-entry and zero in the other entries. Note that $E_{1,1}$ is an idempotent of $M_n(D)$, and it is easy to see that $E_{1,1}M_n(D)$ is a simple right $M_n(D)$-module and $\dim_D(E_{1,1}M_n(D))=n$. By Lemma \ref{Lema 1.4.2}, we have:
+$\varphi\colon M_n(D)\rightarrow M_m(D')$ \textcolor{red}{be} an isomorphism. Let
+$E_{1,1}\in M_n(D)$ \textcolor{red}{be} the matrix with $1$ in the $(1,1)$-entry and zero in the other entries. Note that $E_{1,1}$ is an idempotent of $M_n(D)$, and it is easy to see that $E_{1,1}M_n(D)$ is a simple right $M_n(D)$-module and $\dim_D(E_{1,1}M_n(D))=n$. By Lemma \ref{Lema 1.4.2}, we have:
 \begin{align*} D\cong&
 E_{1,1}M_n(D)E_{1,1}\cong\End_{M_n(D)}(E_{11}M_n(D))\\
 \cong&
@@ -635,8 +665,8 @@ where the $D_i$ are division rings. Furthermore, $r$ is determined by $R$, and t
 \end{theorem}
 
 \begin{proof}
-Let $\mathcal{C}=\{ A\mid A=Ann^r_R(S)$ where $S$ is a simple right $R$-module $\}$. Suppose that $R$ is right Artinian and semiprimitive.
-By Theorem \ref{Teorema 1.3.1}, $J(R)=\bigcap_{A\in\mathcal{C}}A=0$. Let $\mathcal{A}=\{\bigcap_{A\in \mathcal{F}}A \mid \mathcal{F}$ is a finite subset of $\mathcal{C}\}$. Since $R$ is right Artinian, there exist $A_1,\dots,A_r\in \mathcal{C}$ such that
+Let $\mathcal{C}=\{ A : A=Ann^r_R(S)$ where $S$ is a simple right $R$-module $\}$. Suppose that $R$ is right Artinian and semiprimitive.
+By Theorem \ref{Teorema 1.3.1}, $J(R)=\bigcap_{A\in\mathcal{C}}A=0$. Let $\mathcal{A}=\{\bigcap_{A\in \mathcal{F}}A  : \mathcal{F}$ is a finite subset of $\mathcal{C}\}$. Since $R$ is right Artinian, there exist $A_1,\dots,A_r\in \mathcal{C}$ such that
 $\bigcap_{i=1}^rA_i$ is a minimal element of $\mathcal{A}$. Suppose that
 $\bigcap_{i=1}^rA_i\neq 0$ and let $a\in\bigcap_{i=1}^rA_i\setminus\{ 0\}$.
 Since $J(R)=0$, there exists $A\in \mathcal{C}$ such that $a\notin A$. Hence $A\cap (\bigcap_{i=1}^rA_i)$ is strictly contained in $\bigcap_{i=1}^rA_i$, in contradiction with the minimality of $\bigcap_{i=1}^rA_i$. Hence $\bigcap_{i=1}^rA_i=0$.
@@ -658,6 +688,99 @@ where the $D_i$ are division rings.
 The converse is a consequence of the fact that every finite product of right Artinian rings is right Artinian. 
 Note that  $r$ is the number of minimal ideals of $R$ and that these minimal ideals are rings isomorphic to $M_{n_i}(D_i)$.
 By Theorem \ref{Teorema 1.4.3}, the result follows.
+\end{proof}
+
+\section{Noetherian rings}
+
+An $R$-module $M$ is said to be \emph{Noetherian} if every ascending chain of submodules of $M$ is stationary, that is, if
+$$M_1\subseteq M_2\subseteq\dots\subseteq M_n\subseteq\dots$$
+is an ascending chain of submodules of $M$, there exists a positive integer $n_0$ such that $M_n=M_{n_0}$ for all $n\geq n_0$.
+
+The proof of the next result is easy and we left it to the reader.
+
+\begin{proposition}\label{prop: Noetherian1}
+An $R$-module $M$ is Noetherian if and only if every non-empty set of submodules of $M$ has a maximal element. \qed
+\end{proposition}
+
+\begin{proposition}\label{prop:Noetherian2}
+    An $R$-module $M$ is Noetherian if and only if every submodule of $M$ is finitely generated.
+\end{proposition}
+
+\begin{proof}
+Suppose that $M$ is a Noetherian $R$-module. Suppose that there exists a submodule $N$ of $M$ which is not finitely generated. By induction we shall construct a sequence $x_1,x_2,\dots ,x_n,\dots\in N$ such that
+$x_{n+1}\notin Rx_1+\dots +Rx_n$ for all positive integer $n$. Let $x_1\in N$. Since $N\neq Rx_1$, there exists $x_2\in N\setminus Rx_1$. Suppose that $n\geq 2$ and $x_1,\dots ,x_n\in N$ satisfy that
+\[ x_{i+1}\notin Rx_1+\dots +Rx_i\]
+for all $1\leq i<n$. Since $N\neq Rx_1+\dots +Rx_n$, there exists $x_{n+1}\in N\setminus (Rx_1+\dots +Rx_n)$. Hence by induction there exist $x_1,x_2,\dots ,x_n,\dots \in N$ such that $x_{n+1}\notin Rx_1+\dots +Rx_n$ for all positive integer $n$. Let $N_k=\sum_{i=1}^kRx_i$. We have that the ascending chain
+\[N_1\subseteq N_2\subseteq\dots\subseteq N_n\subseteq\dots\]
+is not stationary, a contradiction. Hence every submodule of $M$ is finitely generated.
+
+Conversely, suppose that every submodule of $M$ is finitely generated. Let
+\[M_1\subseteq M_2\subseteq\dots\subseteq M_n\subseteq\dots\]
+be an ascending chain of submodules of $M$. Let $N=\bigcup_{n=1}^{\infty}M_n$. Since $N$ is a submodule of $M$, there exist $x_1,\dots ,x_k\in N$ such that $N=\sum_{i=1}^kRx_i$. Now there exists a positive integer $n_0$ such that $x_1,\dots ,x_k\in M_{n_0}$. Hence $M_n=M_{n_0}=N$ for all $n\geq n_0$. Therefore $M$ is Noetherian.
+\end{proof}
+
+\begin{corollary}\label{cor:Noetherian3}
+Let $M$ be an $R$-module and let $N$ be a submodule of $M$. Then $M$ is Noetherian if and only if $N$ and $M/N$ are Noetherian.
+\end{corollary}
+
+\begin{proof}
+Suppose that $M$ is Noetherian. By Proposition \ref{prop:Noetherian2}, every submodule of $M$ is finitely generated. In particular, every submodule of $N$ is finitely generated, and thus $N$ is Noetherian. Since the submodules of $M/N$ are of the form $L/N$, where $L$ is a submodule of $M$ containing $N$, it is clear that the submodules of $M/N$ are finitely generated, and thus $M/N$ is Noetherian.
+
+Conversely, suppose that $N$ and $M/N$ are Noetherian. Let $K$ be a submodule of $M$. By Proposition \ref{prop:Noetherian2}, $K\cap N$ is finitely generated and $K/(K\cap N)\cong (K+N)/N$ also is finitely generated. Let $x_1,\dots ,x_s,y_1,\dots ,y_t\in K$ such that
+\[K\cap N=Rx_1+\dots +Rx_s\quad\text{and}\quad K/(K\cap N)=R(y_1+(K\cap N))+\dots +R(y_t+(K\cap N)).\]
+It is easy to see that
+\[K=Rx_1+\dots +Rx_s+Ry_1+\dots +Ry_t.\]
+By Proposition \ref{prop:Noetherian2}, it follows that $M$ is Noetherian.
+\end{proof}
+
+A ring $R$ is said to be \emph{right Noetherian} if it is Noetherian as right $R$-module.
+Similarly one defines left Noetherian rings. We say that the ring $R$ is Noetherian if it is right and left Noetherian.
+
+\begin{example}
+$\Z$ is a Noetherian ring.
+\end{example}
+
+\begin{example}
+Every division ring is Noetherian.
+\end{example}
+
+\begin{theorem}\label{thm:Noetherian4}
+Let $R$ be a right Noetherian ring. Then the polynomial ring $R[X]$ is right Noetherian.
+\end{theorem}
+
+\begin{proof}
+Let $I$ be a right ideal of $R[X]$. Let
+\[J=\{ a\in R : \text{ there exists }a_0+a_1X+\dots +a_nX^n\in I\text{ such that }a_n=a\}.\]
+It is an easy exercise to check that $J$ is a right ideal of $R$. Since $R$ is right Noetherian, there exists $c_1,\dots ,c_m\in J$ such that 
+\[ J=c_1R+\dots +c_mR.\]
+Let $p_{i}(X)=a_{i,0}+a_{i,1}X+\dots +a_{i,n_i}X^{n_i}\in I$ such that $a_{i,n_i}=c_i$ for all $1\leq i\leq m$. Let $n$ be a positive integer such that $n\geq n_i$ for all $1\leq i\leq m$. Since $R$ is right Noetherian, by Corollary \ref{cor:Noetherian3}, it is easy to see by induction on $n$ that $R^{n+1}$ is a Noetherian right $R$-module. Consider the epimorphism of right $R$-modules
+$\pi\colon R^{n+1}\rightarrow R+RX+\dots +RX^n$, defined by $\pi(a_0,a_1,\dots ,a_n)=a_0+a_1X+\dots +a_nX^n$. By Corollary \ref{cor:Noetherian3}, $R+RX+\dots +RX^n$ is a Noetherian right $R$-module and $I\cap (R+RX+\dots +RX^n)$ also is a Noetherian right $R$-module. Hence there exist $g_1(X),\dots ,g_s(X)\in I\cap (R+RX+\dots +RX^n)$ such that
+\[I\cap (R+RX+\dots +RX^n)=\sum_{j=1}^sg_j(X)R.\]
+We shall prove by induction on the degree of $p(X)\in I$ that
+\[ p(X)\in \sum_{j=1}^sg_j(X)R[X]+\sum_{i=1}^mp_i(X)R[X].\]
+We may assume that $\deg(p(X))=t>n$ and that for every $q(X)\in I$ of degree $<t$,
+\[ q(X)\in \sum_{j=1}^sg_j(X)R[X]+\sum_{i=1}^mp_i(X)R[X].\]
+Let $a_0,a_1,\dots ,a_t\in R$ shuch that $p(X)=a_0+a_1X+\dots +a_tX^t$. Since $a_t\in J$, there exist $r_1,\dots ,r_m\in R$ such that $a_t=\sum_{i=1}^mc_ir_i$. Hence
+\[ q(X)=p(X)-\sum_{i=1}^m p_i(X)X^{t-n_i}r_i\in I\]
+and $\deg{q(X)}<t$. By the inductive hypothesis,
+\[ q(X)\in \sum_{j=1}^sg_j(X)R[X]+\sum_{i=1}^mp_i(X)R[X].\]
+Hence
+\[ p(X)\in \sum_{j=1}^sg_j(X)R[X]+\sum_{i=1}^mp_i(X)R[X].\]
+By induction, $I$ is finitely generated and therefore $R[X]$ is right Noetherian.
+\end{proof}
+
+\begin{theorem}[Hopkins' theorem]
+Let $R$ be a ring. Then $R$ is right Artinian if and only if $R$ is right Noetherian, $J(R)$ is nilpotent and $R/J(R)$ is a semisimple right $R$-module.
+\end{theorem}
+
+\begin{proof}
+Suppose that $R$ is right Artinian. By Theorem \ref{Teorema 1.4.4}, $J(R)$ is nilpotent. Since $R/J(R)$ is right Artinian and semiprimitive, by Wedderburn-Artin theorem, it is easy to see that  $R/J(R)$ is a semisimple $R$-module. Let $n$ be a positive integer such that $J(R)^n=0$. Consider the descending chain
+\[ R\supseteq J(R)\supseteq \dots\supseteq J(R)^n=0.\]
+Note that $J(R)^{i}/J(R)^{i+1}$ is a right $R/J(R)$-module for all $1\leq i<n$. It is an exercise to prove that every direct sum of semisimple right modules is semisimple. Since $J(R)^{i}/J(R)^{i+1}$ is an epimorphic image of a direct sum of copies of $R/J(R)$, we have that $J(R)^{i}/J(R)^{i+1}$ is a semisimple right $R$-module. Since $R$ is right Artinian, $J(R)^{i}/J(R)^{i+1}$ is an Artinian right module. By Proposition \ref{prop:semisiple},  $J(R)^{i}/J(R)^{i+1}$ and its right submodules are finite direct sums of simple right $R$-modules. In particular, every right submodule of $J(R)^{i}/J(R)^{i+1}$ is finitely generated. Hence $J(R)^{i}/J(R)^{i+1}$ is a Noetherian $R$-module. Hence $R$ also is right Noetherian. 
+
+Conversely, assume that $R$ is right Noetherian, $J(R)$ is nilpotent and $R/J(R)$ is a semisimple right $R$-module. There exists a positive integer $n$ such that 
+\[ R\supseteq J(R)\supseteq \dots\supseteq J(R)^n=0.\]
+As above $J(R)^{i}/J(R)^{i+1}$ is a semisimple right $R$-module. Since $R$ is right Noetherian, by Proposition \ref{prop:semisimple}, $J(R)^{i}/J(R)^{i+1}$ and its right submodules are finite direct sums of simple right $R$-modules. Now it is clear that $J(R)^{i}/J(R)^{i+1}$ is an Artinian $R$-module and therefore $R$ is right Artinian.
 \end{proof}
 
 \section{Rings without unity}
@@ -710,7 +833,9 @@ and it is not a nil ring.
     \label{prob:Zorn_simple}
     \textcolor{blue}{Prove that unitary rings have simple modules.} 
 \end{prob}
-
+\begin{prob}
+\textcolor{red}{Let $M$ be an $R$-module. Prove that if for every submodule $N$ of $M$ there exists a submodule $L$ of $M$ such that $M=N\oplus L$, then $M$ is semisimple.}
+\end{prob}
 \begin{prob}
 	\label{prob:Rump}
 	Prove Proposition~\ref{pro:Rump}. 
@@ -759,6 +884,10 @@ $J(R)^n\supseteq\begin{pmatrix}0&\Q\\0&0\end{pmatrix}$ and hence $\bigcap_nJ(R)^
 % \end{conjecture}
 
 %Now we list some problems related to the solutions to the YBE. 
+\begin{problem}[Kaplansky]
+\label{prob:Kaplansky}
+\textcolor{red}{If a ring $R$ is right primitive and Noetherian, is $R$ left primitive?}
+\end{problem}
 
 \begin{problem}[Jacobson]
 \label{prob:Jacobson}
@@ -788,7 +917,9 @@ Let $R$ be a noetherian ring. Is then
 
 The material on non-commutative ring theory is standard, see for example~\cite{MR3308118} {\bf Ferran: quiz\'as deber\'{i}amos citar el libro Algebra, vol 2, de P. M. Cohn}.
 Radical rings were introduced by Jacobson in~\cite{MR12271}. Nil rings were
-used by Zelmanov in his solution to Burnside's problem, see for example~\cite{MR1199575}. 
+used by Zelmanov in his solution to Burnside's problem, see for example~\cite{MR1199575}.
+
+\textcolor{red}{In 1957 \cite{MR0096696} Kaplansky formulated the question of whether right primitive rings are left primitive. After the example of Bergman of a right primitive ring which is not left primitive \cite{MR175940,MR167497} and the examples of Jategaonkar \cite{MR0240131} with the additional property of being principal left ideal domains, Kaplansky formulated Open problem \ref{prob:Kaplansky} in  \cite{MR0099359}. }
 
 Open problem \ref{prob:Jacobson} was originally formulated by Jacobson in 1956 \cite{MR0222106} 
 for one-sided noetherian rings. In 1965 Herstein \cite{MR188253} found a counterexample

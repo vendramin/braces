@@ -708,7 +708,7 @@ Let $G=\gr(Y: w(s)=1\mbox{ for all }s\in S)$. Let $H$ be a group and let $\alpha
 
 \index{Homomorphism!of monoids}
 \index{Isomorphism!of monoids}
-A {\em Homomorphism of monoids} is a map $f\colon M_1\rightarrow M_2$, where $M_1$ and $M_2$ are monoids, and such that $f(xy)=f(x)f(y)$ for all $x,y\in M_1$ and $f(1)=1$. A bijective homomorphism is called an {\em isomorphism}. Two monoids $M_1$ and $M_2$ are isomorphic if there exists an isomorphism $f\colon M_1\rightarrow M_2$. The notation $M_1\cong M_2$ will mean that $M_1$ and $M_2$ are isomorphic. 
+A {\em homomorphism of monoids} is a map $f\colon M_1\rightarrow M_2$, where $M_1$ and $M_2$ are monoids, and such that $f(xy)=f(x)f(y)$ for all $x,y\in M_1$ and $f(1)=1$. A bijective homomorphism is called an {\em isomorphism}. Two monoids $M_1$ and $M_2$ are isomorphic if there exists an isomorphism $f\colon M_1\rightarrow M_2$. The notation $M_1\cong M_2$ will mean that $M_1$ and $M_2$ are isomorphic. 
 
 \index{Free monoid}
 Let $X$ be a set. We denote by $FM(X)$ the set of all the words $x_1\cdots x_n$ with letters $x_1,\dots ,x_n\in X$. The empty word is denoted by $1$. We define an operation on $FM(X)$ by the rule
@@ -716,7 +716,7 @@ Let $X$ be a set. We denote by $FM(X)$ the set of all the words $x_1\cdots x_n$ 
 for all $x_1,\dots ,x_n,y_1,\dots ,y_m\in X$. It is clear that $FM(X)$ with this operation is a monoid. This is the {\em free monoid} on $X$.
 
 \begin{proposition}
-Let $X$ be a set. Let $M$ be a monoid and let $\alpha\colon X\rightarrow M$ be a function. Then there exists a unique homomorphism of monoids $f\colon FM(X)\rightarrow M$ such that $f(x)=\alpha(x)$ for all $x\in X$.
+Let $X$ be a set. Let $M$ be a monoid and let $\alpha\colon X\rightarrow M$ be a function. Then there exists a unique homomorphism of monoids $f\colon FM(X)\rightarrow M$ such that $f(x)=\alpha(x)$ for all $x\in X$. \qed
 \end{proposition}
 
 \index{Congruence on a monoid}
@@ -735,6 +735,46 @@ Let $X$ be a set. Let $X'=\{ x' : x\in X\}$ be a copy of $X$ and let $Y$ be the 
 
 Let $X$ be a set. Let $W_1=(w_i)_{i\in I}$ and $W_2=(u_i)_{i\in I}$ be two families of elements in $FM(X)$. The monoid $M$ presented with set of generators $X$ and set of relations $\{(w_i,u_i) : i\in I\}$ is $FM(X)/\sim$, where $\sim$ is the smallest congruence on $FM(X)$ such that $w_i\sim u_i$ for all $i\in I$. We will denote $M$ by
 \[ M=\langle X : w_i=u_i\text{ for all }i\in I\rangle.\]
+
+\section{Free modules and abelian groups}
+In this section we use the additive notation for abelian groups.
+
+\index{Module!free}
+Let $R$ be a ring. An $R$-module $F$ is {\em free} if there exists a family $(x_i)_{i\in I}$ of elements of $F$ such that for every element $x\in F$ there exist unique elements $r_i\in R$, only finitely many of the $r_i$ are nonzero, satisfying 
+\[x=\sum_{i\in I}r_ix_i.\]
+In this case, we say that $(x_i)_{i\in I}$ is a {\em basis} of the free module $F$.
+
+\begin{example}
+Let $R$ be a ring. Let $I$ be a set. For every $i\in I$, let $R_i=R$.
+Let $M=\prod_{i\in I}R_i$ be the Cartesian product of the $R_i$. Then $M$ with the sum and the multiplication by elements of $R$ defined componentwise is an $R$-module. Let $e_i=(\delta_{ij})_{j\in I}\in M$, where 
+\[\delta_{ij}=\left\{\begin{array}{cl}
+1&\text{ if }j=i,\\
+0&\text{ otherwise. }
+\end{array}\right. \]
+Then the submodule
+\[ F=\bigoplus_{i\in I}R_i=\sum_{i\in I}Re_i\]
+of $M$ is a free $R$-module and $(e_{i})_{i\in I}$ is a basis of $F$. $F$ is the {\em direct sum} of the $R_i$.
+\end{example}
+
+\begin{proposition}
+Every $R$-module is an homomorphic image of a free $R$-module. \qed 
+\end{proposition}
+
+\index{Free abelian group}
+\index{Abelian group!torsion free}
+A {\em free abelian group} is a free $\Z$-module. An abelian group $G$ is {\em torsion-free} if $G$ has no nonzero elements of finite order.
+
+\begin{proposition}
+A finitely generated abelian group $G$ is torsion-free if and only if it is a free abelian group. \qed 
+\end{proposition}
+
+\index{Abelian group!rank}
+\index{Abelian group!invariant factors}
+\begin{theorem}
+Let $G$ be a finitely generated abelian group. Then there exist non-negative integers $n,m$ and integers $d_i>1$ for $1\leq i\leq m$ such that
+\[ G\cong \Z^n\oplus \bigoplus_{i=1}^m\Z/d_i\Z\]
+and $d_{j+1}\| d_j$ for all $1\leq j<m$. Furthermore, the integers $n,m$ and $d_i$ are unique satisfying these conditions. the integer $n$ is called the {\em rank} of $G$, and $d_1,\dots ,d_m$ are the {\em invarian factors} of $G$. \qed  
+\end{theorem}
 
 \section{Exercises}
 
