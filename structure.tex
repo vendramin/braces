@@ -1,4 +1,4 @@
-\chapter{The structure brace of a solution}
+\chapter{The structure skew brace of a solution}
 \label{structure_brace}
 
 % hacerlo con el guitar map
@@ -130,7 +130,7 @@ Let $(X,r)$ be a solution to the YBE. Let $X'=\{x'\mid x\in X\}$ be a copy of $X
 \[ \sigma'_x(y)=\sigma_x(y),\; \sigma'_{x'}(y)=\sigma^{-1}_x(y),\; \sigma'_{x}(y')=\widehat{\tau}^{-1}_x(y)',\; \sigma'_{x'}(y')=\widehat{\tau}_x(y)'\]
 and
 \[ \tau'_x(y)=\tau_x(y),\; \tau'_{x'}(y)=\tau^{-1}_x(y),\; \tau'_{x}(y')=\widehat{\sigma}^{-1}_x(y)',\; \tau'_{x'}(y')=\widehat{\sigma}_x(y)',\]
-for all $x,y\in X$. Then $(Y,r')$ is a solution to the YBE.
+for all $x,y\in X$. Then $(Y,r')$ is a solution to the YBE. Furthermore, $(Y,r')$ is involutive if and only if $(X,r)$ is involutive.
 \end{proposition}
 
 \begin{proof}
@@ -222,7 +222,32 @@ By a similar calculations one get that
 \[\tau'_{\sigma'_{\tau'_{x'}(y)}(z')}\sigma'_{y}(x')=\sigma'_{\tau'_{\sigma'_{x'}(z')}(y)}\tau'_{z'}(x')\]
 and
 \[\sigma'_{\tau'_{\sigma'_{x'}(y)}(z')}\tau'_{y}(x')=\tau'_{\sigma'_{\tau'_{x'}(z')}(y)}\sigma'_{z'}(x').\]
-Hence, by Lemma \ref{lem:YB}, (c) follows. Therefore $(Y,r')$ is a solution to the YBE.
+Hence, by Lemma \ref{lem:YB}, (c) follows. Therefore $(Y,r')$ is a solution to the YBE. 
+
+By the definition of $r'$, it is clear that if $(r')^2=\id_{Y^2}$, then $r^2=\id_{X^2}$. Suppose that $r^2=\id_{X^2}$. We have that
+\[ (r')^2(x,y)=r^2(x,y)=(x,y)\]
+for all $x,y\in X$. Since
+\[ r'(x',y)=(\sigma'_{x'}(y),\tau'_y(x'))=(\sigma^{-1}_x(y),\sigma^{-1}_y(x)')\]
+and 
+\[ r'(x,y')=(\sigma'_{x}(y'),\tau'_{y'}(x))=(\tau^{-1}_x(y)',\tau^{-1}_y(x))\]
+for all $x,y\in X$, we have that
+\[ (r')^2(x',y)=(\tau^{-1}_{\sigma^{-1}_x(y)}\sigma^{-1}_y(x)',\tau^{-1}_{\sigma^{-1}_y(x)}\sigma^{-1}_x(y))\]
+and
+\[ (r')^2(x,y')=(\sigma^{-1}_{\tau^{-1}_x(y)}\tau^{-1}_y(x),\sigma^{-1}_{\tau^{-1}_y(x)}\tau^{-1}_x(y))'\]
+for all $x,y\in X$. Note that
+\[\sigma_x\tau_{\sigma^{-1}_y(x)}(y)=\sigma_x\sigma^{-1}_{\sigma_y(\sigma^{-1}_y(x))}(y)=y\]
+and
+\[\tau_x\sigmau_{\tau^{-1}_y(x)}(y)=\tau_x\tau^{-1}_{\tau_y(\tau^{-1}_y(x))}(y)=y\]
+for all $x,y\in X$. Hence
+\[ (r')^2(x',y)=(x',y)\; \text{ and }\; (r')^2(x,y')=(x,y')\]
+for all $x,y\in X$.
+Finally, 
+\begin{align*}
+(r')^2(x',y')=&r'(\sigma'_{x'}(y'),\tau'_{y'}(x'))=\r'(\tau_x(y)',\sigma_y(x)')\\
+=&(\tau_{\tau_{x}(y)}\sigma_y(x)',\sigma_{\sigma_y(x)}\tau_x(y)')\\
+=&(\tau_{\tau_{x}(y)}\tau^{-1}_{\tau_x(y)}(x)',\sigma_{\sigma_y(x)}\sigma^{-1}_{\sigma_y(x)}(y)')=(x',y')
+\end{align*}
+for all $x,y\in X$. Therefore $(r')^2=\id_{Y^2}$, and the result follows.
 \end{proof}
 
 We use the following notation. For every solution $(X,r)$ of the YBE,
@@ -232,11 +257,41 @@ for all $1\leq k<n$ and $n\geq 3$.
 \label{thm:solfreemonoid}
 Let $(X,r)$ be a solution of the YBE. Let $\mathrm{FM}(X)$ be the free monoid on $X$. Let $m_k\colon X^{k}\rightarrow \mathrm{FM}(X)$ be the map defined by $m_k(x_1,\dots ,x_k)=x_1\cdots x_k$ for every positive integer $k$. Let $r_{FM}\colon \mathrm{FM}(X)\times \mathrm{FM}(X)\rightarrow \mathrm{FM}(X)\times \mathrm{FM}(X)$ be the map defined by $r_{FM}(x_1\cdots x_n,\, y_1\cdots y_k)$
 \[=(m_k\times m_n)(r_k\cdots r_2r_1)(r_{k+1}\cdots r_3r_2)\cdots(r_{n+k-1}\cdots r_{n+1}r_n)(x_1,\dots ,x_n,y_1,\dots ,y_k)\]
-for all $x_1,\dots ,x_n,y_1,\dots ,y_k\in X$ and all positive integers $n,k$,   $r_{FM}(1,a)=(a,1)$ and $r_{FM}(a,1)=(1,a)$ for all $a\in \mathrm{FM}(X)$. Then $(\mathrm{FM}(X),r_{FM})$ is a solution to the YBE.
+for all $x_1,\dots ,x_n,y_1,\dots ,y_k\in X$ and all positive integers $n,k$,   $r_{FM}(1,a)=(a,1)$ and $r_{FM}(a,1)=(1,a)$ for all $a\in \mathrm{FM}(X)$. Then $(\mathrm{FM}(X),r_{FM})$ is a solution to the YBE. Furthermore, $(\mathrm{FM}(X),r_{FM})$ is involutive if and only if $(X,r)$ is involutive.
 \end{theorem}
 
 \begin{proof}
-Note that if we write $r_{FM}(a,b)=(\sigma_a(b),\tau_b(a))$ for all $a,b\in \mathrm{FM}(X)$, then
+Note that $r_{FM}(x,y)=r_1(x,y)=r(x,y)$ for all $x,y\in X$. Hence if $(r_{FM})^2=\id_{\mathrm{FM}(X)^2}$, the $r^2=\id_{X^2}$.
+
+Note that 
+\begin{equation}\label{eq:SFcom}
+r_{l+m}r_{m}=r_mr_{l+m}
+\end{equation}
+for all $1\leq m$ and $2\leq l$. Hence
+\begin{align}\label{eq:solfree}
+r_m(r_{m+l}\cdots r_{m+1}r_m)=&r_{m+l}\cdots r_{m+2}r_mr_{m+1}r_m\nonumber\\
+=&(r_{m+l}\cdots r_{m+2}r_{m+1}r_{m})r_{m+1}.
+\end{align}
+
+Suppose that
+$r^2=\id_{X^2}$. By using (\ref{eq:SFcom}) and (\ref{eq:solfree}), we have that
+\begin{align*}
+    &(r_k\cdots r_2r_1)(r_{k+1}\cdots r_3r_2)\cdots(r_{n+k-1}\cdots r_{n+1}r_n)\\
+    &\cdot (r_n\cdots r_2r_1)(r_{n+1}\cdots r_3r_2)\cdots(r_{k+n-1}\cdots r_{k+1}r_k)\\
+    &=(r_k\cdots r_2r_1)(r_{k+1}\cdots r_3r_2)\cdots(r_{n+k-1}\cdots r_{n+1})\\
+    &\cdot (r_{n-1}\cdots r_2r_1)(r_{n+1}\cdots r_3r_2)\cdots(r_{k+n-1}\cdots r_{k+1}r_k)\\
+    &=(r_k\cdots r_2r_1)(r_{k+1}\cdots r_3r_2)\cdots(r_{n+k-2}\cdots r_{n-1})\\
+    &\cdot (r_{n-1}\cdots r_2r_1)(r_{n+k-1}\cdots r_{n+1})(r_{n+1}\cdots r_3r_2)\cdots(r_{k+n-1}\cdots r_{k+1}r_k)\\
+    &=\dots =(r_k\cdots r_2)(r_{k+1}\cdots r_3)\cdots(r_{n+k-1}\cdots r_{n+1})\\
+    &\cdot (r_{n+1}\cdots r_3r_2)\cdots(r_{k+n-1}\cdots r_{k+1}r_k)\\
+    &=\dots =(r_k)(r_{k+1})\cdots(r_{n+k-1})\\
+    &\cdot (r_{k+n-1}\cdots r_{k+1}r_k)=\id_{X^{k+n}}
+\end{align*}
+for positive integers $n,k$.
+Hence $(r_{FM})^2=\id_{\mathrm{FM}(X)^2}$.
+
+
+ We write $r_{FM}(a,b)=(\sigma_a(b),\tau_b(a))$ for all $a,b\in \mathrm{FM}(X)$. We have that
 \begin{align*}
 (\id\times r_{FM})(r_{FM}\times \id)&(\id\times r_{FM})(1,a,b)\\
 =&(\id\times r_{FM})(r_{FM}\times \id)(1,\sigma_a(b),\tau_b(a))\\
@@ -267,15 +322,6 @@ we need to show that
 \end{align*}
 for all positive integers $n,k,t$ and $x_1,\dots ,x_n,y_1,\dots ,y_k,z_1,\dots ,z_t\in X$.
 
-Note that 
-\begin{equation}\label{eq:SFcom}
-r_{l+m}r_{m}=r_mr_{l+m}
-\end{equation}
-for all $1\leq m<n+k+t-2$ and $2\leq l\leq n+k+t-m-1$. Hence
-\begin{align}\label{eq:solfree}
-r_m(r_{m+l}\cdots r_{m+1}r_m)=&r_{m+l}\cdots r_{m+2}r_mr_{m+1}r_m\nonumber\\
-=&(r_{m+l}\cdots r_{m+2}r_{m+1}r_{m})r_{m+1}.
-\end{align}
 By using (\ref{eq:SFcom}) and (\ref{eq:solfree}), we have that
 \begin{align*}
     (r_{t+k}\cdots r_{t+1})&\cdots (r_{t+k+n-1}\cdots r_{t+n})(r_{t}\cdots r_2r_{1})\cdots (r_{n+t-1}\cdots r_{n})\\
@@ -372,11 +418,11 @@ for all positive integer $n$. Hence $\sigma_a$ and $\tau_a$ are bijective for al
 \begin{theorem}
 \label{thm:LYZ9}
 Let $(X,r)$ be a solution to the YBE. Let $i\colon X\rightarrow G(X,r)$ be the natural map. Then there exists a unique braiding operator $r_G$ on $G(X,r)$ such that $r_G (i\times i)=(i\times i) r$. Furthermore, if $(H,s)$ is a braided group and $j\colon X\rightarrow H$ is a map such that
-$s (j\times j)=(j\times j) r$, then there exists a unique group homomorphism $f\colon G(X,r)\rightarrow H$ such that $s (f\times f)=(f\times f) r_G$ and $j=f i$.
+$s (j\times j)=(j\times j) r$, then there exists a unique group homomorphism $f\colon G(X,r)\rightarrow H$ such that $s (f\times f)=(f\times f) r_G$ and $j=f i$. Furthermore, if $r^2=\id_{X^2}$, then $r_G^2=\id_{G(X,r)^2}$.
 \end{theorem}
 
 \begin{proof}
-We use the notation of Proposition \ref{prop:extendsol}. Thus, by Proposition \ref{prop:extendsol}, $(Y,r')$ is a solution to the YBE. By Theorem \ref{thm:solfreemonoid}, we extend $(Y,r')$ to a solution $(FM(Y),r'_{FM})$ to the YBE. We write $r'_{FN}(a,b)=(\sigma'_a(b),\tau'_b(a))$ for all $a,b\in FM(Y)$. Note that, by the definition of $r'_{FM}$,
+We use the notation of Proposition \ref{prop:extendsol}. Thus, by Proposition \ref{prop:extendsol}, $(Y,r')$ is a solution to the YBE. By Theorem \ref{thm:solfreemonoid}, we extend $(Y,r')$ to a solution $(FM(Y),r'_{FM})$ to the YBE. We write $r'_{FM}(a,b)=(\sigma'_a(b),\tau'_b(a))$ for all $a,b\in FM(Y)$. Note that, by the definition of $r'_{FM}$,
 \[\sigma'_{ab}=\sigma'_a\sigma'_b,\quad \tau'_{ab}=\tau'_b\tau'_a,\]
 \[\sigma'_c(ab)=\sigma'_c(a)\sigma'_{\tau'_a(c)}(b)\quad\text{and}\quad
 \tau'_c(ab)=\tau'_{\sigma'_b(c)}(a)\tau'_c(b)\]
@@ -476,7 +522,7 @@ Hence, by (\ref{eq:LYZ1}), (\ref{eq:LYZ2}), (\ref{eq:LYZ3}) and (\ref{eq:LYZ4}),
 \[\sigma'_{a}(bxyc)\sim \sigma'_a(b\sigma_x(y)\tau_y(x)c)\]
 for all $x,y\in X$ and $a,b,c\in FM(Y)$. Similarly one can check that
 \[\tau'_{a}(bxyc)\sim \tau'_a(b\sigma_x(y)\tau_y(x)c)\]
-for all $x,y\in X$ and $a,b,c\in FM(Y)$. Therefore $r_G$ is well-defined. 
+for all $x,y\in X$ and $a,b,c\in FM(Y)$. Therefore $r_G$ is well-defined. Now, by the definition of $r_G$, Proposition \ref{prop:extendsol} and Theorem \ref{thm:solfreemonoid}, if $r^2=\id_{X^2}$, then $r_G^2=\id_{G(X,r)^2}$. 
 
 Since $r'_{FM}$ satisfies conditions (1), (2) and (3) of the Definition \ref{braidedgroup}, $r_G$ also satisfies these conditions.  To prove that $r_G$ is a braiding operator on $G(X,r)$, it is enough to show that
 \begin{equation}\label{eq:LYZ5}\overline{ab}=\overline{\sigma'_a(b)\tau'_b(a)}\end{equation}
@@ -633,6 +679,61 @@ for all $a,b\in FM(Y)$. Hence $f$ is a homomorphism of skew braces.
 Given a solution $(X,r)$ to the YBE, its structure skew brace is the skew brace structure on the group $G(X,r)$ given in Theorem \ref{thm:GVbraces}.
 \end{definition}
 
+\begin{theorem}\label{thm:involstruct}
+Let $(X,r)$ be an involutive solution of the YBE. Then the additive group of the structure skew brace $G(X,r)$ is the additive free abelian group on $X$.
+\end{theorem}
+
+\begin{proof}
+The structure group $G(X,r)$ is
+\[ G(X,r)=\gr(X : xy=\sigma_x(y)\tau_y(x)\text{ for all }x,y\in X ).\]
+Since $xy=x+\lambda_x(y)=x+\sigma_x(y)$ and $(X,r)$ is involutive, we have that $\sigma_x(y)\tau_y(x)=\sigma_x(y)+\lambda_{\sigma_x(y)}(\tau_y(x)=\sigma_x(y)+\sigma_{\sigma_x(y)}(\tau_y(x))=\sigma_x(y)+x$,
+for all $x,y\in X$. Hence the additive group of $G(X,r)$ is generated by $X$ and it is abelian.
+
+Let $\Z^{(X)}$ be the additive free abelian group with basis $X$. Thus the elements of $\Z^{(X)}$ are finite sums of the form
+\[ z_1x_1+\dots +z_nx_n,\]
+with $z_1,\dots ,z_n\in\Z$ and $x_1,\dots ,x_n\in X$. Furthermore, if 
+\[ z_1x_1+\dots +z_nx_n=0\]
+and $x_1,\dots ,x_n\in X$ are $n$ distinct elements, then $z_1=\dots =z_n=0$. Cosider the semidirect product $\Z^{(X)}\rtimes \Sym_X$, with respect to the natural action of $\Sym_X$ on $\Z^{(X)}$ given by the rule
+\[ \sigma(z_1x_1+\dots +z_nx_n)=z_1\sigma(x_1)+\dots +z_n\sigma(x_n)\]
+for all $\sigma\in\Sym_X$, $\z_1,\dots ,z_n\in\Z$ and $x_1,\dots,x_n\in X$. Let $i\colon X\to G(X,r)$ be the natural map.
+We define a map $j\colon X\to \Z^{(X)}\rtimes \Sym_X$ by $j(x)=(x,\sigma_x)$ for all $x\in X$. Note that, since $(X,r)$ is involutive, 
+\begin{align*}
+    j(x)j(y)=&(x,\sigma_x)(y,\sigma_y)=(x+\sigma_x(y),\sigma_x\sigma_y)\\
+    =&(\sigma_x(y)+x,\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)})\\
+    =&(\sigma_x(y)+\sigma_{\sigma_x(y)}(\tau_y(x)),\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)})\\
+    =&(\sigma_x(y),\sigma_{\sigma_x(y)})(\tau_y(x),\sigma_{\tau_y(x)})\\
+    =&j(\sigma_x(y))j(\tau_y(x))
+\end{align*}
+for all $x,y\in X$. Hence there exists a unique homomorphism of groups  
+$f\colon G(X,r)\to \Z^{(X)}\rtimes \Sym_X$, from the structure group of $(X,r)$ (the multiplicative group of $G(X,r)$) to the semidirect product $\Z^{(X)}\rtimes \Sym_X$, such that $f(i(x))=j(x)=(x,\sigma_x)$ for all $x\in X$. In particular, the map $i$ is injective and thus we identify $x$ and $i(x)$. Note that with this identification, for every $a\in G(X,r)$, the restriction of $\lambda_a$ to $X$ is in the subgroup $\langle \sigma_x :x\in X\rangle$ of $\Sym_X$. We denote by $\sigma_a$ the restriction of $\lambda_a$ to $X$ for all $a\in G(X,r)$.  Since
+ $f(x^{-1})=(x,\sigma_x)^{-1}=(-\sigma_x^{-1}(x),\sigma_x^{-1})$ and
+ $\sigma_x^{-1}=\sigma_{x^{-1}}=\sigma_{-\sigma_{x^{-1}}(x)}$, we have that $f(x^{-1})=(-\sigma^{-1}_x(x),\sigma_{-\sigma^{-1}_x(x)})$. We shall prove that
+ \begin{equation}\label{eq:keyinv}
+     f(\epsilon_1x_1+\dots +\epsilon_nx_n)=(\epsilon_1x_1+\dots +\epsilon_nx_n,\sigma_{\epsilon_1x_1+\dots +\epsilon_nx_n})
+ \end{equation}
+for all $x_1,\dots ,x_n\in X$ and $\epsilon_1,\dots ,\epsilon_n\in\{ -1,1\}$, by induction on $n$. Note that in $G(X,r)$ we have that
+\[ (-x)^{-1}=-\lambda_{(-x)^{-1}}(-x)=\lambda^{-1}_{(-x)}(x)\in X \]
+for all $x\in X$.
+Hence 
+ \begin{align*}
+ f(-x)=&f(\lambda^{-1}_{(-x)}(x))^{-1}=(-\sigma_{\lambda^{-1}_{(-x)}(x)}^{-1}(\lambda^{-1}_{(-x)}(x)),\sigma_{-\sigma_{\lambda^{-1}_{(-x)}(x)}^{-1}(\lambda^{-1}_{(-x)}(x))})\\
+ =&(-\sigma_{(-x)^{-1}}^{-1}(\lambda^{-1}_{(-x)}(x)),\sigma_{-\sigma_{(-x)^{-1}}^{-1}(\lambda^{-1}_{(-x)}(x))})\\
+ =&(-\lambda_{-x}(\lambda^{-1}_{(-x)}(x)),\sigma_{-\lambda_{-x}(\lambda^{-1}_{(-x)}(x))})\\
+ =&(-x,\sigma_{-x})
+\end{align*} 
+for all $x\in X$. Hence (\ref{eq:keyinv}) holds for $n=1$. Suppose that (\ref{eq:keyinv}) holds for some $n\geq 1$. By the inductive hypothesis, we have that
+\begin{align*}
+    f(&\epsilon_1x_1+\dots +\epsilon_{n+1}x_{n+1})=f((\epsilon_1x_1+\dots +\epsilon_nx_n)\lambda^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(\epsilon_{n+1}x_{n+1}))\\
+    =&f(\epsilon_1x_1+\dots +\epsilon_nx_n)f(\lambda^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(\epsilon_{n+1}x_{n+1}))\\
+    =&(\epsilon_1x_1+\dots +\epsilon_nx_n,\sigma_{\epsilon_1x_1+\dots +\epsilon_nx_n})(\lambda^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(\epsilon_{n+1}x_{n+1}),\sigma_{\lambda^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(\epsilon_{n+1}x_{n+1})})\\
+    =&(\epsilon_1x_1+\dots +\epsilon_nx_n,\sigma_{\epsilon_1x_1+\dots +\epsilon_nx_n})(\epsilon_{n+1}\sigma^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(x_{n+1}),\sigma_{\lambda^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(\epsilon_{n+1}x_{n+1})})\\
+    =&(\epsilon_1x_1+\dots +\epsilon_nx_n+\epsilon_{n+1}x_{n+1},\sigma_{\epsilon_1x_1+\dots +\epsilon_nx_n}\sigma_{\lambda^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(\epsilon_{n+1}x_{n+1})})\\
+    =&(\epsilon_1x_1+\dots +\epsilon_nx_n+\epsilon_{n+1}x_{n+1},\sigma_{(\epsilon_1x_1+\dots +\epsilon_nx_n)\lambda^{-1}_{\epsilon_1x_1+\dots +\epsilon_nx_n}(\epsilon_{n+1}x_{n+1})})\\
+    =&(\epsilon_1x_1+\dots +\epsilon_nx_n+\epsilon_{n+1}x_{n+1},\sigma_{\epsilon_1x_1+\dots +\epsilon_nx_n+\epsilon_{n+1}x_{n+1}}).
+\end{align*}
+Hence (\ref{eq:keyinv}) holds for all $n$ by induction. Therefore
+ one can easily see that $\pi_1f\colon G(X.r)\to\Z^{(X)}$, where $\pi_1\colon \Z^{(X)}\rtimes\Sym_X\to\Z^{(X)}$ is the natural map, is an isomorphism from the additive group of $G(X,r)$ to $\Z^{(X)}$, and the result follows. 
+\end{proof}
 \section*{Exercises}
 
 \begin{prob}
