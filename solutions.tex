@@ -502,7 +502,7 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
     Therefore \eqref{eq:rackhom} follows.
     
     By Proposition~\ref{pro:Venkov}, 
-    to prove that $(X,\triangleright)$ is a rack it is enough to show that
+    to prove that $(X,\triangleleft)$ is a rack it is enough to show that
     $s(x,y)=(y,x\triangleleft y)$ satisfies the YBE. For that purpose, we demonstrate that 
     the map $J\colon X^3\to X^3$, $J(x,y,z)=(x,\sigma_x(y),\sigma_x\sigma_y(z))$ 
     is invertible and 
@@ -532,7 +532,7 @@ the phenomenon appearing in Proposition~\ref{pro:Venkov}.
         &=J(x,\sigma_y(z),\tau_z(y))\\
         &=J(\id\times r)(x,y,z).
     \end{align*}
-    Similarly one proves that $(s\times\id)\circ J=J\circ (r\times\id)$.  
+    Similarly one proves that $(s\times\id)J=J(r\times\id)$.  
     This implies that $(X,s)$ is a solution and 
     hence $(X,\triangleleft)$ is a rack by Proposition~\ref{pro:Venkov}. 
 
@@ -676,9 +676,9 @@ A similar result appears in Exercise~\ref{prob:variationT}.
     These formulas imply that
     \begin{equation}
         \label{eq:T_rack}
-        T\circ\tau_y\circ\widehat{\tau}_y^{-1}
-        =\widehat{\sigma}^{-1}_y\circ T\circ \widehat{\tau}^{-1}_y
-        =\widehat{\sigma}^{-1}_y\circ \sigma_y\circ T.
+        T\tau_y\widehat{\tau}_y^{-1}
+        =\widehat{\sigma}^{-1}_y T \widehat{\tau}^{-1}_y
+        =\widehat{\sigma}^{-1}_y \sigma_y T.
     \end{equation}
 
     We evaluate Equality~\eqref{eq:T_rack} on $X$. On the one hand, 
@@ -783,15 +783,18 @@ a solution.
 A \emph{skew cycle set} is a triple $(X,\triangleleft,\cdot)$, 
 where $X$ is a non-empty set, 
 $(X,\triangleleft)$ is a rack and
-$X\times X\to X$, $(x,y)\mapsto x\cdot y$, is a binary operation on $X$ such that the maps 
-$X\to X$, $y\mapsto x\cdot y$, are bijective rack homomorphisms, and 
+$X\times X\to X$, $(x,y)\mapsto x\cdot y$, is a binary operation on $X$ such that the maps
+$X\to X$, $y\mapsto x\cdot y$, are rack isomorphisms, and 
 \begin{equation}
 \label{eq:skew_CS}
 (x\cdot y)\cdot (x\cdot z)=(y\cdot (x\triangleleft y))\cdot (y\cdot z)
 \end{equation}
 for all $x,y,z\in X$. A skew cycle set $(X,\triangleleft,\cdot)$ is said to be 
-\emph{non-degenerate} if the map $X\times X$, $x\mapsto x\cdot x$, is bijective.
+\emph{non-degenerate} if the map $X\to X$, $x\mapsto x\cdot x$, is bijective.
 \end{definition}
+
+\textcolor{blue}{If $(X,\triangleleft,\cdot)$ is a skew cycle set 
+and $(X,\triangleleft)$ is a trivial rack, then $(X,\cdot)$ is a cycle set.}
 
 \begin{definition}
 \index{Homomorphism!of skew cycle sets}
@@ -864,13 +867,15 @@ Equality~\eqref{eq:skew_CS} with $y=\sigma_x(z)$ implies that
 \end{aligned}    
 \end{equation}
 for all $x,z\in X$. 
-Since each $\sigma_x$ is a rack homomorphism, 
+Since each $\sigma_x$ is a rack homomorphism
+\textcolor{blue}{and $\sigma^{-1}_{\sigma_x(y)}\sigma_x=\sigma_{\tau_y(x)}\sigma_y^{-1}$ holds for all $x,y\in X$, it follows that
 \[
 \tau_y(x)=\sigma^{-1}_{\sigma_x(y)}(x\triangleleft\sigma_x(y))
 =\sigma^{-1}_{\sigma_x(y)}\sigma_x(\sigma^{-1}_x(x)\triangleleft y)
 =\sigma_{\tau_y(x)}\sigma_y^{-1}(\sigma_x^{-1}(x)\triangleleft y).
 \]
-Therefore $T\circ\tau_y=\sigma_y^{-1}\circ\rho_y\circ T$, where $T\colon X\to X$, $T(x)=x\cdot x$ 
+holds for all $x,y\in X$}. 
+Therefore $T\tau_y=\sigma_y^{-1}\rho_y T$, where $T\colon X\to X$, $T(x)=x\cdot x$ 
 and $\rho_y\colon X\to X$, $\rho_y(x)=x\triangleleft y$ are bijective maps. In particular, 
 $\tau_y$ is bijective for all $y\in X$. 
 
@@ -1001,7 +1006,7 @@ set-theoretic solutions to the YBE.
 	is an involutive solution.
 \end{proposition}
 
-The proposition can demonstrated using Theorem~\ref{thm:LYZ}, 
+The proposition can be demonstrated using Theorem~\ref{thm:LYZ}, 
 see Exercise~\ref{prob:Rump}. 
 We will prove a stronger result in Theorem~\ref{thm:YB}. 
 
@@ -1027,7 +1032,7 @@ set $\{\tau_x:x\in X\}$.
 	Then the map $T\colon X\to X$, $x\mapsto\sigma_x^{-1}(x)$, is 
 	invertible with inverse $T^{-1}(y)=\tau^{-1}_y(y)$ and 
 	\[
-	T^{-1}\circ\sigma_x^{-1}\circ T=\tau_x
+	T^{-1}\sigma_x^{-1} T=\tau_x
 	\]
 	for all $x\in X$. 
 \end{proposition}
@@ -1037,7 +1042,9 @@ set $\{\tau_x:x\in X\}$.
 	\[
 	(U(x),x)=r^2(U(x),x)=r(\sigma_{U(x)}(x),x)=(\sigma_{\sigma_{U(x)}(x)}(x),\tau_x\sigma_{U(x)}(x)).
 	\]
-	The second coordinate can be written as $U(x)=\sigma_{U(x)}(x)$. This 
+	\textcolor{blue}{In particular, 
+	$x=\tau_x\sigma_{U(x)}(x)$ and hence 
+	$U(x)=\sigma_{U(x)}(x)$.} This 
 	implies that 
 	\[
 	T(U(x))=\sigma^{-1}_{U(x)}(U(x))=x.
@@ -1200,7 +1207,7 @@ the bijective correspondence is given by
 \[
 r(x,y)=(x*y,(x*y)\cdot x),
 \]
-where $x*y=z$ if and only if $x\cdot z=y$. We leave the proof for the reader, see 
+\textcolor{blue}{$x*y=\varphi_x^{-1}(y)$.} We leave the proof for the reader, see 
 Exercise~\ref{prob:CS}. However, we will prove a more 
 general result in Theorem~\ref{thm:skewCS}. 
 
@@ -1325,18 +1332,26 @@ the map $r(x,y)=(2x-y,x)$ satisfies the the set-theoretic YBE.
 
 \begin{prob}
 Let $G$ be a group and $f\in\Aut(G)$. Prove that 
-the map $r(x,y)=(f(y),f(y)^{-1}xy)$ satisfies the set-theoretic YBE.	
+the map 
+\[
+r(x,y)=(f(y),f(y)^{-1}xy)
+\]
+satisfies the set-theoretic YBE.	
 \end{prob}
 
 \begin{prob}
     \label{prob:xx}
-    {\bf Let $(X,r)$ be a solution. Let $(X,\triangleleft)$ and $(X,\blacktriangleleft)$ be the derived and the dual derived racks of $(X,r)$.} Prove that $x\triangleright x=x\blacktriangleright x$ for all $x\in X$. 
+    \textcolor{blue}{Let $(X,r)$ be a solution. Let $(X,\triangleleft)$ and $(X,\blacktriangleleft)$ be the derived rack and the dual derived rack of $(X,r)$, respectively. Prove that $x\triangleleft x=x\blacktriangleleft x$ for all $x\in X$. }
 \end{prob}
 
 \begin{prob}
     \label{prob:tau_hat}
-    {\bf Let $(X,r)$ be a solution. Let $(X,\triangleleft)$  be its derived rack.}
-    Prove that $\widehat{\tau}_x(y\triangleright z)=\widehat{\tau}_x(y)\triangleright \widehat{\tau}_x(z)$ for all $x,y,z\in X$. 
+    \textcolor{blue}{Let $(X,r)$ be a solution and $(X,\triangleleft)$ be its derived rack.
+    Prove that 
+    \[
+    \widehat{\tau}_x(y\triangleleft z)=\widehat{\tau}_x(y)\triangleleft \widehat{\tau}_x(z)
+    \]
+    for all $x,y,z\in X$.} 
 \end{prob}
 
 \begin{prob}
@@ -1391,9 +1406,14 @@ Enumerate isomorphism classes of racks of size 14.
 \end{problem}
 
 \begin{problem}
+\label{problem:non_involutive9}
 Enumerate non-involutive solutions of size $\geq9$. 
 \end{problem}
 
+\begin{problem}
+\label{problem:involutive11}
+Enumerate involutive solutions of size $\geq11$. 
+\end{problem}
 
 \section{Notes}
 
@@ -1424,13 +1444,12 @@ and in Soloviev's paper~\cite{MR1809284}.
 
 Exercises~\ref{prob:Wada} and~\ref{prob:Wada_racks} 
 appear in the work of Wada~\cite{MR1167178} on representations of braid groups. 
-The solutions of Exercises~\ref{prob:Wada_racks} and~\ref{prob:D_n} 
-are particular cases of a more general type of set-theoretic solutions that we will study in 
-Chapter~\ref{racks}.  
+%The solutions of Exercises~\ref{prob:Wada_racks} and~\ref{prob:D_n} 
+%are particular cases of a more general type of set-theoretic solutions that we will study %in Chapter~\ref{racks}.  
 %Proposition~\ref{pro:Rump} was proved by Rump~\cite{MR2278047}. 
 %a similar example appears in the appendix of~\cite{MR1722951}. 
  
-
+In~\cite{MR1183474}, Drinfeld attributes Proposition~\ref{pro:Venkov} to Venkov. 
 
 % Definition~\ref{defn:rack} is that of a \emph{left rack}. 
 % A \emph{right rack} is defined as a pair $(X,\triangleleft)$, where $X$ is a non-empty set, 
@@ -1445,8 +1464,6 @@ Chapter~\ref{racks}.
 %According to Drinfeld, Exercise~\label{prob:Venkov} 
 A particular family of racks turns out to be useful in combinatorial {\bf knot} theory. A quandle
 is a rack $(X,\triangleleft)$ such that $x\triangleleft x=x$ for all $x\in X$. 
-
-In~\cite{MR1183474}, Drinfeld attributes Proposition~\ref{pro:Venkov} to Venkov. 
 
 There are several papers on the enumeration of isomorphic classes of finite racks~\cite{MR3665565,MR3118951,MR3904151}. 
 Estimations on the number of finite
@@ -1472,6 +1489,9 @@ The derived rack of a solution was first defined in the work of Soloviev~\cite{M
 of the derived racks mentioned in this chapter were proved in~\cite{MR3974961}.
 
 Problem~\ref{problem:racks14} appears in~\cite{MR3957904}. 
+
+\textcolor{blue}{Problems~\ref{problem:non_involutive9} and \ref{problem:involutive11}
+appear in \cite{MR4405502}.}
 
 
 

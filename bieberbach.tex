@@ -884,13 +884,15 @@ Since $g^p=1$, in the additive group of the skew brace $G(X,r)$ we have that $g=
 Hence
 \[\sum_{i=1}^pz_{kp+1}=0\quad\text{and}\quad z_t=0\]
 for all $0\leq k\leq m$ and $mp+p<t\leq n$. Thus $g=\sum_{i=1}^{mp+p}z_ix_i$. Let
-\[ h_k=\sum_{j=1}^{p-1}\left(\sum_{i=1}^jz_{kp+i}\right)x_{kp+j}\]
+\[ 
+h_k=\sum_{j=1}^{p-1}\left(\sum_{i=1}^jz_{kp+i}\right)x_{kp+j}
+\]
 for all $0\leq k\leq m$. Let $h=\sum_{k=0}^mh_k$. We have that
 \begin{align*}
     gh=&g+\lambda_g(h)=\sum_{k=0}^m\sum_{j=1}^pz_{kp+j}x_{kp+j}+\sum_{k=0}^m\sum_{j=1}^{p-1}\left(\sum_{i=1}^jz_{kp+i}\right)\lambda_g(x_{kp+j})\\
     =&\sum_{k=0}^m\sum_{j=1}^pz_{kp+j}x_{kp+j}+\sum_{k=0}^m\sum_{j=1}^{p-1}\left(\sum_{i=1}^jz_{kp+i}\right)x_{kp+j+1}\\
     =&\sum_{k=0}^mz_{kp+1}x_{kp+1}+\sum_{k=0}^m\sum_{j=1}^{p-1}\left(\sum_{i=1}^{j+1}z_{kp+i}\right)x_{kp+j+1}\\
-    =&\sum_{k=0}^m\sum_{j=0}^{p-1}\left(\sum_{i=1}^{j+1}z_{kp+i}\right)\x_{kp+j+1}\\
+    =&\sum_{k=0}^m\sum_{j=0}^{p-1}\left(\sum_{i=1}^{j+1}z_{kp+i}\right)x_{kp+j+1}\\
     =&h+\sum_{k=0}^m\left(\sum_{i=1}^pz_{kp+i}\right)x_{kp+p}\\
     =&h.
 \end{align*}

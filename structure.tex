@@ -237,13 +237,18 @@ and
 for all $x,y\in X$. Note that
 \[\sigma_x\tau_{\sigma^{-1}_y(x)}(y)=\sigma_x\sigma^{-1}_{\sigma_y(\sigma^{-1}_y(x))}(y)=y\]
 and
-\[\tau_x\sigmau_{\tau^{-1}_y(x)}(y)=\tau_x\tau^{-1}_{\tau_y(\tau^{-1}_y(x))}(y)=y\]
+\[
+\tau_x\sigma_{\tau^{-1}_y(x)}(y)=\tau_x\tau^{-1}_{\tau_y(\tau^{-1}_y(x))}(y)=y
+\]
 for all $x,y\in X$. Hence
-\[ (r')^2(x',y)=(x',y)\; \text{ and }\; (r')^2(x,y')=(x,y')\]
+\[ 
+(r')^2(x',y)=(x',y)\; \text{ and }\; (r')^2(x,y')=(x,y')
+\]
 for all $x,y\in X$.
 Finally, 
 \begin{align*}
-(r')^2(x',y')=&r'(\sigma'_{x'}(y'),\tau'_{y'}(x'))=\r'(\tau_x(y)',\sigma_y(x)')\\
+(r')^2(x',y')=&r'(\sigma'_{x'}(y'),\tau'_{y'}(x'))
+=r'(\tau_x(y)',\sigma_y(x)')\\
 =&(\tau_{\tau_{x}(y)}\sigma_y(x)',\sigma_{\sigma_y(x)}\tau_x(y)')\\
 =&(\tau_{\tau_{x}(y)}\tau^{-1}_{\tau_x(y)}(x)',\sigma_{\sigma_y(x)}\sigma^{-1}_{\sigma_y(x)}(y)')=(x',y')
 \end{align*}
@@ -693,9 +698,12 @@ Let $\Z^{(X)}$ be the additive free abelian group with basis $X$. Thus the eleme
 \[ z_1x_1+\dots +z_nx_n,\]
 with $z_1,\dots ,z_n\in\Z$ and $x_1,\dots ,x_n\in X$. Furthermore, if 
 \[ z_1x_1+\dots +z_nx_n=0\]
-and $x_1,\dots ,x_n\in X$ are $n$ distinct elements, then $z_1=\dots =z_n=0$. Cosider the semidirect product $\Z^{(X)}\rtimes \Sym_X$, with respect to the natural action of $\Sym_X$ on $\Z^{(X)}$ given by the rule
-\[ \sigma(z_1x_1+\dots +z_nx_n)=z_1\sigma(x_1)+\dots +z_n\sigma(x_n)\]
-for all $\sigma\in\Sym_X$, $\z_1,\dots ,z_n\in\Z$ and $x_1,\dots,x_n\in X$. Let $i\colon X\to G(X,r)$ be the natural map.
+and $x_1,\dots ,x_n\in X$ are $n$ distinct elements, then $z_1=\dots =z_n=0$. Consider the semidirect product $\Z^{(X)}\rtimes \Sym_X$, with respect to the natural action of $\Sym_X$ on $\Z^{(X)}$ given by the rule
+\[ 
+\sigma(z_1x_1+\dots +z_nx_n)=z_1\sigma(x_1)+\dots +z_n\sigma(x_n)
+\]
+for all $\sigma\in\Sym_X$, $z_1,\dots ,z_n\in\Z$ 
+and $x_1,\dots,x_n\in X$. Let $i\colon X\to G(X,r)$ be the natural map.
 We define a map $j\colon X\to \Z^{(X)}\rtimes \Sym_X$ by $j(x)=(x,\sigma_x)$ for all $x\in X$. Note that, since $(X,r)$ is involutive, 
 \begin{align*}
     j(x)j(y)=&(x,\sigma_x)(y,\sigma_y)=(x+\sigma_x(y),\sigma_x\sigma_y)\\
