@@ -1189,14 +1189,15 @@ As a corollary we obtain that the socle of a skew brace $A$ is a trivial skew br
     Let $a\in\Soc(A)$ and $b\in A$. Then $\lambda_a=\id$ and $a\in Z(A,+)$. By Lemma~\ref{lem:socle}, \[\mu_a(b)=\lambda_b(a)'\circ b\circ a=(b\circ a\circ b')'\circ b\circ a=b.\]  Thus $a\in\ker\lambda\cap\ker\mu$. 
     
     Conversely, let $a\in\ker\lambda\cap\ker\mu$ and $b\in A$. Then $b'=\mu_a(b')=\lambda_{b'}(a)'\circ b'\circ a$, so
-    $\lambda_{b'}(a)=b'\circ a\circ b$. Now 
+    $\lambda_{b'}(a)=b'\circ a\circ b$. \textcolor{blue}{By Lemma \ref{lem:socle}
+    and \eqref{eq:formulas},}
     \[
-    b+a=b\circ\lambda^{-1}_b(a)=b\circ\lambda_{b'}(a)=b\circ b'\circ a\circ b=a\circ b=a+\lambda_a(b)=a+b
+    b+a=b\circ\lambda^{-1}_b(a)=b\circ\lambda_{b'}(a)=b\circ b'\circ a\circ b=a\circ b=a+\lambda_a(b)=a+b.
     \]
-    implies that $a\in\Soc(A)$. 
+    Hence $a\in\Soc(A)$. 
 \end{proof}
 
-Another important ideal was defined in~\cite{MR3917122}.
+%Another important ideal was defined in~\cite{MR3917122}.
 
 \begin{definition}
 \index{Annihilator}
@@ -1251,7 +1252,7 @@ the multiplicative group of $A$ is solvable.
 \begin{proof}
     Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. Assume
     that $|A|=p_1^{\alpha_1}\cdots p_n^{\alpha}$ for distinct primes $p_1,\dots,p_n$ and positive integers $\alpha_1,\dots ,\alpha_n$. 
-    Since $K$ is nilpotent, each $K_i\in\Syl_{p_j}(K)$ is normal in $K$, so 
+    Since $K$ is nilpotent \textcolor{blue}{and finite}, each $K_i\in\Syl_{p_j}(K)$ is normal in $K$, so 
     each $K_i$ is a left ideal of $A$. It follows that for each $i\in\{1,\dots,n\}$ both $K_i$ and 
     $\prod_{j\ne i}K_j$ are subbraces of coprime order. In particular, for 
     each $i\in\{1,\dots,n\}$ there exists a $p_i$-complement of $G$. 

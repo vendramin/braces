@@ -41,16 +41,8 @@ is the \emph{right series} of $A$.
         =-x*a+x*(a+b).
     \end{align*}
     Now we prove that $A^{(n+1)}$ is an ideal.
-    Let $a,b\in A$ and $x\in A^{(n)}$. Then
-\begin{equation}
-    \label{eq:another_trick}
-    \begin{aligned}
-        \lambda_a(x*b)&=\lambda_a(\lambda_x(b)-b)
-        =\lambda_a\lambda_x(b)-\lambda_a(b)\\
-        &=\lambda_{a\circ x\circ a'}(\lambda_a(b))-\lambda_a(b)
-        =(a\circ x\circ a')*\lambda_a(b)\in A^{(n+1)}
-    \end{aligned}
-\end{equation}
+    Let $a,b\in A$ and $x\in A^{(n)}$. Then, by (\ref{eq:another_trick}),
+    \[\lambda_a(x*b)=(a\circ x\circ a')*\lambda_a(b)\in A^{(n+1)}\]
 since $a\circ x\circ a'\in A^{(n)}$ by the inductive hypothesis.
 From this it immediately follows that
 $\lambda_a(A^{(n+1)})\subseteq A^{(n+1)}$.  Now let $y\in
