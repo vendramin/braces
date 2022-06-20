@@ -1,7 +1,7 @@
 \chapter{Complements}
 \label{cocycles}
 
-\section*{Extensions and $1$-cocycles}
+\section{Extensions and $1$-cocycles}
 
 % explicar producto semidirecto.
 % equivalencia de complementos (Rotman)
@@ -19,7 +19,8 @@ short exact sequence of group homomorphisms
 	\arrow[from=1-4, to=1-5]
 \end{tikzcd}
 \]
-This means that $f$ is injective, $g$ is surjective and $\ker g=\im f$. Note that in this case, $K$ is isomorphic to $f(K)$, which is a normal subgroup of $G$ and $G/f(K)\cong Q$. We also say that $G$ is an extension of $K$ by $Q$.
+This means that $f$ is injective, $g$ is surjective and $\ker g=\im f$. Note that in this case, 
+$K$ is isomorphic to $f(K)$, which is a normal subgroup of $G$ and $G/f(K)\simeq Q$. We also say that $G$ is an extension of $K$ by $Q$.
 
 \begin{example}
 	$C_6$ and $\Sym_3$ are both extensions of $C_3$ by $C_2$.
@@ -498,9 +499,10 @@ The following result is an immediate consequence of Sysak's theorem.
 %
 %
 
-\section*{Schur--Zassenhaus' theorem}
+\section{Schur--Zassenhaus' theorem}
 
-In this section we shall prove Schur--Zassenhaus' theorem about complements of a normal subgroup $N$ of a finite group $G$. 
+In this section we shall prove Schur--Zassenhaus' theorem 
+about complements of a normal subgroup $N$ of a finite group $G$. 
 
 \begin{lemma}
 	\label{lem:1cocycle}
@@ -578,11 +580,12 @@ We now prove the first version of Schur--Zassenhaus' theorem.
 	Let $T$ be a transversal of $N$ in $G$. Let $\theta\colon G\to N$,
 	$\theta(g)=d(gT,T)$. Since $N$ is abelian, Lemma~\ref{lem:d} implies that 
 	$\theta$ is a 1-cocycle, where $G$ acts on $N$ by conjugation: 
+	\textcolor{blue}{
 	\begin{align*}
 		\theta(xy)&=d(xyT,T)
 		=d(xyT,xT)d(xT,T)\\
-		&=(xd(yT,T)x^{-1})d(xT,T)=(x \theta(y)^{-1}\theta(x).
-	\end{align*}
+		&=(xd(yT,T)x^{-1})d(xT,T)=(x \theta(y)x^{-1})\theta(x).
+	\end{align*}}
 
 	\begin{claim}
 		$\theta|_N\colon N\to N$ is surjective.
@@ -621,7 +624,7 @@ We now prove the first version of Schur--Zassenhaus' theorem.
 		=m\theta(k)km^{-1}k^{-1}=1.
 	\end{align*}
 	Therefore $nKn^{-1}\subseteq H=\ker\theta$. Since
-	$|K|=(G:N)=|H|$, we conclude that $nKn^{-1}=H$.
+	$|K|=(G:N)=|H|$, $nKn^{-1}=H$.
 \end{proof}
 
 The general version of 
@@ -639,7 +642,6 @@ Schur--Zassenhaus' theorem does not need $N$ to be abelian.
 
 \begin{proof}
 	We proceed by induction on $|G|$. Suppose that $|G|>1$ and the result holds for all finite groups of order $<|G|$.
-	
 	If there exists a proper subgroup $K$ of
 	$G$ such that $NK=G$, then, since $(K:K\cap N)=(G:N)$ is coprime with $|N|$, it is coprime with  
 	$|K\cap N|$. Moreover, $K\cap N$ is normal in $K$. By the inductive hypothesis, 
@@ -650,14 +652,16 @@ Schur--Zassenhaus' theorem does not need $N$ to be abelian.
     \] 
 	Therefore $H$ is a complement of $N$ in $G$.
 	
-	Hence we may assume that $G$ has no proper subgroups $K$ such that  $NK=G$.  We may also assume that $N\ne 1$, otherwise $G$ is a complement of $\{ 1\}$ in $G$.
+	Hence we may assume that $G$ has no proper subgroups $K$ such that  $NK=G$.  We may also assume that \textcolor{blue}{$N\ne\{1\}$}, otherwise $G$ is a complement of $\{ 1\}$ in $G$.
 	Note that $N\subseteq \Phi(G)$, because if $M$ is a maximal subgroup of $G$ such that $N\not\subseteq M$, then $NM=G$, in contradiction with our assumption. By Frattini's theorem ~\ref{theorem:Frattini}, $\Phi(G)$ is nilpotent and thus so is $N$. Since $N$ is a non-trivial nilpotent group, we have that $Z(N)\ne\{1\}$. Since $N$ is normal in $G$ and $Z(N)$ is
 	characteristic in $N$, $Z(N)$ is normal in $G$. Let $\pi\colon G\to
 	G/Z(N)$ the canonical map.   We have that 
 	\[
 	(\pi(G):\pi(N))=\frac{|\pi(G)|}{|\pi(N)|}=\frac{|G/Z(N)|}{|N/Z(N)|}=(G:N)
 	\]
-	is coprime with $|N|$, and thus it is coprime with $|\pi(N)|$. By the inductive hypothesis, $\pi(N)$ admits a complement in $G/Z(N)$, Let $K$ be a subgroup of $G$ such that $Z(H)\subseteq K$ and $\pi(K)$ is a complement of $\pi(N)$ in $\pi(G)$. Since 
+	is coprime with $|N|$, and thus it is coprime with $|\pi(N)|$. 
+	By the inductive hypothesis, $\pi(N)$ admits a complement in $G/Z(N)$. 
+	\textcolor{blue}{Let $K$ be a subgroup of $G$ such that $Z(N)\subseteq K$ and $\pi(K)$ is a complement of $\pi(N)$ in $\pi(G)$.} Since 
 	$\pi(G)=\pi(N)\pi(K)=\pi(NK)$, we have that $NK=G$. 
 	By assumption, we get that $K=G$ and 
 	\[
@@ -796,7 +800,6 @@ Schur--Zassenhaus' theorem does not need $N$ to be abelian.
 	N_G(L)$ and $K_2\subseteq N_G(L)$ are complements of $N\cap N_G(L)$ in $N_G(L)$. Thus 
 	$N_G(L)=G$ by the minimality of $|G|$. Therefore 
 	$L$ is normal in $G$. 
-	
 	Let $\pi_L\colon G\to G/L$ be the canonical map. Since both 
 	$\pi_L(K_1)$ and $\pi_L(K_2)$ are complements of $\pi_L(N)$ in $\pi_L(G)$, the minimality 
 	of $|G|$ implies that there exists $g\in G$ such that $\pi_L(gK_1g^{-1})=\pi_L(K_2)$, so  
@@ -921,10 +924,14 @@ $|N|$ and $(G:N)$ are coprime, it follows that either $|N|$ or $(G:N)$ is odd.
 	\frac{|H||N||H_1|}{|H\cap NH_1|}=
 	\frac{|H||NH_1|}{|H\cap NH_1|}=|H(NH_1)|=|G|=|NH|=|N||H|.
 	\]
-	Hence $m_1=|H_1|=|H\cap NH_1|$, and thus $H_1$ and $H\cap NH_1$ are complements of $N$ in $NH_1$. By Theorem~\ref{thm:SchurZassenhaus:conjugacion}, there exists $g\in NH_1$ such that $H_1=g(H\cap NH_1)g^{-1}\subseteq gHg^{-1}$, and clearly $|gHg^{-1}|=|H|=m$. 
+	Hence $m_1=|H_1|=|H\cap NH_1|$, and thus $H_1$ and $H\cap NH_1$ are complements of $N$ in $NH_1$. By Theorem~\ref{thm:SchurZassenhaus:conjugacion}, there exists $g\in NH_1$ such that 
+	\[
+	H_1=g(H\cap NH_1)g^{-1}\subseteq gHg^{-1},
+	\]
+	and clearly $|gHg^{-1}|=|H|=m$. 
 \end{proof}
 
-\section*{Bijective $1$-cocycles}
+\section{Bijective 1-cocycles}
 
 Let $A$ be an additive group and $G$ be a group and let 
 $G\times A\to A$, $(g,a)\mapsto g\cdot a$,
@@ -1046,27 +1053,24 @@ We now prove the equivalence between skew braces and bijective 1-cocycles.
 \end{prob}
 
 
-\begin{prob}
-\label{prob:1cocycle}
-Let $\pi\colon G\to A$ and $\eta\colon H\to B$ be bijective 1-cocycles.  A
-\emph{homorphism} between these bijective 1-cocycles is a pair $(f,g)$ of
-group homomorphisms  $f\colon G\to H$, $g\colon A\to B$ such that
-\begin{align*}
-&\eta\circ f=g\circ \pi,\\
-&g(h\cdot a)=f(h)\cdot g(a),&&a\in A,\;h\in G.
-\end{align*}
-Bijective 1-cocycles and homomorphisms form a category. 
-For a given additive group $A$ 
-the full subcategory of the category of bijective 1-cocycles with objects
-$\pi\colon G\to A$ is equivalent to the full subcategory of the category of
-skew braces with additive group $A$. 
-\end{prob}
+%\begin{prob}
+%\label{prob:1cocycle}
+%Let $\pi\colon G\to A$ and $\eta\colon H\to B$ be bijective 1-cocycles.  A
+%\emph{homorphism} between these bijective 1-cocycles is a pair $(f,g)$ of
+%group homomorphisms  $f\colon G\to H$, $g\colon A\to B$ such that
+%\begin{align*}
+%&\eta\circ f=g\circ \pi,\\
+%&g(h\cdot a)=f(h)\cdot g(a),&&a\in A,\;h\in G.
+%\end{align*}
+%Bijective 1-cocycles and homomorphisms form a category. 
+%For a given additive group $A$ 
+%the full subcategory of the category of bijective 1-cocycles with objects
+%$\pi\colon G\to A$ is equivalent to the full subcategory of the category of
+%skew braces with additive group $A$. 
+%\end{prob}
+%{\bf Ferran: Quizás deberíamos redactar este último ejercicio sin usar lenguaje de categorías.}
 
-{\bf Ferran: Quizás deberíamos redactar este último ejercicio sin usar lenguaje de categorías.}
-
-\section*{Open problems}
-
-\section*{Notes}
+\section{Notes}
 
 In the case of skew braces of abelian type, Theorem~\ref{thm:1cocycle} is implicit in the work of Rump, see \cite{MR2278047,MR3291816} or~\cite{MR3177933}. Similar results appear 
 in the work of Etingof, Schedler and Soloviev~\cite{MR1722951}, Lu, Yan and Zhu~\cite{MR1769723} 

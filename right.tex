@@ -1,12 +1,14 @@
 \chapter{Right nilpotent braces}
 
-In this chapter we study right nilpotency of braces. 
+In this chapter we study right nilpotency of skew braces. 
 We will see later that this algebraic notion translates into an important combinatorial 
 property of solutions. 
 
+\section{Right series}
+
 \begin{definition}
 \index{Brace!right series}
-Let $A$ be a brace. 
+Let $A$ be a skew brace. 
 One defines
 $A^{(1)}=A$ and for $n\geq1$
 \begin{align*}
@@ -23,7 +25,7 @@ is the \emph{right series} of $A$.
 
 \begin{proposition}
     \label{pro:right_series}
-    Let $A$ be a brace. Each $A^{(n)}$ is an ideal of $A$.
+    Let $A$ be a skew brace. Each $A^{(n)}$ is an ideal of $A$.
 \end{proposition}
 
 \begin{proof}
@@ -54,7 +56,7 @@ the result follows by induction.
 The second term of the right series is particularly important.
 
 \begin{proposition}
- Let $A$ be a brace. Then $A^{(2)}$ is the smallest ideal of $A$
+ Let $A$ be a skew brace. Then $A^{(2)}$ is the smallest ideal of $A$
  such that $A/A^{(2)}$ is a trivial brace.
 \end{proposition}
 
@@ -66,6 +68,22 @@ The second term of the right series is particularly important.
     follows.
 \end{proof}
 
+\begin{corollary}
+    Let $A$ be a finite skew brace of size $p^n$ for some prime number $p$
+    and some positive integer $n$.  Then either $A$ is the trivial brace of
+    order $p$ or it is not simple.
+\end{corollary}
+
+\begin{proof}
+ By Proposition~\ref{pro:pgroups}, $A$ is left nilpotent. In
+ particular, if $A\neq 0$, then $A^{(2)}=A^2\neq A$. Since $A^2$ is an ideal either $A$
+ is not simple or $A^2=0$. Assume that $A^2=0$. In this case, $a\circ b=a+b$
+ for all $a,b\in A$. Therefore the derived subgroup $[A,A]_+$ of the additive group of $A$ is a proper an ideal of $A$. Hence,
+ either $A$ is not simple or $[A,A]_+=0$. Assume that $A^2=[A,A]_+=0$. In this case
+ $A$ is a trivial skew brace of abelian type and the result follows.
+\end{proof}
+
+
 \begin{definition}
 \index{Brace!right nilpotent}
     A brace $A$ is said to be \emph{right nilpotent}
@@ -76,9 +94,9 @@ Let us review some basic properties of right nilpotent braces.
 
 \begin{lemma}
     \label{lem:right_nilpotent:quotient}
-    Let $A$ and $B$ be braces. 
+    Let $A$ and $B$ be skew braces. 
     \begin{enumerate}
-        \item If $f\colon A\to B$ is a surjective homomorphism of braces and 
+        \item If $f\colon A\to B$ is a surjective homomorphism of skew braces and 
         $A$ is right nilpotent, then $B$ is right nilpotent.
         \item $B$ is a sub brace of $A$ and $A$ is right nilpotent, then 
         $B$ is right nilpotent.
@@ -98,14 +116,14 @@ Let us review some basic properties of right nilpotent braces.
 
 \begin{theorem}
     \label{thm:IcapSoc}
-    Let $A$ be a right nilpotent brace of nilpotent type
+    Let $A$ be a right nilpotent skew brace of nilpotent type
     and $I$ be a non-zero ideal of $A$. Then $I\cap\Soc(A)\ne\{0\}$. 
     In particular,  $\Soc(A)\ne\{0\}$.
 \end{theorem}
 
 \begin{proof}
     Since $(A,+)$ is nilpotent and each $I\cap A^{(k)}$ is a normal subgroup of $(A,+)$, it follows
-    from~\cite[5.2.1]{MR1357169} that $I\cap A^{(k)}\cap Z(A,+)\ne\{0\}$ whenever
+    from Theorem~\ref{thm:Z(nilpotent)} that $I\cap A^{(k)}\cap Z(A,+)\ne\{0\}$ whenever
     $I\cap A^{(k)}\ne\{0\}$.
     Let
     $m=\max\{k\in\N:I\cap A^{(k)}\cap Z(A,+)\ne \{0\}\}$.
@@ -122,7 +140,7 @@ right series is given in the following theorem.
 
 \begin{theorem}
     \label{thm:equivalence}
-    Let $A$ be a brace. The following statements are equivalent:
+    Let $A$ be a skew brace. The following statements are equivalent:
     \begin{enumerate}
         \item $A^{[\alpha]}=\{0\}$ for some $\alpha\in\N$.
         \item $A^{(\beta)}=\{0\}$ and $A^\gamma=\{0\}$ for some $\beta,\gamma\in\N$.
@@ -163,14 +181,15 @@ right series is given in the following theorem.
     A^{\gamma}=\{0\}$.
 \end{proof}
 
+\section{Right nilpotent skew braces}
 
-We now present some characterizations of right nilpotent braces. We first 
+We now present some characterizations of right nilpotent skew braces. We first 
 need some definitions.  
 
 \begin{definition}
 \label{defn:s-series}
 \index{Brace!s-series}
-    Let $A$ be a brace. A \emph{$s$-series} of $A$ is a sequence
+    Let $A$ be a skew brace. A \emph{$s$-series} of $A$ is a sequence
     \[
         A=I_0\supseteq I_1\supseteq I_2\supseteq\cdots\supseteq I_n=\{0\}
     \]
@@ -197,7 +216,7 @@ need some definitions.
 \begin{definition}
 \label{defn:socle_series}
 \index{Brace!socle series}
-Let $A$ be a brace. We define
+Let $A$ be a skew brace. We define
 $\Soc_0(A)=\{0\}$ and, for $n\geq 1$, $\Soc_n(A)$ is the ideal of $A$
 containing $\Soc_{n-1}(A)$ such that
 \[
@@ -205,13 +224,14 @@ containing $\Soc_{n-1}(A)$ such that
 \]
 \end{definition}
 
-Rump's socle series of~\cite{MR2278047} does not coincide with the s-series of Definition~\ref{defn:s-series}. 
-However, our Definition~\ref{defn:socle_series} does coincide with that 
-of Rump~\cite{MR2278047} for braces of abelian type. 
+Hence
+\[ \{0\}=\Soc_0(A)\subseteq\Soc_1(A)\subseteq\dots\subseteq \Soc_n(A)\subseteq\dots\]
+is a series of ideals of the skew brace $A$. It is called the {\em socle series} of $A$. \index{Brace!Socle series} 
+%Rump's socle series of~\cite{MR2278047} does not coincide with the s-series of Definition~\ref{defn:s-series}. 
 
 \begin{lemma}
     \label{lem:socle_series}
-    Let $A$ be a brace and let $A=I_0\supseteq I_1\supseteq
+    Let $A$ be a skew brace and let $A=I_0\supseteq I_1\supseteq
     I_2\supseteq\cdots\supseteq I_n=\{0\}$ be a $s$-series for $A$. Then
     $A^{(i+1)}\subseteq I_i$ for all $i$.
 \end{lemma}
@@ -228,7 +248,7 @@ of Rump~\cite{MR2278047} for braces of abelian type.
 
 \begin{lemma}
 \label{lem:socn}
-Let $A$ be a brace. Then $A$ admits a
+Let $A$ be a skew brace. Then $A$ admits a
 $s$-series if and only if there exists a positive integer $n$ such
 that $A=\Soc_n(A)$.
 \end{lemma}
@@ -263,11 +283,11 @@ follows.
 
 \begin{proposition}
     \label{pro:right_nilpotent}
-    A brace of nilpotent type is right nilpotent if and only if it admits a $s$-series.
+    A skew brace of nilpotent type is right nilpotent if and only if it admits a $s$-series.
 \end{proposition}
 
 \begin{proof}
-    Let $A$ be a brace of nilpotent type. If $A$ admits a $s$-series, then $A$ is right nilpotent by
+    Let $A$ be a skew brace of nilpotent type. If $A$ admits a $s$-series, then $A$ is right nilpotent by
     Lemma~\ref{lem:socle_series}.
     Conversely, suppose that $A$ is right nilpotent.
     There exists a positive integer such that $A^{(m)}=\{0\}$.
@@ -304,7 +324,7 @@ follows.
 
 \begin{proposition}
     \label{pro:A/Soc}
-    Let $A$ be a brace such that $A/\Soc(A)$ is right nilpotent. Then $A$
+    Let $A$ be a skew brace such that $A/\Soc(A)$ is right nilpotent. Then $A$
     is right nilpotent.
 \end{proposition}
 
@@ -326,35 +346,35 @@ follows.
 
 \begin{definition}
 \index{Brace!of finite multipermutation level}
-A brace $A$ has \emph{finite multipermutation level} if
+A skew brace $A$ has \emph{finite multipermutation level} if
 the sequence $S_n$ defined as $S_1=A$ and $S_{n+1}=S_n/\Soc(S_n)$
 for $n\geq1$, reaches zero.
 \end{definition}
 
 \begin{proposition}
 \label{newmulti}
-Let $A$ be a brace. Then $A$ has finite
+Let $A$ be a skew brace. Then $A$ has finite
 multipermutation level if and only if $A$ admits a $s$-series.
 \end{proposition}
 
 \begin{proof}
 Let $S_1=A$ and $S_{n+1}=S_n/\Soc(S_n)$ for
 $n\geq1$. By induction on $n$ we prove that $S_{n+1}\simeq A/\Soc_n(A)$. 
-For $n=0$, it is clear since $\Soc_0(A)=\{0\}$.
-Suppose that $n>0$ and the result is true for $n-1$. Hence, by the
-induction hypothesis,
+For $n=0,1$, it is clear since $\Soc_0(A)=\{0\}$ and $\Soc_1(A)=\Soc(A)$.
+Suppose that $n>1$ and the result is true for $n-1$. Hence, by the
+inductive hypothesis,
 \begin{align*}
 S_n&=S_{n-1}/\Soc(S_{n-1})\\
-&\simeq (A/\Soc_{n-1}(A))/\Soc(A/\Soc_{n-1}(A))\\
-&=(A/\Soc_{n-1}(A))/(\Soc_n(A)/\Soc_{n-1}(A))\simeq A/\Soc_n(A).
+&\simeq (A/\Soc_{n-2}(A))/\Soc(A/\Soc_{n-2}(A))\\
+&=(A/\Soc_{n-2}(A))/(\Soc_{n-1}(A)/\Soc_{n-2}(A))\simeq A/\Soc_{n-1}(A).
 \end{align*} 
 Therefore $S_n=0$ if and only if
-$A=\Soc_n(A)$. Now Lemma~\ref{lem:socn} applies.
+$A=\Soc_{n-1}(A)$. Now Lemma~\ref{lem:socn} applies.
 \end{proof}
 
 \begin{theorem}
 \label{thm:mpl&right_nilpotent}
-Let $A$ be a brace. Then $A$ has finite multipermutation level, if and only
+Let $A$ be a skew brace. Then $A$ has finite multipermutation level, if and only
 if  $A$ is right nilpotent and $(A,+)$ is nilpotent.
 \end{theorem}
 
@@ -373,25 +393,25 @@ $s$-series. Thus the result follows from Proposition~\ref{newmulti}.
 \end{proof}
 
 The following example shows that the assumption on the nilpotency of
-the additive group of the brace is needed in 
+the additive group of the skew  brace is needed in 
 Theorem~\ref{thm:mpl&right_nilpotent}.
 
 \begin{example}
 \label{ex:trivial}
-Let $A$ be a non-zero brace such that $a\circ b=a+b$ for
+Let $A$ be a non-zero skew brace such that $a\circ b=a+b$ for
 all $a,b\in A$. Then $A^{(2)}=\{0\}$, thus $A$ is right nilpotent. 
 If $Z(A,+)=\{0\}$, then $\Soc(A)=\{0\}$ and $A$ does not have finite
 multipermutation level. For example, we can take $(A,+)=(A,\circ)$
 any non-abelian simple group.
 \end{example}
 
-Let $A$ be a brace. For subsets $X$ and $Y$ of $A$ we define 
+Let $A$ be a skew brace. For subsets $X$ and $Y$ of $A$ we define 
 inductively $R_0(X,Y)=X$ and $R_{n+1}(X,Y)$ as the additive subgroup generated by
 $R_n(X,Y)*Y$ and $[R_n(X,Y),Y]_+$ for $n\geq0$.
 
 \begin{lemma}
     \label{lem:R:inclusion}
-    Let $I$ be an ideal of a brace $A$. Then
+    Let $I$ be an ideal of a skew brace $A$. Then
     $R_{n+1}(I,A)\subseteq R_n(I,A)$ for all $n\geq0$.
 \end{lemma}
 
@@ -407,7 +427,7 @@ $R_n(X,Y)*Y$ and $[R_n(X,Y),Y]_+$ for $n\geq0$.
 
 \begin{proposition}
     \label{lem:R:ideal}
-    Let $I$ be an ideal of a brace $A$. 
+    Let $I$ be an ideal of a skew brace $A$. 
     Then each $R_{n}(I,A)$ is an ideal of $A$. 
 \end{proposition}
 
@@ -434,7 +454,7 @@ $R_n(X,Y)*Y$ and $[R_n(X,Y),Y]_+$ for $n\geq0$.
     for all $a\in A$. 
     Using 
     the inductive hypothesis and that 
-    each $\lambda_a\in\Aut(A,+)$, 
+    each $\lambda_a\in\Aut(A,+)$, by \eqref{eq:another_trick}, we have that 
     \begin{align*}
   %  &\lambda_a([R_n(I,A),A]_+)\subseteq[\lambda_a(R_n(I,A)),\lambda_a(A)]_+
   %  \subseteq [R_n(I,A),A]_+
@@ -448,7 +468,7 @@ $R_n(X,Y)*Y$ and $[R_n(X,Y),Y]_+$ for $n\geq0$.
     % &\deleted{\lambda_a(R_n(I,A)*A)\subseteq \lambda_a(R_n(I,A))*\lambda_a(A)
     % \subseteq R_n(I,A)*A\subseteq R_{n+1}(I,A),}
     \end{align*}
-    equality \eqref{eq:lambda} follows. 
+    and thus  \eqref{eq:lambda} follows. 
     
     Since $R_{n+1}(I,A)\subseteq R_n(I,A)$ by Lemma \ref{lem:R:inclusion},
     \[
@@ -466,7 +486,7 @@ $R_n(X,Y)*Y$ and $[R_n(X,Y),Y]_+$ for $n\geq0$.
 
 \begin{lemma}
 \label{lem:mbbr}
-	Let $A$ be a brace, $X$ be a subset of $A$ and $n,m\in\N$.
+	Let $A$ be a skew brace, $X$ be a subset of $A$ and $n,m\in\N$.
 	Then $R_m(X,A)\subseteq \Soc_n(A)$ 
 	if and only if $X\subseteq\Soc_{m+n}(A)$.
 \end{lemma}
@@ -474,12 +494,12 @@ $R_n(X,Y)*Y$ and $[R_n(X,Y),Y]_+$ for $n\geq0$.
 \begin{proof}
     We proceed by induction on $m$. The case where $m=0$ is trivial, so assume that the result is valid for some $m\geq0$. 
 	Note that $R_{m+1}(X,A)\subseteq\Soc_{n}(A)$ is equivalent to  $R_m(X,A)*A\subseteq\Soc_{n}(A)$ and $[R_m(X,A),A]_+ \subseteq\Soc_{n}(A)$. 
-	By Lemma~\ref{lem:soc_n}, this is equivalent to $R_m(X,A)\subseteq\Soc_{n+1}(A)$, 
+	By the definition of the socle series, this is equivalent to $R_m(X,A)\subseteq\Soc_{n+1}(A)$, 
 	which is equivalent to $X\subseteq\Soc_{m+n+1}(A)$ by the inductive hypothesis.
 \end{proof}
 
 \begin{lemma}
-	A skew left brace $A$ of nilpotent type is right nilpotent if and only if $R_n(A,A)=\{0\}$ for some $n\in\N$.
+	A skew brace $A$ of nilpotent type is right nilpotent if and only if $R_n(A,A)=\{0\}$ for some $n\in\N$.
 %	
 %	\begin{proof}
 %		If $A$ is right nilpotent, Lemma \ref{lem:soc_n_2} implies that $A=R_0(A,A)\subseteq \Soc_n(A)$ for some $n$ and hence 
@@ -489,24 +509,23 @@ $R_n(X,Y)*Y$ and $[R_n(X,Y),Y]_+$ for $n\geq0$.
 \end{lemma}
 
 \begin{proof}
-    By Lemma \ref{lem:mbbr}, $R_n(A,A)=0$ if and only if $A=\Soc_{n}(A)$. By Lemma \ref{lem:soc_n_2}, 
+    By Lemma \ref{lem:mbbr}, $R_n(A,A)=0$ if and only if $A=\Soc_{n}(A)$. By Lemma \ref{lem:socn} and Proposition \ref{pro:right_nilpotent}, 
     the latter is equivalent to $A$ being right nilpotent.
 \end{proof}
 
-Recall that a finite group $G$ is said to be \emph{$p$-nilpotent} if there exists 
-a normal Hall $p'$-subgroup of $G$. One proves that this subgroup is characteristic in $G$. 
+Recall that a finite group $G$ is said to be \emph{$p$-nilpotent} if $G$ has a normal $p$-complement. One proves that this subgroup is characteristic in $G$. 
 %Following~\cite{mbbr} we define right $p$-nilpotent skew left braces
 %of nilpotent type:
 
 \begin{definition}
-    Let $p$ be a prime number. A finite brace $A$ of nilpotent type 
+    Let $p$ be a prime number. A finite skew brace $A$ of nilpotent type 
     is said to be \emph{right $p$-nilpotent} if there 
     exists $n\geq1$ such that $R_n(A_p,A)=\{0\}$, where $A_p$ is the Sylow $p$-subgroup of $(A,+)$.
 \end{definition}
 
 \begin{proposition}
 \label{pro:soc_n}
-    Let $A$ be a finite brace of nilpotent type and $p\in\pi(A)$. Then
+    Let $A$ be a finite skew brace of nilpotent type and $p\in\pi(A)$. Then
     $A_p\subseteq\Soc_n(A)$ for some $n\geq1$ if and only if 
     $A$ is right $p$-nilpotent. 
 \end{proposition}
@@ -518,19 +537,19 @@ a normal Hall $p'$-subgroup of $G$. One proves that this subgroup is characteris
 
 
 \begin{proposition}
-    A finite brace $A$ of nilpotent type is right nilpotent if and only if $A$ is right $p$-nilpotent for all $p\in\pi(A)$. 
+    A finite skew brace $A$ of nilpotent type is right nilpotent if and only if $A$ is right $p$-nilpotent for all $p\in\pi(A)$. 
 \end{proposition}
 
 \begin{proof}
     Assume first that $A$ is right nilpotent. 
-    By Lemma~\ref{lem:soc_n_2}, there exists $n\in\N$ such that $A_p\subseteq A=\Soc_n(A)$ for all $p\in\pi(A)$. Hence the claim follows from
-    Proposition~\ref{prop:soc_n}. 
+    By Lemma~\ref{lem:socn} and Proposition \ref{pro:right_nilpotent}, there exists $n\in\N$ such that $A_p\subseteq A=\Soc_n(A)$ for all $p\in\pi(A)$. Hence the claim follows from
+    Lemma~\ref{lem:socn}. 
     Assume now
     that $A$ is right $p$-nilpotent for all $p\in\pi(A)$. This means
     that for each $p\in\pi(A)$ there exists $n(p)\in\N$ such that
     $A_p\subseteq\Soc_{n(p)}(A)$. Let 
     $n=\max\{n(p):p\in\pi(A)\}$. Then $A_p\subseteq\Soc_n(A)$ for all $p\in\pi(A)$. Since $\Soc_n(A)$ is an ideal
-    of $A$ and $A$ is of nilpotent type, $A=\oplus_{p\in\pi(A)}A_p\subseteq\Soc_n(A)$. Hence $A$ is right nilpotent by Lemma~\ref{lem:soc_n_2}.
+    of $A$ and $A$ is of nilpotent type, $A=\oplus_{p\in\pi(A)}A_p\subseteq\Soc_n(A)$. Hence $A$ is right nilpotent by Lemma~\ref{lem:socn} and Proposition \ref{pro:right_nilpotent}.
 \end{proof}
 
 %\textcolor{red}{\begin{rem}
@@ -542,19 +561,18 @@ a normal Hall $p'$-subgroup of $G$. One proves that this subgroup is characteris
 
 \begin{lemma}
 \label{lem:A_p:ideal}
-    Let $A$ be a finite skew left brace of nilpotent type. If $(A,\circ)$ has a normal
+    Let $A$ be a finite skew brace of nilpotent type. If $(A,\circ)$ has a normal
     Sylow $p$-subgroup for some $p\in\pi(A)$, then $A_p$ is an ideal of $A$.
 \end{lemma}
 
 \begin{proof}
-   Since the group $(A,+)$ is nilpotent, there exists a unique normal Sylow $p$-subgroup $A_p$ of $(A,+)$. 
-   By Lemma~\ref{lem:Sylow:left_ideal}, $A_p$ is a left ideal of $A$. Then $A_p$ is a Sylow
+   Since the group $(A,+)$ is nilpotent, there exists a unique normal Sylow $p$-subgroup $A_p$ of $(A,+)$. Thus $A_p$ is a left ideal of $A$. Then $A_p$ is a Sylow
    $p$-subgroup of $(A,\circ)$, normal by hypothesis and hence $A_p$ is an ideal of $A$. 
 \end{proof}
 
 \begin{lemma}
     \label{lem:Soc(A_p)}
-    Let $A$ be a finite skew left brace of nilpotent type.
+    Let $A$ be a finite skew  brace of nilpotent type.
     If $(A,\circ)$ has a normal Sylow $p$-subgroup for some $p\in\pi(A)$, 
     then $\Soc(A_p)=\Soc(A)\cap A_p$. In particular, $\Soc(A_p)$ is an ideal of $A$.
 \end{lemma}
@@ -566,7 +584,7 @@ a normal Hall $p'$-subgroup of $G$. One proves that this subgroup is characteris
     %If $a\in A_p\cap\Soc(A)$, then 
     %$a\in Z(A_p,+)$ and $a*b=0$ for all $b\in A$. In particular, $a\in Z(A,+)$ and 
     %$a*b=0$ for all $b\in A_p$. Conversely, 
-    If $a\in\Soc(A_p)$, then $a\in Z(A_p,+)$ and
+    If $a\in\Soc(A_p)$, then $a\in Z(A_p,+)=Z(A,+)\cap A_p$ and
     $a*b=0$ for all $b\in A_p$. Let $c\in A$ and write $c=x+y$, where $x\in A_p$ and 
     $y\in A_{p'}$. Since 
     \[
@@ -622,12 +640,12 @@ Recall that a
 group $G$ has the \emph{Sylow tower property} if 
 there exists a normal series
 $1=G_0\subseteq G_1\subseteq\cdots\subseteq G_n=G$ 
-such that each quotient $G_i/G_{i-1}$ is isomorphic to a Sylow subgroup of $G$. 
+such that each quotient $G_i/G_{i-1}$ is isomorphic to a Sylow subgroup of $G$, in particular $G_1$ is a normal Sylow subgroup of $G$. 
 We also recall that \emph{$A$--groups} are finite groups whose Sylow subgroups are abelian. 
 
 \begin{corollary}
 \label{cor:STP+abelian}
-	Let $A$ be a finite brace of nilpotent type. Assume that 
+	Let $A$ be a finite skew brace of nilpotent type. Assume that 
 	$(A,\circ)$ has the Sylow tower property and that 
 	all Sylow subgroups of $(A,\circ)$ are abelian. 
 	Then $A$ is right nilpotent.
@@ -649,21 +667,21 @@ We also recall that \emph{$A$--groups} are finite groups whose Sylow subgroups a
     %~\cite[Proposition 2.17]{csv}, $A$ is right nilpotent, a contradiction.
 \end{proof}
 
-There are examples of right nilpotent left braces where the multiplicative 
+There are examples of right nilpotent skew braces of abelian type where the multiplicative 
 group contains a non-abelian Sylow subgroup or does not have the Sylow tower property:
 
 \begin{example}
-    The operation $a\circ b=a+3^ab$ turns $\Z/8$ into a right nilpotent left brace with multiplicative group isomorphic to the quaternion group. This example appears in~\cite{MR3320237}.
+    The operation $a\circ b=a+3^ab$ turns $\Z/8$ into a right nilpotent skew brace of abelian type with multiplicative group isomorphic to the quaternion group. This example appears in~\cite{MR3320237}.
 \end{example}
 
 \begin{example}
-    Let $G=\Alt_4\times\Sym_3$. Each Sylow subgroups of $G$ is abelian, so it follows from~\cite[Theorem 2.1]{cjo} that there exists a left brace with multiplicative group isomorphic to $G$. The group $G$ does not have the Sylow tower property. The database of left braces of~\cite{MR3647970} shows that there are only four left braces with multiplicative group isomorphic to $G$, all with additive group isomorphic to $C_6\times C_6\times C_2$. However, only one of these four braces is not right nilpotent. 
+    Let $G=\Alt_4\times\Sym_3$. Each Sylow subgroups of $G$ is abelian, so it follows from~\cite[Theorem 2.1]{cjo} that there exists a skew brace of abelian type with multiplicative group isomorphic to $G$. The group $G$ does not have the Sylow tower property. The database of left braces of~\cite{MR3647970} shows that there are only four left braces with multiplicative group isomorphic to $G$, all with additive group isomorphic to $C_6\times C_6\times C_2$. However, only one of these four braces is not right nilpotent. 
 \end{example}
 
-As a corollary, we obtain a generalization of Theorem~\ref{thm:cyclic_sylows:brace}:
+%As a corollary, we obtain a generalization of Theorem~\ref{thm:cyclic_sylows:brace}:
 
 \begin{corollary}
-    Let $A$ be a finite skew left brace of nilpotent type. 
+    Let $A$ be a finite skew brace of nilpotent type. 
     If all Sylow subgroups of the multiplicative
     group of $A$ are cyclic, then $A$ is right nilpotent.
 \end{corollary}
@@ -687,18 +705,18 @@ As a corollary, we obtain a generalization of Theorem~\ref{thm:cyclic_sylows:bra
 \section*{Exercises}
 
 \begin{prob}
-     Let $A_1,\dots,A_k$ be right nilpotent braces. Prove that 
+     Let $A_1,\dots,A_k$ be right nilpotent skew braces. Prove that 
      $A_1\times\cdots\times A_k$ is right nilpotent.
 \end{prob}
 
 \begin{prob}
-    Let $A$ be a right nilpotent brace of nilpotent type and $I$ be a
+    Let $A$ be a right nilpotent skew brace of nilpotent type and $I$ be a
     minimal ideal of $A$. Prove that $I\subseteq\Soc(A)$.
 \end{prob}
 
 \begin{prob}
-    Let $I$ be an ideal of a brace $A$ such that $I\cap A^2=\{0\}$. Prove that $I$
-    is a trivial brace.
+    Let $I$ be an ideal of a skew brace $A$ such that $I\cap A^2=\{0\}$. Prove that $I$
+    is a trivial skew brace.
 \end{prob}
 
 \begin{prob}
@@ -706,11 +724,23 @@ As a corollary, we obtain a generalization of Theorem~\ref{thm:cyclic_sylows:bra
 \end{prob}
 
 \section*{Open problems}
+\begin{problem}
+    \label{question:rightnil=>rightnilp} \index{Brace!right nil}
+For a skew brace $A$ let $\rho_1(a)=a$ and $\rho_{k+1}(a)=\rho_k(a)*a$ for
+$n\geq1$.  The skew brace $A$ is said to be \emph{right nil} if for every $a\in A$ there
+exists a positive integer $n=n(a)$ such that $\rho_n(a)=0$. 
+
+Let $A$ be a finite right nil skew brace.  Is $A$ right
+    nilpotent? 
+\end{problem}
 
 \section*{Notes}
 
 The right series first appeared in the work of Rump~\cite{MR2278047}, 
-where it was proved for braces of abelian type. 
+where it was proved Proposition \ref{pro:right_series} for braces of abelian type. The proof of the general case appeared in \cite{MR3957824}.  
 
-Theorem~\ref{thm:right_p} was proved by Meng, Ballester--Bolinches and Romero in the case of braces of abelian type~\cite{MR3935814}. For general 
+The socle series was introduced by Rump~\cite{MR2278047} for skew braces of abelian type. 
+
+
+Theorem~\ref{thm:right_p} was proved by Meng, Ballester--Bolinches and Romero in the case of skew  braces of abelian type~\cite{MR3935814}. For general skew
 braces the proof appeared in~\cite{MR4062375}. 
