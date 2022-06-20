@@ -131,8 +131,15 @@ if and only if $f\in C_{\Aut(K)}(\Inn(K))$.
  [K,K]$.
 \end{proof}
 
-Now we will develop Sylow theory for invariant subgroups. This will be used
-in the next section. 
+Let $G$ and $K$ be groups such that $G$ acts on $K$ by automorphisms.
+\index{Subgroup!invariant}
+A subgroup $H$ of $K$ is {\em $G$-invariant} if $g\cdot H\subseteq H$ for all $g\in G$. 
+
+
+Now we will develop Sylow theory for invariant subgroups. 
+
+
+%This will be used in the next section. 
 
 \begin{lemma}[Glauberman]
 	Let $G$ and $K$ be finite groups of coprime order, where at least one of $G$ or $K$ is solvable. 
@@ -259,12 +266,13 @@ and that
 	Let us prove the first claim. By Sylow's theorems, the group $K$ acts transitively by conjugation
 	on the non-empty set 
 	$\Omega=\Syl_p(K)$. Since $G$ acts on $K$ by automorphisms, $G$ acts on $\Omega$. Let us check the
-	compatibility condition. Since $g\cdot P\in\Omega$, $K$ acts by conjugation
+	compatibility condition. Since $g\cdot P\in\Omega$ for all $g\in G$ and $P\in \Syl_p(K)$, $K$ acts by conjugation
 	on $\Omega$ and $G$ acts by automorphisms on $K$, 
 	\begin{align*}
 	(g\cdot x)\cdot (g\cdot P) &= (g\cdot x)(g\cdot P)(g\cdot x)^{-1}
-	=g\cdot (xPx^{-1})=g\cdot (x\cdot P).
+	=g\cdot (xPx^{-1})=g\cdot (x\cdot P),
 	\end{align*}
+	for all $g\in G$, $x\in K$ and $P\in\Syl_p(K)$.
 	The first part of Glauberman's lemma implies that there exists a Sylow $p$-subgroup 
 	of $K$ that is $G$-invariant. 
 	
@@ -296,7 +304,7 @@ and that
 	since $P$ is normal in $N$. Since $P$ is a maximal $G$-invariant $p$-subgroup of $K$, it follows that $P=S$ 
 	and thus $P\in\Syl_p(N)$.   
 	Let $Q\in\Syl_p(K)$ be such that $P\subseteq Q$. If $P\ne Q$, then   
-	$Q\cap N$ is a $G$-invariant $p$-subgroup of $N$ such that $P\subsetneq Q\cap N$,  by the normalizer condition (Lemma \ref{lem:normalizer}), a contradiction. 
+	$Q\cap N$ is a  $p$-subgroup of $N$ such that $P\subsetneq Q\cap N$,  by the normalizer condition (Lemma \ref{lem:normalizer}), a contradiction because $P\in\Syl_p(N)$. 
 	Hence $P=Q$ and therefore
 	$P\in\Syl_p(K)$.
 \end{proof}
@@ -364,84 +372,71 @@ Let $G$ and $K$ be finite groups of coprime order. Assume that $G$ acts by autom
     Hence $[G,[G,K]]=[G,K]$.
 \end{proof}
 
-\section*{C}
+%\section*{C}
 
 % A-nilpotentes
 % 4C de Isaacs
 
 
-Let a group $G$ acts on $K$ by automorphisms. The subgroup
-\[
-[G,K]=\langle (g\cdot x)x^{-1}:g\in G,\,x\in K\rangle
-\]
-of $K$ is normal in $K$. Moreover, 
-\[
-C_G(K)=\{g\in G:g\cdot x=x\text{ for all $x\in K$}\}
-\]
-is a subgroup of $G$. 
-
-Recall $G$ can be identified with a subgroup
-of the semidirect product $K\rtimes G$ and $K$ can be identified by a normal 
-subgroup of $K\rtimes G$. 
-
-\index{Subgroup!invariant}
-A subgroup $H$ of $K$ is \textbf{$G$-invariant} if $g\cdot H\subseteq H$ for all $g\in G$. 
-For example, $[G,K]$ is $G$-invaraint, as
-\begin{align*}
-g_1\cdot [g,x]&=[g_1gg_1^{-1}, g_1\cdot x]
-\end{align*}
-for all $g,g_1\in G$ and $x\in K$.
-
-Note that if $G$ acts trivially on $K$, i.e. $g\cdot x=x$ for all $g\in G$ and $x\in K$, then 
-$[G,K]=\{1\}$. 
-
-If $H$ is a $G$-invariant subgroup of $K$, then $G$ permutes the cosets of $H$ in $K$. If, moreover, $H$ is normal in $K$, then
-$G$ acts on $K/H$ by automorphisms. This is the \textbf{induced action} of $G$ on $K/H$. Let $\pi\colon K\to K/H$ be the canonical
-map. Then 
-\[
-\pi(g\cdot x)=(g\cdot x)H=g\cdot (xH)=g\cdot\pi(x)
-\]
-for all $g\in G$ and $x\in K$. Moreover, 
-\[
-\pi([g,x])=\pi( (g\cdot x)x^{-1})=\pi(g\cdot x)\pi(x)^{-1}=(g\cdot\pi(x))\pi(x)^{-1}=[g,\pi(x)].
-\]
-
-\begin{exercise}
-Let $G$ acts on $K$ by automorphisms. Then $[G,K]$ is the unique smallest $G$-invariant 
-subgroup of $K$ such that the induced action of $G$ on $K/[G,K]$ is trivial. 	
-\end{exercise}
-
-%\begin{proof}
-%Let $H$ be a normal $G$-invariant subgroup of $K$ and let $\pi\colon K\to K/H$ be the canonical map. The group 
-%$G$ acts trivially on $K/H$ 	if and only if 
+%Let a group $G$ acts on $K$ by automorphisms. The subgroup
 %\[
-%\{1\}=[G,\pi(K)]=\pi([G,K])
-%\Longleftrightarrow [G,K]\subseteq H.\qedhere
+%[G,K]=\langle (g\cdot x)x^{-1}:g\in G,\,x\in K\rangle
 %\]
+%of $K$ is normal in $K$. Moreover, 
+%\[
+%C_G(K)=\{g\in G:g\cdot x=x\text{ for all $x\in K$}\}
+%\]
+%is a subgroup of $G$. 
+%
+%Recall $G$ can be identified with a subgroup
+%of the semidirect product $K\rtimes G$ and $K$ can be identified by a normal 
+%subgroup of $K\rtimes G$. 
+%
+%\index{Subgroup!invariant}
+%A subgroup $H$ of $K$ is \textbf{$G$-invariant} if $g\cdot H\subseteq H$ for all $g\in G$. 
+%For example, $[G,K]$ is $G$-invaraint, as
+%\begin{align*}
+%g_1\cdot [g,x]&=[g_1gg_1^{-1}, g_1\cdot x]
+%\end{align*}
+%for all $g,g_1\in G$ and $x\in K$.
+%
+%Note that if $G$ acts trivially on $K$, i.e. $g\cdot x=x$ for all $g\in G$ and $x\in K$, then 
+%$[G,K]=\{1\}$. 
+
+%If $H$ is a $G$-invariant subgroup of $K$, then $G$ permutes the cosets of $H$ in $K$. If, moreover, $H$ is normal in $K$, then
+%$G$ acts on $K/H$ by automorphisms. This is the \textbf{induced action} of $G$ on $K/H$. Let $\pi\colon K\to K/H$ be the canonical
+%map. Then 
+%\[
+%\pi(g\cdot x)=(g\cdot x)H=g\cdot (xH)=g\cdot\pi(x)
+%\]
+%for all $g\in G$ and $x\in K$. Moreover, 
+%\[
+%\pi([g,x])=\pi( (g\cdot x)x^{-1})=\pi(g\cdot x)\pi(x)^{-1}=(g\cdot\pi(x))\pi(x)^{-1}=[g,\pi(x)].
+%\]
+
+
+%\begin{proposition}
+%Let $H$ be a subgroup of $K$. Each right coset of $H$ in $K$ is $G$-invariant if and only if 
+%$[G,K]\subseteq H$. In particular, $[G,K]$ is the unique smallest subgroup of $K$ with the 
+%property that all its right cosets are $G$-invariant. 	
+%\end{proposition}
+%
+%\begin{proof}
+%	Assume first that all right cosets of $H$ in $K$ are $G$-invariant. If $g\in G$ and $x\in K$, then
+%	$g\cdot x\in g\cdot (Hx)=Hx$ and hence $[g,x]=(g\cdot x)x^{-1}\in H$. This implies that $[G,K]\subseteq H$. 
+%	Conversely, assume that $[G,K]\subseteq H$. Then every right coset of $H$ in $K$ 
+%	is a disjoint union of right cosets of $[G,K]$ in $K$. 
+%	Since all these right cosets are $G$-invariant, it follows
+%	that each right coset of $H$ is also $G$-invariant. 	 
 %\end{proof}
+%
+%The bijective map $xH\mapsto Hx^{-1}$ can be used to prove that all right cosets 
+%of $H$ in $K$ are $G$-invariant if and only if all left cosets of $H$ in $K$ are $G$-invariant. 
 
-\begin{proposition}
-Let $H$ be a subgroup of $K$. Each right coset of $H$ in $K$ is $G$-invariant if and only if 
-$[G,K]\subseteq H$. In particular, $[G,K]$ is the unique smallest subgroup of $K$ with the 
-property that all its right cosets are $G$-invariant. 	
-\end{proposition}
-
-\begin{proof}
-	Assume first that all right cosets of $H$ in $K$ are $G$-invariant. If $g\in G$ and $x\in K$, then
-	$g\cdot x\in g\cdot (Hx)=Hx$ and hence $[g,x]=(g\cdot x)x^{-1}\in H$. This implies that $[G,K]\subseteq H$. 
-	Conversely, assume that $[G,K]\subseteq H$. Then every right coset of $H$ in $K$ 
-	is a disjoint union of right cosets of $[G,K]$ in $K$. 
-	Since all these right cosets are $G$-invariant, it follows
-	that each right coset of $H$ is also $G$-invariant. 	 
-\end{proof}
-
-The bijective map $xH\mapsto Hx^{-1}$ can be used to prove that all right cosets 
-of $H$ in $K$ are $G$-invariant if and only if all left cosets of $H$ in $K$ are $G$-invariant. 
-
-An action is said to be \textbf{faithful} if $g\cdot x=x$ for all $x$ implies that $g=1$. 
+An action of a group $G$ on a group $K$ by automorphisms is said to be {\em faithful} if, for $g\in G$, $g\cdot x=x$ for all $x\in K$ implies that $g=1$. 
 Note that if the action is faithful, then $C_G(K)=\{1\}$. 
 
-The \textbf{kernel}
+The {\em kernel}
 of an action is the (normal) subgroup $N$ of elements that act trivially. In this case, the quotient group
 $G/N$ acts by $\pi(g)\cdot x=g\cdot x$ and the action is faithful. Note that
 the kernel of the action 
@@ -462,17 +457,16 @@ $[G,\dots,G,K]_1 = [G,K]$ and $[G,\dots,G,K]_{m+1}=[G,\dots,G,[G,K]]_m$ for $m\g
 for $m\geq 1$.
 
 \begin{theorem}
-Let $G$ act by automorphisms on $K$. If $[G,\dots,G,K]_m=\{1\}$, then
+Let $G$ and $K$ be groups such that $G$ acts by automorphisms on $K$. If $[G,\dots,G,K]_m=\{1\}$, then
 $G^{(m-1)}\subseteq  C_G(K)$. In particular, if the action is faithful, 
 then $G$ is solvable 
 and its derived series has length $\leq m-1$.
 \end{theorem}
 
 \begin{proof}
-	Let us prove that $G^{(m-1)}\subseteq  C_G(K)$ for all $m$. We proceed by induction on $m$. If $m=1$, then 
+	Let us prove that $G^{(m-1)}\subseteq  C_G(K)$ by induction on $m$. If $m=1$, then 
 	$[G,K]=\{1\}$ by assumption and thus 
-	$G^{(0)}=G=C_G(K)$. Assume now that the result holds for some $m\geq1$. L
-	et $L=[G,K]$. Then
+	$G^{(0)}=G=C_G(K)$. Assume now that $m>1$ and the result holds for $m-1$. Let $L=[G,K]$. Then
 	\[
 	\{1\}=[G,\dots,G,K]_m=[G,\dots,G,L]_{m-1}.
 	\]
@@ -492,15 +486,12 @@ and its derived series has length $\leq m-1$.
 	\[
 	\{1\}=[K,[G^{(m-2)},G^{(m-2)}]]=[K,G^{(m-1)}].
 	\]  
-	Hence $G^{(m-1)}\subseteq C_G(K)$. In particular, if the action is faithful, 
-	then $C_G(K)=\{1\}$ and the claim follows. 
+	Hence $G^{(m-1)}\subseteq C_G(K)$ and the claim follows by induction.  In particular, if the action is faithful, 
+	then $C_G(K)=\{1\}$ and the result follows. 
 \end{proof}
 
-\begin{exercise}
-Let $G$ acts faithfully on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $G$ is abelian. 	
-\end{exercise}
 
-\begin{theorem}[Hall]
+\begin{theorem}[Hall] \label{thm:Hallnilpotent}
 \index{Hall's theorem}
 	Let $G$ be a finite group that acts on a finite group $K$ by automorphisms. 
 	If $[G,\dots,G,K]_m=\{1\}$ for some $m$, then there exists a positive integer $n$ such that $[[G,\dots,G,G]_n,K]=\{ 1\}$. Furthermore, if the action of $G$ on $K$ is faithful, then $G$ is nilpotent. 
@@ -536,32 +527,15 @@ Let $G$ acts faithfully on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $G$ 
 	Since $[G,K]$ is a proper $G$-invariant subgroup of $K$, 
 	the inductive hypothesis implies that $\gamma_n(G)$ acts
 	trivially on $[G,K]$ and hence   
-	$[\gamma_n(G),[G,K]]=[\gamma_n(G),[K,G]]\{1\}$.  
+	$[\gamma_n(G),[G,K]]=[\gamma_n(G),[K,G]]=\{1\}$.  
 	
 	In order to use the three-subgroups lemma, we need to show that 
 	\[
 	[G,[\gamma_n(G),K]]=\{1\}.
 	\]
-	This is tricky, we need to find a non-trivial normal subgroup $C$ of $K$ 
-	such that $G$ acts trivially on $C$. With this subgroup we proceed as follows. 
-	Let $\pi\colon K\to K/C$ be the canonical map. 
-	Since $|K/C|<|K|$ and
-	\[
-	[G,\dots,G,\pi(K)]_m=\pi([G,\dots,G,K]_m)=\{1\},
-	\]
-	the inductive hypothesis implies that 
-	\[
-	\{1\}=[\gamma_n(G),\pi(K)]=\pi([\gamma_n(G),K]).
-	\]
-	Thus $[\gamma_n(G),K]\subseteq C$. In particular, 
-	\[
-	[G,[\gamma_n(G),K]]=\{1\},
-	\]
-	as $G$ acts trivially on $C$. Then by the three-subgroups lemma,
-	\[ \{1\}=[K,[G,\gamma_n(G)]]=[K,\gamma_{n+1}(G)]=[K,\gamma_n(G)],\]
-	and the result follows by induction.
-	
-	We may assume that $[K,\gamma_n(G)]$ is non-trivial. Since $[K,\gamma_n(G)]\subseteq [G,K]$ and $[G,\dots ,G,K]_m=\{ 1\}$, we have that the subgroup $C=C_{[\gamma_n(G),K]}(G)$ of $K$ is not trivial and $G$ acts trivially on $C$. 
+	Suppose that $[\gamma_n(G),K]\neq\{ 1\}$. Since $[\gamma_n(G),K]\subseteq K$ and $[G,\dots ,G,K]_m=\{ 1\}$, we have that there exists a positive integer $l\leq m$ such that $[G,\dots ,G,[\gamma_n(G),K]]_l=\{ 1\}$ and $[G,\dots ,G,[\gamma_n(G),K]]_{l-1}\neq\{ 1\}$. Let  $C=C_{[\gamma_n(G),K]}(G)$. Then 
+	\[[G,\dots ,G,[\gamma_n(G),K]]_{l-1}\subseteq C\] 
+	and thus $C$ is a non-trivial subgroup of $K$ and $G$ acts trivially on $C$. 
 	Since the group $\gamma_n(G)$ acts trivially on $[G,K]$, it follows that 
 	$[\gamma_n(G),[G,K]]=\{1\}$. Thus
 	\[
@@ -589,14 +563,31 @@ Let $G$ acts faithfully on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $G$ 
 	\[
 	[C,K]\subseteq C_{[\gamma_n(G),K]}(G)=C
 	\]
-	and therefore $C$ is normal in $K$, and the result follows.  
+	and therefore $C$ is normal in $K$.  
+
+	Let $\pi\colon K\to K/C$ be the canonical map. 
+	Since $|K/C|<|K|$ and
+	\[
+	[G,\dots,G,\pi(K)]_m=\pi([G,\dots,G,K]_m)=\{1\},
+	\]
+	the inductive hypothesis implies that 
+	\[
+	\{1\}=[\gamma_n(G),\pi(K)]=\pi([\gamma_n(G),K]).
+	\]
+	Thus $[\gamma_n(G),K]\subseteq C$. In particular, 
+	\[
+	[G,[\gamma_n(G),K]]=\{1\},
+	\]
+	as $G$ acts trivially on $C$. Then by the three-subgroups lemma,
+	\[ \{1\}=[K,[G,\gamma_n(G)]]=[K,\gamma_{n+1}(G)]=[K,\gamma_n(G)],\]
+	a contradiction. Therefore $[\gamma_n(G),K]=\{ 1\}$ and the result follows by induction.
 \end{proof}
 
 For the next result we need a lemma.
 
 \begin{lemma}
 \label{lem:[G,K]abelian}
-Let $G$ act on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $[G,K]$ is abelian.	
+Let $G$ and $K$ be groups such that $G$ acts on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $[G,K]$ is abelian.	
 \end{lemma}
 
 \begin{proof} Recall that we consider $K$ and $G$ as subgroups of $\Gamma=K\rtimes G$.
@@ -638,7 +629,7 @@ Let $G$ act on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $[G,K]$ is abeli
 	\end{proof}
 
 \begin{theorem}\label{thm:general[G,K]nilpotent}
-	Let the finite group $G$ act on a finite group $K$ by automorphisms. 
+	Let $G$ and $K$ be finite groups such that $G$ acts on $K$ by automorphisms. 
 	If $[G,\dots,G,K]_m=\{1\}$ for some $m$, then
 	$[G,K]$ is nilpotent. 
 \end{theorem}
@@ -647,7 +638,7 @@ Let $G$ act on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $[G,K]$ is abeli
 	We proceed by induction on $|G|$. If $G=\{1\}$, then $[G,K]=\{1\}$ and there is nothing to demonstrate. So we may assume 
 	that $G\ne\{1\}$. Let $G_1$ be a proper subgroup of $G$. Since 
 	\[
-	[G_1,\dots,G_1,K]\subseteq [G,\dots,G,K]=\{1\},
+	[G_1,\dots,G_1,K]_m\subseteq [G,\dots,G,K]_m=\{1\},
 	\]
 	the inductive hypothesis implies that $[G_1,K]$ is nilpotent. Since $[G_1,K]$ is a normal subgroup of $K$, by Fitting's theorem,
 	$[G_1,K]\subseteq F(K)$, the Fitting subgroup of $K$. Let $g\in G$. If the order of $g$ is a power of a prime $p$, then by Theorem \ref{thm:[G,K]_pgroup}, $[\langle g\rangle,K]$ is a $p$-group and it is normal in $K$. By Fitting's theorem $[\langle g\rangle, K]\subseteq F(K)$. If the order of $g$ is not a power of any prime, then the order of $g$ is $mn$ for some coprime integers $m,n>1$. There exist integers $a,b$ such that $am+bn=1$. Hence $g=g^{am}g^{bn}$ and  $\langle g^{am}\rangle$ and $\langle g^{bn}\rangle$ are proper subgroups of $G$. Hence 
@@ -859,16 +850,10 @@ for some positive integer $n$ and $A^{[n+2]}=\{0\}$.
 % $a\in A$ we have $a*(a*(a*\cdots))=0$ (for sufficiently large number
 % of brackets in this equation).
 For a skew brace $A$ let $\ell_1(a)=a$ and $\ell_{k+1}(a)=a*\ell_k(a)$ for
-$n\geq1$.  The brace $A$ is said to be \emph{left nil} if for every $a\in A$ there
+$n\geq1$.  The skew brace $A$ is said to be \emph{left nil} if for every $a\in A$ there
 exists a positive integer $n=n(a)$ such that $\ell_n(a)=0$. 
 \end{definition}
 
-\begin{definition}
-\index{Brace!right nil}
-For a brace $A$ let $\rho_1(a)=a$ and $\rho_{k+1}(a)=\rho_k(a)*a$ for
-$n\geq1$.  The brace $A$ is said to be \emph{right nil} if for every $a\in A$ there
-exists a positive integer $n=n(a)$ such that $\rho_n(a)=0$. 
-\end{definition}
 
 %\begin{question}
 %    \label{question:leftnil=>leftnilp}
@@ -882,13 +867,13 @@ exists a positive integer $n=n(a)$ such that $\rho_n(a)=0$.
 
 \begin{definition}
 \index{Brace!strongly nilpotent}
-A brace $A$ is said to be \emph{strongly nilpotent}
+A skew brace $A$ is said to be \emph{strongly nilpotent}
 if there is a positive integer $n$ such that $A^{[n]}=0$.
 \end{definition}
 
 \begin{definition}
 \index{Brace!strongly nil}
-    A brace $A$ is said to be \emph{strongly nil} if for every
+    A skew brace $A$ is said to be \emph{strongly nil} if for every
     $a\in A$ there is a positive integer $n=n(a)$ such that any $*$-product of
     $n$ copies of $a$ is zero.
 \end{definition}
@@ -960,7 +945,7 @@ $A_1=I_1+\dots +I_{n-1}$. Then $A_1$ is an ideal of $A$ and $A$ is
 the direct sum of the ideals $A_1$ and $I_n$. By Lemma~\ref{sum},
 the map $f_1: A\rightarrow A_1\times I_n$ defined by
 $f(a+a_n)=(a,a_n)$, for all $a\in A_1$ and $a_n\in I_n$, is an
-isomorphism of skew braces. By the induction hypothesis, the
+isomorphism of skew braces. By the inductive hypothesis, the
 map
 \[
     f_2:A_1\rightarrow I_1\times \dots\times I_{n-1},
@@ -968,7 +953,7 @@ map
     f_2(a_1+\dots +a_{n-1})=(a_1,\dots ,a_{n-1}),
 \]
 is an isomorphism of skew braces. Therefore $f=(f_2\times
-\id)\circ f_1:A\rightarrow I_1\times\dots\times I_n$ is an
+\id)f_1:A\rightarrow I_1\times\dots\times I_n$ is an
 isomorphism of skew braces and $f(a_1+\dots +a_n)=(a_1,\dots
 ,a_n)$, for all $a_j\in I_j$. The result then follows.
 \end{proof}
@@ -1057,17 +1042,14 @@ Note that $A^2=[G,K]$ and $A^{n+1}=[G,\dots ,G,K]_n$ for $n>0$.
     \end{enumerate}
 \end{theorem}
 
-\begin{proof} Let $G$ be the multiplicative group of $A$ and $K$ be the additive group of $A$. As above we consider $G$ and $K$ as subgroups of $\Gamma=K\rtimes G$. Since $A$ is left nilpotent, there exists a positive integer $n$ such that $A^n=\{ 0\}$. Hence $[G,\dots ,G,K]_{k-1}=A^k=\{ 0\}$. By Theorem \ref{thm:general[G,K]nilpotent}, $[G,K]$ is nilpotent, i. e. the additive group of $A^2$ is nilpotent.
+\begin{proof} Let $G$ be the multiplicative group of $A$ and $K$ be the additive group of $A$. As above we consider $G$ and $K$ as subgroups of $\Gamma=K\rtimes G$. Since $A$ is left nilpotent, there exists a positive integer $n$ such that $A^n=\{ 0\}$. Hence $[G,\dots ,G,K]_{n-1}=A^n=\{ 0\}$. By Theorem \ref{thm:general[G,K]nilpotent}, $[G,K]$ is nilpotent, i. e. the additive group of $A^2$ is nilpotent.
 
- Let $H=[G,K]G\subseteq \Gamma$. Let $C$ be the centralizer of $K$ in $H$. Then by
-    \cite[Theorem~4]{Hall}, $H/C$ is locally nilpotent. Note
-    that, since $X$ is normal in $\Gamma$, $H=X$. Hence $G\cap C$ is the
-    centralizer of $X$ in $G$, that is
-    \begin{eqnarray*}G\cap C&=&\{ g\in G\mid gxg^{-1}=x, \text{ for all } x\in X\}\\
+ Let $C$ be the centralizer of $K$ in $G$. Note that $C$ is a normal subgroup of $G$. Since $[G,\dots ,G,K]_m=\{ 1\}$, by
+Theorem~\ref{thm:Hallnilpotent}, there exists a positive integer $n$ such that $[[G,\dots ,G]_n,K]=\{ 1\}$. Hence $[G,\dots ,G]_n\subseteq C$. Now $G/C$ is nilpotent. Note that
+    \begin{eqnarray*} C&=&\{ g\in G\mid gxg^{-1}=x, \text{ for all } x\in K\}\\
     &=&\{ g\in A\mid \lambda_g(x)=x, \text{ for all } x\in A\}=\ker\lambda.
     \end{eqnarray*}
-     Thus $(GC)/C\cong G/(G\cap
-     C)=G/\ker\lambda$ is locally nilpotent.
+     Thus $G/C$ is the multiplicative group of $A/\ker\lambda$, and the result follows.
 \end{proof}
 
 
@@ -1240,29 +1222,15 @@ Note that $A^2=[G,K]$ and $A^{n+1}=[G,\dots ,G,K]_n$ for $n>0$.
 %     result follows.
 % \end{proof}
 
-The assumption on the nilpotency of the additive group in
-Theorem~\ref{thm:left_nilpotent=nilpotent} is needed (see
-Example~\ref{ex:trivial}).
+%The assumption on the nilpotency of the additive group in
+%Theorem~\ref{thm:left_nilpotent=nilpotent} is needed (see
+%Example~\ref{ex:trivial}).
 
-\begin{corollary}
-    Let $A$ be a finite brace of size $p^n$ for some prime number $p$
-    and some positive integer $n$.  Then either $A$ is the trivial brace of
-    order $p$ or it is not simple.
-\end{corollary}
-
-\begin{proof}
- By Theorem~\ref{thm:left_nilpotent=nilpotent}, $A$ is left nilpotent. In
- particular, if $A\neq 0$, then $A^2\neq A$. Since $A^2$ is an ideal either $A$
- is not simple or $A^2=0$. Assume that $A^2=0$. In this case, $a\circ b=a+b$
- for all $a,b\in A$. Therefore $[A,A]$ is a proper an ideal of $A$. Hence,
- either $A$ is not simple or $[A,A]=0$. Assume that $A^2=[A,A]=0$. In this case
- $A$ is a trivial brace and the result follows.
-\end{proof}
 
 
 \begin{lemma}
     \label{lem:sylow_leftideals}
-    Let $A$ be a finite skew left brace with nilpotent additive group. Let $p$
+    Let $A$ be a finite skew brace with nilpotent additive group. Let $p$
     and $q$ distinct prime numbers and let $P$ and $Q$ be Sylow subgroups of
     $(A,+)$ of sizes $p^n$ and $q^m$, respectively. Then $P$, $Q$ and $P+Q$ are
     left ideals of $A$.
@@ -1302,7 +1270,7 @@ of $A_p$ in the multiplicative group of $A_p+A_q$. Since
 $[A_p+A_q:N]=q^s$ for some $s\in\{0,\dots,m\}$ and $p$ does not
 divide $q^t-1$ for all $t\in\{1,\dots,n\}$, it follows that $s=0$
 and hence $A_p$ is a normal subgroup of the multiplicative group of
-$A_p+A_q$. Thus $A_p$ is an ideal of the skew left brace
+$A_p+A_q$. Thus $A_p$ is an ideal of the skew brace
 $A_p+A_q$. Since $A_p$ is an ideal of $A_p+A_q$ and $A_q$ is a left
 ideal, we have that $A_p*A_q\subseteq A_p\cap A_q=0$, and the result
 follows.
@@ -1310,7 +1278,7 @@ follows.
 
 
 \begin{corollary}
-Let $A$ be a skew left brace of size $p_1^{\alpha_1}\cdots
+Let $A$ be a skew  brace of size $p_1^{\alpha_1}\cdots
 p_k^{\alpha_k}$, where $p_1<p_2<\cdots<p_k$ are prime numbers and
 $\alpha_1,\dots,\alpha_k$ are positive integers. Assume that the
 additive group of $A$ is nilpotent. Let $A_j$ be the Sylow $p_j$-
@@ -1329,18 +1297,19 @@ Then $\lambda_a(b)=\lambda_a(b_1)+\dots +\lambda_a(b_k)=b_1+\dots
 \end{proof}
 
 
+\index{Group!$p$-nilpotent}
+A finite group $G$ is said to be {\em $p$-nilpotent} for a prime $p$ if $G$ has a normal $p$-complement. It is an easy exercise to show that a finite group is nilpotent if and only if it is $p$-nilpotent for every prime $p$. 
 
-
-Let $A$ be a skew left brace. For subsets $X$ and $Y$ of $A$ 
+Let $A$ be a skew brace. For subsets $X$ and $Y$ of $A$ 
 we define inductively $L_0(X,Y)=Y$ and $L_{n+1}(X,Y)=X*L_n(X,Y)$ for $n\geq0$.
 
 \begin{definition}
-    Let $p$ be a prime number. A finite skew left brace $A$ of nilpotent type is said to be \emph{left $p$-nilpotent} if there exists $n\geq1$ such that $L_n(A,A_p)=0$, where $A_p$ is the Sylow $p$-subgroup of $(A,+)$.
+    Let $p$ be a prime number. A finite skew brace $A$ of nilpotent type is said to be \emph{left $p$-nilpotent} if there exists $n\geq1$ such that $L_n(A,A_p)=0$, where $A_p$ is the Sylow $p$-subgroup of $(A,+)$.
 \end{definition}
 
 \begin{lemma}
 \label{lem:factorization}
-    Let $A$ be a skew left brace such that its additive group is the direct product of the left 
+    Let $A$ be a skew brace such that its additive group is the direct product of the left 
     ideals $B$ and $C$. Then $A*(B+C)=A*B+A*C$. Moreover, if $A=\oplus_{i=1}^{n} B_i$ where the $B_i$ are left ideals, then 
     \[
     A*\sum_{i=1}^{n} B_i=\sum_{i=1}^{n} A*B_i.
@@ -1359,7 +1328,7 @@ we define inductively $L_0(X,Y)=Y$ and $L_{n+1}(X,Y)=X*L_n(X,Y)$ for $n\geq0$.
 
 \begin{proposition}
     \label{pro:left_p}
-    Let $A$ be a finite skew left brace of nilpotent type. Then $A$ 
+    Let $A$ be a finite skew  brace of nilpotent type. Then $A$ 
     is left nilpotent if and only if $A$ is left $p$-nilpotent for all $p\in\pi(A)$.
 \end{proposition}
 
@@ -1390,6 +1359,8 @@ satisfies
 \]
 where the subset $X$ appears $n$ times.
 
+In a finite brace $A$  of nilpotent type we denote by $A_{p'}$ the $p$-complement of $A$ for every prime $p$.
+
 \begin{theorem}
 \label{thm:left_p}
     Let $A$ be a finite brace of nilpotent type. The following statements
@@ -1405,7 +1376,7 @@ where the subset $X$ appears $n$ times.
     We first prove that (1) implies (2). Since $A$ is left $p$-nilpotent,
     there exists $n\in\N$ such that 
     $L_n(A_{p'},A_p)\subseteq L_n(A,A_p)=\{0\}$.
-    Since $(A_{p'},\circ)$ acts by automorphisms on $(A_{p},+)$ and this is a coprime action, it follows from~\cite[Lemma 4.29]{MR2426855} that 
+    Since $(A_{p'},\circ)$ acts by automorphisms on $(A_{p},+)$ and this is a coprime action, it follows from Corollary~\ref{cor:coprimeaction} that 
     \[
     L_1(A_{p'},A_p)=A_{p'}*A_p=A_{p'}*(A_{p'}*A_p)=L_2(A_{p'},A_p).
     \]
@@ -1417,7 +1388,7 @@ where the subset $X$ appears $n$ times.
     A_{p'}*A=A_{p'}*(A_p+A_{p'})=(A_{p'}*A_p)+(A_{p'}*A_{p'})\subseteq A_{p'}.
     \]
     since $A_p'$ is a left ideal of $A$ and $A_{p'}*A_p=\{0\}$. Then 
-    $A_{p'}$ is an ideal of $A$ by Lemma~\ref{lem:Hall} and~\cite[Lemma 1.9]{csv}. In particular, $(A_{p'},\circ)$ is a normal subgroup of $(A,\circ)$. 
+    $A_{p'}$ is an ideal of $A$ by Proposition~\ref{pro:I*A}. In particular, $(A_{p'},\circ)$ is a normal subgroup of $(A,\circ)$. 
     
     Finally we prove that (3) implies (1). We need to prove that $L_n(A_p,A_p)=0$ for some $n$. Since $(A,\circ)$ is $p$-nilpotent, 
     there exists a normal $p$-complement that is a characteristic subgroup of $(A,\circ)$. This group is $A_{p'}$ and hence $A_{p'}$ is an ideal of $A$. Then
@@ -1431,39 +1402,62 @@ where the subset $X$ appears $n$ times.
     a*b=(x\circ y)*b=x*(y*b)+y*b+x*b=x*b\in A_p*L_n(A_p,A_p)
     \]
     since $A_{p'}*A_p=0$. The skew left brace $A_p$ is left nilpotent
-    by~\cite[Proposition 4.4]{csv}, so there exists $n\in\N$ such that $L_n(A_p,A_p)=0$.
+    by Proposition~\ref{pro:pgroups}, so there exists $n\in\N$ such that $L_n(A_p,A_p)=0$, and the result follows. 
 \end{proof}
 
-% The following theorem was proved by Smoktunowicz for left braces, see~\cite[Theorem 1.1]{MR3814340}. 
+ %The following theorem was proved by Smoktunowicz for left braces, see~\cite[Theorem 1.1]{MR3814340}. 
 % For skew left braces a proof appears in~\cite[Theorem 4.8]{csv}.
 
+\begin{theorem}\label{thm:Smoktuwonicz}
+Let $A$ be a finite skew brace of nilpotent type. Then, $A$ is left nilpotent if and only if the multiplicative group of $A$ is nilpotent.
+\end{theorem}
+
+\begin{proof}
+By Proposition \ref{pro:left_p}, $A$ is left nilpotent if and only if $A$ is left $p$-nilpotent for every prime $p$. By Theorem \ref{thm:left_p}, this is equivalent to the $p$-nilpotency of the multiplicative group of $A$ for every prime $p$. Therefore the result follows.
+\end{proof}
+
 \section*{Exercises}
+\begin{prob}
+Let $G$ and $K$ be groups such that $G$ acts on $K$ by automorphisms. Then $[G,K]$ is the unique smallest $G$-invariant 
+subgroup of $K$ such that the induced action of $G$ on $K/[G,K]$ is trivial. 	
+\end{prob}
+
+%\begin{proof}
+%Let $H$ be a normal $G$-invariant subgroup of $K$ and let $\pi\colon K\to K/H$ be the canonical map. The group 
+%$G$ acts trivially on $K/H$ 	if and only if 
+%\[
+%\{1\}=[G,\pi(K)]=\pi([G,K])
+%\Longleftrightarrow [G,K]\subseteq H.\qedhere
+%\]
+%\end{proof}
+
+\begin{prob}
+Let $G$ and $K$ be groups such that $G$ acts faithfully on $K$ by automorphisms. If $[G,[G,K]]=\{1\}$, then $G$ is abelian. 	
+\end{prob}
+
 
 \begin{prob}
     \label{prob:LN_direct}
-    Let $A_1,\dots,A_k$ be left nilpotent braces. Prove that 
+    Let $A_1,\dots,A_k$ be left nilpotent skew braces. Prove that 
     $A_1\times\cdots\times A_k$ is left nilpotent.
 \end{prob}
 
 \begin{prob}
     \label{prob:LN_surj}
-     Let $f\colon A\to B$ be a surjective homomorphism of braces. Prove that 
+     Let $f\colon A\to B$ be a surjective homomorphism of skew braces. Prove that 
      if $A$ is left nilpotent, then $B$ is left nilpotent.
 \end{prob}
 
 \begin{prob}
     \label{prob:LN_sub}
-    Let $A$ be a left nilpotent brace and $B\subseteq A$ be a sub brace. 
+    Let $A$ be a left nilpotent skew brace and $B\subseteq A$ be a sub brace. 
     Prove that $B$ is left nilpotent.
 \end{prob}
 
-\begin{prob}
-    \label{prob:nil=>leftnilpotent}
-    Prove that nil braces \framebox{of abelian/nilpotent type?} left nilpotent. 
-\end{prob}
+
 
 \begin{prob}
-    Let $A$ be finite skew brace such that $A^3=0$. Then 
+    Let $A$ be finite skew brace such that $A^3=0$. Prove that 
     $A^2$ is a trivial skew brace of abelian type.
 \end{prob}
 
@@ -1477,37 +1471,37 @@ where the subset $X$ appears $n$ times.
 \section*{Open problems}
 
 \begin{problem}
-    \label{question:rightnil=>rightnilp}
-    Let $A$ be a finite right nil brace.  Is $A$ right
-    nilpotent?
+    \label{prob:nil=>leftnilpotent}
+    Let $A$ be a finite left nil skew brace. Is $A$ left nilpotent? And if furthermore $A$ is of nilpotent type, is $A$ left nilpotent?   
 \end{problem}
+
 
 \begin{problem}
     \label{question:stronglynil=>stronglynilp}
-    Let $A$ be a finite strongly nil brace.
+    Let $A$ be a finite strongly nil skew brace.
     Is $A$ strongly nilpotent?
 \end{problem}
 
 \section*{Notes}
 
-The left series of a brace was defined by Rump~\cite{MR2278047} in the context of 
-braces of abelian type. Precisely in that paper he proved 
+The left series of a skew brace was defined by Rump~\cite{MR2278047} in the context of 
+skew braces of abelian type. Precisely in that paper he proved 
 Proposition~\ref{pro:pgroups} by a different method 
-in the case of braces of abelian type. 
+in the case of skew braces of abelian type. 
 
-Strongly nilpotent braces of abelian type were defined by Smoktunowicz in~\cite{MR3814340}.
+Strongly nilpotent  skew braces of abelian type were defined by Smoktunowicz in~\cite{MR3814340}.
 These definitions extend to skew left braces, see~\cite{MR3957824}.  
 
 Theorem~\ref{thm:direct} was proved by Byott in the context of Hopf--Galois extensions~\cite{MR3030514}. 
 
-Theorem~\ref{thm:equivalence} was proved by Smoktunowicz in \cite{MR3814340} for braces of abelian type and it was extended 
+Theorem~\ref{thm:equivalence} was proved by Smoktunowicz in \cite{MR3814340} for skew braces of abelian type and it was extended 
 to nilpotent type in~\cite{MR3957824}. 
 
-Theorem~\ref{thm:Smoktuwonicz} was proved By Smoktunowicz in \cite[Theorem 1.1]{MR3814340} for braces of abelian type. 
-The generalization to braces of nilpotent type appeared in~\cite[Theorem 4.8]{MR3957824}. The proof 
+Theorem~\ref{thm:Smoktuwonicz} was proved by Smoktunowicz in \cite[Theorem 1.1]{MR3814340} for skew braces of abelian type. 
+The generalization to skew braces of nilpotent type appeared in~\cite[Theorem 4.8]{MR3957824}. The proof 
 presented in this chapter appeared in~\cite{MR4062375} and it is 
 heavily based on the ideas of Ballester--Bolinches, Meng and Romero~\cite{MR3935814}.
 
-Theorem~\ref{thm:left_p} was proved by Ballester--Bolinches, Meng and Romero for braces of abelian type.
+Theorem~\ref{thm:left_p} was proved by Ballester--Bolinches, Meng and Romero for skew braces of abelian type.
 
-Exercise~\ref{prob:nil=>leftnilpotent} was proved in the case of braces of abelian type by Smoktunowicz~\cite{MR3765444}.
+Open problem~\ref{prob:nil=>leftnilpotent} was proved in the case of skew braces of abelian type by Smoktunowicz~\cite{MR3765444}.
