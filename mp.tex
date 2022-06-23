@@ -1,7 +1,32 @@
 \chapter{Multipermutation solutions}
 \label{MP}
 
-\section*{A}
+\section{The permutation group of a solution}
+
+Let $(X,r)$ be a solution to the YBE. We write \[r(x,y)=(\sigma_x(y),\tau_y(x))\quad\text{and}\quad r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))\] 
+for all $x,y\in X$. Consider the structure group $G(X,r)$ of the solution $(X,r)$. Let $i\colon X\to G(X,r)$ be the natural map. 
+
+\index{Solution!permutation group}
+The {\em permutation group} of $(X,r)$ is the subgroup
+\[\mathcal{G}(X,r)=\langle (\sigma_x,\tau^{-1}_x) : x\in X\rangle\subseteq\Sym_X\times\Sym_X.\]
+Since 
+\[ \sigma_x\sigma_y=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}\quad\text{and}\quad \tau^{-1}_x\tau^{-1}_y=\tau^{-1}_{\sigma_x(y)}\tau^{-1}_{\tau_y(x)} \]
+for all $x,y\in X$, there exists a unique group homomorphism
+$h\colon G(X,r)\to \mathcal{G}(x,r)$ such that $hi(x)=(\sigma_x,\tau^{-1}_x)$ for all $x\in X$.
+By Theorem \ref{thm:GVbraces}, $G(X,r)$ has a unique structure of skew brace with multiplicative group the structure group $G(X,r)$ and $\lambda_{i(x)}(i(y))=i(\sigma_x(y))$ for all $x\in X$. We shall see that $\ker h$ is an ideal of the skew brace $G(X,r)$. Note that
+\[\mu_{i(y)}(i(x))=\lambda_{i(x)}(i(y))i(x)i(y)=i(\sigma_x(y))i(x)i(y)=i(\tau_y(x))\]
+for all $x,y\in X$, by the defining relations of $G(X,r)$.
+Let $a\in \ker h$. There exists $x_1,\dots ,x_n\in X$ and $\epsilon_1,\dots ,\epsilon_n\in\{ -1,1\}$ such that
+$a=i(x_1)^{\epsilon_1}\cdots i(x_n)^{\epsilon_n}$. Hence
+\[(\id_X,\id_X)=h(a)=(\sigma_{x_1}^{\epsilon_1}\cdots\sigma_{x_n}^{\epsilon_n},\tau_{x_1}^{-\epsilon_1}\cdots \tau_{x_n}^{-\epsilon_n}).\]
+Therefore
+\[ \lambda_a(i(z))=i(\sigma_{x_1}^{\epsilon_1}\cdots\sigma_{x_n}^{\epsilon_n}(z))=i(z)\]
+and
+\[ \mu^{-1}_a(i(z))=i(\tau_{x_1}^{-\epsilon_1}\cdots \tau_{x_n}^{-\epsilon_n}(z))=i(z)\]
+for all $z\in X$ and thus 
+\[\ker h\subseteq \ker\lambda\cap\ker\mu=\Soc(G(X,r)),\]
+by Propositon \ref{pro:soc_kernels}.
+
 
 If $X$ is a solution, we 
 consider over $X$ the relation

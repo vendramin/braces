@@ -1,15 +1,15 @@
 \chapter{Nilpotent groups}
 \label{nilpotent}
 
-\section*{Central series}
+\section{Central series}
 
 \index{Group!central series}\index{Group!center}
+\index{Subgroup!characteristic}
+\index{Subgroup!central}
 Let $G$ be a group. The {\em center} of $G$ is 
 \[ Z(G)=\{ x\in G\mid xy=yx,\; \mbox{ for all } y\in G\}.\]
-A subgroup $H$ of $G$ is {\em central} in $G$ if $H\subseteq Z(G)$. \index{Subgroup!central}
-
-\index{Subgroup!characteristic}
-A subgroup $H$ of a group $G$ is said to be {\em characteristic} if 
+A subgroup $H$ of $G$ is {\em central} in $G$ if $H\subseteq Z(G)$ \textcolor{blue}{and 
+$H$ is said} to be {\em characteristic} if 
 $f(H)= H$ for all $f\in\Aut(G)$. The center $Z(G)$ of $G$ is a characteristic subgroup of $G$. Every characteristic subgroup of $G$ is normal in $G$. 
 If $H$ is a characteristic subgroup of $K$ and $K$ is normal in $G$, 
 then $H$ is normal in $G$. 
@@ -21,7 +21,7 @@ then $H$ is normal in $G$.
 Note that $C_G(X)$ is a subgroup of $G$. In particular, $C_G(G)=Z(G)$.
 
 Let $H$ be a normal subgroup of $G$. Let $\varphi\colon G\rightarrow \Aut(H)$ be the map defined by $\varphi(x)=\varphi_x$ and
-$\varphi_x(h)=xhx^{-1}$, for all $x\in G$ and $h\in H$. It is easy to check that $\varphi$ is a homomorphism of groups and $\ker(\varphi)=C_G(H)$. Hence $C_G(H)$ is a normal subgroup of $G$. We also say that $\varphi$ is a left action of $G$ on $H$ by conjugation.
+$\varphi_x(h)=xhx^{-1}$ for all $x\in G$ and $h\in H$. It is easy to check that $\varphi$ is a homomorphism of groups and $\ker(\varphi)=C_G(H)$. Hence $C_G(H)$ is a normal subgroup of $G$. We also say that $\varphi$ is a left action of $G$ on $H$ by conjugation.
 
 
 If $G$ is a group and $x,y,z\in G$, then the conjugation (as a left action) will be denoted
@@ -35,10 +35,10 @@ If $X$, $Y$ and $Z$ are subgroups of $G$, we write
 \[
 [X,Y]=\langle [x,y]:x\in X,\,y\in Y\rangle
 \]
-and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Since $[X,Y]=[Y,X]$, it follows that  
-$[X,Y,Z]=[X,Z,Y]$. 
-
-\index{Subgroup!commutator} Note that the {\em commutator subgroup} $[G,G]$ of $G$ is a characteristic subgroup of $G$.
+and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. \textcolor{blue}{Note that
+$[X,Y,Z]=[X,Z,Y]$, as $[X,Y]=[Y,X]$.}
+\index{Subgroup!commutator} 
+The {\em commutator subgroup} $[G,G]$ of $G$ is a characteristic subgroup of $G$.
 
 The proof of the following lemma is an easy exercise.
 
@@ -87,9 +87,9 @@ turns out to be Jacobi's identity, i.e.
 \end{lemma}
 
 \begin{proof}
-	We first prove the lemma in the case where $N=\{1\}$. 	In this case,  
+	We first \textcolor{blue}{assume that} $N=\{1\}$. \textcolor{blue}{Then}
 	$[Y,Z]\subseteq C_G(X)$ and $[Z,X]\subseteq C_G(Y)$. It
-	is enough to prove that $[z,x^{-1},y]=1$, for all $x\in X$, $y\in Y$ and $z\in Z$. 
+	is enough to prove that $[z,x^{-1},y]=1$ for all $x\in X$, $y\in Y$ and $z\in Z$. 
 	Let $x\in X$, $y\in Y$ and $z\in Z$. Since $[x,y^{-1},z]=1$, it follows that 
 	$\prescript{y}{}[x,y^{-1},z]=1$.
 	Similarly, $\prescript{z}{}[y,z^{-1},x]=1$. Hence the 
@@ -358,7 +358,7 @@ $H$ if $K\subseteq C_G(H)$, that is if and only if $[H,K]=\{1\}$.
     $\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)$ we proceed by induction. The case where $i=0$ is
 	trivial, so assume the result holds for some $i\geq0$. 
 	Let $x\in G$ and $g\in \gamma_{i+1}(G)$. By the inductive hypothesis $g\in \zeta_{c-i}(G)$. 
-	Hence $[x,g]\in \zeta_{c-i-1}(G)$. Therefore, $\gamma_{i+2}(G)\subseteq \zeta_{c-i-1}$.
+	Hence $[x,g]\in \zeta_{c-i-1}(G)$ \textcolor{blue}{and} $\gamma_{i+2}(G)\subseteq \zeta_{c-i-1}$.
 %	If
 %	$g\in\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]$, then   
 %	\[
@@ -400,7 +400,7 @@ G/G_i$ is the canonical map.
 \begin{proposition}
 	\label{pro:serie_central}
 	Let $G$ be a group and let $G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}$
-	be a central series of $G$. Then $\gamma_{i+1}(G)\subseteq G_i\subseteq \zeta_{n-i}(G)$, for all $i$.
+	be a central series of $G$. Then $\gamma_{i+1}(G)\subseteq G_i\subseteq \zeta_{n-i}(G)$ for all $i$.
 \end{proposition}
 
 \begin{proof}
@@ -418,12 +418,15 @@ G/G_i$ is the canonical map.
 	\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]\subseteq [G,G_{i}]\subseteq G_{i+1}. 
 	\] Thus the first inclusion follows by induction.
 	
-	We shall prove that $G_i\subseteq \zeta_{n-i}(G)$, by induction on $n-i$. For $n-i=0$, $G_n=\{ 1\}=\zeta_0(G)$. Suppose that the
-	inclusion holds for some $n-i\geq 0$. Since $G_i\subseteq \zeta_{n-i}(G)$, there exists a surjective group homomorphism
-	$f\colon G/G_i\rightarrow G/\zeta_{n-i}(G)$, such that $f(gG_i)=g\zeta_{n-i}(G)$, for all $g\in G$. 
-	Hence $f(Z(G/G_i))\subseteq Z(G/\zeta_{n-i}(G))$. Since  $f\circ\pi_i\colon G\rightarrow G/\zeta_{n-i}(G)$ is the canonical map and
-	$f(\pi_i(G_{i-1}))\subseteq f(Z(G/G_i))\subseteq Z(G/\zeta_{n-i}(G))$, we have that 
-	$G_{i-1}\subseteq (f\circ \pi_i)^{-1}(Z(G/\zeta_{n-i}(G)))=\zeta_{n-i+1}(G)$. Therefore, the result follows by induction.
+	We \textcolor{blue}{now} prove that $G_i\subseteq \zeta_{n-i}(G)$. \textcolor{blue}{We proceed} by induction on $n-i$. \textcolor{blue}{If $n-i=0$, then} $G_n=\{ 1\}=\zeta_0(G)$. Suppose that the
+	inclusion we want to prove holds for some $n-i\geq 0$. Since $G_i\subseteq \zeta_{n-i}(G)$, there exists a surjective group homomorphism
+	$f\colon G/G_i\rightarrow G/\zeta_{n-i}(G)$, such that $f(gG_i)=g\zeta_{n-i}(G)$ for all $g\in G$. 
+	Hence $f(Z(G/G_i))\subseteq Z(G/\zeta_{n-i}(G))$. Since  $f\pi_i\colon G\rightarrow G/\zeta_{n-i}(G)$ is the canonical map and
+	$f(\pi_i(G_{i-1}))\subseteq f(Z(G/G_i))\subseteq Z(G/\zeta_{n-i}(G))$, 
+	\[
+	G_{i-1}\subseteq (f\pi_i)^{-1}(Z(G/\zeta_{n-i}(G)))=\zeta_{n-i+1}(G).
+	\]
+	Therefore the result follows.
 \end{proof}
 
 % extender el lema para ver qué pasa con zeta_i
@@ -513,7 +516,7 @@ the trivial subgroup. Every finite group contains a minimal normal subgroup.
 
 
 \begin{theorem}\label{theorem:minmax_nilpotent}
-	Let $G$ be a non-trivial nilpotent group. The following statements hold:
+	Let $G$ be a non-trivial nilpotent group. %The following statements hold:
 	\begin{enumerate}
 		\item Every minimal normal subgroup of $G$ has prime order and it is central. 
 		\item Every maximal subgroup of $G$ is normal, has prime index and contains $[G,G]$. 
@@ -528,9 +531,9 @@ the trivial subgroup. Every finite group contains a minimal normal subgroup.
 	every subgroup of $N$ is normal in $G$, $N$ should be cyclic of prime order.
 
 	We now prove (2). If $M$ is a maximal subgroup, then $M$
-	is normal en $G$ by the normalizer condition. The maximality of $M$ implies that 
-	$G/M$ contains no non-trivial proper subgroups.  Since $G/M$ is nilpotent and $Z(G/M)$ is non-trivial, we have that $G/M$ is abelian. Thus 
-	$G/M$ should be cyclic of prime order and thus $[G,G]\subseteq M$. 
+	is normal in $G$ by the normalizer condition. The maximality of $M$ implies that 
+	$G/M$ contains no non-trivial proper subgroups. \textcolor{blue}{It follows that $G/M$ is cyclic of prime order. In particular, 
+	$G/M$ is abelian and thus $[G,G]\subseteq M$.} 
 \end{proof}
 
 The theorem does not prove the existence of maximal subgroups, see for example what happens with
@@ -544,13 +547,13 @@ the additive group of rational numbers.
 
 \begin{proof}
 	We proceed by induction on $n$. The case $n=1$ is trivial. Assume  that $n>1$ and the result holds 
-	for all subgroups of index $<n$. If $H$ is  a normal subgroup of index $n$, then clearly $g^n\in H$, for all $g\in G$. 
+	for all subgroups of index $<n$. If $H$ is  a normal subgroup of index $n$, then clearly $g^n\in H$ for all $g\in G$. 
 	Hence we may assume that $H$ is a non-normal subgroup of $G$ of index $n$. By the normalizer condition, $H\subsetneq N_G(H)$. Hence
-	$(G:N_G(H)),(N_G(H):H)<n$, and thus, by the inductive hypothesis, $g^{(G:N_G(H))}\in N_G(H)$ and
+	$(G:N_G(H)),(N_G(H):H)<n$. \textcolor{blue}{By the inductive hypothesis,} $g^{(G:N_G(H))}\in N_G(H)$ and thus 
 	\[
 		g^n=g^{(G:H)}=g^{(G:N_G(H))(N_G(H):H)}\in H, 
 	\]
-	for all $g\in G$. Therefore, the result follows by induction.
+	for all $g\in G$. \textcolor{blue}{The result follows.}%Therefore, the result follows by induction.
 \end{proof}
 
 \begin{example}
@@ -573,7 +576,9 @@ on nilpotent groups.
 	\[
 		H=\{x^nc:n\in\Z,c\in [G,G]\},
 	\]
-	as $[G,G]$ is normal in $G$. It is enough to show that   
+	as $[G,G]$ is normal in $G$. 
+	
+	It is enough to show that   
 	$[H,H]\subseteq\gamma_3(G)$. Let $h=x^nc,k=x^md\in H$
 	where $c,d\in [G,G]$. 
 	Since 
@@ -606,15 +611,15 @@ Now an application of Lemma~\ref{lem:a[GG]}.
 \end{theorem}
 
 \begin{proof} 
-    We shall show the result by induction on the nilpotency class $c$ of $G$.
+    We show the result by induction on the nilpotency class $c$ of $G$.
     If $G$ is abelian, then the result is clear. Suppose that $c\geq 2$ and that the result holds for all nilpotent 
     groups of class $<c$. 
 	Let $a,b\in T(G)$ and let $A=\langle a,[G,G]\rangle$ and $B=\langle b,[G,G]\rangle$. 
-	Since $A$ and $B$ are both nilpotent of class $<2$ by the previous lemma, the inductive hypothesis implies that
+	Since $A$ and $B$ are both nilpotent of class \textcolor{blue}{$<c$} by the previous lemma, the inductive hypothesis implies that
 	$T(A)$ is a subgroup of $A$ and $T(B)$ is a subgroup of $B$. 
 	Since $T(A)$ is characteristic in $A$ and $A$ is normal in $G$, it follows that 
 	$T(A)$ is
-	normal in $G$. Similarly, $T(B)$ is normal in $B$.  
+	normal in $G$. Similarly, $T(B)$ is normal in \textcolor{blue}{$G$}.  
 	We claim that every element of $T(A)T(B)$ has finite order. Indeed, if 
 	$x\in T(A)T(B)$, say $x=a_1b_1$ with 
 	$a_1\in T(A)$ of order $m$ and $b_1\in T(B)$, then $x$ has finite order since  
@@ -622,8 +627,8 @@ Now an application of Lemma~\ref{lem:a[GG]}.
 	x^m=(a_1b_1)^m&=
 		(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})\cdots (a_1^{m-1} b_1 a_1^{-m+1})b_1\in T(B).
 	\end{align*}
-	This trick allows us to prove that both $ab$ and $a^{-1}$ have finite order. 
-	Hence $T(G)$ is a subgroup of $G$.  Therefore, the result follows by induction. 
+	\textcolor{blue}{In particular, $ab$ has finite order. It follows that} 
+	$T(G)$ is a subgroup of $G$. 
 \end{proof}
 
 Another application of Lemma \ref{lem:a[GG]}.
@@ -653,7 +658,8 @@ Another application of Lemma \ref{lem:a[GG]}.
 	$xy=yx$. 
 \end{proof}
 
-The following lemma is well-known. We include the proof for completeness. 
+%The following lemma is well-known. 
+We need the following lemma. 
 
 \begin{lemma}
 	\label{lem:fg}
@@ -743,7 +749,7 @@ Let $G$ be a group. The {\em order} of an element $x\in G$ is the order of the g
 %	$G$ con factores cíclicos. 
 %\end{proof}
 
-\section*{Finite nilpotent groups}
+\section{Finite nilpotent groups}
 
 %We now turn out attention to finite nilpotent groups. 
 Let $G$ be a finite group and $p$ a prime. We denote by $\Syl_p(G)$ the set of the Sylow $p$-subgroups of $G$.
@@ -789,14 +795,15 @@ Let $G$ be a finite group and $p$ a prime. We denote by $\Syl_p(G)$ the set of t
 
 \index{Direct product of subgroups}
 We say that a group $G$ is the {\em direct product} of its subgroups $H_1,\dots ,H_n$ if every subgroup $H_i$ is normal in $G$, $G=H_1\cdots H_n$ and
-$H_{k+1}\cap H_1\cdots H_{k}=\{ 1\}$, for all $k=1,\dots, n-1$. Note that, for $i<j$, $h_i\in H_i$ and $h_j\in H_j$, we have that $[h_i,h_j]\in H_i\cap H_j=\{ 1\}$. Note that, in this case the map $f\colon H_1\times\dots\times H_n\rightarrow G$, defined by $f(h_1,\dots ,h_n)=h_1\cdots h_n$, for all $h_i\in H_i$, is an isomorphism of groups. It is clear that $f$ is surjective. Let $(a_1,\dots,a_n),(b_1,\dots,b_n)\in H_1\times\dots\times H_n$. We have that
+$H_{k+1}\cap H_1\cdots H_{k}=\{ 1\}$ for all $k=1,\dots, n-1$. Note that, for $i<j$, $h_i\in H_i$ and $h_j\in H_j$, we have that $[h_i,h_j]\in H_i\cap H_j=\{ 1\}$. Note that, in this case the map $f\colon H_1\times\dots\times H_n\rightarrow G$, defined by $f(h_1,\dots ,h_n)=h_1\cdots h_n$ for all $h_i\in H_i$, is an isomorphism of groups. It is clear that $f$ is surjective. Let $(a_1,\dots,a_n),(b_1,\dots,b_n)\in H_1\times\dots\times H_n$. We have that
 \begin{align*}
 f((a_1,\dots,a_n)(b_1,\dots,b_n))&=f(a_1b_1,\dots,a_nb_n)\\
 &=a_1b_1\cdots a_nb_n\\
 &=a_1\cdots a_nb_1\cdots b_n\\
 &=f(a_1,\dots ,a_n)f(b_1,\dots ,b_n).
 \end{align*}
-Thus $f$ is a surjective homomorphism of groups. Now it is easy to see that $\ker(f)=\{ 1\}$. 
+Thus $f$ is a surjective homomorphism of groups. One proves that
+$\ker(f)=\{ 1\}$. 
 
 
 \begin{theorem}
@@ -815,7 +822,7 @@ Thus $f$ is a surjective homomorphism of groups. Now it is easy to see that $\ke
 
 	Now we prove that $2)\implies 3)$. Let $p_1,\dots,p_n$ be the distinct prime divisors of $|G|$. For every $i\in\{1,\dots,n\}$, let $P_i\in\Syl_{p_i}(G)$.
 	By hypothesis, each $P_j$ is normal in $G$. Since $|P_1\cdots P_n|=|G|$, we have that $G=P_1\cdots P_n$. Clearly
-	$|P_{k+1}|, |P_1\cdots P_k|$ are coprime for all $k=1,\dots, n-1$. Hence $P_{k+1}\cap P_1\cdots P_k=\{ 1\}$, for all $k=1,\dots, n-1$. Thus $G$ is the direct product of its Sylow subgroups. 
+	$|P_{k+1}|, |P_1\cdots P_k|$ are coprime for all $k=1,\dots, n-1$. Hence $P_{k+1}\cap P_1\cdots P_k=\{ 1\}$ for all $k=1,\dots, n-1$. Thus $G$ is the direct product of its Sylow subgroups. 
 
 	Finally, to prove that $3)\implies 1)$ we note that every 
 	$p$-group is nilpotent and that a finite direct product of nilpotent groups is nilpotent. 
@@ -943,7 +950,7 @@ Thus $f$ is a surjective homomorphism of groups. Now it is easy to see that $\ke
 %	$(xy)^p=[y,x]^{p(p-1)/2}x^py^p=1$.
 %\end{proof}
 
-\section*{Fratini subgroup}
+\section{Fratini subgroup}
 
 \index{Frattini!subgroup}
 Let $G$ be a group. If $G$ has maximal subgroups, the {\em Frattini subgroup}
@@ -1132,7 +1139,7 @@ Let $G$ be a finite group, $H$ a normal subgroup of $G$ and $p$ a prime. Then, f
 \end{theorem}
 
 \begin{proof}
-	Suppose that $[G,G]\subseteq\Phi(G)$. Let $P\in\Syl_p(G)$. If $N_G(P)\ne
+	Assume first that $[G,G]\subseteq\Phi(G)$. Let $P\in\Syl_p(G)$. If $N_G(P)\ne
 	G$, then $N_G(P)\subseteq M$ for some maximal subgroup $M$ of $G$. Let
 	$g\in G$ and $m\in M$. Since 
 	\[
@@ -1219,9 +1226,8 @@ Note that the minimal number of generators of a group $G$ can be less than the n
 \begin{proof}
 	Let $K$ be a maximal subgroup of $G$. Since $G$ is nilpotent, by Theorem~\ref{theorem:minmax_nilpotent}, 
 	$K$ is normal in $G$ of index $p$. Hence $G/K$ is a cyclic group of order $p$. 
-	
-    Let $K_1,\dots,K_m$ be the distinct maximal subgroups of $G$.
-    Let $f\colon G\rightarrow G/K_1\times\cdots\times G/K_m$ be the map defined by $f(g)=(gK_1,\dots ,gK_m)$, for all $g\in G$.
+	Let $K_1,\dots,K_m$ be the distinct maximal subgroups of $G$.
+    Let $f\colon G\rightarrow G/K_1\times\cdots\times G/K_m$ be the map defined by $f(g)=(gK_1,\dots ,gK_m)$ for all $g\in G$.
     It is clear that $f$ is a homomorphism of groups and $\ker(f)=\Phi(G)$. Hence $G/\Phi(G)$ is isomorphic to $\im(f)$, a subgroup of 
     the $\F_p$-vector space $G/K_1\times\cdots\times G/K_m$. Therefore, the result follows.
 \end{proof}
@@ -1250,7 +1256,7 @@ Note that the minimal number of generators of a group $G$ can be less than the n
 %	$\Phi(G)$ pertenece a algún conjunto minimal de generadores.
 %\end{corollary}
 
-\section*{Fitting subgroup}
+\section{Fitting subgroup}
 
 \begin{definition}
 	\index{$p$-radical!group}
