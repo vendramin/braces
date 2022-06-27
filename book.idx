@@ -109,8 +109,8 @@
 \indexentry{Soloviev, A.|hyperpage}{48}
 \indexentry{Group!central series|hyperpage}{51}
 \indexentry{Group!center|hyperpage}{51}
-\indexentry{Subgroup!central|hyperpage}{51}
 \indexentry{Subgroup!characteristic|hyperpage}{51}
+\indexentry{Subgroup!central|hyperpage}{51}
 \indexentry{Centralizer|hyperpage}{51}
 \indexentry{Commutator|hyperpage}{51}
 \indexentry{Subgroup!commutator|hyperpage}{51}
@@ -126,8 +126,8 @@
 \indexentry{Nilpotency class|hyperpage}{52}
 \indexentry{Normalizer condition|hyperpage}{54}
 \indexentry{Upper central series|hyperpage}{54}
-\indexentry{Normalizer|hyperpage}{55}
-\indexentry{Centralizer|hyperpage}{55}
+\indexentry{Normalizer|hyperpage}{54}
+\indexentry{Centralizer|hyperpage}{54}
 \indexentry{Central!series|hyperpage}{55}
 \indexentry{Hirsch's Theorem|hyperpage}{56}
 \indexentry{Subgroup!maximal normal|hyperpage}{56}
@@ -144,7 +144,7 @@
 \indexentry{Frattini's theorem|hyperpage}{63}
 \indexentry{Gasch\"utz's theorem|hyperpage}{63}
 \indexentry{Wielandt's!theorem|hyperpage}{63}
-\indexentry{Hall's!theorem|hyperpage}{64}
+\indexentry{Hall's!theorem|hyperpage}{63}
 \indexentry{$p$-radical!group|hyperpage}{64}
 \indexentry{Fitting's! subgroup|hyperpage}{65}
 \indexentry{Fitting's theorem|hyperpage}{65}
@@ -229,81 +229,84 @@
 \indexentry{Sysak, Y.|hyperpage}{109}
 \indexentry{Schur--Zassenhaus!theorem|hyperpage}{111}
 \indexentry{Schur--Zassenhaus!theorem|hyperpage}{112}
-\indexentry{Braided group|hyperpage}{119}
-\indexentry{Solution!structure group|hyperpage}{122}
-\indexentry{structure skew brace of a solution|hyperpage}{138}
-\indexentry{Group!left ordered|hyperpage}{141}
-\indexentry{Group!ordered|hyperpage}{141}
-\indexentry{Baumslag--Solitar's group|hyperpage}{142}
-\indexentry{Group!poly-$\Z$|hyperpage}{142}
-\indexentry{Group!indicable|hyperpage}{142}
-\indexentry{Group!locally indicable|hyperpage}{142}
-\indexentry{Burns, R. G.|hyperpage}{142}
-\indexentry{Hale, V. W. D.|hyperpage}{142}
-\indexentry{Burns--Hale's theorem|hyperpage}{142}
-\indexentry{Group!with the unique product property|hyperpage}{144}
-\indexentry{Unique product property|hyperpage}{144}
-\indexentry{Strojonowski's!Theorem|hyperpage}{144}
-\indexentry{Group!diffuse|hyperpage}{145}
-\indexentry{Extreme point|hyperpage}{145}
-\indexentry{Transfer map|hyperpage}{147}
-\indexentry{Group! $FC$-center|hyperpage}{151}
-\indexentry{Group!Bieberbach|hyperpage}{152}
-\indexentry{Monoid|hyperpage}{161}
-\indexentry{Garside!monoid|hyperpage}{161}
-\indexentry{Monoid!Garside|hyperpage}{161}
-\indexentry{Chouraqui, F.|hyperpage}{162}
-\indexentry{Dehornoy, P.|hyperpage}{162}
-\indexentry{Ced\'o, F.|hyperpage}{162}
-\indexentry{Gateva--Ivanova, T.|hyperpage}{162}
-\indexentry{Van den Bergh, M.|hyperpage}{162}
-\indexentry{Deaconescu--Walls!theorem|hyperpage}{163}
-\indexentry{Automorfism!central|hyperpage}{164}
-\indexentry{Subgroup!invariant|hyperpage}{168}
-\indexentry{Hall's theorem|hyperpage}{170}
-\indexentry{Brace!left series|hyperpage}{173}
-\indexentry{Brace!left nilpotent|hyperpage}{173}
-\indexentry{Brace!left nil|hyperpage}{174}
-\indexentry{Brace!right nil|hyperpage}{174}
-\indexentry{Brace!strongly nilpotent|hyperpage}{175}
-\indexentry{Brace!strongly nil|hyperpage}{175}
-\indexentry{Brace!right series|hyperpage}{183}
-\indexentry{Brace!right nilpotent|hyperpage}{184}
-\indexentry{Brace!s-series|hyperpage}{185}
-\indexentry{Brace!socle series|hyperpage}{185}
-\indexentry{Brace!of finite multipermutation level|hyperpage}{187}
-\indexentry{Retraction!of a solution|hyperpage}{193}
-\indexentry{Solution!multipermutation|hyperpage}{194}
-\indexentry{Group!with the unique product property|hyperpage}{198}
-\indexentry{Group!metabelian|hyperpage}{203}
-\indexentry{Theorem!of It\^o|hyperpage}{203}
-\indexentry{Theorem!of Sysak|hyperpage}{204}
-\indexentry{Theorem!of Kegel--Wielandt|hyperpage}{204}
-\indexentry{Brace!meta-trivial|hyperpage}{205}
-\indexentry{Solution!indecomposable|hyperpage}{211}
-\indexentry{Solution!simple|hyperpage}{212}
-\indexentry{Holomorph|hyperpage}{213}
-\indexentry{Regular subgroup|hyperpage}{213}
-\indexentry{Catino, F.|hyperpage}{216}
-\indexentry{Bachiller, D.|hyperpage}{216}
-\indexentry{Rizzo, ???|hyperpage}{216}
-\indexentry{Bachiller, D.|hyperpage}{228}
-\indexentry{Ced\'o, F|hyperpage}{228}
-\indexentry{Jespers, E.|hyperpage}{228}
-\indexentry{Okni\'{n}ski, J.|hyperpage}{228}
-\indexentry{Catino, F.|hyperpage}{228}
-\indexentry{Colazzo, I.|hyperpage}{228}
-\indexentry{Stefanelli, P.|hyperpage}{228}
-\indexentry{Brace!simple|hyperpage}{229}
-\indexentry{Brace!simple trivial|hyperpage}{229}
-\indexentry{matched pair|hyperpage}{231}
-\indexentry{matched product|hyperpage}{232}
-\indexentry{symmetric $2$-cocyle|hyperpage}{234}
-\indexentry{asymmetric product|hyperpage}{234}
-\indexentry{Bachiller, D.|hyperpage}{240}
-\indexentry{Ced\'o, F|hyperpage}{240}
-\indexentry{Jespers, E.|hyperpage}{240}
-\indexentry{Okni\'{n}ski, J.|hyperpage}{240}
-\indexentry{Catino, F.|hyperpage}{240}
-\indexentry{Colazzo, I.|hyperpage}{240}
-\indexentry{Stefanelli, P.|hyperpage}{240}
+\indexentry{Braided group|hyperpage}{117}
+\indexentry{Solution!structure group|hyperpage}{120}
+\indexentry{structure skew brace of a solution|hyperpage}{136}
+\indexentry{Group!left ordered|hyperpage}{139}
+\indexentry{Group!ordered|hyperpage}{139}
+\indexentry{Baumslag--Solitar's group|hyperpage}{140}
+\indexentry{Group!poly-$\Z$|hyperpage}{140}
+\indexentry{Group!indicable|hyperpage}{140}
+\indexentry{Group!locally indicable|hyperpage}{140}
+\indexentry{Burns, R. G.|hyperpage}{140}
+\indexentry{Hale, V. W. D.|hyperpage}{140}
+\indexentry{Burns--Hale's theorem|hyperpage}{140}
+\indexentry{Group!with the unique product property|hyperpage}{142}
+\indexentry{Unique product property|hyperpage}{142}
+\indexentry{Strojonowski's!Theorem|hyperpage}{142}
+\indexentry{Group!diffuse|hyperpage}{143}
+\indexentry{Extreme point|hyperpage}{143}
+\indexentry{Transfer map|hyperpage}{145}
+\indexentry{Group! $FC$-center|hyperpage}{149}
+\indexentry{Group!Bieberbach|hyperpage}{150}
+\indexentry{Monoid|hyperpage}{159}
+\indexentry{Garside!monoid|hyperpage}{159}
+\indexentry{Monoid!Garside|hyperpage}{159}
+\indexentry{Chouraqui, F.|hyperpage}{160}
+\indexentry{Dehornoy, P.|hyperpage}{160}
+\indexentry{Ced\'o, F.|hyperpage}{160}
+\indexentry{Gateva--Ivanova, T.|hyperpage}{160}
+\indexentry{Van den Bergh, M.|hyperpage}{160}
+\indexentry{Deaconescu--Walls!theorem|hyperpage}{161}
+\indexentry{Automorfism!central|hyperpage}{162}
+\indexentry{Subgroup!invariant|hyperpage}{162}
+\indexentry{Hall's theorem|hyperpage}{167}
+\indexentry{Brace!left series|hyperpage}{170}
+\indexentry{Brace!left nilpotent|hyperpage}{170}
+\indexentry{Brace!left nil|hyperpage}{171}
+\indexentry{Brace!strongly nilpotent|hyperpage}{171}
+\indexentry{Brace!strongly nil|hyperpage}{171}
+\indexentry{Group!$p$-nilpotent|hyperpage}{174}
+\indexentry{Brace!right series|hyperpage}{179}
+\indexentry{Brace!right nilpotent|hyperpage}{180}
+\indexentry{Brace!s-series|hyperpage}{181}
+\indexentry{Brace!socle series|hyperpage}{182}
+\indexentry{Brace!Socle series|hyperpage}{182}
+\indexentry{Brace!of finite multipermutation level|hyperpage}{183}
+\indexentry{Brace!right nil|hyperpage}{188}
+\indexentry{Solution!permutation group|hyperpage}{189}
+\indexentry{Retraction!of a solution|hyperpage}{190}
+\indexentry{Solution!multipermutation|hyperpage}{190}
+\indexentry{Group!with the unique product property|hyperpage}{194}
+\indexentry{Group!metabelian|hyperpage}{199}
+\indexentry{Theorem!of It\^o|hyperpage}{199}
+\indexentry{Theorem!of Sysak|hyperpage}{200}
+\indexentry{Theorem!of Kegel--Wielandt|hyperpage}{200}
+\indexentry{Brace!meta-trivial|hyperpage}{201}
+\indexentry{Solution!indecomposable|hyperpage}{207}
+\indexentry{Solution!simple|hyperpage}{208}
+\indexentry{Holomorph|hyperpage}{209}
+\indexentry{Regular subgroup|hyperpage}{209}
+\indexentry{Catino, F.|hyperpage}{212}
+\indexentry{Bachiller, D.|hyperpage}{212}
+\indexentry{Rizzo, ???|hyperpage}{212}
+\indexentry{Bachiller, D.|hyperpage}{224}
+\indexentry{Ced\'o, F|hyperpage}{224}
+\indexentry{Jespers, E.|hyperpage}{224}
+\indexentry{Okni\'{n}ski, J.|hyperpage}{224}
+\indexentry{Catino, F.|hyperpage}{224}
+\indexentry{Colazzo, I.|hyperpage}{224}
+\indexentry{Stefanelli, P.|hyperpage}{224}
+\indexentry{Brace!simple|hyperpage}{225}
+\indexentry{Brace!simple trivial|hyperpage}{225}
+\indexentry{matched pair|hyperpage}{227}
+\indexentry{matched product|hyperpage}{228}
+\indexentry{symmetric $2$-cocyle|hyperpage}{230}
+\indexentry{asymmetric product|hyperpage}{230}
+\indexentry{Bachiller, D.|hyperpage}{236}
+\indexentry{Ced\'o, F|hyperpage}{236}
+\indexentry{Jespers, E.|hyperpage}{236}
+\indexentry{Okni\'{n}ski, J.|hyperpage}{236}
+\indexentry{Catino, F.|hyperpage}{236}
+\indexentry{Colazzo, I.|hyperpage}{236}
+\indexentry{Stefanelli, P.|hyperpage}{236}
