@@ -1,84 +1,92 @@
 \chapter{Involutive solutions}
 \label{Isolutions}
 
-\section*{A}
 
-Let $(X,r)$ be an involutive solution to the YBE. We know that its permutation group $\mathcal{G}(X,r)$ has a natural structure of brace of abelian type. If $(Y,r')$ is a solution isomorphic to $(X,r)$, then $\mathcal{G}(Y,r')\cong\mathcal{G}(X,r)$ as braces. Thus the classification of the involutive solutions can be done in two steps:
+
+Let $(X,r)$ be an involutive solution to the YBE. We know that its permutation group $\mathcal{G}(X,r)$ has a natural structure of skew brace of abelian type. If $(Y,r')$ is a solution isomorphic to $(X,r)$, then $\mathcal{G}(Y,r')\cong\mathcal{G}(X,r)$ as skew braces. Thus the classification of the involutive solutions can be done in two steps:
 \begin{enumerate}
-	\item Classify all the braces of abelian type.
-	\item For each brace $B$ of abelian type, classify all the involutive solutions $(X,r)$ such that $\mathcal{G}(X,r)\cong B$.
+	\item Classify all the skew braces of abelian type.
+	\item For each skew brace $B$ of abelian type, classify all the involutive solutions $(X,r)$ to the YBE such that $\mathcal{G}(X,r)\cong B$.
 \end{enumerate}
 
-In this chapter we focus on the second step. To this end we will use the next result about extensions of braces.
+In this chapter we focus on the second step. 
 
-\begin{proposition}(\cite[Theorem~2.1]{MR3320237})\label{extensions}  Let $H$ be an abelian group and $B$
-	be a brace of abelian type. Suppose  that $\sigma\colon
-	(B,\circ)\longrightarrow \Aut(H,+)$ is an injective morphism and
-	$\eta\colon (H,+)\longrightarrow (B,+)$ is a surjective morphism
-	such that they satisfy $\eta(\sigma(g)(h))=\lambda_g(\eta(h))$ for
+\section{Extensions of skew braces of abelian type}
+
+In this section we study some extensions of skew braces of abelian type and how to construct involutive solutions to the YBE using these extensions.
+
+\begin{proposition}\label{extensions}  Let $H$ be an additive abelian group and $B$
+	be a skew brace of abelian type. Suppose  that $\varphi\colon
+	(B,\circ)\to\Aut(H,+)$ is an injective homomorphism and
+	$\eta\colon (H,+)\to (B,+)$ is a surjective homomorphism
+	such that they satisfy $\eta(\varphi(g)(h))=\lambda_g(\eta(h))$ for
 	all $g\in B$ and $h\in H$. Then, the multiplication in $H$ defined
 	by
-	$$h_1\cdot h_2:=h_1+\sigma(\eta (h_1))(h_2),$$
-	for $h_1,h_2\in H$, defines a structure of brace on $H$
-	such that $\eta$ is a morphism of braces  with
-	$\Soc(H)=\ker(\eta)$ and $H/\Soc(H)\cong B$ as braces.
+	$$h_1\cdot h_2:=h_1+\varphi(\eta (h_1))(h_2),$$
+	for $h_1,h_2\in H$, defines a structure of skew brace on $H$
+	such that $\eta$ is a homomorphism of skew braces  with
+	$\Soc(H)=\ker(\eta)$ and $H/\Soc(H)\cong B$ as skew braces.
 	
-	Two of these structures, determined by $\sigma$, $\eta$ and
-	$\sigma'$, $\eta'$ respectively, are isomorphic if and only if there
+	Two of these structures, determined by $\varphi$, $\eta$ and
+	$\varphi'$, $\eta'$ respectively, are isomorphic if and only if there
 	exists an $F\in \Aut(H,+)$ such that
 	$$
-	\sigma'(\eta'(h))=F^{-1}\circ\sigma(\eta(F(h)))\circ F,
+	\varphi'(\eta'(h))=F^{-1}\varphi(\eta(F(h))) F,
 	$$
 	for all $h\in H$.
 	
-	Conversely, suppose that $G$ is a brace. Then, the map
-	$\sigma\colon (G/\Soc(G),\circ)\longrightarrow\Aut(G,+)$, induced by
-	the map $\lambda\colon (G,\circ)\longrightarrow\Aut(G,+)$, and the
-	natural map $\eta\colon G\longrightarrow G/\Soc(G)$ satisfy the
+	Conversely, suppose that $G$ is a skew brace of abelian type. Then, the map
+	$\varphi\colon (G/\Soc(G),\circ)\to\Aut(G,+)$, induced by
+	the map $\lambda\colon (G,\circ)\to\Aut(G,+)$, and the
+	natural map $\eta\colon G\to G/\Soc(G)$ satisfy the
 	above properties. 
 \end{proposition}
 
 \begin{proof}
 We shall see that $(H,\cdot)$ is a group. Let $a,b,c\in H$. We have
 	\begin{eqnarray*}
-		a\cdot (b\cdot c)&=&a\cdot (b+\sigma(\eta (b))(c))=a+\sigma(\eta (a))(b+\sigma(\eta (b))(c))\\
-		&=&a+\sigma(\eta (a))(b)+\sigma(\eta (a))(\sigma(\eta (b))(c))\\
-		&=&a+\sigma(\eta(a))(b)+\sigma(\eta(a)\circ \eta(b))(c)\\
-		&=&a+\sigma(\eta(a))(b)+\sigma(\eta(a)+\lambda_{\eta(a)}(\eta(b)))(c)\\
-		&=&a+\sigma(\eta(a))(b)+\sigma(\eta(a)+\eta(\sigma(\eta(a))(b)))(c)\\
-		&=&(a+\sigma(\eta(a))(b))+\sigma(\eta(a+\sigma(\eta(a))(b)))(c)\\
+		a\cdot (b\cdot c)&=&a\cdot (b+\varphi(\eta (b))(c))=a+\varphi(\eta (a))(b+\varphi(\eta (b))(c))\\
+		&=&a+\varphi(\eta (a))(b)+\varphi(\eta (a))(\varphi(\eta (b))(c))\\
+		&=&a+\varphi(\eta(a))(b)+\varphi(\eta(a)\circ \eta(b))(c)\\
+		&=&a+\varphi(\eta(a))(b)+\varphi(\eta(a)+\lambda_{\eta(a)}(\eta(b)))(c)\\
+		&=&a+\varphi(\eta(a))(b)+\varphi(\eta(a)+\eta(\varphi(\eta(a))(b)))(c)\\
+		&=&(a+\varphi(\eta(a))(b))+\varphi(\eta(a+\varphi(\eta(a))(b)))(c)\\
 		&=&(a\cdot b)\cdot c.
 	\end{eqnarray*}	
-Note that, $0\cdot a=0+\sigma(\eta(0))(a)=\sigma(0)(a)=\id(a)=a$ and $a\cdot 0=a+\sigma(\eta(a))(0)=a+0=a$. Furthermore,
-$a\cdot (-\sigma(\eta(a)')(a))=a+\sigma(\eta(a))(-\sigma(\eta(a)')(a))=a-\sigma(0)(a)=a-a=0$ and
+Note that, $0\cdot a=0+\varphi(\eta(0))(a)=\varphi(0)(a)=\id(a)=a$ and $a\cdot 0=a+\varphi(\eta(a))(0)=a+0=a$. Furthermore,
+$a\cdot (-\varphi(\eta(a)')(a))=a+\varphi(\eta(a))(-\varphi(\eta(a)')(a))=a-\varphi(0)(a)=a-a=0$ and
 \begin{eqnarray*}
-	(-\sigma(\eta(a)')(a))\cdot a&=&-\sigma(\eta(a)')(a)+\sigma(\eta(-\sigma(\eta(a)')(a)))(a)\\
-	&=&-\sigma(\eta(a)')(a)+\sigma(-\eta(\sigma(\eta(a)')(a)))(a)\\
-	&=&-\sigma(\eta(a)')(a)+\sigma(-\lambda_{\eta(a)'}(\eta(a)))(a)\\
-	&=&-\sigma(\eta(a)')(a)+\sigma(\eta(a)')(a)=0.
+	(-\varphi(\eta(a)')(a))\cdot a&=&-\varphi(\eta(a)')(a)+\varphi(\eta(-\varphi(\eta(a)')(a)))(a)\\
+	&=&-\varphi(\eta(a)')(a)+\varphi(-\eta(\varphi(\eta(a)')(a)))(a)\\
+	&=&-\varphi(\eta(a)')(a)+\varphi(-\lambda_{\eta(a)'}(\eta(a)))(a)\\
+	&=&-\varphi(\eta(a)')(a)+\varphi(\eta(a)')(a)=0.
 \end{eqnarray*}
 Hence $(H,\cdot)$ is a group. Now we have
 \begin{eqnarray*}
-a\cdot (b+c)&=&a+\sigma(\eta(a))(b+c)=a+\sigma(\eta(a))(b)+\sigma(\eta(a))(c)\\
-&=&a+\sigma(\eta(a))(b)-a+a+\sigma(\eta(a))(b+c)=a\cdot b-a+a\cdot c.
+a\cdot (b+c)&=&a+\varphi(\eta(a))(b+c)=a+\varphi(\eta(a))(b)+\varphi(\eta(a))(c)\\
+&=&a+\varphi(\eta(a))(b)-a+a+\varphi(\eta(a))(b+c)=a\cdot b-a+a\cdot c.
 \end{eqnarray*}
-Thus $(H,+,\cdot)$ is a left brace. Note that $\eta(a\cdot b)=\eta(a+\sigma(\eta(a))(b))=\eta(a)+\eta(\sigma(\eta(a))(b))=\eta(a)+\lambda_{\eta(a)}(\eta(b))=\eta(a)\circ\eta(b)$. Hence $\eta$ is a morphism of braces. Since $\sigma$ is injective, 
-$$\Soc(H)=\{a\in H\mid a\cdot b=a+b \forall b\in H\}=\{a\in H\mid \sigma(\eta(a))(b)=b\forall b\in H\}=\{ a\in H\mid \eta(a)=0\}=\ker(eta).$$
-Therefore, since $\eta$ is surjective, $H/\Soc(\eta)\cong B$ as braces.
+Thus $(H,+,\cdot)$ is a skew brace of abelian type. Note that $\eta(a\cdot b)=\eta(a+\varphi(\eta(a))(b))=\eta(a)+\eta(\varphi(\eta(a))(b))=\eta(a)+\lambda_{\eta(a)}(\eta(b))=\eta(a)\circ\eta(b)$. Hence $\eta$ is a homomorphism of skew braces. Since $\varphi$ is injective, 
+\begin{align*}
+    Soc(H)=&\{a\in H : a\cdot b=a+b \text{ for all } b\in H\}\\
+    =&\{a\in H : \varphi(\eta(a))(b)=b\text{ for all } b\in H\}\\
+    =&\{ a\in H : \eta(a)=0\}=\ker(\eta).
+    \end{align*}
+Therefore, since $\eta$ is surjective, $H/\Soc(\eta)\cong B$ as skew braces.
 
-Let $\sigma'\colon
-(B,\circ)\longrightarrow \Aut(H,+)$ be an injective morphism and
-let $\eta'\colon (H,+)\longrightarrow (B,+)$ be a surjective morphism
-such that they satisfy $\eta'(\sigma'(g)(h))=\lambda_g(\eta'(h))$ for
+Let $\varphi'\colon
+(B,\circ)\to \Aut(H,+)$ be an injective homomorphism and
+let $\eta'\colon (H,+)\to (B,+)$ be a surjective homomorphism
+such that they satisfy $\eta'(\varphi'(g)(h))=\lambda_g(\eta'(h))$ for
 all $g\in B$ and $h\in H$. Define the multiplication $\circ$ in $H$ 
 by
-$$h_1\circ h_2:=h_1+\sigma'(\eta' (h_1))(h_2),$$
+$$h_1\circ h_2:=h_1+\varphi'(\eta' (h_1))(h_2),$$
 for $h_1,h_2\in H$. Note that $F\in\Aut(H,+)$ is an isomorphism from $(H,+,\circ)$ to $(H,+,\cdot)$ if and only if
 $$F(h_1\circ h_2)=F(h_1)\cdot F(h_2),$$
 which is equivalent to
-$$F(h_1+\sigma'(\eta' (h_1))(h_2))=F(h_1)+\sigma(\eta (F(h_1)))(F(h_2)).$$
+$$F(h_1+\varphi'(\eta' (h_1))(h_2))=F(h_1)+\varphi(\eta (F(h_1)))(F(h_2)).$$
 Hence $F$ is an isomorphism if and only if 
-$$F^{-1}\circ\sigma(\eta(h))\circ F=\sigma'(\eta'(h)),$$
+$$F^{-1}\varphi(\eta(F(h))) F=\varphi'(\eta'(h)),$$
 for all $h\in H$. This proves the first part of the result. The second part follows easily.
 \end{proof}	
 
@@ -88,98 +96,97 @@ The next result gives a first way to construct
 involutive solutions to the YBE. 
 
 \begin{proposition}\label{BenDavid}
-	Let $B$ be a brace of abelian type, and let $X$ be a set.  Suppose that
-	$\eta\colon \Z^{(X)}\longrightarrow (B,+)$ is a surjective morphism,
-	and that $\sigma\colon (B,\cdot)\longrightarrow\Aut(\Z^{(X)})$ is an
-	injective morphism such that $\sigma(a)\mid_X$ is a bijection of $X$
-	for all $a\in B$, and $\eta(\sigma(a)(m))=\lambda_a(\eta(m))$ for
+	Let $B$ be a skew brace of abelian type, and let $X$ be a non-empty set.  Suppose that
+	$\eta\colon \Z^{(X)}\to (B,+)$ is a surjective homomorphism,
+	and that $\varphi\colon (B,\circ)\to\Aut(\Z^{(X)})$ is an
+	injective homomorphism such that $\varphi(a)\mid_X$ is a bijection of $X$
+	for all $a\in B$, and $\eta(\varphi(a)(m))=\lambda_a(\eta(m))$ for
 	all $a\in B$ and $m\in\Z^{(X)}$. Let $r$ be the map
 	$$
 	\begin{array}{cccc}
-		r\colon & X\times X &\longrightarrow & X\times X\\
-		& (x,~y) &\mapsto &(f_{x}(y),~f^{-1}_{f_{x}(y)}(x)),
+		r\colon & X\times X &\to & X\times X\\
+		& (x,~y) &\mapsto &(\sigma_{x}(y),~\sigma^{-1}_{\sigma_{x}(y)}(x)),
 	\end{array}
 	$$
-	where $f_x(y):=\sigma(\eta(x))(y)$. Then $(X,r)$ is an involutive solution to
-	the YBE and $\mathcal{G}(X,r)\cong B$ as braces. Moreover, any
-	involutive solution $(Z,t)$ of the YBE with $\mathcal{G}(Z,t)\cong B$ is of
+	where $\sigma_x(y):=\varphi(\eta(x))(y)$. Then $(X,r)$ is an involutive solution to
+	the YBE and $\mathcal{G}(X,r)\cong B$ as skew braces. Moreover, any
+	involutive solution $(Z,t)$ to the YBE with $\mathcal{G}(Z,t)\cong B$ is of
 	this form.
 \end{proposition}
 \begin{proof}
 	By Proposition~\ref{extensions}, the abelian group
 	$\mathbb{Z}^{(X)}$ with the multiplication defined  by
-	$$x\cdot y:=x+\sigma(\eta(x))(y),$$
-	for $x,y\in \mathbb{Z}^{X}$, is a brace of abelian type and $\eta$ becomes a
-	homomorphism of braces. Note that for $x, y\in X\subseteq
+	$$a\cdot b:=a+\varphi(\eta(a))(b),$$
+	for $a,b\in \mathbb{Z}^{X}$, is a skew brace of abelian type and $\eta$ becomes a
+	homomorphism of skew braces. Note that for $x, y\in X\subseteq
 	\mathbb{Z}^{(X)}$, we have that
-	$$\lambda_x(y)=xy-x=x+\sigma(\eta(x))(y)-x=\sigma(\eta(x))(y)=f_x(y).$$
+	$$\lambda_x(y)=-x+x\cdot y=-x+x+\varphi(\eta(x))(y)=\varphi(\eta(x))(y)=\sigma_x(y).$$
 	Therefore $(X,r)$ is an involutive solution to the YBE because it is the
 	restriction of the solution to the YBE associated with the 
-	brace $\mathbb{Z}^{(X)}$ (cf. \cite[Lemma~2]{CJO2}). In fact the
-	brace $\mathbb{Z}^{(X)}$ is equal to the brace $G(X,r)$.
-	Recall that the addition of the brace
-	$$\mathcal{G}(X,r)=\{ \sigma(\eta(m))|_{X}\mid m\in \Z^{(X)}\}$$
+	skew brace $\mathbb{Z}^{(X)}$ (cf. Theorem \ref{thm:YB} and Lemma \ref{lem:|r|}). In fact the
+	skew brace $\mathbb{Z}^{(X)}$ is equal to the skew brace $G(X,r)$.
+	Recall that the addition of the skew brace
+	$$\mathcal{G}(X,r)=\{ \varphi(\eta(m))|_{X} : m\in \Z^{(X)}\}$$
 	is defined by
-	$\sigma(\eta(m_1))|_{X}+\sigma(\eta(m_2))|_{X}=\sigma(\eta(m_1+m_1))|_{X}$,
-	for all $m_1,m_2\in \Z^{(X)}$.  Therefore, the map $B\longrightarrow
-	\mathcal{G}(X,r)$ defined by $a\mapsto \sigma(a)|_{X}$ is an
-	isomorphism of  braces.
+	$\varphi(\eta(m_1))|_{X}+\varphi(\eta(m_2))|_{X}=\varphi(\eta(m_1+m_1))|_{X}$,
+	for all $m_1,m_2\in \Z^{(X)}$.  Therefore, the map $B\to
+	\mathcal{G}(X,r)$ defined by $a\mapsto \varphi(a)|_{X}$ is an
+	isomorphism of skew braces.
 	
-	On the other hand, observe that, if $(Z,t)$ is a solution to the YBE
-	and  $\xi\colon B\longrightarrow \mathcal{G}(Z,t)$ is an isomorphism
-	of braces, then the unique homomorphism  $\eta\colon
-	(\Z^{(Z)},+)\longrightarrow  (B,+)$ such that
+	On the other hand, observe that, if $(Z,t)$ is an involutive solution to the YBE
+	and  $\xi\colon B\to \mathcal{G}(Z,t)$ is an isomorphism
+	of skew braces, then the unique homomorphism  $\eta\colon
+	(\Z^{(Z)},+)\to (B,+)$ such that
 	$\eta(z)=\xi^{-1}(\phi(z))$, for all $z\in Z$, where $\phi\colon
-	G(Z,t)\longrightarrow \mathcal{G}(Z,t)$ is the natural projection,
+	G(Z,t)\to \mathcal{G}(Z,t)$ is the natural projection,
 	is surjective, and the map
-	$\sigma:(B,\cdot)\longrightarrow\Aut(\Z^{(Z)})$, where $\sigma(a)$
+	$\varphi:(B,\circ)\to\Aut(\Z^{(Z)})$, where $\varphi(a)$
 	is the unique automorphism of $\Z^{(Z)}$ such that
-	$\sigma(a)(z)=\xi(a)(z)$, for all $z\in Z$, is an injective
+	$\varphi(a)(z)=\xi(a)(z)$, for all $z\in Z$, is an injective
 	homomorphism. Furthermore, for $a\in B$, there exists $m\in
 	\Z^{(Z)}$ such that $a=\eta(m)$ and,   since $\phi$
-	is a homomorphism of braces,
+	is a homomorphism of skew braces,
 	\begin{eqnarray*}
-		\eta(\sigma(a)(z))&=&\eta(\xi(a)(z))=\xi^{-1}(\phi(\xi(\eta(m))(z)))\\
-		&=&\xi^{-1}(\phi(\phi(m)(z)))=\xi^{-1}(\phi(mz-m))=\xi^{-1}(\phi(m)\phi(z)-\phi(m))\\
-		&=&\eta(m)\eta(z)-\eta(m)=a\eta(z)-a\\
+		\eta(\varphi(a)(z))&=&\eta(\xi(a)(z))=\xi^{-1}(\phi(\xi(\eta(m))(z)))\\
+		&=&\xi^{-1}(\phi(\phi(m)(z)))=\xi^{-1}(\phi(-m+mz))=\xi^{-1}(-\phi(m)+\phi(m)\phi(z))\\
+		&=&-\eta(m)+\eta(m)\eta(z)=-a+a\eta(z)\\
 		&=&\lambda_a(\eta(z)),
 	\end{eqnarray*}
-	for all $z\in Z$. Therefore $\eta(\sigma(a)(n))=\lambda_a(\eta(n))$,
+	for all $z\in Z$. Therefore $\eta(\varphi(a)(n))=\lambda_a(\eta(n))$,
 	for all $a\in B$ and all $n\in \Z^{(Z)}$. Now we have that
-	$$\sigma(\eta(x))(y)=\xi(\eta(x))(y)=\phi(x)(y),$$
+	$$\varphi(\eta(x))(y)=\xi(\eta(x))(y)=\phi(x)(y),$$
 	for all $x,y\in Z$. Hence $(Z,t)$ is exactly the same solution to
 	the YBE  as the solution obtained by the given construction using
-	the maps $\eta$ and $\sigma$.
+	the maps $\eta$ and $\varphi$.
 \end{proof}
 
 This proposition  reduces the problem of finding all the involutive solutions
-to the YBE to the problem of finding   maps $\eta$ and $\sigma$ with
+to the YBE to the problem of finding   maps $\eta$ and $\varphi$ with
 the required properties. Note that the map $\eta$ is determined by
 its restriction to $X$ and, since $\eta$ is surjective, $\eta(X)$
-should generate $(B,+)$. Note also that the monomorphism $\sigma$
+should generate $(B,+)$. Note also that the monomorphism $\varphi$
 factors trough the symmetric group $\Sym_X$, that is
-$\sigma=\sigma_1\sigma_2$ where $\sigma_2\colon
-(B,\cdot)\longrightarrow \Sym_X$ is a monomorphism and
-$\sigma_1\colon \Sym_X\longrightarrow \Aut(\mathbb{Z}^{(X)})$ is the
+$\varphi=\varphi_1\varphi_2$ where $\varphi_2\colon
+(B,\circ)\to \Sym_X$ is a monomorphism and
+$\varphi_1\colon \Sym_X\to \Aut(\mathbb{Z}^{(X)})$ is the
 natural map. Therefore the problem of finding all the solutions to
 the YBE is reduced to the problem of finding all the faithful
-$(B,\cdot)$-sets $X$ and all the homomorphisms of $(B,\cdot)$-sets
-$X\longrightarrow (B,+)$ such that the image of $X$ generates
+$(B,\circ)$-sets $X$ and all the homomorphisms of $(B,\circ)$-sets
+$X\to (B,+)$ such that the image of $X$ generates
 $(B,+)$. In the next sections we give a method that describes how to
-solve this problem using only  the structure of the brace $B$.
+solve this problem using only  the structure of the skew brace $B$.
 
 
 
-\section{Construction of solutions}\label{sec3}
-As we have seen in the previous section, given a brace $B$ of abelian type, to
+\section{Construction of solutions}\label{construcsec3}
+As we have seen in the previous section, given a skew brace $B$ of abelian type, to
 construct an involutive solution $(X,r)$ to the YBE such that
-$\mathcal{G}(X,r)\cong B$, it is enough to find two  maps
-$\eta\colon X\longrightarrow B$ and $\sigma\colon B\longrightarrow
-\Sym_X$ satisfying some properties. In this section, we show how to
-construct the sets $X$ and the maps $\eta$ and $\sigma$ using only
-information about the structure of the brace $B$.
+$\mathcal{G}(X,r)\cong B$ as skew braces, it is enough to find two  maps
+$\eta\colon X\to B$ and $\varphi\colon B\to \Sym_X$ satisfying some properties. In this section, we show how to
+construct the sets $X$ and the maps $\eta$ and $\varphi$ using only
+information about the structure of the skew brace $B$.
 
-Recall that $\lambda : (B,\cdot ) \rightarrow \Aut(B,+)$ is an
+Recall that $\lambda : (B,\circ ) \to \Aut(B,+)$ is an
 action. The stabiliser of $a\in B$ by the action $\lambda$ is
 denoted $\St(a)$. For $a\in B$, let $B_a=\{\lambda_b(a)\mid b\in
 B\}$ be the orbit of $a$, and let $\mathcal{O}=\{ B_a\mid a\in B\}$
@@ -191,7 +198,7 @@ satisfies $B=\langle
 Y\rangle_+$, the additive subgroup generated by $Y$. For each $i\in
 I$, let $J_i$ be a non-empty set and  let $\{ K_{i,j} \}_{j\in J_i}$
 be a family of subgroups of $\St(a_i)$ such that
-$$\bigcap_{i\in I}\bigcap_{j\in J_i}\bigcap_{b\in B}bK_{i,j}b^{-1}=\{ 1\}.$$
+$$\bigcap_{i\in I}\bigcap_{j\in J_i}\bigcap_{b\in B}b\circ K_{i,j}\circ b'=\{ 0\}.$$
 Note that if one of the subgroups $K_{i,j}$ is trivial, then this
 last condition is satisfied.
 
@@ -202,59 +209,59 @@ The next result  is the main result of this section.
 \begin{theorem}\label{main}
 	With the above notation,  let  $X:=\bigsqcup_{i\in I}\bigsqcup_{j\in
 		J_i}B/K_{i,j}$ be the disjoint union of the sets of left cosets
-	$B/K_{i,j}$. Let $\eta\colon X\longrightarrow B$ be the map
-	defined by $\eta(bK_{i,j})=\lambda_b(a_i)$, and define $\sigma\colon
-	B\longrightarrow \Sym_{X}$ to be the natural action of $(B,\cdot)$
+	$B/K_{i,j}$ of the group $(B,\circ)$. Let $\eta\colon X\to B$ be the map
+	defined by $\eta(b\circ K_{i,j})=\lambda_b(a_i)$, and define $\varphi\colon
+	B\to  \Sym_{X}$ to be the natural action of $(B,\circ)$
 	on $X$ given by left multiplications on the cosets in $B/K_{i,j}$;
-	i.e. $\sigma(c)(bK_{i,j}):=cbK_{i,j}$. Then $\sigma$ is injective
-	and $\eta(\sigma(a)(x))=\lambda_a(\eta(x))$, for all $x\in X$.
+	i.e. $\varphi(c)(b\circ K_{i,j}):=c\circ b\circ K_{i,j}$. Then $\varphi$ is injective
+	and $\eta(\varphi(a)(x))=\lambda_a(\eta(x))$, for all $x\in X$ and $a\in B$.
 	Moreover $(X,r)$, where $r$ is the map
 	$$
 	\begin{array}{cccc}
-		r\colon& X\times X &\longrightarrow & X\times X\\
-		& (x,y) &\mapsto &(f_{x}(y),~f^{-1}_{f_{x}(y)}(x)),
+		r\colon& X\times X &\to & X\times X\\
+		& (x,y) &\mapsto &(\sigma_{x}(y),~\sigma^{-1}_{\sigma_{x}(y)}(x)),
 	\end{array}
 	$$
 	with
-	$f_{x}(y)=\sigma(\eta(x))(y)$, is an involutive solution to the YBE such that
-	$\mathcal{G}(X,r)\cong B$ as braces.
+	$\sigma_{x}(y)=\varphi(\eta(x))(y)$, is an involutive solution to the YBE such that
+	$\mathcal{G}(X,r)\cong B$ as skew braces.
 	
 	Furthermore, any involutive solution $(Z,t)$, with $\mathcal{G}(Z,t)\cong
-	B$ as braces, is isomorphic to  such a solution.
+	B$ as skew braces, is isomorphic to  such a solution.
 \end{theorem}
 
 \begin{proof}
-	First we shall prove  $\sigma$ is injective. Let $c\in B$ be an
-	element such that $\sigma(c)=\id$. Hence $cbK_{i,j}=bK_{i,j}$, for
+	First we shall prove that $\varphi$ is injective. Let $c\in B$ be an
+	element such that $\varphi(c)=\id$. Hence $c\circ b\circ K_{i,j}=b\circ K_{i,j}$, for
 	all $b\in B$, $i\in I$ and $j\in J_i$. Thus $c\in \bigcap_{i\in
-		I}\bigcap_{j\in J_i}\bigcap_{b\in B} bK_{i,j}b^{-1}=\{ 1\}$.
-	Therefore $\sigma$ is injective. Let $a,b\in B$. We have that
-	\begin{eqnarray*}\eta(\sigma(a)(bK_{i,j}))&=&\eta(abK_{i,j})=\lambda_{ab}(a_i)\\
-		&=&\lambda_{a}(\lambda_{b}(a_i))=\lambda_{a}(\eta(bK_{i,j})).
+		I}\bigcap_{j\in J_i}\bigcap_{b\in B} b\circ K_{i,j}\circ b'=\{ 0\}$.
+	Therefore $\varphi$ is injective. Let $a,b\in B$. We have that
+	\begin{eqnarray*}\eta(\varphi(a)(b\circ K_{i,j}))&=&\eta(a\circ b\circ K_{i,j})=\lambda_{a\circ b}(a_i)\\
+		&=&\lambda_{a}(\lambda_{b}(a_i))=\lambda_{a}(\eta(b\circ K_{i,j})).
 	\end{eqnarray*}
-	Hence $\eta(\sigma(a)(x))=\lambda_a(\eta(x))$, for all $x\in X$.
+	Hence $\eta(\varphi(a)(x))=\lambda_a(\eta(x))$, for all $x\in X$ and $a\in B$.
 	Hence, by Proposition~\ref{BenDavid}, $(X,r)$ is an involutive solution to the
-	YBE and $\mathcal{G}(X,r)\cong B$ as braces.
+	YBE and $\mathcal{G}(X,r)\cong B$ as skew braces.
 	
 	
 	Let $(Z,t)$ be an involutive solution to the YBE such that
-	$\mathcal{G}(Z,t)\cong B$ as braces. Let $\xi\colon
-	\mathcal{G}(Z,t)\longrightarrow B$ be an isomorphism of braces.
-	Let $\eta=\xi\circ \phi$, where $\phi\colon G(Z,t)\longrightarrow
+	$\mathcal{G}(Z,t)\cong B$ as skew braces. Let $\xi\colon
+	\mathcal{G}(Z,t)\to  B$ be an isomorphism of skew braces.
+	Let $\eta=\xi\phi$, where $\phi\colon G(Z,t)\to
 	\mathcal{G}(Z,t)$ is the natural projection. Then $\eta(Z)$ is a
 	subset of $B$, invariant by $\lambda$ which generates $B$
 	additively. Let $Y=\eta(Z)$.
 	
-	We also have an injective morphism $\sigma:
-	(B,\cdot)\longrightarrow\Aut(\Z^{(Z)})$, such that
-	$\sigma(b)(z)=\xi^{-1}(b)(z)$, for all $b\in B$ and $z\in Z$.
-	Therefore $Z$ is a left $B$-set with the action induced by $\sigma$.
+	We also have an injective homomorphism $\varphi:
+	(B,\circ)\to \Aut(\Z^{(Z)})$, such that
+	$\varphi(b)(z)=\xi^{-1}(b)(z)$, for all $b\in B$ and $z\in Z$.
+	Therefore $Z$ is a left $B$-set with the action induced by $\varphi$.
 	Let $a\in B$ and $z\in Z$. Let $g\in G(Z,t)$  such that
 	$\phi(g)=\xi^{-1}(a)$. We have
 	\begin{eqnarray*}
-		\eta(\sigma(a)(z))&=&\xi(\phi(\xi^{-1}(a)(z)))=\xi(\phi(\phi(g)(z)))\\
-		&=&\xi(\phi(gz-g))=\xi(\phi(g))\xi(\phi(z))-\xi(\phi(g))\\
-		&=&a\eta(z)-a=\lambda_a(\eta(z)).
+		\eta(\varphi(a)(z))&=&\xi(\phi(\xi^{-1}(a)(z)))=\xi(\phi(\phi(g)(z)))\\
+		&=&\xi(\phi(-g+gz))=-\xi(\phi(g))+\xi(\phi(g))\circ\xi(\phi(z))\\
+		&=&-a+a\circ \eta(z)=\lambda_a(\eta(z)).
 	\end{eqnarray*}
 	Therefore the restriction $\eta|_Z\colon Z\longrightarrow Y$ of
 	$\eta$ is a $B$-map.
@@ -262,7 +269,7 @@ The next result  is the main result of this section.
 	Let $Y=\bigcup_{i\in I} i$ be the decomposition of $Y$
 	as disjoint union of orbits under the action $\lambda$. Since
 	$\eta|_Z$ is a surjective $B$-map, for all $i\in I$, the action
-	$\sigma$ splits $(\eta|_Z)^{-1}(i)$ into orbits:
+	$\varphi$ splits $(\eta|_Z)^{-1}(i)$ into orbits:
 	$(\eta|_Z)^{-1}(i)=\bigcup_{j\in J_i} Z_{i,j}$ and
 	$\eta(Z_{i,j})=i$. So we have $Z=\bigcup_{i\in I}\bigcup_{j\in J_i}
 	Z_{i,j}$, where $\eta(Z_{i,j})=i$ for all $i,j$.
@@ -270,59 +277,59 @@ The next result  is the main result of this section.
 	For each $i\in I$, we choose an element $a_i\in i$, and for each
 	$j\in J_i$, we choose $z_{i,j}\in Z_{i,j}$ such that
 	$\eta(z_{i,j})=a_i$. Note that  $\St(z_{i,j})\leq \St(a_i)\leq B$,
-	since any $b\in \St(z_{i,j})$ satisfies $\sigma(b)(z_{i,j})=z_{i,j}$
+	since any $b\in \St(z_{i,j})$ satisfies $\varphi(b)(z_{i,j})=z_{i,j}$
 	and, applying $\eta$, we obtain
-	$a_i=\eta(z_{i,j})=\eta(\sigma(b)(z_{i,j}))=\lambda_b(\eta(z_{i,j}))=\lambda_b(a_i)$,
+	$a_i=\eta(z_{i,j})=\eta(\varphi(b)(z_{i,j}))=\lambda_b(\eta(z_{i,j}))=\lambda_b(a_i)$,
 	so $b\in \St(a_i)$.
 	
 	Recall that the maps $f_i\colon i\rightarrow B/\St(a_i)$ and
 	$f_{i,j}\colon Z_{i,j}\rightarrow B/\St(z_{i,j})$ defined by
-	$f_{i}(\lambda_b(a_i))= b\St(a_i)$ and $f_{i,j}(\sigma(b)(z_{i,j}))=
-	b\St(z_{i,j})$ are isomorphisms of $B$-sets.
+	$f_{i}(\lambda_b(a_i))= b\circ \St(a_i)$ and $f_{i,j}(\varphi(b)(z_{i,j}))=
+	b\circ \St(z_{i,j})$ are isomorphisms of $B$-sets.
 	Then,
 	$\eta\mid_{Z_{i,j}}$ is determined by the canonical projection
 	$$
 	\begin{array}{cccc}
-		\pi \colon &B/\St(z_{i,j})&\longrightarrow &B/\St(a_i)\\
-		&t\St(z_{i,j})&\mapsto &t\St(a_i),
+		\pi \colon &B/\St(z_{i,j})&\to  &B/\St(a_i)\\
+		&t\circ\St(z_{i,j})&\mapsto &t\circ \St(a_i),
 	\end{array}
 	$$
 	that is, \begin{eqnarray*}
-		\eta(f_{i,j}^{-1}(b\St(z_{i,j})))&=&\eta(\sigma(b)(z_{i,j}))=\lambda_b(\eta(z_{i,j}))\\
+		\eta(f_{i,j}^{-1}(b\circ\St(z_{i,j})))&=&\eta(\varphi(b)(z_{i,j}))=\lambda_b(\eta(z_{i,j}))\\
 		&=&
-		\lambda_b(a_{i})=f_i^{-1}(b\St(a_i))\\
-		&=&f_i^{-1}(\pi(b\St(z_{i,j})))  .\end{eqnarray*}
+		\lambda_b(a_{i})=f_i^{-1}(b\circ\St(a_i))\\
+		&=&f_i^{-1}(\pi(b\circ \St(z_{i,j})))  .\end{eqnarray*}
 	
-	Note that $\sigma(c)(z)=z$, for all $z\in Z$, if and only if
-	$cb\St(z_{i,j})=b\St(z_{i,j})$, for all $b\in B$ and all $i,j$,
+	Note that $\varphi(c)(z)=z$, for all $z\in Z$, if and only if
+	$c\circ b\circ \St(z_{i,j})=b\circ\St(z_{i,j})$, for all $b\in B$ and all $i,j$,
 	equivalently,  $c\in\bigcap_{i,j} \bigcap_{b\in
-		B}b\St(z_{i,j})b^{-1}$. Since $\sigma$ is injective, we have
-	$\bigcap_{i,j} \bigcap_{b\in B}b\St(z_{i,j})b^{-1}=\{ 1\}$.  Put
+		B}b\circ\St(z_{i,j})\circ b'$. Since $\varphi$ is injective, we have
+	$\bigcap_{i,j} \bigcap_{b\in B}b\circ\St(z_{i,j})\circ b'=\{ 0\}$.  Put
 	$H_i:=\St(a_i)$ and $K_{i,j}:=\St(z_{i,j})$.  Let $(X,r)$ be the
 	solution defined as in the statement of the theorem. We shall
-	prove that $(X,r)\cong (Z,t)$. Let $f\colon Z\longrightarrow X$ be
+	prove that $(X,r)\cong (Z,t)$. Let $f\colon Z\to X$ be
 	the map defined by $f(z)=f_{i,j}(z)$, for all $z\in Z_{i,j}$.
 	Clearly $f$ is bijective. Let $x,z\in Z$. We may assume that $z\in
 	Z_{i,j}$ and $x\in Z_{p,q}$. Therefore there exist $b_1,b_2\in B$
-	such that $z=\sigma(b_1)(z_{i,j})$ and $x=\sigma(b_2)(z_{p,q})$. We
+	such that $z=\varphi(b_1)(z_{i,j})$ and $x=\varphi(b_2)(z_{p,q})$. We
 	have
 	\begin{eqnarray*}
-		f(\phi(x)(z))&=&f(\sigma(\eta(x))(z))=f_{i,j}(\sigma(\eta(x))(\sigma(b_1)(z_{i,j})))\\
-		&=&f_{i,j}(\sigma(\eta(x)b_1)(z_{i,j}))=\eta(x)b_1\St(z_{i,j})\\
-		&=&\eta(x)b_1K_{i,j}=\eta(\sigma(b_2)(z_{p,q}))b_1K_{i,j}\\
-		&=&\lambda_{b_2}(\eta(z_{p,q}))b_1K_{i,j}=\lambda_{b_2}(a_p)b_1K_{i,j}\\
-		&=&f_{b_2K_{p,q}}(b_1K_{i,j})\\
+		f(\phi(x)(z))&=&f(\varphi(\eta(x))(z))=f_{i,j}(\varphi(\eta(x))(\varphi(b_1)(z_{i,j})))\\
+		&=&f_{i,j}(\varphi(\eta(x)b_1)(z_{i,j}))=\eta(x)\circ b_1\circ \St(z_{i,j})\\
+		&=&\eta(x)\circ b_1\circ K_{i,j}=\eta(\varphi(b_2)(z_{p,q}))\circ b_1\circ K_{i,j}\\
+		&=&\lambda_{b_2}(\eta(z_{p,q}))\circ b_1\circ K_{i,j}=\lambda_{b_2}(a_p)\circ b_1\circ K_{i,j}\\
+		&=&f_{b_2\circ K_{p,q}}(b_1\circ K_{i,j})\\
 		&=&f_{f(x)}(f(z)).
 	\end{eqnarray*}
 	Therefore $f$ is an isomorphism of solutions to the YBE.
 \end{proof}
 
 
-As a consequence of Theorem~\ref{main}, given a brace $B$ of abelian type, to
-construct all the involutive solutions $(X,r)$ of the YBE such that
-$\mathcal{G}(X,r)\cong B$ as braces one can proceed as follows:
+As a consequence of Theorem~\ref{main}, given a skew brace $B$ of abelian type, to
+construct all the involutive solutions $(X,r)$ to the YBE such that
+$\mathcal{G}(X,r)\cong B$ as skew braces one can proceed as follows:
 \begin{enumerate}
-	\item Find the decomposition of $B$ as disjoint union of orbits, $B=\bigcup_{i\in K} B_i$, by the action $\lambda\colon (B,\cdot)\longrightarrow\Aut(B,+)$.
+	\item Find the decomposition of $B$ as disjoint union of orbits, $B=\bigcup_{i\in K} B_i$, by the action $\lambda\colon (B,\circ)\to \Aut(B,+)$.
 	Then choose one element $a_i$ in each orbit $B_i$ for all $i\in K$.
 	
 	\item Find all the subsets $I$ of $K$ such that the subset
@@ -330,7 +337,7 @@ $\mathcal{G}(X,r)\cong B$ as braces one can proceed as follows:
 	
 	\item Given such an $Y$, find for each $i\in I$ a non-empty family $\{K_{i,j}\}_{j\in
 		J_i}$ of subgroups of $\St(a_i)$ such that $\bigcap_{i,j}
-	\bigcap_{b\in B}bK_{i,j}b^{-1}=\{ 1\}$. Note that the $K_{i,j}$
+	\bigcap_{b\in B}b\circ K_{i,j}\circ b'=\{ 0\}$. Note that the $K_{i,j}$
 	could be equal for different $(i,j)$.
 	
 	\item Construct a solution as in the statement of
@@ -339,143 +346,143 @@ $\mathcal{G}(X,r)\cong B$ as braces one can proceed as follows:
 \end{enumerate}
 
 Note that by Theorem~\ref{main}, any involutive solution $(X,r)$ to the YBE
-such that $\mathcal{G}(X,r)\cong B$  (as braces) is isomorphic
+such that $\mathcal{G}(X,r)\cong B$  (as skew braces) is isomorphic
 to one constructed in this way. It could happen that different
-solutions of the YBE constructed in this way from a brace $B$ of abelian type
+solutions to the YBE constructed in this way from a skew brace $B$ of abelian type
 are in fact isomorphic. In the next section we characterize when two
 of these solutions are isomorphic.
 
 
 
-\section{Isomorphism of solutions}
-Let $B$ be a brace of abelian type and let $\mathcal{O}$, $I$, $a_i$, $J_i$,
+\section{Isomorphism of solutions} \label{construciso}
+Let $B$ be a skew brace of abelian type and let $\mathcal{O}$, $I$, $a_i$, $J_i$,
 $K_{i,j}$ be as in the beginning of Section~\ref{sec3}. Let $(X,r)$
 be the solution to the YBE of the statement of Theorem~\ref{main}.
 
 Let $I'\subseteq \mathcal{O}$ such that $Y'=\bigcup_{i'\in I'}i'$
-satisfy $B=\langle Y'\rangle_+$. For each $i'\in I'$, let $\{
+satisfies $B=\langle Y'\rangle_+$. For each $i'\in I'$, let $\{
 L_{i',j'} \}_{j'\in J'_{i'}}$ be a non-empty family of subgroups of
 $\St(a_{i'})$ such that
-$$\bigcap_{i'\in I'}\bigcap_{j'\in J'_{i'}}\bigcap_{b\in B}bL_{i',j'}b^{-1}=\{ 1\}.$$
+$$\bigcap_{i'\in I'}\bigcap_{j'\in J'_{i'}}\bigcap_{b\in B}b\circ L_{i',j'}\circ b'=\{ 0\}.$$
 Let $(X',r')$ be the corresponding solution to the YBE defined as in
 the statement of Theorem~\ref{main}, that is
 \begin{eqnarray*}
-	&&r'(b_1L_{i'_1,j'_1},b_2L_{i'_2,j'_2})=(\lambda_{b_1}(a_{i'_1})b_2L_{i'_2,j'_2},\lambda_{\lambda_{b_1}(a_{i'_1})b_2}(a_{i'_2})^{-1}b_1L_{i'_1,j'_1}).
+	&&r'(b_1\circ L_{i'_1,j'_1},b_2\circ L_{i'_2,j'_2})=(\lambda_{b_1}(a_{i'_1})\circ b_2\circ L_{i'_2,j'_2},\lambda_{\lambda_{b_1}(a_{i'_1})\circ b_2}(a_{i'_2})'\circ b_1\circ L_{i'_1,j'_1}).
 \end{eqnarray*}
 We shall characterize when $(X,r)$ and $(X',r')$ are isomorphic in
 the following result.
 
 \begin{theorem}\label{isomorphism}
 	The solutions $(X,r)$ and $(X',r')$ are isomorphic if and only if
-	there exist an automorphism $\psi$ of the left brace $B$, a
+	there exist an automorphism $\psi$ of the skew brace $B$, a
 	bijective map $\alpha\colon I\rightarrow I'$, a bijective map
 	$\beta_i\colon J_i\rightarrow J'_{\alpha(i)}$ and $z_{i,j}\in B$,
 	for each $i\in I$ and $j\in J_i$, such that
-	$$\psi(a_i)=\lambda_{z_{i,j}}(a_{\alpha(i)})\quad\mbox{and}\quad \psi(K_{i,j})=z_{i,j}L_{\alpha(i),\beta_i(j)}z_{i,j}^{-1},$$
+	$$\psi(a_i)=\lambda_{z_{i,j}}(a_{\alpha(i)})\quad\mbox{and}\quad \psi(K_{i,j})=z_{i,j}\circ L_{\alpha(i),\beta_i(j)}\circ z_{i,j}',$$
 	for all $i\in I_1$ and $j\in J_i$.
 \end{theorem}
 
 \begin{proof}
-	Suppose that there exist an automorphism $\psi$ of the brace
+	Suppose that there exist an automorphism $\psi$ of the skew brace
 	$B$, a bijective map $\alpha\colon I\rightarrow I'$, a bijective map
 	$\beta_i\colon J_i\rightarrow J'_{\alpha(i)}$
 	and $z_{i,j}\in B$, for $i\in I$, and for $j\in J_i$, such that
-	$$\psi(a_i)=\lambda_{z_{i,j}}(a_{\alpha(i)})\quad\mbox{and}\quad \psi(K_{i,j})=z_{i,j}L_{\alpha(i),\beta_i(j)}z_{i,j}^{-1}.$$
+	$$\psi(a_i)=\lambda_{z_{i,j}}(a_{\alpha(i)})\quad\mbox{and}\quad \psi(K_{i,j})=z_{i,j}\circ L_{\alpha(i),\beta_i(j)}\circ z_{i,j}'.$$
 	Observe that we also have
-	$\psi(\lambda_b(a_i))=\lambda_{\psi(b)z_{i,j}}(a_{\alpha(i)})$ for
-	every $b\in B$, because $\psi$ is a morphism of braces. We define
+	$\psi(\lambda_b(a_i))=\lambda_{\psi(b)\circ z_{i,j}}(a_{\alpha(i)})$ for
+	every $b\in B$, because $\psi$ is a homomorphism of skew braces. We define
 	$F\colon X\rightarrow X'$ by
-	$F(bK_{i,j})=\psi(b)z_{i,j}L_{\alpha(i),\beta_i(j)}$, for all $i\in
+	$F(b\circ K_{i,j})=\psi(b)\circ z_{i,j}\circ L_{\alpha(i),\beta_i(j)}$, for all $i\in
 	I$, $j\in J_i$ and $b\in B$. Since
-	$\psi(K_{i,j})=z_{i,j}L_{\alpha(i),\beta_i(j)}z_{i,j}^{-1}$,  we get
+	$\psi(K_{i,j})=z_{i,j}\circ L_{\alpha(i),\beta_i(j)}\circ z_{i,j}'$,  we get
 	that  $F$ is well defined. It is easy to check that $F$ is an
 	isomorphism of the solutions $(X,r)$ and $(X',r')$.
 	
 	Conversely, suppose that there exists an isomorphism $F\colon
 	X\rightarrow X'$ of the solutions $(X,r)$ and $(X',r')$. We can
-	write $F(bK_{i,j})=\varphi(bK_{i,j})L_{\alpha(b,i,j),\beta(b,i,j)}$,
+	write $F(b\circ K_{i,j})=\varphi(b\circ K_{i,j})\circ L_{\alpha(b,i,j),\beta(b,i,j)}$,
 	for some maps $\varphi\colon X\rightarrow B$, $\alpha\colon
 	X\rightarrow I'$ and $\beta \colon X\rightarrow \bigcup_{i'\in
-		I'}J'_{i'}$. We shall prove that $\alpha(b,i,j)=\alpha(1,i,k)$ and
-	$\beta(b,i,j)=\beta(1,i,j)$, for all $b\in B$, $i\in I$ and $j,k\in
-	J_i$. Since $F$ is a morphism of solutions to the YBE, we have
+		I'}J'_{i'}$. We shall prove that $\alpha(b,i,j)=\alpha(0,i,k)$ and
+	$\beta(b,i,j)=\beta(0,i,j)$, for all $b\in B$, $i\in I$ and $j,k\in
+	J_i$. Since $F$ is a homomorphism of solutions to the YBE, we have
 	\begin{eqnarray}\label{F}
-		&&F(\lambda_{b_1}(a_{i_1})b_2K_{i_2,j_2})
-		=\lambda_{\varphi(b_1K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})F(b_2K_{i_2,j_2}),\end{eqnarray}
+		&&F(\lambda_{b_1}(a_{i_1})\circ b_2\circ K_{i_2,j_2})
+		=\lambda_{\varphi(b_1\circ K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})F(b_2\circ K_{i_2,j_2}),\end{eqnarray}
 	for all $b_1,b_2\in B$, $i_1,i_2\in I$,  $j_1\in J_{i_1}$ and
 	$j_2\in J_{i_2}$. Hence
-	\begin{eqnarray*}\lefteqn{\varphi(\lambda_{b_1}(a_{i_1})b_2K_{i_2,j_2})L_{\alpha(\lambda_{b_1}(a_{i_1})b_2,i_2,j_2),\beta(\lambda_{b_1}(a_{i_1})b_2,i_2,j_2)}}
+	\begin{eqnarray*}\lefteqn{\varphi(\lambda_{b_1}(a_{i_1})\circ b_2\circ K_{i_2,j_2})\circ L_{\alpha(\lambda_{b_1}(a_{i_1})\circ b_2,i_2,j_2),\beta(\lambda_{b_1}(a_{i_1})\circ b_2,i_2,j_2)}}
 		\\
-		&&=\lambda_{\varphi(b_1K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})\varphi(b_2K_{i_2,j_2})L_{\alpha(b_2,i_2,j_2),\beta(b_2,i_2,j_2)},\end{eqnarray*}
+		&&=\lambda_{\varphi(b_1\circ K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})\varphi(b_2\circ K_{i_2,j_2})\circ L_{\alpha(b_2,i_2,j_2),\beta(b_2,i_2,j_2)},\end{eqnarray*}
 	for all $b_1,b_2\in B$, $i_1,i_2\in I$,  $j_1\in J_{i_1}$ and
 	$j_2\in J_{i_2}$. Thus
-	$\alpha(\lambda_{b_1}(a_{i_1})b_2,i_2,j_2)=\alpha(b_2,i_2,j_2)$ and
-	$\beta(\lambda_{b_1}(a_{i_1})b_2,i_2,j_2)=\beta(b_2,i_2,j_2)$. Since
+	$\alpha(\lambda_{b_1}(a_{i_1})\circ b_2,i_2,j_2)=\alpha(b_2,i_2,j_2)$ and
+	$\beta(\lambda_{b_1}(a_{i_1})\circ b_2,i_2,j_2)=\beta(b_2,i_2,j_2)$. Since
 	$B=\langle Y\rangle_+$ and $Y$ is $B$-invariant (by the action
 	$\lambda$), we know that $Y$ also generates the multiplicative group
-	of $B$. Therefore $\alpha(b_2,i_2,j_2)=\alpha(1,i_2,j_2)$ and
-	$\beta(b_2,i_2,j_2)=\beta(1,i_2,j_2)$. Note also that
-	$$\lambda_{\varphi(b_1K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})F(b_2K_{i_2,j_2})=\lambda_{\varphi(b_1K_{i_1,j})}(a_{\alpha(b_1,i_1,j)})F(b_2K_{i_2,j_2}),$$
+	of $B$. Therefore $\alpha(b_2,i_2,j_2)=\alpha(0,i_2,j_2)$ and
+	$\beta(b_2,i_2,j_2)=\beta(0,i_2,j_2)$. Note also that
+	$$\lambda_{\varphi(b_1K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})\circ F(b_2\circ K_{i_2,j_2})=\lambda_{\varphi(b_1\circ K_{i_1,j})}(a_{\alpha(b_1,i_1,j)})\circ F(b_2\circ K_{i_2,j_2}),$$
 	for all $b_1,b_2\in B$, $i_1,i_2\in I$,  $j_1,j\in J_{i_1}$ and
 	$j_2\in J_{i_2}$. Since $\bigcap_{i',j'}\bigcap_{b\in
-		B}bL_{i',j'}b^{-1}=\{ 1\}$, we have that
-	$$\lambda_{\varphi(b_1K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})=\lambda_{\varphi(b_1K_{i_1,j})}(a_{\alpha(b_1,i_1,j)}),$$
+		B}b\circ L_{i',j'}\circ b'=\{ 0\}$, we have that
+	$$\lambda_{\varphi(b_1\circ K_{i_1,j_1})}(a_{\alpha(b_1,i_1,j_1)})=\lambda_{\varphi(b_1\circ K_{i_1,j})}(a_{\alpha(b_1,i_1,j)}),$$
 	for all $b_1\in B$, $i_1\in I$ and  $j_1,j\in J_{i_1}$. Therefore
 	$a_{\alpha(b_1,i_1,j_1)},a_{\alpha(b_1,i_1,j)}\in \alpha(1,i_1,k),$
 	for all $b_1\in B$, $i_1\in I$ and $j_1,j\in J_{i_1}$ and thus
-	$\alpha(b,i,j)=\alpha(1,i,k)$, for all $b\in B$, $i\in I_1$ and
+	$\alpha(b,i,j)=\alpha(0,i,k)$, for all $b\in B$, $i\in I_1$ and
 	$j,k\in J_{i}$. For each $i\in I$ we choose an element $j_i\in
 	J_{i}$. Since $F$ is bijective, the map $I\rightarrow I'$ defined by
-	$i\mapsto \alpha(1,i,j_i)$ is bijective and for each $i\in I$ the
-	map $J_i\rightarrow J'_{\alpha(1,i,j_i)}$ defined by $j\mapsto
-	\beta(1,i,j)$ is bijective. We shall see that there exists an
+	$i\mapsto \alpha(0,i,j_i)$ is bijective and for each $i\in I$ the
+	map $J_i\rightarrow J'_{\alpha(0,i,j_i)}$ defined by $j\mapsto
+	\beta(0,i,j)$ is bijective. We shall see that there exists an
 	automorphism $\psi$ of the left brace $B$ such that
-	$$\psi(\lambda_b(a_i))=\lambda_{\psi(b)\varphi(K_{i,j_i})}(a_{\alpha(1,i,j_i)})$$
+	$$\psi(\lambda_b(a_i))=\lambda_{\psi(b)\varphi(K_{i,j_i})}(a_{\alpha(0,i,j_i)})$$
 	and
-	$$\psi(K_{i,j})=\varphi(K_{i,j_i})L_{\alpha(1,i,j_i),\beta(1,i,j)}\varphi(K_{i,j_i})^{-1},$$
+	$$\psi(K_{i,j})=\varphi(K_{i,j_i})\circ L_{\alpha(0,i,j_i),\beta(0,i,j)}\circ \varphi(K_{i,j_i})',$$
 	for all $b\in B$, $i\in I$ and $j\in J_i$. Let
-	$1=\lambda_{b_1}(a_{i_1})^{\varepsilon_1}\cdots
+	$0=\lambda_{b_1}(a_{i_1})^{\varepsilon_1}\circ \cdots\circ
 	\lambda_{b_m}(a_{i_m})^{\varepsilon_m}$, for some $b_1,\dots ,b_m\in
 	B$, $i_1,\dots ,i_m\in I$ and $\varepsilon_1,\dots ,\varepsilon_m\in
-	\{ 1,-1\}$. By (\ref{F}), we have
+	\{ 1,-1\}$ (here we understand that $a^{-1}=a'$ for $a\in B$). By (\ref{F}), we have
 	\begin{align*}
-		F(bK_{i,j})&=F(\lambda_{b_1}(a_{i_1})^{\varepsilon_1}\cdots
-		\lambda_{b_m}(a_{i_m})^{\varepsilon_m}bK_{i,j})\\
-		&=\lambda_{\varphi(b_1K_{i_1,j_{i_1}})}(a_{\alpha(1,i_1,j_{i_1})})^{\varepsilon_1}F(\lambda_{b_2}(a_{i_2})^{\varepsilon_2}\cdots
-		\lambda_{b_m}(a_{i_m})^{\varepsilon_m}bK_{i,j})\\
-		&=\lambda_{\varphi(b_1K_{i_1,j_{i_1}})}(a_{\alpha(1,i_1,j_{i_1})})^{\varepsilon_1}\cdots
-		\lambda_{\varphi(b_mK_{i_m,j_{i_m}})}(a_{\alpha(1,i_m,j_{i_m})})^{\varepsilon_m}F(bK_{i,j}),
+		F(b\circ K_{i,j})&=F(\lambda_{b_1}(a_{i_1})^{\varepsilon_1}\circ \cdots\circ 
+		\lambda_{b_m}(a_{i_m})^{\varepsilon_m}\circ b\circ K_{i,j})\\
+		&=\lambda_{\varphi(b_1\circ K_{i_1,j_{i_1}})}(a_{\alpha(0,i_1,j_{i_1})})^{\varepsilon_1}\circ F(\lambda_{b_2}(a_{i_2})^{\varepsilon_2}\circ \cdots\circ 
+		\lambda_{b_m}(a_{i_m})^{\varepsilon_m}\circ b\circ K_{i,j})\\
+		&=\lambda_{\varphi(b_1\circ K_{i_1,j_{i_1}})}(a_{\alpha(0,i_1,j_{i_1})})^{\varepsilon_1}\circ \cdots\circ 
+		\lambda_{\varphi(b_m\circ K_{i_m,j_{i_m}})}(a_{\alpha(0,i_m,j_{i_m})})^{\varepsilon_m}\circ F(b\circ K_{i,j}),
 	\end{align*}
 	for all $b\in B$, $i\in I$ and $ j\in J_i$. Since
-	$\bigcap_{i',j'}\bigcap_{b\in B}bL_{j,l}b^{-1}=\{ 1\}$, we have that
-	$\lambda_{\varphi(b_1K_{i_1,j_{i_1}})}(a_{\alpha(1,i_1,j_{i_1})})^{\varepsilon_1}\cdots
-	\lambda_{\varphi(b_mK_{i_m,j_{i_m}})}(a_{\alpha(1,i_m,j_{i_m})})^{\varepsilon_m}=1$.
-	Therefore there exists a unique morphism $\psi\colon B\rightarrow B$
+	$\bigcap_{i',j'}\bigcap_{b\in B}b\circ L_{j,l}\circ b'=\{ 0\}$, we have that
+	$\lambda_{\varphi(b_1\circ K_{i_1,j_{i_1}})}(a_{\alpha(0,i_1,j_{i_1})})^{\varepsilon_1}\circ \cdots\circ 
+	\lambda_{\varphi(b_m\circ K_{i_m,j_{i_m}})}(a_{\alpha(0,i_m,j_{i_m})})^{\varepsilon_m}=0$.
+	Therefore there exists a unique homomorphism $\psi\colon B\rightarrow B$
 	of multiplicative groups such that
-	$\psi(\lambda_b(a_i))=\lambda_{\varphi(bK_{i,j_{i}})}(a_{\alpha(1,i,j_i)})$.
+	$\psi(\lambda_b(a_i))=\lambda_{\varphi(b\circ K_{i,j_{i}})}(a_{\alpha(0,i,j_i)})$.
 	Since $Y$ generates the multiplicative group of $B$, by (\ref{F})
 	one can see that
-	$$\varphi(bK_{i,j})L_{\alpha(1,i,j_i),\beta(1,i,j)}=F(bK_{i,j})=\psi(b)\varphi(K_{i,j})L_{\alpha(1,i,j_i),\beta(1,i,j)}.$$
-	Therefore, since $L_{\alpha(1,i,j_i),\beta(1,i,j)}\subseteq
-	\St(a_{\alpha(1,i,j_i)})$, we have
-	$$\lambda_{\varphi(bK_{i,j})}(a_{\alpha(1,i,j_i)})=\lambda_{\psi(b)\varphi(K_{i,j})}(a_{\alpha(1,i,j_i)}).$$
+	$$\varphi(b\circ K_{i,j})\circ L_{\alpha(0,i,j_i),\beta(0,i,j)}=F(b\circ K_{i,j})=\psi(b)\circ \varphi(K_{i,j})\circ L_{\alpha(0,i,j_i),\beta(0,i,j)}.$$
+	Therefore, since $L_{\alpha(0,i,j_i),\beta(0,i,j)}\subseteq
+	\St(a_{\alpha(0,i,j_i)})$, we have
+	$$\lambda_{\varphi(b\circ K_{i,j})}(a_{\alpha(0,i,j_i)})=\lambda_{\psi(b)\varphi(K_{i,j})}(a_{\alpha(0,i,j_i)}).$$
 	Hence
-	$\psi(\lambda_b(a_i))=\lambda_{\psi(b)\varphi(K_{i,j_i})}(a_{\alpha(1,i,j_i)})$.
+	$\psi(\lambda_b(a_i))=\lambda_{\psi(b)\varphi(K_{i,j_i})}(a_{\alpha(0,i,j_i)})$.
 	Now we have that
 	\begin{eqnarray*}
-		\psi(b+a_i)&=&\psi(b\lambda_{b^{-1}}(a_i))=\psi(b)\psi(\lambda_{b^{-1}}(a_i))\\
-		&=&\psi(b)\lambda_{\psi(b)^{-1}\varphi(K_{i,j_i})}(a_{\alpha(1,i,j_i)})\\
-		&=&\psi(b)\lambda_{\psi(b)^{-1}}(\lambda_{\varphi(K_{i,j_i})}(a_{\alpha(1,i,j_i)}))\\
-		&=&\psi(b)+\lambda_{\varphi(K_{i,j_i})}(a_{\alpha(1,i,j_i)})\\
-		&=&\psi(b)+\psi(\lambda_{1}(a_i))=\psi(b)+\psi(a_i).
+		\psi(b+a_i)&=&\psi(b\circ \lambda_{b'}(a_i))=\psi(b)\circ \psi(\lambda_{b'}(a_i))\\
+		&=&\psi(b)\lambda_{\psi(b)'\circ \varphi(K_{i,j_i})}(a_{\alpha(0,i,j_i)})\\
+		&=&\psi(b)\circ \lambda_{\psi(b)'}(\lambda_{\varphi(K_{i,j_i})}(a_{\alpha(0,i,j_i)}))\\
+		&=&\psi(b)+\lambda_{\varphi(K_{i,j_i})}(a_{\alpha(0,i,j_i)})\\
+		&=&\psi(b)+\psi(\lambda_{0}(a_i))=\psi(b)+\psi(a_i).
 	\end{eqnarray*}
-	Now it is easy to see that $\psi$ is a morphism of  braces.
-	Since $F$ is bijective and $F(bb'K_{i,j})=\psi(b)F(b'K_{i,j})$, it
+	Now it is easy to see that $\psi$ is a homomorphism of  skew braces.
+	Since $F$ is bijective and $F(b\circ c\circ K_{i,j})=\psi(b)\circ F(c\circ K_{i,j})$, it
 	follows that $\psi$ is bijective. Furthermore $b\in K_{i,j}$ if and
 	only if
 	\begin{eqnarray*}
-		\varphi(K_{i,j})L_{\alpha(1,i,j_i),\beta(1,i,j)}&=&F(K_{i,j})=F(bK_{i,j})=\psi(b)F(K_{i,j})\\
-		&=&\psi(b)\varphi(K_{i,j})L_{\alpha(1,i,j_i),\beta(1,i,j)}.
+		\varphi(K_{i,j})\circ L_{\alpha(0,i,j_i),\beta(0,i,j)}&=&F(K_{i,j})=F(b\circ K_{i,j})=\psi(b)\circ F(K_{i,j})\\
+		&=&\psi(b)\circ \varphi(K_{i,j})\circ L_{\alpha(0,i,j_i),\beta(0,i,j)}.
 	\end{eqnarray*}
 	Therefore the result follows.
 \end{proof}
@@ -494,12 +501,12 @@ $L_{\alpha(i),\beta_i(j)}$ is conjugated by $z_{i,j}$).
 The following is an example of how to use  Theorem~\ref{main} and
 Theorem~\ref{isomorphism} to compute all the finite solutions
 associated to a given finite left brace up to isomorphism. We use
-the easiest examples of braces: trivial braces of order $p$, where
-$p$ is a prime. Recall that a brace $B$ is trivial if $ab=a+b$
+the easiest examples of skew braces of abelian type: trivial skew braces of order $p$, where
+$p$ is a prime. 
 for all $a,b\in B$.
 
 \begin{example}\label{bracesp}
-	{\rm Consider the trivial brace  over $G=\Z/(p)$. Then, the orbits
+	{\rm Consider the trivial skew brace  over $G=\Z/(p)$. Then, the orbits
 		are $\{\alpha\}$ for every $\alpha\in\Z/(p)$.
 		Since any orbit has  only one element,  we have $\St(\alpha)=G$, and the possible $K_{i,j}$'s in this case are $0$ and $G$.
 		
@@ -526,7 +533,7 @@ for all $a,b\in B$.
 		$(y^1_{\alpha,k},y^2_{\alpha,k},\dots,y^p_{\alpha,k})$ for any
 		$\alpha\in Y$ and $k\in\{1,\dots,m_\alpha\}$.
 		
-		Finally observe that, in this case, $\Aut(G,+,\cdot)=\Aut(G,+)\cong
+		Finally observe that, in this case, $\Aut(G,+,\circ)=\Aut(G,+)\cong
 		(\Z/(p))^*$, and the effect of an automorphism of $G$ over a
 		solution is to change
 		$\sigma_{y_{\alpha,j}}=\sigma_{y^l_{\alpha,k}}=\tau^\alpha$ to the
@@ -540,34 +547,27 @@ for all $a,b\in B$.
 
 
 
-\section*{Exercises}
+\section{Exercises}
 
-\begin{prob}
+\begin{prob} Let $p$ and $q$ be two distinct prime numbers. Describe all the finite involutive solutions $(X,r)$ to the YBE such that $\mathcal{G}(X,r)$ is the trivial skew brace over the cyclic group $\Z/(pq)$.
 \end{prob}
 
 \begin{prob}
+Let $p$ be a prime number.
+Give an example of a finite non-involutive solution $(X,r)$ to the YBE such that $\mathcal{G}(X,r)$ is the trivial skew brace over the cyclic group $\Z/(p)$.
 \end{prob}
 
 
-\begin{prob}
-\end{prob}
-
-\begin{prob}
-\end{prob}
 
 
-\section*{Notes}
+\section{Notes}
+Proposition \ref{extensions} is due to Bachiller (see \cite[Theorem~2.1]{MR3320237}).
 
-\index{Bachiller, D.}
-\index{Ced\'o, F}
-\index{Jespers, E.}
-\index{Okni\'{n}ski, J.}
-The first example of a simple non-trivial brace of abelian type is due to Bachiller \cite{MR3763276}. 
-In the same papar Bachiller introduced the matched product of two left braces of abelian type. One can see that the definition of matched product of two left braces is the same that in the case of braces of abelian type. 
-In \cite{MR3812099}, Bachiller, Ced\'o, Jespers and Okni\'{n}ski introduced the matched product of more than two left braces of abelian type (this can be generaliced to arbitrari left braces without changes). In the same paper the authors construct several families of  simple non-trivial left braces of abelian type using matched products.
+A
+cohomological version of Proposition \ref{BenDavid} appears in \cite[Theorem~4.6]{MR3500774} 
+and a first version without a formal statement in \cite[pages
+182--183]{MR1722951}. 
 
-\index{Catino, F.}
-\index{Colazzo, I.}
-\index{Stefanelli, P.}
-The asymmetric product of left braces of abelian type was intruduced by Catino, Colazzo and Stefanelli in \cite{MR3478858}, and Theorem \ref{ccs} is due to them (\cite[Theorem 3]{MR3478858}).  In \cite{MR4020748} Bachiller, Ced\'o, Jespers and Okni\'{n}ski used the asymmetric product to construct to costruct new families of simple non-trivial left braces of abelian type. In fact, every known simple non-trivial left brace is an asymmetric product (see \cite{MR4020748, MR4161288, MR4122077}).
-Theorem \ref{thm:simplebrace} is based on \cite[Theorem 3.6]{MR3812099} and \cite[Theorem 6.2]{MR4020748}. The two concrete constructions of simple non-trivial simple braces of abelian type appear in \cite{MR3812099,  MR4161288}.
+Sections \ref{construcsec3} and \ref{construciso} are based on \cite{MR3527540}.
+
+In \cite{MR3835326} Bachiller generalized the results of this chapter to general solutions to the YBE. Hence the construction of all (finite) solutions to the YBE is reduced to the construction of all (finite) skew braces.

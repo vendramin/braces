@@ -1,71 +1,232 @@
 \chapter{Multipermutation solutions}
 \label{MP}
 
-\section{The permutation group of a solution}
 
-Let $(X,r)$ be a solution to the YBE. We write \[r(x,y)=(\sigma_x(y),\tau_y(x))\quad\text{and}\quad r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))\] 
-for all $x,y\in X$. Consider the structure group $G(X,r)$ of the solution $(X,r)$. Let $i\colon X\to G(X,r)$ be the natural map. 
+\section{The retraction of a solution}
 
-\index{Solution!permutation group}
-The {\em permutation group} of $(X,r)$ is the subgroup
-\[\mathcal{G}(X,r)=\langle (\sigma_x,\tau^{-1}_x) : x\in X\rangle\subseteq\Sym_X\times\Sym_X.\]
-Since 
-\[ \sigma_x\sigma_y=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}\quad\text{and}\quad \tau^{-1}_x\tau^{-1}_y=\tau^{-1}_{\sigma_x(y)}\tau^{-1}_{\tau_y(x)} \]
-for all $x,y\in X$, there exists a unique group homomorphism
-$h\colon G(X,r)\to \mathcal{G}(x,r)$ such that $hi(x)=(\sigma_x,\tau^{-1}_x)$ for all $x\in X$.
-By Theorem \ref{thm:GVbraces}, $G(X,r)$ has a unique structure of skew brace with multiplicative group the structure group $G(X,r)$ and $\lambda_{i(x)}(i(y))=i(\sigma_x(y))$ for all $x\in X$. We shall see that $\ker h$ is an ideal of the skew brace $G(X,r)$. Note that
-\[\mu_{i(y)}(i(x))=\lambda_{i(x)}(i(y))i(x)i(y)=i(\sigma_x(y))i(x)i(y)=i(\tau_y(x))\]
-for all $x,y\in X$, by the defining relations of $G(X,r)$.
-Let $a\in \ker h$. There exists $x_1,\dots ,x_n\in X$ and $\epsilon_1,\dots ,\epsilon_n\in\{ -1,1\}$ such that
-$a=i(x_1)^{\epsilon_1}\cdots i(x_n)^{\epsilon_n}$. Hence
-\[(\id_X,\id_X)=h(a)=(\sigma_{x_1}^{\epsilon_1}\cdots\sigma_{x_n}^{\epsilon_n},\tau_{x_1}^{-\epsilon_1}\cdots \tau_{x_n}^{-\epsilon_n}).\]
-Therefore
-\[ \lambda_a(i(z))=i(\sigma_{x_1}^{\epsilon_1}\cdots\sigma_{x_n}^{\epsilon_n}(z))=i(z)\]
-and
-\[ \mu^{-1}_a(i(z))=i(\tau_{x_1}^{-\epsilon_1}\cdots \tau_{x_n}^{-\epsilon_n}(z))=i(z)\]
-for all $z\in X$ and thus 
-\[\ker h\subseteq \ker\lambda\cap\ker\mu=\Soc(G(X,r)),\]
-by Propositon \ref{pro:soc_kernels}.
+Let $(X,r)$ be a solution to the YBE. We write
+\[ r(x,y)=(\sigma_x(y),\tau_y(x))\quad\text{and}\quad r^{-1}(x,y)=(\widehat{\sigma}_x(y),\widehat{\tau}_y(x))\]
+for all $x,y\in X$. 
+Since $\sigma_x\sigma_y=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}$ for all $x,y\in X$, the map
+$\sigma\colon X\to\Sym_X$, defined by $\sigma(x)=\sigma_x$ for all $x\in X$,  induces
+a unique homomorphism $\sigma\colon G(X,r)\to\Sym_X$, such that
+$\sigma(a)=\sigma_a$ and $\sigma_{i(x)}(y)=\sigma_x(y)$ for all $x,y\in X$ and $a\in G(X,r)$, where $i \colon X\to G(X,r)$ is the natural map.
+Similarly, the map
+$\widehat{\sigma}\colon X\to\Sym_X$, defined by $\widehat{\sigma}(x)=\widehat{\sigma}_x$ for all $x\in X$,  induces
+a unique homomorphism $\widehat{\sigma}\colon G(X,r)\to\Sym_X$, such that $\widehat{\sigma}(a)=\widehat{\sigma}_a$ and
+$\widehat{\sigma}_{i(x)}(y)=\widehat{\sigma}_x(y)$ for all $x,y\in X$ and $a\in G(X,r)$, the map $\tau\colon X\to\Sym_X$, defined by $\tau (x)=\tau_x$ for all $x\in X$,  induces a unique anti-homomorphism $\tau\colon G(X,r)\to\Sym_X$, such that
+$\tau(a)=\tau_a$ and $\tau_{i(x)}(y)=\tau_x(y)$ for all $x,y\in X$ and $a\in G(X,r)$, and the map $\widehat{\tau}\colon X\to\Sym_X$, defined by $\widehat{\tau}(x)=\widehat{\tau}_x$ for all $x\in X$,  induces a unique anti-homomorphism $\widehat{\tau}\colon G(X,r)\to\Sym_X$, such that $\widehat{\tau}(a)=\widehat{\tau}_a$ and
+$\widehat{\tau}_{i(x)}(y)=\widehat{\tau}_x(y)$ for all $x,y\in X$ and $a\in G(X,r)$.
+
+By Theorem \ref{thm:LYZ9}, there exists a unique braiding operator $r_G$ on $G(X,r)$ such that $r_G(i\times i)=(i\times i)r$.
+We write 
+\[r_G(a,b)=(\lambda_a(b),\mu_b(a))\quad\text{and}\quad r_G^{-1}(a,b)=(\widehat{\lambda}_a(b),\widehat{\mu}_b(a))\] 
+for all $a,b\in G(X,r)$. 
+
+\begin{lemma}\label{lem:permutationlemma}
+	Let $(X,r)$ be a solution to the YBE. Then
+ 	\begin{alignat*}{2}
+		\sigma_a^{-1}(x) &=\widehat{\tau}_{\widehat{\lambda}_x^{-1}(a)}(x),\quad
+		& \widehat{\sigma}_a^{-1}(x) &=\tau_{\lambda_{i(x)}^{-1}(a)}(x),\\
+		\tau_a^{-1}(x) &=\widehat{\sigma}_{\widehat{\mu}_{i(x)}^{-1}(a)}(x),\quad
+		& \hat{\tau}_a^{-1}(x) &=\sigma_{\mu_{i(x)}^{-1}(a)}(x)
+ 	\end{alignat*}
+ 	for all $a\in G(X,r)$ and $x\in X$.
+ 	\begin{proof}
+		Let $\tilde{g}\colon G(X,r)\to\Sym_X$ be the map defined by $\tilde{g}(a)=\tilde{g}_a$
+		and $\tilde{g}_a(x)=\tau_{\lambda_{i(x)}^{-1}(a)}(x)$ for all $a\in G(X,r)$ and $x\in X$. We shall prove that $\tilde{g}$ is an anti-homomorphism
+		of groups. 
+		Let $b_1,b_2\in G(X,r)$ and $x\in X$. We have that
+		\begin{align*}
+			\tilde{g}_{b_2b_1}(x)=&\tau_{\lambda^{-1}_{i(x)}(b_2b_1)}(x)=\tau_{\lambda_{i(x)^{-1}}(b_2b_1)}(x)\\
+			=&\tau_{\lambda_{i(x)^{-1}}(b_2)\lambda_{\mu_{b_2}(i(x)^{-1})}(b_1)}(x)\\
+			=&\tau_{\lambda_{\mu_{b_2}(i(x)^{-1})}(b_1)}\tau_{\lambda_{i(x)^{-1}}(b_2)}(x)\\
+			=&\tau_{\lambda_{\mu_{\lambda_{i(x)^{-1}}(b_2)}(i(x))^{-1}}(b_1)}\tau_{\lambda_{i(x)^{-1}}(b_2)}(x)\\
+			=&\tau_{\lambda^{-1}_{\mu_{\lambda^{-1}_{i(x)}(b_2)}(i(x))}(b_1)}\tau_{\lambda^{-1}_{i(x)}(b_2)}(x)\\
+			=&\tau_{\lambda^{-1}_{i(\tau_{\lambda^{-1}_{i(x)}(b_2)}(x))}(b_1)}\tau_{\lambda^{-1}_{i(x)}(b_2)}(x)\\
+			=&\tilde{g}_{b_1}(\tau_{\lambda^{-1}_{i(x)}(b_2)}(x))\\
+			=&\tilde{g}_{b_1}\tilde{g}_{b_2}(x).
+		\end{align*}
+		Hence $\tilde{g}$ is an anti-homomorphism of groups.
+		
+		
+		
+		Similarly, one verifies that the map $\tilde{f}\colon G(X,r)\to\Sym_X$, defined by $\tilde{f}(a)=\tilde{f}_a$ for all $a\in G(X,r)$,
+		where $\tilde{f}_a(x)=\sigma_{\mu_{i(x)}^{-1}(a)}(x)$ for all $a\in G(X,r)$ and $x\in X$, is a homomorphism of groups.
+		Note that the map $\widehat{\sigma}^{-1}\colon G(X,r)\to\Sym(X)$ defined by $\widehat{\sigma}^{-1}(a)=\widehat{\sigma}_a^{-1}$ is an anti-homomorphism
+		of groups. Since 
+		\[\widehat{\sigma}_{i(x)}^{-1}(y)=\widehat{\sigma}_{x}^{-1}(y)=\tau_{\sigma_{y}^{-1}(x)}(y)=\tau_{i(\sigma_{y}^{-1}(x))}(y)=\tau_{\lambda_{i(y)}^{-1}(i(x))}(y)=\tilde{g}_{i(x)}(y)\] for all $x,y\in X$, we have that
+		$\widehat{\sigma}^{-1}=\tilde{g}$, i.e., 
+		\[\widehat{\sigma}_a^{-1}(x)=\tau_{\lambda_{i(x)}^{-1}(a)}(x)\] for all $a\in G(X,r)$
+		and $x\in X$. We also have that the map $\widehat{\tau}^{-1}\colon G(X,r)\to\Sym(X)$, defined by $\widehat{\tau}^{-1}(a)=\widehat{\tau}_a^{-1}$ for all $a\in G(X,r)$, is a homomorphism
+		of groups. Since 
+		\[\widehat{\tau}_{i(x)}^{-1}(y)=\widehat{\tau}_{x}^{-1}(y)=\sigma_{i(\tau_{y}^{-1}(x))}(y)=\sigma_{\mu_{i(y)}^{-1}(i(x))}(y)=\tilde{f}_{i(x)}(y)\] for all $x,y\in X$, we have that
+		$\widehat{\tau}^{-1}=\tilde{f}$, i.e., \[\widehat{\tau}_a^{-1}(x)=\sigma_{\mu_{i(x)}^{-1}(a)}(x)\] for all $a\in G(X,r)$ and
+		$x\in X$. This proves two of the equalities in the statement of the result. The other two equalities follow similarly. 
+ 	\end{proof}
+\end{lemma}
+
+\begin{lemma}\label{lem:Permutation}
+	Let $(X,r)$ be a solution to the YBE. Then 
+	\[\ker\sigma\cap\ker\tau=\ker\sigma\cap\ker\widehat{\sigma}=\ker\widehat{\sigma}\cap\ker\widehat{\tau}=\ker\tau\cap\ker\widehat{\tau}.\]
+	\begin{proof}
+	By the proof of Lemma \ref{lem:Kerh}, $\ker\sigma\subseteq\ker\lambda$ and $\ker\tau\subseteq\ker\mu$.
+		
+		First we shall see that $\mu_{i(x)}(\ker\sigma)=\ker\sigma$ for all $x\in X$. To do so, let us fix
+		$a\in\ker\sigma$ and $x\in X$. We have
+		\[\sigma_{i(x)}=\sigma_a\sigma_{i(x)}=\sigma_{\lambda_a(i(x))}\sigma_{\mu_{i(x)}(a)}=\sigma_{i(x)}\sigma_{\mu_{i(x)}(a)}\]
+		and \[\sigma_{i(x)^{-1}}=\sigma_a\sigma_{i(x)^{-1}}=\sigma_{\lambda_a(i(x)^{-1})}\sigma_{\mu_{i(x)^{-1}}(a)}=
+		\sigma_{i(x)^{-1}}\sigma_{\mu_{i(x)^{-1}}(a)}.\] Hence $\sigma_{\mu_{i(x)}(a)}=\id$ and
+		$\sigma_{(\mu_i(x))^{-1}(a)}=\id$, and thus $\mu_{i(x)}(\ker\sigma)=\ker\sigma$.
+		
+		Similarly one proves that
+		\[\lambda_{i(x)}(\ker\tau)=\ker\tau,\quad \widehat{\mu}_{i(x)}(\ker\widehat{\sigma})=\ker\widehat{\sigma},\quad
+		\widehat{\lambda}_{i(x)}(\ker\widehat{\tau})=\ker\widehat{\tau}\] for all $x\in X$.
+		
+		Now, we shall see that \[\ker\sigma\cap\ker\widehat{\sigma}=\ker\sigma\cap\ker\tau=\ker\tau\cap\ker\widehat{\tau}.\]  
+		Indeed, let $a\in\ker\sigma\cap\ker\widehat{\sigma}$. For every $x\in X$,
+		we have $\widehat{\sigma}_{\widehat{\mu}_{i(x)}^{-1}(a)}=\id$ and $\sigma_{\mu_{i(x)}^{-1}(a)}=\id$. Thus by
+		Lemma~\ref{lem:permutationlemma}, 
+		\[\tau_a^{-1} (x)=\widehat{\sigma}_{\widehat{\mu}_{i(x)}^{-1}(a)}(x)=x\quad\text{and}\quad
+		\widehat{\tau}_a^{-1}(x)=\sigma_{\mu_{i(x)}^{-1}(a)}(x)=x\] for all $x\in X$. This shows that $\ker\sigma\cap\ker\widehat{\sigma}\subseteq\ker\tau\cap\ker\widehat{\tau}$. The other inclusion follows by a symmetric argument. Hence $\ker\sigma\cap\ker\widehat{\sigma}=\ker\tau\cap\ker\widehat{\tau}$.
+		
+		Note that we have also proven that $\ker\sigma\cap\ker\widehat{\sigma}\subseteq\ker\sigma\cap\ker\tau$. Let $b\in\ker\sigma\cap\ker\widehat{\tau}$.
+		As $\ker\tau$ is $\lambda_{i(x)}$-invariant, for every $x\in X$, we have that $\tau_{\lambda_{i(x)}^{-1}(b)}=\id$.
+		Therefore $\widehat{\sigma}_b^{-1}(x)=\tau_{\lambda_{i(x)}^{-1}(b)}(x)=x$ for all $x\in X$. This shows that
+		$\ker\sigma\cap\ker\tau\subseteq\ker\sigma\cap\ker\widehat{\sigma}$, and thus $\ker\sigma\cap\ker\tau=\ker\sigma\cap\ker\widehat{\sigma}$. The other equality follows by symmetry between $(X,r)$ and $(X,r^{-1})$.
+	\end{proof}
+\end{lemma}
 
 
-If $X$ is a solution, we 
-consider over $X$ the relation
-\[
-x\sim y\Longleftrightarrow \sigma_x=\sigma_y\text{ and }\tau_x=\tau_y.
-\]
-Then $\sim$ is an equivalence relation. 
-Let $\overline{X}$ be the set of equivalence classes 
-and $[x]$ 
+Note that in case the solution $(X,r)$ is involutive, we have $\sigma=\widehat{\sigma}$ and $\tau=\widehat{\tau}$ and therefore \[\ker \sigma=\ker\sigma\cap\ker\tau=\ker\tau.\] 
+
+
+
+Let $(X,r)$ be a solution to the YBE. 
+We consider over $X$ the relation
+\[x\sim y\Longleftrightarrow \sigma_x=\sigma_y\text{ and }\tau_x=\tau_y.\]
+Then $\sim$ is an equivalence relation. Let $\overline{X}$ be the set of equivalence classes and $[x]$ denote the equivalence class of $x$. 
+
+
+\begin{proposition}\label{prop:retractissolution}
+	Let $(X,r)$ be a solution to the YBE. Then $r$ induces a solution $\overline{r}$ to the YBE on $\overline{X}$, by
+	\[\overline{r}([x],[y])=([\sigma_x(y)],[\tau_y(x)])\]
+	for all $x,y\in X$. 
+	%This solution $(\overline{X},\overline{r})$ is denoted $\Ret(X,r)$
+	%and is called the {\em retract} of $(X,r)$. One says that $(X,r)$ is {\em retractable} if $\sim$ is not the trivial relation.
+	\end{proposition}
+
+	\begin{proof}
+		Let $x,y,z\in X$ be elements such that $x\sim y$. Note that
+		\begin{align*}
+			\sigma_{\sigma_x(z)}\sigma_{\tau_z(x)} &
+			=\sigma_x\sigma_z=\sigma_y\sigma_z=\sigma_{\sigma_y(z)}\sigma_{\tau_z(y)}
+			=\sigma_{\sigma_x(z)}\sigma_{\tau_z(y)},\\
+			\tau_{\tau_x(z)}\tau_{\sigma_z(x)} &=\tau_x\tau_z=\tau_y\tau_z
+			=\tau_{\tau_y(z)}\tau_{\sigma_z(y)}=\tau_{\tau_x(z)}\tau_{\sigma_z(y)},\\
+			\sigma_{\sigma_z(x)}\sigma_{\tau_x(z)} &=\sigma_z\sigma_x
+			=\sigma_z\sigma_y=\sigma_{\sigma_z(y)}\sigma_{\tau_y(z)}
+			=\sigma_{\sigma_z(y)}\sigma_{\tau_x(z)},\\
+			\tau_{\tau_z(x)}\tau_{\sigma_x(z)} &=\tau_z\tau_x=\tau_z\tau_y
+			=\tau_{\tau_z(y)}\tau_{\sigma_y(z)}=\tau_{\tau_z(y)}\tau_{\sigma_x(z)}.
+		\end{align*}
+		Hence $\sigma_z(x)\sim\sigma_z(y)$ and $\tau_z(x)\sim\tau_z(y)$. Therefore $\overline{r}$ is well-defined.
+		Note that $x\sim y$ if and only if $i(x)i(y)^{-1}\in\ker\sigma\cap\ker\tau\subseteq G(X,r)$. It follows from Lemma~\ref{lem:Permutation}
+		that $\widehat{\sigma}_z(x)\sim\widehat{\sigma}_z(y)$ and $\widehat{\tau}_z(x)\sim\widehat{\tau}_z(y)$, and so the map
+		$s:\overline{X}^2\to\overline{X}^2$, defined by $s([x],[y])=([\widehat{\sigma}_x(y)],[\widehat{\tau}_y(x)])$ for all $x,y\in X$,	is well-defined. Clearly $s=\overline{r}^{-1}$. It is clear that $\overline{r}$ is a bijective set-theoretic
+	 	solution to the Yang--Baxter equation. We will prove that it is non-degenerate. Define
+		$\sigma_{[x]}\colon\overline{X}\to\overline{X}$ and $\tau_{[x]}\colon \overline{X}\to\overline{X}$
+		by $\sigma_{[x]}([y])=[\sigma_x(y)]$ and $\tau_{[x]}([y])=[\tau_x(y)]$ for all $x,y\in X$.
+		Clearly, in order to prove that $\sigma_{[x]}$ is bijective, it is enough to prove that it is injective (surjectivity
+		of $\sigma_{[x]}$ is an immediate consequence of surjectivity of $\sigma_x$).
+	 	
+		
+		Let $x,y,z\in X$ be elements such that $\sigma_z(x) \sim \sigma_z(y)$. We have that
+		\[x=\sigma_z^{-1}\sigma_z(x)=\widehat{\tau}_{\widehat{\sigma}^{-1}_{\sigma_z(x)}(z)}(\sigma_z(x))
+		\sim\widehat{\tau}_{\widehat{\sigma}^{-1}_{\sigma_z(x)}(z)}(\sigma_z(y))
+		=\widehat{\tau}_{\widehat{\sigma}^{-1}_{\sigma_z(y)}(z)}(\sigma_z(y))=y.\]
+		Hence $\sigma_{[x]}$ is injective and thus it is bijective. Similarly one can prove that
+		$\tau_{[x]}$ is bijective. Hence $\overline{r}$ is non-degenerate, and the result follows.
+	\end{proof}
+
+
+%Let $(X,r)$ be a  solution to the YBE. We 
+%consider over $X$ the relation
+%\[
+%x\sim y\Longleftrightarrow \sigma_x=\sigma_y\text{ and }\tau_x=\tau_y.
+%\]
+%Then $\sim$ is an equivalence relation. 
+%Let $\overline{X}$ be the set of equivalence classes 
+%and $[x]$ 
 %$\overline{x}$ 
-denote the equivalence class of $x$. 
+%denote the equivalence class of $x$. 
 
-\begin{proposition}
-Let $(X,r)$ be a solution. Then $(\overline{X},\overline{r})$, where 
+%\begin{proposition}
+%Let $(X,r)$ be a solution to the YBE. Then $(\overline{X},\overline{r})$, where 
 %$\overline{r}(\overline{x},\overline{y})=(\overline{\sigma_x(y)},\overline{\tau_y(x)})$, 
-\[
-\overline{r}([x],[y])=([\sigma_x(y)],[\tau_y(x)]),
-\]
-is a solution. 
-\end{proposition}
+%\[
+%\overline{r}([x],[y])=([\sigma_x(y)],[\tau_y(x)]),
+%\]
+%is a solution to the YBE. 
+%\end{proposition}
 
-\begin{proof}
-    We first prove that $\overline{r}$ is well-defined. 
-    Let $x,y\in X$ be such that $x\sim y$ and let $z\in X$. Since $(X,r)$ is a solution, 
-    Lemma~\ref{lem:YB} implies that 
-    \[
-    \sigma_{\sigma_x(z)}\circ\sigma_{\sigma_z(x)}=\sigma_x\circ\sigma_z=\sigma_y\circ\sigma_z=\sigma_{\sigma_y(z)}\circ\sigma_{\sigma_z(x)},
-    \]
-    it follows that $\sigma_{\sigma_z(x)}=\sigma_{\sigma_z(y)}$ and hence $\sigma_z(x)\sim\sigma_z(y)$. 
-    Similarly $\tau_{\tau_z(x)}=\tau_{\tau_z(y)}$ and therefore 
-    $\overline{r}$ is well-defined. 
+%\begin{proof}
+%    We define $s\colon \overline{X}\times \overline{X}\to \overline{X}\times \overline{X}$ by $s([x],[y])=([\widehat{\sigma}_x(y)],[\widehat{\tau}_y(x)])$.
+%    We first prove that $\overline{r}$ and $s$ are well-defined. 
+%    Let $x,y,u,v\in X$ be such that $x\sim u$ and $y\sim v$. Let $h\colon G(X,r)\to \mathcal{G}(X,r)$ be the homomorphism of skew braces defined by $h(a)=(\sigma_a,\tau^{-1}_a)$. Note that 
+%    \[ x\sim u \Longleftrightarrow h(i(x))=h(i(u))\]
+%    where $i\colon X\to G(X,r)$ is the natural map. Let $r_G\colon G(X,r)\times G(X,r)\to G(X,r)\times G(X,r)$ be the braiding operator on $G(X,r)$ defined by $r_G(a,b)=(\lambda_a(b),\mu_b(a))$, for all $a,b\in G(X,r)$. We write $r_G^{-1}(a,b)=(\widehat{\lambda}_a(b),\widehat{\mu}_b(a))$ for all $a,b\in G(X,r)$.
+%    Now we have
+%    \begin{align*}
+%        h(i(\sigma_x(y)))=&) h(i(\sigma_u(y)))=h(i(u)i(y)(i(\tau_y(u)))^{-1})\\
+%        =& h(i(u))h(i(y))h(i(\tau_v(u)))^{-1}\\
+%        =& h(i(u))h(i(v))h(i(\tau_v(u)))^{-1}\\
+%        =& h(i(u)i(v)(i(\tau_v(u))^{-1})=h(i(\sigma_u(v)),
+%    \end{align*}
+%    \begin{align*}
+%        h(i(\tau_y(x)))=& h(i(\tau_v(x)))=h((i(\sigma_x(v)))^{-1}i(x)i(v))\\
+%        =& h(i(\sigma_u(v)))^{-1} h(i(x))h(i(v))\\
+%        =& h(i(\sigma_u(v)))^{-1} h(i(u))h(i(v))\\
+%        =& h(i(\sigma_u(v))^{-1}i(u)i(v))=h(i(\tau_v(u)),
+%    \end{align*}
+%    and since $\ker h\subseteq\ker\lambda\cap\ker\mu$,
+%    \begin{align*}
+%        h(i(\widehat{\sigma}_x(y)))=& h(i(\widehat{\sigma}_x(y)))
+%        =h(\widehat{\lambda}_{i(x)}i(y))\\
+%        =& h(\widehat{\lambda}_{i(x)^{-1}}^{-1}i(y))=h(\mu_{\lambda^{-1}_{i(y)}(i(x)^{-1})}i(y))\\
+%        =&h(\mu_{\lambda^{-1}_{i(v)}(i(x)^{-1})}i(y))\\
+%        =&h(\mu_{\lambda_{i(v)^{-1}}(i(x)^{-1})}i(y))\\
+%        =&h(\mu_{i(v)^{-1}i(x){-1}(\mu_{i(x)^{-1}}(i(v)^{-1}))^{-1}}i(y))\\
+%        =&h(\mu_{i(v)^{-1}i(u)^{-1}(\mu_{i(u)^{-1}}(i(v)^{-1}))^{-1}}i(y))\\
+%        =&h(\mu_{\lambda^{-1}_{i(v)}(i(u)^{-1})}i(y))\\
+%        =&h((\lambda_{i(y)}\lambda^{-1}_{i(v)}(i(u)^{-1}))^{-1}i(y)\lambda^{-1}_{i(v)}(i(u)^{-1}))\\
+%        =&h((\lambda_{i(v)}\lambda^{-1}_{i(v)}(i(u)^{-1}))^{-1}i(v)\lambda^{-1}_{i(v)}(i(u)^{-1}))\\
+%        =&h(\mu_{\lambda^{-1}_{i(v)}(i(u)^{-1})}i(v))\\
+%        =& h(\widehat{\lambda}^{-1}_{i(u)^{-1}}i(v))\\
+%        =&h(\widehat{\lambda}_{i(u)}i(v))=h(i(\widehat{\sigma}_u(v)))
+%    \end{align*}
+%    and similarly
+%    \begin{align*}
+%        h(i(\widehat{\tau}_y(x)))=& h(i(\widehat{\tau}_v(u))). 
+%    \end{align*}
+%    
+%    Hence $[\sigma_x(y)]=[\sigma_u(v)]$, $[\tau_y(x)]=[\tau_v(u)]$, $[\widehat{\sigma}_x(y)]=[\widehat{\sigma}_u(v)]$ and $[\widehat{\tau}_y(x)]=[\widehat{\tau}_v(u)]$, and thus $\overline{r}$ and $s$ are well-defined. Furthermore, it is clear that  $\overline{r}s=s\overline{r}=\id$, and hence $\overline{r}$ is bijective.
     
-    We now prove that $\overline{r}$ is invertible. 
-    
-    ...
-\end{proof}
+%    As above, one can check that if $x\sim u$ and $y\sim v$, then
+%    $[\sigma^{-1}_x(y)]=[\sigma^{-1}_u(v)]$ and $[\tau^{-1}_x(y)]=[\tau^{-1}_u(v)]$. Hence the maps $\sigma_{[x]}\colon \overline{X}\to\overline{X}$ and $\tau_{[x]}\colon\overline{X}\to\overline{X}$ defined by
+%    \[ \sigma_{[x]}([y])=[\sigma_x(y)] \quad\text{and}\quad \tau_{[x]}([y])=[\tau_x(y)],\]
+%    for all $x,y\in X$, are bijective and
+%    \[ \sigma^{-1}_{[x]}([y])=[\sigma^{-1}_x(y)] \quad\text{and}\quad \tau^{-1}_{[x]}([y])=[\tau^{-1}_x(y)]\]
+%    for all $x,y\in X$. It is straightforward to check that 
+%    \[\overline{r}_1\overline{r}_2\overline{r}_1=\overline{r}_2\overline{r}_1\overline{r}_2.\]
+%    Hence $(\overline{X},\overline{r})$ is a solution to the YBE.
+%\end{proof}
 
 In the case of involutive solutions, it follows from Proposition~\ref{pro:T} 
-that $\sigma_x=\sigma_y$ if and only if $\tau_x=\tau_y$. 
+that $\sigma_x=\sigma_y$ if and only if $\tau_x=\tau_y$. In particular, if $(X,r)$ is involutive, then
+\begin{align*}\mathcal{G}(X,r) &\cong\langle \sigma_x : x\in X\rangle=\{ \sigma_a : a\in G(X,r)\}\\
+&\cong\{ \lambda_a : a\in G(X,r)\}\cong G(X,r)/\Soc(G(X,r)).
+\end{align*}
 
 \begin{definition}
 \index{Retraction!of a solution}
@@ -81,13 +242,13 @@ We define inductively $\Ret^0(X,r)=(X,r)$, $\Ret^1(X,r)=\Ret(X,r)$ and
 
 \begin{definition}
     \index{Solution!multipermutation}
-    A solution $(X,r)$ is said to be of \emph{multipermutation level} $n$ 
+    A solution $(X,r)$ is said to be {\em multipermutation} solution of \emph{level} $n$ 
     if $n$ is the smallest non-negative integer 
     such that $|\Ret^n(X,r)|=1$. The solution $(X,r)$ is said to be 
     \emph{irretractable} if $\Ret(X,r)=(X,r)$. 
 \end{definition}
 
-The trivial solution over the set with one element is a multipermutation of level zero. 
+The trivial solution over the set with one element is a multipermutation solution of level zero. 
 Permutation solutions are multipermutation solutions of level one. 
 
 \begin{example}
@@ -133,9 +294,10 @@ irretractable & & 6 & 24 & 98 & 514 & 2659 & 17370\tabularnewline
 %[ 422449480, 416725250, 17370, 1069 ]
 
 
+
 \begin{theorem}
 \label{thm:CJKAV}
-    Let $(X,r)$ be a finite multipermutation solution. If $|X|>1$, then $r$ has even order. 
+    Let $(X,r)$ be a finite multipermutation solution to the YBE. If $|X|>1$, then $r$ has even order. 
 \end{theorem}
 
 \begin{proof}
@@ -153,13 +315,13 @@ irretractable & & 6 & 24 & 98 & 514 & 2659 & 17370\tabularnewline
     implies that $x=y$ because $\sigma^{k+1}\tau^k$ is a permutation, a contradiction. 
 \end{proof}
 
-The connection between the socle of a brace and the 
+The connection between the socle of a skew brace and the 
 retract of a solution was discovered by Rump in the case of 
-involutive solutions and braces of abelian type, see~\cite{MR2278047}. 
+involutive solutions and skew braces of abelian type, see~\cite{MR2278047}. 
 
 \begin{proposition}
 \label{pro:add_cyclic}
-Let $A$ be a brace and $(A,r)$ be its associated solution. 
+Let $A$ be a skew brace and $(A,r)$ be its associated solution. 
 Then the retraction $\Ret(A,r)$ is the canonical solution associated with the quotient brace $A/\Soc(A)$. 
 \end{proposition}
 
@@ -174,7 +336,7 @@ Then the retraction $\Ret(A,r)$ is the canonical solution associated with the qu
     \end{align*}
     by Proposition~\ref{pro:soc_kernels}. This means that 
     $[a]=[b]$ if and only if $\pi(a)=\pi(b)$, where $\pi\colon A\to A/\Soc(A)$, $x\mapsto x\circ\Soc(A)$,  
-    is the canonical brace homomorphism. Moreover, $A/\Soc(A)=\overline{A}$ as sets. 
+    is the canonical skew brace homomorphism. Moreover, $A/\Soc(A)=\overline{A}$ as sets. 
     Now we compute the retraction of $(A,r)$:
     \begin{align*}
         \overline{r}([a],[b]) &= ([\lambda_a(b)],[\mu_b(a)])
@@ -182,44 +344,62 @@ Then the retraction $\Ret(A,r)$ is the canonical solution associated with the qu
         &=\left(\lambda_{\pi(a)}(\pi(b)),\mu_{\pi(b)}(\pi(a))\right)
         =\left(\lambda_{[a]}([b]),\mu_{[b]}([a])\right).
     \end{align*}
-    Therefore $\Ret(A,r)=(A/\Soc(A),\overline{r})$. 
+    Therefore $\Ret(A,r)=(A/\Soc(A),\overline{r})$, and the result follows. 
 \end{proof}
 
-Now...
+Note that a skew brace $A$ has finite multipermutation level (see Definition \ref{def:bracempl}) if and only if its associated solution $(A,r_A)$ is a multipermutation solution.
 
 \begin{proposition}
-\label{pro:mpl}
-Let $(X,r)$ and $(Y,s)$ be solutions. Each surjective homomorphism 
-of solutions $f\colon (X,r)\to (Y,s)$ 
-induces a surjective homomorphism 
-of solutions $\Ret(X,r)\to\Ret(Y,s)$. 
+\label{pro:bracefinmpl}
+Let $A$ be a skew brace of nilpotent type. Then its associated solution $(A,r_A)$ is a multipermutation solution if and only if $A$ is right nilpotent.
 \end{proposition}
 
 \begin{proof}
-Write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $s(x,y)=(\lambda_x(y),\mu_y(x))$. 
-Let $x,x_1\in X$ be such that $x\sim x_1$. If $z\in X$, then 
+This follows by Theorem \ref{thm:mpl&right_nilpotent}.
+\end{proof}
+
+\section{Multipermutation solutions}
+
+In this section we study some properties of multipermutation solutions and its structure group.
+
+\begin{proposition}
+\label{pro:mpl}
+Let $(X,r)$ and $(Y,s)$ be solutions to the YBE. Each surjective homomorphism 
+of solutions $f\colon (X,r)\to (Y,s)$ 
+induces a surjective homomorphism 
+of solutions $\Ret(X,r)\to\Ret(Y,s)$. In particular, if $(X,r)$ is a multipermutation solution of level $m$ and $(Y,s)$ is an homomorphic image of $(X,r)$, then $(Y,s)$ is a multipermutation solution of level $\leq m$. 
+\end{proposition}
+
+\begin{proof}
+Write $r(x,y)=(\sigma_x(y),\tau_y(x))$ and $s(z,t)=(\sigma'_z(t),\tau'_t(z))$. 
+Let $x,x_1\in X$ be such that $x\sim x_1$. If $y\in X$, then 
 \[
-\lambda_{f(x)}f(z)=f(\sigma_x(z))=f(\sigma_{x_1}(z))=\lambda_{f(x_1)}f(z).
+\sigma'_{f(x)}f(y)=f(\sigma_x(y))=f(\sigma_{x_1}(y))=\sigma'_{f(x_1)}f(y).
 \]
-Since $f$ is surjective, it follows that $\lambda_{f(x)}=\lambda_{f(x_1)}$. A similar calculation proves 
-that $\mu_{f(x)}=\mu_{f(x_1)}$. If $\pi\colon (Y,s)\to\Ret(Y,r)$, $y\mapsto [y]$, is the canonical map, 
-the composition $\pi\circ f\colon (X,r)\to\Ret(Y,s)$ is a surjective homomorphism of solutions. Therefore 
+Since $f$ is surjective, it follows that $\sigma'_{f(x)}=\sigma'_{f(x_1)}$. A similar calculation proves 
+that $\tau'_{f(x)}=\tau'_{f(x_1)}$. If $\pi\colon (Y,s)\to\Ret(Y,r)$, $y\mapsto [y]$, is the canonical map, 
+the composition $\pi f\colon (X,r)\to\Ret(Y,s)$ is a surjective homomorphism of solutions. Therefore 
 the map $\Ret(X,r)\to\Ret(Y,s)$, $[x]\mapsto\pi(f(x))$, is then a well-defined surjective
-homomorphism of solutions. 
+homomorphism of solutions. This proves the first part of the result. The second part follows easily from the first part and induction on $m$.
 \end{proof}
 
 \begin{proposition}
 \label{pro:mpl_subsol}
-Let $(X,r)$ be a solution of finite multipermutation level $m$ 
+Let $(X,r)$ be a solution to the YBE of finite multipermutation level $m$ 
 and $Y\subseteq X$ be such that $r(Y\times Y)\subseteq Y\times Y$. 
-Then the \emph{subsolution} $(Y,r|_{Y\times Y})$ is of finite multipermutation level $\leq m$. 
+Then the \emph{subsolution} $(Y,r|_{Y\times Y})$ is of finite multipermutation level $\leq m$.  
 \end{proposition}
 
 \begin{proof}
-
+We shall prove the result by induction on $m$. For $m=0$, $|X|=1$ and thus $Y=X$ and the result holds in this case. 
+Suppose that $m\geq 1$ and that the result holds for all solutions to the YBE of multipermutation level $<m$.
+Let $\Ret(X,r)=(\overline{X},\overline{r})$. Let $\pi\colon (X,r)\to\Ret(X,r)$ be the natural map. Clearly $(\pi(Y), \overline{r}|_{\pi(Y)^{2}})$ is a subsolution of $\Ret(X,r)$. Since $\Ret(X,r)$ has multipermutaion level $m-1$, 
+by the inductive hypothesis, $(\pi(Y), \overline{r}|_{\pi(Y)^{2}})$ has multipermutation level $\leq m-1$.  Let $\sim_X$ be the retract relation on $X$ and $\sim_Y$ the retract relation on $Y$. For $y\in Y$, we denote by $[y]_X$ the $\sim_X$-class of $y$ and by $[y]_Y$ the $\sim_Y$-class of $y$, i.e.
+\[ [y]_X=\{ x\in X : x\sim_X y\}\quad \text{and}\quad [y]_Y=\{ z\in Y :z\sim_Y y\}.\]
+Note that if $x,y\in Y$ and $x\sim_X y$, then $x\sim_Y y$. Thus the map $f\colon (\pi(Y),\overline{r}|_{\pi(Y)^2})\to\Ret(Y,r|_{Y^2})$, defined by $f([y]_X)=[y]_Y$ for all $y\in Y$, is a surjective homomorphism of solutions. By Proposition \ref{pro:mpl}, $\Ret(Y,r|_{y^2})$ has multipermutation level $\leq m-1$. Hence $(Y,r|_{Y^2})$ has multipermutation level $\leq m$ and the result follows by induction. 
 \end{proof}
 
-\begin{theorem}
+\begin{theorem}\label{thm:multiG}
 Let $(X,r)$ be a solution. The following statements are equivalent:
 \begin{enumerate}
     \item $(X,r)$ has finite multipermutation level.
@@ -233,21 +413,44 @@ Let $(X,r)$ be a solution. The following statements are equivalent:
 \begin{proof}
     Let us first prove that (2) implies (1). 
     The map $X\to\mathcal{G}(X,r)$, $x\mapsto(\lambda_x,\mu_x^{-1})$, is a homomorphism of solutions that induces
-    an injective homomorphism of solutions $\Ret(X,r)\to\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$. 
+    an injective homomorphism of solutions $j\colon\Ret(X,r)\to\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$. 
     Since $\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$ has finite multipermutation level,
     $(X,r)$ has finite multipermutation level by Proposition~\ref{pro:mpl_subsol}.
     
     Let us now prove that (3) implies (2). The canonical map $G(X,r)\to\mathcal{G}(X,r)$ yields a surjective
     homomorphism of solutions. Then Proposition~\ref{pro:mpl} applies. 
 
-    ...
+    Finally we shall prove that (1) implies (3). In fact, we shall prove that if $(X,r)$ is a multipermutation solution to the YBE of level $m$, then $(G(X,r),r_{G(X,r)})$ is a multipermutation solution of level $\leq m+1$, by induction on $m$. For $m=0$, we have that $|X|=1$ and $G(X,r)$ is the trivial skew brace of abelian type $(\Z,+)$. Hence $\left(G(X,r),r_{G(X,r)}\right)$ has multipermutation level $1$ in this case. Suppose that $m\geq 1$ and $\left(G(Y,s),r_{G(Y,s)}\right)$ has finite multipermutation level $\leq k+1$ for every multipermutation solution $(Y,s)$ to the YBE of level $k<m$. By the inductive hypothesis, $\left(G(\Ret(X,r)),r_{G(\Ret(X,r))}\right)$ has finite multipermutation level $\leq m$. By Lemmas \ref{lem:Kerh} and \ref{lem:kerhideal}, there exists a surjective homomorphism of skew braces $\pi\colon \mathcal{G}(X,r)\to G(X,r)/\Soc(G(X,r))$. By Proposition \ref{pro:add_cyclic}, $\Ret(G(X,r),r_{G(X,r)})=\left( G(X,r)/\Soc(G(X,r)),r_{G(X,r)/\Soc(G(X,r))}\right)$. Hence $\pi$ also is a surjective homomorphism of solutions
+    \[ \pi\colon \left(\mathcal{G}(X,r), r_{\mathcal{G}(X,r)}\right)\to \Ret(G(X,r)).\]
+    By Theorem \ref{thm:LYZ9}, the injective homomorphism of solutions $j\colon\Ret(X,r)\to\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$ induces a homomorphism of braided groups \[\varphi\colon \left(G(\Ret(X,r)),r_{G(\Ret(X,r))}\right)\to \left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right),\] such that $\varphi i([x])=j([x])=(\sigma_x,\tau^{-1}_x)$ for all $x\in X$, where \[i\colon \Ret(X,r)\to G(\Ret(X,r))\] is the natural map. Clearly $\varphi$ is surjective and thus,
+    $\pi\varphi$ is a surjective homomorphism of solutions. Since $\left(G(\Ret(X,r)),r_{G(\Ret(X,r))}\right)$ has finite multipermutation level $\leq m$, by Proposition \ref{pro:mpl}, $\Ret(G(X,r))$ has finite multipermutation level $\leq m$. Hence $\left(G(X,r),r_{G(X,r)}\right)$ has finite multipermutation level $\leq m+1$. Therefore the result follows by induction.
+    \end{proof}
+    
+\begin{proposition}\label{pro:multiperbrace}
+Let $B$ be a skew brace such that its associated solution $(B,r_B)$ to the YBE has finite multipermutation level $m$.
+Then $(B,\circ)$ is solvable of derived length $\leq m$ and $(B,+)$ is nilpotent of nilpotency class $\leq m$.
+\end{proposition}
+
+\begin{proof}
+By Proposition \ref{pro:add_cyclic}, $\Ret(B,r_B)=(B/\Soc(B),r_{B/\Soc(B)})$. Since $\Soc(B)$ is a trivial skew brace an $(\Soc(B),+)$ is central in $(B,+)$, the result follows easily by induction on $m$.
+\end{proof}    
+An easy consequence of the proof of Theorem \ref{thm:multiG} and Proposition \ref{pro:multiperbrace} is the following result.
+
+\begin{theorem}
+    Let $(X,r)$ be a multipermutation solution to the YBE of level $m$. Then the multiplicative group of the skew brace $G(X,r)$ is solvable of derived legnth $\leq m+1$ and $(G(X,r),+)$ is nilpotent of nilpotency class $\leq m+1$.
+\end{theorem}
+
+\begin{proof}
+  By the proof of Theorem \ref{thm:multiG}, $\left( G(X,r),r_{G(X,r)}\right)$ is a multipermutation solution of level $\leq m+1$. The result follows by Proposition \ref{pro:multiperbrace}.
 \end{proof}
+
+\section{Finite multipermutation solutions} 
 
 The following result appeared in~\cite{MR1722951}.
 
 \begin{proposition}
-Let $(X,r)$ be a finite involutive solution. If the additive group 
-of the brace $\mathcal{G}(X,r)$ is cyclic, then $(X,r)$ 
+Let $(X,r)$ be a finite involutive solution to the YBE. If the additive group 
+of the skew brace $\mathcal{G}(X,r)$ is cyclic, then $(X,r)$ 
 is multipermutation.
 \end{proposition}
 
@@ -276,14 +479,14 @@ The converse of the previous proposition does not hold.
 		\varphi_4=(12)(34).
  	\]
 	Then $(X,r)$ is an involutive multipermutation solution. One easily checks
-	that $\mathcal{G}(X,r)\simeq C_2\times C_2$.
+	that $\mathcal{G}(X,r)\cong C_2\times C_2$.
 \end{example}
 
 A similar idea proves the following result:
 
 \begin{theorem}
 \label{thm:mul_cyclic}
-Let $(X,r)$ be a finite involutive solution. If the multiplicative group 
+Let $(X,r)$ be a finite involutive solution to the YBE. If the multiplicative group 
 of the brace $\mathcal{G}(X,r)$ is cyclic, then $(X,r)$ 
 is multipermutation.
 \end{theorem}
@@ -328,8 +531,7 @@ $(A,r_A)$ is an involutive multipermutation solution.
 \end{proposition}
 
 \begin{proof}
-Let $A$ be a counterexample of minimal size. This means that $\Soc(A)=\{0\}$ 
-and all two-sided braces of abelian type of size $<|A|$ have non-trivial socle. 
+Let $A$ be a counterexample of minimal size. This means that $\Soc(A)=\{0\}$. 
 Since $A$ is finite, there exists a non-zero minimal left ideal $I$ of $A$.
 Recall that $A$ is a radical ring with product $a*b=\lambda_a(b)-b$. 
 Since $A$ is a radical ring, $A$ is a nil ring, which implies by 
@@ -338,52 +540,86 @@ then $x\in\Soc(A)$, as $0=x*a=\lambda_x(a)-a$ for all $a\in A$.
 In particular, $\Soc(A)\ne\{0\}$, a contradiction. 
 \end{proof}
 
-Proposition~\ref{pro:radical} has a nice application. The results appeared first in~\cite{MR2652212}. 
-The proof presented here is from~\cite{MR3177933}. 
+Proposition~\ref{pro:radical} has a nice application. The results appeared first in~\cite{MR3177933}. 
 
 \begin{theorem}
 \label{thm:CJO_abelian}
-    Let $(X,r)$ be a finite involutive solution. If the multiplicative group of the brace 
+    Let $(X,r)$ be a finite involutive solution to the YBE. If the multiplicative group of the skew brace 
     $\mathcal{G}(X,r)$ is abelian, then $(X,r)$ is multipermutation. 
 \end{theorem}
 
 \begin{proof}
-    
+    Note that $(\mathcal{G}(X,r), +,*)$ is a finite radical ring. By Proposition~\ref{pro:radical}, $\mathcal{G}(X,r)$  either is zero or has non-zero socle. By Proposition \ref{pro:add_cyclic}, it follows easily that     
+    $\left(\mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$ is a multipermutation solution. Therefore, the result follows by Theorem \ref{thm:multiG}.
 \end{proof}
 
 
 
-In~\cite{MR2095675}, Gateva--Ivanova conjectured that finite involutive 
-square-free solutions are retractable.
+%In~\cite{MR2095675}, Gateva--Ivanova conjectured that finite involutive 
+%square-free solutions are retractable.
 
 
-In~\cite{MR3861714} Gateva--Ivanova asked when...
+%In~\cite{MR3861714} Gateva--Ivanova asked when...
 
-Right nilpotency...
+%Right nilpotency...
 
-The following theorem characterizes multipermutation involutive solutions in 
-terms of left orderability of groups. A group $G$ is said to be 
-\emph{left ordered} if it admits a total ordering $<$ such that 
-\[
-x<y\implies zx<zy
-\]
-for all $x,y,z\in G$. Torsion-free abelian groups, 
-free groups and braid groups are left ordered groups. 
-See~\cite{MR3560661} for more information on ordered groups. 
+The following theorem characterizes finite multipermutation involutive solutions to the YBE in 
+terms of its structure group. 
+
+%A group $G$ is said to be 
+%\emph{left ordered} if it admits a total ordering $<$ such that 
+%\[
+%x<y\implies zx<zy
+%\]
+%for all $x,y,z\in G$. Torsion-free abelian groups, 
+%free groups and braid groups are left ordered groups. 
+%See~\cite{MR3560661} for more information on ordered groups. 
 
  \begin{theorem}
 \label{thm:BCV}
-	Let $(X,r)$ be a finite involutive solution. The following statements are equivalent:
+	Let $(X,r)$ be a finite involutive solution to the YBE. The following statements are equivalent:
 	\begin{enumerate}
 		\item $(X,r)$ is a multipermutation solution.
+		\item Every non-trivial subgroup of $G(X,r)$ has non-trivial center.
 		\item $G(X,r)$ is poly-$\Z$.
 		\item $G(X,r)$ is left orderable.
+		\item $G(X,r)$ is locally incicable.
 		\item $G(X,r)$ is diffuse.
 	\end{enumerate}
 \end{theorem}
 
 \begin{proof}
+Let $G=G(X,r)$ and $\mathcal{G}=\mathcal{G}(X,r)$. By Theorem \ref{thm:finiteinvol}, $G$ is a Bieberbach group.
+By Theorem \ref{thm:leftorderedBieberbach}, the statemens (2)-(6) are equivalent.
 
+$(1)\implies (3).$ Suppose that $(X,r)$ has multipermutation level $m$. We shall prove (3) by induction on $m$. For $m=0$, $G\cong \Z$ and thus (3) holds. Suppose that $m\geq 1$ and that $G(Y,s)$ is poly-$\Z$ for every finite involutive solution $(Y,s)$ to the YBE of multipermutation level $<m$. Hence, by the inductive hypothesis $G(\Ret(X,r))$ is poly-$\Z$. 
+Let $\pi \colon X\to\overline{X}$ be the map defined by $f(x)=[x]$ for all $x\in X$, where $\Ret(X,r)=(\overline{X},\overline{r})$.
+By Theorem \ref{thm:GVbraces}, there is a unique homomorphism of skew braces $\overline{f}\colon G\to G(\overline{X}.\overline{r})$ such that $\overline{f}(x)=[x]$ for all $x\in X$. Clearly $\overline{f}$ is surjective.
+Note that $xy^{-1}\in\ker\overline{f}$ for all $x,y\in X$ such that $\sigma_x=\sigma_y$, and in this case $\lambda_x=\lambda_y$.
+Hence $\{ xy^{-1} : x,y\in X \text{ and }[x]=[y]\}\subseteq\Soc(G)$. Let $I$ be the ideal of $G$ generated by $\{xy^{-1} : x,y\in X \text{ and }[x]=[y]\}$. Let $\pi\colon G\to G/I$ be the natural map. Since $I\subseteq \ker\overline{f}$, there exists a homomorphism of skew braces $\tilde{f}\colon G/I\to G(\overline{X},\overline{r})$ such that $\overline{f}=\tilde{f}\pi$. Note also that the map $\overline{X}\to G/I$ defined by $[x]\mapsto xI$ is a homomorphism of solutions $(\overline{X},\overline{r})\to (G/I,r_{G/I})$. By Theorem \ref{thm:GVbraces}, there exists a unique homomorphism of skew braces $g\colon G(\overline{X},\overline{r})\to G/I$ such that $g([x])=xI$ for all $x\in X$. Since $\tilde{f}(xI)=[x]$ for all $x\in X$, we have that $g$ is bijective and $g^{-1}=\tilde{f}$. 
+Since $I\subseteq\Soc(G)$ and $\Soc(G)$ is a finitely generated free abelian group, $I$ also is a finitely generated free abelian group. Hence $G$ is poly-$\Z$. Therefore (3) holds by induction.
+
+$(2)\implies (1).$ Assume that $(X,r)$ is not a multipermutation solution. By Theorem \ref{thm:multiG}, $(G,r_G)$ and $(\mathcal{G},r_{\mathcal{G}})$ are not multipermutation solutions. Since $G$ and $\mathcal{G}$ are skew braces of abelian type, by Proposition \ref{pro:bracefinmpl},
+the skew braces $G$ and $\mathcal{G}$ are not right nilpotent, i.e. $G^{(n)}\neq\{ 0\}$ and $\mathcal{G}^{(n)}\neq\{0\}$ for all positive integer $n$. Since $\mathcal{G}$ is finite, there exists a positive integer $n$ such that $\mathcal{G}^{(n+1)}=\mathcal{G}^{(n)}\neq \{0\}$. Let $H=G^{n+1}$. We shall prove that $H$ has trivial center. Let $z\in Z(H)$. Since $\Soc(G)$ has finite index in $G$ and $G$ is torsion free, without loss of generality we may assume that $z\in \Soc(G)$. Notice that if $h\in H$, then
+\begin{equation}\label{eq:BCV1}
+\lambda_h(z)=-h+hz=zh-h=z+h-h=z.
+\end{equation}
+Let $X_1,\dots ,X_k$ be the orbits of $X$ under the action of $\mathcal{G}^{(n)}$. These are the orbits of $X$ under the action of $G^{(n)}$ though the map $\lambda$. By Theorem \ref{thm:involstruct}, $(G,+)$ is free abelian with basis $X$. Hence the element $z$ can be uniquely written as
+\[ z=z_1+\dots +z_k,\]
+where each $z_i\in \langle X_i\rangle_+$. From the uniqueness of the decomposition of $z$ and (\ref{eq:BCV1}), one obtains that $\lambda_h(z_i)=z_i$ for all $i\in \{ 1,\dots ,k\}$ and $h\in H$. Now we write each $z_i$ as
+\[ z_i=\sum_{t\in X_i}n_tt,\]
+where $n_t\in\Z$. Note that
+\begin{align*}
+    H=G^{(n+1)}&=G^{(n)}*G=\langle a*b : a\in G^{(n)}, \, b\in G\rangle_+\\
+    &=\langle \lambda_a(b)-b : a\in G^{(n)}, \, b\in G\rangle_+\\
+    &=\langle \lambda_a(x)-x : a\in G^{(n)}, \, x\in X\rangle_+\\
+    &=\langle y-x : x,y\in X_i, \, i\in \{1,\dots ,k\}\rangle_+.
+\end{align*}
+Hence $\sum_{t\in X_i}n_t=0$ for all $i\in\{ 1,\dots ,k\}$. Let $x,y\in X_i$. Then there exists $g\in G^{(n)}$ such that $\lambda_g(x)=y$. From $\mathcal{G}^{(n+1)}=\mathcal{G}^{(n)}$ it follows that
+\[ G^{(n)}=G^{(n+1)}+(\Soc(G)\cap G^{(n)})=H+(\Soc(G)\cap G^{(n)}).\]
+Thus $g=g_1+g_2$, where $g_1\in H$ and $g_2\in \Soc(G)\cap G^{(n)}$. Since $g_2\in\Soc(G)$, $g=g_2g_1$. Therefore
+\[ y=\lambda_g(x)=\lambda_{g_2g_1}(x)=\lambda_{g_2}\lambda_{g_1}(x)=\lambda_{g_1}(x).\]
+Since $z_i=\lambda_{g_1}(z_i)=\sum_{t\in X_i}n_t\lambda_{g_1}(t)$, we conclude that $n_x=n_y$. Hence $n_x=n_y$ for all $x,y\in X_i$. Since $\sum_{t\in X_i}n_t=0$, it follows that $n_t=0$ for all $t\in X_i$ and all $i\in \{ 1,\dots ,k\}$. Therefore $z=0=1$ and the result follows.
 \end{proof}
 
 \index{Group!with the unique product property}
@@ -478,7 +714,7 @@ multipermutation solution, then $G(X,r)$ has the unique product property since $
 \begin{theorem}
 \label{thm:CJO_mp}
     Let $A$ be a finite brace of abelian type with multiplicative group $G$. Then there exists a finite solution $(X,r)$ 
-    such that $\Ret(X,r)$ is isomorphic to $(A,r_A)$ and $\mathcal{G}(X,r)\simeq G$.
+    such that $\Ret(X,r)$ is isomorphic to $(A,r_A)$ and $\mathcal{G}(X,r)\cong G$.
 \end{theorem}
 
 \begin{proof}
@@ -596,12 +832,16 @@ multipermutation solution, then $G(X,r)$ has the unique product property since $
 
 \end{proof}
 
-\section*{Exercises}
+\section{Exercises}
 
 \begin{prob}
 \label{prob:bounded_mpl}
     Let $(X,r)$ be a solution of finite multipermutation level $m$. Prove that any homomorphic image of $(X,r)$ 
     is a solution of finite multipermutation level $\leq m$. 
+\end{prob}
+
+\begin{prob}\label{prob:CJKVV}
+    Let $(X,r)$ be a solution to the YBE. We say that $(X,r)$ is square-free if $r(x,x)=(x,x)$ for all $x\in X$. Suppose that $(X,r)$ is a square-free multipermutation solution of level $m>0$. Prove that $\left( \mathcal{G}(X,r),r_{\mathcal{G}(X,r)}\right)$ has multipermutation level $m-1$ and $\left( G(X,r),r_{G(X,r)}\right)$ has multipermutation level $\leq m$.
 \end{prob}
 
 \begin{prob}
@@ -625,33 +865,41 @@ multipermutation solution, then $G(X,r)$ has the unique product property since $
 	does not have the unique product property.
 \end{prob}
 
-\section*{Open problems}
+\section{Open problems}
+
+\begin{problem}\label{openprob:LV}
+    Let $(X,r)$ be a finite involutive solution to the YBE such that $G(X,r)$ has the unique product property. Is $(X,r)$ a multipermutation solution?
+\end{problem}
 
 \begin{problem}
     Does the group $G(X,r)$...
     A linear representation of this group is...
 \end{problem}
 
-\section*{Notes}
+\section{Notes}
 
 Multipermutation involutive solutions were introduced in~\cite{MR1722951}. 
-The notion was extended to the non-involutive case in~\cite{MR3974961}. 
+The notion was extended to the finite non-involutive case in~\cite{MR3974961}, and to the general case in~\cite{MR4457900}.
 
 % \index{Ced\'o, F.}
 % \index{Jespers, E.}
 % \index{Van Antwerpen, A.}
 % \index{Kubat, \L.}
 % \index{Verwimp, C.}
-Theorem~\ref{thm:CJKAV} was proved in... %by Ced\'o, Jespers, Kubat, van Antwerpen and Verwimp. 
+Theorem~\ref{thm:CJKAV} was proved for the associated solution to finite skew braces in \cite{MR3763907} and the general case in \cite{MR4457900}. %by Ced\'o, Jespers, Kubat, van Antwerpen and Verwimp. 
 
-Proposition~\ref{pro:mpl} was proved in~\cite{MR3177933} 
-for involutive solutions. The general case goes back to... 
+Proposition~\ref{pro:mpl} and Lemma \ref{pro:mpl_subsol} were proved in~\cite{MR3177933} 
+for involutive solutions. The general case goes back to \cite{MR4457900}. 
 
-Theorem~\ref{thm:BCV} combines several results. The implication... 
+Theorem~\ref{thm:BCV} combines several results. The implication $(1)\implies (3)$ was proved in \cite{MR2189580}. The implication $(1)\implies (4)$ was proved in \cite{MR3572046}. The implication $(3)\implies (1)$ was proved in \cite{MR3815290}. 
 
 Theorem~\ref{thm:CJO_mp} appears in~\cite{MR3177933}. 
 
 Non-involutive multipermutation solutions...
 
 The set~\eqref{eq:Promislow} appears in the work of Promislow~\cite{MR940281}.
+
+Exercise \ref{prob:CJKVV} appears in \cite{MR4457900}. 
 Exercise~\ref{prob:4-13} appears in the book of Jespers and Okni\'nski, see~\cite[Example 8.2.14]{MR2301033}. 
+
+Open problem \ref{openprob:LV} appears in \cite{MR3974961}.

@@ -1,12 +1,14 @@
 \chapter{Solvable groups}
 \label{solvable}
 
+%In this chapter we develop the basic definitions and results on solvable groups to prove the classical results of P. Hall. 
 
 
-
-\section*{Derived series}
+\section{Derived series}
 
 \index{Derived!series}
+\index{Group!solvable}
+\index{Group!simple}
 For a group $G$ we define 
 \[
 		G^{(0)}=G,\quad
@@ -18,12 +20,12 @@ G=G^{(0)}\supseteq G^{(1)}\supseteq G^{(2)}\supseteq\cdots
 \]
 Each $G^{(i)}$ is a characteristic subgroup of $G$. We say that 
 $G$ is {\em solvable} if $G^{(n)}=\{1\}$ for some  $n\in\N$. Clearly every abelian group
-is solvable. A non-trivial group $G$ is said to be simple if $\{ 1\}$ and $G$ are the only normal subgroups of $G$. Note that a non-abelian simple group cannot be solvable. Nilpotent groups
+is solvable. A non-trivial group $G$ is said to be {\em simple} if $\{ 1\}$ and $G$ are the only normal subgroups of $G$. Note that a non-abelian simple group cannot be solvable. Nilpotent groups
 are solvable.
 
 
 \index{Elementary abelian $p$-group}
-Let $p$ be a prime number. An {\em elementary abelian} $p$-group is a $p$-group 
+Let $p$ be a prime number. An {\em elementary abelian} $p$-group is \textcolor{red}{an abelian} $p$-group 
 $P$ such that $x^p=1$ for all $x\in P$.
 %A subgroup $M$ of a group $G$ is said to be {\em minimal normal} if $M\ne\{1\}$,
 %$M$ is normal in $G$ and the unique normal subgroup of $G$ strictly contained in $M$ is
@@ -55,7 +57,7 @@ $P$ such that $x^p=1$ for all $x\in P$.
 	Since $M$ is solvable, $[M,M]\subsetneq M$. Moreover, $[M,M]$ is normal in $G$, as 
     $[M,M]$ is characteristic in $M$ and $M$ is normal in $G$. Since $M$ is minimal normal, 
     it follows that $[M,M]=\{1\}$ and hence $M$ is abelian. 
-	Now, {\bf since} $M$ is finite, there exists a prime number $p$ such that 
+	Now,  since $M$ is finite, there exists a prime number $p$ such that 
 	$P=\{x\in M:x^p=1\}$ is a non-trivial subgroup of $M$.  
 	Since $P$ is characteristic in $M$, the subgroup
 	$P$ is normal in $G$. Thus $P=M$. 
@@ -93,7 +95,7 @@ $P$ such that $x^p=1$ for all $x\in P$.
 	and hence $G$ is solvable.  
 
 	Let us now assume that $G$ is solvable. There exists $n\in\N$ such that $G^{(n)}=\{1\}$.
-	Thus $Q$ is solvable, as $Q^{n}=\pi (G^{(n)})=\pi(\{1\})=\{1\}$. The group $K$ also is 
+	Thus $Q$ is solvable, as $\textcolor{red}{Q^{(n)}}=\pi (G^{(n)})=\pi(\{1\})=\{1\}$. The group $K$ also is 
 	solvable, as it is a subgroup of $G$. 
 \end{proof}
 
@@ -156,7 +158,7 @@ $P$ such that $x^p=1$ for all $x\in P$.
 %	pues $G_{i-1}/G_i$ es abeliano, $G^{(n)}=1$.
 %\end{svgraybox}
 
-\section*{Burnside's theorem}
+\section{Burnside's theorem}
 
 In this section we shall prove an important theorem of Burnside, which says that every finite group of order $p^nq^m$, for some primes $p,q$ and positive integers $m,n$, is solvable. For its proof, we shall introduce some results of representation theory and integral extensions. 
 
@@ -178,9 +180,10 @@ where
 for all $x\in G$. One can easily check that the $K$-vector space $K[G]$ with this multiplication is a $K$-algebra. Note that the unit-element $1_G$ of $G$ is the unit-element of the ring $(K[G],+,\cdot)$. The map $K\to K[G]:\alpha\mapsto \alpha 1_G$ is an injective ring homomorphism, and we will identify the elements $\alpha\in K$ with $\alpha 1_G\in K[G]$, thus $K\subseteq K[G]$. We will denote the unit-element of $K[G]$ by $1$.
 
 \begin{definition}\index{Representation}
+\index{Representation!faithful}
 A {\em (linear) representation} of a group $G$ over a field $K$ is a group homomorphism 
 \[\rho\colon G\rightarrow \Aut(V),\]
-Where $V$ is a $K$-vector space. If $\dim(V)=n<\infty$, then we say that $\rho$ has degree $n$. It is said that $\rho$ is faithful if $\ker(\rho)=\{ 1\}$.
+Where $V$ is a $K$-vector space. If $\dim(V)=n<\infty$, then we say that $\rho$ has degree $n$. It is said that $\rho$ is {\em faithful} if $\ker(\rho)=\{ 1\}$.
 \end{definition}
 
 Let $\rho\colon G\rightarrow\Aut(V)$ be a representation of a group $G$ over a field $K$ of finite degree $n$. 
@@ -199,7 +202,7 @@ Given a representation $\rho\colon G\rightarrow \Aut(V)$ of a group $G$ over a f
 \[\widehat{\rho}\colon K[G]\rightarrow \End_K(V),\]
 by $\widehat{\rho}\left(\sum_{x\in G}a_xx\right)=\sum_{x\in G}a_x\rho(x)$, for all $\sum_{x\in G}a_xx\in K[G]$. Note that
 $\widehat{\rho}$ is a ring homomorphism. We define on $V$ a multiplication by elements of $K[G]$ by
-\[ \left(\sum_{x\in G}a_xx\right)\cdot v:=\sum_{x\in G}a_x\rho(x)(v),\]
+\[ \left(\sum_{x\in G}a_xx\right)\cdot v:=\sum_{x\in G}a_x\rho(x)(v)\]
 for all $\sum_{x\in G}a_xx\in K[G]$ and $v\in V$. One can check that $V$ with the sum and this product by elements of $K[G]$ is a $K[G]$-module. This is the $K[G]$-module corresponding to the representation $\rho$.
 
 Conversely, if $W$ is a $K[G]$-module, then $W$ also is a $K$-vector space, and the map $\rho\colon G\rightarrow\Aut_K(W)$, 
@@ -215,32 +218,32 @@ Let $G$ be a group and $K$ a field. Let $M_1,M_2$ be isomorphic $K[G]$-modules o
     Let $f: M_1\rightarrow M_2$ be an isomorphism of $K[G]$-modules. Then
     \[ \rho_2(g)(f(m))=gf(m)=f(gm)=f(\rho_1(g)(m)),\]
     for all $g\in G$ and $m\in M_1$. Hence
-    \[ \rho_2(g)=f\circ \rho_1(g)\circ f^{-1}.\]
+    \[ \rho_2(g)=\textcolor{red}{f \rho_1(g) f^{-1}}.\]
     Therefore $\chi_2(g)=\chi_1(g)$, and the result follows.
 \end{proof}
  
 \index{Representation!irreducible} 
 \begin{definition}
-A representation of a group $G$ over a field $K$ is said to be irreducible if its corresponding $K[G]$-module is simple.
+A representation of a group $G$ over a field $K$ is said to be {\em irreducible} if its corresponding $K[G]$-module is simple.
 \end{definition}
 
-\index{Module!semisimple}
-\begin{definition}
-Let $R$ be a ring. An $R$-module is {\em semisimple} if it is a direct sum of simple submodules. We say that $R$ is (left) semisimple is $R$ is semisimple as (left) $R$-module, that is if $R$ is the direct sum of minimal nonzero left ideals. 
-\end{definition}
+%\index{Module!semisimple}
+%\begin{definition}
+%Let $R$ be a ring. An $R$-module is {\em semisimple} if it is a direct sum of simple submodules. We say that $R$ is (left) semisimple is $R$ is semisimple as (left) $R$-module, that is if $R$ is the direct sum of minimal nonzero left ideals. 
+%\end{definition}
 
-\begin{example}
-Let $D$ be a division ring. For every positive integer $n$, $M_n(D)$ is a semisimple ring. In fact, if $e_{i,j}\in M_n(D)$ is the matrix with $1$ in the $(i,j)$-entry and $0$ in the other entries, then $M_n(D)e_{i,j}$ is a minimal nonzero left ideal of $M_n(D)$, and
-\[ M_n(D)=\bigoplus_{j=1}^nM_n(D)e_{j,j}.\]
-\end{example}
+%\begin{example}
+%Let $D$ be a division ring. For every positive integer $n$, $M_n(D)$ is a semisimple ring. In fact, if $e_{i,j}\in M_n(D)$ is the matrix with $1$ in the $(i,j)$-entry and $0$ in the other entries, then $M_n(D)e_{i,j}$ is a minimal nonzero left ideal of $M_n(D)$, and
+%\[ M_n(D)=\bigoplus_{j=1}^nM_n(D)e_{j,j}.\]
+%\end{example}
 
-\begin{example}\label{semisimple}
-Let $R$ be an Artinian semiprimitive ring. The by Wedderburn-Artin theorem,
-there exist positive integers $n_1,\dots ,n_r$ and division rings $D_1,\dots ,D_r$ such that
-\[ R\cong M_{n_1}(D_1)\times\dots\times M_{n_r}(D_r).\]
-Since each ring $M_{n_i}(D_i)$ is semisimple, it is easy to see that $M_{n_1}(D_1)\times\dots\times M_{n_r}(D_r)$ also is semisimple, 
-and thus $R$ is semisimple.
-\end{example}
+%\begin{example}\label{semisimple}
+%Let $R$ be an Artinian semiprimitive ring. The by Wedderburn-Artin theorem,
+%there exist positive integers $n_1,\dots ,n_r$ and division rings $D_1,\dots ,D_r$ such that
+%\[ R\cong M_{n_1}(D_1)\times\dots\times M_{n_r}(D_r).\]
+%Since each ring $M_{n_i}(D_i)$ is semisimple, it is easy to see that $M_{n_1}(D_1)\times\dots\times M_{n_r}(D_r)$ also is semisimple, 
+%and thus $R$ is semisimple.
+%\end{example}
 
 \begin{theorem}[Maschke's theorem]
 \index{Maschke}\index{Maschke's theorem}
@@ -248,7 +251,7 @@ Let $G$ be a finite group. Let $K$ be a field of characteristic $p\geq 0$. If $p
 \end{theorem}
 
 \begin{proof}
-    Since $K[G]$ is finite dimensional, it is Artinian. By Example~\ref{semisimple}, it is enough to show that $J(K[G])=\{ 0\}$. Let $W$ be a vector subspace of $K[G]$ such that
+    Since $K[G]$ is finite dimensional, it is Artinian. By \textcolor{red}{Wedderburn-Artin's theorem}, it is enough to show that $J(K[G])=\{ 0\}$. Let $W$ be a vector subspace of $K[G]$ such that
     $K[G]=J(K[G])\oplus W$. Let $\pi\colon K[G]\rightarrow K[G]$ be the map defined by $\pi(a+b)=a$, for all $a\in J(K[G])$ and $b\in W$.
     It is clear that $\pi$ is a $K$-linear map. We define $\pi^*\colon K[G]\rightarrow K[G]$ by
     \[\pi^*(c)=\frac{1}{|G|}\sum_{x\in G}x^{-1}\pi(xc),\]
@@ -277,11 +280,11 @@ Let $G$ be a group. The {\em conjugate class} of an element $x\in G$ is $C_x=\{ 
 
 \begin{proof}
     It is clear that $\alpha_1,\dots, \alpha_r$ are $K$-linearly independent. Since
-    \[ y\alpha_i y^{-1}=\sum_{x\in C_i}yxy^{-1}=\sum_{x\in C_i}x=\alpha_i,\]
+    \[ y\alpha_i y^{-1}=\sum_{x\in C_i}yxy^{-1}=\sum_{x\in C_i}x=\alpha_i\]
     for all $y\in G$, we have that $\alpha_i\in Z(K[G])$. Let $b=\sum_{x\in G}b_xx\in Z(K[G])$.
     Then, for every $y\in G$,
     \[ b=yby^{-1}=\sum_{x\in X}b_xyxy^{-1}.\]
-    Hence $b_x=b_{yxy^{-1}}$, for all $x,y\in G$. For every $i=1,\dots ,r$, choose an element $x_i\in C_i$. Now we have that
+    Hence $b_x=b_{yxy^{-1}}$ for all $x,y\in G$. For every $i=1,\dots ,r$, choose an element $x_i\in C_i$. Now we have that
     \[ b=\sum_{i=1}^rb_{x_i}\alpha_i,\]
     and the result follows.
 \end{proof}
@@ -318,7 +321,7 @@ Let $S$ be a commutative integral domain. Let $R$ be a subring of $S$. For any $
     $M=Rs_1+\dots +Rs_m$. Hence, there exist elements $a_{i,j}\in R$ such that
     \[ as_i=\sum_{j=1}^ma_{i,j}s_j,\]
     that is
-    \[\sum_{j=1}^m(a\delta_{i,j}-a_{i,j})s_j=0,\]
+    \[\sum_{j=1}^m(a\delta_{i,j}-a_{i,j})s_j=0\]
     for all $i=1,\dots ,m$. Since $M\neq\{0\}$, some $s_j\neq 0$. Therefore
     \[\det\left(\begin{array}{cccc}
     a-a_{1,1}&-a_{1,2}&\ldots&-a_{1,m}\\
@@ -363,7 +366,7 @@ for some positive integers $n_1,\dots ,n_r$.
 \end{proposition}
 
 \begin{proof}
-    Since $\dim_K(R)<\infty$, $R$ is Artinian. By Wedderburn-Artin theorem there exist positive integers $n_1,\dots ,n_r$
+    Since $\dim_K(R)<\infty$, $R$ is Artinian. By Wedderburn-Artin's theorem there exist positive integers $n_1,\dots ,n_r$
     and division rings $D_1,\dots ,D_r$ such that
     \[ R\cong M_{n_1}(D_1)\times\dots\times M_{n_r}(D_r).\]
     Furthermore, each $D_i$ is a finite dimensional $K$-algebra. We may assume that $K\subseteq D_i$. Let $a\in D_i$. Since
@@ -413,7 +416,7 @@ is integral over $\Z$.
 
 Note that if $X$ is a non-empty set and $V$ is a vector space over a field $F$, then the set 
 $\mathrm{Map}(X,V)$ of all maps $f\colon X\rightarrow V$ with the sum and the product by elements of $F$ defined by
-\[(f+g)(x)=f(x)+g(x),\quad (\lambda f)(x)=\lambda f(x),\]
+\[(f+g)(x)=f(x)+g(x),\quad (\lambda f)(x)=\lambda f(x)\]
 for all $f,g\in\mathrm{Map}(X,V)$, $\lambda\in F$ and $x\in X$, is an $F$-vector space.
 
 \begin{lemma}[Dedekind's lemma] \index{Dedekind's lemma}
@@ -475,6 +478,7 @@ Since $G$ is finite, there exists a positive integer $m$ such that $g^m=1$. Henc
 Hence, by Corollary~\ref{integralclousure}, $\frac{\chi(g)}{n}$ is integral over $\Z$. Let $\xi_1,\dots ,\xi_n\in\C$ roots of unity
 such that $\chi(g)=\sum_{i=1}^n\xi_i$. Hence
 \[\left|\frac{\chi(g)}{n}\right|=\frac{\left|\sum_{i=1}^n\xi_i\right|}{n}\leq 1.\]
+\textcolor{red}{Let $M$ be the $\C[G]$-module corresponding to $\rho$.}
 If $\xi_1=\dots =\xi_n$, then we may assume that there exists a $\C$-basis $\mathcal{B}$ of $M$ such that the matrix of 
 $\rho(g)$ with respect to $\mathcal{B}$ is
 \[ A=\left(\begin{array}{ccccc}
@@ -562,31 +566,30 @@ Let $G$ be a finite group of order $p^nq^m$, for some prime numbers $p,q$ and no
 
 A non-character-theoretic proof of this theorem is known but it is harder, see~\cite{MR2426855}.
 
-\textcolor{blue}{Burnside's theorem has several generalizations.}
-\textcolor{blue}{
+Burnside's theorem has several generalizations.
 \begin{theorem}[Kegel--Wielandt]
 \index{Kegel--Wielandt's theorem}
 \label{thm:KegelWielandt}
 Let $G$ be a finite group such that 
 $G=AB$ for nilpotent subgroups $A$ and $B$ of $G$. Then $G$ is solvable.
 \end{theorem}
-}
 
-\textcolor{blue}{For the proof we refer to~\cite[Theorem 2.4.3]{MR1211633}.}
 
-\textcolor{blue}{
+For the proof we refer to~\cite[Theorem 2.4.3]{MR1211633}.
+
+
 \begin{theorem}[Feit--Thompson]
 \index{Feit--Thompson's theorem}
 \label{thm:FeitThompson}
 Every finite group of odd order is solvable.
-\end{theorem}}
+\end{theorem}
 
-\textcolor{blue}{
+
 The proof of the theorem is extremely hard. It occupies a full volume of 
-\emph{Pacific Journal of Mathematics}, see~\cite{MR166261}.}
+\emph{Pacific Journal of Mathematics}, see~\cite{MR166261}.
 
 
-\section*{Hall subgroups}
+\section{Hall subgroups}
 
 In this section we shall prove a characterization of finite solvable groups due to P. Hall. For this we will use Burnside's $p$-$q$-theorem and Wielandt's theorem.
 To prove Wielandt's theorem on solvable groups 
@@ -751,7 +754,7 @@ Let $G$ be a finite solvable group. Then the following conditions hold.
     there exists a non-empty set of prime divisors of $|G|$ such that $G$ has no Hall $\pi$-subgroups. Furthermore, every finite solvable group $K$ such that $|K|<|G|$ has Hall $\tau$-subgroups for all non-empty set of primes $\tau$. Let $N$ be a minimal normal subgroup of $G$. By Theorem \ref{theorem:resoluble}, $N$ and $G/N$ are solvable. By Lemma \ref{lem:minimal_normal}, $N$ is an elementary abelian $p$-subgroup of $G$, for some prime $p$.
     Suppose that $p\in\pi$. In this case, since $|G/N|<|G|$, there exists a subgroup $H$ of $G$ such that $N\subseteq H$ and $H/N$ is a Hall $\pi$-subgroup
     of $G/N$. Since $|H|=|H/N|\cdot |N|$, we have that $H$ is a $\pi$-subgroup of $G$. Since $(G:H)=(G/N:H/N)$, we get that $H$ is a Hall $\pi$-subgroup of $G$, a contradiction. Therefore, $p\notin \pi$. Since $|G/N|<|G|$, there exists a subgroup $H$ of $G$ such that $N\subseteq H$ and $H/N$ is a Hall $\pi$-subgroup
-    of $G/N$. Since $|H|=|H/N|\cdot |N|$, we have that $H$ is a $\pi\cap\{ p\}$-subgroup of $G$. Note that every Hall $\pi$-subgroup of $H$ also is a Hall $\pi$-subgroup of $G$. Hence $H=G$. Note that $N$ is a Sylow $p$-subgroup of $G$. Let $M$ be a normal subgroup of $G$ such that $N\subseteq M$ and $M/N$ is a minimal normal subgroup of $G/N$. Since $M/N$ is solvable, by Lemma \ref{lem:minimal_normal}, $M/N$ is an elementary abelian $q$-group, for some prime $q$. Since $N$ is a Sylow $p$-subgroup of $G$, we have that $q\neq p$. Hence $q\in \pi$. Let $S$ be a Sylow $q$-subgroup of $M$. By Frattini's argument, $G=MN_G(S)=NSN_G(S)=NN_G(S)$. Note that, by the above argument, $S$ is not normal in $G$. Hence $|N_G(S)|<|G|$. Since $N_G(S)$ is solvable, there exists a Hall $\pi$-subgroup $H_1$ of $N_G(S)$. Since $(G:H_1)=(G:N_G(S))(N_G(S):H_1)$ is a divisor of $|N|(N_G(S):H_1)$, we have that $H_1$ also is a Hall $\pi$-subgroup of $G$, a contradiction. Therefore $1)$ is proved.
+    of $G/N$. Since $|H|=|H/N|\cdot |N|$, we have that $H$ is a $\textcolor{red}{\pi\cup\{ p\}}$-subgroup of $G$. Note that every Hall $\pi$-subgroup of $H$ also is a Hall $\pi$-subgroup of $G$. Hence $H=G$. Note that $N$ is a Sylow $p$-subgroup of $G$. Let $M$ be a normal subgroup of $G$ such that $N\subseteq M$ and $M/N$ is a minimal normal subgroup of $G/N$. Since $M/N$ is solvable, by Lemma \ref{lem:minimal_normal}, $M/N$ is an elementary abelian $q$-group, for some prime $q$. Since $N$ is a Sylow $p$-subgroup of $G$, we have that $q\neq p$. Hence $q\in \pi$. Let $S$ be a Sylow $q$-subgroup of $M$. By Frattini's argument, $G=MN_G(S)=NSN_G(S)=NN_G(S)$. Note that, by the above argument, $S$ is not normal in $G$. Hence $|N_G(S)|<|G|$. Since $N_G(S)$ is solvable, there exists a Hall $\pi$-subgroup $H_1$ of $N_G(S)$. Since $(G:H_1)=(G:N_G(S))(N_G(S):H_1)$ is a divisor of $|N|(N_G(S):H_1)$, we have that $H_1$ also is a Hall $\pi$-subgroup of $G$, a contradiction. Therefore $1)$ is proved.
     
     Assume now that 2) does not hold. Let $G$ be a counterexample to 2) of smallest order. Hence $G$ is a finite solvable group and there exist a non-empty set of primes $\pi$, a Hall $\pi$-subgroup $H$ of $G$ and a $\pi$-subgroup $L$ of $G$ such that, for every $g\in G$, $L\not\subseteq gHg^{-1}$. Furthermore, if $K$ is a finite solvable group such that $|K|<|G|$, then for every non-empty set of primes $\tau$, every Hall $\tau$-subgroup $U$ and every $\tau$-subgroup $V$ of $K$, there exists $x\in K$ such that $V\subseteq xUx^{-1}$. Let $N$ be a minimal normal subgroup of $G$. As above, we know that $N$ is an elementary abelian $p$-group. 
     Then $NH/N$ and $NL/N$ are $\pi$-subgroups of $G/N$.  Since $H$ is a Hall $\pi$-subgroup of $G$, we have that $NH/N$ is a Hall $\pi$-subgroup of $G/N$.
@@ -866,7 +869,7 @@ Let $G$ be a finite group. Then $G$ is solvable if and only if $G$ has a Sylow s
 %	subgrupo minimal-normal $N$ y $N\subseteq F(G)$. Luego $H\cap F(G)\ne\{1\}$. 
 %\end{proof}
 
-\section*{Perfect groups}
+\section{Perfect groups}
 \index{Group!perfect}
 A group $G$ is said to be {\em perfect} if $[G,G]=G$. Note that
 $G$ is perfect if and only if $G/[G,G]$ is trivial. Every non-abelian simple group is perfect.
@@ -1021,7 +1024,7 @@ commutator subgroup of $\SL_2(q)$.
 
 %The following theorem was found by Smoktunowicz in the case of braces of abelian type. 
 
-\section*{Exercises}
+\section{Exercises}
 \begin{prob}
 	Prove that the group $\SL_2(3)$ is solvable. 
 \end{prob}
@@ -1066,7 +1069,7 @@ Let $G$ be a perfect group and $N$ be a normal subgroup of $G$. Then $G/N$ is pe
 % Is the result of Exercise~\ref{prob:G(X,r)solvable} true in the case of non-involutive finite solutions?
 % \end{prob}
 
-\section*{Notes}
+\section{Notes}
 
 Solvable groups...
 

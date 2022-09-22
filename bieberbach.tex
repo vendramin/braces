@@ -1,6 +1,8 @@
 \chapter{Bieberbach groups}
 \label{Bieberbach}
 
+%In this chapter we study some classes of torsion-free groups and their relations. 
+
 \section{Left ordered groups}
 
 
@@ -71,7 +73,7 @@ and thus $1=yy^{-1}\leq  y$, a contradiction. Therefore $G$ is not an ordered gr
 \end{example}
 
 \index{Baumslag--Solitar's group}
-The previous example is the Baumslag--Solitar group $B(1,-1)$. Recall that for $n,m\in\Z$
+The previous example is the \textcolor{red}{Baumslag--Solitar's} group $B(1,-1)$. Recall that for $n,m\in\Z$
 the Baumslag--Solitar's group is defined as the 
 group \[
 B(m,n)=\gr(a,b:ba^mb^{-1}=a^n).
@@ -108,6 +110,7 @@ if every non-trivial finitely generated subgroup of $G$ is indicable.
 % hay que completar todo esto! 
 
 \begin{theorem}[Burns--Hale]
+\label{thm:BurnsHale}
 \index{Burns, R. G.}
 \index{Hale, V. W. D.}
 \index{Burns--Hale's theorem}
@@ -252,7 +255,7 @@ In general, it is difficult to check whether a group satisfies the unique produc
 	is called an {\em extreme point} of $A$.  
 \end{definition}
 
-\begin{proposition}[Linnell,Witte Morris]
+\begin{proposition}[Linnell--Morris] \label{prop:LinellMW}
 Let $G$ be a diffuse group. Then, given any finite subset $A\subseteq G$ such that $|A|\geq 2$, there exist two distinct extreme points of $A$. 
 \end{proposition}
 
@@ -581,12 +584,12 @@ An application to infinite groups.
 
 \begin{theorem}\label{thm:Zfiniteindex}
 	Let $G$ be a torsion-free group that contains a finite-index subgroup isomorphic to  
-	$\Z$. Then $G\simeq\Z$.
+	$\Z$. Then $G\textcolor{red}{\cong}\Z$.
 \end{theorem}
 
 \begin{proof}
 	We may assume that $G$ contains a finite-index normal subgroup isomorphic to $\Z$. Indeed, 
-	if $H$ is a finite-index subgroup of $G$ such that $H\simeq\Z$, and $T$ is a left transversal of $H$ in $G$, then 
+	if $H$ is a finite-index subgroup of $G$ such that $H\textcolor{red}{\cong}\Z$, and $T$ is a left transversal of $H$ in $G$, then 
 	$K=\bigcap_{x\in T}xHx^{-1}$ is a finite-index normal subgroup of $G$. Since $K\subseteq H\subseteq G$  and $(G:K)=(G:H)(H:K)$ is finite, we have that $K\cong\Z$.
 	The action of $G$ on $K$ by conjugation induces a group homomorphism  
 	$\epsilon\colon G\to\Aut(K)$. Since $\Aut(K)\cong\Aut(\Z)=\{-1,1\}$, 
@@ -603,7 +606,7 @@ An application to infinite groups.
 	applied to $\epsilon|_N$ implies that $N\cong\Z$, as 
 	$N$ contains a finite-index subgroup isomorphic to $\Z$. Let $g\in G\setminus N$. 
 	Since $N$ is normal in $G$, $G$ acts by conjugation on $N$ and hence 
-	there exists a group homomorphism $c_g\in\Aut(N)\simeq\{-1,1\}$ defined by $c_g(n)=gng^{-1}$ for all $n\in N$. Since
+	there exists a group homomorphism $c_g\in\Aut(N)\textcolor{red}{\cong}\{-1,1\}$ defined by $c_g(n)=gng^{-1}$ for all $n\in N$. Since
 	$K\subseteq N$ and $g$ acts non-trivially on $K$, 
 	\[
 	c_g(n)=gng^{-1}=n^{-1}
@@ -711,8 +714,8 @@ where $n=(G:A)$.
 Let $n=(G:A)$ and let $T$ be a transversal of $A$ in $G$ such that $1\in T$. For each $g\in G$ there exist a unique $a_g\in A$ and a unique $t_g\in T$ such that $g=a_gt_g$. We denote $a_{t_gt_h}$ by $c(t_g,t_h)$ for all $g,h\in G$. Hence
 \[ t_gt_h=c(t_g,t_h)t_{gh}\]
 for all $g,h\in G$. Note that $c(t_1,t)=c(1,t)=1=c(t,1)=c(t,t_1)$ for all $t\in T$. The associativity of $G$ implies that
-\[c(t_{g_1},t_{g_2})c(t_{g_1g_2},t_{g_3})=t_1c(t_{g_2},t_{g_3})t_1^{-1}c(t_{g_1},t_{g_2g_3})\]
-for all $g_1,g_2,g_3\in G$. Since $A$ is abelian and $n=(G:A)$, multiplying this equality for all $g_3\in T$, we have that
+\[c(t_{g_1},t_{g_2})c(t_{g_1g_2},t_{g_3})=\textcolor{red}{t_{g_1}}c(t_{g_2},t_{g_3})\textcolor{red}{t_{g_1}}^{-1}c(t_{g_1},t_{g_2g_3})\]
+for all $g_1,g_2,g_3\in G$. Since $A$ is abelian and $n=(G:A)$, multiplying this equality for all $\textcolor{red}{t_{g_3}}\in T$, we have that
 \begin{equation}\label{eq:SemiB1}
 c(t_{g_1},t_{g_2})^n\prod_{t\in T}c(t_{g_1g_2},t)=t_{g_1}\left(\prod_{t\in T}c(t_{g_2},t)\right)t_{g_1}^{-1}\prod_{t\in T}c(t_{g_1},t).
 \end{equation}
@@ -807,7 +810,7 @@ By Theorem \ref{thm:GeomBieberbach}, $H$ is isomorphic to a subgroup $H_1$ of $\
 Note that if $u\in \R^n$ and $r\in\R$ is positive, then
 \[ B(u,r)=\{ t\in\Delta(H_1) : \| t(0)-u\|<r\}\]
 is finite. Since $(H_1:\Delta(H_1))=n$,
-\[B'(0,r)=\{ h\in H :  \| h(0)\|<r\}\]
+\[B'(0,r)=\{ h\in H_1 :  \| h(0)\|<r\}\]
 is finite. We shall prove that $B'(0,r)$ has no extreme points for  all sufficiently large $r>0$. 
 
 Let $r_0>0$ such that $B(u,r_0)\neq\emptyset$ for all $u\in\R^n$. Note that every element $h\in H_1$ can be uniquely written as $h=t_hf_h$ with $t_h\in T(\R^n)$ and $f_h\in O(\R^n)$. Furthermore $H_1/\Delta(H_1)\cong (T(\R^n)H_1)/T(\R^n)\cong \langle f_h :h\in H_1\rangle=\{ f_h : h\in H_1\}$. 
@@ -865,24 +868,22 @@ Hence $gh,g^{-1}h\in B'(0,r)$, and the result follows.
 \end{proof}
 
 \begin{theorem}\label{thm:finiteinvol}
-Let $(X,r)$ be a finite involutive solution of the YBE. Then the structure group $G(X,r)$ is a solvable Bieberbach group.
+Let $(X,r)$ be a finite involutive solution of the YBE. Then the structure group $G(X,r)$ is \textcolor{red}{a  Bieberbach group}.
 \end{theorem}
 
 \begin{proof}
-Since $\sigma_x\sigma_y=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}$ for all $x,y\in X$, there exists a unique homomorphism of groups
-$\phi\colon G(X,r)\to\langle \sigma_x : x\in X\rangle\subseteq\Sym_X$ such that $\phi(x)=\sigma_x$ for all $x\in X$. By Theorem \ref{thm:involstruct}, the additive group of $G(X,r)$ is free with basis $X$ (the natural map $i\colon X\to G(X,r)$ is injective and we identify $x$ with $i(x)$ for all $x\in X$. Hence $\ker(\phi)=\Soc(G(X,r))$ is an abelian subgroup of $G(X,r)$ and $G(X,r)/\Soc(G(X,r))$ is a finite skew brace of abelian type. By Theorem \ref{thm:add_nilpotent}, it follows that $G(X,r)$ is solvable.
-
-Since $G(X,r)$ has an abelian subgroup of finite index, to prove that $G(X,r)$ is a Bieberbach group, it is enough to show that $G(X,r)$ is torsion free.
-Suppose that $G(X,r)$ is not torsion free. Hence there exists $g\in G(X,r)$ of prime order $p\leq |X|=n$. Since
-$g^1=g+\lambda_g(g)+\dots +\lambda_{g^{n-1}}(g)$ and the additive group of the skew brace $G(X,r)$ is torsion free, we have that $\lambda_g(g)\neq g$. Hence $\lambda_g$ has order $p$. Let $X=\{ x_1,\dots ,x_n\}$. The restriction of $\lambda_g$ to $X$ is a product of cycles of length $p$ in $\Sym_X$. Hence we may assume that there exists a non-negative integer $m$ such that
-\[\lambda_g(x_{kp+i}=\left\{\begin{array}{ll}
+\textcolor{red}{By Theorem \ref{thm:abelianbyfinite}, $G(X,r)$ has an abelian subgroup of finite index.
+Hence,} to prove that $G(X,r)$ is a Bieberbach group, it is enough to show that $G(X,r)$ is torsion free.
+Suppose that $G(X,r)$ is not torsion free. Hence there exists $g\in G(X,r)$ of prime order \textcolor{red}{$p$}. Since
+$\textcolor{red}{1=g^p=g+\lambda_g(g)+\dots +\lambda_{g^{p-1}}(g)}$ and the additive group of the skew brace $G(X,r)$ is torsion free, we have that $\lambda_g(g)\neq g$. Hence $\lambda_g$ has order $p$. Let $X=\{ x_1,\dots ,x_n\}$ \textcolor{red}{with $|X|=n$}. The restriction of $\lambda_g$ to $X$ is a product of \textcolor{red}{disjoint} cycles of length $p$ in $\Sym_X$. Hence we may assume that there exists a non-negative integer $m$ such that
+\[\lambda_g(x_{kp+i})=\left\{\begin{array}{ll}
 x_{kp+i+1}&\text{ if }1\leq i<p\\
 x_{kp+1}&\text{ if }i=p\end{array}\right.\]
 for all $0\leq k\leq m$ and $\lambda_g(x_t)=x_t$ for all $mp+p<t\leq n$.
 Since $g^p=1$, in the additive group of the skew brace $G(X,r)$ we have that $g=z_1x_1+\dots +z_nx_n$ for some $z_1,\dots ,z_n\in\Z$ and 
 \[g+\lambda_g(g)+\dots +\lambda_{g^{n-1}}(g)=0.\]
 Hence
-\[\sum_{i=1}^pz_{kp+1}=0\quad\text{and}\quad z_t=0\]
+\[\sum_{i=1}^p\textcolor{red}{z_{kp+i}}=0\quad\text{and}\quad z_t=0\]
 for all $0\leq k\leq m$ and $mp+p<t\leq n$. Thus $g=\sum_{i=1}^{mp+p}z_ix_i$. Let
 \[ 
 h_k=\sum_{j=1}^{p-1}\left(\sum_{i=1}^jz_{kp+i}\right)x_{kp+j}
@@ -925,15 +926,18 @@ Hence $g=1$, a contradiction. Therefore the structure group $G(X,r)$ is torsion 
 	and $|G/H|$ are coprime, then $G\cong H\times G/H$.
 \end{prob}
 
-\begin{prob}
-Let $G$ be a group.
-Prove that $\Delta(G)$ is a characteristic subgroup of the group $G$.
-\end{prob}
+%\begin{prob}
+%Let $G$ be a group.
+%Prove that $\Delta(G)$ is a characteristic subgroup of the group $G$.
+%\end{prob}
 
 \section{Open problems}
-\begin{problem}
+\begin{problem}\label{UPimpliesdiff}
 Let $G$ be a group satisfying the unique product property. Is $G$ diffuse?
 \end{problem}
 
 
-\section*{Notes}
+\section{Notes}
+Burns and Hale proved Theorem \ref{thm:BurnsHale} and Corollary \ref{cor:LIimpliesLO} in\cite{MR310046}. 
+Strojnowski proved Theorem \ref{thm:Strojnowski} in \cite{MR558112}. As a consequence one gets that for every field $K$ and every group $G$ satisfying the unique product property, the invertible elements of $K[G]$ are of the form $kg$, with $k\in K\setminus\{ 0\}$ and $g\in G$ (trivial units) (see \cite[page 591]{MR0470211}).
+Diffuse groups were introduced by Bowditch in \cite{MR1794287}. He proved Lemma \ref{lemma:difuso=>2up}. The converse is not known (see Open problem \ref{UPimpliesdiff}). Linnell and Morris proved proposition \ref{prop:LinellMW} in \cite{MR3231224}. They also proved that an amenable group id diffuse if and only if it is locally indicable. This gives an alternative proof of the equivalence of conditions (2) and (5) in Theorem \ref{thm:leftorderedBieberbach}. For the proof of (5) implies (1) in Theorem \ref{thm:leftorderedBieberbach}, we follow the proof of \cite[Lemma 3.4]{MR3548136}. Theorem \ref{thm:finiteinvol} is due to Gateva-Ivanova and Van den Bergh \cite{MR1637256}. For its proof we follow \cite[Corollary 8.2.6]{MR2301033}.  

@@ -1,5 +1,6 @@
 \chapter{Complements}
 \label{cocycles}
+% In this chapter we explain the relation between $1$-cocycles and complements. The main result is the theorem of Schur-Zassenhaus. Finally we show the correspondence between bijective $1$-cocycles and skew braces.
 
 \section{Extensions and $1$-cocycles}
 
@@ -7,6 +8,7 @@
 % equivalencia de complementos (Rotman)
 % demostrar Schur-Zassenhaus
 
+\index{Extensions!of groups}
 Let $K,Q$ be groups.
 An {\em extension} of $K$ by $Q$ is a
 short exact sequence of group homomorphisms 
@@ -20,7 +22,7 @@ short exact sequence of group homomorphisms
 \end{tikzcd}
 \]
 This means that $f$ is injective, $g$ is surjective and $\ker g=\im f$. Note that in this case, 
-$K$ is isomorphic to $f(K)$, which is a normal subgroup of $G$ and $G/f(K)\simeq Q$. We also say that $G$ is an extension of $K$ by $Q$.
+$K$ is isomorphic to $f(K)$, which is a normal subgroup of $G$ and $G/f(K)\textcolor{red}{\cong} Q$. We also say that $G$ is an extension of $K$ by $Q$.
 
 \begin{example}
 	$C_6$ and $\Sym_3$ are both extensions of $C_3$ by $C_2$.
@@ -248,9 +250,9 @@ An extension $E$ {\em splits} if there is a lifting of $E$ that it is a group ho
 \index{Derivation}
 \index{$1$-cocycle}
 Let $Q$ and $K$ be groups. Assume that $Q$ acts by automorphisms on $K$, that is there is a group homomorphism $\alpha\colon Q\rightarrow \Aut(k)$. We write $\alpha_x=\alpha(x)$, for all $x\in Q$.
-A map $\varphi\colon Q\to K$ is said to be a {\em $1$-cocycle} (or a derivation) if
+A map $\varphi\colon Q\to K$ is said to be a {\em $1$-cocycle} (or a {\em derivation}) if
 \[
-		\varphi(xy)=\varphi(x)\alpha_x(\varphi(y)),
+		\varphi(xy)=\varphi(x)\alpha_x(\varphi(y))
 \]
 for all $x,y\in Q$.  The set of 1-cocycles $Q\to K$ is defined as 
 \[
@@ -272,15 +274,16 @@ for all $x,y\in Q$.  The set of 1-cocycles $Q\to K$ is defined as
 % 	\]
 % \end{svgraybox}
 
-
+\index{Subgroup!complement}
 A subgroup $K$ of a group $G$ admits a {\em complement} $Q$ if $G$ admits an exact factorization 
 through $K$ and $Q$, i.e. $G=KQ$ with $K\cap Q=\{1\}$. 
 A classical example is the (inner) semidirect product $G=K\rtimes Q$, where $K$ is a normal subgroup of $G$ 
 and $Q$ is a subgroup of $G$ such that $K\cap Q=\{1\}$. 
 
+\index{Semidirect product!of groups}
 Let $K,Q$ be groups. Let $\alpha\colon Q\rightarrow \Aut(K),\,x\mapsto \alpha_x$ be a group homomorphism. Consider the set $K\times Q$. We define a multiplication on this set by
 \[(k_1,q_1)(k_2,q_2)=(k_1\alpha_{q_1}(k_2),q_1q_2),\]
-for all $k_1,k_2\in K$ and $q_1,q_2\in Q$. Then $K\times Q$ with this multiplication is a group, called the semidirect product of $K$ by $Q$ via $\alpha$, and denoted by $K\rtimes_{\alpha}Q$. Note that $K\times\{ 1\}$ is a normal subgroup of $K\rtimes_{\alpha}Q$, and $\{1\}\times Q$ is a subgroup of $K\rtimes_{\alpha}Q$. Thus $K\rtimes_{\alpha}Q$ is the inner semidirect product of $K\times\{ 1\}$ by $\{1\}\times Q$. Since $K\cong K\times\{ 1\}$ and $Q\cong \{1\}\times Q$, we identify these groups, i. e. $k=(k,1)$ and $q=(1,q)$, for all $k\in K$ and $q\in Q$. Note that
+for all $k_1,k_2\in K$ and $q_1,q_2\in Q$. Then $K\times Q$ with this multiplication is a group, called the {\em semidirect product} of $K$ by $Q$ via $\alpha$, and denoted by $K\rtimes_{\alpha}Q$. Note that $K\times\{ 1\}$ is a normal subgroup of $K\rtimes_{\alpha}Q$, and $\{1\}\times Q$ is a subgroup of $K\rtimes_{\alpha}Q$. Thus $K\rtimes_{\alpha}Q$ is the inner semidirect product of $K\times\{ 1\}$ by $\{1\}\times Q$. Since $K\cong K\times\{ 1\}$ and $Q\cong \{1\}\times Q$, we identify these groups, i. e. $k=(k,1)$ and $q=(1,q)$, for all $k\in K$ and $q\in Q$. Note that
 \[ qkq^{-1}=(1,q)(k,1)(1,q^{-1})=(\alpha_q(k),q)(1,q^{-1})=(\alpha_q(k),1)=\alpha_q(k),\]
 for all $k\in K$ and $q\in Q$.
 
@@ -324,13 +327,13 @@ for all $k\in K$ and $q\in Q$.
 	\]
 	Thus $\Delta$ is a subgroup of $K\rtimes Q$.
 	We claim that $\Delta\cap K=\{1\}$. If $x\in Q$ is such that $\delta(x)x\in K$, then 
-    since $\delta(x)\in K$, it follows that $x\in K\cap Q=\{1\}$. If $g\in G$, then 
+    since $\delta(x)\in K$, it follows that $x\in K\cap Q=\{1\}$. If $g\in \textcolor{red}{K\rtimes Q}$, then 
 	there are unique $k\in K$ and $x\in Q$ such that $g=kx$. We write 
 	$g=k\delta(x)^{-1}\delta(x)x$. Since $k\delta(x)^{-1}\in K$ and $\delta(x)x\in
-	\Delta$, we conclude that $G=K\Delta$. Thus there is a well-defined map 
+	\Delta$, we conclude that $\textcolor{red}{K\rtimes Q}=K\Delta$. Thus there is a well-defined map 
 	$G\colon\Der(Q,K)\to\mathcal{C}$, $G(\delta)=\Delta$.
 
-	We claim that $G\circ F=\id_{\mathcal{C}}$. 
+	We claim that $G F=\id_{\mathcal{C}}$. 
 	Let $C\in\mathcal{C}$. Then  
 	\[
 	G(F(C))=G(\delta_C)=\{\delta_C(x)x:x\in
@@ -338,9 +341,9 @@ for all $k\in K$ and $q\in Q$.
 	\]
 	by construction. (We know that $\delta_C(x)x\in C$. Conversely, if $c\in
 	C$, we write $c=kx$ for unique elements $k\in K$ and $x\in Q$. Thus $x=k^{-1}c$
-	and hence $c=\delta_c(x)x$.)
+	and hence $c=\textcolor{red}{\delta_C}(x)x$.)
 
-	Finally, we prove that $F\circ G=\id_{\Der(Q,K)}$. Let $\delta\in\Der(Q,K)$.
+	Finally, we prove that $F G=\id_{\Der(Q,K)}$. Let $\delta\in\Der(Q,K)$.
     Then	
     \[
 	F(G(\delta))=F(\Delta)=\delta_{\Delta}.
@@ -399,8 +402,9 @@ An inner derivation is also called a {\em $1$-coboundary}.
 	$k\in K$ there exits $y\in Q$ such that $\delta(y)=k$. Thus $K\rtimes Q\subseteq
 	\Delta Q$, as 
 	\[
-	kx=\delta(y)x=(\delta(y)y)y^{-1}x\in \Delta Q.
+	kx=\delta(y)x=(\delta(y)y)y^{-1}x\in \Delta Q
 	\]
+	\textcolor{red}{for all $x\in Q$.}
 	Since $\Delta$ and $Q$ are subgroups of $K\rtimes Q$, we have that 
 	$\Delta Q\subseteq K\rtimes Q$, and therefore $\Delta Q=K\rtimes Q$.
 	Conversely, if $k\in K$ and $x\in Q$ there exist  
@@ -408,6 +412,7 @@ An inner derivation is also called a {\em $1$-coboundary}.
 	$k=\delta(y)$. 
 \end{proof}
 
+\index{Triple factorization}
 A group $G$ admits a {\em triple factorization} if there are subgroups 
 $A$, $B$ and $M$ such that $G=MA=MB=AB$ and $A\cap M=B\cap M=\{1\}$.
 The following result is an immediate consequence of Sysak's theorem.
@@ -580,12 +585,11 @@ We now prove the first version of Schur--Zassenhaus' theorem.
 	Let $T$ be a transversal of $N$ in $G$. Let $\theta\colon G\to N$,
 	$\theta(g)=d(gT,T)$. Since $N$ is abelian, Lemma~\ref{lem:d} implies that 
 	$\theta$ is a 1-cocycle, where $G$ acts on $N$ by conjugation: 
-	\textcolor{blue}{
 	\begin{align*}
 		\theta(xy)&=d(xyT,T)
 		=d(xyT,xT)d(xT,T)\\
 		&=(xd(yT,T)x^{-1})d(xT,T)=(x \theta(y)x^{-1})\theta(x).
-	\end{align*}}
+	\end{align*}
 
 	\begin{claim}
 		$\theta|_N\colon N\to N$ is surjective.
@@ -652,7 +656,7 @@ Schur--Zassenhaus' theorem does not need $N$ to be abelian.
     \] 
 	Therefore $H$ is a complement of $N$ in $G$.
 	
-	Hence we may assume that $G$ has no proper subgroups $K$ such that  $NK=G$.  We may also assume that \textcolor{blue}{$N\ne\{1\}$}, otherwise $G$ is a complement of $\{ 1\}$ in $G$.
+	Hence we may assume that $G$ has no proper subgroups $K$ such that  $NK=G$.  We may also assume that $N\ne\{1\}$, otherwise $G$ is a complement of $\{ 1\}$ in $G$.
 	Note that $N\subseteq \Phi(G)$, because if $M$ is a maximal subgroup of $G$ such that $N\not\subseteq M$, then $NM=G$, in contradiction with our assumption. By Frattini's theorem ~\ref{theorem:Frattini}, $\Phi(G)$ is nilpotent and thus so is $N$. Since $N$ is a non-trivial nilpotent group, we have that $Z(N)\ne\{1\}$. Since $N$ is normal in $G$ and $Z(N)$ is
 	characteristic in $N$, $Z(N)$ is normal in $G$. Let $\pi\colon G\to
 	G/Z(N)$ the canonical map.   We have that 
@@ -661,7 +665,7 @@ Schur--Zassenhaus' theorem does not need $N$ to be abelian.
 	\]
 	is coprime with $|N|$, and thus it is coprime with $|\pi(N)|$. 
 	By the inductive hypothesis, $\pi(N)$ admits a complement in $G/Z(N)$. 
-	\textcolor{blue}{Let $K$ be a subgroup of $G$ such that $Z(N)\subseteq K$ and $\pi(K)$ is a complement of $\pi(N)$ in $\pi(G)$.} Since 
+	Let $K$ be a subgroup of $G$ such that $Z(N)\subseteq K$ and $\pi(K)$ is a complement of $\pi(N)$ in $\pi(G)$. Since 
 	$\pi(G)=\pi(N)\pi(K)=\pi(NK)$, we have that $NK=G$. 
 	By assumption, we get that $K=G$ and 
 	\[
@@ -779,7 +783,7 @@ Schur--Zassenhaus' theorem does not need $N$ to be abelian.
 	satisafies the hypotheses of the theorem 
 	with respect to the normal subgroup $N$,
 	so $|N|$ and $(S:N)$ are coprime. If $p\mid |N|$, then  
-	$p\nmid (S:N)=|p(S)|$, a contradiction. Therefore $p\nmid |N|$. 
+	$p\nmid (S:N)=\textcolor{red}{|\pi (S)|}$, a contradiction. Therefore $p\nmid |N|$. 
 	This implies that $S\cap K_1$ and $S\cap K_2$ are
 	Sylow $p$-subgroups of $S$, as 
 	\[
@@ -810,7 +814,7 @@ Schur--Zassenhaus' theorem does not need $N$ to be abelian.
 
 
 
-By Feit--Thompson's theorem \textcolor{blue}{(Theorem \ref{thm:FeitThompson})} , we do not need to assume that
+By Feit--Thompson's theorem (Theorem \ref{thm:FeitThompson}) , we do not need to assume that
 $N$ or $G/N$ is solvable. Indeed, since every group of odd order is solvable and
 $|N|$ and $(G:N)$ are coprime, it follows that either $|N|$ or $(G:N)$ is odd. 
 
@@ -921,10 +925,10 @@ $|N|$ and $(G:N)$ are coprime, it follows that either $|N|$ or $(G:N)$ is odd.
 	By Schur--Zassenhaus' theorem, there exists a complement $H$ of $N$ in $G$. Hence $|H|=m$. Let $H_1$ be a subgroup of $G$ such that $|H_1|=m_1$. 
 	Since $n$ and $m$ are coprime, 
 	\[
-	\frac{|H||N||H_1|}{|H\cap NH_1|}=
-	\frac{|H||NH_1|}{|H\cap NH_1|}=|H(NH_1)|=|G|=|NH|=|N||H|.
+	\frac{|H||N||H_1|}{|H\cap (NH_1)|}=
+	\frac{|H||NH_1|}{|H\cap (NH_1)|}=|H(NH_1)|=|G|=|NH|=|N||H|.
 	\]
-	Hence $m_1=|H_1|=|H\cap NH_1|$, and thus $H_1$ and $H\cap NH_1$ are complements of $N$ in $NH_1$. By Theorem~\ref{thm:SchurZassenhaus:conjugacion}, there exists $g\in NH_1$ such that 
+	Hence $m_1=|H_1|=|H\cap (NH_1)|$, and thus $H_1$ and $H\cap (NH_1)$ are complements of $N$ in $NH_1$. By Theorem~\ref{thm:SchurZassenhaus:conjugacion}, there exists $g\in NH_1$ such that 
 	\[
 	H_1=g(H\cap NH_1)g^{-1}\subseteq gHg^{-1},
 	\]
@@ -1034,7 +1038,7 @@ We now prove the equivalence between skew braces and bijective 1-cocycles.
 	Let $\varphi\colon Q\to K$ be a 1-cocycle. 
 	\begin{enumerate}
 		\item $\varphi(1)=1$.
-		\item $\varphi(y^{-1})=(y^{-1}\cdot\phi(y))^{-1}=y^{-1}\cdot\phi(y)^{-1}$.
+		\item $\varphi(y^{-1})=(y^{-1}\cdot\textcolor{red}{\varphi(y))^{-1}=y^{-1}\cdot\varphi(y)^{-1}}$.
 		\item The set $\ker\varphi=\{x\in Q:\varphi(x)=1\}$ is a subgroup of $Q$. 
 	\end{enumerate}
 \end{prob}
