@@ -3,10 +3,10 @@
 
 In Chapter \ref{braces} we found that groups with an exact factorization 
 produce skew braces. In this chapter we will study a different relationship between
-factorizations of groups and and skew braces. 
+factorizations of groups and skew braces. 
 
 
-\section*{Factorizations of groups}
+\section{Factorizations of groups}
 
 
 A group $G$ is said to be 
@@ -33,7 +33,7 @@ is based on a surprisingly short and smart calculation with commutators.
 \begin{theorem}[It\^o]
 	\label{theorem:Ito}
     \index{Theorem!of It\^o}	
-	Let $G=AB$ be a factorization of $G$ through abelian subgroups $A$ and $B$. 
+	Let $G=AB$ be a factorization of the group $G$ through abelian subgroups $A$ and $B$. 
 	Then $G$ is metabelian.
 \end{theorem}
 
@@ -44,7 +44,7 @@ is based on a surprisingly short and smart calculation with commutators.
 	a\beta^{-1}=a_2b_2$. Since 
 	\begin{align*}
 		&\alpha[a,b]\alpha^{-1}=a(\alpha b\alpha^{-1})a^{-1}(\alpha b^{-1}\alpha^{-1})=ab_1a_1a^{-1}a_1^{-1}b_1^{-1}=[a,b_1]\in [A,B]\\
-		&\beta[a,b]\beta^{-1}=(\beta a\beta^{-1})\beta b\beta^{-1}(\beta a^{-1}\beta^{-1})b^{-1}=a_2b_2bb_2^{-1}a_2^{-1}b^{-1}=[a_2,b]\in [A,B],
+		&\beta[a,b]\beta^{-1}=(\beta a\beta^{-1})b(\beta a^{-1}\beta^{-1})b^{-1}=a_2b_2bb_2^{-1}a_2^{-1}b^{-1}=[a_2,b]\in [A,B],
 	\end{align*}
 	it follows that $[A,B]$ is a normal subgroup of $G$. 
 
@@ -61,7 +61,7 @@ is based on a surprisingly short and smart calculation with commutators.
 	
 	Finally we note that $[G,G]=[A,B]$. Since $[A,B]$ is normal in $G$,  
 	\[
-	[a_1b_1,a_2b_2]=a_1[a_2,b_1]^{-1}a_1^{-1}a_2[a_1,b_2]a_2^{-1}\subseteq [A,B].\qedhere 
+	[a_1b_1,a_2b_2]=a_1[a_2,b_1]^{-1}a_1^{-1}a_2[a_1,b_2]a_2^{-1}\in [A,B].\qedhere 
 	\]
 \end{proof}
 
@@ -115,7 +115,7 @@ the additive group of $A$ is solvable.
     By the theorem of Kegel--Wielandt, $\Gamma$ is solvable. Since $K$ is a subgroup of $\Gamma$, $K$ also is solvable.
 \end{proof}
 
-\section*{Factorizations of skew braces}
+\section{Factorizations of skew braces}
 
 It turns out to be interesting to study factorization of braces. 
 
@@ -137,7 +137,7 @@ definition:
 
 \begin{definition}
 \index{Brace!meta-trivial}
-A skew brace $A$ is said to be \emph{meta-trivial} if $A^{(2)}$ is a trivial brace. 
+A skew brace $A$ is said to be \emph{meta-trivial} if $A^{(2)}$ is a trivial skew brace. 
 \end{definition}
 
 Clearly a skew brace $A$ is meta-trivial if and only there is 
@@ -211,6 +211,7 @@ Let $a \in A$, $b \in B$ and $c \in C$. Write $a=b_1 + c_1$, with $b_1 \in B$ an
 \begin{equation}\label{eq:7}
     \begin{aligned}
         a+(b*c)-a & =a + \lambda_b(c) - c - a\\
+                  & =a -\lambda_b(a)+\lambda_b(a)+ \lambda_b(c) - c - a\\        
                   & =-(b*a) + b*(a+c)\\
                   & =-(b*(b_1+c_1)) + b* (b_1 + c_1+c).
     \end{aligned}
@@ -281,26 +282,26 @@ Theorem \ref{thm:Ito_braces} has application to involutive solutions.
 
 \begin{theorem} 
 \label{thm:MP}
-Let $(X,r)$ be an involutive non-degenerate (not necessarily finite) solution of the Yang--Baxter equation with $|X|\geq 2$.
-If the brace of abelian type $\mathcal{G}(X,r)$ admits a factorization through left ideals, 
-which are trivial as left braces, then $(X,r)$ is a
+Let $(X,r)$ be an involutive solution to the YBE with $|X|\geq 2$.
+If the skew brace of abelian type $\mathcal{G}(X,r)$ admits a factorization through left ideals, 
+which are trivial as skew braces, then $(X,r)$ is a
 multipermutation solution of level at most three.
 \end{theorem}
 
 \begin{proof}
-Let $A=\mathcal{G}(X,r)$ and $G=G(X,r)$. Then Theorem~\ref{thm:Ito_braces} 
-yields $A^{(m)}=0$ for some $m\leq 3$. Because $G/\Soc(G)\cong A$
-as left braces, we get $G^{(m)}\subseteq\Soc(G)$, and thus $G^{(m+1)}=0$. Hence $G$ is a right nilpotent left brace of class at most four and,
-by \cite[Proposition 6]{MR3574204}, $(G,r_G)$ is a multipermutation solution of  level at most three. Therefore, by~\cite[Theorem 5.15]{MR3861714}, 
+Let $\mathcal{G}=\mathcal{G}(X,r)$ and $G=G(X,r)$. Then Theorem~\ref{thm:Ito_braces} 
+yields $\mathcal{G}^{(m)}=0$ for some $m\leq 3$. Because $G/\Soc(G)\cong \mathcal{G}$
+as skew braces, we get $G^{(m)}\subseteq\Soc(G)$, and thus $G^{(m+1)}=0$. Hence $G$ is a right nilpotent skew brace of abelian type of class at most four and,
+by Proposition \ref{pro:rightnilpotentabelian}, $\Soc_m(G)=G$. This means that $(G,r_G)$ is a multipermutation solution of level at most three. Since $(X,r)$ is a subsolution of $(G,r_G)$, by Proposition \ref{pro:mpl_subsol},  
 $(X,r)$ is a multipermutation solution of level at most three.
 \end{proof}
 
-This shows that properties of the involutive non-degenerate set-theoretic solution $(X,r)$ are not completely determined by the
-group theory of the additive and multiplicative groups of the left brace $\mathcal{G}(X,r)$. 
+The following examples show that properties of the involutive  solutions $(X,r)$ to the YBE are not completely determined by the
+group theory of the additive and multiplicative groups of the skew brace $\mathcal{G}(X,r)$. 
 
 \begin{example}
 \label{exa:B(8,27)}
-Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$ be the irretractable involutive non-degenerate solution given by 
+Let $X=\{1,2,3,4\}$ and $r(x,y)=(\sigma_x(y),\tau_y(x))$ be the irretractable involutive solution to the YBE given by 
 \begin{alignat*}{4}
     \sigma_1 & =(34),\qquad & \sigma_2 & =(1324),\qquad & \sigma_3 & =(1423),\qquad & \sigma_4 & =(12),\\
     \tau_1 & =(24),\qquad & \tau_2 & =(1432),\qquad & \tau_3 & =(1234),\qquad & \tau_4 & =(13).
@@ -317,7 +318,7 @@ This shows that $B(8,26)$ is right nilpotent.
 
 
 
-\section*{Exercises}
+\section{Exercises}
 
 \begin{prob}
 	Let $G$ be a metabelian group. Prove that the following statements hold. 
@@ -334,7 +335,7 @@ This shows that $B(8,26)$ is right nilpotent.
 
 \begin{prob}
 \label{prob:decomposable}
-Let $A$ be a brace. If there exists a proper strong left ideal $I$, 
+Let $A$ be a skew brace. If there exists a proper strong left ideal $I$, 
 then $(A,r_A)$ is decomposable as $A = I \cup A\setminus I$. 
 \end{prob}
 
@@ -345,32 +346,32 @@ Prove that the assumptions of Theorem \ref{thm:Ito_braces} cannot be relaxed.
 
 \begin{prob}
 \label{prob:Ito_version2}
-Let $A$ be a non-zero brace that has a factorization $A=B+C$ through left ideals $B$ and $C$, where both are trivial as braces. If $B$ is a strong left ideal of $A$, then $B$ or $C$ contains a non-zero ideal $I$ of $A$ that acts trivially on $A$.
+Let $A$ be a non-zero skew brace that has a factorization $A=B+C$ through left ideals $B$ and $C$, where both are trivial as skew braces. If $B$ is a strong left ideal of $A$, then $B$ or $C$ contains a non-zero ideal $I$ of $A$ that acts trivially on $A$.
 \end{prob}
 
 
 
 \begin{prob}
 \label{prob:mul_abelian}
-Let $A$ be a brace with abelian multiplicative group. Prove that the 
+Let $A$ be a skew brace with abelian multiplicative group. Prove that the 
 the additive group of $A$ is meta-abelian. 
 \end{prob}
 
 \begin{prob}
 \label{prob:mul_cyclic}
-Let $A$ be a finite brace with cyclic multiplicative group. Prove that the 
+Let $A$ be a finite skew brace with cyclic multiplicative group. Prove that the 
 the additive group of $A$ is supersolvable. 
 \end{prob}
 
-\section*{Open problems}
+\section{Open problems}
 
 \begin{problem}
 \label{problem:Byott}
-    Let $A$ be a brace with solvable additive group. Is the 
+    Let $A$ be a skew brace with solvable additive group. Is the 
     multiplicative group of $A$ solvable?
 \end{problem}
 
-\section*{Notes}
+\section{Notes}
 
 Theorem \ref{thm:Ito_braces} was proved by Jespers, Kubat, Antwerpen and Vendramin in \cite{MR4023387}. 
 Exercises \ref{prob:Ito_relaxed} 

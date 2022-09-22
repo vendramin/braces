@@ -3,7 +3,7 @@
 
 % hacerlo con el guitar map
 
-To prove that the structure group $G(X,r)$ of a solution $(X,r)$ is a skew brace, we follow the 
+To prove that the structure group $G(X,r)$ of a solution $(X,r)$ \textcolor{red}{has a natural structure of} skew brace, we follow the 
 proof of Lu, Yan and Zhu. They use the language of braided groups.
 
 \section{Braided groups and skew braces}
@@ -19,6 +19,7 @@ $r\colon G\times G\to G\times G$ is a bijective map such that
 \item $r(1,x)=(x,1)$ and $r(x,1)=(1,x)$ for all $x\in G$, and 
 \item $m\circ r=m$.
 \end{enumerate}
+\index{Braiding operator}
 The map $r$ is called a \emph{braiding operator} on $G$. 
 \end{definition}
 
@@ -43,7 +44,7 @@ By the definition of a braiding operator, we have that
         =&(m\times\id)(x\rhd_r y,(x\lhd_r y)\rhd_r z, (x\lhd_r y)\lhd_r z)\nonumber\\
         =&((x\rhd_r y)((x\lhd_r y)\rhd_r z), (x\lhd_r y)\lhd_r z),
         \end{align}
-    and thus $x\lhd_r (yz)=(x\lhd_r y)\lhd_r z$. Since $r(x,1)=(1,x)$, we have that the map $\eta$ is a right action of $G$ on itself. Furthermore, $xy=(x\rhd_r y)(x\lhd_r y)$, for all $x,y\in G$. Hence, by Theorem \ref{thm:LYZ}, $(G,r)$ is a solution to the YBE.
+    and thus $x\lhd_r (yz)=(x\lhd_r y)\lhd_r z$. Since $r(x,1)=(1,x)$, we have that the map $\eta$ is a right action of $G$ on itself. Furthermore, $xy=(x\rhd_r y)(x\lhd_r y)$ for all $x,y\in G$. Hence, by Theorem \ref{thm:LYZ}, $(G,r)$ is a solution to the YBE.
 \end{proof}
 
 \begin{theorem}\label{thm:braidedbraces}
@@ -51,14 +52,15 @@ By the definition of a braiding operator, we have that
 \end{theorem}
 
 \begin{proof}
-    Let $\mathcal{BO}(G)$ be the set of all the braiding operators on $G$. Let $\mathcal{B}(G)$ be the set of all the skew brace structures $(G,+,\circ)$ on the group $G$, where $x\circ y=xy$, for all $x,y\in G$. For $r\in \mathcal{BO}(G)$, we write $r(x,y)=(x\rhd_r y,x\lhd_r y)$, for all $x,y\in G$. We define
+    Let $\mathcal{BO}(G)$ be the set of all the braiding operators on $G$. Let $\mathcal{B}(G)$ be the set of all the skew brace structures $(G,+,\circ)$ on the group $G$, where $x\circ y=xy$ for all $x,y\in G$. For $r\in \mathcal{BO}(G)$, we write $r(x,y)=(x\rhd_r y,x\lhd_r y)$ for all $x,y\in G$. We define
     \[ f\colon \mathcal{BO}(G)\rightarrow \mathcal{B}(G)\]
-    by $f(r)=(G,+_r,\circ)$, where $x+_r y=x(x^{-1}\rhd_r y)$, for all $x,y\in G$ and $r\in \mathcal{BO}(G)$. Now, by (\ref{LYZequa1}) and Lemma \ref{lem:braidedsolYBE}, we have
+    by $f(r)=(G,+_r,\circ)$, where $x+_r y=x(x^{-1}\rhd_r y)$ for all $x,y\in G$ and $r\in \mathcal{BO}(G)$. Now, by (\ref{LYZequa1}) and Lemma \ref{lem:braidedsolYBE}, we have
     \begin{align}\label{LYZequa}
         x\rhd_r (y+_r z)=&x\rhd_r(y(y^{-1}\rhd_r z))\nonumber\\
         =&(x\rhd_r y)((x\lhd_r y)\rhd_r (y^{-1}\rhd_r z))\nonumber\\
         =&(x\rhd_r y)(((x\lhd_r y)y^{-1})\rhd_r z))\nonumber\\
         =&(x\rhd_r y)(((x\rhd_r y)^{-1}x)\rhd_r z))\nonumber\\
+        =&\textcolor{red}{(x\rhd_r y)((x\rhd_r y)^{-1}\rhd_r(x\rhd_r z))}\nonumber\\
         =&(x\rhd_r y)+(x\rhd_r z).
     \end{align}
     Note that $1+_r x=1(1^{-1}\rhd_r x)=x$ and
@@ -84,13 +86,13 @@ By (\ref{LYZequa}), we have
 \begin{align*}
     x(y+_r z)=&x+_r(x\rhd_r (y+_r z))\\
     =&x+_r (x\rhd_r y)+_r(x\rhd_r z)\\
-    =&xy-_r x+_r xz,
+    =&xy-_r x+_r xz
 \end{align*}
 for all $x,y,z\in G$. Hence $(G,+_r,\circ)$ is a skew brace and $f$ is a well-defined map. Note that the lambda map of this skew brace is defined by
-$\lambda_x(y)=-_r x+_r xy=x\rhd_r y$, for all $x,y\in G$.
+$\lambda_x(y)=-_r x+_r xy=x\rhd_r y$ for all $x,y\in G$.
 
 Now we define $g\colon \mathcal{B}(G)\rightarrow \mathcal{BO}(G)$, by $g(G,+,\circ)=r_+$ and
-\[ r_+(x,y)=(-x+xy,(-x+xy)^{-1}xy)=(\lambda_x(y),\mu_y(x)),\]
+\[ r_+(x,y)=(-x+xy,(-x+xy)^{-1}xy)=(\lambda_x(y),\mu_y(x))\]
 for all $(G,+,\circ)\in\mathcal{B}(G)$ and $x,y\in G$. We shall prove that $r_+$ is a braiding operator on $G$. Note that, by Proposition \ref{pro:lambda}, 
 \begin{align*}
     r_+(xy,z)=&(\lambda_{xy}(z),\mu_z(xy))\\
@@ -112,12 +114,13 @@ We also have that
 \[ r_+(1,x)=(\lambda_1(x),\mu_x(1))=(x,1),\]
 \[ r_+(x,1)=(\lambda_x(1),\mu_1(x))=(1,x),\]
 and
-\[ \lambda_x(y)\mu_y(x)=\lambda_x(y)\lambda_x(y)^{-1}xy=xy,\]
-for all $x,y\in G$. Hence $r_+$ is a braiding operator on $G$, thus $g$ is a well-defined map. Now it is easy to check that $f\circ g=\id_{\mathcal{B}(G)}$ and $g\circ f=\id_{\mathcal{BO}(G)}$.
+\[ \lambda_x(y)\mu_y(x)=\lambda_x(y)\lambda_x(y)^{-1}xy=xy\]
+for all $x,y\in G$. Hence $r_+$ is a braiding operator on $G$, thus $g$ is a well-defined map. Now it is easy to check that $fg=\id_{\mathcal{B}(G)}$ and $gf=\id_{\mathcal{BO}(G)}$.
 \end{proof}
 
 \section{The structure group of a solution}
 \index{Solution!structure group}
+\index{Structure group}
 Let $(X,r)$ be a solution to the YBE. Write as usual $r(x,y)=(\sigma_x(y),\tau_y(x))$. The {\em structure group} of $(X,r)$ is the group
 \[ G(X,r)=\gr(X : xy=\sigma_x(y)\tau_y(x), \text{ for all }x,y\in X).\]
 In this section we shall see that there is a natural braiding operator on $G(X,r)$ induced by $r$ that satisfies a nice universal property. 
@@ -192,7 +195,7 @@ Now we prove (b). By Lemma \ref{lem:YB}, we have
     \left(\tau_{\sigma_{\tau_x\tau^{-1}_x(z)}\sigma^{-1}_{x}(y)}\sigma_{\tau^{-1}_x(z)}(x)\right)'\\
     =&\tau'_{\sigma'_{\tau'_{x'}(z)}(y)}\sigma'_z(x'),
 \end{align*}
-where the last equality follows by a symmetric argument. By similar calculations one get that
+where the last equality follows by a symmetric argument. By similar calculations one \textcolor{red}{gets} that
 \[\tau'_{\sigma'_{\tau'_x(y')}(z')}\sigma'_{y'}(x)=\sigma'_{\tau'_{\sigma'_x(z')}(y')}\tau'_{z'}(x).\]
 Note that, 
 \begin{align*}
@@ -218,11 +221,11 @@ we have that
 \[\sigma'_{\tau'_{\sigma'_x(y')}(z)}\tau'_{y'}(x)=\tau'_{\sigma'_{\tau'_x(z)}(y')}\sigma'_{z}(x).\]
 By a symmetric argument one can prove that
 \[\tau'_{\sigma'_{\tau'_x(y')}(z)}\sigma'_{y'}(x)=\sigma'_{\tau'_{\sigma'_x(z)}(y')}\tau'_{z}(x).\]
-By a similar calculations one get that
+By a similar calculations one \textcolor{red}{gets} that
 \[\tau'_{\sigma'_{\tau'_{x'}(y)}(z')}\sigma'_{y}(x')=\sigma'_{\tau'_{\sigma'_{x'}(z')}(y)}\tau'_{z'}(x')\]
 and
 \[\sigma'_{\tau'_{\sigma'_{x'}(y)}(z')}\tau'_{y}(x')=\tau'_{\sigma'_{\tau'_{x'}(z')}(y)}\sigma'_{z'}(x').\]
-Hence, by Lemma \ref{lem:YB}, (c) follows. Therefore $(Y,r')$ is a solution to the YBE. 
+Hence, by Lemma \ref{lem:YB}, \textcolor{red}{(b)} follows. Therefore $(Y,r')$ is a solution to the YBE. 
 
 By the definition of $r'$, it is clear that if $(r')^2=\id_{Y^2}$, then $r^2=\id_{X^2}$. Suppose that $r^2=\id_{X^2}$. We have that
 \[ (r')^2(x,y)=r^2(x,y)=(x,y)\]
@@ -435,7 +438,7 @@ for all $a,b,c\in FM(Y)$. Hence it is easy to check that $r'_{FM}$ satisfies con
 
 Note that $G(X,r)=FM(Y)/\sim$, where $\sim$ is the equivalence relation on $FM(Y)$ generated by $axx'b\sim ab$, $ax'xb\sim ab$ and $axyb\sim a\sigma_x(y)\tau_y(x)b$ for all $a,b\in FM(Y)$ and $x,y\in X$.
 
-We define $r_G(\overline{a},\overline{b})=(\overline{\sigma'_a(b)},\overline{\tau'_b(a)})$ for all $a,b\in FM(Y)$, where $\overline{a}\in G(X.r)$ is the the $\sim$-class of $a\in FM(Y)$. By Lemma \ref{lem:YB}, \[\sigma'_{xy}=\sigma'_{x}\sigma'_{y}=\sigma'_{\sigma_x(y)}\sigma'_{\tau_y(x)}=\sigma'_{\sigma_x(y)\tau_y(x)}\]
+We define $r_G(\overline{a},\overline{b})=(\overline{\sigma'_a(b)},\overline{\tau'_b(a)})$ for all $a,b\in FM(Y)$, where $\overline{a}\in G(X.r)$ is \textcolor{red}{the} $\sim$-class of $a\in FM(Y)$. By Lemma \ref{lem:YB}, \[\sigma'_{xy}=\sigma'_{x}\sigma'_{y}=\sigma'_{\sigma_x(y)}\sigma'_{\tau_y(x)}=\sigma'_{\sigma_x(y)\tau_y(x)}\]
 and
 \[\tau'_{xy}=\tau'_{y}\tau'_{x}=\tau'_{\tau_y(x)}\tau'_{\sigma_x(y)}=\tau'_{\sigma_x(y)\tau_y(x)}\]
 for all $x,y\in X$. Hence, to prove that $r_G$ is well-defined it is enough to check that \[\id=\sigma'_{xx'}=\sigma_{x'x}=\tau'_{xx'}=\tau'_{x'x},\] 
@@ -740,11 +743,133 @@ for all $x\in X$. Hence (\ref{eq:keyinv}) holds for $n=1$. Suppose that (\ref{eq
     =&(\epsilon_1x_1+\dots +\epsilon_nx_n+\epsilon_{n+1}x_{n+1},\sigma_{\epsilon_1x_1+\dots +\epsilon_nx_n+\epsilon_{n+1}x_{n+1}}).
 \end{align*}
 Hence (\ref{eq:keyinv}) holds for all $n$ by induction. Therefore
- one can easily see that $\pi_1f\colon G(X.r)\to\Z^{(X)}$, where $\pi_1\colon \Z^{(X)}\rtimes\Sym_X\to\Z^{(X)}$ is the natural map, is an isomorphism from the additive group of $G(X,r)$ to $\Z^{(X)}$, and the result follows. 
+ one can easily see that $\pi_1f\colon G(X,r)\to\Z^{(X)}$, where $\pi_1\colon \Z^{(X)}\rtimes\Sym_X\to\Z^{(X)}$ is the natural map, is an isomorphism from the additive group of $G(X,r)$ to $\Z^{(X)}$, \textcolor{red}{in fact the unique homomorphism of groups $g\colon \Z^{(X)}\to G(X,r)$, such that $g(x)=x$ for all $x\in X$, is the inverse of $\pi_1 f$. Therefore } the result follows. 
 \end{proof}
-\section*{Exercises}
+
+\section{The permutation group of a solution}
+
+Let $(X,r)$ be a solution to the YBE. We write 
+\[r(x,y)=(\sigma_x(y),\tau_y(x))\] 
+for all $x,y\in X$. Consider the structure group $G(X,r)$ of the solution $(X,r)$. Let $i\colon X\to G(X,r)$ be the natural map. 
+
+\index{Solution!permutation group}
+The {\em permutation group} of $(X,r)$ is the subgroup
+\[\mathcal{G}(X,r)=\langle (\sigma_x,\tau^{-1}_x) : x\in X\rangle\subseteq\Sym_X\times\Sym_X.\]
+Since 
+\[ \sigma_x\sigma_y=\sigma_{\sigma_x(y)}\sigma_{\tau_y(x)}\quad\text{and}\quad \tau^{-1}_x\tau^{-1}_y=\tau^{-1}_{\sigma_x(y)}\tau^{-1}_{\tau_y(x)} \]
+for all $x,y\in X$, there exists a unique group homomorphism
+$h\colon G(X,r)\to \mathcal{G}(x,r)$ such that $hi(x)=(\sigma_x,\tau^{-1}_x)$ for all $x\in X$. We write
+\[ h(a)=(\sigma_a,\tau_a^{-1})\]
+for all $a\in G(X,r)$.
+By Theorem \ref{thm:GVbraces}, $G(X,r)$ has a unique structure of skew brace with multiplicative group the structure group $G(X,r)$ and $\lambda_{i(x)}(i(y))=i(\sigma_x(y))$ for all $x\in X$. We shall see that $\ker h$ is an ideal of the skew brace $G(X,r)$. Note that
+\[\mu_{i(y)}(i(x))=\lambda_{i(x)}(i(y))^{-1}i(x)i(y)=i(\sigma_x(y))^{-1}i(x)i(y)=i(\tau_y(x))\]
+for all $x,y\in X$, by the defining relations of $G(X,r)$.
+
+\begin{lemma}\label{lem:Kerh}
+With the above notation,
+\[ \ker h\subseteq \ker\lambda\cap\ker\mu=\Soc(G(X,r)).\]
+\end{lemma}
+
+\begin{proof}
+Let $a\in \ker h$. There exists $x_1,\dots ,x_n\in X$ and $\epsilon_1,\dots ,\epsilon_n\in\{ -1,1\}$ such that
+$a=i(x_1)^{\epsilon_1}\cdots i(x_n)^{\epsilon_n}$. Hence
+\[(\id_X,\id_X)=h(a)=(\sigma_{x_1}^{\epsilon_1}\cdots\sigma_{x_n}^{\epsilon_n},\tau_{x_1}^{-\epsilon_1}\cdots \tau_{x_n}^{-\epsilon_n}).\]
+Therefore
+\[ \lambda_a(i(z))=i(\sigma_{x_1}^{\epsilon_1}\cdots\sigma_{x_n}^{\epsilon_n}(z))=i(z)\]
+and
+\[ \mu^{-1}_a(i(z))=i(\tau_{x_1}^{-\epsilon_1}\cdots \tau_{x_n}^{-\epsilon_n}(z))=i(z)\]
+for all $z\in X$. Since $\lambda_a$ is an automorphism of the additive group of the skew brace $G(X,r)$ and this additive group is generated by $i(X)$, we have that $\lambda_a=\id$. On the other hand, we know that $r_G: G(X,r)\times G(X,r)\to G(X,r)\times G(X,r)$, defined by $r_G(b,c)=(\lambda_b(c),\mu_c(b))$ for all $b,c\in G(X,r)$, is a braiding operator on the structure group $G(X,r)$. Hence $\mu_a(1)=1$ and
+\begin{align*}
+    1=&\mu_a(i(x)^{-1}i(x))=\mu_{\lambda_{i(x)}(a)}(i(x)^{-1})\mu_a(i(x))\\
+    =&\mu_{i(x)a\mu_a(i(x))^{-1}}(i(x)^{-1})i(x)\\
+    =&\mu_{i(x)ai(x)^{-1}}(i(x)^{-1})i(x)
+    \end{align*}
+ for all $x\in X$. Hence $\mu_a(i(x)^{-1})=i(x)^{-1}$ for all $x\in X$ and $a\in \ker h$. Let $b\in G(X,r)$. There exist $y_1,\dots ,y_m\in X$ and $\eta_1, \dots ,\eta_m\in\{ -1,1\}$ such that $b=i(y_1)^{\eta_1}\cdots i(y_m)^{\eta_m}$. We shall prove that $\mu_a(b)=b$ for all $a\in\ker h$, by induction on $m$.
+ We have proved that this holds for $m=1$. Suppose that $m>1$ and that
+ \[\mu_a(i(y_1)^{\eta_1}\cdots i(y_{m-1})^{\eta_{m-1}})=i(y_1)^{\eta_1}\cdots i(y_{m-1})^{\eta_{m-1}}\]
+ for all $a\in\ker h$, $y_1,\dots ,y_{m-1}\in X$ and $\eta_1, \dots ,\eta_{m-1}\in\{ -1,1\}$. 
+ By the inductive hypothesis, we have that
+ \begin{align*}
+     \mu_a(b)=& \mu_{\lambda_{i(y_m)^{\eta_m}}(a)}((y_1)^{\eta_1}\cdots i(y_{m-1})^{\eta_{m-1}})\mu_a(i(y_m)^{\eta_m})\\
+     =& \mu_{i(y_m)^{\eta_m}a(\mu_a(i(y_m)^{\eta_m})^{-1}}((y_1)^{\eta_1}\cdots i(y_{m-1})^{\eta_{m-1}})i(y_m)^{\eta_m}\\
+     =& \mu_{i(y_m)^{\eta_m}ai(y_m)^{-\eta_m}}((y_1)^{\eta_1}\cdots i(y_{m-1})^{\eta_{m-1}})i(y_m)^{\eta_m}\\
+     =& (y_1)^{\eta_1}\cdots i(y_{m-1})^{\eta_{m-1}}i(y_m)^{\eta_m}=b.
+ \end{align*}
+Hence, by induction, $\mu_a=\id$ for all $a\in\ker h$. Thus 
+\[\ker h\subseteq \ker\lambda\cap\ker\mu=\Soc(G(X,r)),\]
+by Propositon \ref{pro:soc_kernels}.
+\end{proof}
+
+\begin{lemma}\label{lem:kerhideal}
+With the above notation, $\ker h$ is an ideal of the skew brace $G(X,r)$.
+\end{lemma}
+
+\begin{proof}
+By Lemma \ref{lem:Kerh}, $\ker h\subseteq \Soc(G(X,r))$. Hence $\ker h\subseteq Z(G(X,r),+)$ and thus $\ker h$ is a normal subgroup of the additive group of the skew brace $G(X,r)$. It is clear that $\ker h$ also is a normal subgroup of the multiplicative group of $G(X,r)$. Let $a\in\ker h$ and $b,c\in G(X,r)$. By Lemma \ref{lem:Kerh}, $\ker h\subseteq\ker\mu$. Hence we have that
+\[\lambda_b(a)=ba(\mu_a(b))^{-1}=bab^{-1}\in\ker h.\]
+Therefore $\ker h$ is an ideal of the skew brace $G(X,r)$.
+\end{proof}
+
+Let $\tilde h \colon G(X,r)/\ker h\to \mathcal{G}(X,r)$ the isomorphism of groups defined by 
+\[\tilde h(a\ker h)=h(a)\] 
+for all $a\in G(X,r)$. We define an addition on $\mathcal{G}(X,r)$ by 
+\[ g_1+g_2=\tilde h(\tilde h^{-1}(g_1)+\tilde h^{-1}(g_2))\]
+for all $g_1,g_2\in\mathcal{G}(X,r)$, i.e.
+\[ h(a)+h(b)=h(a+b)\]
+for all $a,b\in G(X,r)$. Hence $\mathcal{G}(X,r)$ with this addition is a skew brace and then $h$ and $\tilde h$ are skew brace homomorphisms.
+
+In particular, the lambda map of $\mathcal{G}(X,r)$ satisfies that  
+\[ \lambda_{(\sigma_a,\tau^{-1}_a)}(\sigma_b,\tau^{-1}_b)=\lambda_{h(a)}h(b)=h(\lambda_{a}(b))=(\sigma_{\lambda_a(b)},\tau^{-1}_{\lambda_a(b)})\]
+for all $a,b\in G(X,r)$.
+
+
+
+\section{Structure skew brace of a finite solution}
+
+In this section we study the structure skew brace of a finite solution to the YBE.
+
+\begin{theorem}\label{thm:abelianbyfinite}
+Let $(X,r)$ be a finite solution to the YBE. Then $\Soc(G(X,r))$ is a normal subgroup of finite index of the structure group $G(X,r)$. In particular, the structure group $G(X,r)$ is abelian-by-finite. 
+\end{theorem} 
+
+\begin{proof}
+We write $r(x,y)=(\sigma_x(y),\tau_y(x))$ for all $x,y\in X$.
+Let $i \colon X\to G(X,r)$ be the natural map. We have seen that there is a unique group homomorphism $h \colon G(X,r)\to \mathcal{G}(X,r)\subseteq \Sym_X\times \Sym_X$ such that $hi(x)=(\sigma_x,\tau^{-1}_x)$ for all $x\in X$. By Lemma \ref{lem:Kerh}, $\ker h\subseteq \Soc(X,r)$. Since $\mathcal{G}(X,r)$ is finite, the result follows. 
+\end{proof}
+
+
+We now use Hall's theorem to obtain information related to the
+structure of finite skew braces of nilpotent type. 
+
+
+\begin{theorem}
+\label{thm:add_nilpotent}
+Let $A$ be a finite skew brace of nilpotent type. Then 
+the multiplicative group of $A$ is solvable.
+\end{theorem}
+
+\begin{proof}
+    Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. Assume
+    that $|A|=p_1^{\alpha_1}\cdots p_n^{\alpha_n}$ for distinct primes $p_1,\dots,p_n$ and positive integers $\alpha_1,\dots ,\alpha_n$. 
+    Since $K$ is nilpotent and finite, each $K_i\in\Syl_{p_j}(K)$ is normal in $K$, so 
+    each $K_i$ is a left ideal of $A$. It follows that for each $i\in\{1,\dots,n\}$ both $K_i$ and 
+    $\prod_{j\ne i}K_j$ are subbraces of coprime order. In particular, for 
+    each $i\in\{1,\dots,n\}$ there exists a $p_i$-complement of $G$. 
+    Then $G$ is solvable by Hall's theorem. 
+\end{proof}
+
+\begin{theorem}\label{thm:ESSsolvable}
+Let $(X,r)$ be a finite involutive solution to the YBE. Then the structure group $G(X,r)$ is solvable.
+\end{theorem}
+
+\begin{proof}
+By Theorem \ref{thm:involstruct}, $G(X,r)$ is a skew brace of abelian type. By Theorem \ref{thm:abelianbyfinite}, $\Soc(G(X,r))$ is a normal abelian subgroup of the structure group $G(X,r)$ of finite index. Hence $G(X,r)/\Soc(G(X,r))$ is a finite skew brace of abelian type. Therefore the result follows by Theorem \ref{thm:add_nilpotent}.  
+\end{proof}
+
+\section{Exercises}
 
 \begin{prob}
 Check the missing steps of the proofs of all the results of this chapter. 
 \end{prob}
 
+\section{Notes}

@@ -24,25 +24,24 @@ can be used to produce quandles...
 
 \end{proof}
 
-\section*{C}
+\section{Indecomposable solutions}
 
 \begin{definition}
 \index{Solution!indecomposable}
-A finite solution $(X,r)$ is said to be \textbf{decomposable} if there is a 
+A solution $(X,r)$ to the YBE is said to be {\em decomposable} if there is a 
 decomposition $X=X_1\cup X_2$ of $X$ into a disjoint union of
 non-empty subsets $X_1$ and $X_2$ such that 
-$r(X_1\times X_1)\subseteq X_1\times X_2$ and $r(X_2\times X_2)\subseteq X_2\times X_2$. 
-A solution $(X,r)$ is then \textbf{indecomposable} if it is not decomposable. 
+$r(X_1\times X_1)\subseteq X_1\times X_2$ and $r(X_2\times X_2)\subseteq X_2\times X_2$ and the restrictions $(X_1,r|_{X_1\times X_1})$ and $(X_2,r|_{X_2\times X_2})$ are solutions to the YBE. 
+A solution $(X,r)$ to the YBE is then {\em indecomposable} if it is not decomposable. 
 \end{definition}
 
-If $(X,r)$ is a finite decomposable solution and $X=X_1\cup X_2$ is a decomposition, then
-the restrictions $r|_{X_1\times X_1}$ and $r|_{X_2\times X_2}$ are solutions. Moreover, 
-it follows that $r(X_1\times X_2)\subseteq X_2\times X_1$ and 
+If $(X,r)$ is a  decomposable solution to the YBE and $X=X_1\cup X_2$ is a decomposition, then
+$r(X_1\times X_2)\subseteq X_2\times X_1$ and 
 $r(X_2\times X_1)\subseteq X_1\times X_2$, 
 see Exercise~\ref{prob:decomposition}.
 
 \begin{proposition}
-A finite solution $(X,r)$ is indecomposable if and only if 
+A solution $(X,r)$ to the YBE is indecomposable if and only if 
 the group 
 \[
 \langle \sigma_x,\tau_x:x,y\in X\rangle
@@ -51,19 +50,23 @@ acts transitively on $X$.
 \end{proposition}
 
 \begin{proof}
-    Let us assume that $X=X_1\cup X_2$ is a decomposition of $X$ into non-empty orbits... 
+    Let $Y$ be an orbit of $X$ under the action of the group $\langle \sigma_x,\tau_x:x,y\in X\rangle$. Let $x,y\in Y$. Then $r(x,y)=(\sigma_x(y),\tau_y(x))\in Y\times Y$. Also it is clear that
+    \[ r((X\setminus Y)\times(X\setminus Y))\subseteq (X\setminus Y)\times(X\setminus Y).\]
+    It is clear that $r|_{Y\times Y}\colon Y\times Y\to Y\times Y$ is injective. Let $x,y\in Y$. Let $r^{-1}(x,y)=(z,t)$. Then $\sigma_z(t)=x$ and $\tau_t(z)=y$. Hence $z=\tau^{-1}_t(y)\in Y$ and $t=\sigma_z^{-1}(x)\in Y$ and thus $r|_{Y\times Y}$ is bijective. Also it is easy to see that $\sigma_x|_Y\colon Y\to Y$ and $\tau_x|_Y\colon Y\to Y$ are bijective and that $(Y,r|_{Y\times Y})$ is a solution to the YBE. Similarly one can check that if $X\setminus Y$ is not empty, then $(X\setminus Y,r|_{(X\setminus Y)\times (X\setminus Y)})$ is a solution to the YBE. 
+    Therefore, the result follows.
 \end{proof}
 
 Note that this group is in general not isomorphic to the permutation group of the solution. 
 
 \begin{definition}
 \index{Solution!simple}
-A finite solution $(X,r)$ is said to be \textbf{simple} if $|X|>1$ and for every 
+A solution $(X,r)$ to the YBE is said to be \textbf{simple} if $|X|>1$ and for every 
 surjective homomorphism $f\colon (X,r)\to (Y,s)$ of solutions
 either $f$ is an isomorphism or $|Y|=1$. 
 \end{definition}
 
-\begin{example}
+\begin{example}\label{ex:primsol}
+Let $p$ be a prime number. The solution $(\Z/(p), r)$ to the YBE, where $r(a,b)=(b+1,a-1)$ for all $a,b\in\Z/(p)$ is a simple solution. Note that it is indecomposable and a permutation solution. Thus it is a multipermutation solution of level $1$.
 \end{example}
 
 \begin{example}
@@ -74,23 +77,23 @@ either $f$ is an isomorphism or $|Y|=1$.
 
 \begin{proposition}
 \label{pro:simple=>indecomposable}
-Let $(X,r)$ be a finite simple solution. 
-If $|X|>2$, then $(X,r)$ is indecomposable. \framebox{involutive?}
-\end{proposition}
+Let $(X,r)$ be a simple solution to the YBE. 
+If $|X|>2$, then $(X,r)$ is indecomposable. \end{proposition}
 
 \begin{proof}
 Let us assume that $(X,r)$ is decomposable. Decompose $X=X_1\cup X_2$ 
 for non-empty disjoint subsets $X_1$ and $X_2$ of $X$ such 
-that $r(X_i\times X_i)\subseteq X_i\times X_i$ for $i\in\{1,2\}$. 
+that $r(X_i\times X_i)\subseteq X_i\times X_i$ for $i\in\{1,2\}$ and $(X_1,r|_{X_1\times X_1})$ and $(X_2,r|_{X_2\times X_2})$ are solutions to the YBE. 
+ 
 Let $Y=\{1,2\}$ and $s\colon Y\times Y\to Y\times Y$, $s(x,y)=(y,x)$. 
-Since $X=X_1\cup X_2$ is a decomposition, it follows that $r(X_i\times X_j)\subseteq X_j\times X_i$ for all $i,j\in\{1,2\}$. \framebox{Why?}
+Since $X=X_1\cup X_2$ is a decomposition, it follows that $r(X_i\times X_j)\subseteq X_j\times X_i$ for all $i,j\in\{1,2\}$. 
 Let $f\colon X\to Y$, $f(x)=i$ if $x\in X_i$. 
 Since $f$ is then a surjective homomorphism of solutions and $f$ is not an isomorphism (because $|X|>2$), the 
 simplicity of $(X,r)$ implies that $|Y|=1$, a contradiction. 
 \end{proof}
 
 \begin{proposition}
-Let $(X,r)$ be a finite simple \framebox{involutive} solution. 
+Let $(X,r)$ be a simple involutive solution to the YBE. 
 If $|X|$ is not a prime number, then $(X,r)$ is irretractable.
 \end{proposition}
 
@@ -98,25 +101,15 @@ If $|X|$ is not a prime number, then $(X,r)$ is irretractable.
 Let us assume that $(X,r)$ is retractable. 
 Let $(X,r)\to\Ret(X,r)$, $x\mapsto [x]$, be the canonical map. Since it is a surjective homomorphism of solutions
 and $(X,r)$ is retractable, the simplicity of $(X,r)$ implies that $|\Ret(X,r)|=1$. Therefore $(X,r)$ is a permutation solution, say 
-$r(x,y)=(\sigma(y),\tau(x))$ for some commuting permutations $\sigma\colon X\to X$
-and $\tau\colon X\to X$. Since $|X|>2$, the solution $(X,r)$ 
-is indecomposable by Proposition~\ref{pro:simple=>indecomposable}. This implies that $\sigma$ is a cycle of length $|X|$
-and $\tau=\sigma^k$ for some $k\in\Z$. Let us assume that 
+$r(x,y)=(\sigma(y),\sigma^{-1}(x))$ for some permutation $\sigma\colon X\to X$. Since $|X|>2$, the solution $(X,r)$ 
+is indecomposable by Proposition~\ref{pro:simple=>indecomposable}. This implies that either $X$ is finite and $\sigma$ is a cycle of length $|X|$, or $(X,r)$ is isomorphic to the solution $(\Z,r')$, where $r'(x,y)=(y+1,x-1)$. Note that the natural  map $\Z\to \Z/(2)$ is a surjective homomorphism of solutions from $(\Z,r')$ to $(\Z/(2),s)$, where $s(a,b)=(b+1,a-1)$. Hence $(\Z,r')$ is not simple.  
+Hence $X$ is finite and we may assume that 
 $\sigma=(x_1\cdots x_n)$, where $n=|X|$. 
 Since $n$ is not a prime number, $n=dm$ for some $1<d<n$. Let $Y=\Z/(d)$ and
-$s\colon Y\times Y\to Y\times Y$, $s(i,j)=(j+1,i+k)$. Then $(Y,s)$ is a solution. 
+$s\colon Y\times Y\to Y\times Y$, $s(i,j)=(j+1,i-1)$. Then $(Y,s)$ is a solution to the YBE. 
 The map
 $f\colon X\to Y$, $f(x_i)=i\bmod d$
-satisfies $f(\tau_{x_j}(x_i))=i+k$ and 
-\[
-f(\sigma_{x_i}(x_j))
-=\begin{cases}
-f(x_{j+1}) & \text{if $j<n$},\\
-1 & \text{if $j=n$}.
-\end{cases}
-\]
-Then a straightforward computation shows that $f$ is a 
-surjective homomorphism of solutions, a contradiction. 
+is a surjective homomorphism of solutions, in contradiction with the simplicity of $(X,r)$. Therefore, the result follows. 
 \end{proof}
 
 The previous proposition cannot be extended to the non-involutive case. 
@@ -126,10 +119,10 @@ Let $X=\{1,\dots,6\}$. The permutation solution with
 permutations $\sigma=(153)(264)$ and $\tau=(12)(34)(56)$ is indecomposable.
 \end{example}
 
-\section*{D}
+\section{Regular subgroups of the holomorph}
 
 \index{Holomorph}
-For an additive group $A$, the \textbf{holomorph} of $A$ is the semidirect product 
+For an additive group $A$, the {\em holomorph} of $A$ is the semidirect product 
 \[
 	\Hol(A)=A\rtimes\Aut(A).
 \]
@@ -148,11 +141,6 @@ Every subgroup $G$ of $\Hol(A)$ acts on $A$ by
 \]
 where $\pi_1\colon \Hol(A)\to A$, $(a,f)\mapsto a$. 
 
-\begin{exercise}
-    The group $\Hol(A)$ acts transitively on $A$ 
-	and the stabilizer $a\in A$ 
-	is isomorphic to $\Aut(A)$. 
-\end{exercise}
 
 \index{Regular subgroup}
 A subgroup $G$ of $\Hol(A)$ is said to be \emph{regular} 
@@ -168,7 +156,7 @@ given $a,b\in A$ there exists a unique $(x,f)\in G$ such that
 \end{lemma}
 
 \begin{proof}
-	We first prove that restriction restriction $\pi_1|_G$ of $\pi_1$ onto $G$ is injective. Let $(a,f)\in G$ and $(b,g)\in G$
+	We first prove that restriction $\pi_1|_G$ of $\pi_1$ on $G$ is injective. Let $(a,f), (b,g)\in G$
 	be such that 
 	$\pi_1(a,f)=\pi_1(b,g)$. Then $a=b$. Since $G$ is a
 	subgroup, 
@@ -184,17 +172,17 @@ given $a,b\in A$ there exists a unique $(x,f)\in G$ such that
 	and $G$ is a regular subgroup.
 	Now we prove that $\pi_1|_G$ is surjective. Let $a\in A$. 
 	Since $G$ is regular, there exists $(x,f)\in G$ such that $x+f(a)=(x,f)\cdot a=0$, so $(-f(a),f)\in G$ for some $f\in\Aut(A)$. 
-	Then $(a,f^{-1})=(-f(a),f)^{-1}\in G$ and $\pi_2|_G(a,f^{-1})=a$. 
+	Then $(a,f^{-1})=(-f(a),f)^{-1}\in G$ and $\pi_1|_G(a,f^{-1})=a$. 
 \end{proof}
 
-Now we establish an important connection between braces and regular subgroups. 
+Now we establish an important connection between skew braces and regular subgroups. 
 
 \begin{theorem}
 \label{thm:regular}
-	If $A$ is a brace, then $\Delta=\{(a,\lambda_a):a\in A\}$ is a regular subgroup of 
+	If $A$ is a skew brace, then $\Delta=\{(a,\lambda_a):a\in A\}$ is a regular subgroup of 
 	$\Hol(A,+)$. Conversely, if $A$ is an additive group and 
 	$G$ is a regular subgroup of $\Hol(A)$, then $A$ is 
-	a brace with 
+	a skew brace with 
 	\[
 		a\circ b=a+f(b),
 	\]
@@ -202,7 +190,7 @@ Now we establish an important connection between braces and regular subgroups.
 \end{theorem}
 
 \begin{proof}
-    Assume first that $A$ is a brace. 
+    Assume first that $A$ is a skew brace. 
     Using~\eqref{eq:formulas} and that 
     $\lambda$ is a group homomorphism, it follows that
     $\Delta=\{(a,\lambda_a):a\in A\}$ is a subgroup of $\Hol(A,+)$, as 
@@ -221,7 +209,7 @@ Now we establish an important connection between braces and regular subgroups.
         a\circ b=\pi_1|_G\left((\pi_1|_G)^{-1}(a)(\pi_1|_G)^{-1}(b)\right)=a+f(b),
 	\]
 	where $a,b\in A$ and $(\pi_1|_G)^{-1}(a)=(a,f)\in G$. 
-	Then $(A,\circ)$ is a group isomorphic to $G$ and moreover $A$ is a brace, as 
+	Then $(A,\circ)$ is a group isomorphic to $G$ and moreover $A$ is a skew brace, as 
 	\begin{align*}
 		a\circ (b+c)&=a+f(b+c)=a+f(b)+f(c)\\
 		&=a+f(b)-a+a+f(c)=a\circ b-a+a\circ c
@@ -252,18 +240,18 @@ The following lemma is from~\cite{MR4113853}.
 \label{pro:regular}
 	Let $A$ be an additive group.  There exists a bijective correspondence between
 	isomorphism classes of 
-	brace structures with additive group $A$ and conjugacy classes of regular subgroups of
+	skew brace structures with additive group $A$ and conjugacy classes of regular subgroups of
 	$\Hol(A)$. 
 
 	\begin{proof}
-        Assume that the additive group $A$ has two isomorphic brace structures given by
+        Assume that the additive group $A$ has two isomorphic skew brace structures given by
 		$(a,b)\mapsto a\circ b$ and $(a,b)\mapsto a\times b$. Let 
 		$f\colon A\to A$ be a bijective map such that $f(a+b)=f(a)+f(b)$ and $f(a\circ b)=f(a)\times f(b)$ for
 		all $a,b\in A$. 
 		We claim that the regular subgroups $\{(a,\lambda_a):a\in A$\} and
 		$\{(a,\mu_a):a\in A\}$, where $\lambda_a(b)=-a+a\circ b$ and
 		$\mu_a(b)=-a+a\times b$, are conjugate. 
-		Since $f$ is an isomorphism of braces, 
+		Since $f$ is an isomorphism of skew braces, 
 		\[
 		f\circ\lambda_a\circ f^{-1}=\mu_{f(a)}
 		\]
@@ -273,7 +261,7 @@ The following lemma is from~\cite{MR4113853}.
 		
 		Conversely, let $H$ and $K$ be conjugate regular subgroups of $\Hol(A)$. Since $H$ and $K$ are conjugate in $\Hol(A)$, by 
 		Lemma~\ref{lem:BNY} there exists $\varphi\in\Aut(A)$ such that $\varphi
-		H\varphi^{-1}=K$. The brace structure on $A$ corresponding to the subgroup $H$ is given by 
+		H\varphi^{-1}=K$. The skew brace structure on $A$ corresponding to the subgroup $H$ is given by 
 		$a\circ b=a+f(b)$,
 		where
 		$(a,f)=(\pi_1|_H)^{-1}(a)\in H$, see Lemma~\ref{lem:bijective}. 
@@ -287,18 +275,18 @@ The following lemma is from~\cite{MR4113853}.
             \varphi(a)\times\varphi(b)&=\varphi(a)+(\varphi\circ f\circ\varphi^{-1})(\varphi(b))\\
             &=\varphi(a)+\varphi(f(b))=\varphi(a+f(b))=\varphi(a\circ b)
         \end{align*}
-        and hence the braces corresponding to $H$ and $K$ are
+        and hence the skew braces corresponding to $H$ and $K$ are
 		isomorphic.
 	\end{proof}
 \end{proposition}
 
-Now we present algorithm used to enumerate braces. It is based 
+Now we present algorithm used to enumerate skew braces. It is based 
 on Theorem~\ref{thm:regular}. The use of Lemma~\ref{lem:BNY} 
 in Proposition~\ref{pro:regular} significantly improves the performance.  
 
 \begin{steps}
 	\label{alg:regular}
-	Let $A$ be a finite group.  To construct all braces with additive group  
+	Let $A$ be a finite group.  To construct all skew braces with additive group  
 	$A$ we proceed as follows:
 	\begin{enumerate}
 		\item Compute the holomorph $\Hol(A)$ of $A$.
@@ -306,20 +294,20 @@ in Proposition~\ref{pro:regular} significantly improves the performance.
 			order $|A|$ up to conjugation. 
 		\item For each representative $G$ of regular subgroups of
 			$\Hol(A)$ construct the map $p\colon A\to G$ given by $a\mapsto
-            (a,f)\in G$. Then the set $A$ is a brace with additive 
+            (a,f)\in G$. Then the set $A$ is a skew brace with additive 
 			group $A$ and 
 			multiplication given by 
 			$a \circ b=p^{-1}(p(a)p(b))$ for all $a,b\in A$.
 	\end{enumerate}
 \end{steps}
 
-To enumerate all isomorphism classes of braces structures with a fixed additive group  
+To enumerate all isomorphism classes of skew brace structures with a fixed additive group  
 the third step of Algorithm~\ref{alg:regular} is not needed. 
 Algorithm~\ref{alg:regular} can be used to compute
-the number $s(n)$ of non-isomorphic braces of size $n$. With small modifications
+the number $s(n)$ of non-isomorphic skew braces of size $n$. With small modifications
 it could be used to compute the number 
-$a(n)$ of non-isomorphic braces of abelian type of size $n$, or the number of non-isomorphic radical rings, or the 
-number of non-isomorphic braces of nilpotent type. Some
+$a(n)$ of non-isomorphic skew braces of abelian type of size $n$, or the number of non-isomorphic radical rings, or the 
+number of non-isomorphic skew braces of nilpotent type. Some
 values for $s(n)$ and $a(n)$ appear in Table~\ref{tab:braces}. 
 
 % \begin{remark}
@@ -339,7 +327,7 @@ values for $s(n)$ and $a(n)$ appear in Table~\ref{tab:braces}.
 
 \begin{table}[ht]
 \centering
-	\caption{The number of non-isomorphic braces.}
+	\caption{The number of non-isomorphic skew braces.}
 	\begin{tabular}{|c|cccccccccccc|}
 		\hline
 		$n$ & 1 & 2 & 3 & 4 & 5  & 6 & 7 & 8 & 9 & 10 & 11 & 12\tabularnewline
@@ -411,17 +399,46 @@ values for $s(n)$ and $a(n)$ appear in Table~\ref{tab:braces}.
 	\label{tab:braces}
 \end{table}
 
-\section*{Open problems}
+
+
+%It was implemented in~\cite{MR1484478}. 
+
+\section{Exercises}
+
+\begin{prob}
+\label{prob:decomposition}
+Let $(X,r)$ be a finite solution to the YBE. Let $X_1, X_2$ be disjoint non-empty subsetes of $X$ such that $X=X_1\cup X_2$. Suppose that $r(X_1\times X_1)\subseteq X_1\times X_1$ and $r(X_2\times X_2)\subseteq X_2\times X_2$. Prove that the restrictions $(X_1, r|_{X_1\times X_1})$ and $(X_2, r|_{X_2\times X_2})$ are solutions to the YBE and 
+$r(X_1\times X_2)\subseteq X_2\times X_1$ and 
+$r(X_2\times X_1)\subseteq X_1\times X_2$. 
+\end{prob}
+
+\begin{prob}
+Let $(X,r)$ be a finite involutive permutation solution. 
+Prove that $(X,r)$ is indecomposable if and only if $\sigma$ is a cycle of length $|X|$.
+\end{prob}
+
+\begin{prob}
+    Let $A$ be an additive group. The group $\Hol(A)$ acts transitively on $A$ 
+	and the stabilizer $a\in A$ 
+	is isomorphic to $\Aut(A)$. 
+\end{prob}
+
+
+\section{Open problems}
+
+\begin{problem}
+Construct indecomposable (involutive) solutions of small size. 
+\end{problem}
 
 \begin{problem}
     Estimate $s(n)$ and $a(n)$ for $n\to\infty$.
 \end{problem}
 
 \begin{problem}
-    Construct and enumerate braces of size 64, 96, 128 and 160. 
+    Construct and enumerate skew braces of size 64, 96, 128 and 160. 
 \end{problem}
 
-\section*{Notes}
+\section{Notes}
 
 \index{Catino, F.}
 \index{Bachiller, D.}
@@ -429,36 +446,13 @@ values for $s(n)$ and $a(n)$ appear in Table~\ref{tab:braces}.
 Theorem~\ref{thm:regular} was first observed by Catino and Rizzo~\cite{MR2486886} and Bachiller~\cite{MR3465351}. 
 
 Algorithm~\ref{alg:regular} and most of the numbers of Table~\ref{tab:braces} appeared in~\cite{MR3647970}. 
-It should be noted that the number of braces of size 57 of~\cite{MR3647970} is incorrect;
+It should be noted that the number of skew braces of size 57 of~\cite{MR3647970} is incorrect;
 the correct value is $s(57)=8$, as Table~\ref{tab:braces} shows. 
 Lemma~\ref{lem:BNY} appears in~\cite{MR4113853} and it is needed to compute the number 
-$a(n)$ of isomorphism classes of braces of abelian type of size $n\in\{32,81,96,144,160,162\}$ and 
+$a(n)$ of isomorphism classes of skew braces of abelian type of size $n\in\{32,81,96,144,160,162\}$ and 
 the number 
-$s(n)$ of isomorphism classes of braces of size 
-$n\in\{32,54,80,81,108,112,120,136,144,147,150,152,162,168\}$. 
-
-%It was implemented in~\cite{MR1484478}. 
-
-\section*{Exercises}
-
-\begin{prob}
-\label{prob:decomposition}
-Let $(X,r)$ be a finite decomposable solution and $X=X_1\cup X_2$ be a decomposition. Prove that
-$r(X_1\times X_2)\subseteq X_2\times X_1$ and 
-$r(X_2\times X_1)\subseteq X_1\times X_2$. \framebox{Solution?}
-\end{prob}
-
-\begin{prob}
-Let $(X,r)$ be a finite \framebox{involutive} permutation solution. 
-Prove that $(X,r)$ is indecomposable if and only if $\sigma$ is a cycle of length $|X|$.
-\end{prob}
-
-
-\section*{Open problems}
-
-\begin{problem}
-Construct indecomposable (involutive) solutions of small size. 
-\end{problem}
+$s(n)$ of isomorphism classes of skew braces of size 
+\[n\in\{32,54,80,81,108,112,120,136,144,147,150,152,162,168\}.\]
 
 \section*{Notes}
 

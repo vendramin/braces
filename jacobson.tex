@@ -1,8 +1,12 @@
 \chapter{The Jacobson radical}
 \label{radical}
 
-\section{Primitive rings}
+% In this chapter we develop the basic definitions and results in non-commutative ring theory related with the Jacobson radical.
 
+
+
+\section{Primitive rings}
+\index{Annihilator}
 Let $M$ be an $R$-module and $S$ a subset of $M$. The \emph{annihilator} of $S$ is
 \[
 \Ann_R(S)=\{ a\in R:as=0\;\text{for all } s\in S\} .
@@ -17,6 +21,7 @@ Let $T$ be a subset of a right $R$-module, then the annihilator of $T$ is
 \Ann^r_R(T)=\{ a\in R: ta=0\;\text{for all }t\in T\} .
 \]
 
+\index{Module!faithful}
 \begin{definition}
     A \emph{faithful} $R$-module is an $R$-module $M$ such that $\Ann_R(M)=\{0\}$. 
 \end{definition}
@@ -87,7 +92,7 @@ Note that Zorn's lemma implies that every unitary ring has simple modules, see E
 
 \textcolor{red}{
 \begin{definition}\index{Direct sum of submodules}
-Let $(M_i)_{i\in I}$ be a family of submodules of an $R$-module $M$. We say that the sum $\sum_{i\in I}M_i$ is a {\em direct sum} if for every $j\in I$, $M_i\cap\sum_{i\in I\setminus\{ j\}}M_i=\{0\}$. We will write $\bigoplus_{i\in I}M_i$ to denote the direct sum of the submodules $M_i$ of $M$.
+Let $(M_i)_{i\in I}$ be a family of submodules of an $R$-module $M$. We say that the sum $\sum_{i\in I}M_i$ is a {\em direct sum} if for every $j\in I$, $M_j\cap\sum_{i\in I\setminus\{ j\}}M_i=\{0\}$. We will write $\bigoplus_{i\in I}M_i$ to denote the direct sum of the submodules $M_i$ of $M$.
 \end{definition}}
 
 \textcolor{red}{
@@ -404,7 +409,7 @@ consequence of Proposition \ref{Prop1.3.2} is the following result.
     If $R$ is a ring, then $J(R/J(R))=\{0\}$. \qed
 \end{corollary}
 
-
+\index{Nakayama's lemma}
 \begin{proposition}[Nakayama's lemma]
 Let $R$ be a ring and $S\subseteq J(R)$. Let $M$ be a finitely generated $R$-module. If $SM=M$, then $M=0$.
 \end{proposition}
@@ -438,9 +443,11 @@ such that $I^n=0$.
 
 \begin{definition}
 \index{Ideal!nilradical}
+\index{Nilradical}
 An ideal $J$ of $R$ is said to be a \emph{nilradical} if it is a nil ideal and $R/J$ has no nonzero nilpotent ideal.
 \end{definition}
 
+\index{Nilradical!upper}
 \begin{proposition}\label{Prop1.3.4}
 Let $R$ be a ring. Then there exists a unique maximal nil ideal $\mathcal{U}(R)$ of $R$. 
 Furthermore, $\mathcal{U}(R)$ is a nilradical and it is called the upper nilradical of $R$.
@@ -485,13 +492,17 @@ $IV=V$ and $JV=V$. Hence $IJV=IV=V$ and thus $IJ\neq \{0\}$.
 An ideal $P$ of a ring $R$ is said to be \emph{prime} if $R/P$ is a prime ring.
 \end{definition}
 
+\index{Nilradical!lower}
+\index{Baer--McCoy radical}
+\index{Prime radical}
+\index{Ring!semiprime}
 Let $\mathcal{C}=\{ P : P$ prime ideal of $R\}$. Define
 \[
 \varphi\colon R\rightarrow \prod_{P\in\mathcal{C}}R/P
 \]
 by $\varphi (r)=(r+P)_{P\in\mathcal{C}}$ for all $r\in R$. It is clear thate $\varphi$ 
 is a homomorphism of rings and $\ker(\varphi
-)=\bigcap_{P\in \mathcal{C}}P$. The \emph{Baer-McCoy radical} or \emph{(Baer's) lower nilradical} of $R$ is
+)=\bigcap_{P\in \mathcal{C}}P$. The \emph{Baer--McCoy radical} or \emph{(Baer's) lower nilradical} of $R$ is
 $$\mathcal{B}(R)=\bigcap_{P\in\mathcal{C}}P.$$
 $\mathcal{B}(R)$ is also called the \emph{prime radical} of $R$.
 A ring $R$ is said to be \emph{semiprime} if it is isomorphic to a subdirect product of prime rings.
@@ -558,6 +569,7 @@ $$N(R)=\mathcal{B}(R)=\mathcal{U}(R)=\{ x\in R\mid x\;\mbox{is nilpotent}\}$$
 is the unique nilradical of $R$, and thus, in this case,  $N(R)$ is said to be the nilradical of $R$.
 
 \section{Artinian rings}
+\index{Module!Artinian}
 An $R$-module $M$ is said to be \emph{Artinian} if every descending chain of submodules of $M$ is stationary, that is, if
 $$M_1\supseteq M_2\supseteq\dots\supseteq M_n\supseteq\dots$$
 is a descending chain of submodules of $M$, there exists a positive integer $n_0$ such that $M_n=M_{n_0}$ for all $n\geq n_0$.
@@ -568,6 +580,9 @@ The proof of the next result is easy and we left it to the reader.
 An $R$-module $M$ is Artinian if and only if every non-empty set of submodules of $M$ has a minimal element. \qed
 \end{proposition}
 
+\index{Ring!right Artinian}
+\index{Ring!left Artinian}
+\index{Ring!Artinian}
 A ring $R$ is said to be \emph{right Artinian} if it is Artinian as right $R$-module.
 Similarly one defines left Artinian ring. We say that the ring $R$ is Artinian if it is right and left Artinian.
 
@@ -594,9 +609,9 @@ eRe$. One can verify that $\varphi (f(e))=f$, and thus $\varphi$
 is an isomorphism and the result follows.
 \end{proof}
 
-\begin{theorem}[Artin--Wedderburn]
+\begin{theorem}[Wedderburn--Artin]
 \label{Teorema 1.4.3}
-\index{Artin--Wedderburn's theorem}
+\index{Wedderburn--Artin's theorem}
 The following conditions are equivalent.
 \begin{itemize}\item[(i)] $R$ is an Artinian simple ring.
 \item[(ii)] $R$ is a left Artinian simple ring.
@@ -654,11 +669,12 @@ Since $R$ is right Artinian, there exists a positive integer $n$
 such that $J^n=J^m$ for all $m\geq n$. Let $I=J^n$. Suppose that
 $I\neq 0$. Since $R$ is right Artinian and $I=I^2$, there exists a right ideal $M$ which is minimal with the property
 $MI\neq 0$. Since $MI^2=MI\neq 0$,
-we have that $MI=M$. It is clear that $M$ is generated by one element, hence, by Nakayasma's lemma, $M=\{0\}$, in contradiction with $MI\neq 0$. Therefore,
+we have that $MI=M$. It is clear that $M$ is generated by one element, hence, by Nakayama's lemma, $M=\{0\}$, in contradiction with $MI\neq 0$. Therefore,
 $I=J^n=0$ and the result follows.
 \end{proof}
 
-\begin{theorem}[Wedderburn-Artin theorem]
+\begin{theorem}[Wedderburn-Artin's theorem]
+\index{Wedderburn-Artin's theorem}
 Let $R$ be a ring. Then $R$ is right (left) Artinian and semiprimitive if and only if
 $$R\cong M_{n_1}(D_1)\times \dots\times M_{n_r}(D_r),$$
 where the $D_i$ are division rings. Furthermore, $r$ is determined by $R$, and the pairs $(D_i,n_i)$ are determined up to a permutation.
@@ -691,14 +707,14 @@ By Theorem \ref{Teorema 1.4.3}, the result follows.
 \end{proof}
 
 \section{Noetherian rings}
-
+\index{Module!Noetherian}
 An $R$-module $M$ is said to be \emph{Noetherian} if every ascending chain of submodules of $M$ is stationary, that is, if
 $$M_1\subseteq M_2\subseteq\dots\subseteq M_n\subseteq\dots$$
 is an ascending chain of submodules of $M$, there exists a positive integer $n_0$ such that $M_n=M_{n_0}$ for all $n\geq n_0$.
 
 The proof of the next result is easy and we left it to the reader.
 
-\begin{proposition}\label{prop: Noetherian1}
+\begin{proposition}\label{prop:Noetherian1}
 An $R$-module $M$ is Noetherian if and only if every non-empty set of submodules of $M$ has a maximal element. \qed
 \end{proposition}
 
@@ -733,6 +749,9 @@ It is easy to see that
 By Proposition \ref{prop:Noetherian2}, it follows that $M$ is Noetherian.
 \end{proof}
 
+\index{Ring!right Noetherian}
+\index{Ring!left Noetherian}
+\index{Ring!Noetherian}
 A ring $R$ is said to be \emph{right Noetherian} if it is Noetherian as right $R$-module.
 Similarly one defines left Noetherian rings. We say that the ring $R$ is Noetherian if it is right and left Noetherian.
 
@@ -770,17 +789,18 @@ By induction, $I$ is finitely generated and therefore $R[X]$ is right Noetherian
 \end{proof}
 
 \begin{theorem}[Hopkins' theorem]
+\index{Hopkins' theorem}
 Let $R$ be a ring. Then $R$ is right Artinian if and only if $R$ is right Noetherian, $J(R)$ is nilpotent and $R/J(R)$ is a semisimple right $R$-module.
 \end{theorem}
 
 \begin{proof}
-Suppose that $R$ is right Artinian. By Theorem \ref{Teorema 1.4.4}, $J(R)$ is nilpotent. Since $R/J(R)$ is right Artinian and semiprimitive, by Wedderburn-Artin theorem, it is easy to see that  $R/J(R)$ is a semisimple $R$-module. Let $n$ be a positive integer such that $J(R)^n=0$. Consider the descending chain
+Suppose that $R$ is right Artinian. By Theorem \ref{Teorema 1.4.4}, $J(R)$ is nilpotent. Since $R/J(R)$ is right Artinian and semiprimitive, by Wedderburn-Artin's theorem, it is easy to see that  $R/J(R)$ is a semisimple $R$-module. Let $n$ be a positive integer such that $J(R)^n=0$. Consider the descending chain
 \[ R\supseteq J(R)\supseteq \dots\supseteq J(R)^n=0.\]
-Note that $J(R)^{i}/J(R)^{i+1}$ is a right $R/J(R)$-module for all $1\leq i<n$. It is an exercise to prove that every direct sum of semisimple right modules is semisimple. Since $J(R)^{i}/J(R)^{i+1}$ is an epimorphic image of a direct sum of copies of $R/J(R)$, we have that $J(R)^{i}/J(R)^{i+1}$ is a semisimple right $R$-module. Since $R$ is right Artinian, $J(R)^{i}/J(R)^{i+1}$ is an Artinian right module. By Proposition \ref{prop:semisiple},  $J(R)^{i}/J(R)^{i+1}$ and its right submodules are finite direct sums of simple right $R$-modules. In particular, every right submodule of $J(R)^{i}/J(R)^{i+1}$ is finitely generated. Hence $J(R)^{i}/J(R)^{i+1}$ is a Noetherian $R$-module. Hence $R$ also is right Noetherian. 
+Note that $J(R)^{i}/J(R)^{i+1}$ is a right $R/J(R)$-module for all $1\leq i<n$. It is an exercise to prove that every direct sum of semisimple right modules is semisimple. Since $J(R)^{i}/J(R)^{i+1}$ is an epimorphic image of a direct sum of copies of $R/J(R)$, we have that $J(R)^{i}/J(R)^{i+1}$ is a semisimple right $R$-module. Since $R$ is right Artinian, $J(R)^{i}/J(R)^{i+1}$ is an Artinian right module. By Proposition \ref{prop:semisimple},  $J(R)^{i}/J(R)^{i+1}$ and its right submodules are finite direct sums of simple right $R$-modules. In particular, every right submodule of $J(R)^{i}/J(R)^{i+1}$ is finitely generated. Hence $J(R)^{i}/J(R)^{i+1}$ is a right Noetherian $R$-module. Hence $R$ also is right Noetherian. 
 
 Conversely, assume that $R$ is right Noetherian, $J(R)$ is nilpotent and $R/J(R)$ is a semisimple right $R$-module. There exists a positive integer $n$ such that 
 \[ R\supseteq J(R)\supseteq \dots\supseteq J(R)^n=0.\]
-As above $J(R)^{i}/J(R)^{i+1}$ is a semisimple right $R$-module. Since $R$ is right Noetherian, by Proposition \ref{prop:semisimple}, $J(R)^{i}/J(R)^{i+1}$ and its right submodules are finite direct sums of simple right $R$-modules. Now it is clear that $J(R)^{i}/J(R)^{i+1}$ is an Artinian $R$-module and therefore $R$ is right Artinian.
+As above $J(R)^{i}/J(R)^{i+1}$ is a semisimple right $R$-module. Since $R$ is right Noetherian, by Proposition \ref{prop:semisimple}, $J(R)^{i}/J(R)^{i+1}$ and its right submodules are finite direct sums of simple right $R$-modules. Now it is clear that $J(R)^{i}/J(R)^{i+1}$ is a right Artinian $R$-module and therefore $R$ is right Artinian.
 \end{proof}
 
 \section{Rings without unity}
@@ -792,6 +812,7 @@ $$
 for all $z_1,z_2\in\Z$ and all $a,b\in S$. It is easy to check that $S^1$ is a ring and that $(1,0)$ is its unit-element. Furthermore, 
 $\{0\}\times S$ is an ideal of $S^1$, which is naturally isomorphic to $S$ (as rings without unity).
 
+\index{Ring!radical}
 We say that a ring $S$ without unity is a \emph{(Jacobson) radical ring} if it is isomorphic to the Jacobson radical of a ring (with unity). Note that if $S$ is a radical ring and $R$ is a ring (with unity) such that $S\cong J(R)$, we have that for every $a\in S$ there exists a unique $b\in S$ such that $a+b+ab=a+b+ba=0$. This can be proved as follows. Let $\psi\colon S\rightarrow R$ be an injective homomorphism of rings without uniy such that $\im(\psi)=J(R)$, this exists because $S\cong J(R)$. Then, for $a\in S$,
 $1+\psi(a)\in R$ is invertible. Thus there exists $c\in R$ such that $(1+\psi(a))(1+c)=(1+c)(1+\psi(a))=1$. Note that this implies that
 $c=-\psi(a)c-\psi(a)\in J(R)$. Hence there exists $b\in S$ such that $\psi(b)=c$. Therefore 
@@ -819,6 +840,7 @@ $$a\circ b=a+b+ab,$$
 for all $a,b\in S$. It is easy to see that $(S,\circ)$ is a monoid with neutral element $0$.
 Note that $S$ is a radical ring if and only if $(S,\circ)$ is a group. If $a\in S$ is invertible in the monoid $(S,\circ)$, we shall denote by $a'$ its inverse.
 
+\index{Ring!nil}
 A \emph{nil ring} is a ring $S$ without unity such that every element of $S$ is nilpotent. Note that every nil ring is a radical ring.
 
 \begin{example} 
@@ -837,18 +859,10 @@ and it is not a nil ring.
 \textcolor{red}{Let $M$ be an $R$-module. Prove that if for every submodule $N$ of $M$ there exists a submodule $L$ of $M$ such that $M=N\oplus L$, then $M$ is semisimple.}
 \end{prob}
 \begin{prob}
-	\label{prob:Rump}
-	Prove Proposition~\ref{pro:Rump}. 
+Prove Proposition \ref{Prop1.4.1}
 \end{prob}
-
 \begin{prob}
-	If $X$ is a cycle set, then $x\cdot (y\cdot y)=((y*x)\cdot y)\cdot ((y*x)\cdot y)$, where
-	$y*x=z$ if and only if $y\cdot z=x$. 
-\end{prob}
-
-\begin{prob}
-	\label{prob:CS}
-	Prove Theorem~\ref{thm:CS}. 
+Prove Proposition \ref{prop:Noetherian1}
 \end{prob}
 
 \begin{prob}
@@ -857,7 +871,7 @@ Let $D$ be the ring of rationals with odd denominators. Let
 $R=\begin{pmatrix}
     D & \Q\\
     0 & \Q
-\end{pmatrix}$. Prove that $R$ is right noetherian and 
+\end{pmatrix}$. Prove that $R$ is right Noetherian and 
 $J(R)=\begin{pmatrix}
 J(D) & \Q\\
 0 & 0
@@ -893,7 +907,7 @@ $J(R)^n\supseteq\begin{pmatrix}0&\Q\\0&0\end{pmatrix}$ and hence $\bigcap_nJ(R)^
 \label{prob:Jacobson}
 \index{Jacobson conjecture}
 \index{Jacobson--Herstein conjecture}
-Let $R$ be a noetherian ring. Is then 
+Let $R$ be a Noetherian ring. Is then 
 \[
 \bigcap_{n\geq1}J(R)^n=\{0\}?
 \]
@@ -902,24 +916,17 @@ Let $R$ be a noetherian ring. Is then
 \begin{problem}[K\"othe]
 	\label{prob:Koethe}
 	Let $R$ be a ring. Is the sum 
-	of two arbitrary nil left ideals of $R$ is nil?
+	of two arbitrary nil left ideals of $R$  nil?
 \end{problem}
 
-\begin{problem}
-	Construct and enumerate involutive solutions of size $11$. 
-\end{problem}
 
-\begin{problem}
-	Estimate the number of solutions of size $n$ for $n\to\infty$. 
-\end{problem}
+\section{Notes}
 
-\section*{Notes}
-
-The material on non-commutative ring theory is standard, see for example~\cite{MR3308118} {\bf Ferran: quiz\'as deber\'{i}amos citar el libro Algebra, vol 2, de P. M. Cohn}.
+The material on non-commutative ring theory is standard, see for example~\cite{MR3308118} or \cite{MR0530404}.
 Radical rings were introduced by Jacobson in~\cite{MR12271}. Nil rings were
 used by Zelmanov in his solution to Burnside's problem, see for example~\cite{MR1199575}.
 
-\textcolor{red}{In 1957 \cite{MR0096696} Kaplansky formulated the question of whether right primitive rings are left primitive. After the example of Bergman of a right primitive ring which is not left primitive \cite{MR175940,MR167497} and the examples of Jategaonkar \cite{MR0240131} with the additional property of being principal left ideal domains, Kaplansky formulated Open problem \ref{prob:Kaplansky} in  \cite{MR0099359}. }
+\textcolor{red}{In 1957 \cite{MR0096696} Kaplansky formulated the question of whether right primitive rings are left primitive. After the example of Bergman of a right primitive ring which is not left primitive \cite{MR175940,MR167497} and the examples of Jategaonkar \cite{MR240131} with the additional property of being principal left ideal domains, Kaplansky formulated Open problem \ref{prob:Kaplansky} in  \cite{MR258865}. }
 
 Open problem \ref{prob:Jacobson} was originally formulated by Jacobson in 1956 \cite{MR0222106} 
 for one-sided noetherian rings. In 1965 Herstein \cite{MR188253} found a counterexample
@@ -947,13 +954,5 @@ appears in~\cite{MR3169522}. See \cite{MR1879880,MR2275597} for more
 information on K\"othe's conjecture and related topics. 
 
 
-Rump introduced cycle sets in~\cite{MR2132760}. The bijective correspondence of 
-Theorem~\ref{thm:CS} was 
-also proved by Rump in~\cite{MR2132760}. A similar result can be 
-found in~\cite[Proposition 2.2]{MR1722951}. 
-
-The numbers of Table~\ref{tab:IYB} were computed in~\cite{MR4405502}
-using a combination of~\cite{GAP4} and constraint programming techniques. 
-The algorithm is based on an idea of Plemmons~\cite{MR0258994}, originally 
-conceived to construct non-isomorphic semigroups.  
+ 
 

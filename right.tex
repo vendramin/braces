@@ -280,6 +280,20 @@ $I_{n-j}\subseteq\Soc_j(A)$. Hence $A=I_0=\Soc_n(A)$ and the result
 follows.
 \end{proof}
 
+\begin{proposition}
+    \label{pro:rightnilpotentabelian}
+    Let $A$ be a skew brace of abelian type. Then $\Soc_n(A)=A$ if and only if $A^{(n+1)}=\{ 0\}$.
+\end{proposition}
+\begin{proof}
+    Suppose that $\Soc(A)=A$. Then 
+\[
+A=\Soc_n(A)\supseteq
+\Soc_{n-1}(A)\supseteq\cdots\supseteq \Soc_0(A)=\{0\},
+\] is a
+$s$-series. By Lemma \ref{lem:socle_series}, $A^{(n+1)}=\{ 0\}$. 
+
+Conversely, suppose that $A^{(n+1)}=\{ 0\}$. We shall prove that $\Soc_n(A)=A$ by induction on $n$. For $n=0$, $\Soc_0(A)=\{ 0\}=A^{(1)}=A$. Suppose that $n\geq 1$ and that, for every $k<n$, $\Soc_k(B)=B$ for all skew brace $B$ of abelian type such that $B^{(k+1)}=\{ 0\}$.  Note that $A^{(n)}\subseteq \ker\lambda=\Soc(A)$. Let $\overline{A}=A/\Soc(A)$. Then $\overline{A}^{(n)}=\{ 0\}$. By the inductive hypothesis, $\Soc_{n-1}(\overline{A})=\overline{A}$. Since $\Soc_{n-1}(\overline{A})=\Soc_n(A)/\Soc(A)$, we have that $\Soc_n(A)=A$. therefore the result follows by induction.  
+\end{proof}
 
 \begin{proposition}
     \label{pro:right_nilpotent}
@@ -344,7 +358,7 @@ follows.
 %     claim follows.
 % \end{proof}
 
-\begin{definition}
+\begin{definition}\label{def:bracempl}
 \index{Brace!of finite multipermutation level}
 A skew brace $A$ has \emph{finite multipermutation level} if
 the sequence $S_n$ defined as $S_1=A$ and $S_{n+1}=S_n/\Soc(S_n)$
@@ -359,14 +373,14 @@ multipermutation level if and only if $A$ admits a $s$-series.
 
 \begin{proof}
 Let $S_1=A$ and $S_{n+1}=S_n/\Soc(S_n)$ for
-$n\geq1$. By induction on $n$ we prove that $S_{n+1}\simeq A/\Soc_n(A)$. 
+$n\geq1$. By induction on $n$ we prove that $S_{n+1}\cong A/\Soc_n(A)$. 
 For $n=0,1$, it is clear since $\Soc_0(A)=\{0\}$ and $\Soc_1(A)=\Soc(A)$.
 Suppose that $n>1$ and the result is true for $n-1$. Hence, by the
 inductive hypothesis,
 \begin{align*}
 S_n&=S_{n-1}/\Soc(S_{n-1})\\
-&\simeq (A/\Soc_{n-2}(A))/\Soc(A/\Soc_{n-2}(A))\\
-&=(A/\Soc_{n-2}(A))/(\Soc_{n-1}(A)/\Soc_{n-2}(A))\simeq A/\Soc_{n-1}(A).
+&\cong (A/\Soc_{n-2}(A))/\Soc(A/\Soc_{n-2}(A))\\
+&=(A/\Soc_{n-2}(A))/(\Soc_{n-1}(A)/\Soc_{n-2}(A))\cong A/\Soc_{n-1}(A).
 \end{align*} 
 Therefore $S_n=0$ if and only if
 $A=\Soc_{n-1}(A)$. Now Lemma~\ref{lem:socn} applies.
@@ -702,7 +716,7 @@ group contains a non-abelian Sylow subgroup or does not have the Sylow tower pro
 %    some $p\in\pi(A)$. Since $A_p$ satisfies the hypothesis of the theorem, the minimality of $|A|$ implies that %$(A_p,\circ)$ has the Sylow tower property. From this the claim follows. 
 %\end{proof}
 
-\section*{Exercises}
+\section{Exercises}
 
 \begin{prob}
      Let $A_1,\dots,A_k$ be right nilpotent skew braces. Prove that 
@@ -723,7 +737,7 @@ group contains a non-abelian Sylow subgroup or does not have the Sylow tower pro
 % problema de agata sobre la existencia de right nilpotent, ver JAlgebra
 \end{prob}
 
-\section*{Open problems}
+\section{Open problems}
 \begin{problem}
     \label{question:rightnil=>rightnilp} \index{Brace!right nil}
 For a skew brace $A$ let $\rho_1(a)=a$ and $\rho_{k+1}(a)=\rho_k(a)*a$ for
@@ -734,7 +748,7 @@ Let $A$ be a finite right nil skew brace.  Is $A$ right
     nilpotent? 
 \end{problem}
 
-\section*{Notes}
+\section{Notes}
 
 The right series first appeared in the work of Rump~\cite{MR2278047}, 
 where it was proved Proposition \ref{pro:right_series} for braces of abelian type. The proof of the general case appeared in \cite{MR3957824}.  

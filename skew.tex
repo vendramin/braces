@@ -43,6 +43,8 @@ There is a bijective correspondence between skew left braces and skew right brac
 see Exercise~\ref{prob:left_right}. For that reason, 
 a skew brace will always mean a skew left brace. 
 
+\index{Skew brace!of $\mathcal{X}$-type}
+\index{Skew brace!of abelian type}
 \begin{definition}
     Let $\mathcal{X}$ be a family of groups. A skew brace $A$ is said to be
     of $\mathcal{X}$-type if its additive group belongs to $\mathcal{X}$.
@@ -51,6 +53,7 @@ a skew brace will always mean a skew left brace.
 One particularly interesting family of skew braces is the family of \emph{skew braces of abelian type}, 
 that is skew braces with abelian additive group. 
 Skew braces of abelian type were introduced by Rump in~\cite{MR2278047} to study involutive solutions to the Yang--Baxter equation. 
+\index{Left brace}
 In the literature, skew braces of abelian type are called \emph{left braces}. 
 
 \begin{example}
@@ -136,7 +139,7 @@ Let $A$ be the symmetric
 	=b+(b_1+c_1)+c=b+a_1+c.
 	\end{align*}
 	It follows that $(A,\circ)$ is a group 
-	isomorphic to $B\times C^{\mathrm{op}}\simeq B\times C$. Moreover, if $x,y\in A$, 
+	isomorphic to $B\times C^{\mathrm{op}}\textcolor{red}{\cong} B\times C$. Moreover, if $x,y\in A$, 
 	then 
 	\begin{align*}
 	a\circ x-a+a\circ y=b+x+c-(b+c)+b+y+c=b+x+y+c=a\circ (x+y),
@@ -190,8 +193,8 @@ Hopf--Galois structures, see~\cite[Corollary 1.1]{MR3425626}.
 	\label{exa:a5a4c5}
 	The alternating simple group $\Alt_5$ admits an exact factorization
   through the subgroups 
-  $A=\langle (123),(12)(34)\rangle\simeq\Alt_4$ and 
-  $B=\langle(12345)\rangle\simeq C_5$.  
+  $A=\langle (123),(12)(34)\rangle\textcolor{red}{\cong}\Alt_4$ and 
+  $B=\langle(12345)\rangle\textcolor{red}{\cong} C_5$.  
   There exists a skew brace with additive group isomorphic to $\Alt_5$ and multiplicative
   group isomorphic to $\Alt_4\times C_5$. 
 \end{example}
@@ -204,9 +207,9 @@ Hopf--Galois structures, see~\cite[Corollary 1.1]{MR3425626}.
   0&1\\
   -1&-1\end{array}\right)Z(\SL_2(7)),\left(\begin{array}{cc}
   1&-2\\
-  1&-1\end{array}\right)Z(\SL_2(7))\right\rangle\simeq\Sym_4\] and \[B=\left\langle\left(\begin{array}{cc}
+  1&-1\end{array}\right)Z(\SL_2(7))\right\rangle\textcolor{red}{\cong}\Sym_4\] and \[B=\left\langle\left(\begin{array}{cc}
   1&1\\
-  0&1\end{array}\right)Z(\SL_2(7))\right\rangle\simeq C_7.
+  0&1\end{array}\right)Z(\SL_2(7))\right\rangle\textcolor{red}{\cong} C_7.
   \]
   Hence there exists a skew brace with additive
   group isomorphic to $\PSL_2(7)$ and multiplicative group isomorphic to 
@@ -281,7 +284,7 @@ then the following identities are easily verified:
 \label{eq:commutator2}&(a\circ b)*c=(a*(b*c))+b*c+a*c.
 \end{align}
 These last two identities are similar to the usual
-\emph{commutator identities}.
+\textcolor{red}{commutator identities \ref{eq:comident1} and \ref{eq:comident2}.}
 
 There is also a right action of $(A,\circ)$ on the set $A$.
 
@@ -341,6 +344,7 @@ There is also a right action of $(A,\circ)$ on the set $A$.
      \]
  \end{definition}
 
+\index{Isomorphism!of skew braces}
 We write $\Hom_b(A,B)$ to denote the set
 of skew brace homomorphisms $A\to B$.
 A bijective homomorphism of skew braces is an isomorphism. An automorphism of a skew brace $A$ is an isomorphism from the skew brace $A$ to it self. 
@@ -670,7 +674,7 @@ The second equality follows from~\eqref{eq:right_compatibility}.
     Similarly ones proves $(a+b)\circ c=a\circ c-c+b\circ c$.
 \end{proof}
 
-\index{Brace!associative}
+\index{Skew brace!associative}
 A skew brace is said to be \emph{associative} if the operation $(x,y)\mapsto
 x*y=\lambda_x(y)-y$ is associative. In \cite[Question 2.1(2)]{MR3818285}, 
 Cedó, Gateva--Ivanova and Smoktunowicz asked whether associative skew braces of abelian type are always radical rings. 
@@ -967,8 +971,8 @@ subset $B$ of $A$ such that $(B,+)$ is a subgroup of $(A,+)$ and $(B,\circ)$ is 
 \end{definition}
 
 \begin{definition}
-    \index{Left!ideal}
-    \index{Strong!left ideal}
+    \index{Left ideal!of a skew brace}
+    \index{Strong left ideal!of a skew brace}
     Let $A$ be a skew brace. A \emph{left ideal} of $A$ is a subgroup $(I,+)$ of
 	$(A,+)$ such that $\lambda_a(I)\subseteq I$ for all $a\in A$, i.e. $\lambda_a(x)\in I$ for all $a\in A$ and $x\in I$. A \emph{strong left ideal} of $A$ 
 	is a left ideal $I$ of $A$ such that $(I,+)$ is a normal subgroup of $(A,+)$. 
@@ -993,7 +997,7 @@ subset $B$ of $A$ such that $(B,+)$ is a subgroup of $(A,+)$ and $(B,\circ)$ is 
 \end{example}
 
 \begin{definition}
-    \index{Ideal}
+    \index{Ideal of a skew brace}
     An \emph{ideal} of a skew brace $A$ is a strong left ideal $I$ of $A$ such that 
 	$(I,\circ)$ is a normal subgroup of $(A,\circ)$. 
 \end{definition}
@@ -1101,7 +1105,7 @@ $I$ and $J$ be ideals of $A$. Then $I+J$ is an ideal of $A$.
 
 
 \begin{definition}
-	\index{Socle}
+	\index{Socle of a skew brace}
 	Let $A$ be a skew brace. The subset 
 	$\Soc(A)=\ker\lambda\cap Z(A,+)$
 	is the \emph{socle} of $A$.
@@ -1195,7 +1199,7 @@ As a corollary we obtain that the socle of a skew brace $A$ is a trivial skew br
 %Another important ideal was defined in~\cite{MR3917122}.
 
 \begin{definition}
-\index{Annihilator}
+\index{Annihilator!of a skew brace}
 Let $A$ be a skew brace. The \emph{annihilator} of $A$ is 
 defined as the set $\Ann(A)=\Soc(A)\cap Z(A,\circ)$. 
 \end{definition}
@@ -1216,7 +1220,7 @@ The annihilator of a skew brace $A$ is an ideal of $A$.
 %Clearly $\Soc(A)=\ker(\lambda)\cap Z(A,+)$. In \cite[Lemma~2.5]{MR3647970} it
 %is proved that $\Soc(A)$ is an ideal of $A$.
 
-\index{Quotient brace}
+\index{Quotient skew brace}
 If $A$ is a skew brace and $I$ is an ideal of $A$, then $a+I=a\circ I$ for all $a\in A$. Indeed, 
 $a\circ x=a+\lambda_a(x)\in a+I$ and 
 $a+x=a\circ\lambda_a^{-1}(x)=a\circ\lambda_{a'}(x)\in a\circ I$ 
@@ -1228,31 +1232,10 @@ the map
 \quad
 a\mapsto a+I=a\circ I,
 \]
-is a homomorphism of skew braces. The brace $A/I$ is the \emph{quotient brace} of $A$ modulo $I$. It is possible
+is a homomorphism of skew braces. The \textcolor{red}{skew brace} $A/I$ is the \emph{quotient \textcolor{red}{skew brace}} of $A$ modulo $I$. It is possible
 to prove the isomorphism theorems for skew braces, see Exercises~\ref{prob:iso1},~\ref{prob:iso2}, \ref{prob:iso3} and
 \ref{prob:correspondence}.
 
-\section*{Finite skew braces}
-
-We now use Hall's theorem to obtain information related to the
-structure of finite skew braces of nilpotent type. 
-
-
-\begin{theorem}
-\label{thm:add_nilpotent}
-Let $A$ be a finite skew brace of nilpotent type. Then 
-the multiplicative group of $A$ is solvable.
-\end{theorem}
-
-\begin{proof}
-    Let $K$ be the additive group of $A$ and $G$ be the multiplicative group of $A$. Assume
-    that $|A|=p_1^{\alpha_1}\cdots p_n^{\alpha_n}$ for distinct primes $p_1,\dots,p_n$ and positive integers $\alpha_1,\dots ,\alpha_n$. 
-    Since $K$ is nilpotent and finite, each $K_i\in\Syl_{p_j}(K)$ is normal in $K$, so 
-    each $K_i$ is a left ideal of $A$. It follows that for each $i\in\{1,\dots,n\}$ both $K_i$ and 
-    $\prod_{j\ne i}K_j$ are subbraces of coprime order. In particular, for 
-    each $i\in\{1,\dots,n\}$ there exists a $p_i$-complement of $G$. 
-    Then $G$ is solvable by Hall's theorem. 
-\end{proof}
 
 \section{Exercises}
 
@@ -1392,10 +1375,10 @@ Let $A$ be a skew brace and let $I$ be an ideal of $A$. Prove that there is a bi
 of $A$ containing $I$ and (left) ideals of $A/I$. 
 \end{prob}
 
-\begin{prob}
-\label{prob:G(X,r)solvable}
-Let $(X,r)$ be a finite involutive solution. Prove that $G(X,r)$ is solvable. 
-\end{prob}
+%\begin{prob}
+%\label{prob:G(X,r)solvable}
+%Let $(X,r)$ be a finite involutive solution. Prove that $G(X,r)$ is solvable. 
+%\end{prob}
 
 
 \section{Notes}

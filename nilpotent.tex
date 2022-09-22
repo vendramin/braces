@@ -1,6 +1,8 @@
 \chapter{Nilpotent groups}
 \label{nilpotent}
 
+%In this chapter we develop the basic definitions and results on nilpotent groups.
+
 \section{Central series}
 
 \index{Group!central series}\index{Group!center}
@@ -8,8 +10,8 @@
 \index{Subgroup!central}
 Let $G$ be a group. The {\em center} of $G$ is 
 \[ Z(G)=\{ x\in G\mid xy=yx,\; \mbox{ for all } y\in G\}.\]
-A subgroup $H$ of $G$ is {\em central} in $G$ if $H\subseteq Z(G)$ \textcolor{blue}{and 
-$H$ is said} to be {\em characteristic} if 
+A subgroup $H$ of $G$ is {\em central} in $G$ if $H\subseteq Z(G)$ and 
+$H$ is said to be {\em characteristic} if 
 $f(H)= H$ for all $f\in\Aut(G)$. The center $Z(G)$ of $G$ is a characteristic subgroup of $G$. Every characteristic subgroup of $G$ is normal in $G$. 
 If $H$ is a characteristic subgroup of $K$ and $K$ is normal in $G$, 
 then $H$ is normal in $G$. 
@@ -31,12 +33,20 @@ by $\prescript{x}{}y=xyx^{-1}$. \index{Commutator} The {\em commutator} between 
 \]
 We also write 
 $[x,y,z]=[x,[y,z]]$. 
+\index{Commutator identities}
+\textcolor{red}{It is easy to check the following {\em commutator identities.}}
+\begin{equation}\label{eq:comident1}
+\textcolor{red}{[x,yz]=[x,y](\prescript{y}{}[x,z])}    
+\end{equation}
+\begin{equation}\label{eq:comident2}
+\textcolor{red}{[xy,z]=(\prescript{x}{}[y,z])[x,z]=[x,y,z][y,z][x,z]}    
+\end{equation}
 If $X$, $Y$ and $Z$ are subgroups of $G$, we write 
 \[
 [X,Y]=\langle [x,y]:x\in X,\,y\in Y\rangle
 \]
-and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. \textcolor{blue}{Note that
-$[X,Y,Z]=[X,Z,Y]$, as $[X,Y]=[Y,X]$.}
+and $[X,Y,Z]=\left[ X,[Y,Z] \right]$. Note that
+$[X,Y,Z]=[X,Z,Y]$, as $[X,Y]=[Y,X]$.
 \index{Subgroup!commutator} 
 The {\em commutator subgroup} $[G,G]$ of $G$ is a characteristic subgroup of $G$.
 
@@ -87,7 +97,7 @@ turns out to be Jacobi's identity, i.e.
 \end{lemma}
 
 \begin{proof}
-	We first \textcolor{blue}{assume that} $N=\{1\}$. \textcolor{blue}{Then}
+	We first assume that $N=\{1\}$. Then
 	$[Y,Z]\subseteq C_G(X)$ and $[Z,X]\subseteq C_G(Y)$. It
 	is enough to prove that $[z,x^{-1},y]=1$ for all $x\in X$, $y\in Y$ and $z\in Z$. 
 	Let $x\in X$, $y\in Y$ and $z\in Z$. Since $[x,y^{-1},z]=1$, it follows that 
@@ -325,14 +335,14 @@ In particular, $\zeta_1(G)=Z(G)$.
 
 
 \index{Upper central series}
-For a group $G$ the \textbf{\em upper central series} of $G$ is the sequence 
+For a group $G$ the {\em upper central series} of $G$ is the sequence 
 \[
 	\{1\}=\zeta_0(G)\subseteq\zeta_1(G)\subseteq\zeta_2(G)\subseteq\cdots
 \]
 
 
-\index{Normalizer}
-\index{Centralizer}
+%\index{Normalizer}
+%\index{Centralizer}
 A subgroup $K$ of $G$ {\em normalizes} a subgroup 
 $H$ if $K\subseteq N_G(H)$.
 A subgroup $K$ of $G$ {\em centralizes} a subgroup 
@@ -358,7 +368,7 @@ $H$ if $K\subseteq C_G(H)$, that is if and only if $[H,K]=\{1\}$.
     $\gamma_{i+1}(G)\subseteq\zeta_{c-i}(G)$ we proceed by induction. The case where $i=0$ is
 	trivial, so assume the result holds for some $i\geq0$. 
 	Let $x\in G$ and $g\in \gamma_{i+1}(G)$. By the inductive hypothesis $g\in \zeta_{c-i}(G)$. 
-	Hence $[x,g]\in \zeta_{c-i-1}(G)$ \textcolor{blue}{and} $\gamma_{i+2}(G)\subseteq \zeta_{c-i-1}$.
+	Hence $[x,g]\in \zeta_{c-i-1}(G)$ and \textcolor{red}{$\gamma_{i+2}(G)\subseteq \zeta_{c-i-1}(G)$.}
 %	If
 %	$g\in\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]$, then   
 %	\[
@@ -388,7 +398,7 @@ $H$ if $K\subseteq C_G(H)$, that is if and only if $[H,K]=\{1\}$.
 	If $G=\Sym_3$, then $\zeta_j(G)=\{1\}$ for all $j\geq 0$.
 	\end{example}
 
-\index{Central!series}
+\index{Central series}
 A {\em central series} of a group $G$ is a sequence
 \[
 	G=G_0\supseteq G_1\supseteq\cdots\supseteq G_n=\{1\}
@@ -408,7 +418,7 @@ G/G_i$ is the canonical map.
 	The case $i=0$ is trivial, so we assume that 
 	the result holds for some 
 	$i\geq 0$. 
-	Let $\pi_{i+1}\colon G\to G/G_{i+1}$ is the canonical map. 
+	Let $\pi_{i+1}\colon G\to G/G_{i+1}$ \textcolor{red}{be} the canonical map. 
 	Since $\pi_{i+1}(G_{i})\subseteq Z(G/G_{i+1})$, it follows that
 	\[
 	\pi_{i+1}([G,G_{i}])=[\pi_{i+1}(G),\pi_{i+1}(G_{i})]=\{1\}.
@@ -418,7 +428,7 @@ G/G_i$ is the canonical map.
 	\gamma_{i+2}(G)=[G,\gamma_{i+1}(G)]\subseteq [G,G_{i}]\subseteq G_{i+1}. 
 	\] Thus the first inclusion follows by induction.
 	
-	We \textcolor{blue}{now} prove that $G_i\subseteq \zeta_{n-i}(G)$. \textcolor{blue}{We proceed} by induction on $n-i$. \textcolor{blue}{If $n-i=0$, then} $G_n=\{ 1\}=\zeta_0(G)$. Suppose that the
+	We now prove that $G_i\subseteq \zeta_{n-i}(G)$. We proceed by induction on $n-i$. If $n-i=0$, then $G_n=\{ 1\}=\zeta_0(G)$. Suppose that the
 	inclusion we want to prove holds for some $n-i\geq 0$. Since $G_i\subseteq \zeta_{n-i}(G)$, there exists a surjective group homomorphism
 	$f\colon G/G_i\rightarrow G/\zeta_{n-i}(G)$, such that $f(gG_i)=g\zeta_{n-i}(G)$ for all $g\in G$. 
 	Hence $f(Z(G/G_i))\subseteq Z(G/\zeta_{n-i}(G))$. Since  $f\pi_i\colon G\rightarrow G/\zeta_{n-i}(G)$ is the canonical map and
@@ -472,8 +482,7 @@ A subgroup $M$ of $G$ is {\em maximal normal} if it is maximal
 among all normal proper subgroups of $G$.  
 
 \begin{corollary}
-	Let $G$ be a non-abelian nilpotent group and $A$ be an abelian 
-	maximal normal subgroup of $G$. Then $A=C_G(A)$.
+	Let $G$ be a non-abelian nilpotent group and $A$ be an \textcolor{red}{maximal abelian normal} subgroup of $G$. Then $A=C_G(A)$.
 \end{corollary}
 
 \begin{proof}
@@ -505,7 +514,7 @@ the trivial subgroup. Every finite group contains a minimal normal subgroup.
 	If a non-trivial normal subgroup $M$ is minimal (with respect to the inclusion), then it is
 	minimal normal. The converse statement is not true. The subgroup of 
 	$\Alt_4$ generated by $(12)(34)$, $(13)(24)$ and $(14)(23)$ is minimal normal in 
-	$\Alt_4$ but it is not minimal {\bf non-trivial}. 
+	$\Alt_4$ but it is not \textcolor{red}{minimal}. 
 \end{example}
 
 \begin{example}
@@ -532,11 +541,11 @@ the trivial subgroup. Every finite group contains a minimal normal subgroup.
 
 	We now prove (2). If $M$ is a maximal subgroup, then $M$
 	is normal in $G$ by the normalizer condition. The maximality of $M$ implies that 
-	$G/M$ contains no non-trivial proper subgroups. \textcolor{blue}{It follows that $G/M$ is cyclic of prime order. In particular, 
-	$G/M$ is abelian and thus $[G,G]\subseteq M$.} 
+	$G/M$ contains no non-trivial proper subgroups. It follows that $G/M$ is cyclic of prime order. In particular, 
+	$G/M$ is abelian and thus $[G,G]\subseteq M$. 
 \end{proof}
 
-The theorem does not prove the existence of maximal subgroups, see for example what happens with
+The \textcolor{red}{above} theorem does not prove the existence of maximal subgroups, see for example what happens with
 the additive group of rational numbers. 
 
 \begin{proposition}
@@ -549,11 +558,11 @@ the additive group of rational numbers.
 	We proceed by induction on $n$. The case $n=1$ is trivial. Assume  that $n>1$ and the result holds 
 	for all subgroups of index $<n$. If $H$ is  a normal subgroup of index $n$, then clearly $g^n\in H$ for all $g\in G$. 
 	Hence we may assume that $H$ is a non-normal subgroup of $G$ of index $n$. By the normalizer condition, $H\subsetneq N_G(H)$. Hence
-	$(G:N_G(H)),(N_G(H):H)<n$. \textcolor{blue}{By the inductive hypothesis,} $g^{(G:N_G(H))}\in N_G(H)$ and thus 
+	$(G:N_G(H)),(N_G(H):H)<n$. By the inductive hypothesis, $g^{(G:N_G(H))}\in N_G(H)$ and thus 
 	\[
 		g^n=g^{(G:H)}=g^{(G:N_G(H))(N_G(H):H)}\in H, 
 	\]
-	for all $g\in G$. \textcolor{blue}{The result follows.}%Therefore, the result follows by induction.
+	for all $g\in G$. The result follows.%Therefore, the result follows by induction.
 \end{proof}
 
 \begin{example}
@@ -587,8 +596,7 @@ on nilpotent groups.
 	\]
 	it follows that  
 	\begin{align*}
-		[h,k]&=[h,x^m][x^m,[h,d]][h,d]\\
-			&=[x^n,[c,x^m]][c,x^m][x^m,[h,d]][h,d]\in\gamma_3(G).\qedhere
+		[h,k]&=[h,x^m][x^m,[h,d]][h,d]\textcolor{red}{\in\gamma_3(G)\gamma_4(G)\gamma_3(G)\subseteq \gamma_3(G).}\qedhere
 	\end{align*}
 \end{proof}
 
@@ -615,11 +623,11 @@ Now an application of Lemma~\ref{lem:a[GG]}.
     If $G$ is abelian, then the result is clear. Suppose that $c\geq 2$ and that the result holds for all nilpotent 
     groups of class $<c$. 
 	Let $a,b\in T(G)$ and let $A=\langle a,[G,G]\rangle$ and $B=\langle b,[G,G]\rangle$. 
-	Since $A$ and $B$ are both nilpotent of class \textcolor{blue}{$<c$} by the previous lemma, the inductive hypothesis implies that
+	Since $A$ and $B$ are both nilpotent of class $<c$ by the previous lemma, the inductive hypothesis implies that
 	$T(A)$ is a subgroup of $A$ and $T(B)$ is a subgroup of $B$. 
 	Since $T(A)$ is characteristic in $A$ and $A$ is normal in $G$, it follows that 
 	$T(A)$ is
-	normal in $G$. Similarly, $T(B)$ is normal in \textcolor{blue}{$G$}.  
+	normal in $G$. Similarly, $T(B)$ is normal in $G$.  
 	We claim that every element of $T(A)T(B)$ has finite order. Indeed, if 
 	$x\in T(A)T(B)$, say $x=a_1b_1$ with 
 	$a_1\in T(A)$ of order $m$ and $b_1\in T(B)$, then $x$ has finite order since  
@@ -627,9 +635,12 @@ Now an application of Lemma~\ref{lem:a[GG]}.
 	x^m=(a_1b_1)^m&=
 		(a_1b_1a_1^{-1})(a_1^2b_1a_1^{-2})\cdots (a_1^{m-1} b_1 a_1^{-m+1})b_1\in T(B).
 	\end{align*}
-	\textcolor{blue}{In particular, $ab$ has finite order. It follows that} 
+	In particular, \textcolor{red}{$ab^{-1}$} has finite order. It follows that 
 	$T(G)$ is a subgroup of $G$. 
 \end{proof}
+
+\index{Group!torsion-free}
+\textcolor{red}{A group $G$ is {\em torsion-free} if $1$ is the only element of finite order of $G$.}
 
 Another application of Lemma \ref{lem:a[GG]}.
 
@@ -689,8 +700,9 @@ We need the following lemma.
 	$t_{k_s}=1$, which implies the claim.  
 \end{proof}
 
-\index{Order!of an element}
-Let $G$ be a group. The {\em order} of an element $x\in G$ is the order of the group $\langle x\rangle$, and it is denoted by $|x|$. \index{Group!periodic}\index{Group!torsion} The group $G$ is said to be {\em torsion} or {\em periodic} if every element of $G$ has finite order.
+%\index{Order!of an element}
+%Let $G$ be a group. The {\em order} of an element $x\in G$ is the order of the group $\langle x\rangle$, and it is denoted by $|x|$. 
+\index{Group!periodic}\index{Group!torsion} \textcolor{red}{A} group $G$ is said to be {\em torsion} or {\em periodic} if every element of $G$ has finite order.
 
 
 \begin{theorem}
@@ -795,7 +807,7 @@ Let $G$ be a finite group and $p$ a prime. We denote by $\Syl_p(G)$ the set of t
 
 \index{Direct product of subgroups}
 We say that a group $G$ is the {\em direct product} of its subgroups $H_1,\dots ,H_n$ if every subgroup $H_i$ is normal in $G$, $G=H_1\cdots H_n$ and
-$H_{k+1}\cap H_1\cdots H_{k}=\{ 1\}$ for all $k=1,\dots, n-1$. Note that, for $i<j$, $h_i\in H_i$ and $h_j\in H_j$, we have that $[h_i,h_j]\in H_i\cap H_j=\{ 1\}$. Note that, in this case the map $f\colon H_1\times\dots\times H_n\rightarrow G$, defined by $f(h_1,\dots ,h_n)=h_1\cdots h_n$ for all $h_i\in H_i$, is an isomorphism of groups. It is clear that $f$ is surjective. Let $(a_1,\dots,a_n),(b_1,\dots,b_n)\in H_1\times\dots\times H_n$. We have that
+$H_{k+1}\cap \textcolor{red}{(H_1\cdots H_{k})}=\{ 1\}$ for all $k=1,\dots, n-1$. Note that, for $i<j$, $h_i\in H_i$ and $h_j\in H_j$, we have that $[h_i,h_j]\in H_i\cap H_j=\{ 1\}$. Note that, in this case the map $f\colon H_1\times\dots\times H_n\rightarrow G$, defined by $f(h_1,\dots ,h_n)=h_1\cdots h_n$ for all $h_i\in H_i$, is an isomorphism of groups. It is clear that $f$ is surjective. Let $(a_1,\dots,a_n),(b_1,\dots,b_n)\in H_1\times\dots\times H_n$. We have that
 \begin{align*}
 f((a_1,\dots,a_n)(b_1,\dots,b_n))&=f(a_1b_1,\dots,a_nb_n)\\
 &=a_1b_1\cdots a_nb_n\\
@@ -821,8 +833,8 @@ $\ker(f)=\{ 1\}$.
 	$N_G(N_G(P))=N_G(P)$. Now  $N_G(P)=G$ by the normalizer condition. Hence $P$ is normal in $G$.
 
 	Now we prove that $2)\implies 3)$. Let $p_1,\dots,p_n$ be the distinct prime divisors of $|G|$. For every $i\in\{1,\dots,n\}$, let $P_i\in\Syl_{p_i}(G)$.
-	By hypothesis, each $P_j$ is normal in $G$. Since $|P_1\cdots P_n|=|G|$, we have that $G=P_1\cdots P_n$. Clearly
-	$|P_{k+1}|, |P_1\cdots P_k|$ are coprime for all $k=1,\dots, n-1$. Hence $P_{k+1}\cap P_1\cdots P_k=\{ 1\}$ for all $k=1,\dots, n-1$. Thus $G$ is the direct product of its Sylow subgroups. 
+	By hypothesis, each \textcolor{red}{$P_i$} is normal in $G$. Since $|P_1\cdots P_n|=|G|$, we have that $G=P_1\cdots P_n$. Clearly
+	$|P_{k+1}|, |P_1\cdots P_k|$ are coprime for all $k=1,\dots, n-1$. Hence $P_{k+1}\cap \textcolor{red}{(P_1\cdots P_k)}=\{ 1\}$ for all $k=1,\dots, n-1$. Thus $G$ is the direct product of its Sylow subgroups. 
 
 	Finally, to prove that $3)\implies 1)$ we note that every 
 	$p$-group is nilpotent and that a finite direct product of nilpotent groups is nilpotent. 
@@ -831,7 +843,7 @@ $\ker(f)=\{ 1\}$.
 
 \begin{theorem}[Baumslag--Wiegold]
 	\index{Baumslag--Wiegold's theorem}
-	Let $G$ be a finite group such that $|xy|=|x||y|$ whenever $x,y\in G$ have coprime order. Then
+	Let $G$ be a finite group such that \textcolor{red}{$o(xy)=o(x)o(y)$} whenever $x,y\in G$ have coprime order. Then
 	$G$ is nilpotent. 
 \end{theorem}
 
@@ -976,19 +988,19 @@ Note that $\Phi(G)$ is a characteristic subgroup of $G$.
 \end{example}
 
 \begin{example}
-	Let $G=\langle g\rangle\simeq C_{12}$. The subgroups of $G$ are  
+	Let $G=\langle g\rangle\cong C_{12}$ \textcolor{red}{be the cyclic group of order $12$}. The subgroups of $G$ are  
 	\[
 	\{1\},\quad
-	\langle g^6\rangle\simeq C_2,\quad
-	\langle g^4\rangle\simeq C_3,\quad
-	\langle g^3\rangle\simeq C_4,\quad
-	\langle g^2\rangle\simeq C_6,\quad
+	\langle g^6\rangle\cong C_2,\quad
+	\langle g^4\rangle\cong C_3,\quad
+	\langle g^3\rangle\cong C_4,\quad
+	\langle g^2\rangle\cong C_6,\quad
 	G.
 	\]
-	The maximal subgroups are $\langle g^3\rangle\simeq C_4$ and $\langle
-	g^2\rangle\simeq C_6$. Hence \[
+	The maximal subgroups are $\langle g^3\rangle\cong C_4$ and $\langle
+	g^2\rangle\cong C_6$. Hence \[
 	\Phi(G)=\langle g^3\rangle\cap \langle
-	g^2\rangle=\langle g^6\rangle\simeq C_2.
+	g^2\rangle=\langle g^6\rangle\cong C_2.
 	\] 
 \[\begin{tikzcd}
 	& {C_{12}} \\
@@ -1010,13 +1022,13 @@ Note that $\Phi(G)$ is a characteristic subgroup of $G$.
 	\label{lem:Dedekind}
 	\index{Dedekind!lemma}
 	Let $H$, $K$ and $L$ be subgroups of $G$ such that $H\subseteq L\subseteq G$. Then
-	$HK\cap L=H(K\cap L)$.
+	$\textcolor{red}{(HK)}\cap L=H(K\cap L)$.
 \end{lemma}
 
 \begin{proof}
-	We only need to prove that $HK\cap L\subseteq H(K\cap L)$, 
+	We only need to prove that $\textcolor{red}{(HK)}\cap L\subseteq H(K\cap L)$, 
 	as the other inclusion is trivial. If 
-	$x=hk\in HK\cap L$, where $x\in L$, $h\in H$ and $k\in K$,
+	$x=hk\in \textcolor{red}{(HK)}\cap L$, where $x\in L$, $h\in H$ and $k\in K$,
 	then $k=h^{-1}x\in L\cap K$ since $H\subseteq L$. Thus $x=hk\in H(L\cap
 	K)$.
 \end{proof}
@@ -1041,8 +1053,9 @@ Note that $\Phi(G)$ is a characteristic subgroup of $G$.
 	Since $\Phi(N)$ is characteristic in $N$ and $N$ is normal in $G$, it follows that 
 	$\Phi(N)$
 	is normal in $G$.  Let $M$ be a maximal subgroup of $G$ such that 
-	$\Phi(N)\not\subseteq M$.  Then $\Phi(N)M=G$, as 
-	$M=\Phi(N)M\supseteq\Phi(N)$ otherwise. By applying Lemma \ref{lem:Dedekind} with 
+	$\Phi(N)\not\subseteq M$.  Then $\Phi(N)M=G$.
+	%as	$M=\Phi(N)M\supseteq\Phi(N)$ otherwise. 
+	By applying Lemma \ref{lem:Dedekind} with 
 	$H=\Phi(N)$, $K=M$ and $L=N$,   
 	\[
 		N=G\cap N=(\Phi(N)M)\cap N=\Phi(N)(M\cap N).
@@ -1055,7 +1068,7 @@ The Frattini subgroup can be characterized in terms of non-generators.
 
 \begin{lemma}[non-generators]
 	\label{lemma:nongenerators}
-	\index{Lema!de los no-generadores}
+	\index{Lemma!non-generators}
 	Let $G$ be a finite group. Then 
 	\[
 	\Phi(G)=\{x\in G:\text{if $G=\langle x,Y\rangle$ for some $Y\subseteq G$, then $G=\langle Y\rangle$}\}.
@@ -1063,13 +1076,16 @@ The Frattini subgroup can be characterized in terms of non-generators.
 \end{lemma}
 
 \begin{proof}
+    \textcolor{red}{Let 
+    \[ A=\{x\in G:\text{if $G=\langle x,Y\rangle$ for some $Y\subseteq G$, then $G=\langle Y\rangle$} .\]}
 	Let $x\in\Phi(G)$ be such that $G=\langle
 	x,Y\rangle$ for some subset $Y$ of $G$. If $G\ne \langle Y\rangle$, then 
 	there exists a maximal subgroup $M$ such that $\langle Y\rangle\subseteq M$. Since 
 	$x\in M$, $G=\langle x,Y\rangle\subseteq M$, a contradiction.
+	\textcolor{red}{Hence $x\in A$.}
 	
 	Conversely, 
-	let $x\in G$ and $M$ be a maximal subgroup of $G$. If $x\not\in M$, then, since $G=\langle
+	let \textcolor{red}{$x\in A$} and $M$ be a maximal subgroup of $G$. If $x\not\in M$, then, since $G=\langle
 	x,M\rangle$, it follows that $G=\langle M\rangle=M$, a contradiction. Thus $x\in M$ for all
 	maximal subgroup $M$. Hence $x\in \Phi(G)$. 
 \end{proof}
@@ -1166,7 +1182,7 @@ Let $G$ be a finite group, $H$ a normal subgroup of $G$ and $p$ a prime. Then, f
 	\[
 		G=\Phi(G)PN_G(P)=\Phi(G)N_G(P).
 	\]
-	By Lemma \ref{lem:G=HPhi(G)}),  $G=N_G(P)$, and thus $P$ is normal in $G$. By Theorem \ref{thm:nilpotente:eq}, $G$ is nilpotent.
+	By Lemma \ref{lem:G=HPhi(G)},  $G=N_G(P)$, and thus $P$ is normal in $G$. By Theorem \ref{thm:nilpotente:eq}, $G$ is nilpotent.
 \end{proof}
 
 \begin{theorem}[Hall]
@@ -1412,7 +1428,7 @@ Note that $F(G)$ is a characteristic subgroup of $G$.
 %	Como $Z(G)$ es abeliano, $\pi(Z(G))$ es nilpotente y luego $\pi(Z(G))\subseteq F(G/Z(G))$. 
 %\end{svgraybox}<++>
 
-\section*{Exercises}
+\section{Exercises}
 % Frattini para braces
 % Qué podemos decir de Fitting?
 
@@ -1427,11 +1443,11 @@ Note that $F(G)$ is a characteristic subgroup of $G$.
 	$G/K$ is nilpotent, then $G$ is nilpotent.
 \end{prob}
 
-\begin{prob}
-\label{xca:nilpotente_minimalnormal}
-	Let $G$ be a nilpotent group and $M$ be a minimal normal subgroup of $G$. 
-	Prove that $M\subseteq Z(G)$.
-\end{prob}
+%\begin{prob}
+%\label{xca:nilpotente_minimalnormal}
+%	Let $G$ be a nilpotent group and $M$ be a minimal normal subgroup of $G$. 
+%	Prove that $M\subseteq Z(G)$.
+%\end{prob}
 
 %\begin{exercise}
 %	\label{xca:truco}
@@ -1578,7 +1594,7 @@ Let $G$ be a group and $x,y\in G$.  Prove the following statements.
 	Let $p$ be an odd prime number and  
 	let $P$ be a $p$-group of nilpotency class $\leq2$. Prove the following statements.
 	\begin{enumerate}
-	\item 	If $[y,x]^p=1$ for all $x,y\in P$, then $P\to [P,P]$,
+	\item 	If $[y,x]^p=1$ for all $x,y\in P$, then $P\to \textcolor{red}{P}$,
 	$x\mapsto x^p$, is a group homomorphism. 
 	\item $\{x\in P:x^p=1\}$ is a subgroup of $P$. 
 	\end{enumerate}
@@ -1592,4 +1608,7 @@ Let $G$ be a group and $x,y\in G$.  Prove the following statements.
 
 
 
-\section*{Notes}
+\section{Notes}
+
+\textcolor{red}{The results in this chapter are classical and can be found for example in \cite{MR648604}.}
+
